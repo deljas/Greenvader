@@ -1,0 +1,20 @@
+PASS JSON parser: only model=opus
+PASS frontmatter scalar structure/name/model/tool allowlist: green-designer.md
+PASS frontmatter scalar structure/name/model/tool allowlist: green-documenter.md
+PASS frontmatter scalar structure/name/model/tool allowlist: green-implementer.md
+PASS frontmatter scalar structure/name/model/tool allowlist: green-verifier.md
+PASS local reference: CLAUDE.md -> AGENTS.md
+PASS local reference: CLAUDE.md -> tasks/README.md
+PASS local reference: CLAUDE.md -> TASK_TEMPLATE.md
+PASS local reference: CLAUDE.md -> docs/STATUS.md
+PASS local reference: CLAUDE.md -> docs/DECISIONS.md
+PASS local reference: CLAUDE.md -> .claude/README.md
+PASS local reference: CLAUDE.md -> .claude/START_PROMPT.md
+PASS local reference: .claude/README.md -> ../AGENTS.md
+PASS local reference: .claude/README.md -> ../tasks/README.md
+PASS local reference: .claude/README.md -> ../CLAUDE.md
+PASS local reference: .claude/README.md -> START_PROMPT.md
+NOT_RUN Claude startup, agent registration, authentication, actual model availability/calls
+Method: PowerShell JSON parser; restricted scalar frontmatter structure inspection, not Claude runtime validation.
+PASS final shared owner vocabulary: なし/codex/claude, matching tasks/README.md; parent decision applied.
+PASS final text whitespace inspection; files frozen. No Claude/API/Godot execution performed for ENV-001.

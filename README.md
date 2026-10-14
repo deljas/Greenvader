@@ -1,6 +1,17 @@
 # グリーンベーダー
 
-Godot製のWindows向け一人用ゲームです。現在はP0（環境と画面の基準）の試作段階です。最初の画面を親が起動して確認し、ユーザーの感想を待つため後続実装を停止しています。P0全条件の合格やゲームの完成は確認されていません。
+Godot製のWindows向け一人用ゲームです。現在はP0（環境と画面の基準）の試作段階です。P0-ARTのビジュアル方向はユーザーが了承し、細部の描き込みは停止しています。P0全技術条件の合格やゲームの完成は確認されていません。
+
+## Codex / Claude Code から再開する
+
+両方で `C:/godot/greenvader` を開き、[共通タスク](tasks/README.md) と個別作業票を先に確認してください。状態は各票の `作業中(codex)` / `作業中(claude)` で管理し、他方の担当や編集範囲を無断で取得しません。
+
+- Codex: [AGENTS.md](AGENTS.md)、[開始指示](START_PROMPT.md)。
+- Claude Code: [CLAUDE.md](CLAUDE.md)、[設定と起動手順](.claude/README.md)、[開始指示](.claude/START_PROMPT.md)。
+- 分担: CodexはAstra / Sol（実装と独立検証は別）/ Luna。Claudeはメイン・設計Opus / Sonnet（実装と独立検証は別）/ Haiku。
+- 次のゲーム作業は [P0-VERIFY](tasks/P0_VERIFY.md)。今回の環境整備でゲームの機能追加はしていません。
+
+Claudeはこのフォルダで `claude --model opus` を起動できます。ローカルCLIの存在と設定の検査は、モデルの利用権や実際のエージェント呼び出し成功を保証しません。実行モデルは起動先で確認してください。
 
 ## 開発状況
 

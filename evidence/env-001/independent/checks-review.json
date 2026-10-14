@@ -1,0 +1,334 @@
+[
+  {
+    "result": "PASS",
+    "label": "JSON parses; main opus; no extra permission/hook configuration",
+    "details": {
+      "model": "opus"
+    }
+  },
+  {
+    "result": "PASS",
+    "label": "green-designer.md frontmatter delimiters",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-designer.md supported plain YAML fields",
+    "details": {
+      "name": "green-designer",
+      "description": "親から指定された設計課題を調査し、根拠と選択肢を返す読み取り専用の設計補助。",
+      "model": "opus",
+      "tools": "Read, Grep, Glob",
+      "disallowedTools": "Agent, Edit, Write, Bash"
+    }
+  },
+  {
+    "result": "PASS",
+    "label": "green-designer.md requested model",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-designer.md denies child delegation",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "designer tools read-only",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-documenter.md frontmatter delimiters",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-documenter.md supported plain YAML fields",
+    "details": {
+      "name": "green-documenter",
+      "description": "親が承認した決定と確認済み証拠を、指定された進捗・手順・記録へ反映する。",
+      "model": "haiku",
+      "tools": "Read, Grep, Glob, Edit, Write",
+      "disallowedTools": "Agent, Bash"
+    }
+  },
+  {
+    "result": "PASS",
+    "label": "green-documenter.md requested model",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-documenter.md denies child delegation",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "documenter has no shell",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-implementer.md frontmatter delimiters",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-implementer.md supported plain YAML fields",
+    "details": {
+      "name": "green-implementer",
+      "description": "親が割り当てた範囲を実装し、必要な自己検証と修正を行う実装担当。",
+      "model": "sonnet",
+      "tools": "Read, Grep, Glob, Edit, Write, Bash",
+      "disallowedTools": "Agent"
+    }
+  },
+  {
+    "result": "PASS",
+    "label": "green-implementer.md requested model",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-implementer.md denies child delegation",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-verifier.md frontmatter delimiters",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-verifier.md supported plain YAML fields",
+    "details": {
+      "name": "green-verifier",
+      "description": "実装者と別の呼出し文脈で、作業票の受入条件と実際の差分・証拠を独立検証する。",
+      "model": "sonnet",
+      "tools": "Read, Grep, Glob, Edit, Write, Bash",
+      "disallowedTools": "Agent"
+    }
+  },
+  {
+    "result": "PASS",
+    "label": "green-verifier.md requested model",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "green-verifier.md denies child delegation",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "four distinct agent names",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "ENV-001.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "ENV-001.md truthful current state",
+    "details": "検証待ち"
+  },
+  {
+    "result": "PASS",
+    "label": "ENV-001.md active owner identified",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P0_ART.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P0_ART.md truthful current state",
+    "details": "完了"
+  },
+  {
+    "result": "PASS",
+    "label": "P0_ART.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P0_BASE.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P0_BASE.md truthful current state",
+    "details": "完了"
+  },
+  {
+    "result": "PASS",
+    "label": "P0_BASE.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P0_VERIFY.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P0_VERIFY.md truthful current state",
+    "details": "未着手"
+  },
+  {
+    "result": "PASS",
+    "label": "P0_VERIFY.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P1.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P1.md truthful current state",
+    "details": "未着手"
+  },
+  {
+    "result": "PASS",
+    "label": "P1.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P2.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P2.md truthful current state",
+    "details": "未着手"
+  },
+  {
+    "result": "PASS",
+    "label": "P2.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P3.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P3.md truthful current state",
+    "details": "未着手"
+  },
+  {
+    "result": "PASS",
+    "label": "P3.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P4.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P4.md truthful current state",
+    "details": "未着手"
+  },
+  {
+    "result": "PASS",
+    "label": "P4.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P5.md management fields present",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "P5.md truthful current state",
+    "details": "未着手"
+  },
+  {
+    "result": "PASS",
+    "label": "P5.md reservations released or unclaimed",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "one unique task ID per nine task files",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "all local Markdown links resolve",
+    "details": []
+  },
+  {
+    "result": "PASS",
+    "label": "old nonexistent source path removed from Codex start prompt",
+    "details": null
+  },
+  {
+    "result": "PASS",
+    "label": "all ten frozen P0-ART files preserved",
+    "details": [
+      {
+        "path": "C:\\godot\\greenvader\\project.godot",
+        "sha256": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F",
+        "expected": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scenes\\main.tscn",
+        "sha256": "18E4CB5CF9C6FCD0215AD2F2E511920A6798B92BD6A927977CC3D0198E9AD73D",
+        "expected": "18E4CB5CF9C6FCD0215AD2F2E511920A6798B92BD6A927977CC3D0198E9AD73D"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scripts\\landscape_art.gd",
+        "sha256": "65509DFD31E03C3792D2C1172A31211F2A8E5694D3B98B531B1227B13B28A914",
+        "expected": "65509DFD31E03C3792D2C1172A31211F2A8E5694D3B98B531B1227B13B28A914"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scripts\\landscape_prop.gd",
+        "sha256": "3B7D52A98791794E8E7FFFB62861DC840B6FFFB4316966F6E5E6EEAD88299A76",
+        "expected": "3B7D52A98791794E8E7FFFB62861DC840B6FFFB4316966F6E5E6EEAD88299A76"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scripts\\main.gd",
+        "sha256": "A2A68D293CD53C900C9E44650712B416EE1772C51A9AAC33B26907766BB7A991",
+        "expected": "A2A68D293CD53C900C9E44650712B416EE1772C51A9AAC33B26907766BB7A991"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scripts\\pixel_art.gd",
+        "sha256": "798A992CBD37914C33EA2424107F533AE0A612CDD54E5BD893B95BE46DF924FA",
+        "expected": "798A992CBD37914C33EA2424107F533AE0A612CDD54E5BD893B95BE46DF924FA"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scripts\\player.gd",
+        "sha256": "5A8420AC06D172695EC3846D4608C987E08673193CBF06427A5F56EB0EE91AFB",
+        "expected": "5A8420AC06D172695EC3846D4608C987E08673193CBF06427A5F56EB0EE91AFB"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scripts\\terrain.gd",
+        "sha256": "4B399773DE290858965FAECEAE75C2722E1C6C266F3BF9FAF1C876C419A3B85C",
+        "expected": "4B399773DE290858965FAECEAE75C2722E1C6C266F3BF9FAF1C876C419A3B85C"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\scripts\\weather_view.gd",
+        "sha256": "3AFC806BE685C90CAC4CB13F28AFDB44310CF42197A5E4FEDA576A4D41628188",
+        "expected": "3AFC806BE685C90CAC4CB13F28AFDB44310CF42197A5E4FEDA576A4D41628188"
+      },
+      {
+        "path": "C:\\godot\\greenvader\\tests\\self\\p0_checks.gd",
+        "sha256": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E",
+        "expected": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E"
+      }
+    ]
+  }
+]

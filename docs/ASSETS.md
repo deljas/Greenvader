@@ -1,15 +1,16 @@
 # 素材台帳
 
-更新日: 2026-10-14。親の承認済み報告に基づく初期記録。
+更新日: 2026-10-14。権利・出典・状態は実装報告と親の承認済み情報に基づく。
 
-## 素材一覧
+## P0画面素材
 
-| 素材・区分 | 出典／権利 | 編集元 | 用途 | 状態 |
-|---|---|---|---|---|
-| P0画面の仮アート（花、植物、イノシシ、地形、水、種など） | 実装者が作成したGDScript内文字行・整数矩形による自作コード。外部画像／生成サービスなし | [`scripts/pixel_art.gd`](../scripts/pixel_art.gd)、`scripts/terrain.gd` | P0試作画面のみ。輪郭線なしのピクセル表現 | 仮素材。美術承認済みの最終素材ではない。根拠: [`evidence/p0/self/report.md`](../evidence/p0/self/report.md)。 |
-| システムフォント | WindowsのYu Gothic / Meiryoを実行時参照。フォントファイル非同梱 | OSのシステムフォント | P0日本語UI | 外部フォント素材の同梱なし。 |
-| 晴雨夜の比較PNG | Godotの実描画による内部viewport画像 | scene/runtime capture | P0表示比較 | [`晴れ`](../evidence/p0/self/sunny-1280.png)、[`雨`](../evidence/p0/self/rain-1280.png)、[`夜`](../evidence/p0/self/night-1280.png)。カメラ同期修正前に取得。 |
+| 素材 | 出典・編集元 | 用途・状態 |
+|---|---|---|
+| 花、種、植物、敵、樹木、苔岩、シダ、廃墟、地形、水面、地面影 | 実装者がGDScriptの文字行・整数矩形から作成したnativeラスタ。`scripts/pixel_art.gd`、`scripts/landscape_art.gd`、`scripts/landscape_prop.gd`、`scripts/terrain.gd`。外部画像・画像生成サービスなし。 | P0画面のコード製素材。花は16×16px。4枚のユーザー参考画像は方向の参考のみで、直接転用・切り抜きなし。 |
+| 日本語UIフォント | WindowsのYu Gothic / Meiryoを実行時に参照。フォントファイル非同梱。 | UI表示用。外部フォントファイルは配布していない。 |
+| 晴雨夜の最終画面画像 | Godot実行時に生成した内部viewport PNG。 | 検証用証拠で、ゲームへ読み込む素材ではない: [晴れ](../evidence/p0-art/self/sunny-1280.png)、[雨](../evidence/p0-art/self/rain-1280.png)、[夜](../evidence/p0-art/self/night-1280.png)。 |
+| 親のnative画面画像 | 実行中ウィンドウのスクリーンショット。 | 晴天時の表示証拠: [native-sunny.png](../evidence/p0-art/native-sunny.png)。素材データではない。 |
 
-## 追加時の記録
+## 承認状態
 
-素材を追加した段階で、出典、権利条件、編集元、ゲーム内用途、暫定／承認状態を記録する。仮素材は最終アートの承認を意味しない。
+ユーザーはP0_ARTの現ビジュアル方向を当面の基準として承認し、細部の追加描き込みをいったん止めるよう希望した。これは方向性への承認であり、最終商品アート、参考画像と同等の完成度、またはゲーム全体の美術承認ではない。追加の細部調整は保留し、必須のピクセル条件と機能検証は維持する。

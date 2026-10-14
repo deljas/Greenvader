@@ -1,44 +1,37 @@
 # 検証記録
 
-更新日: 2026-10-14。最終合否はAstraが判断する。この記録は未検証条件を合格にしない。
+更新日: 2026-10-14。最終合否は親Astra（Codex）／主会話Opus（Claude）が判断する。テンプレートの静的確認と実モデル稼働を区別する。
 
-## 環境・対象
+## ENV-001 共用環境テンプレート
 
-- エンジン: Godot `4.7.2.stable.official.ed1daf0bf`; 実行ファイル `C:/godot/Godot_v4.7.2-stable_win64_console.exe`。
-- 初期資料の基準コミット: `16b845fe7550667d7689e252e1b406f790a2d241`。
-- P0実装対象コミット: `f7ead6a1117f28b38b742f98921c2f8de05d6fdc`。実装対象ソースのSHA-256一覧は [`evidence/p0/self/source-manifest.json`](../evidence/p0/self/source-manifest.json)。独立静的レビューでコミット対象のソースハッシュ一致を確認。
-- 親報告環境: Windows 11 Pro `10.0.26200`、AMD Ryzen 9 7900 12-Core Processor、NVIDIA GeForce RTX 5070 Ti、ドライバー `32.0.16.1088`、可視メモリ `66692428 KiB`。親実行結果からの転記で、別証拠ファイルは未登録。
+- 対象: 基準 `389fd69`、P0_ART保存コミット `32cf3187f5682d4081daf86875de97067b69e886`、その後のENV-001文書・設定差分。独立検証者は `evidence/env-001/independent/source-manifest.json` に確認対象を固定。
+- 親確認: `claude --version` と `claude --help` の読み取り結果はClaude CLI `2.1.296`。インストールや認証設定を変更していない。
+- 独立静的レビュー: [`report.md`](../evidence/env-001/independent/report.md)、[`checks.json`](../evidence/env-001/independent/checks.json)、対象固定 [`source-manifest.json`](../evidence/env-001/independent/source-manifest.json)、監査コード [`audit.py`](../evidence/env-001/independent/audit.py)。JSON/YAML形式、main Opus・4 agent構成、各タスク管理欄、参照リンク、旧資料パスの除去、P0_ART 10ファイルのhash保全を確認。51 PASS / 0 FAIL。
+- AstraはClaude共用環境テンプレートの整備と静的確認を受け入れた。これはClaudeの実セッション起動・agent実行の合格ではない。
 
-## 実施済みの限定確認
-
-| 確認 | 結果 | 証拠と範囲 |
+| 項目 | 結果 | 限界 |
 |---|---|---|
-| 最終版headless import | 実装者報告 PASS | [`evidence/p0/self/import.log`](../evidence/p0/self/import.log)。対象版の読み込み。GUI実画面合格を示さない。 |
-| Headless smoke 30フレーム | 実装者報告 PASS | [`evidence/p0/self/smoke.log`](../evidence/p0/self/smoke.log)。 |
-| 実装者自己チェック15項目 | 実装者報告 PASS | [`evidence/p0/self/checks.log`](../evidence/p0/self/checks.log)。`failures=0`。独立検証結果ではない。実画面描画・実操作等のNOT_RUNも同ログに記載。 |
-| Forward+ 3解像度のviewport transform | 実装者報告 PASS | [1280](../evidence/p0/self/sunny-1280.log)は2倍・原点、[1920](../evidence/p0/self/sunny-1920.log)は3倍・原点、[1366](../evidence/p0/self/sunny-1366.log)は2倍・オフセット(43,24)。実画面外枠の画素を測定した結果ではない。 |
-| 内部晴れ・雨・夜画像 | 実装者報告の静止画像確認 | [晴れ](../evidence/p0/self/sunny-1280.png)、[雨](../evidence/p0/self/rain-1280.png)、[夜](../evidence/p0/self/night-1280.png)は640×360内部viewport。カメラ同期修正前に取得。静止構図は変わらないとの報告だが、最終版の動的描画は未確認。 |
-| 親によるForward+実画面確認 | 親報告で限定確認 | RTX 5070 Ti上で1280×720ウィンドウを起動。日本語UI、仮花・植物・イノシシ・水辺を目視。`d`単発入力で微小移動を確認。連続・斜め操作や全入力は未確認。雨切替中にユーザー入力検知が返ったためUI操作を停止。ウィンドウは開いたまま。 |
-| Godot export templates | 未導入との親報告 | 親の実行結果。書き出し試験は未実施。 |
+| Main / agentモデル指定 | 静的PASS: main・designer Opus、implementer・verifierを別々のSonnet、documenter Haiku | Claude起動時にaliasが実際どのモデルへ解決するか、アカウント可用性は未確認 |
+| JSON / YAML / agent定義 | 静的PASS: 51項目の独立監査で指定形式、異なる4 agent名、別実装・検証、文書担当の制約を確認 | Claudeの実ローダーによる読み込みと実効ツール制約は未確認 |
+| 9タスク票・索引・リンク | 静的PASS: 管理欄、担当、予約、引継ぎとローカルリンクを監査 | Markdownは原子的な排他ロックではなく、実運用での競合回避は未検証 |
+| 旧P0_ART実装の保全 | PASS: 独立監査が凍結対象10ゲームファイルのSHA-256一致を確認。P0_ARTは `32cf318` 保存後も内容不変 | hash確認はP0ゲーム機能全体の受入ではない |
+| Claude CLI | 親確認: `--version` / `--help` で2.1.296 | 実Claude session、agent稼働、model API/authは未確認 |
 
-## P0受入条件
+初回ENV監査は静的検証のみで、Claude/Godot/APIを起動していない。独立報告は今回のテンプレート整備を静的範囲でPASS、実稼働はNOT_RUNとしている。ENV-001の最終管理欄と予約解除は親が処理する。
 
-独立検証の準備計画は [`evidence/p0/independent/PLAN.md`](../evidence/p0/independent/PLAN.md)。独立静的レビュー [`evidence/p0/independent/REVIEW.md`](../evidence/p0/independent/REVIEW.md) を親が確認済み。レビューはGodot起動・実行・UI操作を行っていないため、実行を要する条件は引き続きNOT_RUN。実装者自己チェックのPASSを独立検証として扱わない。
+## P0_ARTの限定結果
 
-| ID | 独立静的所見 | 判定と範囲 |
-|---|---|---|
-| S01 | `scripts/pixel_art.gd` の種は暗色画素が明るい中心を全周で囲む形。輪郭線なし条件への抵触。 | 静的FAIL。実画面再現はNOT_RUN。親は修正待ちとして受け入れ、ユーザー停止指示のため今回は修正しない。 |
-| S02 | pause中も天候UIボタン経由で条件・表示を変更できるコード経路がある。 | 静的FAIL。実操作再現はNOT_RUN。親は修正待ちとして受け入れ、ユーザー停止指示のため今回は修正しない。 |
+P0_ARTは `32cf318` に保存済み。実装者報告は [`evidence/p0-art/self/report.md`](../evidence/p0-art/self/report.md)、独立報告は [`evidence/p0-art/independent/REPORT.md`](../evidence/p0-art/independent/REPORT.md)。自己回帰22 PASS / 0 FAIL、独立回帰35 PASS / 0 FAIL。S01種の暗色全周とS02ポーズ中の天候変更経路は各証拠の範囲で修正確認済み。
 
-レビューの限定PASS所見と未実行条件は `REVIEW.md` を参照。レビューは最終受入やP0完了を宣言していない。
+最終内部画像は[晴れ](../evidence/p0-art/self/sunny-1280.png)、[雨](../evidence/p0-art/self/rain-1280.png)、[夜](../evidence/p0-art/self/night-1280.png)。実装者と独立検証者は静止画像内で景観方向と主役・敵・仮弾を確認した。親はnativeの[晴天画面](../evidence/p0-art/native-sunny.png)を記録し、ボタン操作で晴雨夜を切替えて日本語UIを確認した。これは全native入力の確認ではない。
 
-未実施または限定確認の代表項目: 実画面での連続・斜め移動、マウス照準とクリック、解像度3種の外枠余白画素、最小サイズへのnative resize、移動中のにじみと画面端カメラ、晴雨夜の最終版動的描画、native Escポーズ。1回の`d`入力を連続操作試験のPASSとしない。個々の条件と手順は検証計画を参照する。
+### P0_VERIFYへ残す確認
 
-P1〜P5の検証は未開始。保存復元、種・水の循環、地域安定、孤立地を含む厳密な100％緑化、書き出し後の起動などを未確認のまま合格扱いしない。
+- `@oai/sky.press_key('2')` と `press_key('Escape')` では画面変化を観測できなかった。物理キーコード等を含む入力経路の原因は未切分。ゲーム側キーボード不具合とは確定しておらず、nativeキーボード操作PASSにもしていない。
+- nativeのWASD連続・斜め移動、マウス照準と種／水の発射、Escポーズは未確認。
+- 最小ウィンドウへのnative resize、複数サイズの外枠余白画素、移動中のにじみ、画面端カメラ、動的y-sort/局所透過、Forward+性能負荷は未確認。
+- P0全技術条件の合格、Windows書き出し、P1以降の機能は未確認。
 
-## 公式資料
+## 初回のインポート権限エラー
 
-P0の参考として親が確認したGodot 4.7資料:
-
-- [複数の解像度への対応](https://docs.godotengine.org/en/4.7/tutorials/rendering/multiple_resolutions.html)
-- [2Dライトと影](https://docs.godotengine.org/en/4.7/tutorials/2d/2d_lights_and_shadows.html)
+独立P0_ART確認の初回は標準AppData / `user://` ログ書込み権限エラーが出た。`APPDATA` / `LOCALAPPDATA` を一時隔離profileへ向け、`--log-file` を指定した再実行でimportと独立回帰を完了。初回の環境権限エラーをゲームFAILとは扱わない。詳細はP0_ART独立報告を参照。

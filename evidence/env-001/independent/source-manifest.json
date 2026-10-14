@@ -1,0 +1,94 @@
+[
+  {
+    "path": "AGENTS.md",
+    "sha256": "e4ce641de549819775b34af5098a0a2930ff1525880491e8836bdaeb711387e7"
+  },
+  {
+    "path": "TASK_TEMPLATE.md",
+    "sha256": "051e17d1946d9dfbfd23b55d37949aafc3c009daebbd9e71eefb8e669ab0d3af"
+  },
+  {
+    "path": "README.md",
+    "sha256": "4dac80f87cdff4a86ec6b3e9826c81a8831f32e7e4f9fd1e7a18deb32a2c184d"
+  },
+  {
+    "path": "START_PROMPT.md",
+    "sha256": "3db7beb4a0d96a44dd93f4744d0aec5f56aac9caa003420d860c1b468f45bf09"
+  },
+  {
+    "path": "CLAUDE.md",
+    "sha256": "e991b3ca224f67b8464f3cbb4f105ad1321e9c1fb24e097cab3acde92b2532ff"
+  },
+  {
+    "path": ".gitignore",
+    "sha256": "041432e779df8317bfc09f806dba111243980302db8e0de8dcfcfb652433b4fc"
+  },
+  {
+    "path": "tasks\\ENV-001.md",
+    "sha256": "c9d596c5733c23feaf8d6e621e428288f41a7bf0ec2e384f56410de5b099f7d1"
+  },
+  {
+    "path": "tasks\\P0_ART.md",
+    "sha256": "f912a6c8166e72c22f7330183fe0d20d2447d20115c0aed0e4a2eb13c093ea29"
+  },
+  {
+    "path": "tasks\\P0_BASE.md",
+    "sha256": "c2bea5c09564860fd325cb25ea62ceff97f05c4569e80a73d7c3baad1dddd9f3"
+  },
+  {
+    "path": "tasks\\P0_VERIFY.md",
+    "sha256": "197d8c4bffc98d9252b0c383991ef3f46b5e4ffbd920e9cf72aaefe425ddbaae"
+  },
+  {
+    "path": "tasks\\P1.md",
+    "sha256": "196fc11be529958c887953b6c1b59a4efe35f95af93ccd225eb93502a437ec1a"
+  },
+  {
+    "path": "tasks\\P2.md",
+    "sha256": "44ad34691b2a66302c53d185aca7840de07a86ad0305289dcd4298919664eba4"
+  },
+  {
+    "path": "tasks\\P3.md",
+    "sha256": "a524c3cbc73ee3e4187468a2c0d023d6b94170657808f575ecb7138b814ea677"
+  },
+  {
+    "path": "tasks\\P4.md",
+    "sha256": "dac8c0be193c77edd1c4d2d332b479d35e16727ecccccdcbcd4e08115459e47f"
+  },
+  {
+    "path": "tasks\\P5.md",
+    "sha256": "f11dc19bdfbdd19b8b162d0d3d94122b6909d553a42e6b6afce1a14e854fa6fd"
+  },
+  {
+    "path": "tasks\\README.md",
+    "sha256": "f7249b98d9251bbcfd5d9786b512a1d522c064b9b1d2135f3b63ddc986b6f003"
+  },
+  {
+    "path": ".claude\\settings.json",
+    "sha256": "b6184add26fd1910773744743c0da7ef7bab87f6a68b45a8854d26a58aff2069"
+  },
+  {
+    "path": ".claude\\README.md",
+    "sha256": "a0c00901c43addd28a115f46388b402ca297eebfaa755ed61169d369cc24ff9a"
+  },
+  {
+    "path": ".claude\\START_PROMPT.md",
+    "sha256": "75ab49b93f5a39f918a920b34906c92c349f63d81ad56a3009731c4c417e3f91"
+  },
+  {
+    "path": ".claude\\agents\\green-designer.md",
+    "sha256": "ee9831bafd0320a5ecdf561a5c9b3e7eecbd74b11f294c064707535f8ebc68c1"
+  },
+  {
+    "path": ".claude\\agents\\green-documenter.md",
+    "sha256": "225b66218ec655fc2502b3a60d8cdd5640dca9a497d41f75eac2944a19fc18c8"
+  },
+  {
+    "path": ".claude\\agents\\green-implementer.md",
+    "sha256": "a15ad83280c4c5dc36cbde9b48f27ca45191fd4981664d80de0061fc454f9389"
+  },
+  {
+    "path": ".claude\\agents\\green-verifier.md",
+    "sha256": "270539450cdda00e132738556072470e8e0df8952985278c66361ba5525b7e11"
+  }
+]

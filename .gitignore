@@ -4,3 +4,5 @@ builds/
 *.log
 !evidence/**/*.log
 evidence/**/profile/
+.claude/settings.local.json
+CLAUDE.local.md

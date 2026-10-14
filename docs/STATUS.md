@@ -1,34 +1,21 @@
 # 開発状況
 
-更新日: 2026-10-14  
-対象版: P0実装コミット `f7ead6a1117f28b38b742f98921c2f8de05d6fdc`。内容識別用 [`evidence/p0/self/source-manifest.json`](../evidence/p0/self/source-manifest.json) のハッシュと一致することを独立レビューで確認済み。  
-記録根拠: 親エージェントの実行・画面確認報告、実装者自己報告 [`evidence/p0/self/report.md`](../evidence/p0/self/report.md)、独立静的レビュー [`evidence/p0/independent/REVIEW.md`](../evidence/p0/independent/REVIEW.md)、各ログと画面画像。
+更新日: 2026-10-14
 
 ## 現在地
 
-- P0「環境と画面の基準」の最初の画面を親が起動・確認し、ユーザー提示段階に到達。P0は実装中で、最終受入ではない。
-- P1〜P5は未着手。P6以降は現在の開発範囲外。
-- ユーザー要望に従い、画面提示後は感想待ちとして後続実装を停止中。ウィンドウは開いたまま。画面提示・停止はP0全受入条件の合格を意味しない。
-- 基準Godot版は `4.7.2.stable.official.ed1daf0bf`。実行ファイル: `C:/godot/Godot_v4.7.2-stable_win64_console.exe`。
-- Git初期化済み。初期資料は `16b845fe7550667d7689e252e1b406f790a2d241` に保存済み。初期コミットはGitユーザー設定がなかったため `Codex <codex@local.invalid>` 名義で作成され、global設定は変更していない。
-- 最終版のheadless import、headless smoke 30フレーム、実装者の自己チェック15項目はPASS報告。独立検証の結果ではない。
-- 親はRTX 5070 Ti上のForward+実ウィンドウ（1280×720）を目視し、日本語UIと仮の花・植物・イノシシ・水辺を確認。`d`単発入力でごく小さい移動を確認したが、連続操作・斜め移動の実画面確認ではない。
+- [ENV-001](../tasks/ENV-001.md)の共用環境テンプレート整備は完了し、親が静的確認結果を受け入れた。Claudeの実セッション、agent起動時モデル、API/authは未確認。
+- ゲーム実装は停止中。[P0_BASE](../tasks/P0_BASE.md)と[P0_ART](../tasks/P0_ART.md)は限定範囲を完了。[P0_VERIFY](../tasks/P0_VERIFY.md)は未着手・未取得。P1〜P5も未着手。各作業票の管理欄を作業状態の正本とする。
+- P0_ARTの現ビジュアル方向はユーザーが当面の基準として承認済み。細部描き込みは停止する。最終商品アートやP0全技術条件の承認ではない。
+- 次のゲーム作業候補はP0_VERIFY。担当取得とゲーム実装再開はまだ行われていない。
 
-## 暫定値と環境
+## ENV-001記録
 
-- 640×360内部解像度、16pxタイル、1280×720初期表示、Forward+は今回の画面試作に暫定採用。P0の最終固定ではない。
-- Forward+は実GPUで起動・画面確認済み。性能負荷試験は未実施。
-- 親の環境調査報告: Windows 11 Pro `10.0.26200`、AMD Ryzen 9 7900 12-Core Processor、NVIDIA GeForce RTX 5070 Ti、ドライバー `32.0.16.1088`、可視メモリ `66692428 KiB`。報告元は親の実行結果で、独立した証拠ファイルは未登録。
-- Godot export templates ディレクトリは空との親報告。書き出しは確認していない。
-- 実画面API `@oai/sky` でGodotウィンドウを起動して親が目視確認。雨へ切り替える操作中にユーザー入力検知が返ったため、UI操作を止めた。詳細は[検証記録](VALIDATION.md)。
-- 3つのカスタム役割はAPI登録と実際の起動に成功したとの親報告。親の設定ファイル上のモデル名は `gpt-6-astra`。親の実行実体をその設定名だけから確認済みとはしない。
+- 静的独立確認は [`evidence/env-001/independent/report.md`](../evidence/env-001/independent/report.md) と [`checks.json`](../evidence/env-001/independent/checks.json) に記録され、51 PASS / 0 FAIL。親はテンプレート環境整備を受け入れた。
+- P0_ARTの実装内容は `32cf318` に保存済み。ENV-001独立監査は凍結したゲーム10ファイルのSHA-256一致を確認し、ゲーム内容の変更なしと記録した。
+- Claude CLIのローカル `--version` / `--help` は親が読み取り確認し、版 `2.1.296`。実セッション起動や実モデルの可用性を意味しない。
+- 役割分担はCodex側Astra/Sol実装/Sol独立検証/Luna、Claude側main・designer Opus、implementer・verifier Sonnet（別agent）、documenter Haikuの設定。YAML/JSON・管理票・リンク等は静的確認済み。実際のClaude読み込み、モデル/API/authは未確認。
 
-## 再開時の行動
+## 次の行動
 
-1. ユーザーの画面に関する感想を待つ。親の指示なしに後続実装へ進まない。
-2. 静的レビューで指摘されたS01種の全周暗色とS02ポーズ中の天候ボタン経路は修正待ち。ユーザー停止指示に従い、この時点では修正しない。
-3. 感想受領後の再開と未完了P0試験は親が判断する。未実施条件を合格にしない。
-
-## 実行手順
-
-起動確認済みコマンド: `& C:/godot/Godot_v4.7.2-stable_win64_console.exe --path C:/godot/greenvader --resolution 1280x720`。画面試作での操作: WASD移動、マウス照準、`1`晴れ・`2`雨・`3`夜、Escポーズ、左クリック種の仮弾・右クリック水の仮弾。親の実画面確認では`d`単発入力を1回のみ確認した。操作群全体を実画面で確認したことにはしない。
+共用テンプレートの整備完了だけでゲーム実装は再開しない。P0_VERIFYを担当者が作業票から取得して残る操作・描画確認を行い、その後にP1手動開拓へ進む。詳細は[検証記録](VALIDATION.md)と[残課題](BACKLOG.md)を参照する。
