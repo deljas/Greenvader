@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(1280, 720)
+PASS found an open wasteland block at (120, 88)
+FAIL first carrot and kiwi placed through injected input (0 plants)
+FAIL after 82 s both are mature and the kiwi holds 0 healing fruits
+FAIL second carrot and kiwi placed (young), 0 plants
+FAIL HP 6/10 and the two healing fruits are still on the ground (player stays away)
+PASS HUD shows '植物 通常 にんじん [キウイ:3]' and 'HP 6/10'
+PASS the HUD row fits the footer: HUD (624.0, 19.0), footer (624.0, 19.0)
+GPU_INFO renderer=forward_plus screens=3 window_screen=1 window_pos=(2236, 156) window_size=(1280, 720) content_scale=(640, 360)
+PASS internal frame is 640x360
+GPU_INFO crop_rect=[P: (274, 126), S: (104, 32)] player=(486.0, 374.0)
+GPU_INFO printwindow pid=14932 frames_waited=57 code=0
+GPU_INFO native capture size=(1280, 720) k=2
+PASS window image is real content (30 distinct colours)
+PASS every 2x2 block of the window image is one colour (non-uniform blocks: 0)
+PASS each block equals the internal-frame pixel (mismatching blocks: 0 of 230400)
+P1_05_GPU_RESULT failures=4

@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS found an open wasteland block at (120, 88)
+PASS first carrot and kiwi placed through injected input (2 plants)
+PASS after 82 s both are mature and the kiwi holds 2 healing fruits
+PASS second carrot and kiwi placed (young), 4 plants
+PASS HP 6/10 and the two healing fruits are still on the ground (player stays away)
+PASS HUD shows '植物 通常 にんじん [キウイ:3]' and 'HP 6/10'
+PASS the HUD row fits the footer: HUD (624.0, 19.0), footer (624.0, 19.0)
+P1_05_GPU_DRY_RESULT failures=0 window=(640, 360)

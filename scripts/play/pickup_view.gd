@@ -16,7 +16,12 @@ func _draw() -> void:
 		return
 	var source_texture: ImageTexture = PlayArt.fruit()
 	var plant_texture: ImageTexture = PlayArt.plant_fruit()
+	var heal_texture: ImageTexture = PlayArt.heal_fruit()
 	var half: Vector2 = Vector2(source_texture.get_size()) / 2.0
 	for item: Dictionary in play.pickups.items:
-		var texture: ImageTexture = plant_texture if GroundPickups.is_plant_owner(int(item["owner"])) else source_texture
+		var texture: ImageTexture = source_texture
+		if String(item["kind"]) == GroundPickups.KIND_HEAL_FRUIT:
+			texture = heal_texture
+		elif GroundPickups.is_plant_owner(int(item["owner"])):
+			texture = plant_texture
 		draw_texture(texture, (Vector2(float(item["x"]), float(item["y"])) - half).round())

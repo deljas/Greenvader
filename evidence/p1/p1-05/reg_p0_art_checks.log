@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+INDEPENDENT_PASS real main scene creates player camera weather 
+INDEPENDENT_PASS InputMap key move_left 
+INDEPENDENT_PASS InputMap key move_right 
+INDEPENDENT_PASS InputMap key move_up 
+INDEPENDENT_PASS InputMap key move_down 
+INDEPENDENT_PASS InputMap key pause 
+INDEPENDENT_PASS InputMap key interact 
+INDEPENDENT_PASS InputMap mouse seed_preview 
+INDEPENDENT_PASS InputMap mouse water_preview 
+INDEPENDENT_PASS internal dimensions 640x360 
+INDEPENDENT_PASS viewport integer scaling configured (actual raster NOT_RUN) 
+INDEPENDENT_PASS minimum window forbids downscaling 
+INDEPENDENT_PASS flower source remains 16x16 
+INDEPENDENT_PASS player selects Nearest 
+INDEPENDENT_PASS eight directions travel equal distance over 1 second [95.9991455078125, 96.0003662109375, 96.0003662109375, 96.0003662109375, 95.9999313354492, 95.9999313354492, 96.000617980957, 96.000617980957]
+INDEPENDENT_PASS presentation camera share integer pixel grid through movement 
+INDEPENDENT_PASS simulation retains fractional coordinates 
+INDEPENDENT_PASS player and scenery use one depth-sorted parent (render order NOT_RUN) 
+INDEPENDENT_PASS occluding scenery available 
+INDEPENDENT_PASS scenery becomes translucent behind overlap 0.41999998688698
+INDEPENDENT_PASS translucency stays local 1
+INDEPENDENT_PASS scenery opaque when player is in front 
+INDEPENDENT_PASS scenery opaque when lateral overlap ends 
+INDEPENDENT_PASS runtime seed raster saved for visual check (outline acceptance is manual) 
+INDEPENDENT_PASS rain comparison button exists 
+INDEPENDENT_PASS production input callback creates projectile before pause 
+INDEPENDENT_PASS Esc event through Input pipeline enters pause 
+INDEPENDENT_PASS S02 rain button callback cannot change paused weather { "condition": "sunny", "weather": "sunny", "elapsed": 0.30607933333333, "player_sim": (738.0, 754.0), "player_display": (738.0, 754.0), "shots": [{ "position": (724.0675, 746.1331), "age": 0.1, "display": (724.0, 746.0) }] } -> { "condition": "sunny", "weather": "sunny", "elapsed": 0.30607933333333, "player_sim": (738.0, 754.0), "player_display": (738.0, 754.0), "shots": [{ "position": (724.0675, 746.1331), "age": 0.1, "display": (724.0, 746.0) }] }
+INDEPENDENT_PASS weather elapsed is frozen during pause 
+INDEPENDENT_PASS movement input cannot advance paused player 
+INDEPENDENT_PASS projectile position age count freeze during pause 
+INDEPENDENT_PASS Esc event resumes paused scene 
+INDEPENDENT_PASS rain button callback works after resume 
+INDEPENDENT_PASS weather clock resumes 
+INDEPENDENT_PASS resume does not bulk-advance the 0.20-second pause 0.06
+INDEPENDENT_SUMMARY checks=35 failures=0 native_ui=NOT_RUN raster_art=NOT_RUN

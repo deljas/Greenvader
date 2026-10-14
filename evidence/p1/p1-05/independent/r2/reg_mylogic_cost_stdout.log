@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section cost
+PASS [cost.defs] data: the carrot and kiwi cost an ordinary-seed amount > 0 (tuning value), footprint 2 :: carrot cost=3 kiwi cost=3
+PASS [cost.can_fire_start] with 20 seeds the carrot may be fired :: available=20
+PASS [cost.held_back_in_flight] after firing, the cost is held back (available -cost) but seeds are not yet spent :: seeds=20 available=17 reserved=3
+PASS [cost.spent_on_success] the cost is spent exactly once when the plant is placed, nothing stays reserved :: seeds=17 reserved=0
+PASS [cost.returned_on_failure] a landing on bad ground spends nothing and releases the held-back cost :: seeds=17 available=17
+PASS [cost.returned_on_cancel] a shot that vanishes in the air gives the held-back cost back :: seeds=17 available=17
+PASS [cost.cancel_idempotent] cancelling with nothing in flight does not refund extra or go negative :: reserved=0 available=17
+PASS [cost.not_enough_cannot_fire] with fewer seeds than the cost the plant cannot be fired :: seeds=2 cost=3
+PASS [cost.second_shot_needs_seeds] two shots in flight need two costs: with 2*cost-1 seeds the second cannot be fired :: available=2
+PASS [cost.limit_counts_inflight] with max_count=2: fire 1 ok, fire 2 ok, fire 3 refused while 2 are in flight (nothing planted yet) :: flags=[true, true, false]
+PASS [cost.limit_per_kind] the carrot limit does not block the kiwi :: kiwi ok=true
+PASS [cost.limit_after_landing] after both land, count 2 reaches the limit: still refused; planted count never exceeds 2 :: count=2
+PASS [cost.limit_hard] even if a third shot was fired, landing cannot exceed the kind limit, and it costs nothing :: count=2 seeds=34
+PASS [cost.plain_seed_uses_available] can_fire_seed (ordinary seeds) respects held-back seeds too: 5 seeds, kiwi in flight costs 3 -> 2 available :: available=2
+PASS [cost.select_cycle] forward: 1,2,0,1; backward from 1: 0,2,1,0 (3 kinds, wrapping) :: seq=[1, 2, 0, 1, 0, 2, 1, 0]
+PASS [cost.select_defs] the three kinds are normal (footprint 1), carrot, kiwi (footprint 2) in that order :: keys=["normal", "carrot", "kiwi"]
+--- section cost done in 29 ms
+V_RESULT total=16 fails=0
+WARNING: 65 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 20 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

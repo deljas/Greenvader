@@ -1,0 +1,59 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "a kiwi and a carrot stand on a mature block",
+      "id": "pause.setup",
+      "observed": "kiwi=(211, 213) carrot=(219, 213)",
+      "status": "PASS"
+    },
+    {
+      "condition": "before pausing the plants age",
+      "id": "pause.running_before",
+      "observed": "snap=[[1, \"kiwi\", 30.4833, false, 0.0, 0], [2, \"carrot\", 36.4833, false, 0.0, 0]]",
+      "status": "PASS"
+    },
+    {
+      "condition": "Escape (injected) pauses the tree",
+      "id": "pause.is_paused",
+      "observed": "paused=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "Tab / wheel / click / fire() do nothing while paused",
+      "id": "pause.selection_inactive",
+      "observed": "sel 0->0 fired=false",
+      "status": "PASS"
+    },
+    {
+      "condition": "during a 1.5 s pause plants (age, timer, fruit timer, drops), the sim clock, spread and world do not change",
+      "id": "pause.frozen_state",
+      "observed": "before={ \"plants\": [[1, \"kiwi\", 30.5, false, 0.0, 0], [2, \"carrot\", 36.5, false, 0.0, 0]], \"clock\": [0.55, 1, 0], \"elapsed\": 0.55 } after={ \"plants\": [[1, \"kiwi\", 30.5, false, 0.0, 0], [2, \"carrot\", 36.5, false, 0.0, 0]], \"clock\": [0.55, 1, 0], \"elapsed\": 0.55 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "a healing fruit lying at the player does not heal during the pause (HP stays 5) and its age does not advance",
+      "id": "pause.hp_and_fruit_frozen",
+      "observed": "hp=5 items=[[\"heal_fruit\", 0.0, 2000001]]",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resuming, 12 physics ticks add about 12 ticks of time to the plants (not the 1.5 s spent paused)",
+      "id": "pause.resume_no_bank",
+      "observed": "resumed=true kiwi age +0.1833 carrot age +0.1833 (12 ticks = 0.200 s; paused 1.5 s)",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resuming, the fruit at the player heals (+2: HP 7)",
+      "id": "pause.hp_after_resume",
+      "observed": "hp=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "the kiwi (age 30 at pause time) matures after exactly the remaining running game time (40 s minus its age), the 1.5 s paused do not count",
+      "id": "pause.kiwi_matures_on_running_time",
+      "observed": "ran 9.283 s of game time after resume, 40 - age = 9.283 s",
+      "status": "PASS"
+    }
+  ]
+}

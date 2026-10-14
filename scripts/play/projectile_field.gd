@@ -11,6 +11,8 @@ extends Node2D
 
 signal landed(kind: String, point: Vector2)
 signal enemy_hit(kind: String, point: Vector2, info: Dictionary)
+## A shot ended in the air without landing or hitting (safety lifetime). Owners of held-back costs release them here.
+signal expired(kind: String, point: Vector2)
 
 const KIND_SEED: String = "seed"
 const KIND_WATER: String = "water"
@@ -76,6 +78,7 @@ func advance(delta: float) -> void:
 			landed.emit(String(shot["kind"]), to)
 		elif float(shot["age"]) > tuning.projectile_max_age:
 			_finish(index)
+			expired.emit(String(shot["kind"]), to)
 
 func _finish(index: int) -> void:
 	var sprite: Sprite2D = shots[index]["sprite"]

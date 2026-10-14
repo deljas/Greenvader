@@ -1,0 +1,80 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [1.init] initial seeds 20 (cap 40), water 100 (cap 100), not refilling at wasteland site :: seeds=20/40 water=100.0 site=(184, 172)
+PASS [1.aim_inject] injected mouse motion moves the world mouse point to the aimed world position (headless) :: aim=(788.0, 690.0) mouse_world=(788.0, 690.0)
+PASS [1.seed_spend] each injected left click spends exactly 1 seed (20 -> 0) and launches one shot :: seq=[19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0] shots+=20
+PASS [1.seed_empty] with 0 seeds a click fires nothing and spends nothing (launch count unchanged, seeds stay 0) :: seeds=0 launches=20->20
+PASS [1.seed_landed_all] all 20 shots landed (landing_counter == 20), shots list empty :: landing_counter 20 (before drain 11)
+PASS [1.water_spend] each right click spends 10 of 100 water: 90,80,...,0 :: seq=[90.0, 80.0, 70.0, 60.0, 50.0, 40.0, 30.0, 20.0, 10.0, 0.0]
+PASS [1.water_empty] with 0 water a right click fires nothing and spends nothing :: water=0.0 launches=30
+PASS [1.water_partial_refused] water 9.5 (< cost 10): not fired, gauge unchanged at 9.5 :: fired=false water=9.5
+PASS [1.water_exact_cost] water exactly 10 can fire once and ends at 0 (not negative) :: fired=true water=0.0
+PASS [1.caps] add_seeds(100) stops at 40, add_water(1000) at 100, negative additions are ignored :: seeds=40 added=40 neg=0 water=100.0 aw=100.0 nw=0.0
+PASS [1.no_negative] spend_seed/spend_water at zero return false and never go negative :: seeds=0 water=0.0 min_seeds_seen=0
+PASS [1.range] aiming 400 px away lands at the 120 px range along the aim direction :: target=(858.0, 690.0) origin=(738.0, 690.0) dist=120.0
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [2.scatter_count] each landing places min(6, free tiles in radius) seeds, never more than 6 :: landings=40 max_placed=6 bad=0
+PASS [2.scatter_free_only] placed tiles were free/target/unoccupied/no plant before :: bad=0
+PASS [2.scatter_radius] every placed tile centre lies within 10 px of the landing point (independent geometry) :: bad=0
+PASS [2.scatter_no_other_change] no tile outside the placed set changes stage (25x25 neighbourhood) :: bad=0
+PASS [2.seed_not_greened] seed stage alone does not change greened_count; counter equals recount :: greened 331 -> 331 seed_tiles=99 placed_unique=99 recount=331
+PASS [2.seed_no_growth] 120 ticks later seeds are still seeds and greened_count unchanged :: greened=331
+PASS [2.exhaust] repeated landings never re-seed a seeded tile: totals equal disk size, then zero :: counts=[6, 6, 6, 3, 0, 0] disk=21
+PASS [2.existing_plant_occupied] tiles with sprout/mature plants keep their stage; occupied tiles never get seeds; greened unchanged :: stages [2, 3, 4] -> [2, 3, 4] occupied_ok=true occ_clean=true greened 334->334
+PASS [2.reproducible] same map + same landing sequence + same fixed seed gives identical placements :: len=437
+PASS [2.seed_matters] a different scatter_seed changes the placements (the sequence is really seeded) :: differs=true
+PASS [2.out_of_map] landing points outside / on the corners of the map do not crash and only touch in-map target tiles :: touched=52
+PASS [2.water_splash] water adds +40 moisture to target tiles within 12 px (cap 100), nothing outside; 3 splashes cap at 100 :: changed=29 disk=29 outside=0 capped=true
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [3.sites] real map has a water interior (>= 7x7) and a building interior (>= 3x3) to aim at :: water=(235, 175) half=5 building=(488, 54) half=4
+PASS [3.centre_shots] 200 seed + 200 water shots at water/building centres: no tile anywhere changed stage or moisture; greened/target counters unchanged :: changed_tiles=0 greened 331->331 seeds_spent=200 water_spent=200
+PASS [3.centre_clicks] 10 injected clicks aimed at the water centre (screen (370.0, 180.0)): seeds spent, no tile changed :: seeds=0 greened=331
+PASS [3.edge_observation] OBSERVED: landing on a non-target tile next to target land still seeds the target tiles inside the 10 px radius (allowed by spec); never non-target, never greened :: water(245,80): placed=6 all_target_in_radius=true greened=331; building(296,86): placed=6 all_target_in_radius=true greened=331; building(296,89): placed=6 all_target_in_radius=true greened=331; building(296,92): placed=6 all_target_in_radius=true greened=331; water(392,125): placed=6 all_target_in_radius=true greened=331; water(395,125): placed=6 all_target_in_radius=true greened=331
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [5.sites] found map positions whose nearest waterside tile is exactly 1, 2, sqrt5, 3 tiles away (brute force) :: { 1.0: (242, 60), 2.0: (241, 60), 3.0: (240, 60), 2.236: (241, 84) }
+PASS [5.distance_rule] water refills at ~25/s only when the nearest waterside tile is within 2 tiles (1, 2 refill; sqrt5, 3 do not) :: dist=1.000 tile=(242, 60) gain=24.58 over 0.983s rate=25.00 expect_refill=true | dist=2.000 tile=(241, 60) gain=24.58 over 0.983s rate=25.00 expect_refill=true | dist=2.236 tile=(241, 84) gain=0.00 over 0.983s rate=0.00 expect_refill=false | dist=3.000 tile=(240, 60) gain=0.00 over 0.983s rate=0.00 expect_refill=false
+PASS [5.refill_cap] refill stops at the 100 cap :: water=100.0
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [4.seed_zero] after 20 clicks seeds are 0 and a further click does nothing :: seeds=0 shots=0
+PASS [4.fruit_appears] the source drops its first fruit by ~8 s of game time without any player action :: ticks waited=442 (since scene start+setup) source fruits=1
+PASS [4.seed_recovered] walking (injected WASD) to the fruit collects it: seeds 0 -> 1, fruit gone :: seeds=2 frames=53 player=(772.4921, 749.7705) fruit=(770.3463, 750.3169) fruits_left=2
+PASS [4.fire_again] after recovery a click fires again and spends the recovered seed :: seeds 2 -> 1
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [4.water_zero] 10 right clicks empty the gauge, the 11th does nothing :: water=0.0
+PASS [4.no_refill_away] 2 s away from water: gauge stays 0 and click still does nothing :: water=0.0 refilling=false
+PASS [4.water_recovered] walking to the waterside restores water; no gain was ever seen while the nearest waterside was > 2 tiles away :: water=83.7500000000001 walk_frames=374 violations=0 from=(738.0, 690.0) to=(970.0, 242.0)
+PASS [4.water_fire_again] after recovery a right click fires (one more launch) and spends 10 (net of refill during 2 frames) :: water 100.0 -> 90.4166666666667 launches 10 -> 11
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [6.safe_zone] the source stands on a safe-zone tile and has an indestructible flag, no health/damage API :: tile=(189, 186) terrain=safe
+PASS [6.survives_shots] 60 shots aimed at the source: still present, same position, node still in the tree :: sources=1 node=SeedSource1:<Sprite2D#254074161044>
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [6.interval] fruits drop every 8 s of game time (8, 16, 24) and the 4th does not come while 3 lie there :: spawn_times=[8.02, 16.02, 24.02, 76.03]
+PASS [6.cap3] at most 3 fruits of the source ever lie on the ground (max seen 3); 3 are present at t=25..60 s (tick 1500: 3, 3000: 3) :: max=3 counts={ 1500: 3, 3000: 3, 3900: 3, 4200: 2, 4500: 2, 4800: 2 }
+PASS [6.lifetime_respawn] fruits expire 60 s after dropping (8.0 -> 68.0: count 3 -> 2 at 70 s) and the source drops the next one one interval later (~76 s) :: spawns=[8.02, 16.02, 24.02, 76.03] counts={ 1500: 3, 3000: 3, 3900: 3, 4200: 2, 4500: 2, 4800: 2 }
+PASS [6.collect_radius] a fruit 11.9 px away is collected (+1 seed), one 12.6 px away is not (radius 12) :: seeds=11 fruits=1
+PASS [6.full_no_collect] with 40 seeds standing on a fruit does not collect it; seeds stay 40, fruit stays :: seeds=40 fruits=1
+PASS [6.collect_at_39] at 39 seeds the fruit is collected -> 40, never beyond :: seeds=40 fruits=0
+PASS [6.total_cap] GroundPickups refuses spawns beyond the 24 total cap :: accepted=24
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+DBG7 cats=(242, 60) player=(970.0, 242.0) refilling=true water=11.6666666666667 nd=1.0
+PASS [7.esc_pauses] injected Esc pauses the tree and shows the pause panel :: paused=true panel=true shots_in_flight=2
+DBG7b paused=true el=8.48333333333333
+DBG7c paused=true el=8.48333333333333
+DBG7d paused=true el=8.48333333333333
+DBG7e paused=true el=8.48333333333333
+PASS [7.frozen] after 6 ms wall time and 185 ticks paused: elapsed, seeds, water, source timer, fruit ages, shot positions all unchanged; clicks/fire do nothing :: before={ "elapsed": 8.48333333333333, "seeds": 4, "water": 2.5, "timer": 0.48333333333331, "ages": "[0.48333333333333]", "n_pick": 1, "shots": "[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]", "landing": 0 } after={ "elapsed": 8.48333333333333, "seeds": 4, "water": 2.5, "timer": 0.48333333333331, "ages": "[0.48333333333333]", "n_pick": 1, "shots": "[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]", "landing": 0 } fire=false
+PASS [7.resume_no_bank] after Esc resume 30 ticks advance game time by ~0.5 s (not by the ~6 ms paused) :: advanced=0.4833 s unpaused=true
+PASS [7.shots_continue] in-flight shots continue after resume :: shots now=2 (was 2)
+PASS [7.refill_paused_only] the refill did not run during pause (water unchanged 10) yet runs after resume :: water now=14.5833333333333 (before pause 2.5)
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [8.seed_water_text] HUD shows seeds 7/40 and water 63 (gauge value floor) after the values change :: seed='  種 7/40' water='水分 63' green='緑化 0％'
+PASS [8.follow] HUD follows: seeds at cap 40/40, water 0, gauge marked low :: seed='  種 40/40' water='水分 0' low=true
+PASS [8.green_floor] HUD greening shows the floor: one tile below the threshold shows pct-1 (e.g. 36.99998 -> 36), at the threshold shows pct :: 37%: g=90594 below='緑化 36％' at='緑化 37％' | 63%: g=154253 below='緑化 62％' at='緑化 63％' | 99%: g=242398 below='緑化 98％' at='緑化 99％'
+PASS [8.green_99_100] one tile short of all targets shows 99％, all targets shows 100％ :: short='緑化 99％' full='緑化 100％' g=244846 T=244846
+PASS [8.green_counter] greened_count equals independent recount at the end :: g=244846 recount=244846
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [9.roundtrip] to_dict -> JSON -> load_dict -> to_dict is identical (seeds, water, counter, elapsed, fruits, source timers) :: ok=true fruits=3 seeds=13 water=42.5
+PASS [9.reject_clamp] mismatched sources / wrong version are rejected without changing state; out-of-range seeds/water are clamped (40 / 0) :: rej=true rej2=true clamped seeds=40 water=0.0
+PASS [9.world_roundtrip] world with scattered seeds survives to_dict/JSON/from_dict (stages equal, counters equal) :: ok=true
+V_RESULT total=61 fails=0

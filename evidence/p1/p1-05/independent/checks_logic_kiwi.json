@@ -1,0 +1,131 @@
+{
+  "observations": {
+    "kiwi_timeline": {
+      "appear": [
+        60.0,
+        80.0,
+        109.75,
+        129.75,
+        159.5
+      ],
+      "mature_at": 40.0,
+      "max_on_ground": 2,
+      "vanish": [
+        89.75,
+        109.75,
+        139.5,
+        159.5
+      ]
+    }
+  },
+  "results": [
+    {
+      "condition": "the kiwi becomes mature at 40 s of game time",
+      "id": "kiwi.mature_time",
+      "observed": "mature_at=40.000",
+      "status": "PASS"
+    },
+    {
+      "condition": "first fruit 20 s after maturity (t=60); second at t=80",
+      "id": "kiwi.first_fruit",
+      "observed": "appear=[60.0, 80.0, 109.75, 129.75, 159.5]",
+      "status": "PASS"
+    },
+    {
+      "condition": "never more than 2 fruits of one kiwi on the ground",
+      "id": "kiwi.cap_per_plant",
+      "observed": "max=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "each fruit disappears 30 s after it appeared (uncollected)",
+      "id": "kiwi.lifetime",
+      "observed": "vanish=[89.75, 109.75, 139.5, 159.5]",
+      "status": "PASS"
+    },
+    {
+      "condition": "consecutive drops of one kiwi are at least 20 s apart over 160 s",
+      "id": "kiwi.interval",
+      "observed": "appear=[60.0, 80.0, 109.75, 129.75, 159.5]",
+      "status": "PASS"
+    },
+    {
+      "condition": "fruits drop 6..12 px from the footprint centre",
+      "id": "kiwi.drop_near_plant",
+      "observed": "ok=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "no fruit before the kiwi is mature",
+      "id": "kiwi.none_before_mature",
+      "observed": "first=60.00",
+      "status": "PASS"
+    },
+    {
+      "condition": "9 kiwis (18 fruits possible) never put more than the region-wide cap (16) of healing fruits on the ground, and the cap is reached",
+      "id": "kiwi.total_cap",
+      "observed": "kiwis=9 max_heal=16",
+      "status": "PASS"
+    },
+    {
+      "condition": "in the crowd no kiwi exceeds its own cap of 2",
+      "id": "kiwi.cap_each_in_crowd",
+      "observed": "ok=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "the seed source behaves exactly as in an identical world without kiwis (fruit count and drops equal at every step of 200 s, 117+ of them with 16 healing fruits on the ground)",
+      "id": "kiwi.source_slots_kept",
+      "observed": "steps_at_cap=117 steps where the seed source differs from an identical world without kiwis=0 (now: heal=9 source=3)",
+      "status": "PASS"
+    },
+    {
+      "condition": "seed fruit items stay within pickup_total_cap while healing fruits are separate",
+      "id": "kiwi.seed_cap_independent",
+      "observed": "ok=true total_cap=24",
+      "status": "PASS"
+    },
+    {
+      "condition": "with healing fruits at the cap, mature tiles near the player still drop their own seed fruits (plant slot not taken)",
+      "id": "kiwi.plant_fruit_slots_kept",
+      "observed": "plant_fruit_peak=20 heal=9",
+      "status": "PASS"
+    },
+    {
+      "condition": "from 0 seeds, standing at the seed source yields a seed within 20 s although 16 healing fruits are on the ground (HP full)",
+      "id": "kiwi.recover_from_zero",
+      "observed": "seeds=1 heal at start=16",
+      "status": "PASS"
+    },
+    {
+      "condition": "81 s: two fruits lie around the kiwi",
+      "id": "kiwi.two_fruits_ready",
+      "observed": "items=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "picking a fruit at HP 5 gives HP 7 and consumes the fruit",
+      "id": "kiwi.heal_plus_two",
+      "observed": "hp=7 fruits=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "at HP 9 a fruit (+2) brings HP to the maximum 10 only, and is consumed",
+      "id": "kiwi.heal_clamped",
+      "observed": "hp=10 fruits=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "at full HP standing on a fruit does not collect it",
+      "id": "kiwi.full_hp_keeps_fruit",
+      "observed": "hp=10 fruits=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "after taking damage the waiting fruit is picked up (+2)",
+      "id": "kiwi.fruit_kept_then_used",
+      "observed": "hp=9",
+      "status": "PASS"
+    }
+  ]
+}

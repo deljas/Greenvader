@@ -1,0 +1,64 @@
+{
+  "observations": {
+    "plant_on_nonmature_ground_load": {
+      "accepted": false,
+      "stage_at_target": 0
+    }
+  },
+  "results": [
+    {
+      "condition": "after save -> JSON -> load the play state (hp, plants, selection, pickups) equals the saved one",
+      "id": "save.restore_equal",
+      "observed": "hp a=6 b=6 sel a=2 b=2 plants a=3 b=3",
+      "status": "PASS"
+    },
+    {
+      "condition": "HP 6 and the kiwi selection come back",
+      "id": "save.hp_selected",
+      "observed": "hp=6 sel=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "the carrot's per-tile boost is rebuilt on load and handed to the spread simulation",
+      "id": "save.boost_rebuilt",
+      "observed": "a=3600 b=3600",
+      "status": "PASS"
+    },
+    {
+      "condition": "restored world counters and occupancy are consistent",
+      "id": "save.world_consistent",
+      "observed": "occ a=12 b=12",
+      "status": "PASS"
+    },
+    {
+      "condition": "advancing the original and the restored copy by the same time (6 chunks, ~290 s) keeps world and play state identical",
+      "id": "save.same_after_advance",
+      "observed": "diverged:",
+      "status": "PASS"
+    },
+    {
+      "condition": "invalid cultivation / pickup data is refused (load returns false) and the state is left unchanged",
+      "id": "save.reject_invalid",
+      "observed": "bad=[] detail={ \"cult_version\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"dup_uid\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"unknown_key\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"wrong_size\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"uid_zero\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"out_of_bounds\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"entry_not_dict\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"overlap\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"heal_over_cap\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"pickup_version\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true } }",
+      "status": "PASS"
+    },
+    {
+      "condition": "an out-of-range HP is clamped to 10 and an unknown selection falls back to the first kind",
+      "id": "save.clamps",
+      "observed": "ok=true hp=10 sel=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "a negative HP is clamped to 0",
+      "id": "save.clamps_low",
+      "observed": "ok=true hp=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "loading a plant whose 2x2 is not mature ground in the restored world (inconsistent save) is refused",
+      "id": "save.plant_on_empty_ground",
+      "observed": "accepted=false stage there=0",
+      "status": "PASS"
+    }
+  ]
+}

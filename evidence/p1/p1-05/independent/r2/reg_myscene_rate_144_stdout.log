@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [rate.kiwi_144] at 144 Hz the kiwi matures at 40 s and drops the first fruit at 60 s of game time :: mature_at=40.0000 first_fruit_at=60.0000 drops=1 elapsed=61.493
+V_RESULT total=1 fails=0

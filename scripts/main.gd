@@ -15,6 +15,7 @@ var play_tuning: PlayTuning
 var play: PlayState
 var play_driver: PlayDriver
 var pickup_view: PickupView
+var cultivated_view: CultivatedView
 var hud: PlayHud
 var grid: WorldState
 var region_view: RegionView
@@ -65,7 +66,11 @@ func _ready() -> void:
 	var source_positions: Array[Vector2] = []
 	for tile: Vector2i in region_def.seed_source_tiles:
 		source_positions.append((Vector2(tile) + Vector2(0.5, 0.5)) * region_def.tile_px)
-	play = PlayState.new(grid, play_tuning, tuning, region_def.tile_px, source_positions)
+	var plant_defs: Array[PlantDef] = []
+	plant_defs.assign(region_def.plants)
+	play = PlayState.new(grid, play_tuning, tuning, region_def.tile_px, source_positions, plant_defs)
+	# Mature carrots speed up natural spread: the cultivation hands its per-tile multiplier to the spread simulation.
+	play.cultivation.boost_sink = simulation.spread.set_speed_scale
 	pickup_view = PickupView.new()
 	pickup_view.name = "Pickups"
 	pickup_view.setup(play)
@@ -80,6 +85,10 @@ func _ready() -> void:
 	player.world_bounds = Rect2(Vector2(32, 32), region_px - Vector2(64, 64))
 	player.simulation_position = Vector2(region_def.start_tile * region_def.tile_px) + Vector2(2, 2)
 	actors.add_child(player)
+	cultivated_view = CultivatedView.new()
+	cultivated_view.name = "CultivatedView"
+	cultivated_view.setup(play.cultivation, actors, region_def.tile_px)
+	world.add_child(cultivated_view)
 	play_driver = PlayDriver.new()
 	play_driver.name = "PlayDriver"
 	play_driver.setup(play, player)
@@ -113,6 +122,8 @@ func _ready() -> void:
 	projectile_view.name = "Projectiles"
 	projectile_view.setup(play_tuning)
 	projectile_view.landed.connect(_on_projectile_landed)
+	projectile_view.expired.connect(_on_projectile_ended)
+	projectile_view.enemy_hit.connect(func(kind: String, _point: Vector2, _info: Dictionary) -> void: _on_projectile_ended(kind, Vector2.ZERO))
 	world.add_child(projectile_view)
 	preview_projectiles = projectile_view.shots
 	var weather_canvas: CanvasLayer = CanvasLayer.new()
@@ -148,6 +159,10 @@ func configure_input() -> void:
 	bind_key("interact", KEY_E)
 	bind_mouse("seed_preview", MOUSE_BUTTON_LEFT)
 	bind_mouse("water_preview", MOUSE_BUTTON_RIGHT)
+	# Plant selection (P1-05): wheel down / Tab = next kind, wheel up = previous kind.
+	add_binding_key("plant_next", KEY_TAB)
+	add_binding_mouse("plant_next", MOUSE_BUTTON_WHEEL_DOWN)
+	add_binding_mouse("plant_prev", MOUSE_BUTTON_WHEEL_UP)
 
 func bind_key(action: StringName, code: Key) -> void:
 	if not InputMap.has_action(action):
@@ -155,6 +170,21 @@ func bind_key(action: StringName, code: Key) -> void:
 		var event: InputEventKey = InputEventKey.new()
 		event.physical_keycode = code
 		InputMap.action_add_event(action, event)
+
+## Adds another event to an action (creating the action when needed); unlike bind_key it never skips an existing action.
+func add_binding_key(action: StringName, code: Key) -> void:
+	if not InputMap.has_action(action):
+		InputMap.add_action(action)
+	var event: InputEventKey = InputEventKey.new()
+	event.physical_keycode = code
+	InputMap.action_add_event(action, event)
+
+func add_binding_mouse(action: StringName, code: MouseButton) -> void:
+	if not InputMap.has_action(action):
+		InputMap.add_action(action)
+	var event: InputEventMouseButton = InputEventMouseButton.new()
+	event.button_index = code
+	InputMap.action_add_event(action, event)
 
 func bind_mouse(action: StringName, code: MouseButton) -> void:
 	if not InputMap.has_action(action):
@@ -225,6 +255,7 @@ func build_ui() -> void:
 		button.text = {"sunny": "晴れ [1]", "rain": "雨 [2]", "night": "夜 [3]"}[mode]
 		button.pressed.connect(set_condition.bind(mode))
 		row.add_child(button)
+		button.focus_mode = Control.FOCUS_NONE
 		weather_buttons.append(button)
 	var footer: PanelContainer = PanelContainer.new()
 	footer.position = Vector2(8, 333)
@@ -249,6 +280,7 @@ func build_ui() -> void:
 	column.add_child(pause_label)
 	var resume: Button = Button.new()
 	resume.text = "再開"
+	resume.focus_mode = Control.FOCUS_NONE
 	resume.pressed.connect(toggle_pause)
 	column.add_child(resume)
 
@@ -261,7 +293,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	for mode: String in ["sunny", "rain", "night"]:
 		if event.is_action_pressed(mode):
 			set_condition(mode)
-	if event.is_action_pressed("seed_preview"):
+	if event.is_action_pressed("plant_next"):
+		play.cycle_selection(1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("plant_prev"):
+		play.cycle_selection(-1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("seed_preview"):
 		fire(false)
 	elif event.is_action_pressed("water_preview"):
 		fire(true)
@@ -292,17 +330,24 @@ func spawn_preview(water_shot: bool) -> void:
 func fire(water_shot: bool, aim_override: Vector2 = Vector2.INF) -> bool:
 	if get_tree().paused or projectile_view.is_full():
 		return false
+	var plant: PlantDef = null if water_shot else play.selected_def()
+	var cultivated: bool = plant != null and plant.is_cultivated()
 	if water_shot and not play.can_fire_water():
 		return false
-	if not water_shot and not play.can_fire_seed():
+	if cultivated and not play.can_fire_plant(plant):
 		return false
-	var kind: String = ProjectileField.KIND_WATER if water_shot else ProjectileField.KIND_SEED
+	if not water_shot and not cultivated and not play.can_fire_seed():
+		return false
+	var kind: String = ProjectileField.KIND_WATER if water_shot else (String(plant.key) if cultivated else ProjectileField.KIND_SEED)
 	var aim_point: Vector2 = player.get_global_mouse_position() if aim_override == Vector2.INF else aim_override
 	var target: Vector2 = projectile_view.launch(kind, player.simulation_position, aim_point, player.aim_direction)
 	if target == Vector2.INF:
 		return false
 	if water_shot:
 		play.spend_water()
+	elif cultivated:
+		# The cost is held back now and spent only when the plant is really placed (given back when it does not fit).
+		play.reserve_plant(plant)
 	else:
 		play.spend_seed()
 	return true
@@ -310,8 +355,15 @@ func fire(water_shot: bool, aim_override: Vector2 = Vector2.INF) -> bool:
 func _on_projectile_landed(kind: String, point: Vector2) -> void:
 	if kind == ProjectileField.KIND_WATER:
 		play.land_water(point)
-	else:
+	elif kind == ProjectileField.KIND_SEED:
 		play.land_seed(point)
+	else:
+		play.land_plant(StringName(kind), point)
+
+## A cultivated shot that ended without landing (expired / hit): its held-back cost is released.
+func _on_projectile_ended(kind: String, _point: Vector2) -> void:
+	if kind != ProjectileField.KIND_WATER and kind != ProjectileField.KIND_SEED:
+		play.cancel_plant(StringName(kind))
 
 func _process(_delta: float) -> void:
 	frames += 1

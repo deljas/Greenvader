@@ -325,10 +325,15 @@ func owner_at(index: int) -> int:
 
 # ---- Save structure (the save feature itself is P5) --------------------------------------
 
+## An empty array is stored as {"n": 0, "z": ""}: compressing / encoding zero bytes makes the engine report errors.
 static func _pack_bytes(data: PackedByteArray) -> Dictionary:
+	if data.is_empty():
+		return {"n": 0, "z": ""}
 	return {"n": data.size(), "z": Marshalls.raw_to_base64(data.compress(FileAccess.COMPRESSION_ZSTD))}
 
 static func _unpack_bytes(entry: Dictionary) -> PackedByteArray:
+	if int(entry["n"]) <= 0:
+		return PackedByteArray()
 	return Marshalls.base64_to_raw(String(entry["z"])).decompress(int(entry["n"]), FileAccess.COMPRESSION_ZSTD)
 
 func to_dict() -> Dictionary:

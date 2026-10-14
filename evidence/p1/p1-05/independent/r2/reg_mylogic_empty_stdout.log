@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section empty
+EMPTY spread={"counted":{"n":900,"z":"KLUv/WCEAk0AABAAAAEAfyuABQ=="},"pending":{"n":0,"z":""},"progress":{"n":0,"z":""},"queue":{"n":0,"z":""},"ticks":0,"total_planted":0,"version":1,"visits":{"n":0,"z":""}} growth={"active":{"n":0,"z":""},"cursor":0,"lag":{"n":0,"z":""},"ticks":0,"version":1}
+PASS [empty.roundtrip] a world with nothing growing and no candidates saves (empty arrays) and loads back without error :: world=true spread=true growth=true play=true
+PASS [empty.zero_entries] empty arrays are stored as zero-length entries, not as encoded garbage :: queue n=0 active n=0
+PASS [empty.restored_empty] the restored empty state is empty and keeps running :: queue=0 active=0
+PASS [empty.pack_unpack] _pack_bytes / _unpack_bytes of an empty array round-trips to an empty array :: { "n": 0, "z": "" }
+--- section empty done in 8 ms
+V_RESULT total=4 fails=0
+WARNING: 49 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 20 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

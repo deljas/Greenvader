@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section save
+PASS [save.restore_equal] after save -> JSON -> load the play state (hp, plants, selection, pickups) equals the saved one :: hp a=6 b=6 sel a=2 b=2 plants a=3 b=3
+PASS [save.hp_selected] HP 6 and the kiwi selection come back :: hp=6 sel=2
+PASS [save.boost_rebuilt] the carrot's per-tile boost is rebuilt on load and handed to the spread simulation :: a=3600 b=3600
+PASS [save.world_consistent] restored world counters and occupancy are consistent :: occ a=12 b=12
+PASS [save.same_after_advance] advancing the original and the restored copy by the same time (6 chunks, ~290 s) keeps world and play state identical :: diverged:
+PASS [save.reject_invalid] invalid cultivation / pickup data is refused (load returns false) and the state is left unchanged :: bad=[] detail={ "cult_version": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "dup_uid": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "unknown_key": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "wrong_size": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "uid_zero": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "out_of_bounds": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "entry_not_dict": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "overlap": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "heal_over_cap": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true }, "pickup_version": { "accepted": false, "unchanged": true, "plants_same": true, "occ_same": true } }
+PASS [save.clamps] an out-of-range HP is clamped to 10 and an unknown selection falls back to the first kind :: ok=true hp=10 sel=0
+PASS [save.clamps_low] a negative HP is clamped to 0 :: ok=true hp=0
+PASS [save.plant_on_empty_ground] loading a plant whose 2x2 is not mature ground in the restored world (inconsistent save) is refused :: accepted=false stage there=0
+--- section save done in 225 ms
+V_RESULT total=9 fails=0
+WARNING: 261 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 20 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section place
+PASS [place.positive] a carrot lands on a fully mature, free 2x2 and is planted there (origin (19,19) for a landing exactly on its centre) :: tile=(19, 19)
+PASS [place.occupancy] exactly the 4 footprint tiles are occupied and stay mature; nothing else is occupied :: occupied=4
+PASS [place.counters_unchanged] planting does not change greened / mature / target counts, which match a recount :: greened 100->100 mature 100->100
+PASS [place.nearest_first] with all four 2x2 blocks valid, the block whose centre is nearest to the landing point is chosen (60 random points) :: checked=60 bad=0 
+PASS [place.tie_deterministic] a landing on a tile centre (four equally near blocks) picks the same block on every fresh run :: results=["(19, 19)", "(19, 19)", "(19, 19)", "(19, 19)"]
+PASS [place.any_bad_tile_refuses] an isolated mature 2x2 with ANY one tile empty / seed / sprout1 / sprout2 / water / building / occupied refuses planting (no plant, no seeds spent, nothing reserved, occupancy unchanged) :: attempts=140 wrongly=0 
+PASS [place.isolated_control] the isolated mature 2x2 with no defect does take a plant (the refusals above are caused by the defect) :: tile=(8, 8)
+PASS [place.fallback_blocks] when some of the 4 blocks around the landing tile contain a defect, a valid one is planted; none when all 4 do :: cases=27 bad=0 
+PASS [place.fallback_deterministic] the fallback choice is identical on repeated identical runs :: results=["(20, 19)", "(20, 19)", "(20, 19)", "(20, 19)"]
+PASS [place.world_edge] a landing at the world corner plants on the in-bounds block only (origin (0,0)) :: tile=(0, 0)
+PASS [place.outside_map] a landing outside the map plants nothing and does not crash :: result=<null>
+--- section place done in 267 ms
+V_RESULT total=11 fails=0

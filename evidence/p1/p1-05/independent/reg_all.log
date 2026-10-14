@@ -1,0 +1,61 @@
+=== r_impl_p1_05
+exit=0
+P1_05_RESULT checks=164 failures=0
+=== r_impl_p1_01
+exit=0
+P1_01_RESULT checks=92 failures=0
+=== r_impl_p1_02
+exit=0
+P1_02_RESULT checks=130 failures=0
+=== r_impl_p1_03
+exit=0
+P1_03_RESULT checks=106 failures=0
+=== r_impl_p1_04
+exit=0
+P1_04_RESULT checks=85 failures=0
+=== r_p0_checks
+exit=0
+P0_SELF_RESULT failures=0
+=== r_p0_art
+exit=0
+INDEPENDENT_SUMMARY checks=35 failures=0 native_ui=NOT_RUN raster_art=NOT_RUN
+=== r_p1_01_v
+exit=0
+V_RESULT total=40 fails=0
+=== r_p1_02_v
+exit=0
+V_RESULT total=61 fails=0
+=== r_p1_03_logic
+exit=0
+V_RESULT total=57 fails=0
+=== scene3_chain
+exit=0
+V_RESULT total=11 fails=0
+=== scene3_pause
+exit=0
+V_RESULT total=4 fails=0
+=== scene3_night
+exit=0
+V_RESULT total=1 fails=0
+=== scene3_rate
+exit=0
+V_RESULT total=1 fails=0
+=== r_p1_04_logic
+exit=0
+V_RESULT total=39 fails=0
+=== scene4_pause
+exit=0
+V_RESULT total=3 fails=0
+=== scene4_water
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_30
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_60
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_144
+exit=0
+V_RESULT total=1 fails=0
+ALLDONE

@@ -1,0 +1,11 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "100.5 s at 30 / 60 / 144 Hz gives the same world, plants, drop counts, fruit positions, ticks",
+      "id": "rate.equal",
+      "observed": "{ 30: \"1688734648/4191312657/3963704494/2125971094|spread 608/0 clock 201/100|1:carrot:true:0|2:kiwi:true:2|[\\\"172.343,83.053,41\\\"]|hp 10 seeds 14\", 60: \"1688734648/4191312657/3963704494/2125971094|spread 608/0 clock 201/100|1:carrot:true:0|2:kiwi:true:2|[\\\"172.343,83.053,41\\\"]|hp 10 seeds 14\", 144: \"1688734648/4191312657/3963704494/2125971094|spread 608/0 clock 201/100|1:carrot:true:0|2:kiwi:true:2|[\\\"172.343,83.053,41\\\"]|hp 10 seeds 14\" }",
+      "status": "PASS"
+    }
+  ]
+}

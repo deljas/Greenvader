@@ -1,0 +1,101 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "data: the carrot and kiwi cost an ordinary-seed amount > 0 (tuning value), footprint 2",
+      "id": "cost.defs",
+      "observed": "carrot cost=3 kiwi cost=3",
+      "status": "PASS"
+    },
+    {
+      "condition": "with 20 seeds the carrot may be fired",
+      "id": "cost.can_fire_start",
+      "observed": "available=20",
+      "status": "PASS"
+    },
+    {
+      "condition": "after firing, the cost is held back (available -cost) but seeds are not yet spent",
+      "id": "cost.held_back_in_flight",
+      "observed": "seeds=20 available=17 reserved=3",
+      "status": "PASS"
+    },
+    {
+      "condition": "the cost is spent exactly once when the plant is placed, nothing stays reserved",
+      "id": "cost.spent_on_success",
+      "observed": "seeds=17 reserved=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "a landing on bad ground spends nothing and releases the held-back cost",
+      "id": "cost.returned_on_failure",
+      "observed": "seeds=17 available=17",
+      "status": "PASS"
+    },
+    {
+      "condition": "a shot that vanishes in the air gives the held-back cost back",
+      "id": "cost.returned_on_cancel",
+      "observed": "seeds=17 available=17",
+      "status": "PASS"
+    },
+    {
+      "condition": "cancelling with nothing in flight does not refund extra or go negative",
+      "id": "cost.cancel_idempotent",
+      "observed": "reserved=0 available=17",
+      "status": "PASS"
+    },
+    {
+      "condition": "with fewer seeds than the cost the plant cannot be fired",
+      "id": "cost.not_enough_cannot_fire",
+      "observed": "seeds=2 cost=3",
+      "status": "PASS"
+    },
+    {
+      "condition": "two shots in flight need two costs: with 2*cost-1 seeds the second cannot be fired",
+      "id": "cost.second_shot_needs_seeds",
+      "observed": "available=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "with max_count=2: fire 1 ok, fire 2 ok, fire 3 refused while 2 are in flight (nothing planted yet)",
+      "id": "cost.limit_counts_inflight",
+      "observed": "flags=[true, true, false]",
+      "status": "PASS"
+    },
+    {
+      "condition": "the carrot limit does not block the kiwi",
+      "id": "cost.limit_per_kind",
+      "observed": "kiwi ok=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "after both land, count 2 reaches the limit: still refused; planted count never exceeds 2",
+      "id": "cost.limit_after_landing",
+      "observed": "count=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "even if a third shot was fired, landing cannot exceed the kind limit, and it costs nothing",
+      "id": "cost.limit_hard",
+      "observed": "count=2 seeds=34",
+      "status": "PASS"
+    },
+    {
+      "condition": "can_fire_seed (ordinary seeds) respects held-back seeds too: 5 seeds, kiwi in flight costs 3 -> 2 available",
+      "id": "cost.plain_seed_uses_available",
+      "observed": "available=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "forward: 1,2,0,1; backward from 1: 0,2,1,0 (3 kinds, wrapping)",
+      "id": "cost.select_cycle",
+      "observed": "seq=[1, 2, 0, 1, 0, 2, 1, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "the three kinds are normal (footprint 1), carrot, kiwi (footprint 2) in that order",
+      "id": "cost.select_defs",
+      "observed": "keys=[\"normal\", \"carrot\", \"kiwi\"]",
+      "status": "PASS"
+    }
+  ]
+}

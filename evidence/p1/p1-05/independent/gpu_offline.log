@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [gpu_offline.sprite_mature_carrot] the mature carrot in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline) :: top_left=(276, 148) { "bad": 0, "first": "", "art_px": 24, "ring_bad": 0, "ring_first": "" }
+PASS [gpu_offline.sprite_mature_kiwi] the mature kiwi in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline) :: top_left=(304, 148) { "bad": 0, "first": "", "art_px": 44, "ring_bad": 0, "ring_first": "" }
+PASS [gpu_offline.sprite_young_carrot] the young carrot in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline) :: top_left=(332, 148) { "bad": 0, "first": "", "art_px": 8, "ring_bad": 0, "ring_first": "" }
+PASS [gpu_offline.sprite_young_kiwi] the young kiwi in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline) :: top_left=(360, 148) { "bad": 0, "first": "", "art_px": 12, "ring_bad": 0, "ring_first": "" }
+V_RESULT total=4 fails=0

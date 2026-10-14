@@ -1,0 +1,131 @@
+{
+  "hud": "  種 28/40 | HP 6/10 | 植物 通常 [にんじん:3] キウイ | 緑化 0％",
+  "results": [
+    {
+      "condition": "carrot and kiwi placed on the mature field",
+      "id": "gpu.placed_mature_pair",
+      "observed": "carrot=(168, 207) kiwi=(175, 207)",
+      "status": "PASS"
+    },
+    {
+      "condition": "both matured after ~0.2 s",
+      "id": "gpu.mature_pair_mature",
+      "observed": "carrot=true kiwi=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "a young carrot and kiwi placed",
+      "id": "gpu.placed_young_pair",
+      "observed": "carrot=(182, 207) kiwi=(189, 207)",
+      "status": "PASS"
+    },
+    {
+      "condition": "PrintWindow capture is 1280x720 (k=2), internal frame 640x360",
+      "id": "gpu.size",
+      "observed": "native=(1280, 720) vp=(640, 360)",
+      "status": "PASS"
+    },
+    {
+      "condition": "every 2x2 block of the window image is one colour (uniform k=2, no smoothing)",
+      "id": "gpu.k2_uniform",
+      "observed": "non-uniform pixels=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "each block equals the internal frame pixel",
+      "id": "gpu.native_equals_internal",
+      "observed": "mismatching=0 of 230400",
+      "status": "PASS"
+    },
+    {
+      "condition": "the mature carrot is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+      "id": "gpu.sprite_mature_carrot",
+      "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 24, \"ring_bad\": 0, \"ring_first\": \"\" }",
+      "status": "PASS"
+    },
+    {
+      "condition": "the mature kiwi is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+      "id": "gpu.sprite_mature_kiwi",
+      "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 44, \"ring_bad\": 0, \"ring_first\": \"\" }",
+      "status": "PASS"
+    },
+    {
+      "condition": "the young carrot is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+      "id": "gpu.sprite_young_carrot",
+      "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 8, \"ring_bad\": 0, \"ring_first\": \"\" }",
+      "status": "FAIL"
+    },
+    {
+      "condition": "the young kiwi is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+      "id": "gpu.sprite_young_kiwi",
+      "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 12, \"ring_bad\": 0, \"ring_first\": \"\" }",
+      "status": "PASS"
+    },
+    {
+      "condition": "both healing fruits are drawn pixel-exact from the 4x4 fruit art",
+      "id": "gpu.heal_fruits",
+      "observed": "fruits=2 bad=0 ",
+      "status": "PASS"
+    },
+    {
+      "condition": "HUD labels show HP 6/10 and the carrot selected",
+      "id": "gpu.hud_text",
+      "observed": "  種 28/40 | HP 6/10 | 植物 通常 [にんじん:3] キウイ | 緑化 0％",
+      "status": "PASS"
+    },
+    {
+      "condition": "the HUD row ends inside the 640 px frame",
+      "id": "gpu.hud_fits",
+      "observed": "hud x=8.0..632.0 size=(624.0, 19.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "no very dark (outline-like) pixel in the plant crop",
+      "id": "gpu.no_dark_pixels",
+      "observed": "dark pixels=0",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "mature carrot": {
+      "result": {
+        "art_px": 24,
+        "bad": 0,
+        "first": "",
+        "ring_bad": 0,
+        "ring_first": ""
+      },
+      "top_left": "(276, 148)"
+    },
+    "mature kiwi": {
+      "result": {
+        "art_px": 44,
+        "bad": 0,
+        "first": "",
+        "ring_bad": 0,
+        "ring_first": ""
+      },
+      "top_left": "(304, 148)"
+    },
+    "young carrot": {
+      "result": {
+        "art_px": 8,
+        "bad": 0,
+        "first": "",
+        "ring_bad": 0,
+        "ring_first": ""
+      },
+      "top_left": "(332, 148)"
+    },
+    "young kiwi": {
+      "result": {
+        "art_px": 12,
+        "bad": 0,
+        "first": "",
+        "ring_bad": 0,
+        "ring_first": ""
+      },
+      "top_left": "(360, 148)"
+    }
+  }
+}

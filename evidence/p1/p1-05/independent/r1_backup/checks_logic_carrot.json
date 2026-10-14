@@ -1,0 +1,84 @@
+{
+  "observations": {
+    "carrot_mature": {
+      "carrot_tick": 4,
+      "control_tick": 7,
+      "extra": 0,
+      "first": "",
+      "lift_ticks": 40,
+      "m1": 146,
+      "m2": 60,
+      "mismatch": 0,
+      "observed": 206,
+      "predicted": 206
+    },
+    "carrot_overlap": {
+      "carrot_tick": 4,
+      "control_tick": 7,
+      "extra": 0,
+      "first": "",
+      "lift_ticks": 40,
+      "m1": 94,
+      "m2": 112,
+      "mismatch": 0,
+      "observed": 206,
+      "predicted": 206
+    },
+    "carrot_young": {
+      "carrot_tick": 7,
+      "control_tick": 7,
+      "extra": 0,
+      "first": "",
+      "lift_ticks": 8,
+      "m1": 206,
+      "m2": 0,
+      "mismatch": 0,
+      "observed": 206,
+      "predicted": 206
+    }
+  },
+  "results": [
+    {
+      "condition": "every spread candidate is seeded at exactly the tick I derive: ceil(100000 / (rate * m)) after the lift, m=2 only within 12 tiles (footprint centre to tile centre) of the mature carrot, m=1 elsewhere (including the far control block)",
+      "id": "carrot.mature",
+      "observed": "{ \"predicted\": 206, \"observed\": 206, \"mismatch\": 0, \"extra\": 0, \"first\": \"\", \"m2\": 60, \"m1\": 146, \"lift_ticks\": 40, \"control_tick\": 7, \"carrot_tick\": 4 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "with the carrot still young (8 s old) every candidate, even next to it, follows the unboosted ticks (m=1 everywhere)",
+      "id": "carrot.young",
+      "observed": "{ \"predicted\": 206, \"observed\": 206, \"mismatch\": 0, \"extra\": 0, \"first\": \"\", \"m2\": 0, \"m1\": 206, \"lift_ticks\": 8, \"control_tick\": 7, \"carrot_tick\": 7 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "two mature carrots with overlapping radii: tiles covered by both use m=2 (the larger), not 4",
+      "id": "carrot.overlap",
+      "observed": "{ \"predicted\": 206, \"observed\": 206, \"mismatch\": 0, \"extra\": 0, \"first\": \"\", \"m2\": 112, \"m1\": 94, \"lift_ticks\": 40, \"control_tick\": 7, \"carrot_tick\": 4 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "same geometry, next to a mature carrot a candidate is seeded 7 -> 4 ticks (about 2x faster) than beside the control block",
+      "id": "carrot.speed_ratio",
+      "observed": "control=7 carrot=4",
+      "status": "PASS"
+    },
+    {
+      "condition": "the mature scenario contains both boosted (in range) and unboosted (out of range) candidates",
+      "id": "carrot.coverage",
+      "observed": "m2=60 m1=146",
+      "status": "PASS"
+    },
+    {
+      "condition": "young scenario: the tile beside the carrot needs 7 ticks like the control block",
+      "id": "carrot.young_no_effect_ticks",
+      "observed": "control=7 carrot=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "the carrot is young at 39.75 s (no boost) and mature with the boost installed at 40.0 s (grow_seconds=40)",
+      "id": "carrot.matures_at_40",
+      "observed": "before_ok=true after_ok=true",
+      "status": "PASS"
+    }
+  ]
+}

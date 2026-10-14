@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section carrot
+PASS [carrot.mature] every spread candidate is seeded at exactly the tick I derive: ceil(100000 / (rate * m)) after the lift, m=2 only within 12 tiles (footprint centre to tile centre) of the mature carrot, m=1 elsewhere (including the far control block) :: { "predicted": 206, "observed": 206, "mismatch": 0, "extra": 0, "first": "", "m2": 60, "m1": 146, "lift_ticks": 40, "control_tick": 7, "carrot_tick": 4 }
+PASS [carrot.young] with the carrot still young (8 s old) every candidate, even next to it, follows the unboosted ticks (m=1 everywhere) :: { "predicted": 206, "observed": 206, "mismatch": 0, "extra": 0, "first": "", "m2": 0, "m1": 206, "lift_ticks": 8, "control_tick": 7, "carrot_tick": 7 }
+PASS [carrot.overlap] two mature carrots with overlapping radii: tiles covered by both use m=2 (the larger), not 4 :: { "predicted": 206, "observed": 206, "mismatch": 0, "extra": 0, "first": "", "m2": 112, "m1": 94, "lift_ticks": 40, "control_tick": 7, "carrot_tick": 4 }
+PASS [carrot.speed_ratio] same geometry, next to a mature carrot a candidate is seeded 7 -> 4 ticks (about 2x faster) than beside the control block :: control=7 carrot=4
+PASS [carrot.coverage] the mature scenario contains both boosted (in range) and unboosted (out of range) candidates :: m2=60 m1=146
+PASS [carrot.young_no_effect_ticks] young scenario: the tile beside the carrot needs 7 ticks like the control block :: control=7 carrot=7
+PASS [carrot.matures_at_40] the carrot is young at 39.75 s (no boost) and mature with the boost installed at 40.0 s (grow_seconds=40) :: before_ok=true after_ok=true
+--- section carrot done in 103 ms
+V_RESULT total=7 fails=0

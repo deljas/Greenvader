@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [pause.setup] a kiwi and a carrot stand on a mature block :: kiwi=(211, 213) carrot=(219, 213)
+PASS [pause.running_before] before pausing the plants age :: snap=[[1, "kiwi", 30.4833, false, 0.0, 0], [2, "carrot", 36.4833, false, 0.0, 0]]
+PASS [pause.is_paused] Escape (injected) pauses the tree :: paused=true
+PASS [pause.selection_inactive] Tab / wheel / click / fire() do nothing while paused :: sel 0->0 fired=false
+PASS [pause.frozen_state] during a 1.5 s pause plants (age, timer, fruit timer, drops), the sim clock, spread and world do not change :: before={ "plants": [[1, "kiwi", 30.5, false, 0.0, 0], [2, "carrot", 36.5, false, 0.0, 0]], "clock": [0.55, 1, 0], "elapsed": 0.55 } after={ "plants": [[1, "kiwi", 30.5, false, 0.0, 0], [2, "carrot", 36.5, false, 0.0, 0]], "clock": [0.55, 1, 0], "elapsed": 0.55 }
+PASS [pause.hp_and_fruit_frozen] a healing fruit lying at the player does not heal during the pause (HP stays 5) and its age does not advance :: hp=5 items=[["heal_fruit", 0.0, 2000001]]
+PASS [pause.resume_no_bank] after resuming, 12 physics ticks add about 12 ticks of time to the plants (not the 1.5 s spent paused) :: resumed=true kiwi age +0.1833 carrot age +0.1833 (12 ticks = 0.200 s; paused 1.5 s)
+PASS [pause.hp_after_resume] after resuming, the fruit at the player heals (+2: HP 7) :: hp=7
+PASS [pause.kiwi_matures_on_running_time] the kiwi (age 30 at pause time) matures after exactly the remaining running game time (40 s minus its age), the 1.5 s paused do not count :: ran 9.283 s of game time after resume, 40 - age = 9.283 s
+V_RESULT total=9 fails=0

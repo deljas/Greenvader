@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section hp
+PASS [hp.start] HP starts at the maximum 10 / 10 :: hp=10/10
+PASS [hp.damage_floor] damage lowers HP but never below 0; negative damage does nothing :: hp=0
+PASS [hp.heal_ceiling] healing raises HP, never above 10; negative healing does nothing :: hp=10
+PASS [hp.signal] hp_changed fires on real changes only :: signals=[6, 7]
+PASS [hp.heal_from_zero] from HP 0 a fruit heals to 2 :: hp=2
+--- section hp done in 15 ms
+V_RESULT total=5 fails=0
+WARNING: 52 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 21 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

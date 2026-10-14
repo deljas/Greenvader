@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section kiwi
+PASS [kiwi.mature_time] the kiwi becomes mature at 40 s of game time :: mature_at=40.000
+PASS [kiwi.first_fruit] first fruit 20 s after maturity (t=60); second at t=80 :: appear=[60.0, 80.0, 109.75, 129.75, 159.5]
+PASS [kiwi.cap_per_plant] never more than 2 fruits of one kiwi on the ground :: max=2
+PASS [kiwi.lifetime] each fruit disappears 30 s after it appeared (uncollected) :: vanish=[89.75, 109.75, 139.5, 159.5]
+PASS [kiwi.interval] consecutive drops of one kiwi are at least 20 s apart over 160 s :: appear=[60.0, 80.0, 109.75, 129.75, 159.5]
+PASS [kiwi.drop_near_plant] fruits drop 6..12 px from the footprint centre :: ok=true
+PASS [kiwi.none_before_mature] no fruit before the kiwi is mature :: first=60.00
+PASS [kiwi.total_cap] 9 kiwis (18 fruits possible) never put more than the region-wide cap (16) of healing fruits on the ground, and the cap is reached :: kiwis=9 max_heal=16
+PASS [kiwi.cap_each_in_crowd] in the crowd no kiwi exceeds its own cap of 2 :: ok=true
+PASS [kiwi.source_slots_kept] the seed source behaves exactly as in an identical world without kiwis (fruit count and drops equal at every step of 200 s, 117+ of them with 16 healing fruits on the ground) :: steps_at_cap=117 steps where the seed source differs from an identical world without kiwis=0 (now: heal=9 source=3)
+PASS [kiwi.seed_cap_independent] seed fruit items stay within pickup_total_cap while healing fruits are separate :: ok=true total_cap=24
+PASS [kiwi.plant_fruit_slots_kept] with healing fruits at the cap, mature tiles near the player still drop their own seed fruits (plant slot not taken) :: plant_fruit_peak=20 heal=9
+PASS [kiwi.recover_from_zero] from 0 seeds, standing at the seed source yields a seed within 20 s although 16 healing fruits are on the ground (HP full) :: seeds=1 heal at start=16
+PASS [kiwi.two_fruits_ready] 81 s: two fruits lie around the kiwi :: items=2
+PASS [kiwi.heal_plus_two] picking a fruit at HP 5 gives HP 7 and consumes the fruit :: hp=7 fruits=1
+PASS [kiwi.heal_clamped] at HP 9 a fruit (+2) brings HP to the maximum 10 only, and is consumed :: hp=10 fruits=0
+PASS [kiwi.full_hp_keeps_fruit] at full HP standing on a fruit does not collect it :: hp=10 fruits=1
+PASS [kiwi.fruit_kept_then_used] after taking damage the waiting fruit is picked up (+2) :: hp=9
+--- section kiwi done in 220 ms
+V_RESULT total=18 fails=0

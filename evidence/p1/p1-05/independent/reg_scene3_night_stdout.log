@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [night.not_stopped] growth never stops: at night (injected key 3) a dry seed still gains 1000 per tick (5 s = 10 ticks = 10000), same as in daylight; same in rain (key 2) :: night=true rain=true gains day=10000 night=10000 (ticks 10) rain=10000
+V_RESULT total=1 fails=0

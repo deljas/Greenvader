@@ -1,0 +1,108 @@
+=== r_impl_p1_05
+exit=0
+P1_05_RESULT checks=164 failures=0
+=== r_impl_p1_01
+exit=0
+P1_01_RESULT checks=92 failures=0
+=== r_impl_p1_02
+exit=0
+P1_02_RESULT checks=130 failures=0
+=== r_impl_p1_03
+exit=0
+P1_03_RESULT checks=106 failures=0
+=== r_impl_p1_04
+exit=0
+P1_04_RESULT checks=85 failures=0
+=== r_p0_checks
+exit=0
+P0_SELF_RESULT failures=0
+=== r_p0_art
+exit=0
+INDEPENDENT_SUMMARY checks=35 failures=0 native_ui=NOT_RUN raster_art=NOT_RUN
+=== r_p1_01_v
+exit=0
+V_RESULT total=40 fails=0
+=== r_p1_02_v
+exit=0
+V_RESULT total=61 fails=0
+=== r_p1_03_logic
+exit=0
+V_RESULT total=57 fails=0
+=== scene3_chain
+exit=0
+V_RESULT total=11 fails=0
+=== scene3_pause
+exit=0
+V_RESULT total=4 fails=0
+=== scene3_night
+exit=0
+V_RESULT total=1 fails=0
+=== scene3_rate
+exit=0
+V_RESULT total=1 fails=0
+=== r_p1_04_logic
+exit=0
+V_RESULT total=39 fails=0
+=== scene4_pause
+exit=0
+V_RESULT total=3 fails=0
+=== scene4_water
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_30
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_60
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_144
+exit=0
+V_RESULT total=1 fails=0
+=== mylogic_place
+exit=0
+V_RESULT total=11 fails=0
+=== mylogic_cost
+exit=0
+V_RESULT total=16 fails=0
+=== mylogic_occupy
+exit=0
+V_RESULT total=5 fails=0
+=== mylogic_carrot
+exit=0
+V_RESULT total=7 fails=0
+=== mylogic_kiwi
+exit=0
+V_RESULT total=18 fails=0
+=== mylogic_hp
+exit=0
+V_RESULT total=5 fails=0
+=== mylogic_rate
+exit=0
+V_RESULT total=1 fails=0
+=== mylogic_save
+exit=0
+V_RESULT total=9 fails=0
+=== mylogic_save2
+exit=1
+FAIL [save2.reject_inconsistent] plants on seed / sprout1 / sprout2 / empty scaffold, non-target ground, out of bounds, overlapping another plant, moved onto empty ground, and mature-vs-age contradictions are refused with state unchanged :: bad=["water"] detail={ "stage_seed": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "stage_sprout1": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "stage_sprout2": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "stage_empty": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "water": { "accepted": false, "unchanged": true, "occ_same": false, "plants_same": true }, "oob": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "mature_but_young": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "young_but_old_age": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "age_over": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "overlap_other": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true }, "moved_to_empty": { "accepted": false, "unchanged": true, "occ_same": true, "plants_same": true } }
+V_RESULT total=3 fails=1
+=== mylogic_empty
+exit=0
+V_RESULT total=4 fails=0
+=== myscene_input
+exit=0
+PASS [input.fail_returns_cost] a carrot that lands on non-mature ground plants nothing and the seeds come back (none spent) :: failures=1 seeds=17 reserved=0
+V_RESULT total=21 fails=0
+=== myscene_pause
+exit=0
+V_RESULT total=9 fails=0
+=== myscene_rate_30
+exit=0
+V_RESULT total=1 fails=0
+=== myscene_rate_60
+exit=0
+V_RESULT total=1 fails=0
+=== myscene_rate_144
+exit=0
+V_RESULT total=1 fails=0
+ALLDONE

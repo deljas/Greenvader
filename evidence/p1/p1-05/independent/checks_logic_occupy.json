@@ -1,0 +1,35 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "80 s of manual seed scattering at the plant and natural spread never plant into the footprint nor into another occupied empty tile",
+      "id": "occupy.no_seed_in_footprint_or_occupied",
+      "observed": "scattered=21 hist={ \"stage_changed\": false, \"occupant_changed\": false }",
+      "status": "PASS"
+    },
+    {
+      "condition": "greened_count matches a full recount after every 2 s while seeds / sprouts / spread run beside the plant; the footprint (mature) is counted as greened",
+      "id": "occupy.greened_matches_recount",
+      "observed": "greened 4 -> 94 recount=94",
+      "status": "PASS"
+    },
+    {
+      "condition": "all 4 occupied tiles are target tiles at a greened stage",
+      "id": "occupy.footprint_greened",
+      "observed": "p=(28, 28)",
+      "status": "PASS"
+    },
+    {
+      "condition": "after planting several plants the greening count is exactly what it was before (and equals a recount)",
+      "id": "occupy.count_exact",
+      "observed": "before=64 after=64 plants=3",
+      "status": "PASS"
+    },
+    {
+      "condition": "a second plant aimed at the same spot does not overlap the first (placed beside it or refused)",
+      "id": "occupy.no_overlap",
+      "observed": "q1=(10, 10) q2=null",
+      "status": "PASS"
+    }
+  ]
+}

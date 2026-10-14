@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section occupy
+PASS [occupy.no_seed_in_footprint_or_occupied] 80 s of manual seed scattering at the plant and natural spread never plant into the footprint nor into another occupied empty tile :: scattered=21 hist={ "stage_changed": false, "occupant_changed": false }
+PASS [occupy.greened_matches_recount] greened_count matches a full recount after every 2 s while seeds / sprouts / spread run beside the plant; the footprint (mature) is counted as greened :: greened 4 -> 94 recount=94
+PASS [occupy.footprint_greened] all 4 occupied tiles are target tiles at a greened stage :: p=(28, 28)
+PASS [occupy.count_exact] after planting several plants the greening count is exactly what it was before (and equals a recount) :: before=64 after=64 plants=3
+PASS [occupy.no_overlap] a second plant aimed at the same spot does not overlap the first (placed beside it or refused) :: q1=(10, 10) q2=null
+--- section occupy done in 92 ms
+V_RESULT total=5 fails=0

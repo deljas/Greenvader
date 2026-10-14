@@ -1,0 +1,81 @@
+{
+  "observations": {
+    "rate_hz": 30,
+    "snaps": {
+      "100.5": {
+        "clock": [
+          100.78333333333,
+          201,
+          100
+        ],
+        "clock_dt": 100.5,
+        "greened": 1261,
+        "growth": [
+          201,
+          0,
+          258
+        ],
+        "hash": "3455346470/836694447/766779351/407687329",
+        "mature": 1067,
+        "natural_planted": 942,
+        "spread": [
+          100,
+          34,
+          0
+        ]
+      },
+      "20.0": {
+        "clock": [
+          20.2500000000002,
+          40,
+          20
+        ],
+        "clock_dt": 19.9667,
+        "greened": 579,
+        "growth": [
+          40,
+          0,
+          196
+        ],
+        "hash": "3681087920/2649835984/766779351/924863929",
+        "mature": 383,
+        "natural_planted": 196,
+        "spread": [
+          20,
+          0,
+          0
+        ]
+      },
+      "60.0": {
+        "clock": [
+          60.2833333333325,
+          120,
+          60
+        ],
+        "clock_dt": 60.0,
+        "greened": 807,
+        "growth": [
+          120,
+          0,
+          86
+        ],
+        "hash": "3944172292/241890208/766779351/4028589840",
+        "mature": 773,
+        "natural_planted": 476,
+        "spread": [
+          60,
+          174,
+          0
+        ]
+      }
+    }
+  },
+  "results": [
+    {
+      "condition": "30 Hz physics: after 100.5 s the clock has run 201 growth ticks and 100 spread ticks since the setup (cross-rate equality is checked by the comparer), natural spread planted tiles",
+      "id": "rate.30",
+      "observed": "snap { \"hash\": \"3455346470/836694447/766779351/407687329\", \"greened\": 1261, \"mature\": 1067, \"natural_planted\": 942, \"clock\": [100.78333333333, 201, 100], \"spread\": [100, 34, 0], \"growth\": [201, 0, 258], \"clock_dt\": 100.5 }",
+      "status": "PASS"
+    }
+  ]
+}

@@ -24,6 +24,10 @@ extends RefCounted
 var world: WorldState
 var tuning: SimTuning
 var allow_hook: Callable = Callable()
+## Speed hook (P1-05, carrots): per-tile multiplier of a candidate's progress gain in permille (1000 = normal). Empty =
+## all tiles normal. The owner (Cultivation) keeps it up to date and hands it over with set_speed_scale(); it is derived
+## data and is not saved here. Only the progress of natural spread is scaled, never the threshold or growth.
+var speed_scale: PackedInt32Array = PackedInt32Array()
 var ticks: int = 0
 ## Observability: candidates examined / seeds planted / mature events applied by the latest tick.
 var last_examined: int = 0
@@ -83,6 +87,14 @@ func _build_offsets() -> void:
 				_dx.append(dx)
 				_dy.append(dy)
 				_delta.append(dy * world.width + dx)
+
+## Installs the per-tile speed multiplier (permille) array, one entry per tile; anything else removes it.
+func set_speed_scale(scale: PackedInt32Array) -> void:
+	speed_scale = scale if scale.size() == world.tile_count() else PackedInt32Array()
+
+## Multiplier (permille) in effect for a tile.
+func scale_for(index: int) -> int:
+	return speed_scale[index] if not speed_scale.is_empty() else 1000
 
 # ---- events ---------------------------------------------------------------------------------------------
 
@@ -172,6 +184,8 @@ func tick() -> void:
 	var values: PackedInt32Array = progress
 	var visits: PackedInt32Array = last_visit
 	var flags: PackedByteArray = queued_flag
+	var scales: PackedInt32Array = speed_scale
+	var scaled: bool = not scales.is_empty()
 	queue = PackedInt32Array()
 	progress = PackedInt32Array()
 	last_visit = PackedInt32Array()
@@ -192,7 +206,12 @@ func tick() -> void:
 		if hook_valid and not bool(allow_hook.call(index)):
 			line.append(index)
 			continue
-		var value: int = values[index] + elapsed * (base_rate + extra_rate * (near - 1))
+		var gain: int = elapsed * (base_rate + extra_rate * (near - 1))
+		if scaled:
+			var permille: int = scales[index]
+			if permille != 1000:
+				gain = gain * permille / 1000
+		var value: int = values[index] + gain
 		if value >= threshold:
 			flags[index] = 0
 			values[index] = 0

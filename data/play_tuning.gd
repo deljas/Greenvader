@@ -72,6 +72,17 @@ extends Resource
 ## Random jitter of the drop position inside the tile (px, +-).
 @export var plant_fruit_jitter_px: float = 1.5
 
+@export_group("HP and healing fruits (P1-05)")
+@export var hp_max: int = 10
+@export var hp_start: int = 10
+## Healing fruits on the ground in the whole region. They live in their own budget on top of pickup_total_cap, so they
+## can never take a slot of a seed fruit (seed sources keep their reserved slots, plants keep theirs).
+@export var heal_fruit_total_cap: int = 16
+## Used for a healing fruit whose own lifetime is not stored.
+@export var heal_fruit_lifetime_seconds: float = 30.0
+## HP restored by a healing fruit whose plant no longer exists.
+@export var heal_fruit_fallback_heal: int = 2
+
 @export_group("Time")
 ## One advance never adds more than this (hitch guard), seconds. Same value as SimTuning.max_advance_seconds.
 @export var max_step_seconds: float = 0.25

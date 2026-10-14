@@ -1,0 +1,899 @@
+{
+ "target": "master 6418d7f + uncommitted P1-05 diff (source hash in source-start.json == source-end.json)",
+ "total": 127,
+ "fails": [
+  "gpu.sprite_young_carrot",
+  "save.plant_on_empty_ground"
+ ],
+ "results": [
+  {
+   "condition": "carrot and kiwi placed on the mature field",
+   "id": "gpu.placed_mature_pair",
+   "observed": "carrot=(168, 207) kiwi=(175, 207)",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "both matured after ~0.2 s",
+   "id": "gpu.mature_pair_mature",
+   "observed": "carrot=true kiwi=true",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "a young carrot and kiwi placed",
+   "id": "gpu.placed_young_pair",
+   "observed": "carrot=(182, 207) kiwi=(189, 207)",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "PrintWindow capture is 1280x720 (k=2), internal frame 640x360",
+   "id": "gpu.size",
+   "observed": "native=(1280, 720) vp=(640, 360)",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "every 2x2 block of the window image is one colour (uniform k=2, no smoothing)",
+   "id": "gpu.k2_uniform",
+   "observed": "non-uniform pixels=0",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "each block equals the internal frame pixel",
+   "id": "gpu.native_equals_internal",
+   "observed": "mismatching=0 of 230400",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "the mature carrot is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+   "id": "gpu.sprite_mature_carrot",
+   "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 24, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "the mature kiwi is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+   "id": "gpu.sprite_mature_kiwi",
+   "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 44, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "the young carrot is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+   "id": "gpu.sprite_young_carrot",
+   "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 8, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "FAIL",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "the young kiwi is drawn pixel-exact from its 8x8 art (flat colours, transparent = mature ground) and has no outline ring around it",
+   "id": "gpu.sprite_young_kiwi",
+   "observed": "{ \"bad\": 0, \"first\": \"\", \"art_px\": 12, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "both healing fruits are drawn pixel-exact from the 4x4 fruit art",
+   "id": "gpu.heal_fruits",
+   "observed": "fruits=2 bad=0 ",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "HUD labels show HP 6/10 and the carrot selected",
+   "id": "gpu.hud_text",
+   "observed": "  種 28/40 | HP 6/10 | 植物 通常 [にんじん:3] キウイ | 緑化 0％",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "the HUD row ends inside the 640 px frame",
+   "id": "gpu.hud_fits",
+   "observed": "hud x=8.0..632.0 size=(624.0, 19.0)",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "no very dark (outline-like) pixel in the plant crop",
+   "id": "gpu.no_dark_pixels",
+   "observed": "dark pixels=0",
+   "status": "PASS",
+   "evidence": "checks_gpu.json"
+  },
+  {
+   "condition": "the mature carrot in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline)",
+   "id": "gpu_offline.sprite_mature_carrot",
+   "observed": "top_left=(276, 148) { \"bad\": 0, \"first\": \"\", \"art_px\": 24, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_gpu_offline.json"
+  },
+  {
+   "condition": "the mature kiwi in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline)",
+   "id": "gpu_offline.sprite_mature_kiwi",
+   "observed": "top_left=(304, 148) { \"bad\": 0, \"first\": \"\", \"art_px\": 44, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_gpu_offline.json"
+  },
+  {
+   "condition": "the young carrot in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline)",
+   "id": "gpu_offline.sprite_young_carrot",
+   "observed": "top_left=(332, 148) { \"bad\": 0, \"first\": \"\", \"art_px\": 8, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_gpu_offline.json"
+  },
+  {
+   "condition": "the young kiwi in the saved GPU capture equals its 8x8 art pixel for pixel, with a plain-ground ring (no outline)",
+   "id": "gpu_offline.sprite_young_kiwi",
+   "observed": "top_left=(360, 148) { \"bad\": 0, \"first\": \"\", \"art_px\": 12, \"ring_bad\": 0, \"ring_first\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_gpu_offline.json"
+  },
+  {
+   "condition": "every spread candidate is seeded at exactly the tick I derive: ceil(100000 / (rate * m)) after the lift, m=2 only within 12 tiles (footprint centre to tile centre) of the mature carrot, m=1 elsewhere (including the far control block)",
+   "id": "carrot.mature",
+   "observed": "{ \"predicted\": 206, \"observed\": 206, \"mismatch\": 0, \"extra\": 0, \"first\": \"\", \"m2\": 60, \"m1\": 146, \"lift_ticks\": 40, \"control_tick\": 7, \"carrot_tick\": 4 }",
+   "status": "PASS",
+   "evidence": "checks_logic_carrot.json"
+  },
+  {
+   "condition": "with the carrot still young (8 s old) every candidate, even next to it, follows the unboosted ticks (m=1 everywhere)",
+   "id": "carrot.young",
+   "observed": "{ \"predicted\": 206, \"observed\": 206, \"mismatch\": 0, \"extra\": 0, \"first\": \"\", \"m2\": 0, \"m1\": 206, \"lift_ticks\": 8, \"control_tick\": 7, \"carrot_tick\": 7 }",
+   "status": "PASS",
+   "evidence": "checks_logic_carrot.json"
+  },
+  {
+   "condition": "two mature carrots with overlapping radii: tiles covered by both use m=2 (the larger), not 4",
+   "id": "carrot.overlap",
+   "observed": "{ \"predicted\": 206, \"observed\": 206, \"mismatch\": 0, \"extra\": 0, \"first\": \"\", \"m2\": 112, \"m1\": 94, \"lift_ticks\": 40, \"control_tick\": 7, \"carrot_tick\": 4 }",
+   "status": "PASS",
+   "evidence": "checks_logic_carrot.json"
+  },
+  {
+   "condition": "same geometry, next to a mature carrot a candidate is seeded 7 -> 4 ticks (about 2x faster) than beside the control block",
+   "id": "carrot.speed_ratio",
+   "observed": "control=7 carrot=4",
+   "status": "PASS",
+   "evidence": "checks_logic_carrot.json"
+  },
+  {
+   "condition": "the mature scenario contains both boosted (in range) and unboosted (out of range) candidates",
+   "id": "carrot.coverage",
+   "observed": "m2=60 m1=146",
+   "status": "PASS",
+   "evidence": "checks_logic_carrot.json"
+  },
+  {
+   "condition": "young scenario: the tile beside the carrot needs 7 ticks like the control block",
+   "id": "carrot.young_no_effect_ticks",
+   "observed": "control=7 carrot=7",
+   "status": "PASS",
+   "evidence": "checks_logic_carrot.json"
+  },
+  {
+   "condition": "the carrot is young at 39.75 s (no boost) and mature with the boost installed at 40.0 s (grow_seconds=40)",
+   "id": "carrot.matures_at_40",
+   "observed": "before_ok=true after_ok=true",
+   "status": "PASS",
+   "evidence": "checks_logic_carrot.json"
+  },
+  {
+   "condition": "data: the carrot and kiwi cost an ordinary-seed amount > 0 (tuning value), footprint 2",
+   "id": "cost.defs",
+   "observed": "carrot cost=3 kiwi cost=3",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "with 20 seeds the carrot may be fired",
+   "id": "cost.can_fire_start",
+   "observed": "available=20",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "after firing, the cost is held back (available -cost) but seeds are not yet spent",
+   "id": "cost.held_back_in_flight",
+   "observed": "seeds=20 available=17 reserved=3",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "the cost is spent exactly once when the plant is placed, nothing stays reserved",
+   "id": "cost.spent_on_success",
+   "observed": "seeds=17 reserved=0",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "a landing on bad ground spends nothing and releases the held-back cost",
+   "id": "cost.returned_on_failure",
+   "observed": "seeds=17 available=17",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "a shot that vanishes in the air gives the held-back cost back",
+   "id": "cost.returned_on_cancel",
+   "observed": "seeds=17 available=17",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "cancelling with nothing in flight does not refund extra or go negative",
+   "id": "cost.cancel_idempotent",
+   "observed": "reserved=0 available=17",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "with fewer seeds than the cost the plant cannot be fired",
+   "id": "cost.not_enough_cannot_fire",
+   "observed": "seeds=2 cost=3",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "two shots in flight need two costs: with 2*cost-1 seeds the second cannot be fired",
+   "id": "cost.second_shot_needs_seeds",
+   "observed": "available=2",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "with max_count=2: fire 1 ok, fire 2 ok, fire 3 refused while 2 are in flight (nothing planted yet)",
+   "id": "cost.limit_counts_inflight",
+   "observed": "flags=[true, true, false]",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "the carrot limit does not block the kiwi",
+   "id": "cost.limit_per_kind",
+   "observed": "kiwi ok=true",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "after both land, count 2 reaches the limit: still refused; planted count never exceeds 2",
+   "id": "cost.limit_after_landing",
+   "observed": "count=2",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "even if a third shot was fired, landing cannot exceed the kind limit, and it costs nothing",
+   "id": "cost.limit_hard",
+   "observed": "count=2 seeds=34",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "can_fire_seed (ordinary seeds) respects held-back seeds too: 5 seeds, kiwi in flight costs 3 -> 2 available",
+   "id": "cost.plain_seed_uses_available",
+   "observed": "available=2",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "forward: 1,2,0,1; backward from 1: 0,2,1,0 (3 kinds, wrapping)",
+   "id": "cost.select_cycle",
+   "observed": "seq=[1, 2, 0, 1, 0, 2, 1, 0]",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "the three kinds are normal (footprint 1), carrot, kiwi (footprint 2) in that order",
+   "id": "cost.select_defs",
+   "observed": "keys=[\"normal\", \"carrot\", \"kiwi\"]",
+   "status": "PASS",
+   "evidence": "checks_logic_cost.json"
+  },
+  {
+   "condition": "a world with nothing growing and no candidates saves (empty arrays) and loads back without error",
+   "id": "empty.roundtrip",
+   "observed": "world=true spread=true growth=true play=true",
+   "status": "PASS",
+   "evidence": "checks_logic_empty.json"
+  },
+  {
+   "condition": "empty arrays are stored as zero-length entries, not as encoded garbage",
+   "id": "empty.zero_entries",
+   "observed": "queue n=0 active n=0",
+   "status": "PASS",
+   "evidence": "checks_logic_empty.json"
+  },
+  {
+   "condition": "the restored empty state is empty and keeps running",
+   "id": "empty.restored_empty",
+   "observed": "queue=0 active=0",
+   "status": "PASS",
+   "evidence": "checks_logic_empty.json"
+  },
+  {
+   "condition": "_pack_bytes / _unpack_bytes of an empty array round-trips to an empty array",
+   "id": "empty.pack_unpack",
+   "observed": "{ \"n\": 0, \"z\": \"\" }",
+   "status": "PASS",
+   "evidence": "checks_logic_empty.json"
+  },
+  {
+   "condition": "HP starts at the maximum 10 / 10",
+   "id": "hp.start",
+   "observed": "hp=10/10",
+   "status": "PASS",
+   "evidence": "checks_logic_hp.json"
+  },
+  {
+   "condition": "damage lowers HP but never below 0; negative damage does nothing",
+   "id": "hp.damage_floor",
+   "observed": "hp=0",
+   "status": "PASS",
+   "evidence": "checks_logic_hp.json"
+  },
+  {
+   "condition": "healing raises HP, never above 10; negative healing does nothing",
+   "id": "hp.heal_ceiling",
+   "observed": "hp=10",
+   "status": "PASS",
+   "evidence": "checks_logic_hp.json"
+  },
+  {
+   "condition": "hp_changed fires on real changes only",
+   "id": "hp.signal",
+   "observed": "signals=[6, 7]",
+   "status": "PASS",
+   "evidence": "checks_logic_hp.json"
+  },
+  {
+   "condition": "from HP 0 a fruit heals to 2",
+   "id": "hp.heal_from_zero",
+   "observed": "hp=2",
+   "status": "PASS",
+   "evidence": "checks_logic_hp.json"
+  },
+  {
+   "condition": "the kiwi becomes mature at 40 s of game time",
+   "id": "kiwi.mature_time",
+   "observed": "mature_at=40.000",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "first fruit 20 s after maturity (t=60); second at t=80",
+   "id": "kiwi.first_fruit",
+   "observed": "appear=[60.0, 80.0, 109.75, 129.75, 159.5]",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "never more than 2 fruits of one kiwi on the ground",
+   "id": "kiwi.cap_per_plant",
+   "observed": "max=2",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "each fruit disappears 30 s after it appeared (uncollected)",
+   "id": "kiwi.lifetime",
+   "observed": "vanish=[89.75, 109.75, 139.5, 159.5]",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "consecutive drops of one kiwi are at least 20 s apart over 160 s",
+   "id": "kiwi.interval",
+   "observed": "appear=[60.0, 80.0, 109.75, 129.75, 159.5]",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "fruits drop 6..12 px from the footprint centre",
+   "id": "kiwi.drop_near_plant",
+   "observed": "ok=true",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "no fruit before the kiwi is mature",
+   "id": "kiwi.none_before_mature",
+   "observed": "first=60.00",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "9 kiwis (18 fruits possible) never put more than the region-wide cap (16) of healing fruits on the ground, and the cap is reached",
+   "id": "kiwi.total_cap",
+   "observed": "kiwis=9 max_heal=16",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "in the crowd no kiwi exceeds its own cap of 2",
+   "id": "kiwi.cap_each_in_crowd",
+   "observed": "ok=true",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "the seed source behaves exactly as in an identical world without kiwis (fruit count and drops equal at every step of 200 s, 117+ of them with 16 healing fruits on the ground)",
+   "id": "kiwi.source_slots_kept",
+   "observed": "steps_at_cap=117 steps where the seed source differs from an identical world without kiwis=0 (now: heal=9 source=3)",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "seed fruit items stay within pickup_total_cap while healing fruits are separate",
+   "id": "kiwi.seed_cap_independent",
+   "observed": "ok=true total_cap=24",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "with healing fruits at the cap, mature tiles near the player still drop their own seed fruits (plant slot not taken)",
+   "id": "kiwi.plant_fruit_slots_kept",
+   "observed": "plant_fruit_peak=20 heal=9",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "from 0 seeds, standing at the seed source yields a seed within 20 s although 16 healing fruits are on the ground (HP full)",
+   "id": "kiwi.recover_from_zero",
+   "observed": "seeds=1 heal at start=16",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "81 s: two fruits lie around the kiwi",
+   "id": "kiwi.two_fruits_ready",
+   "observed": "items=2",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "picking a fruit at HP 5 gives HP 7 and consumes the fruit",
+   "id": "kiwi.heal_plus_two",
+   "observed": "hp=7 fruits=1",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "at HP 9 a fruit (+2) brings HP to the maximum 10 only, and is consumed",
+   "id": "kiwi.heal_clamped",
+   "observed": "hp=10 fruits=0",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "at full HP standing on a fruit does not collect it",
+   "id": "kiwi.full_hp_keeps_fruit",
+   "observed": "hp=10 fruits=1",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "after taking damage the waiting fruit is picked up (+2)",
+   "id": "kiwi.fruit_kept_then_used",
+   "observed": "hp=9",
+   "status": "PASS",
+   "evidence": "checks_logic_kiwi.json"
+  },
+  {
+   "condition": "80 s of manual seed scattering at the plant and natural spread never plant into the footprint nor into another occupied empty tile",
+   "id": "occupy.no_seed_in_footprint_or_occupied",
+   "observed": "scattered=21 hist={ \"stage_changed\": false, \"occupant_changed\": false }",
+   "status": "PASS",
+   "evidence": "checks_logic_occupy.json"
+  },
+  {
+   "condition": "greened_count matches a full recount after every 2 s while seeds / sprouts / spread run beside the plant; the footprint (mature) is counted as greened",
+   "id": "occupy.greened_matches_recount",
+   "observed": "greened 4 -> 94 recount=94",
+   "status": "PASS",
+   "evidence": "checks_logic_occupy.json"
+  },
+  {
+   "condition": "all 4 occupied tiles are target tiles at a greened stage",
+   "id": "occupy.footprint_greened",
+   "observed": "p=(28, 28)",
+   "status": "PASS",
+   "evidence": "checks_logic_occupy.json"
+  },
+  {
+   "condition": "after planting several plants the greening count is exactly what it was before (and equals a recount)",
+   "id": "occupy.count_exact",
+   "observed": "before=64 after=64 plants=3",
+   "status": "PASS",
+   "evidence": "checks_logic_occupy.json"
+  },
+  {
+   "condition": "a second plant aimed at the same spot does not overlap the first (placed beside it or refused)",
+   "id": "occupy.no_overlap",
+   "observed": "q1=(10, 10) q2=null",
+   "status": "PASS",
+   "evidence": "checks_logic_occupy.json"
+  },
+  {
+   "condition": "a carrot lands on a fully mature, free 2x2 and is planted there (origin (19,19) for a landing exactly on its centre)",
+   "id": "place.positive",
+   "observed": "tile=(19, 19)",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "exactly the 4 footprint tiles are occupied and stay mature; nothing else is occupied",
+   "id": "place.occupancy",
+   "observed": "occupied=4",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "planting does not change greened / mature / target counts, which match a recount",
+   "id": "place.counters_unchanged",
+   "observed": "greened 100->100 mature 100->100",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "with all four 2x2 blocks valid, the block whose centre is nearest to the landing point is chosen (60 random points)",
+   "id": "place.nearest_first",
+   "observed": "checked=60 bad=0 ",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "a landing on a tile centre (four equally near blocks) picks the same block on every fresh run",
+   "id": "place.tie_deterministic",
+   "observed": "results=[\"(19, 19)\", \"(19, 19)\", \"(19, 19)\", \"(19, 19)\"]",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "an isolated mature 2x2 with ANY one tile empty / seed / sprout1 / sprout2 / water / building / occupied refuses planting (no plant, no seeds spent, nothing reserved, occupancy unchanged)",
+   "id": "place.any_bad_tile_refuses",
+   "observed": "attempts=140 wrongly=0 ",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "the isolated mature 2x2 with no defect does take a plant (the refusals above are caused by the defect)",
+   "id": "place.isolated_control",
+   "observed": "tile=(8, 8)",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "when some of the 4 blocks around the landing tile contain a defect, a valid one is planted; none when all 4 do",
+   "id": "place.fallback_blocks",
+   "observed": "cases=27 bad=0 ",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "the fallback choice is identical on repeated identical runs",
+   "id": "place.fallback_deterministic",
+   "observed": "results=[\"(20, 19)\", \"(20, 19)\", \"(20, 19)\", \"(20, 19)\"]",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "a landing at the world corner plants on the in-bounds block only (origin (0,0))",
+   "id": "place.world_edge",
+   "observed": "tile=(0, 0)",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "a landing outside the map plants nothing and does not crash",
+   "id": "place.outside_map",
+   "observed": "result=<null>",
+   "status": "PASS",
+   "evidence": "checks_logic_place.json"
+  },
+  {
+   "condition": "100.5 s at 30 / 60 / 144 Hz gives the same world, plants, drop counts, fruit positions, ticks",
+   "id": "rate.equal",
+   "observed": "{ 30: \"1688734648/4191312657/3963704494/2125971094|spread 608/0 clock 201/100|1:carrot:true:0|2:kiwi:true:2|[\\\"172.343,83.053,41\\\"]|hp 10 seeds 14\", 60: \"1688734648/4191312657/3963704494/2125971094|spread 608/0 clock 201/100|1:carrot:true:0|2:kiwi:true:2|[\\\"172.343,83.053,41\\\"]|hp 10 seeds 14\", 144: \"1688734648/4191312657/3963704494/2125971094|spread 608/0 clock 201/100|1:carrot:true:0|2:kiwi:true:2|[\\\"172.343,83.053,41\\\"]|hp 10 seeds 14\" }",
+   "status": "PASS",
+   "evidence": "checks_logic_rate.json"
+  },
+  {
+   "condition": "after save -> JSON -> load the play state (hp, plants, selection, pickups) equals the saved one",
+   "id": "save.restore_equal",
+   "observed": "hp a=6 b=6 sel a=2 b=2 plants a=3 b=3",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "HP 6 and the kiwi selection come back",
+   "id": "save.hp_selected",
+   "observed": "hp=6 sel=2",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "the carrot's per-tile boost is rebuilt on load and handed to the spread simulation",
+   "id": "save.boost_rebuilt",
+   "observed": "a=3600 b=3600",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "restored world counters and occupancy are consistent",
+   "id": "save.world_consistent",
+   "observed": "occ a=12 b=12",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "advancing the original and the restored copy by the same time (6 chunks, ~290 s) keeps world and play state identical",
+   "id": "save.same_after_advance",
+   "observed": "diverged:",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "invalid cultivation / pickup data is refused (load returns false) and the state is left unchanged",
+   "id": "save.reject_invalid",
+   "observed": "bad=[] detail={ \"cult_version\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"dup_uid\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"unknown_key\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"wrong_size\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"uid_zero\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"out_of_bounds\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"entry_not_dict\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"overlap\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"heal_over_cap\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true }, \"pickup_version\": { \"accepted\": false, \"unchanged\": true, \"plants_same\": true, \"occ_same\": true } }",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "an out-of-range HP is clamped to 10 and an unknown selection falls back to the first kind",
+   "id": "save.clamps",
+   "observed": "ok=true hp=10 sel=0",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "a negative HP is clamped to 0",
+   "id": "save.clamps_low",
+   "observed": "ok=true hp=0",
+   "status": "PASS",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "OBSERVATION: loading a plant whose tiles are empty ground in this world (world save not matching) is refused",
+   "id": "save.plant_on_empty_ground",
+   "observed": "accepted=true stage there=0",
+   "status": "FAIL",
+   "evidence": "checks_logic_save.json"
+  },
+  {
+   "condition": "HUD shows the selection line with the ordinary plant in brackets, and HP 10/10",
+   "id": "input.hud_initial",
+   "observed": "plant='植物 [通常] にんじん キウイ' hp='HP 10/10'",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "Tab (injected) cycles 1,2,0,1 and the HUD follows each time",
+   "id": "input.tab_cycle",
+   "observed": "seq=[1, 2, 0, 1] texts=[\"植物 通常 [にんじん:3] キウイ\", \"植物 通常 にんじん [キウイ:3]\", \"植物 [通常] にんじん キウイ\", \"植物 通常 [にんじん:3] キウイ\"]",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "wheel down (injected) behaves like Tab: 1,2,0,1",
+   "id": "input.wheel_down",
+   "observed": "seq=[1, 2, 0, 1]",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "wheel up goes the other way: 2,1,0,2, HUD follows",
+   "id": "input.wheel_up",
+   "observed": "seq=[2, 1, 0, 2] texts=[\"植物 通常 にんじん [キウイ:3]\", \"植物 通常 [にんじん:3] キウイ\", \"植物 [通常] にんじん キウイ\", \"植物 通常 にんじん [キウイ:3]\"]",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "selection input alone never fires or spends anything",
+   "id": "input.no_shot_from_wheel_tab",
+   "observed": "shots=0 seeds=20",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "Tab leaves no focused control (UI focus is not used)",
+   "id": "input.tab_no_focus_steal",
+   "observed": "focus=<Object#null>",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "HP HUD shows 6/10 after 4 damage and the gauge fraction 0.6",
+   "id": "input.hp_hud",
+   "observed": "text='HP 6/10' fraction=0.600000",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "HP 3/10 is shown and flagged low",
+   "id": "input.hp_hud_low",
+   "observed": "text='HP 3/10' low=true",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "HP back to 10/10",
+   "id": "input.hp_hud_full",
+   "observed": "text='HP 10/10'",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "click with the carrot selected fires one shot; its cost is held back (HUD shows the lower amount) but not yet spent",
+   "id": "input.carrot_in_flight",
+   "observed": "in_flight=true reserved=3 seeds=20 avail=17 hud='  種 17/40'",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "after landing, a carrot stands on the mature block (2x2 inside it), cost spent once, nothing reserved",
+   "id": "input.carrot_planted",
+   "observed": "plant=(215, 213) seeds=17 reserved=0 hud='  種 17/40'",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "the planted footprint does not change the greened count",
+   "id": "input.greened_unchanged_by_plant",
+   "observed": "greened 431 -> 431",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "a carrot that lands on non-mature ground plants nothing and the seeds come back (none spent)",
+   "id": "input.fail_returns_cost",
+   "observed": "failures=1 seeds=17 reserved=0",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "wheel down from carrot selects kiwi",
+   "id": "input.wheel_selects_kiwi",
+   "observed": "sel=kiwi",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "click with the kiwi selected plants a kiwi (non-overlapping with the carrot) and spends its cost",
+   "id": "input.kiwi_planted",
+   "observed": "kiwi=(219, 213) seeds=14",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "with the ordinary plant selected a click spends exactly 1 seed and plants no cultivated plant",
+   "id": "input.normal_seed_unchanged",
+   "observed": "seeds 14->13",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "with 2 seeds (< cost 3) the carrot click fires nothing",
+   "id": "input.not_enough_seeds",
+   "observed": "shots=0 seeds=2",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "a cultivated shot that expires in the air gives the cost back; nothing planted",
+   "id": "input.expiry_returns_cost",
+   "observed": "expired signals=1 seeds=20 reserved=0 inflight={ &\"carrot\": 0, &\"kiwi\": 0 } plants=2",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "a cultivated shot that hits an enemy gives the cost back; nothing planted",
+   "id": "input.hit_returns_cost",
+   "observed": "hit signals=1 seeds=20 reserved=0 inflight={ &\"carrot\": 0, &\"kiwi\": 0 }",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "a water shot with the carrot selected spends water only",
+   "id": "input.water_unaffected",
+   "observed": "water 100.000000->90.000000 seeds=20",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "limit = planted+1: the first shot fires, the second is refused while the first is still in flight",
+   "id": "input.limit_inflight",
+   "observed": "first=true second=false reserved=3",
+   "status": "PASS",
+   "evidence": "checks_scene_input.json"
+  },
+  {
+   "condition": "a kiwi and a carrot stand on a mature block",
+   "id": "pause.setup",
+   "observed": "kiwi=(211, 213) carrot=(219, 213)",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "before pausing the plants age",
+   "id": "pause.running_before",
+   "observed": "snap=[[1, \"kiwi\", 30.4833, false, 0.0, 0], [2, \"carrot\", 36.4833, false, 0.0, 0]]",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "Escape (injected) pauses the tree",
+   "id": "pause.is_paused",
+   "observed": "paused=true",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "Tab / wheel / click / fire() do nothing while paused",
+   "id": "pause.selection_inactive",
+   "observed": "sel 0->0 fired=false",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "during a 1.5 s pause plants (age, timer, fruit timer, drops), the sim clock, spread and world do not change",
+   "id": "pause.frozen_state",
+   "observed": "before={ \"plants\": [[1, \"kiwi\", 30.5, false, 0.0, 0], [2, \"carrot\", 36.5, false, 0.0, 0]], \"clock\": [0.55, 1, 0], \"elapsed\": 0.55 } after={ \"plants\": [[1, \"kiwi\", 30.5, false, 0.0, 0], [2, \"carrot\", 36.5, false, 0.0, 0]], \"clock\": [0.55, 1, 0], \"elapsed\": 0.55 }",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "a healing fruit lying at the player does not heal during the pause (HP stays 5) and its age does not advance",
+   "id": "pause.hp_and_fruit_frozen",
+   "observed": "hp=5 items=[[\"heal_fruit\", 0.0, 2000001]]",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "after resuming, 12 physics ticks add about 12 ticks of time to the plants (not the 1.5 s spent paused)",
+   "id": "pause.resume_no_bank",
+   "observed": "resumed=true kiwi age +0.1833 carrot age +0.1833 (12 ticks = 0.200 s; paused 1.5 s)",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "after resuming, the fruit at the player heals (+2: HP 7)",
+   "id": "pause.hp_after_resume",
+   "observed": "hp=7",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "the kiwi (age 30 at pause time) matures after exactly the remaining running game time (40 s minus its age), the 1.5 s paused do not count",
+   "id": "pause.kiwi_matures_on_running_time",
+   "observed": "ran 9.283 s of game time after resume, 40 - age = 9.283 s",
+   "status": "PASS",
+   "evidence": "checks_scene_pause.json"
+  },
+  {
+   "condition": "at 144 Hz the kiwi matures at 40 s and drops the first fruit at 60 s of game time",
+   "id": "rate.kiwi_144",
+   "observed": "mature_at=40.0000 first_fruit_at=60.0000 drops=1 elapsed=61.493",
+   "status": "PASS",
+   "evidence": "checks_scene_rate_144.json"
+  },
+  {
+   "condition": "at 30 Hz the kiwi matures at 40 s and drops the first fruit at 60 s of game time",
+   "id": "rate.kiwi_30",
+   "observed": "mature_at=40.0000 first_fruit_at=60.0000 drops=1 elapsed=61.467",
+   "status": "PASS",
+   "evidence": "checks_scene_rate_30.json"
+  },
+  {
+   "condition": "at 60 Hz the kiwi matures at 40 s and drops the first fruit at 60 s of game time",
+   "id": "rate.kiwi_60",
+   "observed": "mature_at=40.0000 first_fruit_at=60.0000 drops=1 elapsed=61.483",
+   "status": "PASS",
+   "evidence": "checks_scene_rate_60.json"
+  }
+ ]
+}

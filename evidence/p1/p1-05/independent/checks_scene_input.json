@@ -1,0 +1,133 @@
+{
+  "observations": {
+    "final_plants": 2
+  },
+  "results": [
+    {
+      "condition": "HUD shows the selection line with the ordinary plant in brackets, and HP 10/10",
+      "id": "input.hud_initial",
+      "observed": "plant='植物 [通常] にんじん キウイ' hp='HP 10/10'",
+      "status": "PASS"
+    },
+    {
+      "condition": "Tab (injected) cycles 1,2,0,1 and the HUD follows each time",
+      "id": "input.tab_cycle",
+      "observed": "seq=[1, 2, 0, 1] texts=[\"植物 通常 [にんじん:3] キウイ\", \"植物 通常 にんじん [キウイ:3]\", \"植物 [通常] にんじん キウイ\", \"植物 通常 [にんじん:3] キウイ\"]",
+      "status": "PASS"
+    },
+    {
+      "condition": "wheel down (injected) behaves like Tab: 1,2,0,1",
+      "id": "input.wheel_down",
+      "observed": "seq=[1, 2, 0, 1]",
+      "status": "PASS"
+    },
+    {
+      "condition": "wheel up goes the other way: 2,1,0,2, HUD follows",
+      "id": "input.wheel_up",
+      "observed": "seq=[2, 1, 0, 2] texts=[\"植物 通常 にんじん [キウイ:3]\", \"植物 通常 [にんじん:3] キウイ\", \"植物 [通常] にんじん キウイ\", \"植物 通常 にんじん [キウイ:3]\"]",
+      "status": "PASS"
+    },
+    {
+      "condition": "selection input alone never fires or spends anything",
+      "id": "input.no_shot_from_wheel_tab",
+      "observed": "shots=0 seeds=20",
+      "status": "PASS"
+    },
+    {
+      "condition": "Tab leaves no focused control (UI focus is not used)",
+      "id": "input.tab_no_focus_steal",
+      "observed": "focus=<Object#null>",
+      "status": "PASS"
+    },
+    {
+      "condition": "HP HUD shows 6/10 after 4 damage and the gauge fraction 0.6",
+      "id": "input.hp_hud",
+      "observed": "text='HP 6/10' fraction=0.600000",
+      "status": "PASS"
+    },
+    {
+      "condition": "HP 3/10 is shown and flagged low",
+      "id": "input.hp_hud_low",
+      "observed": "text='HP 3/10' low=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "HP back to 10/10",
+      "id": "input.hp_hud_full",
+      "observed": "text='HP 10/10'",
+      "status": "PASS"
+    },
+    {
+      "condition": "click with the carrot selected fires one shot; its cost is held back (HUD shows the lower amount) but not yet spent",
+      "id": "input.carrot_in_flight",
+      "observed": "in_flight=true reserved=3 seeds=20 avail=17 hud='  種 17/40'",
+      "status": "PASS"
+    },
+    {
+      "condition": "after landing, a carrot stands on the mature block (2x2 inside it), cost spent once, nothing reserved",
+      "id": "input.carrot_planted",
+      "observed": "plant=(215, 213) seeds=17 reserved=0 hud='  種 17/40'",
+      "status": "PASS"
+    },
+    {
+      "condition": "the planted footprint does not change the greened count",
+      "id": "input.greened_unchanged_by_plant",
+      "observed": "greened 431 -> 431",
+      "status": "PASS"
+    },
+    {
+      "condition": "a carrot that lands on non-mature ground plants nothing and the seeds come back (none spent)",
+      "id": "input.fail_returns_cost",
+      "observed": "failures=1 seeds=17 reserved=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "wheel down from carrot selects kiwi",
+      "id": "input.wheel_selects_kiwi",
+      "observed": "sel=kiwi",
+      "status": "PASS"
+    },
+    {
+      "condition": "click with the kiwi selected plants a kiwi (non-overlapping with the carrot) and spends its cost",
+      "id": "input.kiwi_planted",
+      "observed": "kiwi=(219, 213) seeds=14",
+      "status": "PASS"
+    },
+    {
+      "condition": "with the ordinary plant selected a click spends exactly 1 seed and plants no cultivated plant",
+      "id": "input.normal_seed_unchanged",
+      "observed": "seeds 14->13",
+      "status": "PASS"
+    },
+    {
+      "condition": "with 2 seeds (< cost 3) the carrot click fires nothing",
+      "id": "input.not_enough_seeds",
+      "observed": "shots=0 seeds=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "a cultivated shot that expires in the air gives the cost back; nothing planted",
+      "id": "input.expiry_returns_cost",
+      "observed": "expired signals=1 seeds=20 reserved=0 inflight={ &\"carrot\": 0, &\"kiwi\": 0 } plants=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "a cultivated shot that hits an enemy gives the cost back; nothing planted",
+      "id": "input.hit_returns_cost",
+      "observed": "hit signals=1 seeds=20 reserved=0 inflight={ &\"carrot\": 0, &\"kiwi\": 0 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "a water shot with the carrot selected spends water only",
+      "id": "input.water_unaffected",
+      "observed": "water 100.000000->90.000000 seeds=20",
+      "status": "PASS"
+    },
+    {
+      "condition": "limit = planted+1: the first shot fires, the second is refused while the first is still in flight",
+      "id": "input.limit_inflight",
+      "observed": "first=true second=false reserved=3",
+      "status": "PASS"
+    }
+  ]
+}

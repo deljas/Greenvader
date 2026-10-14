@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [input.hud_initial] HUD shows the selection line with the ordinary plant in brackets, and HP 10/10 :: plant='植物 [通常] にんじん キウイ' hp='HP 10/10'
+PASS [input.tab_cycle] Tab (injected) cycles 1,2,0,1 and the HUD follows each time :: seq=[1, 2, 0, 1] texts=["植物 通常 [にんじん:3] キウイ", "植物 通常 にんじん [キウイ:3]", "植物 [通常] にんじん キウイ", "植物 通常 [にんじん:3] キウイ"]
+PASS [input.wheel_down] wheel down (injected) behaves like Tab: 1,2,0,1 :: seq=[1, 2, 0, 1]
+PASS [input.wheel_up] wheel up goes the other way: 2,1,0,2, HUD follows :: seq=[2, 1, 0, 2] texts=["植物 通常 にんじん [キウイ:3]", "植物 通常 [にんじん:3] キウイ", "植物 [通常] にんじん キウイ", "植物 通常 にんじん [キウイ:3]"]
+PASS [input.no_shot_from_wheel_tab] selection input alone never fires or spends anything :: shots=0 seeds=20
+PASS [input.tab_no_focus_steal] Tab leaves no focused control (UI focus is not used) :: focus=<Object#null>
+PASS [input.hp_hud] HP HUD shows 6/10 after 4 damage and the gauge fraction 0.6 :: text='HP 6/10' fraction=0.600000
+PASS [input.hp_hud_low] HP 3/10 is shown and flagged low :: text='HP 3/10' low=true
+PASS [input.hp_hud_full] HP back to 10/10 :: text='HP 10/10'
+PASS [input.carrot_in_flight] click with the carrot selected fires one shot; its cost is held back (HUD shows the lower amount) but not yet spent :: in_flight=true reserved=3 seeds=20 avail=17 hud='  種 17/40'
+PASS [input.carrot_planted] after landing, a carrot stands on the mature block (2x2 inside it), cost spent once, nothing reserved :: plant=(215, 213) seeds=17 reserved=0 hud='  種 17/40'
+PASS [input.greened_unchanged_by_plant] the planted footprint does not change the greened count :: greened 431 -> 431
+PASS [input.fail_returns_cost] a carrot that lands on non-mature ground plants nothing and the seeds come back (none spent) :: failures=1 seeds=17 reserved=0
+PASS [input.wheel_selects_kiwi] wheel down from carrot selects kiwi :: sel=kiwi
+PASS [input.kiwi_planted] click with the kiwi selected plants a kiwi (non-overlapping with the carrot) and spends its cost :: kiwi=(219, 213) seeds=14
+PASS [input.normal_seed_unchanged] with the ordinary plant selected a click spends exactly 1 seed and plants no cultivated plant :: seeds 14->13
+PASS [input.not_enough_seeds] with 2 seeds (< cost 3) the carrot click fires nothing :: shots=0 seeds=2
+PASS [input.expiry_returns_cost] a cultivated shot that expires in the air gives the cost back; nothing planted :: expired signals=1 seeds=20 reserved=0 inflight={ &"carrot": 0, &"kiwi": 0 } plants=2
+PASS [input.hit_returns_cost] a cultivated shot that hits an enemy gives the cost back; nothing planted :: hit signals=1 seeds=20 reserved=0 inflight={ &"carrot": 0, &"kiwi": 0 }
+PASS [input.water_unaffected] a water shot with the carrot selected spends water only :: water 100.000000->90.000000 seeds=20
+PASS [input.limit_inflight] limit = planted+1: the first shot fires, the second is refused while the first is still in flight :: first=true second=false reserved=3
+V_RESULT total=21 fails=0

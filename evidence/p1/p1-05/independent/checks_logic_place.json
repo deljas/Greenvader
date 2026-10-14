@@ -1,0 +1,71 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "a carrot lands on a fully mature, free 2x2 and is planted there (origin (19,19) for a landing exactly on its centre)",
+      "id": "place.positive",
+      "observed": "tile=(19, 19)",
+      "status": "PASS"
+    },
+    {
+      "condition": "exactly the 4 footprint tiles are occupied and stay mature; nothing else is occupied",
+      "id": "place.occupancy",
+      "observed": "occupied=4",
+      "status": "PASS"
+    },
+    {
+      "condition": "planting does not change greened / mature / target counts, which match a recount",
+      "id": "place.counters_unchanged",
+      "observed": "greened 100->100 mature 100->100",
+      "status": "PASS"
+    },
+    {
+      "condition": "with all four 2x2 blocks valid, the block whose centre is nearest to the landing point is chosen (60 random points)",
+      "id": "place.nearest_first",
+      "observed": "checked=60 bad=0 ",
+      "status": "PASS"
+    },
+    {
+      "condition": "a landing on a tile centre (four equally near blocks) picks the same block on every fresh run",
+      "id": "place.tie_deterministic",
+      "observed": "results=[\"(19, 19)\", \"(19, 19)\", \"(19, 19)\", \"(19, 19)\"]",
+      "status": "PASS"
+    },
+    {
+      "condition": "an isolated mature 2x2 with ANY one tile empty / seed / sprout1 / sprout2 / water / building / occupied refuses planting (no plant, no seeds spent, nothing reserved, occupancy unchanged)",
+      "id": "place.any_bad_tile_refuses",
+      "observed": "attempts=140 wrongly=0 ",
+      "status": "PASS"
+    },
+    {
+      "condition": "the isolated mature 2x2 with no defect does take a plant (the refusals above are caused by the defect)",
+      "id": "place.isolated_control",
+      "observed": "tile=(8, 8)",
+      "status": "PASS"
+    },
+    {
+      "condition": "when some of the 4 blocks around the landing tile contain a defect, a valid one is planted; none when all 4 do",
+      "id": "place.fallback_blocks",
+      "observed": "cases=27 bad=0 ",
+      "status": "PASS"
+    },
+    {
+      "condition": "the fallback choice is identical on repeated identical runs",
+      "id": "place.fallback_deterministic",
+      "observed": "results=[\"(20, 19)\", \"(20, 19)\", \"(20, 19)\", \"(20, 19)\"]",
+      "status": "PASS"
+    },
+    {
+      "condition": "a landing at the world corner plants on the in-bounds block only (origin (0,0))",
+      "id": "place.world_edge",
+      "observed": "tile=(0, 0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "a landing outside the map plants nothing and does not crash",
+      "id": "place.outside_map",
+      "observed": "result=<null>",
+      "status": "PASS"
+    }
+  ]
+}

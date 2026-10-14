@@ -1,0 +1,35 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "HP starts at the maximum 10 / 10",
+      "id": "hp.start",
+      "observed": "hp=10/10",
+      "status": "PASS"
+    },
+    {
+      "condition": "damage lowers HP but never below 0; negative damage does nothing",
+      "id": "hp.damage_floor",
+      "observed": "hp=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "healing raises HP, never above 10; negative healing does nothing",
+      "id": "hp.heal_ceiling",
+      "observed": "hp=10",
+      "status": "PASS"
+    },
+    {
+      "condition": "hp_changed fires on real changes only",
+      "id": "hp.signal",
+      "observed": "signals=[6, 7]",
+      "status": "PASS"
+    },
+    {
+      "condition": "from HP 0 a fruit heals to 2",
+      "id": "hp.heal_from_zero",
+      "observed": "hp=2",
+      "status": "PASS"
+    }
+  ]
+}

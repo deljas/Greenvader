@@ -1,0 +1,17 @@
+{
+  "observations": {
+    "rate_30": {
+      "drops": 1,
+      "first_fruit_at": 59.9999999999991,
+      "mature_at": 40.0000000000003
+    }
+  },
+  "results": [
+    {
+      "condition": "at 30 Hz the kiwi matures at 40 s and drops the first fruit at 60 s of game time",
+      "id": "rate.kiwi_30",
+      "observed": "mature_at=40.0000 first_fruit_at=60.0000 drops=1 elapsed=61.467",
+      "status": "PASS"
+    }
+  ]
+}
