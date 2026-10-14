@@ -1,0 +1,134 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region, sim tuning and play tuning load
+PASS tuning: 20 seeds at start, cap 40
+PASS tuning: water gauge 0..100, full at start
+PASS tuning: range 120 px, at most 64 shots in flight
+PASS tuning: scatter radius 10 px (2.5 tiles), at most 6 seeds
+PASS tuning: splash radius 12 px (3 tiles), refill within 2 tiles
+PASS tuning: drop every 8 s, cap 3 around a source, collect within 12 px
+PASS tuning: pickups have a lifetime and a region-wide cap
+PASS start: 20 seeds, water 100
+PASS 20 seeds can be spent, then nothing more (spent 20, left 0)
+PASS at zero seeds a spend is refused and the count stays 0 (never negative)
+PASS seeds can be added
+PASS adding beyond the cap stops at 40 and reports what was added
+PASS a full pouch takes nothing; negative amounts are ignored
+PASS 100 water pays 10 shots of 10 (got 10, left 0.00)
+PASS an empty gauge refuses a water shot and stays at 0
+PASS insufficient water (7.5 < 10) refuses the shot and keeps the gauge
+PASS water refill stops at 100
+PASS an occupied 2x2 block is set up next to the landing point
+PASS more free candidate tiles than the maximum exist (14), so the limit matters
+PASS exactly the maximum of 6 seeds is placed (placed 6)
+PASS every placed seed lies on a free plantable target tile inside the radius, no duplicates
+PASS no other tile changed (planted, occupied, building, water and out-of-range tiles keep their stage)
+PASS existing plants and seeds are not overwritten
+PASS occupied tiles get no seed
+PASS building and water tiles stay empty
+PASS seeds alone do not raise the greening count (2 stays)
+PASS differential counters equal a full recount after landing
+PASS with only 4 free tiles around, all 4 get a seed and no more
+PASS a seed landing on water wastes the seed: no tile changes, the seed is not refunded
+PASS tiles_in_radius equals the brute-force set (21 tiles)
+PASS water wets exactly the target tiles in radius 12 px (14 tiles)
+PASS in-range targets got +40; water, buildings and tiles out of range stay at 0
+PASS repeated splashes cap the moisture at 100 (peak 100)
+PASS a fully wet area changes nothing more
+PASS water never changes stages or the greening count
+PASS same world, point and seed give the same 6 tiles
+PASS a different seed gives a different choice
+PASS the fixed seed reproduces a whole sequence of 8 landings
+PASS resulting maps are identical and consistent
+PASS over 300 landings every one of the 21 candidate tiles gets chosen at least once (21)
+PASS found a deep water point (247, 8) and a building interior (487, 54) on the real map
+PASS 20 seed and 20 water landings deep in water or a building change no stage and no greening count
+PASS and add no moisture anywhere
+PASS shooting at a water edge (261, 8) planted 8 seeds only on target tiles; greening count stays 331
+PASS 3 tiles from water the gauge does not refill
+PASS 2 tiles from water the gauge refills 25 per second (25.000 after 1 s)
+PASS refill stops at the cap of 100 (100.000)
+PASS refill range is a circle in tile units: (2,0) tiles refills, (2,2) tiles does not
+PASS a shore tile (is_waterside) alone also refills when within range
+PASS one huge delta is capped to 0.25 s (water 6.250)
+PASS no fruit before the 8 s interval (7.9 s: 0)
+PASS first fruit after 8 s
+PASS the fruit lands 10..18 px around its source (13.08 px)
+PASS 25 s at 30 / 60 / 144 Hz all hold 3 fruits [3, 3, 3]
+PASS never more than 3 fruits of one source on the ground (max 3)
+PASS fruits expire after their lifetime and are replaced (drops after 120 s: 6)
+PASS no fruit older than the lifetime remains (oldest 44.0 s)
+PASS the region-wide pickup cap of 24 refuses further drops (accepted 24)
+PASS pickups vanish after the lifetime (all 24 expired together)
+PASS with the region cap full the source drops nothing
+PASS a fruit 13 px away is not collected (radius 12)
+PASS a fruit 11 px away is collected automatically: +1 seed
+PASS with 40 seeds a fruit is not collected and stays on the ground
+PASS after spending one seed the waiting fruit is collected (back to 40, never above)
+PASS five fruits at 38 seeds: 2 collected, 3 remain, cap 40 not exceeded
+PASS the seed source is flagged indestructible and has no damage entry
+PASS resources, landing counter, source timer and ground fruits survive to_dict / JSON / from_dict
+PASS restored values match
+PASS state loads from the dictionary
+PASS original and restored states stay identical over 15 more seconds
+PASS unknown version is rejected
+PASS a different number of sources is rejected
+PASS out-of-range saved resources are clamped to 0..cap
+PASS the region defines at least one seed source
+PASS every seed source stands on a safe-zone tile
+PASS every possible fruit position (10..18 px around the source) lies on safe terrain
+PASS a target 300 px away lands at the range limit 120 px along the aim ((220.0, 100.0))
+PASS the shot lands exactly on the limit point
+PASS 120 px at 160 px/s takes 45 physics steps (45)
+PASS a target within range is hit exactly ((130.0, 140.0))
+PASS the water shot lands on the aim point
+PASS a far diagonal target is clipped to 120 px along the diagonal
+PASS an aim point on the shooter lands on the shooter
+PASS at most 64 shots fly at once (accepted 64 of 70)
+PASS all 64 shots land and the list empties
+PASS the enemy hit entry ends the shot, reports the hit and skips the ground landing
+PASS without a provider nothing is ever hit and the shot lands normally
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS scene: starts with 20 seeds and 100 water
+PASS scene: the weather buttons are kept and the new HUD exists
+PASS scene: the P0 preview list is the live shot list of the real projectile field
+PASS scene: found a 36x36 open wasteland block at tile (82, 40)
+PASS scene: each of 20 left clicks fires one shot and costs exactly one seed
+PASS scene: each shot's landing point is the mouse's world point (within range)
+PASS scene: 20 shots leave 0 seeds
+PASS scene: the 21st click with 0 seeds fires nothing (seeds 0, landings 20)
+PASS scene: each landing planted between 1 and 6 seeds (min 6, max 6)
+PASS scene: 120 seed tiles equal the sum of the landings (120)
+PASS scene: seeds alone leave the greening count at 331
+PASS scene: the click with 0 seeds created no shot
+PASS scene: a fruit dropped near the source after about 8 s of game time (elapsed 8.02 s)
+PASS scene: far from the source the seed count stays 0
+PASS scene: walking up to the fruit collects it automatically (seeds 1)
+PASS scene: with a collected seed the player can shoot again
+PASS scene: 10 right clicks cost 10 water each and empty the gauge
+FAIL scene: with 0 water a right click fires nothing and the gauge stays 0
+PASS scene: far from the water the gauge stays at 0 for 1.5 s
+PASS scene: the water shots wetted 26 tiles and changed no greening count
+PASS scene: found waterside tile (242, 40) east of the player's row
+PASS scene: walking east with injected input reaches the waterside and the gauge starts to recover (after 30 steps)
+PASS scene: recovery is about 25 per second (12.92 over ~0.5 s, first tick 0.42)
+PASS scene: once recovered above the cost a right click fires water again
+PASS scene: the gauge never exceeds 100
+PASS scene: aimed at the middle of water
+PASS scene: aimed at the middle of a building
+PASS scene: seeds shot at deep water and a building interior change no non-target stage, and the greening count only grows with the planted target tiles (counters match a recount)
+PASS scene: water shot there wets no non-target tile
+PASS scene: a shot is in flight before the pause
+PASS scene: Esc through the input pipeline pauses
+PASS scene: for 1.25 s of pause the seeds, water, elapsed time, source timers, fruit ages and shots do not move
+PASS scene: a fruit right next to the paused player is not collected
+PASS scene: Esc resumes
+PASS scene: after resume only the frames since resume count (0.133 s, not the 1.25 s pause)
+PASS scene: source timer and refill did not receive the stopped time
+PASS scene: after resume the fruit next to the player is collected
+PASS HUD seed text '  種 10/40' shows the seed count
+PASS HUD water text '水分 56' follows the gauge
+PASS HUD greening text '緑化 0％' is the floored percentage
+PASS HUD updates when the values change
+PASS HUD uses a theme font
+P1_02_RESULT checks=130 failures=1

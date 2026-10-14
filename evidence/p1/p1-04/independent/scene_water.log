@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [water.player_walks_on_water] OBSERVATION (not a pass criterion): the player moved right by 48.0 px starting on a water tile (terrain id 3 = water) -> terrain at end id 3 :: moved 48.0 px, ended on terrain 3 (3 = water); water walkable = true
+V_RESULT total=1 fails=0

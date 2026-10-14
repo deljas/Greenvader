@@ -1,0 +1,29 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "before pausing: seeds are growing, ground is wet, plant fruits lie on the ground (production runs)",
+      "id": "pause.setup",
+      "observed": "fruits=4 active=348 produced=4 growth_ticks=28",
+      "status": "PASS"
+    },
+    {
+      "condition": "paused (4 ms wall, 725 physics frames): growth, moisture, stages, clock ticks, production time/ticks, fruit ages and positions, active set all unchanged; firing is refused",
+      "id": "pause.frozen",
+      "observed": "paused=true fired=false equal=true clock=[14.0500000000003, 28, 14] production=[14.0500000000003, 7, 7, 4]",
+      "status": "PASS"
+    },
+    {
+      "condition": "sanity: the state did change during the 14 s before pausing (so the freeze check is meaningful)",
+      "id": "pause.moved_before",
+      "observed": "clock ticks=28 production ticks=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resuming, 120 physics frames (2 s) advance game time by 2 s, 4 growth ticks (+-1), 1 production tick (+-1); the ~4 ms spent paused is not added",
+      "id": "pause.resume_no_bank",
+      "observed": "elapsed +1.9833 play +1.9833 growth ticks +4 production ticks +1 (first fruit age before resume 10.067)",
+      "status": "PASS"
+    }
+  ]
+}

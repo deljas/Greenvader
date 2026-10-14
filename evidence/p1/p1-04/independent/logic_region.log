@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section region
+REGION {"components":9,"initially_mature":331,"reachable_excl_start":125339,"reachable_incl_start":125670,"targets":244846,"top_components_[size,bridged_at_chebyshev_k_or_-1]":[[118619,-1],[109,-1],[64,3],[64,-1],[64,3],[64,3],[64,-1],[64,-1],[64,-1]],"unreached":119176,"unreached_bridgeable_by_gap_3_to_11":192,"unreached_closed_islands":118984}
+PASS [region.reach_count] my BFS from the initial mature (safe zone) tiles, radius 2 over plantable targets, reaches 125,670 targets (implementer's figure; incl. or excl. the start tiles) :: reach incl start=125670 excl start=125339 (start tiles=331) unreached=119176 targets=244846
+PASS [region.isolated_count] unreached targets = 119,176 (implementer's figure) :: unreached=119176, targets-reach=119176
+PASS [region.sim_900s] 900 s of natural spread on region_01 from the safe zone: natural tiles only in the reachable set, counters match recount every 100 s :: natural tiles=11442 outside reachable=0 counter mismatches=0 greened=11563 (4.72%) wall 0.56 ms per game second
+--- section region done in 40670 ms
+V_RESULT total=3 fails=0

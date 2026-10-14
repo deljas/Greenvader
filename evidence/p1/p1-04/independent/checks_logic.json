@@ -1,0 +1,356 @@
+{
+  "observations": {
+    "front_natural": {
+      "60": 7,
+      "120": 11,
+      "300": 23,
+      "600": 43,
+      "900": 63,
+      "1200": 83
+    },
+    "perf": {
+      "end_state": [
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        },
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        },
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        },
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        }
+      ],
+      "max_ms": 12.106,
+      "median_ms": 7.972,
+      "p99_ms": 11.024,
+      "worst_parts_ms[total,growth,spread,flush,tiles,blocks]": [
+        12.106,
+        6.055,
+        3.255,
+        2.796,
+        6000,
+        16
+      ]
+    },
+    "reach": {
+      "amax": 65,
+      "emax": 0,
+      "hop_bound_s": 33.0,
+      "max_depth": 56,
+      "qmax": 41,
+      "reachable_targets": 1843,
+      "seconds": 1565,
+      "unreachable_targets": 477,
+      "worst_arrival_over_bound": 0.886792452830189
+    },
+    "region_reach": {
+      "components": 9,
+      "initially_mature": 331,
+      "reachable_excl_start": 125339,
+      "reachable_incl_start": 125670,
+      "targets": 244846,
+      "top_components_[size,bridged_at_chebyshev_k_or_-1]": [
+        [
+          118619,
+          -1
+        ],
+        [
+          109,
+          -1
+        ],
+        [
+          64,
+          3
+        ],
+        [
+          64,
+          -1
+        ],
+        [
+          64,
+          3
+        ],
+        [
+          64,
+          3
+        ],
+        [
+          64,
+          -1
+        ],
+        [
+          64,
+          -1
+        ],
+        [
+          64,
+          -1
+        ]
+      ],
+      "unreached": 119176,
+      "unreached_bridgeable_by_gap_3_to_11": 192,
+      "unreached_closed_islands": 118984
+    },
+    "stress": {
+      "amax": 19512,
+      "big_ticks": 127,
+      "emax": 8000,
+      "ev_max": 1000,
+      "exam_max": 1500,
+      "gap_max": 13,
+      "gv_max": 3000,
+      "matures": 1600,
+      "natural_tiles": 41138,
+      "qmax": 19200,
+      "spread_ticks": 150,
+      "worst_first_visit_tick": 13
+    }
+  },
+  "results": [
+    {
+      "condition": "with 1 mature neighbour the rate is threshold/rate = 10 ticks: no natural seed before tick 10",
+      "id": "target.not_before_min_time",
+      "observed": "natural tiles at 9 s = 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "at 15 s the naturally planted tiles are exactly the free plantable target tiles within Euclid 2 of the mature tile (12 offsets minus water, building, occupied, existing seed/sprout, hook-refused = 6)",
+      "id": "target.exact_set",
+      "observed": "got 6 want 6 stray=[]",
+      "status": "PASS"
+    },
+    {
+      "condition": "tiles at distance sqrt5 / 3 are not planted",
+      "id": "target.no_outside_radius",
+      "observed": "ok",
+      "status": "PASS"
+    },
+    {
+      "condition": "pre-existing player seed/sprout keep natural=0 and are not reset; non-target tiles stay empty",
+      "id": "target.existing_untouched",
+      "observed": "stage(19,19)=3 stage(20,19)=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "greened counter == recount; the 6 natural seeds are not counted",
+      "id": "target.counter_seed_not_counted",
+      "observed": "greened=2 recount=2 seeds=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "refused tile stays empty while refused, and is planted (naturally) within 12 ticks after the hook allows it",
+      "id": "target.hook_lift_spreads",
+      "observed": "before=0 stage=1 natural=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "a released occupied tile becomes a candidate and is planted",
+      "id": "target.release_spreads",
+      "observed": "stage=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "a hook that refuses everything: nothing spreads in 120 s, candidates stay queued",
+      "id": "target.hook_blocks_all",
+      "observed": "queue=12",
+      "status": "PASS"
+    },
+    {
+      "condition": "every tile connected to the start through radius-2 plantable hops (by my BFS) is planted",
+      "id": "reach.all_connected_reached",
+      "observed": "reachable=1843 missing=0 max_depth=56 finished at 1565 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "each reached tile at BFS depth d was planted within d x (own per-hop bound 33.0 s from settings) + 5 s",
+      "id": "reach.within_bound",
+      "observed": "late=0 worst arrival/bound=0.887",
+      "status": "PASS"
+    },
+    {
+      "condition": "tiles beyond a 2-wide water gap, beyond building gaps >= 3 and the closed island never get any stage",
+      "id": "reach.unreachable_untouched",
+      "observed": "unreachable targets=477 touched=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "1-wide corridor, 1-wide water gap (dx=2) and the diagonal chain are crossed; 2-wide gap is not",
+      "id": "reach.narrow_features",
+      "observed": "t(60,16)=920 t(82,16)=1250 t(chain end)=935 D=0 G=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "no candidate waits more than ceil(Qmax/B) = 1 spread ticks between two examinations (measured through the hook)",
+      "id": "reach.fairness_gap",
+      "observed": "max gap=1 (Qmax=41)",
+      "status": "PASS"
+    },
+    {
+      "condition": "greened/mature/target counters equal recount every 20 s during the whole natural spread",
+      "id": "reach.counters",
+      "observed": "mismatch checks=0 final greened=1843 target=2320",
+      "status": "PASS"
+    },
+    {
+      "condition": "second identical run gives identical world state and identical arrival times (no randomness)",
+      "id": "reach.deterministic",
+      "observed": "hash 1033371780/1651766777/910319678/4108795146 vs 1033371780/1651766777/910319678/4108795146, arrival maps equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "scenario really has more candidates than B (so the budget binds)",
+      "id": "stress.queue_is_large",
+      "observed": "Qmax=19200 B=1500",
+      "status": "PASS"
+    },
+    {
+      "condition": "every spread tick examines <= B=1500 candidates (and the cap is hit) and applies <= 1000 mature events",
+      "id": "stress.examined_le_B",
+      "observed": "max examined=1500, max events=1000, spread ticks=150",
+      "status": "PASS"
+    },
+    {
+      "condition": "every growth tick processes <= G=3000 active tiles (own count via last_growth_tick and reported last_visited), active set up to 19512",
+      "id": "stress.growth_le_G",
+      "observed": "max visited=3000 own-count max=3000 ticks with active>G=127 (visited then=3000)",
+      "status": "PASS"
+    },
+    {
+      "condition": "gap between two examinations of one candidate <= ceil(Qmax/B)=13; first examination within events wait + that",
+      "id": "stress.fairness",
+      "observed": "gap max=13 bound=13; 19200 initial candidates, never examined 0, worst first-visit tick=13 (limit 22)",
+      "status": "PASS"
+    },
+    {
+      "condition": "every naturally planted tile was examined before",
+      "id": "stress.no_never_visited",
+      "observed": "never=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "counters equal recount during the run",
+      "id": "stress.counters",
+      "observed": "bad=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "scenario: active set 8182 > G=3000 so the sweep really splits (sweep period 3 ticks)",
+      "id": "split.active_above_G",
+      "observed": "active0=8182",
+      "status": "PASS"
+    },
+    {
+      "condition": "tile by tile, maturity tick (G=3000) - maturity tick (unlimited) is in [0, sweep period=3]",
+      "id": "split.maturity_delta",
+      "observed": "tiles matured=8000 missing=0 negative=0 max diff=2 hist={ 0: 4310, 2: 1123, 1: 2567 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "after catch_up (every 37 ticks and at the end) stage/growth/moisture/natural/counters equal the unlimited run exactly; a huge G equals unlimited every 50 ticks",
+      "id": "split.catch_up_exact",
+      "observed": "checks=11 bad=0 ",
+      "status": "PASS"
+    },
+    {
+      "condition": "active set (peak 2762) <= G: identical to the unlimited run after every one of 250 ticks, without catch_up",
+      "id": "split.under_G_identical",
+      "observed": "identical ticks=250/250",
+      "status": "PASS"
+    },
+    {
+      "condition": "active set starts at exactly G=3000 (wet tiles push it above): tick-by-tick equal while <= G, and catch_up equal afterwards",
+      "id": "split.boundary_exactly_G",
+      "observed": "tick-equal ticks=31/40, after catch_up equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "no tile's stage ever decreases while swept",
+      "id": "split.no_regress",
+      "observed": "regressions=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "natural front speed between 300 s and 1200 s (tiles/min); implementer claims about 4",
+      "id": "front.speed",
+      "observed": "front x at s: { 60: 7, 120: 11, 300: 23, 600: 43, 900: 63, 1200: 83 } -> 4.00 tiles/min",
+      "status": "PASS"
+    },
+    {
+      "condition": "one manual seed shot (up to 6 seeds, 30 tiles = projectile range away) becomes a mature patch in ~60 s while the natural-only front in the same 64 s advanced only 4 tiles from the block edge (x=3)",
+      "id": "front.manual_one_shot",
+      "observed": "seeds placed=6 mature=6; farthest mature x manual=35 natural=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "distance reached in 64 s: manual shot is at least 4x the natural-only spread",
+      "id": "front.manual_faster",
+      "observed": "manual 32 tiles vs natural 4 tiles (ratio 8.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "dry manual seed matures in 120 growth ticks (60 s); natural seed in 40 (20 s) = natural_growth_multiplier 3",
+      "id": "front.growth_multiplier",
+      "observed": "manual 120 ticks natural 40 ticks",
+      "status": "PASS"
+    },
+    {
+      "condition": "restored state equals the saved one (world, queue, mature_near, tick counts)",
+      "id": "save.restore_equal",
+      "observed": "A 1205509811/2877091469/3658333421/52656511/q114/2870267015/822 | B 1205509811/2877091469/3658333421/52656511/q114/2870267015/822",
+      "status": "PASS"
+    },
+    {
+      "condition": "after save->JSON->load, advancing both by the same time (6 chunks, ~250 s) keeps them identical",
+      "id": "save.same_after_advance",
+      "observed": "diverged: hashA=796546648/2823112781/3658333421/110847349/q140/3219602945/3517 hashB=796546648/2823112781/3658333421/110847349/q140/3219602945/3517",
+      "status": "PASS"
+    },
+    {
+      "condition": "restored world counters consistent after the advance",
+      "id": "save.counters",
+      "observed": "greened a=3517 b=3517",
+      "status": "PASS"
+    },
+    {
+      "condition": "200 s of game time advanced in 1/30, 1/60, 1/144 s steps gives the same world, queue and tick counts",
+      "id": "dt.rates_equal",
+      "observed": "{ 30: \"233411174/2201017689/3808719258/3361123231/q8/3721557440/640 ticks=400/200\", 60: \"233411174/2201017689/3808719258/3361123231/q8/3721557440/640 ticks=400/200\", 144: \"233411174/2201017689/3808719258/3361123231/q8/3721557440/640 ticks=400/200\" }",
+      "status": "PASS"
+    },
+    {
+      "condition": "worst case (131k growing tiles = half the map, ~130k candidates, dirty budget full, growth+spread+flush in the SAME frame, 4 x 60 frames, headless CPU only; end of each run still has half the map growing): median and max total < 16 ms",
+      "id": "perf.worst_frame",
+      "observed": "median 7.97 ms, p99 11.02, max 12.11 ms, worst frame parts [12.106, 6.055, 3.255, 2.796, 6000, 16], end states [{ \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }, { \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }, { \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }, { \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }]",
+      "status": "PASS"
+    },
+    {
+      "condition": "my BFS from the initial mature (safe zone) tiles, radius 2 over plantable targets, reaches 125,670 targets (implementer's figure; incl. or excl. the start tiles)",
+      "id": "region.reach_count",
+      "observed": "reach incl start=125670 excl start=125339 (start tiles=331) unreached=119176 targets=244846",
+      "status": "PASS"
+    },
+    {
+      "condition": "unreached targets = 119,176 (implementer's figure)",
+      "id": "region.isolated_count",
+      "observed": "unreached=119176, targets-reach=119176",
+      "status": "PASS"
+    },
+    {
+      "condition": "900 s of natural spread on region_01 from the safe zone: natural tiles only in the reachable set, counters match recount every 100 s",
+      "id": "region.sim_900s",
+      "observed": "natural tiles=11442 outside reachable=0 counter mismatches=0 greened=11563 (4.72%) wall 0.55 ms per game second",
+      "status": "PASS"
+    }
+  ]
+}

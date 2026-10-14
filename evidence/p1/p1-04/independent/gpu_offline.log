@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+GPU_RECT origin=(142, 198)
+GPU_INFO t=74.00 counts(empty,seed,s1,s2,mature) right of block=[1720, 44, 56, 9, 171]
+PASS [gpu.front_state] natural spread produced a front with seeds, sprout1, sprout2 and mature tiles all present beside each other :: t=74.0 counts=[1720, 44, 56, 9, 171] natural tiles=934
+GPU_INFO renderer=forward_plus window=(0, 0) size=(640, 360) screen=-1
+OFFLINE ct origin=(-274.0, -714.0)
+PASS [gpu_offline.pixel_oracle] tiles whose 16 pixels are all palette colours (ground / seed / sprout / mature / half-transparent edge; the rest is covered by P0 scenery props, trees, shadows, HUD) match the live-world composition exactly; no tile shows palette-valid but wrong content :: clean=8193 occluded_by_scenery=2778 wrong=0 clean by stage={ 0: 7561, 2: 70, 3: 35, 4: 483, 1: 44 } of total by stage={ 0: 9977, 2: 127, 3: 50, 4: 718, 1: 99 } 
+PASS [gpu_offline.front_tiles_clean] clean (unoccluded) tiles include seeds, sprout1, sprout2 and mature tiles :: { 0: 7561, 2: 70, 3: 35, 4: 483, 1: 44 }
+V_RESULT total=3 fails=0

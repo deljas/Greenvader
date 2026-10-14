@@ -1,0 +1,23 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "restored state equals the saved one (world, queue, mature_near, tick counts)",
+      "id": "save.restore_equal",
+      "observed": "A 1205509811/2877091469/3658333421/52656511/q114/2870267015/822 | B 1205509811/2877091469/3658333421/52656511/q114/2870267015/822",
+      "status": "PASS"
+    },
+    {
+      "condition": "after save->JSON->load, advancing both by the same time (6 chunks, ~250 s) keeps them identical",
+      "id": "save.same_after_advance",
+      "observed": "diverged: hashA=796546648/2823112781/3658333421/110847349/q140/3219602945/3517 hashB=796546648/2823112781/3658333421/110847349/q140/3219602945/3517",
+      "status": "PASS"
+    },
+    {
+      "condition": "restored world counters consistent after the advance",
+      "id": "save.counters",
+      "observed": "greened a=3517 b=3517",
+      "status": "PASS"
+    }
+  ]
+}

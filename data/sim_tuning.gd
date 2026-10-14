@@ -33,5 +33,25 @@ extends Resource
 ## Moisture scale (0..moisture_max) and decay per growth tick (1 per 0.5 s tick = 2 per second).
 @export var moisture_max: int = 100
 @export var moisture_decay_per_tick: int = 1
-## (P1-04) upper bound of tiles examined by one spread tick.
-@export var max_spread_cells_per_tick: int = 16
+## (P1-04) Growth tick split: at most this many active tiles are processed per growth tick. A larger active set is
+## processed in sweeps (a tile waits at most ceil(active / limit) ticks; the elapsed ticks are applied in one go).
+@export var max_growth_tiles_per_tick: int = 3000
+
+@export_group("Natural spread (P1-04)")
+## Candidate tiles: empty plantable tiles within this distance (tiles, Euclidean) of a mature tile.
+@export var spread_radius_tiles: float = 2.0
+## At most this many queued candidates are examined per spread tick (B).
+@export var spread_candidates_per_tick: int = 1500
+## At most this many newly mature / no longer mature tiles update the candidate data per spread tick.
+@export var spread_mature_events_per_tick: int = 1000
+## A candidate becomes a seed when its progress reaches the threshold.
+@export var spread_progress_threshold: int = 100000
+## Progress gained per spread tick (1 s) with one mature tile in range, plus this much for each further one.
+@export var spread_progress_per_tick: int = 10000
+@export var spread_progress_per_extra_neighbor: int = 2500
+## Growth speed multiplier of seeds and sprouts planted by natural spread (the front speed knob).
+@export var natural_growth_multiplier: float = 3.0
+
+@export_group("Rendering (P1-04)")
+## RegionView repaints at most this many dirty tiles per frame (the rest waits for the next frame, oldest first).
+@export var render_tiles_per_frame: int = 6000

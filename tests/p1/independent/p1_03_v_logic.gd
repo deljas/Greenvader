@@ -909,7 +909,9 @@ func t_save() -> void:
 
 func t_perf() -> void:
 	var w: WorldState = fresh()
-	var gs: GrowthSim = GrowthSim.new(w, sim_tun)
+	var unl: SimTuning = sim_tun.duplicate() as SimTuning
+	unl.max_growth_tiles_per_tick = 0  # P1-04: this section measures one tick over the whole 10,000-tile active set
+	var gs: GrowthSim = GrowthSim.new(w, unl)
 	var tiles: PackedInt32Array = plantable_list(w, 10000)
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = 5

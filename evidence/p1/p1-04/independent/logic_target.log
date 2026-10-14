@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section target
+PASS [target.not_before_min_time] with 1 mature neighbour the rate is threshold/rate = 10 ticks: no natural seed before tick 10 :: natural tiles at 9 s = 0
+PASS [target.exact_set] at 15 s the naturally planted tiles are exactly the free plantable target tiles within Euclid 2 of the mature tile (12 offsets minus water, building, occupied, existing seed/sprout, hook-refused = 6) :: got 6 want 6 stray=[]
+PASS [target.no_outside_radius] tiles at distance sqrt5 / 3 are not planted :: ok
+PASS [target.existing_untouched] pre-existing player seed/sprout keep natural=0 and are not reset; non-target tiles stay empty :: stage(19,19)=3 stage(20,19)=1
+PASS [target.counter_seed_not_counted] greened counter == recount; the 6 natural seeds are not counted :: greened=2 recount=2 seeds=7
+PASS [target.hook_lift_spreads] refused tile stays empty while refused, and is planted (naturally) within 12 ticks after the hook allows it :: before=0 stage=1 natural=1
+PASS [target.release_spreads] a released occupied tile becomes a candidate and is planted :: stage=1
+PASS [target.hook_blocks_all] a hook that refuses everything: nothing spreads in 120 s, candidates stay queued :: queue=12
+--- section target done in 124 ms
+V_RESULT total=8 fails=0

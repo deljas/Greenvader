@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section stress
+PASS [stress.queue_is_large] scenario really has more candidates than B (so the budget binds) :: Qmax=19200 B=1500
+PASS [stress.examined_le_B] every spread tick examines <= B=1500 candidates (and the cap is hit) and applies <= 1000 mature events :: max examined=1500, max events=1000, spread ticks=150
+PASS [stress.growth_le_G] every growth tick processes <= G=3000 active tiles (own count via last_growth_tick and reported last_visited), active set up to 19512 :: max visited=3000 own-count max=3000 ticks with active>G=127 (visited then=3000)
+PASS [stress.fairness] gap between two examinations of one candidate <= ceil(Qmax/B)=13; first examination within events wait + that :: gap max=13 bound=13; 19200 initial candidates, never examined 0, worst first-visit tick=13 (limit 22)
+PASS [stress.no_never_visited] every naturally planted tile was examined before :: never=0
+PASS [stress.counters] counters equal recount during the run :: bad=0
+--- section stress done in 976 ms
+V_RESULT total=6 fails=0

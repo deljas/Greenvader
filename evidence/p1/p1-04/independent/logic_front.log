@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section front
+PASS [front.speed] natural front speed between 300 s and 1200 s (tiles/min); implementer claims about 4 :: front x at s: { 60: 7, 120: 11, 300: 23, 600: 43, 900: 63, 1200: 83 } -> 4.00 tiles/min
+PASS [front.manual_one_shot] one manual seed shot (up to 6 seeds, 30 tiles = projectile range away) becomes a mature patch in ~60 s while the natural-only front in the same 64 s advanced only 4 tiles from the block edge (x=3) :: seeds placed=6 mature=6; farthest mature x manual=35 natural=7
+PASS [front.manual_faster] distance reached in 64 s: manual shot is at least 4x the natural-only spread :: manual 32 tiles vs natural 4 tiles (ratio 8.0)
+PASS [front.growth_multiplier] dry manual seed matures in 120 growth ticks (60 s); natural seed in 40 (20 s) = natural_growth_multiplier 3 :: manual 120 ticks natural 40 ticks
+--- section front done in 109 ms
+V_RESULT total=4 fails=0

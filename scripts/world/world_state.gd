@@ -48,6 +48,16 @@ var dirty_flag: PackedByteArray = PackedByteArray()
 ## moisture > 0. active_flag dedupes active_tiles. Derived data: rebuilt from stage and moisture by rebuild_derived().
 var active_tiles: PackedInt32Array = PackedInt32Array()
 var active_flag: PackedByteArray = PackedByteArray()
+## Growth tick counter (written by GrowthSim) and, per active tile, the growth tick at which it was last processed
+## (P1-04: the growth tick may visit only part of the active set per tick; the elapsed ticks are applied in one go).
+var growth_tick: int = 0
+var last_growth_tick: PackedInt32Array = PackedInt32Array()
+## 1 = this seed / sprout was planted by natural spread (grows faster, see SimTuning.natural_growth_multiplier).
+var natural: PackedByteArray = PackedByteArray()
+## Optional observer Callable(index: int, old_stage: int, new_stage: int), called by set_stage when a tile turns
+## mature / stops being mature / becomes empty, and by release() for freed tiles (old = new = STAGE_EMPTY).
+## SpreadSim uses it to keep its candidate queue incremental. Empty = nobody listens.
+var tile_listener: Callable = Callable()
 ## Mature tile counts per CHUNK_TILES x CHUNK_TILES chunk and in total (differential, checked against a recount in tests).
 var chunks_x: int = 0
 var chunks_y: int = 0
@@ -71,6 +81,8 @@ func _init(w: int, h: int, defs: Array[TerrainDef], seed_value: int) -> void:
 	occupant.resize(n)
 	dirty_flag.resize(n)
 	active_flag.resize(n)
+	last_growth_tick.resize(n)
+	natural.resize(n)
 	chunks_x = (w + CHUNK_TILES - 1) / CHUNK_TILES
 	chunks_y = (h + CHUNK_TILES - 1) / CHUNK_TILES
 	mature_chunk_count.resize(chunks_x * chunks_y)
@@ -131,6 +143,7 @@ func rebuild_derived() -> void:
 			mature_count += 1
 		if (s >= STAGE_SEED and s < STAGE_MATURE) or moisture[index] > 0:
 			active_flag[index] = 1
+			last_growth_tick[index] = growth_tick
 			active_tiles.append(index)
 
 func chunk_of(index: int) -> int:
@@ -140,6 +153,7 @@ func chunk_of(index: int) -> int:
 func activate(index: int) -> void:
 	if active_flag[index] == 0:
 		active_flag[index] = 1
+		last_growth_tick[index] = growth_tick
 		active_tiles.append(index)
 
 ## Sets the moisture of a target tile and keeps the active set right. Non-target tiles are refused.
@@ -186,9 +200,12 @@ func set_stage(index: int, new_stage: int) -> bool:
 	if new_stage == STAGE_EMPTY:
 		plant_id[index] = PLANT_NONE
 		growth[index] = 0
+		natural[index] = 0
 	elif plant_id[index] == PLANT_NONE:
 		plant_id[index] = PLANT_NORMAL
 	mark_dirty(index)
+	if tile_listener.is_valid() and (new_stage == STAGE_MATURE or old_stage == STAGE_MATURE or new_stage == STAGE_EMPTY):
+		tile_listener.call(index, old_stage, new_stage)
 	# The edge of a mature tile depends on its four neighbours' maturity (diagonals are ignored).
 	if (old_stage == STAGE_MATURE) != (new_stage == STAGE_MATURE):
 		var x: int = index % width
@@ -221,12 +238,16 @@ func mark_all_dirty() -> void:
 	for index: int in tile_count():
 		mark_dirty(index)
 
-## Hands the dirty tile list to the renderer and clears it.
-func take_dirty() -> PackedInt32Array:
+## Hands the dirty tile list (the oldest `limit` entries, all when limit < 0) to the renderer and removes them from it.
+func take_dirty(limit: int = -1) -> PackedInt32Array:
 	var result: PackedInt32Array = dirty_tiles
+	if limit >= 0 and result.size() > limit:
+		result = dirty_tiles.slice(0, limit)
+		dirty_tiles = dirty_tiles.slice(limit)
+	else:
+		dirty_tiles = PackedInt32Array()
 	for index: int in result:
 		dirty_flag[index] = 0
-	dirty_tiles = PackedInt32Array()
 	return result
 
 func clear_dirty() -> void:
@@ -294,6 +315,8 @@ func release(owner_id: int) -> bool:
 	for y: int in range(rect.position.y, rect.end.y):
 		for x: int in range(rect.position.x, rect.end.x):
 			occupant[index_of(x, y)] = 0
+			if tile_listener.is_valid():
+				tile_listener.call(index_of(x, y), STAGE_EMPTY, STAGE_EMPTY)
 	occupancy_owners.erase(owner_id)
 	return true
 
@@ -326,6 +349,7 @@ func to_dict() -> Dictionary:
 		"fertility": _pack_bytes(fertility),
 		"sprout_slot": _pack_bytes(sprout_slot),
 		"occupant": _pack_bytes(occupant.to_byte_array()),
+		"natural": _pack_bytes(natural),
 		"occupancy_owners": owners,
 	}
 
@@ -353,6 +377,10 @@ static func from_dict(data: Dictionary, defs: Array[TerrainDef]) -> WorldState:
 	for index: int in n:
 		if state.terrain[index] >= defs.size() or state.stage[index] > STAGE_MATURE:
 			return null
+	if data.has("natural"):
+		var natural_loaded: PackedByteArray = _unpack_bytes(data["natural"])
+		if natural_loaded.size() == n:
+			state.natural = natural_loaded
 	state.occupancy_owners = {}
 	var owners: Dictionary = data.get("occupancy_owners", {})
 	for key: String in owners:

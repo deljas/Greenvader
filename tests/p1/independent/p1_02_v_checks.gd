@@ -458,6 +458,9 @@ func t2_scatter() -> void:
 
 func t3_non_target() -> void:
 	await new_main()
+	# P1-04: natural spread would legitimately plant seeds around the safe zone during this long run; it is switched off so that
+	# the assertion keeps its meaning (shots at non-target tiles change nothing).
+	main.simulation.spread.allow_hook = func(_index: int) -> bool: return false
 	var play: PlayState = main.play
 	var world: WorldState = main.grid
 	var defs: Array = main.region_def.terrains

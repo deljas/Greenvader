@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+REACHED bbox x 0..263 y 0..511 ; UNREACHED target bbox (56, 0)..(511, 511) count 119176
+TERRAIN counts { 0: 241281, 2: 3234, 3: 15090, 4: 2208, 1: 331 }
+MIN Chebyshev gap between an unreached target tile and the reached region = 3 at (116, 56)

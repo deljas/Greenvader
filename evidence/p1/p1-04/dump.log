@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+block (120, 88)
+t=100 counts(empty,seed,s1,s2,mature)=[1364, 44, 44, 0, 484]
+t=120 counts(empty,seed,s1,s2,mature)=[1364, 0, 0, 0, 572]
+best t=76 counts=[1452, 44, 2, 42, 396]
+saved front_t76_x8.png (1408, 576)

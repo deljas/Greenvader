@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section split
+PASS [split.active_above_G] scenario: active set 8182 > G=3000 so the sweep really splits (sweep period 3 ticks) :: active0=8182
+PASS [split.maturity_delta] tile by tile, maturity tick (G=3000) - maturity tick (unlimited) is in [0, sweep period=3] :: tiles matured=8000 missing=0 negative=0 max diff=2 hist={ 0: 4310, 2: 1123, 1: 2567 }
+PASS [split.catch_up_exact] after catch_up (every 37 ticks and at the end) stage/growth/moisture/natural/counters equal the unlimited run exactly; a huge G equals unlimited every 50 ticks :: checks=11 bad=0 
+PASS [split.under_G_identical] active set (peak 2762) <= G: identical to the unlimited run after every one of 250 ticks, without catch_up :: identical ticks=250/250
+PASS [split.boundary_exactly_G] active set starts at exactly G=3000 (wet tiles push it above): tick-by-tick equal while <= G, and catch_up equal afterwards :: tick-equal ticks=31/40, after catch_up equal=true
+PASS [split.no_regress] no tile's stage ever decreases while swept :: regressions=0
+--- section split done in 1270 ms
+V_RESULT total=6 fails=0

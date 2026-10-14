@@ -1,0 +1,47 @@
+{
+  "observations": {
+    "perf": {
+      "end_state": [
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        },
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        },
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        },
+        {
+          "active_end": 197324,
+          "growing_end": 197324,
+          "queue_end": 38537
+        }
+      ],
+      "max_ms": 11.655,
+      "median_ms": 7.926,
+      "p99_ms": 11.073,
+      "worst_parts_ms[total,growth,spread,flush,tiles,blocks]": [
+        11.655,
+        5.511,
+        3.429,
+        2.715,
+        6000,
+        16
+      ]
+    }
+  },
+  "results": [
+    {
+      "condition": "worst case (131k growing tiles = half the map, ~130k candidates, dirty budget full, growth+spread+flush in the SAME frame, 4 x 60 frames, headless CPU only; end of each run still has half the map growing): median and max total < 16 ms",
+      "id": "perf.worst_frame",
+      "observed": "median 7.93 ms, p99 11.07, max 11.65 ms, worst frame parts [11.655, 5.511, 3.429, 2.715, 6000, 16], end states [{ \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }, { \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }, { \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }, { \"active_end\": 197324, \"queue_end\": 38537, \"growing_end\": 197324 }]",
+      "status": "PASS"
+    }
+  ]
+}

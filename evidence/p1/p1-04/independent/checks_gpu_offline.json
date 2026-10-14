@@ -1,0 +1,20 @@
+[
+  {
+    "condition": "natural spread produced a front with seeds, sprout1, sprout2 and mature tiles all present beside each other",
+    "id": "gpu.front_state",
+    "observed": "t=74.0 counts=[1720, 44, 56, 9, 171] natural tiles=934",
+    "status": "PASS"
+  },
+  {
+    "condition": "tiles whose 16 pixels are all palette colours (ground / seed / sprout / mature / half-transparent edge; the rest is covered by P0 scenery props, trees, shadows, HUD) match the live-world composition exactly; no tile shows palette-valid but wrong content",
+    "id": "gpu_offline.pixel_oracle",
+    "observed": "clean=8193 occluded_by_scenery=2778 wrong=0 clean by stage={ 0: 7561, 2: 70, 3: 35, 4: 483, 1: 44 } of total by stage={ 0: 9977, 2: 127, 3: 50, 4: 718, 1: 99 } ",
+    "status": "PASS"
+  },
+  {
+    "condition": "clean (unoccluded) tiles include seeds, sprout1, sprout2 and mature tiles",
+    "id": "gpu_offline.front_tiles_clean",
+    "observed": "{ 0: 7561, 2: 70, 3: 35, 4: 483, 1: 44 }",
+    "status": "PASS"
+  }
+]

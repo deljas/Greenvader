@@ -1,0 +1,44 @@
+[
+  {
+    "condition": "natural spread produced a front with seeds, sprout1, sprout2 and mature tiles all present beside each other",
+    "id": "gpu.front_state",
+    "observed": "t=74.0 counts=[1720, 44, 56, 9, 171] natural tiles=934",
+    "status": "PASS"
+  },
+  {
+    "condition": "PrintWindow capture is 1280x720 (k=2), internal frame 640x360",
+    "id": "gpu.size",
+    "observed": "native=(1280, 720) vp=(640, 360)",
+    "status": "PASS"
+  },
+  {
+    "condition": "every 2x2 block of the window image is one colour (no smoothing)",
+    "id": "gpu.k2_uniform",
+    "observed": "non-uniform pixels=0",
+    "status": "PASS"
+  },
+  {
+    "condition": "each block equals the internal frame pixel",
+    "id": "gpu.native_equals_internal",
+    "observed": "mismatching=0 of 230400",
+    "status": "PASS"
+  },
+  {
+    "condition": "every pixel of every visible tile (excluding HUD bars and the player area) equals the composition from the live world: seed 1 px at the slot, sprout1 1x1, sprout2 1x2 up, mature full tile, 1 px half-transparent edge only on sides without a mature 4-neighbour, bare ground elsewhere (so no outline)",
+    "id": "gpu.pixel_oracle",
+    "observed": "tiles=10571 pixels=169136 (edge px 522) bad=33072 stages seen={ 0: 9897, 2: 87, 3: 50, 4: 478, 1: 59 } tile (105,189) stage 0 px (3,2) got [40, 118, 90] want [160, 150, 111]",
+    "status": "FAIL"
+  },
+  {
+    "condition": "the screenshot contains all of: seeds, sprout1, sprout2, mature tiles and ground",
+    "id": "gpu.front_visible",
+    "observed": "{ 0: 9897, 2: 87, 3: 50, 4: 478, 1: 59 }",
+    "status": "PASS"
+  },
+  {
+    "condition": "real renderer: flushing a full 6000-tile budget scattered over the whole map (touching up to all 64 blocks) costs < 8 ms of CPU",
+    "id": "gpu.flush_cost",
+    "observed": "median 4.82 ms, max 5.82 ms (blocks last flush=0)",
+    "status": "PASS"
+  }
+]

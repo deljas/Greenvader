@@ -1,0 +1,38 @@
+{
+  "observations": {
+    "front_natural": {
+      "60": 7,
+      "120": 11,
+      "300": 23,
+      "600": 43,
+      "900": 63,
+      "1200": 83
+    }
+  },
+  "results": [
+    {
+      "condition": "natural front speed between 300 s and 1200 s (tiles/min); implementer claims about 4",
+      "id": "front.speed",
+      "observed": "front x at s: { 60: 7, 120: 11, 300: 23, 600: 43, 900: 63, 1200: 83 } -> 4.00 tiles/min",
+      "status": "PASS"
+    },
+    {
+      "condition": "one manual seed shot (up to 6 seeds, 30 tiles = projectile range away) becomes a mature patch in ~60 s while the natural-only front in the same 64 s advanced only 4 tiles from the block edge (x=3)",
+      "id": "front.manual_one_shot",
+      "observed": "seeds placed=6 mature=6; farthest mature x manual=35 natural=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "distance reached in 64 s: manual shot is at least 4x the natural-only spread",
+      "id": "front.manual_faster",
+      "observed": "manual 32 tiles vs natural 4 tiles (ratio 8.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "dry manual seed matures in 120 growth ticks (60 s); natural seed in 40 (20 s) = natural_growth_multiplier 3",
+      "id": "front.growth_multiplier",
+      "observed": "manual 120 ticks natural 40 ticks",
+      "status": "PASS"
+    }
+  ]
+}

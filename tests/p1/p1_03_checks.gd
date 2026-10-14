@@ -633,8 +633,11 @@ func median(values: Array[float]) -> float:
 	return sorted[sorted.size() / 2]
 
 func test_performance() -> void:
+	# P1-04: these measurements are about one tick over the whole 10,000-tile active set, so the per-tick limit is lifted (0 = no limit).
+	var unlimited: SimTuning = sim_tuning.duplicate() as SimTuning
+	unlimited.max_growth_tiles_per_tick = 0
 	var state: WorldState = blank(512, 512)
-	var rig: Rig = Rig.new(state, sim_tuning)
+	var rig: Rig = Rig.new(state, unlimited)
 	# 10,000 growing tiles with mixed moisture.
 	for y: int in range(100, 200):
 		for x: int in range(100, 200):
@@ -655,7 +658,7 @@ func test_performance() -> void:
 	check(median(times) < 20000.0, "10,000 growing tiles: median growth tick %.2f ms, worst %.2f ms" % [median(times) / 1000.0, times.max() / 1000.0])
 	# Same tiles, dry and steady (no stage changes), measured on a fresh seed layer.
 	var steady: WorldState = blank(512, 512)
-	var steady_rig: Rig = Rig.new(steady, sim_tuning)
+	var steady_rig: Rig = Rig.new(steady, unlimited)
 	for y: int in range(100, 200):
 		for x: int in range(100, 200):
 			steady.set_stage(steady.index_of(x, y), WorldState.STAGE_SEED)
@@ -801,6 +804,8 @@ func test_scene_flow() -> void:
 	var centre: Vector2 = (Vector2(block) + Vector2(0.5, 0.5)) * TILE
 	await teleport(centre)
 	main.projectile_view.landed.connect(record_landing)
+	# P1-04: this flow is about the player-planted tiles, so natural spread is switched off here (it would add greened tiles).
+	main.simulation.spread.allow_hook = func(_index: int) -> bool: return false
 	var greened_before: int = state.greened_count
 	# ---- seeds in with injected clicks; all four land at one spot so enough plants stand together
 	var aim_point: Vector2 = centre + Vector2(40, 0)

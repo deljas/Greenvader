@@ -1,0 +1,23 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "before pausing, natural spread was working (seeds planted by spread) and tiles were growing",
+      "id": "pause.spread_was_running",
+      "observed": "snapshot { \"hash\": \"672951261/4157247674/766779351/924863929\", \"greened\": 579, \"mature\": 383, \"natural_planted\": 196, \"clock\": [23.9999999999999, 48, 24], \"spread\": [24, 0, 0], \"growth\": [48, 0, 196] }",
+      "status": "PASS"
+    },
+    {
+      "condition": "paused: stages, growth, clock, spread ticks/queue, growth cursor and the natural-planted count do not move during 12 s of physics frames + 1.5 s real time",
+      "id": "pause.frozen",
+      "observed": "paused=true equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resuming, 2 s of frames advance game time by 2 s, 2 spread ticks and 4 growth ticks (+-1): the paused wall time is not added",
+      "id": "pause.resume_no_bank",
+      "observed": "elapsed +1.9833 spread ticks +2 growth ticks +4 planted +0 (B=1500)",
+      "status": "PASS"
+    }
+  ]
+}

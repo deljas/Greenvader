@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section save
+ERROR: Condition "ret.is_empty()" is true. Returning: ret
+   at: raw_to_base64 (core/core_bind.cpp:1352)
+   GDScript backtrace (most recent call first):
+       [0] _pack_bytes (res://scripts/world/world_state.gd:329)
+       [1] to_dict (res://scripts/world/spread_sim.gd:256)
+       [2] save (res://tests/p1/independent/p1_04_v_logic.gd:600)
+       [3] t_save (res://tests/p1/independent/p1_04_v_logic.gd:620)
+       [4] run (res://tests/p1/independent/p1_04_v_logic.gd:41)
+ERROR: Decompression buffer size must be greater than zero.
+   at: func_PackedByteArray_decompress (core/variant/variant_call.cpp:818)
+   GDScript backtrace (most recent call first):
+       [0] _unpack_bytes (res://scripts/world/world_state.gd:332)
+       [1] load_dict (res://scripts/world/spread_sim.gd:276)
+       [2] _init (res://tests/p1/independent/p1_04_v_logic.gd:595)
+       [3] t_save (res://tests/p1/independent/p1_04_v_logic.gd:623)
+       [4] run (res://tests/p1/independent/p1_04_v_logic.gd:41)
+RESTORE growth=true spread=true
+PASS [save.restore_equal] restored state equals the saved one (world, queue, mature_near, tick counts) :: A 1205509811/2877091469/3658333421/52656511/q114/2870267015/822 | B 1205509811/2877091469/3658333421/52656511/q114/2870267015/822
+PASS [save.same_after_advance] after save->JSON->load, advancing both by the same time (6 chunks, ~250 s) keeps them identical :: diverged: hashA=796546648/2823112781/3658333421/110847349/q140/3219602945/3517 hashB=796546648/2823112781/3658333421/110847349/q140/3219602945/3517
+PASS [save.counters] restored world counters consistent after the advance :: greened a=3517 b=3517
+--- section save done in 202 ms
+V_RESULT total=3 fails=0

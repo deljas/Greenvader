@@ -1,0 +1,89 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section timing
+PASS [1.timing] ticks (0.5 s) to sprout1/sprout2/mature: dry 40/80/120 (mature 60 s), moisture100 20/40/60 (30 s), moisture50, 25, fertility 100 per spec factors :: dry got=[40, 80, 120] want=[40, 80, 120]; moisture100_fixed got=[20, 40, 60] want=[20, 40, 60]; moisture50_fixed got=[27, 54, 80] want=[27, 54, 80]; moisture25_fixed got=[32, 64, 96] want=[32, 64, 96]; fert100_dry got=[27, 54, 80] want=[27, 54, 80]; fert100_moisture100 got=[14, 27, 40] want=[14, 27, 40]
+PASS [1.seconds] game time to mature: dry about 60 s, moisture 100 fixed about 30 s, ratio 2 (water speeds growth, dry still matures) :: dry=60.000 s wet=30.000 s ratio=2.0000
+PASS [1.sequence] stage sequence of one dry seed is seed(1), sprout1(2), sprout2(3), mature(4) with no skips and no regress :: seq=[1, 2, 3, 4]
+PASS [1.mature_inactive] a mature dry tile has left the active set and further ticks change nothing :: in_active=false flag=0 growth=120000
+PASS [1.wet_mature_active] a wet mature tile is active exactly while moisture > 0 (30 -> 30 ticks), stays mature :: left active after 30 ticks stage=4
+--- section timing done in 588 ms
+--- section decay
+PASS [2.integral_pre] growth after every tick equals my integral with moisture falling 100,99,... (tick uses moisture before the decay), 74 ticks to mature :: mismatching ticks=0 ; model mature tick pre=74 post=74; model-post-decay also matches=false
+PASS [2.moisture_traj] moisture falls exactly 1 per 0.5 s tick (2 per second), reaching 0 after 100 ticks (50 s) :: traj ok=true
+PASS [2.between] a tile that dries while growing matures between the always-wet (60) and always-dry (120) times :: mature tick 74
+PASS [2.moisture_floor] moisture 3 falls 2,1,0 and stays 0 (no underflow to 255) :: seq=[2, 1, 0, 0, 0, 0]
+--- section decay done in 284 ms
+--- section floor
+PASS [3.floor] growth gains at least 1 every tick (never stops) even with sunlight 0 / negative, moisture coefficient 0 or negative, fertility 0, base 0 :: real_tuning_sun0 strictly_growing=true g=[100, 200, 151]; real_tuning_sun_neg strictly_growing=true g=[100, 200, 151]; real_tuning_sun_tiny strictly_growing=true g=[100, 200, 151]; zero_moisture_coeff_base1 strictly_growing=true g=[100, 100, 100]; base0_all_zero strictly_growing=true g=[100, 100, 100]; negative_moisture_coeff strictly_growing=true g=[100, 200, 100]
+PASS [3.sun_hook] the sunlight hook multiplies speed (x2 -> 2x growth) and defaults to 1.0 without a provider (10 ticks dry: 10000 vs 20000) :: g=10000 / 20000
+PASS [3.sun_default] without provider growth is the plain dry rate (10 ticks = 10000) :: g=10000
+--- section floor done in 1128 ms
+--- section greening
+PASS [4.baseline] baseline greened count equals my own scan of initial sprout-or-better target tiles (safe zone) :: counter=331 my scan=331
+PASS [4.seed_no_green] planting seeds (stage 1) does not raise the greening count :: planted=48 greened=331 base=331
+PASS [4.diff_vs_recount] greening counter equals base + my count of planted tiles at sprout1 or later after every one of 160 ticks (includes a late batch) :: mismatching ticks=0 first increase at tick 24
+PASS [4.no_double] after all stages the count is base + planted tiles exactly once each, equals a full recount, counters consistent :: counter=385 recount=385 base+planted=385 stages=[4]
+PASS [4.single] one dry seed: greened +0 at seed, +1 at sprout1, still +1 at sprout2 and mature :: transitions [from,to,greened delta]=[[1, 2, 1], [2, 3, 1], [3, 4, 1]]
+PASS [4.sprout_slots] every tile has one of 4 sprout positions, distribution within 1 point of uniform (random position among the 2x2 centre candidates) :: hist=[65866, 65471, 65513, 65294]
+PASS [4.nontarget_clean] non-target tiles (water, buildings) never get a stage or growth :: bad=0
+--- section greening done in 437 ms
+--- section active
+PASS [5.active_equals_brute] active set (growing or moisture>0) equals a full-map brute force and is duplicate free at planting, watering and every 20 ticks of a 300-tick run :: [["initial", true, 0], ["after_seed", true, 36], ["after_water", true, 111], ["tick0", true, 111], ["tick20", true, 111], ["tick40", true, 38], ["tick60", true, 38], ["tick80", true, 36], ["tick100", true, 36], ["tick120", true, 0], ["tick140", true, 0], ["tick160", true, 0], ["tick180", true, 0], ["tick200", true, 0], ["tick220", true, 0], ["tick240", true, 0], ["tick260", true, 0], ["tick280", true, 0], ["tick299", true, 0]]
+PASS [5.visited_only_active] a tick visits exactly the active tiles and changes nothing outside the set (visited counts match, full diff of stage/growth/moisture) :: visited_ok=true outside_unchanged=true
+PASS [5.drained] after everything matured and dried the active set is empty :: active=0
+PASS [5.idle_light] with nothing growing a tick visits 0 tiles and costs well under 0.1 ms (1000 ticks measured) :: visited=0, 1.29 us/tick
+PASS [5.rebuild] from_dict rebuilds the same active set and counts as brute force :: mature=367/367
+--- section active done in 1548 ms
+--- section moisture
+PASS [moist.cap] repeated water landing adds 40 then caps at 100 (40,80,100,100,100), no tile above 100 anywhere :: seq=[40, 80, 100, 100, 100] max=100
+PASS [moist.nontarget] water landed at the lake edge wets neighbouring target tiles (>0) but no non-target tile (water, building) :: non-target wet=0 east target moisture=80
+PASS [moist.active_on_bare] bare ground made wet joins the active set :: active=37
+PASS [moist.rate] moisture 100 reaches 0 after exactly 100 ticks = 50 s (2 per second) and stays 0 :: moisture 1 at tick 99, 0 at tick 100
+--- section moisture done in 206 ms
+--- section gather
+PASS [6.gather_brute] mature-tile count around the player equals a brute force (tile centre within 160 px) for 120 random/edge centres :: mismatches=0 nonzero=120 
+PASS [6.chunk_counts] per-chunk mature counts sum to the global count and a full recount :: chunks=25425 global=25425 recount=25425
+PASS [6.tile_at] tile_at(0..n-1) lists distinct mature tiles inside the circle only :: n=586 distinct=586
+--- section gather done in 281 ms
+--- section stats
+PASS [7.none_when_no_mature] with no mature tile anywhere (safe zone cleared) 2000 production ticks drop nothing :: mature=0 total=0
+PASS [7.none_outside_circle] mature tiles all 280+ px away from the player produce nothing for the player (1500 ticks) :: mature=169 total=0
+PASS [7.expectation] drops over 6000 ticks match N * 0.00125/s * 2 s * ticks (5 sigma) for N = 40, 160, 400, all on mature tiles inside the circle with the right owner id :: N=40 mature=40 drops=581 expected=600 (+-116.2) bad_pos=0 bad_owner=0; N=160 mature=160 drops=2361 expected=2400 (+-189.7) bad_pos=0 bad_owner=0; N=400 mature=400 drops=6000 expected=6000 (+-5.0) bad_pos=0 bad_owner=0
+PASS [7.more_mature_more_drops] more mature tiles around give strictly more fruits (40 < 160 < 400) :: { 40: 581, 160: 2361, 400: 6000 }
+--- section stats done in 946 ms
+--- section pos
+PASS [7.positions] layout with 3094 mature tiles inside and 2464 outside the circle: 8998 drops, none off a mature tile, none outside the circle, owner ids = base + tile :: drops=8998 bad_pos=0 bad_owner=0
+PASS [7.max_per_tick] with the whole map mature (expectation about 12/tick) a tick never drops more than 3, and 3 on every tick when the pool is empty :: max=3 total=1800 (600 ticks) bad_pos=0
+--- section pos done in 1851 ms
+--- section caps
+PASS [8.plant_cap] plant fruits on the ground never exceed 20 and do reach 20 (production 3 per 2 s with a full pouch for 120 s) :: max plant fruits=20 first full at 26.00 s
+PASS [8.total_cap] all fruits on the ground never exceed 24 :: max total=23
+PASS [8.tile_cap] no tile ever holds more than 1 of its own fruits :: violations=0
+PASS [8.lifetime] a plant fruit lives 45 s: oldest observed age is within [44.9, 45.0+one step] and none older :: max age=45.000 over-limit steps=0
+PASS [8.source_reserved] while 20 plant fruits lie on the ground the seed source still gets its 3 fruits in the remaining slots (total 23 <= 24) :: both full simultaneously=true max source fruits=3
+PASS [8.recover_slots] with 20 plant fruits already on the ground a 21st plant fruit is refused, and the source still produces its 3 fruits (full 24 pool never starves it) :: plant spawned=20 refused 21st=true source fruits=3 total=23
+PASS [8.zero_seed_recovery] 0 seeds, plant pool full elsewhere, player at the source: seeds come back from source fruits within 120 s :: max seeds=2 plant fruits=0
+PASS [8.collect_plant_fruit] a plant fruit within 12 px is collected automatically (+1 seed), one 20 px away is not :: seeds=4
+PASS [8.collect_far] a plant fruit 20 px away stays on the ground :: seeds=3
+--- section caps done in 919 ms
+--- section rate
+PASS [9.framerate_logic] at 20/60/100/100.5 s of game time the clocks, stages, growth, moisture, greening, production counts and fruit positions are identical at 30, 60 and 144 Hz steps :: 60Hz: growth_ticks=201 prod_ticks=50 produced=41 mature=318 greened=318 items=22 same_as_60=true; 30Hz: growth_ticks=201 prod_ticks=50 produced=41 mature=318 greened=318 items=22 same_as_60=true; 144Hz: growth_ticks=201 prod_ticks=50 produced=41 mature=318 greened=318 items=22 same_as_60=true
+PASS [9.hitch] a 30 s frame advances the clock and the play state by at most 0.25 s (no burst) :: clock=0.250 play=0.250
+--- section rate done in 1092 ms
+--- section save
+PASS [10.restore_equal_now] after to_dict -> JSON -> from_dict the stage/growth/moisture arrays, counts and active set equal the saved state :: loaded=true hash=1167319895/761709073/766779351 vs 1167319895/761709073/766779351
+PASS [10.continue_identical] continuing 70 s after the restore gives the identical world hash, clock ticks, production counters and fruit list as the uninterrupted run :: hash 3828231518/3204173496/766779351 vs 3828231518/3204173496/766779351; growth_ticks 206/206; prod { "ticks": 51, "total_produced": 42 }/{ "ticks": 51, "total_produced": 42 }; items 21/21
+--- section save done in 538 ms
+--- section paths
+PASS [12.paths_equal] growth is identical with and without a sunlight provider (1.0) over 63 moisture/fertility combinations, 40 ticks :: differing tiles=0 of 63
+PASS [12.moisture_over_scale] moisture 250 (above the 100 scale, set directly) is clamped to the top factor: 3 ticks = 6000 growth :: growth=6000 moisture=247
+PASS [12.empty_removal] a tile cleared back to empty (stage 0, dry) drops out of the active set at the next tick (stale entry allowed for at most one tick) :: was in set before tick=true, after=false
+--- section paths done in 566 ms
+--- section perf
+PASS [11.perf_10k] one growth tick with 10000 growing tiles (random moisture) averages under 16 ms (30 ticks) :: avg 2.97 ms max 3.49 ms visited=10000
+PASS [11.perf_10k_transition] worst-case tick: all 10000 tiles change stage in one tick, under 16 ms :: 10.37 ms, stage changes=10000
+INFO full map growing 244515 tiles: 1.17 ms per tick (informational)
+PASS [11.perf_full_info] informational: tick with the entire plantable map (244515 tiles) growing and wet :: 1.17 ms
+PASS [11.perf_produce] production tick with the entire map mature (244846 tiles; player in the middle) under 16 ms; also the worst PlayState.advance call :: produce avg 0.343 ms max 0.469 ms; PlayState.advance max 0.383 ms
+--- section perf done in 1154 ms
+V_RESULT total=57 fails=0

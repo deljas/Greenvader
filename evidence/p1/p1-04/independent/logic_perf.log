@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section perf
+PASS [perf.worst_frame] worst case (131k growing tiles = half the map, ~130k candidates, dirty budget full, growth+spread+flush in the SAME frame, 4 x 60 frames, headless CPU only; end of each run still has half the map growing): median and max total < 16 ms :: median 7.93 ms, p99 11.07, max 11.65 ms, worst frame parts [11.655, 5.511, 3.429, 2.715, 6000, 16], end states [{ "active_end": 197324, "queue_end": 38537, "growing_end": 197324 }, { "active_end": 197324, "queue_end": 38537, "growing_end": 197324 }, { "active_end": 197324, "queue_end": 38537, "growing_end": 197324 }, { "active_end": 197324, "queue_end": 38537, "growing_end": 197324 }]
+--- section perf done in 3592 ms
+V_RESULT total=1 fails=0

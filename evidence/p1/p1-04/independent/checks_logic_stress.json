@@ -1,0 +1,56 @@
+{
+  "observations": {
+    "stress": {
+      "amax": 19512,
+      "big_ticks": 127,
+      "emax": 8000,
+      "ev_max": 1000,
+      "exam_max": 1500,
+      "gap_max": 13,
+      "gv_max": 3000,
+      "matures": 1600,
+      "natural_tiles": 41138,
+      "qmax": 19200,
+      "spread_ticks": 150,
+      "worst_first_visit_tick": 13
+    }
+  },
+  "results": [
+    {
+      "condition": "scenario really has more candidates than B (so the budget binds)",
+      "id": "stress.queue_is_large",
+      "observed": "Qmax=19200 B=1500",
+      "status": "PASS"
+    },
+    {
+      "condition": "every spread tick examines <= B=1500 candidates (and the cap is hit) and applies <= 1000 mature events",
+      "id": "stress.examined_le_B",
+      "observed": "max examined=1500, max events=1000, spread ticks=150",
+      "status": "PASS"
+    },
+    {
+      "condition": "every growth tick processes <= G=3000 active tiles (own count via last_growth_tick and reported last_visited), active set up to 19512",
+      "id": "stress.growth_le_G",
+      "observed": "max visited=3000 own-count max=3000 ticks with active>G=127 (visited then=3000)",
+      "status": "PASS"
+    },
+    {
+      "condition": "gap between two examinations of one candidate <= ceil(Qmax/B)=13; first examination within events wait + that",
+      "id": "stress.fairness",
+      "observed": "gap max=13 bound=13; 19200 initial candidates, never examined 0, worst first-visit tick=13 (limit 22)",
+      "status": "PASS"
+    },
+    {
+      "condition": "every naturally planted tile was examined before",
+      "id": "stress.no_never_visited",
+      "observed": "never=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "counters equal recount during the run",
+      "id": "stress.counters",
+      "observed": "bad=0",
+      "status": "PASS"
+    }
+  ]
+}

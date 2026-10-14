@@ -1,0 +1,53 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "with 1 mature neighbour the rate is threshold/rate = 10 ticks: no natural seed before tick 10",
+      "id": "target.not_before_min_time",
+      "observed": "natural tiles at 9 s = 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "at 15 s the naturally planted tiles are exactly the free plantable target tiles within Euclid 2 of the mature tile (12 offsets minus water, building, occupied, existing seed/sprout, hook-refused = 6)",
+      "id": "target.exact_set",
+      "observed": "got 6 want 6 stray=[]",
+      "status": "PASS"
+    },
+    {
+      "condition": "tiles at distance sqrt5 / 3 are not planted",
+      "id": "target.no_outside_radius",
+      "observed": "ok",
+      "status": "PASS"
+    },
+    {
+      "condition": "pre-existing player seed/sprout keep natural=0 and are not reset; non-target tiles stay empty",
+      "id": "target.existing_untouched",
+      "observed": "stage(19,19)=3 stage(20,19)=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "greened counter == recount; the 6 natural seeds are not counted",
+      "id": "target.counter_seed_not_counted",
+      "observed": "greened=2 recount=2 seeds=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "refused tile stays empty while refused, and is planted (naturally) within 12 ticks after the hook allows it",
+      "id": "target.hook_lift_spreads",
+      "observed": "before=0 stage=1 natural=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "a released occupied tile becomes a candidate and is planted",
+      "id": "target.release_spreads",
+      "observed": "stage=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "a hook that refuses everything: nothing spreads in 120 s, candidates stay queued",
+      "id": "target.hook_blocks_all",
+      "observed": "queue=12",
+      "status": "PASS"
+    }
+  ]
+}

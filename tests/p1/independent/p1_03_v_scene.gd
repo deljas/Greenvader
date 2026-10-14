@@ -231,6 +231,9 @@ func mature_in_circle(world: WorldState, c: Vector2, r: float) -> int:
 
 func t_chain() -> void:
 	await new_main()
+	# P1-04: natural spread from the safe zone would add greened tiles outside the tracked area; it is switched off so that this
+	# counter-tracking assertion keeps its meaning (greening = base + tracked player-planted tiles).
+	main.simulation.spread.allow_hook = func(_index: int) -> bool: return false
 	var play: PlayState = main.play
 	var world: WorldState = main.grid
 	var clock: SimClock = main.simulation.clock

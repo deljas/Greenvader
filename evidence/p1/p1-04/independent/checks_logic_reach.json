@@ -1,0 +1,59 @@
+{
+  "observations": {
+    "reach": {
+      "amax": 65,
+      "emax": 0,
+      "hop_bound_s": 33.0,
+      "max_depth": 56,
+      "qmax": 41,
+      "reachable_targets": 1843,
+      "seconds": 1565,
+      "unreachable_targets": 477,
+      "worst_arrival_over_bound": 0.886792452830189
+    }
+  },
+  "results": [
+    {
+      "condition": "every tile connected to the start through radius-2 plantable hops (by my BFS) is planted",
+      "id": "reach.all_connected_reached",
+      "observed": "reachable=1843 missing=0 max_depth=56 finished at 1565 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "each reached tile at BFS depth d was planted within d x (own per-hop bound 33.0 s from settings) + 5 s",
+      "id": "reach.within_bound",
+      "observed": "late=0 worst arrival/bound=0.887",
+      "status": "PASS"
+    },
+    {
+      "condition": "tiles beyond a 2-wide water gap, beyond building gaps >= 3 and the closed island never get any stage",
+      "id": "reach.unreachable_untouched",
+      "observed": "unreachable targets=477 touched=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "1-wide corridor, 1-wide water gap (dx=2) and the diagonal chain are crossed; 2-wide gap is not",
+      "id": "reach.narrow_features",
+      "observed": "t(60,16)=920 t(82,16)=1250 t(chain end)=935 D=0 G=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "no candidate waits more than ceil(Qmax/B) = 1 spread ticks between two examinations (measured through the hook)",
+      "id": "reach.fairness_gap",
+      "observed": "max gap=1 (Qmax=41)",
+      "status": "PASS"
+    },
+    {
+      "condition": "greened/mature/target counters equal recount every 20 s during the whole natural spread",
+      "id": "reach.counters",
+      "observed": "mismatch checks=0 final greened=1843 target=2320",
+      "status": "PASS"
+    },
+    {
+      "condition": "second identical run gives identical world state and identical arrival times (no randomness)",
+      "id": "reach.deterministic",
+      "observed": "hash 1033371780/1651766777/910319678/4108795146 vs 1033371780/1651766777/910319678/4108795146, arrival maps equal=true",
+      "status": "PASS"
+    }
+  ]
+}

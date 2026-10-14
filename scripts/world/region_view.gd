@@ -16,6 +16,7 @@ extends Node2D
 const TILE: int = 4
 const BLOCK_TILES: int = 64
 const BLOCK_PX: int = BLOCK_TILES * TILE
+const TILE_RECT: Rect2i = Rect2i(0, 0, TILE, TILE)
 
 var world: WorldState
 var tuning: SimTuning
@@ -26,6 +27,9 @@ var block_textures: Array[ImageTexture] = []
 var block_flag: PackedByteArray = PackedByteArray()
 var ground_colors: Array[Color] = []
 var edge_colors: Array[Color] = []
+var ground_tiles: Array[Image] = []
+var sprout_tiles: Array[Image] = []
+var mature_tiles: Array[Image] = []
 ## Observability for tests: tiles repainted / blocks uploaded by the latest flush, and totals.
 var last_flush_tiles: int = 0
 var last_flush_blocks: int = 0
@@ -39,6 +43,7 @@ func setup(world_state: WorldState, sim_tuning: SimTuning) -> void:
 	blocks_x = ceili(float(world.width) / BLOCK_TILES)
 	blocks_y = ceili(float(world.height) / BLOCK_TILES)
 	_build_color_tables()
+	_build_tile_images()
 	render_all()
 
 func _build_color_tables() -> void:
@@ -87,12 +92,14 @@ func render_all() -> void:
 	queue_redraw()
 
 ## Repaints the dirty tiles and uploads the blocks they touch. Cheap when nothing changed.
-func flush() -> void:
+## `limit` >= 0 repaints at most that many of the oldest dirty tiles and leaves the rest for the next call
+## (P1-04: bounds the work of one frame); negative = all of them.
+func flush(limit: int = -1) -> void:
 	if world.dirty_tiles.is_empty():
 		last_flush_tiles = 0
 		last_flush_blocks = 0
 		return
-	var tiles: PackedInt32Array = world.take_dirty()
+	var tiles: PackedInt32Array = world.take_dirty(limit)
 	for index: int in tiles:
 		_render_tile(index)
 	var uploaded: int = 0
@@ -106,7 +113,7 @@ func flush() -> void:
 	total_tiles_rendered += tiles.size()
 
 func _process(_delta: float) -> void:
-	flush()
+	flush(tuning.render_tiles_per_frame)
 
 func _draw() -> void:
 	for by: int in blocks_y:
@@ -116,41 +123,71 @@ func _draw() -> void:
 func block_of_tile(x: int, y: int) -> int:
 	return (y / BLOCK_TILES) * blocks_x + (x / BLOCK_TILES)
 
-func _is_mature(x: int, y: int) -> bool:
-	return x >= 0 and y >= 0 and x < world.width and y < world.height and world.stage[y * world.width + x] == WorldState.STAGE_MATURE
+## Pre-rendered 4x4 tile images (one blit per repainted tile instead of several fills):
+##   ground_tiles[terrain]
+##   sprout_tiles[(terrain * 3 + stage - 1) * 4 + slot]    (seed, sprout 1, sprout 2)
+##   mature_tiles[terrain * 16 + mask]                      mask bit 0 / 1 / 2 / 3 = no mature neighbour above / below / left / right
+func _build_tile_images() -> void:
+	ground_tiles.clear()
+	sprout_tiles.clear()
+	mature_tiles.clear()
+	for terrain_id: int in world.terrain_defs.size():
+		var ground: Color = ground_colors[terrain_id]
+		var base: Image = Image.create(TILE, TILE, false, Image.FORMAT_RGBA8)
+		base.fill(ground)
+		ground_tiles.append(base)
+		for stage: int in range(WorldState.STAGE_SEED, WorldState.STAGE_SPROUT2 + 1):
+			for slot: int in WorldState.SLOT_COUNT:
+				var image: Image = base.duplicate()
+				var px: int = 1 + (slot & 1)
+				var py: int = 1 + (slot >> 1)
+				if stage == WorldState.STAGE_SEED:
+					image.set_pixel(px, py, tuning.seed_color)
+				elif stage == WorldState.STAGE_SPROUT1:
+					image.set_pixel(px, py, tuning.sprout_color)
+				else:
+					image.set_pixel(px, py, tuning.sprout_color)
+					image.set_pixel(px, py - 1, tuning.sprout_color)
+				sprout_tiles.append(image)
+		for mask: int in 16:
+			var mature: Image = Image.create(TILE, TILE, false, Image.FORMAT_RGBA8)
+			mature.fill(tuning.mature_color)
+			var edge: Color = edge_colors[terrain_id]
+			if mask & 1:
+				mature.fill_rect(Rect2i(0, 0, TILE, 1), edge)
+			if mask & 2:
+				mature.fill_rect(Rect2i(0, TILE - 1, TILE, 1), edge)
+			if mask & 4:
+				mature.fill_rect(Rect2i(0, 0, 1, TILE), edge)
+			if mask & 8:
+				mature.fill_rect(Rect2i(TILE - 1, 0, 1, TILE), edge)
+			mature_tiles.append(mature)
 
 func _render_tile(index: int) -> void:
-	var x: int = index % world.width
-	var y: int = index / world.width
-	var block: int = block_of_tile(x, y)
+	var width: int = world.width
+	var x: int = index % width
+	var y: int = index / width
+	var block: int = (y / BLOCK_TILES) * blocks_x + (x / BLOCK_TILES)
 	block_flag[block] = 1
-	var image: Image = block_images[block]
-	var ox: int = (x % BLOCK_TILES) * TILE
-	var oy: int = (y % BLOCK_TILES) * TILE
+	var origin: Vector2i = Vector2i((x % BLOCK_TILES) * TILE, (y % BLOCK_TILES) * TILE)
 	var terrain_id: int = world.terrain[index]
-	var stage: int = world.stage[index]
+	var stage_array: PackedByteArray = world.stage
+	var stage: int = stage_array[index]
+	var image: Image = block_images[block]
 	if stage == WorldState.STAGE_MATURE:
-		image.fill_rect(Rect2i(ox, oy, TILE, TILE), tuning.mature_color)
-		var edge: Color = edge_colors[terrain_id]
-		if not _is_mature(x, y - 1):
-			image.fill_rect(Rect2i(ox, oy, TILE, 1), edge)
-		if not _is_mature(x, y + 1):
-			image.fill_rect(Rect2i(ox, oy + TILE - 1, TILE, 1), edge)
-		if not _is_mature(x - 1, y):
-			image.fill_rect(Rect2i(ox, oy, 1, TILE), edge)
-		if not _is_mature(x + 1, y):
-			image.fill_rect(Rect2i(ox + TILE - 1, oy, 1, TILE), edge)
-		return
-	image.fill_rect(Rect2i(ox, oy, TILE, TILE), ground_colors[terrain_id])
-	if stage == WorldState.STAGE_EMPTY:
-		return
-	var slot: int = world.sprout_slot[index]
-	var px: int = ox + 1 + (slot & 1)
-	var py: int = oy + 1 + (slot >> 1)
-	if stage == WorldState.STAGE_SEED:
-		image.set_pixel(px, py, tuning.seed_color)
-	elif stage == WorldState.STAGE_SPROUT1:
-		image.set_pixel(px, py, tuning.sprout_color)
+		# The 1 px ring on each side WITHOUT a mature 4-neighbour is the half-transparent edge; the map border counts
+		# as "no neighbour"; diagonals are ignored.
+		var mask: int = 0
+		if y == 0 or stage_array[index - width] != WorldState.STAGE_MATURE:
+			mask |= 1
+		if y == world.height - 1 or stage_array[index + width] != WorldState.STAGE_MATURE:
+			mask |= 2
+		if x == 0 or stage_array[index - 1] != WorldState.STAGE_MATURE:
+			mask |= 4
+		if x == width - 1 or stage_array[index + 1] != WorldState.STAGE_MATURE:
+			mask |= 8
+		image.blit_rect(mature_tiles[terrain_id * 16 + mask], TILE_RECT, origin)
+	elif stage == WorldState.STAGE_EMPTY:
+		image.blit_rect(ground_tiles[terrain_id], TILE_RECT, origin)
 	else:
-		image.set_pixel(px, py, tuning.sprout_color)
-		image.set_pixel(px, py - 1, tuning.sprout_color)
+		image.blit_rect(sprout_tiles[(terrain_id * 3 + stage - 1) * 4 + world.sprout_slot[index]], TILE_RECT, origin)

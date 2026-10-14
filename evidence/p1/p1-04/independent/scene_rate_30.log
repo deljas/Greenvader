@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [rate.30] 30 Hz physics: after 100.5 s the clock has run 201 growth ticks and 100 spread ticks since the setup (cross-rate equality is checked by the comparer), natural spread planted tiles :: snap { "hash": "3455346470/836694447/766779351/407687329", "greened": 1261, "mature": 1067, "natural_planted": 942, "clock": [100.53333333333, 201, 100], "spread": [100, 34, 0], "growth": [201, 0, 258], "clock_dt": 100.5 }
+V_RESULT total=1 fails=0
