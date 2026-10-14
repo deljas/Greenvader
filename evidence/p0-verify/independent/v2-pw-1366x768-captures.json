@@ -1,0 +1,71 @@
+{
+  "captures": [
+    {
+      "file": "v2-pw-1366x768-static-printwindow.png",
+      "frames_waited": 25,
+      "hwnd": 793670,
+      "label": "static-printwindow",
+      "method": "PrintWindow",
+      "ps_pid": 50900,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-pw-1366x768-static-vp.png",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "file": "v2-pw-1366x768-static-screenrect.png",
+      "label": "static-screenrect",
+      "method": "screen_get_image_rect",
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-pw-1366x768-static-vp.png",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "file": "v2-pw-1366x768-night-printwindow.png",
+      "frames_waited": 25,
+      "hwnd": 793670,
+      "label": "night-printwindow",
+      "method": "PrintWindow",
+      "ps_pid": 55624,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "night",
+        "paused": false,
+        "shots": 0,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-pw-1366x768-night-vp.png",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "file": "v2-pw-1366x768-night-screenrect.png",
+      "label": "night-screenrect",
+      "method": "screen_get_image_rect",
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "night",
+        "paused": false,
+        "shots": 0,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-pw-1366x768-night-vp.png",
+      "window_size": "(1366, 768)"
+    }
+  ],
+  "tag": "v2-pw-1366x768"
+}

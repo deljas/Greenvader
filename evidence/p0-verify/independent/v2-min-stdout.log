@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(1280, 720)
+CHECK V2-MIN-320x200 PASS { "requested": (320, 200), "actual_dispserver": (640, 360), "window_size": (640, 360), "min_size": (640, 360), "viewport": (640.0, 360.0) }
+CHECK V2-MIN-639x360 PASS { "requested": (639, 360), "actual_dispserver": (640, 360), "window_size": (640, 360), "min_size": (640, 360), "viewport": (640.0, 360.0) }
+CHECK V2-MIN-640x359 PASS { "requested": (640, 359), "actual_dispserver": (640, 360), "window_size": (640, 360), "min_size": (640, 360), "viewport": (640.0, 360.0) }
+CHECK V2-MIN-700x400 PASS { "requested": (700, 400), "actual_dispserver": (700, 400), "window_size": (700, 400), "min_size": (640, 360), "viewport": (640.0, 360.0) }
+CHECK V2-MIN-1000x360 PASS { "requested": (1000, 360), "actual_dispserver": (1000, 360), "window_size": (1000, 360), "min_size": (640, 360), "viewport": (640.0, 360.0) }
+exit=0

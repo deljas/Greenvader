@@ -1,0 +1,1016 @@
+{
+  "target": "138664a (game files frozen; SHA-256 start==end)",
+  "checks": [
+    {
+      "condition": "D single hold 90 ticks: direction (1.0, 0.0), speed about 96 px/s (tolerance +-1 px/s = ~1%; 96/60=1.6 px per 1/60 s tick)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-MOVE-D",
+      "observed": {
+        "mean_dir": "(1.0, 0.0)",
+        "moving_steps": 89,
+        "net": "(142.3984, 0.0)",
+        "speed": 95.99894662921349,
+        "total_steps": 89,
+        "wall_s": 1.500157
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "A single hold 90 ticks: direction (-1.0, 0.0), speed about 96 px/s (tolerance +-1 px/s = ~1%; 96/60=1.6 px per 1/60 s tick)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-MOVE-A",
+      "observed": {
+        "mean_dir": "(-1.0, 0.0)",
+        "moving_steps": 89,
+        "net": "(-142.3984, 0.0)",
+        "speed": 95.9989260555653,
+        "total_steps": 89,
+        "wall_s": 1.479469
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "W single hold 90 ticks: direction (0.0, -1.0), speed about 96 px/s (tolerance +-1 px/s = ~1%; 96/60=1.6 px per 1/60 s tick)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-MOVE-W",
+      "observed": {
+        "mean_dir": "(0.0, -1.0)",
+        "moving_steps": 89,
+        "net": "(0.0, -142.4005)",
+        "speed": 96.0003662109375,
+        "total_steps": 89,
+        "wall_s": 1.495294
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "S single hold 90 ticks: direction (0.0, 1.0), speed about 96 px/s (tolerance +-1 px/s = ~1%; 96/60=1.6 px per 1/60 s tick)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-MOVE-S",
+      "observed": {
+        "mean_dir": "(0.0, 1.0)",
+        "moving_steps": 89,
+        "net": "(0.0, 142.4005)",
+        "speed": 96.0003662109375,
+        "total_steps": 89,
+        "wall_s": 1.496507
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "W+D hold 60 ticks: path speed about 96 px/s (normalized, not 96*sqrt2=135.8), direction (0.707107, -0.707107) (+-1 deg)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-DIAG-W+D",
+      "observed": {
+        "mean_dir": "(0.707102, -0.707112)",
+        "moving_steps": 59,
+        "net": "(66.75037, -66.75131)",
+        "speed": 95.99994348267377,
+        "total_steps": 59,
+        "wall_s": 0.998341
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "S+D hold 60 ticks: path speed about 96 px/s (normalized, not 96*sqrt2=135.8), direction (0.707107, 0.707107) (+-1 deg)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-DIAG-S+D",
+      "observed": {
+        "mean_dir": "(0.707097, 0.707116)",
+        "moving_steps": 59,
+        "net": "(66.74951, 66.75131)",
+        "speed": 95.99932909011841,
+        "total_steps": 59,
+        "wall_s": 0.995336
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "S+A hold 60 ticks: path speed about 96 px/s (normalized, not 96*sqrt2=135.8), direction (-0.707107, 0.707107) (+-1 deg)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-DIAG-S+A",
+      "observed": {
+        "mean_dir": "(-0.707097, 0.707116)",
+        "moving_steps": 59,
+        "net": "(-66.74951, 66.75131)",
+        "speed": 95.99932909011841,
+        "total_steps": 59,
+        "wall_s": 0.995913
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "W+A hold 60 ticks: path speed about 96 px/s (normalized, not 96*sqrt2=135.8), direction (-0.707107, -0.707107) (+-1 deg)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-DIAG-W+A",
+      "observed": {
+        "mean_dir": "(-0.707102, -0.707112)",
+        "moving_steps": 59,
+        "net": "(-66.75037, -66.75131)",
+        "speed": 95.99994348267377,
+        "total_steps": 59,
+        "wall_s": 0.995924
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "A+D together: no net movement (extra)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-OPPOSE",
+      "observed": {
+        "mean_dir": "(0.0, 0.0)",
+        "moving_steps": 0,
+        "net": "(0.0, 0.0)",
+        "speed": 0.0,
+        "total_steps": 29,
+        "wall_s": 0.498825
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected InputEventMouseMotion (window px, via Input.parse_input_event) moves get_global_mouse_position / aim_direction toward the injected point",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-AIM-INJECT",
+      "observed": {
+        "initial_viewport_mouse": "(-246.0, 546.5)",
+        "log": [
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "injected_window_px": "(640.0, 200.0)",
+            "intended_viewport_px": "(320.0, 100.0)",
+            "viewport_mouse_pos": "(-246.0, 546.5)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "injected_window_px": "(1000.0, 360.0)",
+            "intended_viewport_px": "(500.0, 180.0)",
+            "viewport_mouse_pos": "(-246.0, 546.5)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "injected_window_px": "(640.0, 520.0)",
+            "intended_viewport_px": "(320.0, 260.0)",
+            "viewport_mouse_pos": "(-246.0, 546.5)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "injected_window_px": "(280.0, 360.0)",
+            "intended_viewport_px": "(140.0, 180.0)",
+            "viewport_mouse_pos": "(-246.0, 546.5)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "injected_window_px": "(840.0, 160.0)",
+            "intended_viewport_px": "(420.0, 80.0)",
+            "viewport_mouse_pos": "(-246.0, 546.5)"
+          }
+        ],
+        "observation": "get_viewport().get_mouse_position() did not follow injected motion; it tracks the real OS cursor (see predicted_vs_actual); injection of aim not possible without moving the real cursor (forbidden)"
+      },
+      "result": "NOT_RUN"
+    },
+    {
+      "condition": "aim_direction points from the player to the (read-only observed) real OS cursor at 5 player positions: dot(expected, aim) > 0.9995 (about 1.8 deg); proves the aim path works with the pointer, not injection",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-AIM-PASSIVE",
+      "observed": {
+        "matches": 5,
+        "samples": [
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "cam_center": "(480.0, 368.0)",
+            "cursor_vp": "(-246.0, 546.5)",
+            "expected_aim": "(-0.839391, 0.543528)",
+            "match": true,
+            "player": "(480.0, 368.0)",
+            "real_cursor_screen": "(1484, 1133)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "cam_center": "(544.0, 368.0)",
+            "cursor_vp": "(-246.0, 546.5)",
+            "expected_aim": "(-0.839391, 0.543528)",
+            "match": true,
+            "player": "(544.0, 368.0)",
+            "real_cursor_screen": "(1484, 1133)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "cam_center": "(589.0, 413.0)",
+            "cursor_vp": "(-246.0, 546.5)",
+            "expected_aim": "(-0.839391, 0.543528)",
+            "match": true,
+            "player": "(589.0, 413.0)",
+            "real_cursor_screen": "(1484, 1133)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "cam_center": "(525.0, 413.0)",
+            "cursor_vp": "(-246.0, 546.5)",
+            "expected_aim": "(-0.839391, 0.543528)",
+            "match": true,
+            "player": "(525.0, 413.0)",
+            "real_cursor_screen": "(1484, 1133)"
+          },
+          {
+            "aim": "(-0.839391, 0.543528)",
+            "cam_center": "(525.0, 349.0)",
+            "cursor_vp": "(-246.0, 546.5)",
+            "expected_aim": "(-0.839391, 0.543528)",
+            "match": true,
+            "player": "(525.0, 349.0)",
+            "real_cursor_screen": "(1484, 1133)"
+          }
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Left click injected: exactly one seed provisional projectile spawns (warm/yellow texture), flies along the aim direction, and moves forward",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-SHOT-SEED",
+      "observed": {
+        "aim_at_click": "(-0.839391, 0.543528)",
+        "count_after": 1,
+        "count_before": 0,
+        "moved_in_0.5s": "(-67.15118, 43.48206)",
+        "observed_speed_px_s": 159.9996337890625,
+        "seed_state": [
+          {
+            "age": 0.05,
+            "color": "ffe5a0",
+            "dir": "(-0.839391, 0.543528)",
+            "pos0": "(477.1669, 394.9758)"
+          }
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Right click injected: exactly one water projectile (cool/blue texture) spawns and flies along aim",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-SHOT-WATER",
+      "observed": {
+        "count_after": 1,
+        "count_before": 0,
+        "moved_in_0.5s": "(-67.15118, 43.48206)",
+        "water_color": "9fe3ed"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Previous (seed) projectile removed after its lifetime (~1.8 s) and not leaked",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-SHOT-EXPIRE",
+      "observed": {
+        "count_after_130_ticks_before_next_click": 0
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected key 2 switches condition to rain (and CanvasModulate / weather view follow)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-WEATHER-KEY-2",
+      "observed": {
+        "condition": "rain",
+        "modulate": "(0.72, 0.83, 0.87, 1.0)",
+        "night_light_enabled": false
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected key 3 switches condition to night (and CanvasModulate / weather view follow)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-WEATHER-KEY-3",
+      "observed": {
+        "condition": "night",
+        "modulate": "(0.44, 0.52, 0.7, 1.0)",
+        "night_light_enabled": true
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected key 1 switches condition to sunny (and CanvasModulate / weather view follow)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-WEATHER-KEY-1",
+      "observed": {
+        "condition": "sunny",
+        "modulate": "(1.0, 1.0, 1.0, 1.0)",
+        "night_light_enabled": false
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected mouse click (motion+press+release in window px) on the top-bar button switches condition to rain",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-WEATHER-BTN-rain",
+      "observed": {
+        "button_rect_vp": "[P: (548.0, 8.0), S: (40.0, 24.0)]",
+        "condition": "rain",
+        "shots_spawned_by_click": 0,
+        "window_px": "(1136.0, 40.0)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected mouse click (motion+press+release in window px) on the top-bar button switches condition to night",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-WEATHER-BTN-night",
+      "observed": {
+        "button_rect_vp": "[P: (592.0, 8.0), S: (40.0, 24.0)]",
+        "condition": "night",
+        "shots_spawned_by_click": 0,
+        "window_px": "(1224.0, 40.0)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected mouse click (motion+press+release in window px) on the top-bar button switches condition to sunny",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-WEATHER-BTN-sunny",
+      "observed": {
+        "button_rect_vp": "[P: (492.0, 8.0), S: (52.0, 24.0)]",
+        "condition": "sunny",
+        "shots_spawned_by_click": 0,
+        "window_px": "(1036.0, 40.0)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected Esc pauses the tree and shows the pause panel",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-PAUSE-ON",
+      "observed": {
+        "panel_visible": true,
+        "paused": true
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "While paused: held W+D does not move player, clicks spawn no projectile, keys 2/3 do not change condition, existing projectile frozen (pos/age unchanged)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-PAUSE-FREEZE",
+      "observed": {
+        "condition": "sunny",
+        "player_after": "(483.882, 390.6276)",
+        "player_before": "(483.882, 390.6276)",
+        "pre_state": {
+          "aim": "(-0.839391, 0.543528)",
+          "cam": "(484.0, 391.0)",
+          "condition": "sunny",
+          "paused": false,
+          "shots": 1,
+          "sim": "(483.882, 390.6276)"
+        },
+        "shot_after": {
+          "age": 0.2333333333333333,
+          "pos": "(452.5448, 410.9192)"
+        },
+        "shot_before": {
+          "age": 0.2333333333333333,
+          "pos": "(452.5448, 410.9192)"
+        },
+        "shots_after": 1,
+        "shots_before": 1
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "While paused the weather button is disabled and a click injected on it does not change condition",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-PAUSE-BTN-INERT",
+      "observed": {
+        "condition": "sunny",
+        "disabled": true
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Injected Esc resumes (paused=false, panel hidden)",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-RESUME-ESC",
+      "observed": {
+        "panel_visible": false,
+        "paused": false
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "After Esc resume, held S moves again at about 96 px/s",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-RESUME-MOVE",
+      "observed": {
+        "mean_dir": "(0.0, 1.0)",
+        "moving_steps": 29,
+        "net": "(0.0, 46.40018)",
+        "speed": 96.0003662109375,
+        "total_steps": 29,
+        "wall_s": 0.498666
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Pause panel resume button clicked via injected mouse events resumes the game",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-RESUME-BTN",
+      "observed": {
+        "button_rect_vp": "[P: (188.0, 171.0), S: (264.0, 22.0)]",
+        "now_paused": false,
+        "was_paused": true,
+        "window_px": "(640.0, 364.0)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "After resume the weather buttons are enabled again and respond",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-RESUME-BTN-REENABLE",
+      "observed": {
+        "condition": "rain",
+        "enabled": true
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "Physical keyboard -> OS -> Godot path",
+      "evidence": "v1-input-stdout.log, v1-input-checks.json, v1-input-frames.log",
+      "id": "V1-PHYSICAL-KEYBOARD",
+      "observed": "NOT_RUN: engine-internal injection only; awaiting user manual check",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "V2-SELFTEST",
+      "condition": "Block-uniformity detector detects a single bad pixel and a 1px shift, passes a clean image",
+      "result": "PASS",
+      "observed": {
+        "ok": true,
+        "one_pixel_shift_detected": true,
+        "self_test": true,
+        "single_bad_pixel_detected": true,
+        "slow_count_for_single_bad_pixel": 1,
+        "uniform_image_passes": true
+      },
+      "evidence": "analysis.json"
+    },
+    {
+      "id": "V2-LAYOUT-1280x720",
+      "condition": "Mode windowed. Integer scale k, content rect and margins equal oracle p0_layout_oracle.ps1; margins exactly one colour; first/last content rows/cols are not margin colour",
+      "result": "PASS",
+      "observed": {
+        "actual_client_size": "(1280, 720)",
+        "window_mode_enum": 0,
+        "oracle_expected": {
+          "B": 0,
+          "L": 0,
+          "R": 0,
+          "T": 0,
+          "content": "1280x720",
+          "k": 2
+        },
+        "margin_colour_observed": "none (no margins)",
+        "images_checked": 41,
+        "note": "windowed screen capture: bottom 12x12 client px corners are DWM rounded-window artefacts, masked for the margin test; PrintWindow cross-check has no such artefact"
+      },
+      "evidence": "v2-1280x720-static-sunny-a.png, analysis.json"
+    },
+    {
+      "id": "V2-BLOCKS-1280x720",
+      "condition": "Static frames: every k x k block of the content area is a single colour (non-uniform blocks outside window-corner artefacts = 0)",
+      "result": "PASS",
+      "observed": {
+        "static-sunny-a": {
+          "nonuniform_outside_corners": 0,
+          "in_corner_artefact_zone": 14,
+          "total_blocks": 230400
+        },
+        "static-sunny-b": {
+          "nonuniform_outside_corners": 0,
+          "in_corner_artefact_zone": 14,
+          "total_blocks": 230400
+        }
+      },
+      "evidence": "v2-1280x720-static-sunny-*.png"
+    },
+    {
+      "id": "V2-VPMATCH-1280x720",
+      "condition": "Static frames: downsampled window pixels equal the engine viewport texture (640x360) exactly (corner artefacts excluded)",
+      "result": "PASS",
+      "observed": {
+        "static-sunny-a": 0,
+        "static-sunny-b": 0
+      },
+      "evidence": "v2-1280x720-static-sunny-a-vp.png"
+    },
+    {
+      "id": "V2-LAYOUT-1366x768",
+      "condition": "Mode windowed. Integer scale k, content rect and margins equal oracle p0_layout_oracle.ps1; margins exactly one colour; first/last content rows/cols are not margin colour",
+      "result": "PASS",
+      "observed": {
+        "actual_client_size": "(1366, 768)",
+        "window_mode_enum": 0,
+        "oracle_expected": {
+          "B": 24,
+          "L": 43,
+          "R": 43,
+          "T": 24,
+          "content": "1280x720",
+          "k": 2
+        },
+        "margin_colour_observed": "000000",
+        "images_checked": 41,
+        "note": "windowed screen capture: bottom 12x12 client px corners are DWM rounded-window artefacts, masked for the margin test; PrintWindow cross-check has no such artefact"
+      },
+      "evidence": "v2-1366x768-static-sunny-a.png, analysis.json"
+    },
+    {
+      "id": "V2-BLOCKS-1366x768",
+      "condition": "Static frames: every k x k block of the content area is a single colour (non-uniform blocks outside window-corner artefacts = 0)",
+      "result": "PASS",
+      "observed": {
+        "static-sunny-a": {
+          "nonuniform_outside_corners": 0,
+          "in_corner_artefact_zone": 0,
+          "total_blocks": 230400
+        },
+        "static-sunny-b": {
+          "nonuniform_outside_corners": 0,
+          "in_corner_artefact_zone": 0,
+          "total_blocks": 230400
+        }
+      },
+      "evidence": "v2-1366x768-static-sunny-*.png"
+    },
+    {
+      "id": "V2-VPMATCH-1366x768",
+      "condition": "Static frames: downsampled window pixels equal the engine viewport texture (640x360) exactly (corner artefacts excluded)",
+      "result": "PASS",
+      "observed": {
+        "static-sunny-a": 0,
+        "static-sunny-b": 0
+      },
+      "evidence": "v2-1366x768-static-sunny-a-vp.png"
+    },
+    {
+      "id": "V2-LAYOUT-1920x1080",
+      "condition": "Mode fullscreen (WINDOW_MODE_FULLSCREEN=3, non-exclusive). Integer scale k, content rect and margins equal oracle p0_layout_oracle.ps1; margins exactly one colour; first/last content rows/cols are not margin colour",
+      "result": "PASS",
+      "observed": {
+        "actual_client_size": "(1920, 1080)",
+        "window_mode_enum": 3,
+        "oracle_expected": {
+          "B": 0,
+          "L": 0,
+          "R": 0,
+          "T": 0,
+          "content": "1920x1080",
+          "k": 3
+        },
+        "margin_colour_observed": "none (no margins)",
+        "images_checked": 41,
+        "note": "windowed screen capture: bottom 12x12 client px corners are DWM rounded-window artefacts, masked for the margin test; PrintWindow cross-check has no such artefact"
+      },
+      "evidence": "v2-1920x1080-static-sunny-a.png, analysis.json"
+    },
+    {
+      "id": "V2-BLOCKS-1920x1080",
+      "condition": "Static frames: every k x k block of the content area is a single colour (non-uniform blocks outside window-corner artefacts = 0)",
+      "result": "PASS",
+      "observed": {
+        "static-sunny-a": {
+          "nonuniform_outside_corners": 0,
+          "in_corner_artefact_zone": 0,
+          "total_blocks": 230400
+        },
+        "static-sunny-b": {
+          "nonuniform_outside_corners": 0,
+          "in_corner_artefact_zone": 0,
+          "total_blocks": 230400
+        }
+      },
+      "evidence": "v2-1920x1080-static-sunny-*.png"
+    },
+    {
+      "id": "V2-VPMATCH-1920x1080",
+      "condition": "Static frames: downsampled window pixels equal the engine viewport texture (640x360) exactly (corner artefacts excluded)",
+      "result": "PASS",
+      "observed": {
+        "static-sunny-a": 0,
+        "static-sunny-b": 0
+      },
+      "evidence": "v2-1920x1080-static-sunny-a-vp.png"
+    },
+    {
+      "id": "V2-PRINTWINDOW-1280x720",
+      "condition": "Cross-check with Win32 PrintWindow(PW_CLIENTONLY|PW_RENDERFULLCONTENT): layout equals oracle and ALL blocks uniform with no corner mask (static + night)",
+      "result": "PASS",
+      "observed": [
+        {
+          "label": "static-printwindow",
+          "method": "PrintWindow",
+          "margin": null,
+          "nonuniform_all_incl_corners": 0
+        },
+        {
+          "label": "static-screenrect",
+          "method": "screen_get_image_rect",
+          "margin": null,
+          "nonuniform_all_incl_corners": 14
+        },
+        {
+          "label": "night-printwindow",
+          "method": "PrintWindow",
+          "margin": null,
+          "nonuniform_all_incl_corners": 0
+        },
+        {
+          "label": "night-screenrect",
+          "method": "screen_get_image_rect",
+          "margin": null,
+          "nonuniform_all_incl_corners": 14
+        }
+      ],
+      "evidence": "v2-pw-1280x720-*-printwindow.png"
+    },
+    {
+      "id": "V2-PRINTWINDOW-1366x768",
+      "condition": "Cross-check with Win32 PrintWindow(PW_CLIENTONLY|PW_RENDERFULLCONTENT): layout equals oracle and ALL blocks uniform with no corner mask (static + night)",
+      "result": "PASS",
+      "observed": [
+        {
+          "label": "static-printwindow",
+          "method": "PrintWindow",
+          "margin": "000000",
+          "nonuniform_all_incl_corners": 0
+        },
+        {
+          "label": "static-screenrect",
+          "method": "screen_get_image_rect",
+          "margin": "000000",
+          "nonuniform_all_incl_corners": 0
+        },
+        {
+          "label": "night-printwindow",
+          "method": "PrintWindow",
+          "margin": "000000",
+          "nonuniform_all_incl_corners": 0
+        },
+        {
+          "label": "night-screenrect",
+          "method": "screen_get_image_rect",
+          "margin": "000000",
+          "nonuniform_all_incl_corners": 0
+        }
+      ],
+      "evidence": "v2-pw-1366x768-*-printwindow.png"
+    },
+    {
+      "condition": "window_set_size((320, 200)) must leave client >= 640x360",
+      "evidence": "v2-min-checks.json, v2-min-stdout.log",
+      "id": "V2-MIN-320x200",
+      "observed": {
+        "actual_dispserver": "(640, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(320, 200)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(640, 360)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((639, 360)) must leave client >= 640x360",
+      "evidence": "v2-min-checks.json, v2-min-stdout.log",
+      "id": "V2-MIN-639x360",
+      "observed": {
+        "actual_dispserver": "(640, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(639, 360)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(640, 360)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((640, 359)) must leave client >= 640x360",
+      "evidence": "v2-min-checks.json, v2-min-stdout.log",
+      "id": "V2-MIN-640x359",
+      "observed": {
+        "actual_dispserver": "(640, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(640, 359)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(640, 360)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((700, 400)) must leave client >= 640x360",
+      "evidence": "v2-min-checks.json, v2-min-stdout.log",
+      "id": "V2-MIN-700x400",
+      "observed": {
+        "actual_dispserver": "(700, 400)",
+        "min_size": "(640, 360)",
+        "requested": "(700, 400)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(700, 400)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((1000, 360)) must leave client >= 640x360",
+      "evidence": "v2-min-checks.json, v2-min-stdout.log",
+      "id": "V2-MIN-1000x360",
+      "observed": {
+        "actual_dispserver": "(1000, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(1000, 360)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(1000, 360)"
+      },
+      "result": "PASS"
+    },
+    {
+      "id": "V2-MIN-IMAGES",
+      "condition": "Captured images at the clamped minimum (640x360, k=1, no margins) and at 700x400 / 1000x360 (k=1, margins) match oracle",
+      "result": "PASS",
+      "observed": [
+        {
+          "label": "start",
+          "size": "1280x720",
+          "k": 2,
+          "L": 0,
+          "margin_ok": true
+        },
+        {
+          "label": "min-320x200",
+          "size": "640x360",
+          "k": 1,
+          "L": 0,
+          "margin_ok": true
+        },
+        {
+          "label": "min-639x360",
+          "size": "640x360",
+          "k": 1,
+          "L": 0,
+          "margin_ok": true
+        },
+        {
+          "label": "min-640x359",
+          "size": "640x360",
+          "k": 1,
+          "L": 0,
+          "margin_ok": true
+        },
+        {
+          "label": "min-700x400",
+          "size": "700x400",
+          "k": 1,
+          "L": 30,
+          "margin_ok": true
+        },
+        {
+          "label": "min-1000x360",
+          "size": "1000x360",
+          "k": 1,
+          "L": 180,
+          "margin_ok": true
+        },
+        {
+          "label": "min-final",
+          "size": "640x360",
+          "k": 1,
+          "L": 0,
+          "margin_ok": true
+        }
+      ],
+      "evidence": "v2-min-*.png"
+    },
+    {
+      "id": "V3-GRID-move-D",
+      "condition": "Dynamic frames (move-D) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 4,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-move-D-*.png, analysis.json"
+    },
+    {
+      "id": "V3-GRID-move-WD",
+      "condition": "Dynamic frames (move-WD) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 4,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-move-WD-*.png, analysis.json"
+    },
+    {
+      "id": "V3-GRID-limit-right",
+      "condition": "Dynamic frames (limit-right) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 6,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 6,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 6,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-limit-right-*.png, analysis.json"
+    },
+    {
+      "id": "V3-GRID-limit-top",
+      "condition": "Dynamic frames (limit-top) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 4,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-limit-top-*.png, analysis.json"
+    },
+    {
+      "id": "V3-GRID-limit-left",
+      "condition": "Dynamic frames (limit-left) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 7,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 7,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 7,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-limit-left-*.png, analysis.json"
+    },
+    {
+      "id": "V3-GRID-limit-bottom",
+      "condition": "Dynamic frames (limit-bottom) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 4,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-limit-bottom-*.png, analysis.json"
+    },
+    {
+      "id": "V3-GRID-flight-moving",
+      "condition": "Dynamic frames (flight-moving) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 4,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 4,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-flight-moving-*.png, analysis.json"
+    },
+    {
+      "id": "V3-GRID-weather",
+      "condition": "Dynamic frames (weather) at 3 sizes: all k x k blocks uniform, margins exact (no blur / half-pixel offset in captured pixels)",
+      "result": "PASS",
+      "observed": {
+        "v2-1280x720": {
+          "images": 6,
+          "nonuniform_images": 0
+        },
+        "v2-1366x768": {
+          "images": 6,
+          "nonuniform_images": 0
+        },
+        "v2-1920x1080": {
+          "images": 6,
+          "nonuniform_images": 0
+        }
+      },
+      "evidence": "v2-*-weather-*.png, analysis.json"
+    },
+    {
+      "id": "V3-CAMERA-LIMITS",
+      "condition": "Captured sequences include frames where the camera is clamped at right/top/left/bottom world limit (limit values 960/180/320/620 = world 1280x800 minus half the 640x360 view; world size read from game constants, so this is an observation of reaching the limit)",
+      "result": "PASS",
+      "observed": {
+        "limit-right": {
+          "camera_centre_per_capture": [
+            809.0,
+            873.0,
+            937.0,
+            960.0,
+            960.0,
+            960.0
+          ],
+          "edge_value_reached": true,
+          "edge_value": 960.0
+        },
+        "limit-top": {
+          "camera_centre_per_capture": [
+            210.0,
+            180.0,
+            180.0,
+            180.0
+          ],
+          "edge_value_reached": true,
+          "edge_value": 180.0
+        },
+        "limit-left": {
+          "camera_centre_per_capture": [
+            960.0,
+            844.0,
+            684.0,
+            524.0,
+            364.0,
+            320.0,
+            320.0
+          ],
+          "edge_value_reached": true,
+          "edge_value": 320.0
+        },
+        "limit-bottom": {
+          "camera_centre_per_capture": [
+            268.0,
+            404.0,
+            540.0,
+            620.0
+          ],
+          "edge_value_reached": true,
+          "edge_value": 620.0
+        }
+      },
+      "evidence": "v2-1366x768-captures.json"
+    },
+    {
+      "id": "V3-DISTINGUISH",
+      "condition": "Sunny/rain/night: hero, boar, seed projectile and water projectile can be told apart in captured images (SUBJECTIVE, verifier viewed images; see REPORT.md)",
+      "result": "PASS",
+      "observed": "subjective; seed projectile in rain/night is low contrast (dull tan on grey-green) but still visible; see REPORT.md",
+      "evidence": "v2-1280x720-weather-{sunny,rain,night}-flight-a.png, v3-zoom-{sunny,rain,night}.png"
+    },
+    {
+      "id": "MANUAL-PHYSICAL-KEYBOARD-MOUSE",
+      "condition": "Physical keyboard/mouse -> OS -> Godot path (W/A/S/D, real-cursor aim, clicks, Esc); sky non-response triage",
+      "result": "NOT_RUN",
+      "observed": "NOT_RUN (manual confirmation by the user pending). Engine-internal injection is not evidence for the physical path.",
+      "evidence": ""
+    }
+  ]
+}

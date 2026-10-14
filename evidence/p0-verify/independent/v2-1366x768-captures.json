@@ -1,0 +1,763 @@
+{
+  "captures": [
+    {
+      "extra": {},
+      "file": "v2-1366x768-static-sunny-a.png",
+      "image_size": "(1366, 768)",
+      "label": "static-sunny-a",
+      "phys_frame": 83,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-static-sunny-a-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-static-sunny-b.png",
+      "image_size": "(1366, 768)",
+      "label": "static-sunny-b",
+      "phys_frame": 88,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-static-sunny-b-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-weather-sunny-flight-a.png",
+      "image_size": "(1366, 768)",
+      "label": "weather-sunny-flight-a",
+      "phys_frame": 244,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 2,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-weather-sunny-flight-a-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-weather-sunny-flight-b.png",
+      "image_size": "(1366, 768)",
+      "label": "weather-sunny-flight-b",
+      "phys_frame": 250,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 2,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-weather-sunny-flight-b-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-weather-rain-flight-a.png",
+      "image_size": "(1366, 768)",
+      "label": "weather-rain-flight-a",
+      "phys_frame": 406,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "rain",
+        "paused": false,
+        "shots": 2,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-weather-rain-flight-a-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-weather-rain-flight-b.png",
+      "image_size": "(1366, 768)",
+      "label": "weather-rain-flight-b",
+      "phys_frame": 412,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "rain",
+        "paused": false,
+        "shots": 2,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-weather-rain-flight-b-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-weather-night-flight-a.png",
+      "image_size": "(1366, 768)",
+      "label": "weather-night-flight-a",
+      "phys_frame": 568,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "night",
+        "paused": false,
+        "shots": 2,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-weather-night-flight-a-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-weather-night-flight-b.png",
+      "image_size": "(1366, 768)",
+      "label": "weather-night-flight-b",
+      "phys_frame": 574,
+      "state": {
+        "aim": "(-0.856204, 0.516637)",
+        "cam": "(480.0, 368.0)",
+        "condition": "night",
+        "paused": false,
+        "shots": 2,
+        "sim": "(480.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-weather-night-flight-b-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-D-00.png",
+      "image_size": "(1366, 768)",
+      "label": "move-D-00",
+      "phys_frame": 727,
+      "state": {
+        "aim": "(-0.856979, 0.515351)",
+        "cam": "(520.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(520.0, 368.0)"
+      },
+      "vp_file": "v2-1366x768-move-D-00-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-D-01.png",
+      "image_size": "(1366, 768)",
+      "label": "move-D-01",
+      "phys_frame": 752,
+      "state": {
+        "aim": "(-0.856979, 0.515351)",
+        "cam": "(560.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(559.9994, 368.0)"
+      },
+      "vp_file": "v2-1366x768-move-D-01-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-D-02.png",
+      "image_size": "(1366, 768)",
+      "label": "move-D-02",
+      "phys_frame": 777,
+      "state": {
+        "aim": "(-0.856979, 0.515351)",
+        "cam": "(600.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(599.9988, 368.0)"
+      },
+      "vp_file": "v2-1366x768-move-D-02-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-D-03.png",
+      "image_size": "(1366, 768)",
+      "label": "move-D-03",
+      "phys_frame": 802,
+      "state": {
+        "aim": "(-0.856979, 0.515351)",
+        "cam": "(640.0, 368.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(639.9982, 368.0)"
+      },
+      "vp_file": "v2-1366x768-move-D-03-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-WD-00.png",
+      "image_size": "(1366, 768)",
+      "label": "move-WD-00",
+      "phys_frame": 830,
+      "state": {
+        "aim": "(-0.855949, 0.51706)",
+        "cam": "(665.0, 343.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(664.8878, 343.1097)"
+      },
+      "vp_file": "v2-1366x768-move-WD-00-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-WD-01.png",
+      "image_size": "(1366, 768)",
+      "label": "move-WD-01",
+      "phys_frame": 855,
+      "state": {
+        "aim": "(-0.855949, 0.51706)",
+        "cam": "(693.0, 315.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(693.1715, 314.8252)"
+      },
+      "vp_file": "v2-1366x768-move-WD-01-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-WD-02.png",
+      "image_size": "(1366, 768)",
+      "label": "move-WD-02",
+      "phys_frame": 880,
+      "state": {
+        "aim": "(-0.855949, 0.51706)",
+        "cam": "(721.0, 287.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(721.4552, 286.5408)"
+      },
+      "vp_file": "v2-1366x768-move-WD-02-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-move-WD-03.png",
+      "image_size": "(1366, 768)",
+      "label": "move-WD-03",
+      "phys_frame": 905,
+      "state": {
+        "aim": "(-0.855949, 0.51706)",
+        "cam": "(750.0, 258.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(749.7389, 258.2563)"
+      },
+      "vp_file": "v2-1366x768-move-WD-03-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-right-00.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-right-00",
+      "phys_frame": 948,
+      "state": {
+        "aim": "(-0.856979, 0.515351)",
+        "cam": "(809.0, 258.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(808.938, 258.2563)"
+      },
+      "vp_file": "v2-1366x768-limit-right-00-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-right-01.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-right-01",
+      "phys_frame": 988,
+      "state": {
+        "aim": "(-0.856979, 0.515351)",
+        "cam": "(873.0, 258.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(872.937, 258.2563)"
+      },
+      "vp_file": "v2-1366x768-limit-right-01-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-right-02.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-right-02",
+      "phys_frame": 1028,
+      "state": {
+        "aim": "(-0.856979, 0.515351)",
+        "cam": "(937.0, 258.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(936.936, 258.2563)"
+      },
+      "vp_file": "v2-1366x768-limit-right-02-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-right-03.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-right-03",
+      "phys_frame": 1068,
+      "state": {
+        "aim": "(-0.871001, 0.491281)",
+        "cam": "(960.0, 258.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1000.935, 258.2563)"
+      },
+      "vp_file": "v2-1366x768-limit-right-03-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-right-04.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-right-04",
+      "phys_frame": 1108,
+      "state": {
+        "aim": "(-0.890145, 0.455677)",
+        "cam": "(960.0, 258.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1064.934, 258.2563)"
+      },
+      "vp_file": "v2-1366x768-limit-right-04-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-right-05.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-right-05",
+      "phys_frame": 1148,
+      "state": {
+        "aim": "(-0.905509, 0.424327)",
+        "cam": "(960.0, 258.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1128.933, 258.2563)"
+      },
+      "vp_file": "v2-1366x768-limit-right-05-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-top-00.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-top-00",
+      "phys_frame": 1201,
+      "state": {
+        "aim": "(-0.911196, 0.411974)",
+        "cam": "(960.0, 210.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1160.933, 210.2561)"
+      },
+      "vp_file": "v2-1366x768-limit-top-00-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-top-01.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-top-01",
+      "phys_frame": 1231,
+      "state": {
+        "aim": "(-0.904181, 0.42715)",
+        "cam": "(960.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1160.933, 162.256)"
+      },
+      "vp_file": "v2-1366x768-limit-top-01-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-top-02.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-top-02",
+      "phys_frame": 1261,
+      "state": {
+        "aim": "(-0.882368, 0.470559)",
+        "cam": "(960.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1160.933, 114.2558)"
+      },
+      "vp_file": "v2-1366x768-limit-top-02-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-top-03.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-top-03",
+      "phys_frame": 1291,
+      "state": {
+        "aim": "(-0.859698, 0.510803)",
+        "cam": "(960.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1160.933, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-top-03-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-left-00.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-left-00",
+      "phys_frame": 1394,
+      "state": {
+        "aim": "(-0.803118, 0.59582)",
+        "cam": "(960.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(1004.135, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-left-00-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-left-01.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-left-01",
+      "phys_frame": 1494,
+      "state": {
+        "aim": "(-0.780804, 0.624776)",
+        "cam": "(844.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(844.1375, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-left-01-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-left-02.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-left-02",
+      "phys_frame": 1594,
+      "state": {
+        "aim": "(-0.780804, 0.624776)",
+        "cam": "(684.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(684.1399, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-left-02-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-left-03.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-left-03",
+      "phys_frame": 1694,
+      "state": {
+        "aim": "(-0.780804, 0.624776)",
+        "cam": "(524.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(524.1423, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-left-03-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-left-04.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-left-04",
+      "phys_frame": 1794,
+      "state": {
+        "aim": "(-0.780804, 0.624776)",
+        "cam": "(364.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(364.1419, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-left-04-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-left-05.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-left-05",
+      "phys_frame": 1894,
+      "state": {
+        "aim": "(-0.70936, 0.704846)",
+        "cam": "(320.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(204.1413, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-left-05-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-left-06.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-left-06",
+      "phys_frame": 1994,
+      "state": {
+        "aim": "(-0.553674, 0.832733)",
+        "cam": "(320.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(44.14112, 66.25588)"
+      },
+      "vp_file": "v2-1366x768-limit-left-06-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-flight-moving-0.png",
+      "image_size": "(1366, 768)",
+      "label": "flight-moving-0",
+      "phys_frame": 2024,
+      "state": {
+        "aim": "(-0.604445, 0.796647)",
+        "cam": "(320.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 2,
+        "sim": "(69.03127, 91.14603)"
+      },
+      "vp_file": "v2-1366x768-flight-moving-0-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-flight-moving-1.png",
+      "image_size": "(1366, 768)",
+      "label": "flight-moving-1",
+      "phys_frame": 2036,
+      "state": {
+        "aim": "(-0.632255, 0.77476)",
+        "cam": "(320.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 2,
+        "sim": "(82.60772, 104.7225)"
+      },
+      "vp_file": "v2-1366x768-flight-moving-1-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-flight-moving-2.png",
+      "image_size": "(1366, 768)",
+      "label": "flight-moving-2",
+      "phys_frame": 2048,
+      "state": {
+        "aim": "(-0.657544, 0.753417)",
+        "cam": "(320.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 2,
+        "sim": "(96.18417, 118.2989)"
+      },
+      "vp_file": "v2-1366x768-flight-moving-2-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {
+        "shots": 2
+      },
+      "file": "v2-1366x768-flight-moving-3.png",
+      "image_size": "(1366, 768)",
+      "label": "flight-moving-3",
+      "phys_frame": 2060,
+      "state": {
+        "aim": "(-0.684092, 0.729396)",
+        "cam": "(320.0, 180.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 2,
+        "sim": "(109.7606, 131.8754)"
+      },
+      "vp_file": "v2-1366x768-flight-moving-3-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-bottom-00.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-bottom-00",
+      "phys_frame": 2148,
+      "state": {
+        "aim": "(-0.730894, 0.682491)",
+        "cam": "(320.0, 268.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(109.7606, 267.8759)"
+      },
+      "vp_file": "v2-1366x768-limit-bottom-00-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-bottom-01.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-bottom-01",
+      "phys_frame": 2233,
+      "state": {
+        "aim": "(-0.730894, 0.682491)",
+        "cam": "(320.0, 404.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(109.7606, 403.8764)"
+      },
+      "vp_file": "v2-1366x768-limit-bottom-01-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-bottom-02.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-bottom-02",
+      "phys_frame": 2318,
+      "state": {
+        "aim": "(-0.730894, 0.682491)",
+        "cam": "(320.0, 540.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(109.7606, 539.8764)"
+      },
+      "vp_file": "v2-1366x768-limit-bottom-02-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    },
+    {
+      "extra": {},
+      "file": "v2-1366x768-limit-bottom-03.png",
+      "image_size": "(1366, 768)",
+      "label": "limit-bottom-03",
+      "phys_frame": 2403,
+      "state": {
+        "aim": "(-0.784404, 0.62025)",
+        "cam": "(320.0, 620.0)",
+        "condition": "sunny",
+        "paused": false,
+        "shots": 0,
+        "sim": "(109.7606, 675.8743)"
+      },
+      "vp_file": "v2-1366x768-limit-bottom-03-vp.png",
+      "window_pos": "(1976, 40)",
+      "window_size": "(1366, 768)"
+    }
+  ],
+  "tag": "v2-1366x768"
+}

@@ -1,0 +1,44 @@
+{
+  "focus": true,
+  "k": 2,
+  "off": "(0, 0)",
+  "results": [
+    {
+      "aim": "(-0.880753, 0.473575)",
+      "global_mouse": "(-521.5, 906.5)",
+      "label": "baseline (no injection)",
+      "viewport_mouse": "(-681.5, 718.5)"
+    },
+    {
+      "aim": "(-0.880753, 0.473575)",
+      "global_mouse": "(-521.5, 906.5)",
+      "label": "A Input.parse_input_event motion window px, accumulated_input=true",
+      "viewport_mouse": "(-681.5, 718.5)"
+    },
+    {
+      "aim": "(-0.880753, 0.473575)",
+      "global_mouse": "(-521.5, 906.5)",
+      "label": "A2 Input.parse_input_event motion window px, accumulated_input=false",
+      "viewport_mouse": "(-681.5, 718.5)"
+    },
+    {
+      "aim": "(-0.880753, 0.473575)",
+      "global_mouse": "(-521.5, 906.5)",
+      "label": "B viewport.push_input(motion, local=false) window px",
+      "viewport_mouse": "(-681.5, 718.5)"
+    },
+    {
+      "aim": "(-0.880753, 0.473575)",
+      "global_mouse": "(-521.5, 906.5)",
+      "label": "C viewport.push_input(motion, local=true) viewport px",
+      "viewport_mouse": "(-681.5, 718.5)"
+    },
+    {
+      "aim": "(-0.880753, 0.473575)",
+      "global_mouse": "(-521.5, 906.5)",
+      "label": "D middle button press at window px (420,80 vp) via parse_input_event",
+      "viewport_mouse": "(-681.5, 718.5)"
+    }
+  ],
+  "window": "(1280, 720)"
+}

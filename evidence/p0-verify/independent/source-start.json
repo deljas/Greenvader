@@ -1,0 +1,18 @@
+{
+  "scenes/main.tscn": "18e4cb5cf9c6fcd0215ad2f2e511920a6798b92bd6a927977cc3d0198e9ad73d",
+  "scripts/landscape_art.gd": "65509dfd31e03c3792d2c1172a31211f2a8e5694d3b98b531b1227b13b28a914",
+  "scripts/landscape_art.gd.uid": "335950b7d722456ed24c666a207c8e0f8babd3b4eb874c5484886b6692e213db",
+  "scripts/landscape_prop.gd": "3b7d52a98791794e8e7fffb62861dc840b6fffb4316966f6e5e6eead88299a76",
+  "scripts/landscape_prop.gd.uid": "d1318ea2ed539089ae816788784587c81dcc61da3b7bdfd18270e26f3d4355d7",
+  "scripts/main.gd": "a2a68d293cd53c900c9e44650712b416ee1772c51a9aac33b26907766bb7a991",
+  "scripts/main.gd.uid": "8d398456e3fc495abf0c96a9666a5ae4d1a322a103edc59e8286787dd25a71bd",
+  "scripts/pixel_art.gd": "798a992cbd37914c33ea2424107f533ae0a612cdd54e5bd893b95be46df924fa",
+  "scripts/pixel_art.gd.uid": "af723ed02cf2f5a5f5b97532d97284d43214fa0ea86ffc7d4982ef9370543dea",
+  "scripts/player.gd": "5a8420ac06d172695ec3846d4608c987e08673193cbf06427a5f56eb0ee91afb",
+  "scripts/player.gd.uid": "67c32fa15d2eeb9e51ab93c89495557a4996725bc80e45b45717923ffd3c8ca7",
+  "scripts/terrain.gd": "4b399773de290858965faeceae75c2722e1c6c266f3bf9faf1c876c419a3b85c",
+  "scripts/terrain.gd.uid": "6d12450fb6bf9f8e630ade436ce2c4254c43cfec973b96b98fccfbddf9225b25",
+  "scripts/weather_view.gd": "3afc806be685c90cac4cb13f28afdb44310cf42197a5e4feda576a4d41628188",
+  "scripts/weather_view.gd.uid": "dc1c105114093ae0075b5086a565c79fd3c1777478e841878bf5828e12fe2908",
+  "project.godot": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f"
+}

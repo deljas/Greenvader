@@ -1,0 +1,70 @@
+{
+  "checks": [
+    {
+      "condition": "window_set_size((320, 200)) must leave client >= 640x360",
+      "evidence": "",
+      "id": "V2-MIN-320x200",
+      "observed": {
+        "actual_dispserver": "(640, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(320, 200)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(640, 360)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((639, 360)) must leave client >= 640x360",
+      "evidence": "",
+      "id": "V2-MIN-639x360",
+      "observed": {
+        "actual_dispserver": "(640, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(639, 360)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(640, 360)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((640, 359)) must leave client >= 640x360",
+      "evidence": "",
+      "id": "V2-MIN-640x359",
+      "observed": {
+        "actual_dispserver": "(640, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(640, 359)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(640, 360)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((700, 400)) must leave client >= 640x360",
+      "evidence": "",
+      "id": "V2-MIN-700x400",
+      "observed": {
+        "actual_dispserver": "(700, 400)",
+        "min_size": "(640, 360)",
+        "requested": "(700, 400)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(700, 400)"
+      },
+      "result": "PASS"
+    },
+    {
+      "condition": "window_set_size((1000, 360)) must leave client >= 640x360",
+      "evidence": "",
+      "id": "V2-MIN-1000x360",
+      "observed": {
+        "actual_dispserver": "(1000, 360)",
+        "min_size": "(640, 360)",
+        "requested": "(1000, 360)",
+        "viewport": "(640.0, 360.0)",
+        "window_size": "(1000, 360)"
+      },
+      "result": "PASS"
+    }
+  ],
+  "tag": "v2-min"
+}

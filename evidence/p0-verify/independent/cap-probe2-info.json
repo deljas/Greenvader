@@ -1,0 +1,32 @@
+{
+  "adapter": "NVIDIA GeForce RTX 5070 Ti",
+  "cmdline_user": [
+    "--suite=capprobe",
+    "--mode=windowed",
+    "--size=1280x720",
+    "--tag=cap-probe2",
+    "--out=C:/godot/greenvader/evidence/p0-verify/independent",
+    "--focusable"
+  ],
+  "has_focus": true,
+  "k_used_for_injection": 2,
+  "min_size": "(640, 360)",
+  "mode_requested": "windowed",
+  "offset_used": "(0, 0)",
+  "physics_ticks": 60,
+  "renderer": "forward_plus",
+  "screen_count": 3,
+  "screen_dpi": 96,
+  "screen_index": 1,
+  "screen_pos": "(1916, 0)",
+  "screen_scale": 1.0,
+  "screen_size": "(1920, 1080)",
+  "time": "2026-10-14T22:26:14",
+  "unfocusable": false,
+  "viewport": "(640.0, 360.0)",
+  "window_mode": 0,
+  "window_pos": "(1976, 40)",
+  "window_pos_with_decor": "(1968, 9)",
+  "window_size": "(1280, 720)",
+  "window_size_with_decor": "(1296, 759)"
+}

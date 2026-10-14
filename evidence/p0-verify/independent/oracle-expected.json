@@ -1,0 +1,68 @@
+{
+    "1000x360":  {
+                     "ClientWidth":  1000,
+                     "ClientHeight":  360,
+                     "IntegerScale":  1,
+                     "ContentWidth":  640,
+                     "ContentHeight":  360,
+                     "LeftMargin":  180,
+                     "RightMargin":  180,
+                     "TopMargin":  0,
+                     "BottomMargin":  0
+                 },
+    "1366x768":  {
+                     "ClientWidth":  1366,
+                     "ClientHeight":  768,
+                     "IntegerScale":  2,
+                     "ContentWidth":  1280,
+                     "ContentHeight":  720,
+                     "LeftMargin":  43,
+                     "RightMargin":  43,
+                     "TopMargin":  24,
+                     "BottomMargin":  24
+                 },
+    "1280x720":  {
+                     "ClientWidth":  1280,
+                     "ClientHeight":  720,
+                     "IntegerScale":  2,
+                     "ContentWidth":  1280,
+                     "ContentHeight":  720,
+                     "LeftMargin":  0,
+                     "RightMargin":  0,
+                     "TopMargin":  0,
+                     "BottomMargin":  0
+                 },
+    "700x400":  {
+                    "ClientWidth":  700,
+                    "ClientHeight":  400,
+                    "IntegerScale":  1,
+                    "ContentWidth":  640,
+                    "ContentHeight":  360,
+                    "LeftMargin":  30,
+                    "RightMargin":  30,
+                    "TopMargin":  20,
+                    "BottomMargin":  20
+                },
+    "640x360":  {
+                    "ClientWidth":  640,
+                    "ClientHeight":  360,
+                    "IntegerScale":  1,
+                    "ContentWidth":  640,
+                    "ContentHeight":  360,
+                    "LeftMargin":  0,
+                    "RightMargin":  0,
+                    "TopMargin":  0,
+                    "BottomMargin":  0
+                },
+    "1920x1080":  {
+                      "ClientWidth":  1920,
+                      "ClientHeight":  1080,
+                      "IntegerScale":  3,
+                      "ContentWidth":  1920,
+                      "ContentHeight":  1080,
+                      "LeftMargin":  0,
+                      "RightMargin":  0,
+                      "TopMargin":  0,
+                      "BottomMargin":  0
+                  }
+}
