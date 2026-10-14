@@ -53,7 +53,8 @@ static func boar() -> ImageTexture:
 	])
 
 static func seed() -> ImageTexture:
-	return texture(["..ss..", ".syys.", ".syys.", "..ss.."])
+	# Highlight reaches the silhouette; shading is only on one lower face.
+	return texture(["..yy..", ".yyys.", ".yyss.", "..ss.."])
 
 static func water() -> ImageTexture:
 	return texture(["..ww..", ".wwww.", "wwWWww", ".wwww."])

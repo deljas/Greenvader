@@ -3,3 +3,4 @@ builds/
 *.tmp
 *.log
 !evidence/**/*.log
+evidence/**/profile/

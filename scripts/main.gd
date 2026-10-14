@@ -14,6 +14,10 @@ var projectile_view: Node2D
 var capture_path: String = ""
 var auto_quit: bool = false
 var frames: int = 0
+var actors: Node2D
+var ground_shadows: Node2D
+var scenery: Array[LandscapeProp] = []
+var weather_buttons: Array[Button] = []
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -24,17 +28,24 @@ func _ready() -> void:
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	add_child(world)
 	world.add_child(DemoTerrain.new())
-	for index: int in 48:
-		var location: Vector2 = Vector2(330 + (index * 61) % 260, 290 + (index * 43) % 190)
-		add_sample(PixelArt.mature() if index % 3 == 0 else PixelArt.sprout(), location)
-	add_sample(PixelArt.boar(), Vector2(555, 350))
-	add_sample(PixelArt.boar(), Vector2(570, 430))
-	add_sample(PixelArt.seed(), Vector2(510, 344))
-	add_sample(PixelArt.water(), Vector2(530, 375))
-	add_sample(PixelArt.seed(), Vector2(415, 355))
+	ground_shadows = Node2D.new()
+	world.add_child(ground_shadows)
+	actors = Node2D.new()
+	actors.name = "DepthSortedPresentation"
+	actors.y_sort_enabled = true
+	world.add_child(actors)
 	player = FlowerPlayer.new()
 	player.name = "Player"
-	world.add_child(player)
+	actors.add_child(player)
+	build_landscape()
+	add_sample(PixelArt.boar(), Vector2(563, 351))
+	add_sample(PixelArt.boar(), Vector2(586, 439))
+	add_sample(PixelArt.seed(), Vector2(509, 351))
+	add_sample(PixelArt.water(), Vector2(527, 372))
+	for location: Vector2 in [Vector2(393, 374), Vector2(411, 382), Vector2(388, 395), Vector2(554, 394), Vector2(569, 402), Vector2(602, 383)]:
+		add_sample(PixelArt.sprout(), location)
+	for location: Vector2 in [Vector2(370, 391), Vector2(399, 410), Vector2(556, 411), Vector2(580, 421)]:
+		add_sample(PixelArt.mature(), location)
 	camera = Camera2D.new()
 	camera.position = player.position
 	camera.position_smoothing_enabled = false
@@ -97,7 +108,33 @@ func add_sample(texture: Texture2D, location: Vector2) -> void:
 	sprite.texture = texture
 	sprite.position = location.round()
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	world.add_child(sprite)
+	actors.add_child(sprite)
+
+func build_landscape() -> void:
+	var trees: Array[Texture2D] = [LandscapeArt.tree(0), LandscapeArt.tree(1), LandscapeArt.tree(2)]
+	var positions: Array[Vector2] = [Vector2(176, 273), Vector2(214, 294), Vector2(265, 251), Vector2(317, 251), Vector2(372, 265), Vector2(426, 252), Vector2(478, 261), Vector2(532, 244), Vector2(641, 245), Vector2(691, 214), Vector2(758, 236), Vector2(791, 299), Vector2(224, 361), Vector2(190, 409), Vector2(267, 422), Vector2(221, 482), Vector2(285, 497), Vector2(194, 553), Vector2(245, 570), Vector2(305, 578), Vector2(357, 559), Vector2(481, 568), Vector2(532, 544), Vector2(584, 565), Vector2(638, 527), Vector2(691, 565), Vector2(806, 390), Vector2(838, 450)]
+	for index: int in positions.size():
+		var kind: int = 2 if index % 7 == 5 else index % 2
+		add_prop(trees[kind], positions[index], true, 62)
+	add_prop(LandscapeArt.ruin(), Vector2(334, 346), true, 92)
+	var rocks: Array[Texture2D] = [LandscapeArt.rock(0), LandscapeArt.rock(1)]
+	var locations: Array[Vector2] = [Vector2(305, 364), Vector2(331, 380), Vector2(610, 315), Vector2(644, 343), Vector2(259, 466), Vector2(569, 487), Vector2(683, 369), Vector2(742, 447), Vector2(708, 405)]
+	for index: int in locations.size():
+		add_prop(rocks[index % 2], locations[index], false, 36)
+	var fern: Texture2D = LandscapeArt.fern()
+	for location: Vector2 in [Vector2(296, 352), Vector2(351, 350), Vector2(241, 416), Vector2(592, 312), Vector2(639, 314), Vector2(669, 357), Vector2(708, 413), Vector2(615, 473), Vector2(512, 511), Vector2(360, 483), Vector2(571, 273)]:
+		add_prop(fern, location, false, 22)
+
+func add_prop(texture: Texture2D, location: Vector2, fades: bool, shadow_width: int) -> void:
+	var shadow: Sprite2D = Sprite2D.new()
+	shadow.texture = LandscapeArt.shadow(shadow_width)
+	shadow.position = location.round() + Vector2(8, 0)
+	shadow.modulate.a = 0.72
+	ground_shadows.add_child(shadow)
+	var prop: LandscapeProp = LandscapeProp.new()
+	prop.initialize(texture, location, player, fades)
+	actors.add_child(prop)
+	scenery.append(prop)
 
 func build_ui() -> void:
 	var canvas: CanvasLayer = CanvasLayer.new()
@@ -111,13 +148,13 @@ func build_ui() -> void:
 	theme.default_font_size = 12
 	var top: PanelContainer = PanelContainer.new()
 	top.position = Vector2(8, 8)
-	top.size = Vector2(624, 32)
+	top.size = Vector2(624, 24)
 	top.theme = theme
 	canvas.add_child(top)
 	var row: HBoxContainer = HBoxContainer.new()
 	top.add_child(row)
 	var title: Label = Label.new()
-	title.text = "  グリーンベーダー  |  画面試作"
+	title.text = "  グリーンベーダー"
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(title)
 	condition_label = Label.new()
@@ -127,13 +164,14 @@ func build_ui() -> void:
 		button.text = {"sunny": "晴れ [1]", "rain": "雨 [2]", "night": "夜 [3]"}[mode]
 		button.pressed.connect(set_condition.bind(mode))
 		row.add_child(button)
+		weather_buttons.append(button)
 	var footer: PanelContainer = PanelContainer.new()
-	footer.position = Vector2(8, 314)
-	footer.size = Vector2(624, 38)
+	footer.position = Vector2(8, 333)
+	footer.size = Vector2(624, 19)
 	footer.theme = theme
 	canvas.add_child(footer)
 	var instructions: Label = Label.new()
-	instructions.text = "  WASD 移動  /  マウス 照準  /  Esc ポーズ\n  左クリック 種の仮表示  /  右クリック 水の仮表示  /  成長・戦闘は後続段階"
+	instructions.text = "  WASD 移動  /  マウス 照準  /  左 種・右 水（仮表示）  /  Esc ポーズ"
 	footer.add_child(instructions)
 	pause_panel = PanelContainer.new()
 	pause_panel.position = Vector2(188, 136)
@@ -169,8 +207,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func toggle_pause() -> void:
 	get_tree().paused = not get_tree().paused
 	pause_panel.visible = get_tree().paused
+	for button: Button in weather_buttons:
+		button.disabled = get_tree().paused
 
 func set_condition(mode: String) -> void:
+	if get_tree().paused:
+		return
 	condition = mode if mode in ["sunny", "rain", "night"] else "sunny"
 	weather.condition = condition
 	modulation.color = {"sunny": Color.WHITE, "rain": Color(0.72, 0.83, 0.87), "night": Color(0.44, 0.52, 0.70)}[condition]

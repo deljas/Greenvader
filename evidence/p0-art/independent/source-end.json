@@ -1,0 +1,72 @@
+[
+  {
+    "Path": "C:\\godot\\greenvader\\project.godot",
+    "ExpectedSHA256": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F",
+    "EndSHA256": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scenes\\main.tscn",
+    "ExpectedSHA256": "18E4CB5CF9C6FCD0215AD2F2E511920A6798B92BD6A927977CC3D0198E9AD73D",
+    "EndSHA256": "18E4CB5CF9C6FCD0215AD2F2E511920A6798B92BD6A927977CC3D0198E9AD73D",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\landscape_art.gd",
+    "ExpectedSHA256": "65509DFD31E03C3792D2C1172A31211F2A8E5694D3B98B531B1227B13B28A914",
+    "EndSHA256": "65509DFD31E03C3792D2C1172A31211F2A8E5694D3B98B531B1227B13B28A914",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\landscape_prop.gd",
+    "ExpectedSHA256": "3B7D52A98791794E8E7FFFB62861DC840B6FFFB4316966F6E5E6EEAD88299A76",
+    "EndSHA256": "3B7D52A98791794E8E7FFFB62861DC840B6FFFB4316966F6E5E6EEAD88299A76",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\main.gd",
+    "ExpectedSHA256": "A2A68D293CD53C900C9E44650712B416EE1772C51A9AAC33B26907766BB7A991",
+    "EndSHA256": "A2A68D293CD53C900C9E44650712B416EE1772C51A9AAC33B26907766BB7A991",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\pixel_art.gd",
+    "ExpectedSHA256": "798A992CBD37914C33EA2424107F533AE0A612CDD54E5BD893B95BE46DF924FA",
+    "EndSHA256": "798A992CBD37914C33EA2424107F533AE0A612CDD54E5BD893B95BE46DF924FA",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\player.gd",
+    "ExpectedSHA256": "5A8420AC06D172695EC3846D4608C987E08673193CBF06427A5F56EB0EE91AFB",
+    "EndSHA256": "5A8420AC06D172695EC3846D4608C987E08673193CBF06427A5F56EB0EE91AFB",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\terrain.gd",
+    "ExpectedSHA256": "4B399773DE290858965FAECEAE75C2722E1C6C266F3BF9FAF1C876C419A3B85C",
+    "EndSHA256": "4B399773DE290858965FAECEAE75C2722E1C6C266F3BF9FAF1C876C419A3B85C",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\weather_view.gd",
+    "ExpectedSHA256": "3AFC806BE685C90CAC4CB13F28AFDB44310CF42197A5E4FEDA576A4D41628188",
+    "EndSHA256": "3AFC806BE685C90CAC4CB13F28AFDB44310CF42197A5E4FEDA576A4D41628188",
+    "ManifestMatch": true,
+    "StartMatch": true
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\self\\p0_checks.gd",
+    "ExpectedSHA256": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E",
+    "EndSHA256": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E",
+    "ManifestMatch": true,
+    "StartMatch": true
+  }
+]
