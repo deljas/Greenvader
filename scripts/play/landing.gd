@@ -51,6 +51,6 @@ static func splash_water(world: WorldState, tile_px: int, point: Vector2, radius
 			continue
 		var wet: int = mini(int(world.moisture[index]) + amount, moisture_max)
 		if wet != world.moisture[index]:
-			world.moisture[index] = wet
+			world.set_moisture(index, wet)
 			changed += 1
 	return changed

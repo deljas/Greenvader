@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [rate.60] 60 Hz physics: after 100.5 s of game time the clock has run 201 growth ticks and 50 production ticks (cross-rate equality is checked by the comparer) :: growth ticks=201 production ticks=50 clock dt=100.5 produced=28 mature=469 greened=469
+V_RESULT total=1 fails=0

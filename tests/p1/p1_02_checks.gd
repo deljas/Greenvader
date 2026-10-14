@@ -752,6 +752,13 @@ func test_scene_scenarios() -> void:
 	var stage_hash: int = hash(state.stage)
 	var greened_d: int = state.greened_count
 	var moisture_before: PackedByteArray = state.moisture.duplicate()
+	# Growth and moisture decay run in the real scene (P1-03): compare only the non-target tiles (water, buildings).
+	var nontarget_stage: Dictionary = {}
+	var nontarget_moisture: Dictionary = {}
+	for i: int in state.tile_count():
+		if state.target[i] == 0:
+			nontarget_stage[i] = state.stage[i]
+			nontarget_moisture[i] = state.moisture[i]
 	for tile: Vector2i in [deep_water, deep_building]:
 		var tile_centre: Vector2 = (Vector2(tile) + Vector2(0.5, 0.5)) * TILE
 		await teleport(tile_centre + Vector2(-50, 0))
@@ -761,8 +768,13 @@ func test_scene_scenarios() -> void:
 		await click(MOUSE_BUTTON_RIGHT)
 		check(got.distance_to(tile_centre) < 1.0, "scene: aimed at the middle of %s" % ("water" if tile == deep_water else "a building"))
 	await wait_frames(120)
-	check(hash(state.stage) == stage_hash and state.greened_count == greened_d and state.counters_consistent(), "scene: seeds shot at deep water and a building interior change no stage and no greening count")
-	check(state.moisture == moisture_before, "scene: water shot there wets nothing")
+	var nontarget_stage_ok: bool = true
+	var nontarget_moisture_ok: bool = true
+	for i: int in nontarget_stage:
+		nontarget_stage_ok = nontarget_stage_ok and state.stage[i] == nontarget_stage[i]
+		nontarget_moisture_ok = nontarget_moisture_ok and state.moisture[i] == nontarget_moisture[i]
+	check(nontarget_stage_ok and state.greened_count >= greened_d and state.counters_consistent(), "scene: seeds shot at deep water and a building interior change no non-target stage, and the greening count only grows with the planted target tiles (counters match a recount)")
+	check(nontarget_moisture_ok, "scene: water shot there wets no non-target tile")
 	# ---- E: pause freezes resources, shots, source timers and fruits; resume adds no stopped time
 	var water_edge: Vector2i = find_waterside_east(state, block.y)
 	await teleport(Vector2(water_edge.x * TILE + 2.0, block.y * TILE + 2.0))

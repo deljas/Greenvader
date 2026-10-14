@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [pause.setup] before pausing: seeds are growing, ground is wet, plant fruits lie on the ground (production runs) :: fruits=4 active=114 produced=4 growth_ticks=28
+PASS [pause.frozen] paused (13496 ms wall, 725 physics frames): growth, moisture, stages, clock ticks, production time/ticks, fruit ages and positions, active set all unchanged; firing is refused :: paused=true fired=false equal=true clock=[14.216666666667, 28, 14] production=[14.216666666667, 7, 7, 4]
+PASS [pause.moved_before] sanity: the state did change during the 14 s before pausing (so the freeze check is meaningful) :: clock ticks=28 production ticks=7
+PASS [pause.resume_no_bank] after resuming, 120 physics frames (2 s) advance game time by 2 s, 4 growth ticks (+-1), 1 production tick (+-1); the ~13496 ms spent paused is not added :: elapsed +1.9833 play +1.9833 growth ticks +4 production ticks +1 (first fruit age before resume 10.233)
+V_RESULT total=4 fails=0

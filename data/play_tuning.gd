@@ -49,10 +49,28 @@ extends Resource
 @export_group("Ground pickups (shared by sources and mature plants)")
 @export var pickup_collect_radius_px: float = 12.0
 @export var pickup_lifetime_seconds: float = 60.0
-## Upper bound on pickups lying on the ground in the whole region.
+## Upper bound on pickups lying on the ground in the whole region (plants may use at most plant_fruit_cap of it;
+## the rest stays reserved for seed sources, so recovery from zero seeds can never be crowded out).
 @export var pickup_total_cap: int = 24
 ## Seeds granted by one collected seed fruit.
 @export var seed_fruit_seeds: int = 1
+
+@export_group("Plant seed production (P1-03)")
+## Seconds between production ticks (game time).
+@export var plant_production_interval_seconds: float = 2.0
+## Only mature tiles whose centre is within this radius (px) of the player produce fruits.
+@export var plant_production_radius_px: float = 160.0
+## Expected fruits per mature tile per second (the per-tick expectation is tiles * rate * interval).
+@export var plant_fruit_rate_per_tile_second: float = 0.00125
+## At most this many fruits per production tick.
+@export var plant_fruit_max_per_tick: int = 3
+## A tile holds at most this many of its own fruits on the ground.
+@export var plant_fruit_per_tile_cap: int = 1
+## Plant fruits on the ground in the whole region (kept below pickup_total_cap so seed-source fruits keep their slots).
+@export var plant_fruit_cap: int = 20
+@export var plant_fruit_lifetime_seconds: float = 45.0
+## Random jitter of the drop position inside the tile (px, +-).
+@export var plant_fruit_jitter_px: float = 1.5
 
 @export_group("Time")
 ## One advance never adds more than this (hitch guard), seconds. Same value as SimTuning.max_advance_seconds.

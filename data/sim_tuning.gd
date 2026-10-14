@@ -16,14 +16,22 @@ extends Resource
 ## Alpha of the half-transparent 1px edge of a mature tile on sides without a mature neighbour.
 @export_range(0.0, 1.0) var edge_alpha: float = 0.5
 
-## (P1-03) growth amount thresholds for sprout / mature, in growth units.
-@export var sprout_growth: int = 100
-@export var mature_growth: int = 400
-## (P1-03) growth units per growth tick, and multiplier while watered.
-@export var base_growth_per_tick: int = 10
-@export var watered_growth_multiplier: float = 2.0
-## (P1-02/03) moisture scale (0..moisture_max) and decay per growth tick.
+## (P1-03) Growth. Growth amount is an integer; one growth tick adds
+## base_growth_per_tick * moisture factor * fertility factor * sunlight factor (rounded to an integer).
+## With the defaults a seed needs mature_growth / base_growth_per_tick = 120 ticks = 60 s dry, 30 s at full moisture.
+@export var base_growth_per_tick: int = 1000
+## Growth amount at which a seed becomes sprout 1 / sprout 2 / mature.
+@export var sprout1_growth: int = 40000
+@export var sprout2_growth: int = 80000
+@export var mature_growth: int = 120000
+## Moisture factor: moisture_growth_min at moisture 0, moisture_growth_max at moisture_max (linear). Min must stay > 0.
+@export var moisture_growth_min: float = 1.0
+@export var moisture_growth_max: float = 2.0
+## Fertility byte (0..fertility_max) adds up to this fraction of speed (factor 1 + bonus * fertility / fertility_max).
+@export var fertility_max: int = 100
+@export var fertility_growth_bonus: float = 0.5
+## Moisture scale (0..moisture_max) and decay per growth tick (1 per 0.5 s tick = 2 per second).
 @export var moisture_max: int = 100
-@export var moisture_decay_per_tick: int = 2
+@export var moisture_decay_per_tick: int = 1
 ## (P1-04) upper bound of tiles examined by one spread tick.
 @export var max_spread_cells_per_tick: int = 16

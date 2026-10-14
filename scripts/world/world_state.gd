@@ -14,6 +14,8 @@ const PLANT_NONE: int = 0
 const PLANT_NORMAL: int = 1
 ## Sprout position candidates: the 2x2 centre pixels of the 4x4 tile. slot -> (1 + (slot & 1), 1 + (slot >> 1)).
 const SLOT_COUNT: int = 4
+## Side of the square tile chunks used for the per-chunk mature counts (fast "how many mature plants near here").
+const CHUNK_TILES: int = 16
 
 var width: int = 0
 var height: int = 0
@@ -42,6 +44,16 @@ var greened_count: int = 0
 var dirty_tiles: PackedInt32Array = PackedInt32Array()
 var dirty_flag: PackedByteArray = PackedByteArray()
 
+## Active set (P1-03): the only tiles the growth tick visits = growing tiles (seed, sprout 1, sprout 2) and tiles with
+## moisture > 0. active_flag dedupes active_tiles. Derived data: rebuilt from stage and moisture by rebuild_derived().
+var active_tiles: PackedInt32Array = PackedInt32Array()
+var active_flag: PackedByteArray = PackedByteArray()
+## Mature tile counts per CHUNK_TILES x CHUNK_TILES chunk and in total (differential, checked against a recount in tests).
+var chunks_x: int = 0
+var chunks_y: int = 0
+var mature_chunk_count: PackedInt32Array = PackedInt32Array()
+var mature_count: int = 0
+
 func _init(w: int, h: int, defs: Array[TerrainDef], seed_value: int) -> void:
 	width = w
 	height = h
@@ -58,6 +70,10 @@ func _init(w: int, h: int, defs: Array[TerrainDef], seed_value: int) -> void:
 	sprout_slot.resize(n)
 	occupant.resize(n)
 	dirty_flag.resize(n)
+	active_flag.resize(n)
+	chunks_x = (w + CHUNK_TILES - 1) / CHUNK_TILES
+	chunks_y = (h + CHUNK_TILES - 1) / CHUNK_TILES
+	mature_chunk_count.resize(chunks_x * chunks_y)
 	for index: int in n:
 		sprout_slot[index] = slot_for(index, seed_value)
 
@@ -100,6 +116,40 @@ func apply_terrain_defs() -> void:
 		else:
 			stage[index] = STAGE_EMPTY
 			plant_id[index] = PLANT_NONE
+	rebuild_derived()
+
+## Rebuilds the derived data (active set, mature chunk counts) from stage and moisture.
+func rebuild_derived() -> void:
+	active_tiles = PackedInt32Array()
+	active_flag.fill(0)
+	mature_chunk_count.fill(0)
+	mature_count = 0
+	for index: int in tile_count():
+		var s: int = stage[index]
+		if s == STAGE_MATURE:
+			mature_chunk_count[chunk_of(index)] += 1
+			mature_count += 1
+		if (s >= STAGE_SEED and s < STAGE_MATURE) or moisture[index] > 0:
+			active_flag[index] = 1
+			active_tiles.append(index)
+
+func chunk_of(index: int) -> int:
+	return ((index / width) / CHUNK_TILES) * chunks_x + (index % width) / CHUNK_TILES
+
+## Adds a tile to the active set (idempotent).
+func activate(index: int) -> void:
+	if active_flag[index] == 0:
+		active_flag[index] = 1
+		active_tiles.append(index)
+
+## Sets the moisture of a target tile and keeps the active set right. Non-target tiles are refused.
+func set_moisture(index: int, value: int) -> bool:
+	if index < 0 or index >= tile_count() or target[index] == 0:
+		return false
+	moisture[index] = clampi(value, 0, 255)
+	if value > 0:
+		activate(index)
+	return true
 
 func terrain_def_at(index: int) -> TerrainDef:
 	return terrain_defs[terrain[index]]
@@ -127,6 +177,12 @@ func set_stage(index: int, new_stage: int) -> bool:
 	elif old_stage >= GREENED_MIN_STAGE and new_stage < GREENED_MIN_STAGE:
 		greened_count -= 1
 	stage[index] = new_stage
+	if (old_stage == STAGE_MATURE) != (new_stage == STAGE_MATURE):
+		var delta: int = 1 if new_stage == STAGE_MATURE else -1
+		mature_chunk_count[chunk_of(index)] += delta
+		mature_count += delta
+	if new_stage >= STAGE_SEED and new_stage < STAGE_MATURE:
+		activate(index)
 	if new_stage == STAGE_EMPTY:
 		plant_id[index] = PLANT_NONE
 		growth[index] = 0
@@ -192,8 +248,15 @@ func recount_greened() -> int:
 			total += 1
 	return total
 
+func recount_mature() -> int:
+	var total: int = 0
+	for index: int in tile_count():
+		if stage[index] == STAGE_MATURE:
+			total += 1
+	return total
+
 func counters_consistent() -> bool:
-	return recount_targets() == target_count and recount_greened() == greened_count
+	return recount_targets() == target_count and recount_greened() == greened_count and recount_mature() == mature_count
 
 ## 100 % is decided by integer equality, never by a rounded ratio.
 func is_fully_greened() -> bool:
@@ -305,4 +368,5 @@ static func from_dict(data: Dictionary, defs: Array[TerrainDef]) -> WorldState:
 				state.greened_count += 1
 		elif state.stage[index] != STAGE_EMPTY:
 			return null
+	state.rebuild_derived()
 	return state

@@ -1,0 +1,242 @@
+[
+  {
+    "condition": "map PNG is 512x512, 1 tile = 4px -> 2048px",
+    "id": "1.size",
+    "observed": "png=(512, 512) tile_px=4",
+    "status": "PASS"
+  },
+  {
+    "condition": "target count equals independent System.Drawing count of target legend colours",
+    "id": "1.target_count",
+    "observed": "world=244846 gdi=244846",
+    "status": "PASS"
+  },
+  {
+    "condition": "per-terrain tile counts equal independent count for all 5 legend colours",
+    "id": "1.terrain_counts",
+    "observed": "{ \"b0a060\": 241281, \"e0d090\": 3234, \"4080e0\": 15090, \"808080\": 2208, \"60b060\": 331 }",
+    "status": "PASS"
+  },
+  {
+    "condition": "changing only the legend (building -> target) changes targets by exactly the building count; no scenery involved",
+    "id": "1.legend_only",
+    "observed": "targets=247054 (expected 247054)",
+    "status": "PASS"
+  },
+  {
+    "condition": "no P0 decoration class referenced from scripts/world or data/*.gd",
+    "id": "1.no_props",
+    "observed": "[]",
+    "status": "PASS"
+  },
+  {
+    "condition": "loader uses imported lossless CompressedTexture2D (works in exported build); pixels equal the raw PNG",
+    "id": "1.export_safe",
+    "observed": "class=CompressedTexture2D lossless_import=true equal=true",
+    "status": "PASS"
+  },
+  {
+    "condition": "unknown legend colour is rejected (ERROR line expected above)",
+    "id": "1.reject_unknown",
+    "observed": "true",
+    "status": "PASS"
+  },
+  {
+    "condition": "denominator = target tiles only (water/buildings excluded)",
+    "id": "2.denominator",
+    "observed": "world=244846 shadow=244846",
+    "status": "PASS"
+  },
+  {
+    "condition": "after 200000 random set_stage (incl. non-target) the differential counter equals my own recount (8 checkpoints)",
+    "id": "2.diff_counter",
+    "observed": "greened=78457 shadow=78457 mismatching_checkpoints=0",
+    "status": "PASS"
+  },
+  {
+    "condition": "seed does not count; sprout1 counts; back to seed uncounts",
+    "id": "2.seed_vs_sprout",
+    "observed": "true true true",
+    "status": "PASS"
+  },
+  {
+    "condition": "set_stage on a non-target tile is refused and does not change the count",
+    "id": "2.nontarget_refused",
+    "observed": "accepted=false",
+    "status": "PASS"
+  },
+  {
+    "condition": "all 244846 targets mature = full; one tile short is not full (float ratio 0.9999959)",
+    "id": "2.integer_100",
+    "observed": "full=true short: greened=244845 full=false floor=99",
+    "status": "PASS"
+  },
+  {
+    "condition": "map without targets is never 100%",
+    "id": "2.zero_targets",
+    "observed": "",
+    "status": "PASS"
+  },
+  {
+    "condition": "growth 0.5 s, spread 1.0 s",
+    "id": "3.periods",
+    "observed": "0.5 1.0",
+    "status": "PASS"
+  },
+  {
+    "condition": "same game time gives the same growth/spread tick counts at 24..240 Hz",
+    "id": "3.rate_independent",
+    "observed": "0.5s[24:1/0 30:1/0 60:1/0 75:1/0 120:1/0 144:1/0 240:1/0]; 1.0s[24:2/1 30:2/1 60:2/1 75:2/1 120:2/1 144:2/1 240:2/1]; 2.5s[24:5/2 30:5/2 60:5/2 75:5/2 120:5/2 144:5/2 240:5/2]; 10.0s[24:20/10 30:20/10 60:20/10 75:20/10 120:20/10 144:20/10 240:20/10]; 60.0s[24:120/60 30:120/60 60:120/60 75:120/60 120:120/60 144:120/60 240:120/60]; 600.0s[24:1200/600 30:1200/600 60:1200/600 75:1200/600 120:1200/600 144:1200/600 240:1200/600]",
+    "status": "PASS"
+  },
+  {
+    "condition": "irregular frame times: ticks = floor(game time / period)",
+    "id": "3.irregular",
+    "observed": "t=200.079 g=400 s=200",
+    "status": "PASS"
+  },
+  {
+    "condition": "main.tscn: simulation clock advances while running (60 physics frames)",
+    "id": "3.scene_runs",
+    "observed": "elapsed=0.983 growth=1 spread=0",
+    "status": "PASS"
+  },
+  {
+    "condition": "injected Esc pauses the SceneTree and shows the pause panel",
+    "id": "3.esc_pauses",
+    "observed": "paused=true panel=true",
+    "status": "PASS"
+  },
+  {
+    "condition": "no ticks and no time while paused (180 physics frames = 3 s)",
+    "id": "3.pause_freezes",
+    "observed": "elapsed 1.0000 -> 1.0000 ; growth 2 -> 2 ; spread 1 -> 1",
+    "status": "PASS"
+  },
+  {
+    "condition": "second Esc resumes",
+    "id": "3.esc_resumes",
+    "observed": "paused=false",
+    "status": "PASS"
+  },
+  {
+    "condition": "after resume only the ~0.5 s of running frames is added, not the 3 s pause (gained 0.517 s, ticks +1)",
+    "id": "3.no_bulk_catchup",
+    "observed": "gained=0.5167 resume_ticks=0",
+    "status": "PASS"
+  },
+  {
+    "condition": "SceneTree.paused=true alone also freezes the clock",
+    "id": "3.tree_pause",
+    "observed": "",
+    "status": "PASS"
+  },
+  {
+    "condition": "real main.tscn at physics 30/60/120 Hz: when 5.0 s of game time has passed there are exactly 10 growth / 5 spread ticks",
+    "id": "3.scene_rates",
+    "observed": "30Hz: elapsed=5.0333 growth=10 spread=5 | 60Hz: elapsed=5.0167 growth=10 spread=5 | 120Hz: elapsed=5.0000 growth=10 spread=5",
+    "status": "PASS"
+  },
+  {
+    "condition": "every pixel of the 112x112-tile area (incl. block seams 64/128) equals my oracle after a flush",
+    "id": "4.oracle_after_flush",
+    "observed": "bad=0  slots_seen=4 slot_inconsistent=0",
+    "status": "PASS"
+  },
+  {
+    "condition": "all 4 centre-2x2 candidates occur; one fixed pixel per slot",
+    "id": "4.slot_pixels",
+    "observed": "",
+    "status": "PASS"
+  },
+  {
+    "condition": "sprout position varies per tile (spread [3260, 3061, 3072, 3151]; adjacent-equal 25/111, ~25% expected)",
+    "id": "4.slot_variation",
+    "observed": "",
+    "status": "PASS"
+  },
+  {
+    "condition": "after 4000 more random changes and an incremental flush all pixels still equal my oracle (neighbour redraw)",
+    "id": "4.oracle_incremental",
+    "observed": "bad=0 ",
+    "status": "PASS"
+  },
+  {
+    "condition": "all 262144 tiles (2048x2048 px) equal my oracle, incl. map border tiles",
+    "id": "4.oracle_full",
+    "observed": "bad=0 ",
+    "status": "PASS"
+  },
+  {
+    "condition": "oracle detects a deliberately corrupted pixel (negative control)",
+    "id": "4.oracle_selftest",
+    "observed": "bad=1",
+    "status": "PASS"
+  },
+  {
+    "condition": "isolated mature tile: inner 2x2 solid, 12 ring px = 50% green over ground (hand-computed)",
+    "id": "4.isolated_mature",
+    "observed": "edge=(0.437, 0.5979, 0.3626, 1.0) ground=(0.627, 0.588, 0.435, 1.0) mature=(0.2471, 0.6078, 0.2902, 1.0)",
+    "status": "PASS"
+  },
+  {
+    "condition": "diagonal mature neighbour leaves the ring unchanged",
+    "id": "4.diagonal_ignored",
+    "observed": "",
+    "status": "PASS"
+  },
+  {
+    "condition": "adjacent mature: shared side opaque on both; when neighbour stops being mature the side is semi-transparent again",
+    "id": "4.neighbour_redraw",
+    "observed": "shared=true back=true",
+    "status": "PASS"
+  },
+  {
+    "condition": "player is clamped at the 2048x2048 region edges (32..2016 margin) in all 4 corners",
+    "id": "5.player_bounds",
+    "observed": "move_left+move_up->player (32.0, 32.0) cam (320.0, 180.0); move_right+move_down->player (2016.0, 2016.0) cam (1728.0, 1868.0); move_left+move_down->player (32.0, 2016.0) cam (320.0, 1868.0); move_right+move_up->player (2016.0, 32.0) cam (1728.0, 180.0)",
+    "status": "PASS"
+  },
+  {
+    "condition": "camera view stays within 0..2048 in all 4 corners (centre limited to 320..1728 / 180..1868)",
+    "id": "5.camera_bounds",
+    "observed": "",
+    "status": "PASS"
+  },
+  {
+    "condition": "player moves ~96 px/s inside the region (1 s)",
+    "id": "5.moves",
+    "observed": "(1094.399, 1000.0)",
+    "status": "PASS"
+  },
+  {
+    "condition": "injected 2/3/1 switch rain/night/sunny",
+    "id": "5.weather",
+    "observed": "[\"rain\", \"night\", \"sunny\"]",
+    "status": "PASS"
+  },
+  {
+    "condition": "injected mouse motion aims, left click spawns a preview seed which flies",
+    "id": "5.aim_shot",
+    "observed": "aim=(0.0, -1.0) shots=1 moved=true",
+    "status": "PASS"
+  },
+  {
+    "condition": "while paused weather keys and movement are ignored; Esc again resumes",
+    "id": "5.pause_blocks",
+    "observed": "weather_blocked=true player_still=true paused=false",
+    "status": "PASS"
+  },
+  {
+    "condition": "init (load PNG + state + full render) measured 3x (headless: no GPU upload cost)",
+    "id": "7.perf_init",
+    "observed": "load=[156.705999999998, 141.772000000004, 141.568999999996] view=[40.8280000000013, 37.6339999999982, 37.1510000000053] total=[197.534, 179.406000000003, 178.720000000001] ms",
+    "status": "PASS"
+  },
+  {
+    "condition": "1000 scattered tile changes: set+redraw time (target <= 16 ms, informational)",
+    "id": "7.perf_1000",
+    "observed": "stage2 scattered1000: set=0.85ms redraw=3.77ms total=4.62ms tiles=999 blocks=64 | stage4 scattered1000: set=1.35ms redraw=3.94ms total=5.28ms tiles=4922 blocks=64 | clustered 1024 tiles total=1.37ms | idle flush 0.000ms",
+    "status": "PASS"
+  }
+]

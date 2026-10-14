@@ -620,11 +620,16 @@ func t45_recovery_and_refill() -> void:
 	var src: SeedSource = play.sources[0]
 	# wait (real physics ticks) until a fruit exists; player kept far away at the site
 	var waited: int = 0
-	while play.pickups.count() == 0 and waited < 2000:
+	# P1-03 fix: plants of the safe zone now drop plant fruits too, so the source's fruits are counted by owner (id 1)
+	while play.pickups.count_owned(src.id) == 0 and waited < 2000:
 		await physics_frame
 		waited += 1
-	rec("4.fruit_appears", "the source drops its first fruit by ~8 s of game time without any player action", play.pickups.count() >= 1 and waited >= 440 and waited <= 560, "ticks waited=%d (since scene start+setup) fruits=%d" % [waited, play.pickups.count()])
-	var item: Dictionary = play.pickups.items[0]
+	rec("4.fruit_appears", "the source drops its first fruit by ~8 s of game time without any player action", play.pickups.count_owned(src.id) >= 1 and waited >= 440 and waited <= 560, "ticks waited=%d (since scene start+setup) source fruits=%d" % [waited, play.pickups.count_owned(src.id)])
+	var item: Dictionary = {}
+	for cand: Dictionary in play.pickups.items:
+		if int(cand["owner"]) == src.id:
+			item = cand
+			break
 	var fpos: Vector2 = Vector2(float(item["x"]), float(item["y"]))
 	# start 70 px from the fruit and walk with injected keys
 	main.player.simulation_position = fpos + Vector2(-70, 30)
@@ -715,7 +720,7 @@ func t6_source() -> void:
 	var last_count: int = 0
 	for i: int in 4800:
 		await physics_frame
-		var c: int = play.pickups.count()
+		var c: int = play.pickups.count_owned(src.id)
 		max_count = maxi(max_count, c)
 		if c > last_count:
 			spawn_times.append(snappedf(play.elapsed, 0.01))

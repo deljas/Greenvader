@@ -46,3 +46,14 @@ func advance(delta: float) -> float:
 			spread_ticks += 1
 			spread_ticked.emit(spread_ticks)
 	return delta
+
+func to_dict() -> Dictionary:
+	return {"version": 1, "elapsed": elapsed, "growth_ticks": growth_ticks, "spread_ticks": spread_ticks}
+
+func load_dict(data: Dictionary) -> bool:
+	if int(data.get("version", 0)) != 1:
+		return false
+	elapsed = maxf(float(data.get("elapsed", 0.0)), 0.0)
+	growth_ticks = maxi(int(data.get("growth_ticks", 0)), 0)
+	spread_ticks = maxi(int(data.get("spread_ticks", 0)), 0)
+	return true

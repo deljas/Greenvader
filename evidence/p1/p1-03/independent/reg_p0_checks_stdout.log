@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS internal viewport 640x360
+PASS viewport stretch
+PASS aspect keep
+PASS integer stretch
+PASS minimum window 640x360
+PASS one second cardinal motion reaches 96px: 95.9991
+PASS diagonal distance equals cardinal: 95.9999
+PASS sprite uses integer presentation coordinates
+PASS camera uses integer presentation coordinates
+PASS camera and sprite share the same frame and pixel grid
+PASS pause freezes player
+PASS pause freezes weather animation
+PASS pause freezes preview projectile
+PASS S02 pause blocks button signal and direct condition setter
+PASS S02 pause disables every weather button
+PASS resume enables weather buttons
+PASS night enables PointLight2D and separate additive glow
+PASS rain selection
+PASS S01 seed highlight reaches top silhouette without shaded perimeter
+PASS player and scenery share depth sorting
+PASS nearby canopy fades when player is behind it
+PASS canopy restores opacity when player leaves
+NOT_RUN real window rendering, outer letterbox pixels, Japanese legibility and human input
+P0_SELF_RESULT failures=0
+
+real	0m2.832s
+user	0m0.030s
+sys	0m0.015s

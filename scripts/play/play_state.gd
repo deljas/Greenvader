@@ -19,6 +19,11 @@ var landing_counter: int = 0
 var elapsed: float = 0.0
 var pickups: GroundPickups
 var sources: Array[SeedSource] = []
+## Seed fruit production of mature plants around the player (P1-03).
+var producer: PlantProducer
+## Game time counted toward production ticks (like SimClock: ticks come from the total, not from the frame rate).
+var production_time: float = 0.0
+var production_ticks: int = 0
 ## Observability: tiles planted by the latest seed landing, tiles wetted by the latest water landing.
 var last_scatter: PackedInt32Array = PackedInt32Array()
 var last_wet_count: int = 0
@@ -32,12 +37,20 @@ func _init(world_state: WorldState, play_tuning: PlayTuning, simulation_tuning: 
 	tile_px = tile_size
 	seeds = clampi(tuning.seed_start, 0, tuning.seed_max)
 	water = clampf(tuning.water_start, 0.0, tuning.water_max)
-	pickups = GroundPickups.new(tuning.pickup_total_cap, tuning.pickup_lifetime_seconds)
 	for index: int in source_pixel_positions.size():
 		sources.append(SeedSource.new(index + 1, source_pixel_positions[index]))
+	pickups = _new_pickups()
+	producer = PlantProducer.new(world, tuning, tile_px)
 	waterside_by_terrain.resize(world.terrain_defs.size())
 	for def: TerrainDef in world.terrain_defs:
 		waterside_by_terrain[def.id] = 1 if def.is_waterside else 0
+
+## Pickup container with the plant limit that keeps the seed sources' slots free:
+## plants may use at most min(plant_fruit_cap, total - sources * source_fruit_cap) of the region-wide total.
+func _new_pickups() -> GroundPickups:
+	var reserved: int = sources.size() * tuning.source_fruit_cap
+	var plant_limit: int = clampi(mini(tuning.plant_fruit_cap, tuning.pickup_total_cap - reserved), 0, tuning.pickup_total_cap)
+	return GroundPickups.new(tuning.pickup_total_cap, tuning.pickup_lifetime_seconds, plant_limit, tuning.plant_fruit_lifetime_seconds)
 
 # ---- resources -----------------------------------------------------------------------------
 
@@ -120,6 +133,10 @@ func advance(delta: float, player_position: Vector2) -> void:
 		add_water(tuning.water_refill_per_second * delta)
 	for source: SeedSource in sources:
 		source.advance(delta, pickups, tuning)
+	production_time += delta
+	while float(production_ticks + 1) * tuning.plant_production_interval_seconds <= production_time + 1.0e-9:
+		production_ticks += 1
+		producer.produce(pickups, player_position)
 	pickups.advance(delta)
 	pickups.collect(player_position, tuning.pickup_collect_radius_px, _accept_pickup)
 
@@ -144,6 +161,7 @@ func to_dict() -> Dictionary:
 		"elapsed": elapsed,
 		"pickups": pickups.to_dict(),
 		"sources": source_list,
+		"production": {"time": production_time, "ticks": production_ticks, "producer": producer.to_dict()},
 	}
 
 ## Restores the state. False (state left unchanged) when the data does not fit the current sources.
@@ -153,7 +171,7 @@ func load_dict(data: Dictionary) -> bool:
 	var source_list: Array = data.get("sources", [])
 	if source_list.size() != sources.size() or not data.has("pickups") or not data.has("seeds") or not data.has("water"):
 		return false
-	var restored: GroundPickups = GroundPickups.new(tuning.pickup_total_cap, tuning.pickup_lifetime_seconds)
+	var restored: GroundPickups = _new_pickups()
 	if not restored.load_dict(data["pickups"]):
 		return false
 	var backup: Array[Dictionary] = []
@@ -169,6 +187,10 @@ func load_dict(data: Dictionary) -> bool:
 	landing_counter = maxi(int(data.get("landing_counter", 0)), 0)
 	elapsed = maxf(float(data.get("elapsed", 0.0)), 0.0)
 	pickups = restored
+	var production: Dictionary = data.get("production", {})
+	production_time = maxf(float(production.get("time", 0.0)), 0.0)
+	production_ticks = maxi(int(production.get("ticks", 0)), 0)
+	producer.load_dict(production.get("producer", {}))
 	seeds_changed.emit(seeds)
 	water_changed.emit(water)
 	return true

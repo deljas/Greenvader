@@ -1,0 +1,35 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "ticks (0.5 s) to sprout1/sprout2/mature: dry 40/80/120 (mature 60 s), moisture100 20/40/60 (30 s), moisture50, 25, fertility 100 per spec factors",
+      "id": "1.timing",
+      "observed": "dry got=[40, 80, 120] want=[40, 80, 120]; moisture100_fixed got=[20, 40, 60] want=[20, 40, 60]; moisture50_fixed got=[27, 54, 80] want=[27, 54, 80]; moisture25_fixed got=[32, 64, 96] want=[32, 64, 96]; fert100_dry got=[27, 54, 80] want=[27, 54, 80]; fert100_moisture100 got=[14, 27, 40] want=[14, 27, 40]",
+      "status": "PASS"
+    },
+    {
+      "condition": "game time to mature: dry about 60 s, moisture 100 fixed about 30 s, ratio 2 (water speeds growth, dry still matures)",
+      "id": "1.seconds",
+      "observed": "dry=60.000 s wet=30.000 s ratio=2.0000",
+      "status": "PASS"
+    },
+    {
+      "condition": "stage sequence of one dry seed is seed(1), sprout1(2), sprout2(3), mature(4) with no skips and no regress",
+      "id": "1.sequence",
+      "observed": "seq=[1, 2, 3, 4]",
+      "status": "PASS"
+    },
+    {
+      "condition": "a mature dry tile has left the active set and further ticks change nothing",
+      "id": "1.mature_inactive",
+      "observed": "in_active=false flag=0 growth=120000",
+      "status": "PASS"
+    },
+    {
+      "condition": "a wet mature tile is active exactly while moisture > 0 (30 -> 30 ticks), stays mature",
+      "id": "1.wet_mature_active",
+      "observed": "left active after 30 ticks stage=4",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+DBG7 cats=(242, 60) player=(970.0, 242.0) refilling=true water=11.6666666666667 nd=1.0
+PASS [7.esc_pauses] injected Esc pauses the tree and shows the pause panel :: paused=true panel=true shots_in_flight=2
+DBG7b paused=true el=8.63333333333334
+DBG7c paused=true el=8.63333333333334
+DBG7d paused=true el=8.63333333333334
+DBG7e paused=true el=8.63333333333334
+PASS [7.frozen] after 4602 ms wall time and 185 ticks paused: elapsed, seeds, water, source timer, fruit ages, shot positions all unchanged; clicks/fire do nothing :: before={ "elapsed": 8.63333333333334, "seeds": 4, "water": 2.5, "timer": 0.63333333333331, "ages": "[0.63333333333333]", "n_pick": 1, "shots": "[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]", "landing": 0 } after={ "elapsed": 8.63333333333334, "seeds": 4, "water": 2.5, "timer": 0.63333333333331, "ages": "[0.63333333333333]", "n_pick": 1, "shots": "[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]", "landing": 0 } fire=false
+PASS [7.resume_no_bank] after Esc resume 30 ticks advance game time by ~0.5 s (not by the ~4602 ms paused) :: advanced=0.4833 s unpaused=true
+PASS [7.shots_continue] in-flight shots continue after resume :: shots now=2 (was 2)
+PASS [7.refill_paused_only] the refill did not run during pause (water unchanged 10) yet runs after resume :: water now=14.5833333333333 (before pause 2.5)
+ONLY7 done

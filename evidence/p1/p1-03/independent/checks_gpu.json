@@ -1,0 +1,44 @@
+[
+  {
+    "condition": "PrintWindow capture is 1280x720 (k=2), internal frame 640x360",
+    "id": "gpu.size",
+    "observed": "native=(1280, 720) vp=(640, 360)",
+    "status": "PASS"
+  },
+  {
+    "condition": "every 2x2 block of the window image is one colour (no smoothing)",
+    "id": "gpu.k2_uniform",
+    "observed": "non-uniform pixels=0",
+    "status": "PASS"
+  },
+  {
+    "condition": "each block equals the internal frame pixel",
+    "id": "gpu.native_equals_internal",
+    "observed": "mismatching=0 of 230400",
+    "status": "PASS"
+  },
+  {
+    "condition": "every pixel of the arranged rectangle (seed/sprout1/sprout2 rows, mature shapes, 20x20 field, plus margin) equals the spec composition: seed colour 1 px at the slot, sprout1 1x1, sprout2 1x2 growing up, mature full tile, 1 px half-transparent edge only on sides without a mature 4-neighbour, plain ground elsewhere",
+    "id": "gpu.pixel_oracle",
+    "observed": "tiles in view checked=1792 pixels=27810 bad=0 ",
+    "status": "PASS"
+  },
+  {
+    "condition": "no outline: the ground tiles around every plant (margin and between plants) are exactly the ground colour; no extra dark/light pixels",
+    "id": "gpu.no_outline",
+    "observed": "ground pixels deviating=0",
+    "status": "PASS"
+  },
+  {
+    "condition": "sprout positions vary over the centre 2x2 candidates in the picture",
+    "id": "gpu.sprout_slots",
+    "observed": "slots seen=[3, 0, 1, 2]",
+    "status": "PASS"
+  },
+  {
+    "condition": "plant fruits produced by the real code on the 400-tile field lie on mature tiles and are on screen",
+    "id": "gpu.fruits",
+    "observed": "plant fruits=17",
+    "status": "PASS"
+  }
+]

@@ -8,14 +8,38 @@ extends RefCounted
 ## Item: {kind: String, x: float, y: float, age: float, owner: int}
 
 const KIND_SEED_FRUIT: String = "seed_fruit"
+## Owner ids from here on belong to plants (1000000 + tile index); below are seed sources.
+const PLANT_OWNER_BASE: int = 1000000
 
 var items: Array[Dictionary] = []
 var total_cap: int = 24
 var lifetime_seconds: float = 60.0
+## Plant-owned pickups are limited separately so they can never take the slots kept for seed sources:
+## at most plant_cap of them lie on the ground, whatever the region-wide total. -1 = no separate limit.
+var plant_cap: int = -1
+## Lifetime of plant-owned pickups. -1 = same as lifetime_seconds.
+var plant_lifetime_seconds: float = -1.0
 
-func _init(cap: int = 24, lifetime: float = 60.0) -> void:
+func _init(cap: int = 24, lifetime: float = 60.0, plant_limit: int = -1, plant_lifetime: float = -1.0) -> void:
 	total_cap = cap
 	lifetime_seconds = lifetime
+	plant_cap = plant_limit
+	plant_lifetime_seconds = plant_lifetime
+
+static func is_plant_owner(owner_id: int) -> bool:
+	return owner_id >= PLANT_OWNER_BASE
+
+func count_plant_owned() -> int:
+	var total: int = 0
+	for item: Dictionary in items:
+		if int(item["owner"]) >= PLANT_OWNER_BASE:
+			total += 1
+	return total
+
+func lifetime_of(item: Dictionary) -> float:
+	if plant_lifetime_seconds > 0.0 and int(item["owner"]) >= PLANT_OWNER_BASE:
+		return plant_lifetime_seconds
+	return lifetime_seconds
 
 func count() -> int:
 	return items.size()
@@ -31,6 +55,8 @@ func count_owned(owner_id: int) -> int:
 func spawn(kind: String, position: Vector2, owner_id: int) -> bool:
 	if items.size() >= total_cap:
 		return false
+	if plant_cap >= 0 and owner_id >= PLANT_OWNER_BASE and count_plant_owned() >= plant_cap:
+		return false
 	items.append({"kind": kind, "x": position.x, "y": position.y, "age": 0.0, "owner": owner_id})
 	return true
 
@@ -42,7 +68,7 @@ func advance(delta: float) -> int:
 	for index: int in range(items.size() - 1, -1, -1):
 		var item: Dictionary = items[index]
 		item["age"] = float(item["age"]) + delta
-		if float(item["age"]) >= lifetime_seconds:
+		if float(item["age"]) >= lifetime_of(item):
 			items.remove_at(index)
 			expired += 1
 	return expired

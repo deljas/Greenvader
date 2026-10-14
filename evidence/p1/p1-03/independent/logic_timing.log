@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section timing
+PASS [1.timing] ticks (0.5 s) to sprout1/sprout2/mature: dry 40/80/120 (mature 60 s), moisture100 20/40/60 (30 s), moisture50, 25, fertility 100 per spec factors :: dry got=[40, 80, 120] want=[40, 80, 120]; moisture100_fixed got=[20, 40, 60] want=[20, 40, 60]; moisture50_fixed got=[27, 54, 80] want=[27, 54, 80]; moisture25_fixed got=[32, 64, 96] want=[32, 64, 96]; fert100_dry got=[27, 54, 80] want=[27, 54, 80]; fert100_moisture100 got=[14, 27, 40] want=[14, 27, 40]
+PASS [1.seconds] game time to mature: dry about 60 s, moisture 100 fixed about 30 s, ratio 2 (water speeds growth, dry still matures) :: dry=60.000 s wet=30.000 s ratio=2.0000
+PASS [1.sequence] stage sequence of one dry seed is seed(1), sprout1(2), sprout2(3), mature(4) with no skips and no regress :: seq=[1, 2, 3, 4]
+PASS [1.mature_inactive] a mature dry tile has left the active set and further ticks change nothing :: in_active=false flag=0 growth=120000
+PASS [1.wet_mature_active] a wet mature tile is active exactly while moisture > 0 (30 -> 30 ticks), stays mature :: left active after 30 ticks stage=4
+--- section timing done in 627 ms
+V_RESULT total=5 fails=0

@@ -1,0 +1,1395 @@
+[
+ {
+  "condition": "ticks (0.5 s) to sprout1/sprout2/mature: dry 40/80/120 (mature 60 s), moisture100 20/40/60 (30 s), moisture50, 25, fertility 100 per spec factors",
+  "id": "1.timing",
+  "observed": "dry got=[40, 80, 120] want=[40, 80, 120]; moisture100_fixed got=[20, 40, 60] want=[20, 40, 60]; moisture50_fixed got=[27, 54, 80] want=[27, 54, 80]; moisture25_fixed got=[32, 64, 96] want=[32, 64, 96]; fert100_dry got=[27, 54, 80] want=[27, 54, 80]; fert100_moisture100 got=[14, 27, 40] want=[14, 27, 40]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "game time to mature: dry about 60 s, moisture 100 fixed about 30 s, ratio 2 (water speeds growth, dry still matures)",
+  "id": "1.seconds",
+  "observed": "dry=60.000 s wet=30.000 s ratio=2.0000",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "stage sequence of one dry seed is seed(1), sprout1(2), sprout2(3), mature(4) with no skips and no regress",
+  "id": "1.sequence",
+  "observed": "seq=[1, 2, 3, 4]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a mature dry tile has left the active set and further ticks change nothing",
+  "id": "1.mature_inactive",
+  "observed": "in_active=false flag=0 growth=120000",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a wet mature tile is active exactly while moisture > 0 (30 -> 30 ticks), stays mature",
+  "id": "1.wet_mature_active",
+  "observed": "left active after 30 ticks stage=4",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "growth after every tick equals my integral with moisture falling 100,99,... (tick uses moisture before the decay), 74 ticks to mature",
+  "id": "2.integral_pre",
+  "observed": "mismatching ticks=0 ; model mature tick pre=74 post=74; model-post-decay also matches=false",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "moisture falls exactly 1 per 0.5 s tick (2 per second), reaching 0 after 100 ticks (50 s)",
+  "id": "2.moisture_traj",
+  "observed": "traj ok=true",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a tile that dries while growing matures between the always-wet (60) and always-dry (120) times",
+  "id": "2.between",
+  "observed": "mature tick 74",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "moisture 3 falls 2,1,0 and stays 0 (no underflow to 255)",
+  "id": "2.moisture_floor",
+  "observed": "seq=[2, 1, 0, 0, 0, 0]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "growth gains at least 1 every tick (never stops) even with sunlight 0 / negative, moisture coefficient 0 or negative, fertility 0, base 0",
+  "id": "3.floor",
+  "observed": "real_tuning_sun0 strictly_growing=true g=[100, 200, 151]; real_tuning_sun_neg strictly_growing=true g=[100, 200, 151]; real_tuning_sun_tiny strictly_growing=true g=[100, 200, 151]; zero_moisture_coeff_base1 strictly_growing=true g=[100, 100, 100]; base0_all_zero strictly_growing=true g=[100, 100, 100]; negative_moisture_coeff strictly_growing=true g=[100, 200, 100]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "the sunlight hook multiplies speed (x2 -> 2x growth) and defaults to 1.0 without a provider (10 ticks dry: 10000 vs 20000)",
+  "id": "3.sun_hook",
+  "observed": "g=10000 / 20000",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "without provider growth is the plain dry rate (10 ticks = 10000)",
+  "id": "3.sun_default",
+  "observed": "g=10000",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "baseline greened count equals my own scan of initial sprout-or-better target tiles (safe zone)",
+  "id": "4.baseline",
+  "observed": "counter=331 my scan=331",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "planting seeds (stage 1) does not raise the greening count",
+  "id": "4.seed_no_green",
+  "observed": "planted=48 greened=331 base=331",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "greening counter equals base + my count of planted tiles at sprout1 or later after every one of 160 ticks (includes a late batch)",
+  "id": "4.diff_vs_recount",
+  "observed": "mismatching ticks=0 first increase at tick 24",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "after all stages the count is base + planted tiles exactly once each, equals a full recount, counters consistent",
+  "id": "4.no_double",
+  "observed": "counter=385 recount=385 base+planted=385 stages=[4]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "one dry seed: greened +0 at seed, +1 at sprout1, still +1 at sprout2 and mature",
+  "id": "4.single",
+  "observed": "transitions [from,to,greened delta]=[[1, 2, 1], [2, 3, 1], [3, 4, 1]]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "every tile has one of 4 sprout positions, distribution within 1 point of uniform (random position among the 2x2 centre candidates)",
+  "id": "4.sprout_slots",
+  "observed": "hist=[65866, 65471, 65513, 65294]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "non-target tiles (water, buildings) never get a stage or growth",
+  "id": "4.nontarget_clean",
+  "observed": "bad=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "active set (growing or moisture>0) equals a full-map brute force and is duplicate free at planting, watering and every 20 ticks of a 300-tick run",
+  "id": "5.active_equals_brute",
+  "observed": "[[\"initial\", true, 0], [\"after_seed\", true, 36], [\"after_water\", true, 111], [\"tick0\", true, 111], [\"tick20\", true, 111], [\"tick40\", true, 38], [\"tick60\", true, 38], [\"tick80\", true, 36], [\"tick100\", true, 36], [\"tick120\", true, 0], [\"tick140\", true, 0], [\"tick160\", true, 0], [\"tick180\", true, 0], [\"tick200\", true, 0], [\"tick220\", true, 0], [\"tick240\", true, 0], [\"tick260\", true, 0], [\"tick280\", true, 0], [\"tick299\", true, 0]]",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a tick visits exactly the active tiles and changes nothing outside the set (visited counts match, full diff of stage/growth/moisture)",
+  "id": "5.visited_only_active",
+  "observed": "visited_ok=true outside_unchanged=true",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "after everything matured and dried the active set is empty",
+  "id": "5.drained",
+  "observed": "active=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "with nothing growing a tick visits 0 tiles and costs well under 0.1 ms (1000 ticks measured)",
+  "id": "5.idle_light",
+  "observed": "visited=0, 0.68 us/tick",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "from_dict rebuilds the same active set and counts as brute force",
+  "id": "5.rebuild",
+  "observed": "mature=367/367",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "repeated water landing adds 40 then caps at 100 (40,80,100,100,100), no tile above 100 anywhere",
+  "id": "moist.cap",
+  "observed": "seq=[40, 80, 100, 100, 100] max=100",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "water landed at the lake edge wets neighbouring target tiles (>0) but no non-target tile (water, building)",
+  "id": "moist.nontarget",
+  "observed": "non-target wet=0 east target moisture=80",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "bare ground made wet joins the active set",
+  "id": "moist.active_on_bare",
+  "observed": "active=37",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "moisture 100 reaches 0 after exactly 100 ticks = 50 s (2 per second) and stays 0",
+  "id": "moist.rate",
+  "observed": "moisture 1 at tick 99, 0 at tick 100",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "mature-tile count around the player equals a brute force (tile centre within 160 px) for 120 random/edge centres",
+  "id": "6.gather_brute",
+  "observed": "mismatches=0 nonzero=120 ",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "per-chunk mature counts sum to the global count and a full recount",
+  "id": "6.chunk_counts",
+  "observed": "chunks=25425 global=25425 recount=25425",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "tile_at(0..n-1) lists distinct mature tiles inside the circle only",
+  "id": "6.tile_at",
+  "observed": "n=586 distinct=586",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "with no mature tile anywhere (safe zone cleared) 2000 production ticks drop nothing",
+  "id": "7.none_when_no_mature",
+  "observed": "mature=0 total=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "mature tiles all 280+ px away from the player produce nothing for the player (1500 ticks)",
+  "id": "7.none_outside_circle",
+  "observed": "mature=169 total=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "drops over 6000 ticks match N * 0.00125/s * 2 s * ticks (5 sigma) for N = 40, 160, 400, all on mature tiles inside the circle with the right owner id",
+  "id": "7.expectation",
+  "observed": "N=40 mature=40 drops=581 expected=600 (+-116.2) bad_pos=0 bad_owner=0; N=160 mature=160 drops=2361 expected=2400 (+-189.7) bad_pos=0 bad_owner=0; N=400 mature=400 drops=6000 expected=6000 (+-5.0) bad_pos=0 bad_owner=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "more mature tiles around give strictly more fruits (40 < 160 < 400)",
+  "id": "7.more_mature_more_drops",
+  "observed": "{ 40: 581, 160: 2361, 400: 6000 }",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "layout with 3094 mature tiles inside and 2464 outside the circle: 8998 drops, none off a mature tile, none outside the circle, owner ids = base + tile",
+  "id": "7.positions",
+  "observed": "drops=8998 bad_pos=0 bad_owner=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "with the whole map mature (expectation about 12/tick) a tick never drops more than 3, and 3 on every tick when the pool is empty",
+  "id": "7.max_per_tick",
+  "observed": "max=3 total=1800 (600 ticks) bad_pos=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "plant fruits on the ground never exceed 20 and do reach 20 (production 3 per 2 s with a full pouch for 120 s)",
+  "id": "8.plant_cap",
+  "observed": "max plant fruits=20 first full at 26.00 s",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "all fruits on the ground never exceed 24",
+  "id": "8.total_cap",
+  "observed": "max total=23",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "no tile ever holds more than 1 of its own fruits",
+  "id": "8.tile_cap",
+  "observed": "violations=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a plant fruit lives 45 s: oldest observed age is within [44.9, 45.0+one step] and none older",
+  "id": "8.lifetime",
+  "observed": "max age=45.000 over-limit steps=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "while 20 plant fruits lie on the ground the seed source still gets its 3 fruits in the remaining slots (total 23 <= 24)",
+  "id": "8.source_reserved",
+  "observed": "both full simultaneously=true max source fruits=3",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "with 20 plant fruits already on the ground a 21st plant fruit is refused, and the source still produces its 3 fruits (full 24 pool never starves it)",
+  "id": "8.recover_slots",
+  "observed": "plant spawned=20 refused 21st=true source fruits=3 total=23",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "0 seeds, plant pool full elsewhere, player at the source: seeds come back from source fruits within 120 s",
+  "id": "8.zero_seed_recovery",
+  "observed": "max seeds=2 plant fruits=0",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a plant fruit within 12 px is collected automatically (+1 seed), one 20 px away is not",
+  "id": "8.collect_plant_fruit",
+  "observed": "seeds=4",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a plant fruit 20 px away stays on the ground",
+  "id": "8.collect_far",
+  "observed": "seeds=3",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "at 20/60/100/100.5 s of game time the clocks, stages, growth, moisture, greening, production counts and fruit positions are identical at 30, 60 and 144 Hz steps",
+  "id": "9.framerate_logic",
+  "observed": "60Hz: growth_ticks=201 prod_ticks=50 produced=41 mature=318 greened=318 items=22 same_as_60=true; 30Hz: growth_ticks=201 prod_ticks=50 produced=41 mature=318 greened=318 items=22 same_as_60=true; 144Hz: growth_ticks=201 prod_ticks=50 produced=41 mature=318 greened=318 items=22 same_as_60=true",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a 30 s frame advances the clock and the play state by at most 0.25 s (no burst)",
+  "id": "9.hitch",
+  "observed": "clock=0.250 play=0.250",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "after to_dict -> JSON -> from_dict the stage/growth/moisture arrays, counts and active set equal the saved state",
+  "id": "10.restore_equal_now",
+  "observed": "loaded=true hash=1167319895/761709073/766779351 vs 1167319895/761709073/766779351",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "continuing 70 s after the restore gives the identical world hash, clock ticks, production counters and fruit list as the uninterrupted run",
+  "id": "10.continue_identical",
+  "observed": "hash 3828231518/3204173496/766779351 vs 3828231518/3204173496/766779351; growth_ticks 206/206; prod { \"ticks\": 51, \"total_produced\": 42 }/{ \"ticks\": 51, \"total_produced\": 42 }; items 21/21",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "growth is identical with and without a sunlight provider (1.0) over 63 moisture/fertility combinations, 40 ticks",
+  "id": "12.paths_equal",
+  "observed": "differing tiles=0 of 63",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "moisture 250 (above the 100 scale, set directly) is clamped to the top factor: 3 ticks = 6000 growth",
+  "id": "12.moisture_over_scale",
+  "observed": "growth=6000 moisture=247",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "a tile cleared back to empty (stage 0, dry) drops out of the active set at the next tick (stale entry allowed for at most one tick)",
+  "id": "12.empty_removal",
+  "observed": "was in set before tick=true, after=false",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "one growth tick with 10000 growing tiles (random moisture) averages under 16 ms (30 ticks)",
+  "id": "11.perf_10k",
+  "observed": "avg 2.82 ms max 3.29 ms visited=10000",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "worst-case tick: all 10000 tiles change stage in one tick, under 16 ms",
+  "id": "11.perf_10k_transition",
+  "observed": "10.11 ms, stage changes=10000",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "informational: tick with the entire plantable map (244515 tiles) growing and wet",
+  "id": "11.perf_full_info",
+  "observed": "63.74 ms",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "production tick with the entire map mature (244846 tiles; player in the middle) under 16 ms; also the worst PlayState.advance call",
+  "id": "11.perf_produce",
+  "observed": "produce avg 0.348 ms max 0.394 ms; PlayState.advance max 0.379 ms",
+  "status": "PASS",
+  "evidence": "logic_stdout.log + checks_logic.json"
+ },
+ {
+  "condition": "site found far (>=260 px) from the initially mature safe zone, player placed, 20 seeds, 100 water",
+  "id": "chain.setup",
+  "observed": "site=(172, 115) seeds=20 water=100.0 mature in circle=0",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "injected right clicks landed water: bare ground near the wet spots has moisture, greening unchanged",
+  "id": "chain.water_landed",
+  "observed": "wet tiles=52 water gauge=60.0",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "20 injected left clicks spent 20 seeds and planted seed tiles (stage 1); greening count did not move at planting",
+  "id": "chain.seeds_landed",
+  "observed": "seeds=0 tracked seed tiles=80 greened delta=0 (tiles already sprouting 0)",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "greening counter == base + my count of tracked tiles at sprout1 or later, checked every 15 frames over the whole run",
+  "id": "chain.green_tracking",
+  "observed": "mismatches=0, final greened=411 base=331 tracked=80",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "every tracked tile went seed -> sprout1 -> sprout2 -> mature, no skips, no regress",
+  "id": "chain.stage_order",
+  "observed": "sequence violations=0, tiles checked=80",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "the tick at which each tile reached sprout1/sprout2/mature equals my integration from its moisture and growth at planting (exact), for wet-then-drying and dry tiles",
+  "id": "chain.model_times",
+  "observed": "mismatching tiles=0 of 80 ",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "watered tiles mature faster than unwatered ones; unwatered still mature, in 120 ticks (60 s)",
+  "id": "chain.water_faster",
+  "observed": "wet n=36 mean 89.0 ticks (44.5 s); dry n=44 mean 120.0 ticks (60.0 s)",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "a plant fruit appeared on one of the tiles we grew (owner = base + tile), lying on a mature tile",
+  "id": "chain.fruit_from_our_plants",
+  "observed": "first fruit at game t=62.0 s (60.3 s after the growth watch started): { \"kind\": \"seed_fruit\", \"x\": 709.072387695313, \"y\": 447.488189697266, \"age\": 0.01666666666667, \"owner\": 1057009 }",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "starting from 0 seeds, walking to a plant fruit with injected WASD collects it automatically (+1 seed)",
+  "id": "chain.collect",
+  "observed": "seeds now=1 after 15 walk frames, player at (708.3761, 448.4235)",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "the collected seed can be shot again: seed count down by 1, a new landing planted fresh seed tiles",
+  "id": "chain.refire",
+  "observed": "landing 20 -> 21, seeds 1 -> 0, new seed tiles=6",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "world counters consistent at the end (greened/mature/targets vs recount), active set equals brute force",
+  "id": "chain.counters",
+  "observed": "greened=411 mature=411 (base 331)",
+  "status": "PASS",
+  "evidence": "scene_chain_stdout.log"
+ },
+ {
+  "condition": "growth never stops: at night (injected key 3) a dry seed still gains 1000 per tick (5 s = 10 ticks = 10000), same as in daylight; same in rain (key 2)",
+  "id": "night.not_stopped",
+  "observed": "night=true rain=true gains day=10000 night=10000 (ticks 10) rain=10000",
+  "status": "PASS",
+  "evidence": "scene_night_stdout.log"
+ },
+ {
+  "condition": "before pausing: seeds are growing, ground is wet, plant fruits lie on the ground (production runs)",
+  "id": "pause.setup",
+  "observed": "fruits=4 active=114 produced=4 growth_ticks=28",
+  "status": "PASS",
+  "evidence": "scene_pause_stdout.log (fixed-fps)"
+ },
+ {
+  "condition": "paused (4 ms wall, 725 physics frames): growth, moisture, stages, clock ticks, production time/ticks, fruit ages and positions, active set all unchanged; firing is refused",
+  "id": "pause.frozen",
+  "observed": "paused=true fired=false equal=true clock=[14.0500000000003, 28, 14] production=[14.0500000000003, 7, 7, 4]",
+  "status": "PASS",
+  "evidence": "scene_pause_stdout.log (fixed-fps)"
+ },
+ {
+  "condition": "sanity: the state did change during the 14 s before pausing (so the freeze check is meaningful)",
+  "id": "pause.moved_before",
+  "observed": "clock ticks=28 production ticks=7",
+  "status": "PASS",
+  "evidence": "scene_pause_stdout.log (fixed-fps)"
+ },
+ {
+  "condition": "after resuming, 120 physics frames (2 s) advance game time by 2 s, 4 growth ticks (+-1), 1 production tick (+-1); the ~4 ms spent paused is not added",
+  "id": "pause.resume_no_bank",
+  "observed": "elapsed +1.9833 play +1.9833 growth ticks +4 production ticks +1 (first fruit age before resume 10.067)",
+  "status": "PASS",
+  "evidence": "scene_pause_stdout.log (fixed-fps)"
+ },
+ {
+  "condition": "before pausing: seeds are growing, ground is wet, plant fruits lie on the ground (production runs)",
+  "id": "pause.setup",
+  "observed": "fruits=4 active=114 produced=4 growth_ticks=28",
+  "status": "PASS",
+  "evidence": "scene_pause_rt_stdout.log (real time, 13.5 s paused wall)"
+ },
+ {
+  "condition": "paused (13496 ms wall, 725 physics frames): growth, moisture, stages, clock ticks, production time/ticks, fruit ages and positions, active set all unchanged; firing is refused",
+  "id": "pause.frozen",
+  "observed": "paused=true fired=false equal=true clock=[14.216666666667, 28, 14] production=[14.216666666667, 7, 7, 4]",
+  "status": "PASS",
+  "evidence": "scene_pause_rt_stdout.log (real time, 13.5 s paused wall)"
+ },
+ {
+  "condition": "sanity: the state did change during the 14 s before pausing (so the freeze check is meaningful)",
+  "id": "pause.moved_before",
+  "observed": "clock ticks=28 production ticks=7",
+  "status": "PASS",
+  "evidence": "scene_pause_rt_stdout.log (real time, 13.5 s paused wall)"
+ },
+ {
+  "condition": "after resuming, 120 physics frames (2 s) advance game time by 2 s, 4 growth ticks (+-1), 1 production tick (+-1); the ~13496 ms spent paused is not added",
+  "id": "pause.resume_no_bank",
+  "observed": "elapsed +1.9833 play +1.9833 growth ticks +4 production ticks +1 (first fruit age before resume 10.233)",
+  "status": "PASS",
+  "evidence": "scene_pause_rt_stdout.log (real time, 13.5 s paused wall)"
+ },
+ {
+  "condition": "30 Hz physics: after 100.5 s of game time the clock has run 201 growth ticks and 50 production ticks (cross-rate equality is checked by the comparer)",
+  "id": "rate.30",
+  "observed": "growth ticks=201 production ticks=50 clock dt=100.5 produced=28 mature=469 greened=469",
+  "status": "PASS",
+  "evidence": "scene_rate_30_stdout.log"
+ },
+ {
+  "condition": "60 Hz physics: after 100.5 s of game time the clock has run 201 growth ticks and 50 production ticks (cross-rate equality is checked by the comparer)",
+  "id": "rate.60",
+  "observed": "growth ticks=201 production ticks=50 clock dt=100.5 produced=28 mature=469 greened=469",
+  "status": "PASS",
+  "evidence": "scene_rate_60_stdout.log"
+ },
+ {
+  "condition": "144 Hz physics: after 100.5 s of game time the clock has run 201 growth ticks and 50 production ticks (cross-rate equality is checked by the comparer)",
+  "id": "rate.144",
+  "observed": "growth ticks=201 production ticks=50 clock dt=100.5 produced=28 mature=469 greened=469",
+  "status": "PASS",
+  "evidence": "scene_rate_144_stdout.log"
+ },
+ {
+  "condition": "PrintWindow capture is 1280x720 (k=2), internal frame 640x360",
+  "id": "gpu.size",
+  "observed": "native=(1280, 720) vp=(640, 360)",
+  "status": "PASS",
+  "evidence": "gpu_stdout.log, gpu_window_native.png, gpu_viewport_640x360.png, gpu_left_layout_x8.png, gpu_field_fruits_x8.png"
+ },
+ {
+  "condition": "every 2x2 block of the window image is one colour (no smoothing)",
+  "id": "gpu.k2_uniform",
+  "observed": "non-uniform pixels=0",
+  "status": "PASS",
+  "evidence": "gpu_stdout.log, gpu_window_native.png, gpu_viewport_640x360.png, gpu_left_layout_x8.png, gpu_field_fruits_x8.png"
+ },
+ {
+  "condition": "each block equals the internal frame pixel",
+  "id": "gpu.native_equals_internal",
+  "observed": "mismatching=0 of 230400",
+  "status": "PASS",
+  "evidence": "gpu_stdout.log, gpu_window_native.png, gpu_viewport_640x360.png, gpu_left_layout_x8.png, gpu_field_fruits_x8.png"
+ },
+ {
+  "condition": "every pixel of the arranged rectangle (seed/sprout1/sprout2 rows, mature shapes, 20x20 field, plus margin) equals the spec composition: seed colour 1 px at the slot, sprout1 1x1, sprout2 1x2 growing up, mature full tile, 1 px half-transparent edge only on sides without a mature 4-neighbour, plain ground elsewhere",
+  "id": "gpu.pixel_oracle",
+  "observed": "tiles in view checked=1792 pixels=27810 bad=0 ",
+  "status": "PASS",
+  "evidence": "gpu_stdout.log, gpu_window_native.png, gpu_viewport_640x360.png, gpu_left_layout_x8.png, gpu_field_fruits_x8.png"
+ },
+ {
+  "condition": "no outline: the ground tiles around every plant (margin and between plants) are exactly the ground colour; no extra dark/light pixels",
+  "id": "gpu.no_outline",
+  "observed": "ground pixels deviating=0",
+  "status": "PASS",
+  "evidence": "gpu_stdout.log, gpu_window_native.png, gpu_viewport_640x360.png, gpu_left_layout_x8.png, gpu_field_fruits_x8.png"
+ },
+ {
+  "condition": "sprout positions vary over the centre 2x2 candidates in the picture",
+  "id": "gpu.sprout_slots",
+  "observed": "slots seen=[3, 0, 1, 2]",
+  "status": "PASS",
+  "evidence": "gpu_stdout.log, gpu_window_native.png, gpu_viewport_640x360.png, gpu_left_layout_x8.png, gpu_field_fruits_x8.png"
+ },
+ {
+  "condition": "plant fruits produced by the real code on the 400-tile field lie on mature tiles and are on screen",
+  "id": "gpu.fruits",
+  "observed": "plant fruits=17",
+  "status": "PASS",
+  "evidence": "gpu_stdout.log, gpu_window_native.png, gpu_viewport_640x360.png, gpu_left_layout_x8.png, gpu_field_fruits_x8.png"
+ },
+ {
+  "condition": "map PNG is 512x512, 1 tile = 4px -> 2048px",
+  "id": "1.size",
+  "observed": "png=(512, 512) tile_px=4",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "target count equals independent System.Drawing count of target legend colours",
+  "id": "1.target_count",
+  "observed": "world=244846 gdi=244846",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "per-terrain tile counts equal independent count for all 5 legend colours",
+  "id": "1.terrain_counts",
+  "observed": "{ \"b0a060\": 241281, \"e0d090\": 3234, \"4080e0\": 15090, \"808080\": 2208, \"60b060\": 331 }",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "changing only the legend (building -> target) changes targets by exactly the building count; no scenery involved",
+  "id": "1.legend_only",
+  "observed": "targets=247054 (expected 247054)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "no P0 decoration class referenced from scripts/world or data/*.gd",
+  "id": "1.no_props",
+  "observed": "[]",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "loader uses imported lossless CompressedTexture2D (works in exported build); pixels equal the raw PNG",
+  "id": "1.export_safe",
+  "observed": "class=CompressedTexture2D lossless_import=true equal=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "unknown legend colour is rejected (ERROR line expected above)",
+  "id": "1.reject_unknown",
+  "observed": "true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "denominator = target tiles only (water/buildings excluded)",
+  "id": "2.denominator",
+  "observed": "world=244846 shadow=244846",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "after 200000 random set_stage (incl. non-target) the differential counter equals my own recount (8 checkpoints)",
+  "id": "2.diff_counter",
+  "observed": "greened=78457 shadow=78457 mismatching_checkpoints=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "seed does not count; sprout1 counts; back to seed uncounts",
+  "id": "2.seed_vs_sprout",
+  "observed": "true true true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "set_stage on a non-target tile is refused and does not change the count",
+  "id": "2.nontarget_refused",
+  "observed": "accepted=false",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "all 244846 targets mature = full; one tile short is not full (float ratio 0.9999959)",
+  "id": "2.integer_100",
+  "observed": "full=true short: greened=244845 full=false floor=99",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "map without targets is never 100%",
+  "id": "2.zero_targets",
+  "observed": "",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "growth 0.5 s, spread 1.0 s",
+  "id": "3.periods",
+  "observed": "0.5 1.0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "same game time gives the same growth/spread tick counts at 24..240 Hz",
+  "id": "3.rate_independent",
+  "observed": "0.5s[24:1/0 30:1/0 60:1/0 75:1/0 120:1/0 144:1/0 240:1/0]; 1.0s[24:2/1 30:2/1 60:2/1 75:2/1 120:2/1 144:2/1 240:2/1]; 2.5s[24:5/2 30:5/2 60:5/2 75:5/2 120:5/2 144:5/2 240:5/2]; 10.0s[24:20/10 30:20/10 60:20/10 75:20/10 120:20/10 144:20/10 240:20/10]; 60.0s[24:120/60 30:120/60 60:120/60 75:120/60 120:120/60 144:120/60 240:120/60]; 600.0s[24:1200/600 30:1200/600 60:1200/600 75:1200/600 120:1200/600 144:1200/600 240:1200/600]",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "irregular frame times: ticks = floor(game time / period)",
+  "id": "3.irregular",
+  "observed": "t=200.079 g=400 s=200",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "main.tscn: simulation clock advances while running (60 physics frames)",
+  "id": "3.scene_runs",
+  "observed": "elapsed=0.983 growth=1 spread=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "injected Esc pauses the SceneTree and shows the pause panel",
+  "id": "3.esc_pauses",
+  "observed": "paused=true panel=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "no ticks and no time while paused (180 physics frames = 3 s)",
+  "id": "3.pause_freezes",
+  "observed": "elapsed 1.0000 -> 1.0000 ; growth 2 -> 2 ; spread 1 -> 1",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "second Esc resumes",
+  "id": "3.esc_resumes",
+  "observed": "paused=false",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "after resume only the ~0.5 s of running frames is added, not the 3 s pause (gained 0.517 s, ticks +1)",
+  "id": "3.no_bulk_catchup",
+  "observed": "gained=0.5167 resume_ticks=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "SceneTree.paused=true alone also freezes the clock",
+  "id": "3.tree_pause",
+  "observed": "",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "real main.tscn at physics 30/60/120 Hz: when 5.0 s of game time has passed there are exactly 10 growth / 5 spread ticks",
+  "id": "3.scene_rates",
+  "observed": "30Hz: elapsed=5.0333 growth=10 spread=5 | 60Hz: elapsed=5.0167 growth=10 spread=5 | 120Hz: elapsed=5.0000 growth=10 spread=5",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "every pixel of the 112x112-tile area (incl. block seams 64/128) equals my oracle after a flush",
+  "id": "4.oracle_after_flush",
+  "observed": "bad=0  slots_seen=4 slot_inconsistent=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "all 4 centre-2x2 candidates occur; one fixed pixel per slot",
+  "id": "4.slot_pixels",
+  "observed": "",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "sprout position varies per tile (spread [3260, 3061, 3072, 3151]; adjacent-equal 25/111, ~25% expected)",
+  "id": "4.slot_variation",
+  "observed": "",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "after 4000 more random changes and an incremental flush all pixels still equal my oracle (neighbour redraw)",
+  "id": "4.oracle_incremental",
+  "observed": "bad=0 ",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "all 262144 tiles (2048x2048 px) equal my oracle, incl. map border tiles",
+  "id": "4.oracle_full",
+  "observed": "bad=0 ",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "oracle detects a deliberately corrupted pixel (negative control)",
+  "id": "4.oracle_selftest",
+  "observed": "bad=1",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "isolated mature tile: inner 2x2 solid, 12 ring px = 50% green over ground (hand-computed)",
+  "id": "4.isolated_mature",
+  "observed": "edge=(0.437, 0.5979, 0.3626, 1.0) ground=(0.627, 0.588, 0.435, 1.0) mature=(0.2471, 0.6078, 0.2902, 1.0)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "diagonal mature neighbour leaves the ring unchanged",
+  "id": "4.diagonal_ignored",
+  "observed": "",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "adjacent mature: shared side opaque on both; when neighbour stops being mature the side is semi-transparent again",
+  "id": "4.neighbour_redraw",
+  "observed": "shared=true back=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "player is clamped at the 2048x2048 region edges (32..2016 margin) in all 4 corners",
+  "id": "5.player_bounds",
+  "observed": "move_left+move_up->player (32.0, 32.0) cam (320.0, 180.0); move_right+move_down->player (2016.0, 2016.0) cam (1728.0, 1868.0); move_left+move_down->player (32.0, 2016.0) cam (320.0, 1868.0); move_right+move_up->player (2016.0, 32.0) cam (1728.0, 180.0)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "camera view stays within 0..2048 in all 4 corners (centre limited to 320..1728 / 180..1868)",
+  "id": "5.camera_bounds",
+  "observed": "",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "player moves ~96 px/s inside the region (1 s)",
+  "id": "5.moves",
+  "observed": "(1094.399, 1000.0)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "injected 2/3/1 switch rain/night/sunny",
+  "id": "5.weather",
+  "observed": "[\"rain\", \"night\", \"sunny\"]",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "injected mouse motion aims, left click spawns a preview seed which flies",
+  "id": "5.aim_shot",
+  "observed": "aim=(0.0, -1.0) shots=1 moved=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "while paused weather keys and movement are ignored; Esc again resumes",
+  "id": "5.pause_blocks",
+  "observed": "weather_blocked=true player_still=true paused=false",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "init (load PNG + state + full render) measured 3x (headless: no GPU upload cost)",
+  "id": "7.perf_init",
+  "observed": "load=[156.705999999998, 141.772000000004, 141.568999999996] view=[40.8280000000013, 37.6339999999982, 37.1510000000053] total=[197.534, 179.406000000003, 178.720000000001] ms",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "1000 scattered tile changes: set+redraw time (target <= 16 ms, informational)",
+  "id": "7.perf_1000",
+  "observed": "stage2 scattered1000: set=0.85ms redraw=3.77ms total=4.62ms tiles=999 blocks=64 | stage4 scattered1000: set=1.35ms redraw=3.94ms total=5.28ms tiles=4922 blocks=64 | clustered 1024 tiles total=1.37ms | idle flush 0.000ms",
+  "status": "PASS",
+  "evidence": "reg_v_p1_01_stdout.log (my P1-01 independent test)"
+ },
+ {
+  "condition": "initial seeds 20 (cap 40), water 100 (cap 100), not refilling at wasteland site",
+  "id": "1.init",
+  "observed": "seeds=20/40 water=100.0 site=(184, 172)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "injected mouse motion moves the world mouse point to the aimed world position (headless)",
+  "id": "1.aim_inject",
+  "observed": "aim=(788.0, 690.0) mouse_world=(788.0, 690.0)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "each injected left click spends exactly 1 seed (20 -> 0) and launches one shot",
+  "id": "1.seed_spend",
+  "observed": "seq=[19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0] shots+=20",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "with 0 seeds a click fires nothing and spends nothing (launch count unchanged, seeds stay 0)",
+  "id": "1.seed_empty",
+  "observed": "seeds=0 launches=20->20",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "all 20 shots landed (landing_counter == 20), shots list empty",
+  "id": "1.seed_landed_all",
+  "observed": "landing_counter 20 (before drain 11)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "each right click spends 10 of 100 water: 90,80,...,0",
+  "id": "1.water_spend",
+  "observed": "seq=[90.0, 80.0, 70.0, 60.0, 50.0, 40.0, 30.0, 20.0, 10.0, 0.0]",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "with 0 water a right click fires nothing and spends nothing",
+  "id": "1.water_empty",
+  "observed": "water=0.0 launches=30",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "water 9.5 (< cost 10): not fired, gauge unchanged at 9.5",
+  "id": "1.water_partial_refused",
+  "observed": "fired=false water=9.5",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "water exactly 10 can fire once and ends at 0 (not negative)",
+  "id": "1.water_exact_cost",
+  "observed": "fired=true water=0.0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "add_seeds(100) stops at 40, add_water(1000) at 100, negative additions are ignored",
+  "id": "1.caps",
+  "observed": "seeds=40 added=40 neg=0 water=100.0 aw=100.0 nw=0.0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "spend_seed/spend_water at zero return false and never go negative",
+  "id": "1.no_negative",
+  "observed": "seeds=0 water=0.0 min_seeds_seen=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "aiming 400 px away lands at the 120 px range along the aim direction",
+  "id": "1.range",
+  "observed": "target=(858.0, 690.0) origin=(738.0, 690.0) dist=120.0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "each landing places min(6, free tiles in radius) seeds, never more than 6",
+  "id": "2.scatter_count",
+  "observed": "landings=40 max_placed=6 bad=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "placed tiles were free/target/unoccupied/no plant before",
+  "id": "2.scatter_free_only",
+  "observed": "bad=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "every placed tile centre lies within 10 px of the landing point (independent geometry)",
+  "id": "2.scatter_radius",
+  "observed": "bad=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "no tile outside the placed set changes stage (25x25 neighbourhood)",
+  "id": "2.scatter_no_other_change",
+  "observed": "bad=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "seed stage alone does not change greened_count; counter equals recount",
+  "id": "2.seed_not_greened",
+  "observed": "greened 331 -> 331 seed_tiles=99 placed_unique=99 recount=331",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "120 ticks later seeds are still seeds and greened_count unchanged",
+  "id": "2.seed_no_growth",
+  "observed": "greened=331",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "repeated landings never re-seed a seeded tile: totals equal disk size, then zero",
+  "id": "2.exhaust",
+  "observed": "counts=[6, 6, 6, 3, 0, 0] disk=21",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "tiles with sprout/mature plants keep their stage; occupied tiles never get seeds; greened unchanged",
+  "id": "2.existing_plant_occupied",
+  "observed": "stages [2, 3, 4] -> [2, 3, 4] occupied_ok=true occ_clean=true greened 334->334",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "same map + same landing sequence + same fixed seed gives identical placements",
+  "id": "2.reproducible",
+  "observed": "len=437",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "a different scatter_seed changes the placements (the sequence is really seeded)",
+  "id": "2.seed_matters",
+  "observed": "differs=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "landing points outside / on the corners of the map do not crash and only touch in-map target tiles",
+  "id": "2.out_of_map",
+  "observed": "touched=52",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "water adds +40 moisture to target tiles within 12 px (cap 100), nothing outside; 3 splashes cap at 100",
+  "id": "2.water_splash",
+  "observed": "changed=29 disk=29 outside=0 capped=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "real map has a water interior (>= 7x7) and a building interior (>= 3x3) to aim at",
+  "id": "3.sites",
+  "observed": "water=(235, 175) half=5 building=(488, 54) half=4",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "200 seed + 200 water shots at water/building centres: no tile anywhere changed stage or moisture; greened/target counters unchanged",
+  "id": "3.centre_shots",
+  "observed": "changed_tiles=0 greened 331->331 seeds_spent=200 water_spent=200",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "10 injected clicks aimed at the water centre (screen (370.0, 180.0)): seeds spent, no tile changed",
+  "id": "3.centre_clicks",
+  "observed": "seeds=0 greened=331",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "OBSERVED: landing on a non-target tile next to target land still seeds the target tiles inside the 10 px radius (allowed by spec); never non-target, never greened",
+  "id": "3.edge_observation",
+  "observed": "water(245,80): placed=6 all_target_in_radius=true greened=331; building(296,86): placed=6 all_target_in_radius=true greened=331; building(296,89): placed=6 all_target_in_radius=true greened=331; building(296,92): placed=6 all_target_in_radius=true greened=331; water(392,125): placed=6 all_target_in_radius=true greened=331; water(395,125): placed=6 all_target_in_radius=true greened=331",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "found map positions whose nearest waterside tile is exactly 1, 2, sqrt5, 3 tiles away (brute force)",
+  "id": "5.sites",
+  "observed": "{ 1.0: (242, 60), 2.0: (241, 60), 3.0: (240, 60), 2.236: (241, 84) }",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "water refills at ~25/s only when the nearest waterside tile is within 2 tiles (1, 2 refill; sqrt5, 3 do not)",
+  "id": "5.distance_rule",
+  "observed": "dist=1.000 tile=(242, 60) gain=24.58 over 0.983s rate=25.00 expect_refill=true | dist=2.000 tile=(241, 60) gain=24.58 over 0.983s rate=25.00 expect_refill=true | dist=2.236 tile=(241, 84) gain=0.00 over 0.983s rate=0.00 expect_refill=false | dist=3.000 tile=(240, 60) gain=0.00 over 0.983s rate=0.00 expect_refill=false",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "refill stops at the 100 cap",
+  "id": "5.refill_cap",
+  "observed": "water=100.0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "after 20 clicks seeds are 0 and a further click does nothing",
+  "id": "4.seed_zero",
+  "observed": "seeds=0 shots=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "the source drops its first fruit by ~8 s of game time without any player action",
+  "id": "4.fruit_appears",
+  "observed": "ticks waited=442 (since scene start+setup) source fruits=1",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "walking (injected WASD) to the fruit collects it: seeds 0 -> 1, fruit gone",
+  "id": "4.seed_recovered",
+  "observed": "seeds=2 frames=53 player=(772.4921, 749.7705) fruit=(770.3463, 750.3169) fruits_left=2",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "after recovery a click fires again and spends the recovered seed",
+  "id": "4.fire_again",
+  "observed": "seeds 2 -> 1",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "10 right clicks empty the gauge, the 11th does nothing",
+  "id": "4.water_zero",
+  "observed": "water=0.0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "2 s away from water: gauge stays 0 and click still does nothing",
+  "id": "4.no_refill_away",
+  "observed": "water=0.0 refilling=false",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "walking to the waterside restores water; no gain was ever seen while the nearest waterside was > 2 tiles away",
+  "id": "4.water_recovered",
+  "observed": "water=83.7500000000001 walk_frames=374 violations=0 from=(738.0, 690.0) to=(970.0, 242.0)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "after recovery a right click fires (one more launch) and spends 10 (net of refill during 2 frames)",
+  "id": "4.water_fire_again",
+  "observed": "water 100.0 -> 90.4166666666667 launches 10 -> 11",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "the source stands on a safe-zone tile and has an indestructible flag, no health/damage API",
+  "id": "6.safe_zone",
+  "observed": "tile=(189, 186) terrain=safe",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "60 shots aimed at the source: still present, same position, node still in the tree",
+  "id": "6.survives_shots",
+  "observed": "sources=1 node=SeedSource1:<Sprite2D#232414775161>",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "fruits drop every 8 s of game time (8, 16, 24) and the 4th does not come while 3 lie there",
+  "id": "6.interval",
+  "observed": "spawn_times=[8.02, 16.02, 24.02, 76.03]",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "at most 3 fruits of the source ever lie on the ground (max seen 3); 3 are present at t=25..60 s (tick 1500: 3, 3000: 3)",
+  "id": "6.cap3",
+  "observed": "max=3 counts={ 1500: 3, 3000: 3, 3900: 3, 4200: 2, 4500: 2, 4800: 2 }",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "fruits expire 60 s after dropping (8.0 -> 68.0: count 3 -> 2 at 70 s) and the source drops the next one one interval later (~76 s)",
+  "id": "6.lifetime_respawn",
+  "observed": "spawns=[8.02, 16.02, 24.02, 76.03] counts={ 1500: 3, 3000: 3, 3900: 3, 4200: 2, 4500: 2, 4800: 2 }",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "a fruit 11.9 px away is collected (+1 seed), one 12.6 px away is not (radius 12)",
+  "id": "6.collect_radius",
+  "observed": "seeds=11 fruits=1",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "with 40 seeds standing on a fruit does not collect it; seeds stay 40, fruit stays",
+  "id": "6.full_no_collect",
+  "observed": "seeds=40 fruits=1",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "at 39 seeds the fruit is collected -> 40, never beyond",
+  "id": "6.collect_at_39",
+  "observed": "seeds=40 fruits=0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "GroundPickups refuses spawns beyond the 24 total cap",
+  "id": "6.total_cap",
+  "observed": "accepted=24",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "injected Esc pauses the tree and shows the pause panel",
+  "id": "7.esc_pauses",
+  "observed": "paused=true panel=true shots_in_flight=2",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "after 5 ms wall time and 185 ticks paused: elapsed, seeds, water, source timer, fruit ages, shot positions all unchanged; clicks/fire do nothing",
+  "id": "7.frozen",
+  "observed": "before={ \"elapsed\": 8.48333333333333, \"seeds\": 4, \"water\": 2.5, \"timer\": 0.48333333333331, \"ages\": \"[0.48333333333333]\", \"n_pick\": 1, \"shots\": \"[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]\", \"landing\": 0 } after={ \"elapsed\": 8.48333333333333, \"seeds\": 4, \"water\": 2.5, \"timer\": 0.48333333333331, \"ages\": \"[0.48333333333333]\", \"n_pick\": 1, \"shots\": \"[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]\", \"landing\": 0 } fire=false",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "after Esc resume 30 ticks advance game time by ~0.5 s (not by the ~5 ms paused)",
+  "id": "7.resume_no_bank",
+  "observed": "advanced=0.4833 s unpaused=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "in-flight shots continue after resume",
+  "id": "7.shots_continue",
+  "observed": "shots now=2 (was 2)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "the refill did not run during pause (water unchanged 10) yet runs after resume",
+  "id": "7.refill_paused_only",
+  "observed": "water now=14.5833333333333 (before pause 2.5)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "HUD shows seeds 7/40 and water 63 (gauge value floor) after the values change",
+  "id": "8.seed_water_text",
+  "observed": "seed='  種 7/40' water='水分 63' green='緑化 0％'",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "HUD follows: seeds at cap 40/40, water 0, gauge marked low",
+  "id": "8.follow",
+  "observed": "seed='  種 40/40' water='水分 0' low=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "HUD greening shows the floor: one tile below the threshold shows pct-1 (e.g. 36.99998 -> 36), at the threshold shows pct",
+  "id": "8.green_floor",
+  "observed": "37%: g=90594 below='緑化 36％' at='緑化 37％' | 63%: g=154253 below='緑化 62％' at='緑化 63％' | 99%: g=242398 below='緑化 98％' at='緑化 99％'",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "one tile short of all targets shows 99％, all targets shows 100％",
+  "id": "8.green_99_100",
+  "observed": "short='緑化 99％' full='緑化 100％' g=244846 T=244846",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "greened_count equals independent recount at the end",
+  "id": "8.green_counter",
+  "observed": "g=244846 recount=244846",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "to_dict -> JSON -> load_dict -> to_dict is identical (seeds, water, counter, elapsed, fruits, source timers)",
+  "id": "9.roundtrip",
+  "observed": "ok=true fruits=3 seeds=13 water=42.5",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "mismatched sources / wrong version are rejected without changing state; out-of-range seeds/water are clamped (40 / 0)",
+  "id": "9.reject_clamp",
+  "observed": "rej=true rej2=true clamped seeds=40 water=0.0",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "world with scattered seeds survives to_dict/JSON/from_dict (stages equal, counters equal)",
+  "id": "9.world_roundtrip",
+  "observed": "ok=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_stdout.log (my P1-02 independent test, 4 assertions fixed)"
+ },
+ {
+  "condition": "injected Esc pauses the tree and shows the pause panel",
+  "id": "7.esc_pauses",
+  "observed": "paused=true panel=true shots_in_flight=2",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_rt_stdout.log"
+ },
+ {
+  "condition": "after 4602 ms wall time and 185 ticks paused: elapsed, seeds, water, source timer, fruit ages, shot positions all unchanged; clicks/fire do nothing",
+  "id": "7.frozen",
+  "observed": "before={ \"elapsed\": 8.63333333333334, \"seeds\": 4, \"water\": 2.5, \"timer\": 0.63333333333331, \"ages\": \"[0.63333333333333]\", \"n_pick\": 1, \"shots\": \"[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]\", \"landing\": 0 } after={ \"elapsed\": 8.63333333333334, \"seeds\": 4, \"water\": 2.5, \"timer\": 0.63333333333331, \"ages\": \"[0.63333333333333]\", \"n_pick\": 1, \"shots\": \"[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]\", \"landing\": 0 } fire=false",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_rt_stdout.log"
+ },
+ {
+  "condition": "after Esc resume 30 ticks advance game time by ~0.5 s (not by the ~4602 ms paused)",
+  "id": "7.resume_no_bank",
+  "observed": "advanced=0.4833 s unpaused=true",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_rt_stdout.log"
+ },
+ {
+  "condition": "in-flight shots continue after resume",
+  "id": "7.shots_continue",
+  "observed": "shots now=2 (was 2)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_rt_stdout.log"
+ },
+ {
+  "condition": "the refill did not run during pause (water unchanged 10) yet runs after resume",
+  "id": "7.refill_paused_only",
+  "observed": "water now=14.5833333333333 (before pause 2.5)",
+  "status": "PASS",
+  "evidence": "reg_v_p1_02_rt_stdout.log"
+ },
+ {
+  "id": "rate.scene_cross_equal",
+  "condition": "real main.tscn at 30/60/144 Hz physics: at 20/60/100/100.5 s game time ticks, production counts, world hash, greening and fruit positions are identical",
+  "status": "PASS",
+  "observed": "compared 4 snapshots x 3 rates",
+  "evidence": "checks_scene_rate_{30,60,144}.json"
+ },
+ {
+  "id": "reg.reg_p1_01_impl",
+  "condition": "regression: p1_01_checks (implementer)",
+  "status": "PASS",
+  "observed": "PASS lines=92 FAIL lines=0",
+  "evidence": "reg_p1_01_impl_stdout.log"
+ },
+ {
+  "id": "reg.reg_p1_02_impl",
+  "condition": "regression: p1_02_checks (implementer, incl. the 2 edited assertions)",
+  "status": "PASS",
+  "observed": "PASS lines=130 FAIL lines=0",
+  "evidence": "reg_p1_02_impl_stdout.log"
+ },
+ {
+  "id": "reg.reg_p1_03_impl",
+  "condition": "regression: p1_03_checks (implementer)",
+  "status": "PASS",
+  "observed": "PASS lines=106 FAIL lines=0",
+  "evidence": "reg_p1_03_impl_stdout.log"
+ },
+ {
+  "id": "reg.reg_p0_checks",
+  "condition": "regression: P0 tests/self/p0_checks.gd",
+  "status": "PASS",
+  "observed": "PASS lines=22 FAIL lines=0",
+  "evidence": "reg_p0_checks_stdout.log"
+ },
+ {
+  "id": "reg.reg_p0_art",
+  "condition": "regression: P0 tests/independent/p0_art_checks.gd",
+  "status": "PASS",
+  "observed": "PASS lines=0 FAIL lines=0 INDEPENDENT_PASS marker=True",
+  "evidence": "reg_p0_art_stdout.log"
+ }
+]

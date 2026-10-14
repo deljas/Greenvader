@@ -14,7 +14,9 @@ func _process(_delta: float) -> void:
 func _draw() -> void:
 	if play == null:
 		return
-	var texture: ImageTexture = PlayArt.fruit()
-	var half: Vector2 = Vector2(texture.get_size()) / 2.0
+	var source_texture: ImageTexture = PlayArt.fruit()
+	var plant_texture: ImageTexture = PlayArt.plant_fruit()
+	var half: Vector2 = Vector2(source_texture.get_size()) / 2.0
 	for item: Dictionary in play.pickups.items:
+		var texture: ImageTexture = plant_texture if GroundPickups.is_plant_owner(int(item["owner"])) else source_texture
 		draw_texture(texture, (Vector2(float(item["x"]), float(item["y"])) - half).round())
