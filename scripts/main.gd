@@ -1,7 +1,18 @@
 extends Node
-## P0 composition only. Resource/territory simulation belongs to later stages.
+## Composition root. P0 presentation (player, aim, weather, UI) plus the P1-01 region world.
+
+const REGION_PATH: String = "res://data/region_01.tres"
+const TUNING_PATH: String = "res://data/sim_tuning.tres"
+## The P0 decorative composition (trees, rocks, ruin sprite, samples) is placed shifted by this many pixels.
+## It is scenery only and never defines greening targets.
+const LANDSCAPE_OFFSET: Vector2 = Vector2(256, 384)
 
 var world: Node2D
+var region_def: RegionDef
+var tuning: SimTuning
+var grid: WorldState
+var region_view: RegionView
+var simulation: SimulationDriver
 var player: FlowerPlayer
 var camera: Camera2D
 var modulation: CanvasModulate
@@ -27,7 +38,20 @@ func _ready() -> void:
 	world.name = "WorldView"
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	add_child(world)
-	world.add_child(DemoTerrain.new())
+	region_def = load(REGION_PATH) as RegionDef
+	tuning = load(TUNING_PATH) as SimTuning
+	grid = RegionLoader.load_region(region_def)
+	if grid == null:
+		push_error("Region failed to load: %s" % REGION_PATH)
+		return
+	region_view = RegionView.new()
+	region_view.name = "RegionView"
+	region_view.setup(grid, tuning)
+	world.add_child(region_view)
+	simulation = SimulationDriver.new()
+	simulation.name = "Simulation"
+	simulation.setup(grid, tuning)
+	world.add_child(simulation)
 	ground_shadows = Node2D.new()
 	world.add_child(ground_shadows)
 	actors = Node2D.new()
@@ -36,23 +60,22 @@ func _ready() -> void:
 	world.add_child(actors)
 	player = FlowerPlayer.new()
 	player.name = "Player"
+	var region_px: Vector2 = Vector2(grid.width * region_def.tile_px, grid.height * region_def.tile_px)
+	player.world_bounds = Rect2(Vector2(32, 32), region_px - Vector2(64, 64))
+	player.simulation_position = Vector2(region_def.start_tile * region_def.tile_px) + Vector2(2, 2)
 	actors.add_child(player)
 	build_landscape()
 	add_sample(PixelArt.boar(), Vector2(563, 351))
 	add_sample(PixelArt.boar(), Vector2(586, 439))
 	add_sample(PixelArt.seed(), Vector2(509, 351))
 	add_sample(PixelArt.water(), Vector2(527, 372))
-	for location: Vector2 in [Vector2(393, 374), Vector2(411, 382), Vector2(388, 395), Vector2(554, 394), Vector2(569, 402), Vector2(602, 383)]:
-		add_sample(PixelArt.sprout(), location)
-	for location: Vector2 in [Vector2(370, 391), Vector2(399, 410), Vector2(556, 411), Vector2(580, 421)]:
-		add_sample(PixelArt.mature(), location)
 	camera = Camera2D.new()
 	camera.position = player.position
 	camera.position_smoothing_enabled = false
 	camera.limit_left = 0
 	camera.limit_top = 0
-	camera.limit_right = DemoTerrain.SIZE.x * DemoTerrain.TILE
-	camera.limit_bottom = DemoTerrain.SIZE.y * DemoTerrain.TILE
+	camera.limit_right = grid.width * region_def.tile_px
+	camera.limit_bottom = grid.height * region_def.tile_px
 	world.add_child(camera)
 	player.presentation_updated.connect(func(location: Vector2) -> void: camera.position = location)
 	modulation = CanvasModulate.new()
@@ -73,6 +96,10 @@ func _ready() -> void:
 			capture_path = argument.trim_prefix("--capture=")
 		elif argument == "--auto-quit":
 			auto_quit = true
+		elif argument == "--debug-layout":
+			var layout_origin: Vector2i = region_def.start_tile + Vector2i(-8, -28)
+			DebugLayout.apply(grid, layout_origin)
+			player.simulation_position = Vector2(layout_origin * region_def.tile_px) + Vector2(24, -8)
 	set_condition(condition)
 	print("P0_READY condition=%s renderer=%s viewport=%s window=%s" % [condition, RenderingServer.get_current_rendering_method(), get_viewport().get_visible_rect().size, get_window().size])
 
@@ -106,7 +133,7 @@ func bind_mouse(action: StringName, code: MouseButton) -> void:
 func add_sample(texture: Texture2D, location: Vector2) -> void:
 	var sprite: Sprite2D = Sprite2D.new()
 	sprite.texture = texture
-	sprite.position = location.round()
+	sprite.position = (location + LANDSCAPE_OFFSET).round()
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	actors.add_child(sprite)
 
@@ -125,7 +152,8 @@ func build_landscape() -> void:
 	for location: Vector2 in [Vector2(296, 352), Vector2(351, 350), Vector2(241, 416), Vector2(592, 312), Vector2(639, 314), Vector2(669, 357), Vector2(708, 413), Vector2(615, 473), Vector2(512, 511), Vector2(360, 483), Vector2(571, 273)]:
 		add_prop(fern, location, false, 22)
 
-func add_prop(texture: Texture2D, location: Vector2, fades: bool, shadow_width: int) -> void:
+func add_prop(texture: Texture2D, base_location: Vector2, fades: bool, shadow_width: int) -> void:
+	var location: Vector2 = base_location + LANDSCAPE_OFFSET
 	var shadow: Sprite2D = Sprite2D.new()
 	shadow.texture = LandscapeArt.shadow(shadow_width)
 	shadow.position = location.round() + Vector2(8, 0)

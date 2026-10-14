@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TerrainDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/terrain_def.gd" id="1_def"]
+
+[resource]
+script = ExtResource("1_def")
+id = 1
+key = &"safe"
+display_name = "安全地帯"
+map_color = Color(0.376471, 0.690196, 0.376471, 1)
+is_target = true
+plantable = true
+is_waterside = false
+initial_plant_id = 1
+initial_stage = 4
+ground_color = Color(0.424, 0.604, 0.333, 1)

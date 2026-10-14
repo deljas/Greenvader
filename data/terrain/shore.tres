@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TerrainDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/terrain_def.gd" id="1_def"]
+
+[resource]
+script = ExtResource("1_def")
+id = 2
+key = &"shore"
+display_name = "水辺"
+map_color = Color(0.878431, 0.815686, 0.564706, 1)
+is_target = true
+plantable = true
+is_waterside = true
+initial_plant_id = 0
+initial_stage = 0
+ground_color = Color(0.804, 0.749, 0.561, 1)

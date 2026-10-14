@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(1280, 720)
+GPU_INFO renderer=forward_plus screens=3 window_screen=1 window_pos=(2236, 156) window_size=(1280, 720) content_scale=(640, 360)
+GPU_INFO viewport texture size=(640, 360)
+PASS internal frame is 640x360
+GPU_INFO layout origin on screen=(296, 188) crop=[P: (288, 180), S: (104, 80)]
+GPU_INFO printwindow pid=6640 frames_waited=58 code=0
+GPU_INFO native capture size=(1280, 720) k=2
+PASS window image is real content, not blank (152 distinct colours)
+PASS every 2x2 block of the 1280x720 window image is one colour (non-uniform blocks: 0)
+PASS each block equals the internal-frame pixel (mismatching blocks: 0 of 230400)
+P1_01_GPU_RESULT failures=0

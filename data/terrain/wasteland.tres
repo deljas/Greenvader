@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TerrainDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/terrain_def.gd" id="1_def"]
+
+[resource]
+script = ExtResource("1_def")
+id = 0
+key = &"wasteland"
+display_name = "荒地"
+map_color = Color(0.690196, 0.627451, 0.376471, 1)
+is_target = true
+plantable = true
+is_waterside = false
+initial_plant_id = 0
+initial_stage = 0
+ground_color = Color(0.627, 0.588, 0.435, 1)

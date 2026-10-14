@@ -6,3 +6,4 @@ builds/
 evidence/**/profile/
 .claude/settings.local.json
 CLAUDE.local.md
+evidence/**/*.import

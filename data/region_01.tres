@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="RegionDef" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://data/region_def.gd" id="1_reg"]
+[ext_resource type="Script" path="res://data/terrain_def.gd" id="2_ter"]
+[ext_resource type="Script" path="res://data/plant_def.gd" id="3_pla"]
+[ext_resource type="Resource" path="res://data/terrain/wasteland.tres" id="4_a"]
+[ext_resource type="Resource" path="res://data/terrain/safe.tres" id="5_b"]
+[ext_resource type="Resource" path="res://data/terrain/shore.tres" id="6_c"]
+[ext_resource type="Resource" path="res://data/terrain/water.tres" id="7_d"]
+[ext_resource type="Resource" path="res://data/terrain/building.tres" id="8_e"]
+[ext_resource type="Resource" path="res://data/plants/normal.tres" id="9_f"]
+
+[resource]
+script = ExtResource("1_reg")
+id = &"region_01"
+map_path = "res://data/region_01.png"
+width_tiles = 512
+height_tiles = 512
+tile_px = 4
+terrains = Array[ExtResource("2_ter")]([ExtResource("4_a"), ExtResource("5_b"), ExtResource("6_c"), ExtResource("7_d"), ExtResource("8_e")])
+plants = Array[ExtResource("3_pla")]([ExtResource("9_f")])
+start_tile = Vector2i(184, 188)
+sprout_seed = 20261014
