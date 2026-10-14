@@ -12,5 +12,7 @@ extends Resource
 @export var terrains: Array[TerrainDef] = []
 @export var plants: Array[PlantDef] = []
 @export var start_tile: Vector2i = Vector2i(184, 188)
+## Tiles holding an indestructible seed source (must lie in the safe zone).
+@export var seed_source_tiles: Array[Vector2i] = [Vector2i(189, 186)]
 ## Seed of the fixed per-tile sprout position hash.
 @export var sprout_seed: int = 20261014

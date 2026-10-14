@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(1280, 720)
+GPU_INFO renderer=forward_plus window=(2236, 156) size=(1280, 720) scale=(640, 360) screen=1 shots=2 fruits=3 seed_tiles=24 seeds=12 water=43.9 player=(792.0, 772.0) src=(758.0, 746.0)
+PASS [gpu.state] scene has shots in flight, fruits on the ground, scattered seed tiles :: shots=2 fruits=3 seed_tiles=24
+PASS [gpu.size] PrintWindow capture is 1280x720 (k=2), internal frame 640x360 :: native=(1280, 720) vp=(640, 360)
+PASS [gpu.k2_uniform] every 2x2 block of the window image is one colour (no smoothing) :: non-uniform pixels=0
+PASS [gpu.native_equals_internal] each block equals the internal frame pixel :: mismatching=0 of 230400
+V_GPU_RESULT total=4 fails=0

@@ -3,6 +3,7 @@ extends Node
 
 const REGION_PATH: String = "res://data/region_01.tres"
 const TUNING_PATH: String = "res://data/sim_tuning.tres"
+const PLAY_TUNING_PATH: String = "res://data/play_tuning.tres"
 ## The P0 decorative composition (trees, rocks, ruin sprite, samples) is placed shifted by this many pixels.
 ## It is scenery only and never defines greening targets.
 const LANDSCAPE_OFFSET: Vector2 = Vector2(256, 384)
@@ -10,6 +11,11 @@ const LANDSCAPE_OFFSET: Vector2 = Vector2(256, 384)
 var world: Node2D
 var region_def: RegionDef
 var tuning: SimTuning
+var play_tuning: PlayTuning
+var play: PlayState
+var play_driver: PlayDriver
+var pickup_view: PickupView
+var hud: PlayHud
 var grid: WorldState
 var region_view: RegionView
 var simulation: SimulationDriver
@@ -20,8 +26,9 @@ var weather: WeatherView
 var condition_label: Label
 var pause_panel: PanelContainer
 var condition: String = "sunny"
+## Legacy P0 name kept for the existing P0 checks: it is the live shot list of the real projectile field.
 var preview_projectiles: Array[Dictionary] = []
-var projectile_view: Node2D
+var projectile_view: ProjectileField
 var capture_path: String = ""
 var auto_quit: bool = false
 var frames: int = 0
@@ -40,6 +47,7 @@ func _ready() -> void:
 	add_child(world)
 	region_def = load(REGION_PATH) as RegionDef
 	tuning = load(TUNING_PATH) as SimTuning
+	play_tuning = load(PLAY_TUNING_PATH) as PlayTuning
 	grid = RegionLoader.load_region(region_def)
 	if grid == null:
 		push_error("Region failed to load: %s" % REGION_PATH)
@@ -54,6 +62,14 @@ func _ready() -> void:
 	world.add_child(simulation)
 	ground_shadows = Node2D.new()
 	world.add_child(ground_shadows)
+	var source_positions: Array[Vector2] = []
+	for tile: Vector2i in region_def.seed_source_tiles:
+		source_positions.append((Vector2(tile) + Vector2(0.5, 0.5)) * region_def.tile_px)
+	play = PlayState.new(grid, play_tuning, tuning, region_def.tile_px, source_positions)
+	pickup_view = PickupView.new()
+	pickup_view.name = "Pickups"
+	pickup_view.setup(play)
+	world.add_child(pickup_view)
 	actors = Node2D.new()
 	actors.name = "DepthSortedPresentation"
 	actors.y_sort_enabled = true
@@ -64,6 +80,19 @@ func _ready() -> void:
 	player.world_bounds = Rect2(Vector2(32, 32), region_px - Vector2(64, 64))
 	player.simulation_position = Vector2(region_def.start_tile * region_def.tile_px) + Vector2(2, 2)
 	actors.add_child(player)
+	play_driver = PlayDriver.new()
+	play_driver.name = "PlayDriver"
+	play_driver.setup(play, player)
+	world.add_child(play_driver)
+	for source: SeedSource in play.sources:
+		var source_sprite: Sprite2D = Sprite2D.new()
+		source_sprite.name = "SeedSource%d" % source.id
+		source_sprite.texture = PlayArt.source()
+		source_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		source_sprite.centered = false
+		source_sprite.offset = Vector2(-5, -9)
+		source_sprite.position = source.position.round()
+		actors.add_child(source_sprite)
 	build_landscape()
 	add_sample(PixelArt.boar(), Vector2(563, 351))
 	add_sample(PixelArt.boar(), Vector2(586, 439))
@@ -80,8 +109,12 @@ func _ready() -> void:
 	player.presentation_updated.connect(func(location: Vector2) -> void: camera.position = location)
 	modulation = CanvasModulate.new()
 	world.add_child(modulation)
-	projectile_view = Node2D.new()
+	projectile_view = ProjectileField.new()
+	projectile_view.name = "Projectiles"
+	projectile_view.setup(play_tuning)
+	projectile_view.landed.connect(_on_projectile_landed)
 	world.add_child(projectile_view)
+	preview_projectiles = projectile_view.shots
 	var weather_canvas: CanvasLayer = CanvasLayer.new()
 	weather_canvas.layer = 5
 	weather_canvas.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -197,10 +230,11 @@ func build_ui() -> void:
 	footer.position = Vector2(8, 333)
 	footer.size = Vector2(624, 19)
 	footer.theme = theme
+	footer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(footer)
-	var instructions: Label = Label.new()
-	instructions.text = "  WASD 移動  /  マウス 照準  /  左 種・右 水（仮表示）  /  Esc ポーズ"
-	footer.add_child(instructions)
+	hud = PlayHud.new()
+	footer.add_child(hud)
+	hud.refresh(play, grid)
 	pause_panel = PanelContainer.new()
 	pause_panel.position = Vector2(188, 136)
 	pause_panel.size = Vector2(264, 84)
@@ -228,9 +262,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed(mode):
 			set_condition(mode)
 	if event.is_action_pressed("seed_preview"):
-		spawn_preview(false)
+		fire(false)
 	elif event.is_action_pressed("water_preview"):
-		spawn_preview(true)
+		fire(true)
 
 func toggle_pause() -> void:
 	get_tree().paused = not get_tree().paused
@@ -248,30 +282,41 @@ func set_condition(mode: String) -> void:
 	player.glow.visible = condition == "night"
 	condition_label.text = {"sunny": "晴れの昼  ", "rain": "雨の昼  ", "night": "晴れの夜  "}[condition]
 
+## Legacy P0 entry point (the P0 checks call it); fires a real shot.
 func spawn_preview(water_shot: bool) -> void:
-	if preview_projectiles.size() >= 64:
-		return
-	var sprite: Sprite2D = Sprite2D.new()
-	sprite.texture = PixelArt.water() if water_shot else PixelArt.seed()
-	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	projectile_view.add_child(sprite)
-	preview_projectiles.append({"position": player.simulation_position, "direction": player.aim_direction, "age": 0.0, "sprite": sprite})
+	fire(water_shot)
 
-func _physics_process(delta: float) -> void:
-	if get_tree().paused:
-		return
-	for index: int in range(preview_projectiles.size() - 1, -1, -1):
-		var shot: Dictionary = preview_projectiles[index]
-		shot["age"] += delta
-		shot["position"] += shot["direction"] * 160.0 * delta
-		var sprite: Sprite2D = shot["sprite"]
-		sprite.position = Vector2(shot["position"]).round()
-		if shot["age"] > 1.8:
-			sprite.queue_free()
-			preview_projectiles.remove_at(index)
+## Fires a seed (false) or water (true) shot toward the mouse. Returns false when nothing was fired:
+## paused, no seed / not enough water, or the in-flight shot limit is reached. Nothing is spent then.
+## `aim_override` replaces the mouse's world point (tests, and later non-mouse aiming).
+func fire(water_shot: bool, aim_override: Vector2 = Vector2.INF) -> bool:
+	if get_tree().paused or projectile_view.is_full():
+		return false
+	if water_shot and not play.can_fire_water():
+		return false
+	if not water_shot and not play.can_fire_seed():
+		return false
+	var kind: String = ProjectileField.KIND_WATER if water_shot else ProjectileField.KIND_SEED
+	var aim_point: Vector2 = player.get_global_mouse_position() if aim_override == Vector2.INF else aim_override
+	var target: Vector2 = projectile_view.launch(kind, player.simulation_position, aim_point, player.aim_direction)
+	if target == Vector2.INF:
+		return false
+	if water_shot:
+		play.spend_water()
+	else:
+		play.spend_seed()
+	return true
+
+func _on_projectile_landed(kind: String, point: Vector2) -> void:
+	if kind == ProjectileField.KIND_WATER:
+		play.land_water(point)
+	else:
+		play.land_seed(point)
 
 func _process(_delta: float) -> void:
 	frames += 1
+	if hud != null:
+		hud.refresh(play, grid)
 	if frames == 12 and not capture_path.is_empty():
 		capture.call_deferred()
 	elif frames == 30 and auto_quit and capture_path.is_empty():

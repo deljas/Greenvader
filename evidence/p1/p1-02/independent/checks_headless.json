@@ -1,0 +1,398 @@
+{
+  "observations": {
+    "building_square": "center=(488, 54) half=4",
+    "edge_landings": [
+      "water(245,80): placed=6 all_target_in_radius=true greened=331",
+      "building(296,86): placed=6 all_target_in_radius=true greened=331",
+      "building(296,89): placed=6 all_target_in_radius=true greened=331",
+      "building(296,92): placed=6 all_target_in_radius=true greened=331",
+      "water(392,125): placed=6 all_target_in_radius=true greened=331",
+      "water(395,125): placed=6 all_target_in_radius=true greened=331"
+    ],
+    "fruit_counts_at_ticks": {
+      "1500": 3,
+      "3000": 3,
+      "3900": 3,
+      "4200": 2,
+      "4500": 2,
+      "4800": 2
+    },
+    "fruit_spawn_times": [
+      8.02,
+      16.02,
+      24.02,
+      76.03
+    ],
+    "t7_site": "(242, 60) refilling=true",
+    "wasteland_site": "(184, 172)",
+    "water_square": "center=(235, 175) half=5"
+  },
+  "results": [
+    {
+      "condition": "initial seeds 20 (cap 40), water 100 (cap 100), not refilling at wasteland site",
+      "id": "1.init",
+      "observed": "seeds=20/40 water=100.0 site=(184, 172)",
+      "status": "PASS"
+    },
+    {
+      "condition": "injected mouse motion moves the world mouse point to the aimed world position (headless)",
+      "id": "1.aim_inject",
+      "observed": "aim=(788.0, 690.0) mouse_world=(788.0, 690.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "each injected left click spends exactly 1 seed (20 -> 0) and launches one shot",
+      "id": "1.seed_spend",
+      "observed": "seq=[19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0] shots+=20",
+      "status": "PASS"
+    },
+    {
+      "condition": "with 0 seeds a click fires nothing and spends nothing (launch count unchanged, seeds stay 0)",
+      "id": "1.seed_empty",
+      "observed": "seeds=0 launches=20->20",
+      "status": "PASS"
+    },
+    {
+      "condition": "all 20 shots landed (landing_counter == 20), shots list empty",
+      "id": "1.seed_landed_all",
+      "observed": "landing_counter 20 (before drain 11)",
+      "status": "PASS"
+    },
+    {
+      "condition": "each right click spends 10 of 100 water: 90,80,...,0",
+      "id": "1.water_spend",
+      "observed": "seq=[90.0, 80.0, 70.0, 60.0, 50.0, 40.0, 30.0, 20.0, 10.0, 0.0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "with 0 water a right click fires nothing and spends nothing",
+      "id": "1.water_empty",
+      "observed": "water=0.0 launches=30",
+      "status": "PASS"
+    },
+    {
+      "condition": "water 9.5 (< cost 10): not fired, gauge unchanged at 9.5",
+      "id": "1.water_partial_refused",
+      "observed": "fired=false water=9.5",
+      "status": "PASS"
+    },
+    {
+      "condition": "water exactly 10 can fire once and ends at 0 (not negative)",
+      "id": "1.water_exact_cost",
+      "observed": "fired=true water=0.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "add_seeds(100) stops at 40, add_water(1000) at 100, negative additions are ignored",
+      "id": "1.caps",
+      "observed": "seeds=40 added=40 neg=0 water=100.0 aw=100.0 nw=0.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "spend_seed/spend_water at zero return false and never go negative",
+      "id": "1.no_negative",
+      "observed": "seeds=0 water=0.0 min_seeds_seen=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "aiming 400 px away lands at the 120 px range along the aim direction",
+      "id": "1.range",
+      "observed": "target=(858.0, 690.0) origin=(738.0, 690.0) dist=120.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "each landing places min(6, free tiles in radius) seeds, never more than 6",
+      "id": "2.scatter_count",
+      "observed": "landings=40 max_placed=6 bad=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "placed tiles were free/target/unoccupied/no plant before",
+      "id": "2.scatter_free_only",
+      "observed": "bad=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "every placed tile centre lies within 10 px of the landing point (independent geometry)",
+      "id": "2.scatter_radius",
+      "observed": "bad=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "no tile outside the placed set changes stage (25x25 neighbourhood)",
+      "id": "2.scatter_no_other_change",
+      "observed": "bad=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "seed stage alone does not change greened_count; counter equals recount",
+      "id": "2.seed_not_greened",
+      "observed": "greened 331 -> 331 seed_tiles=99 placed_unique=99 recount=331",
+      "status": "PASS"
+    },
+    {
+      "condition": "120 ticks later seeds are still seeds and greened_count unchanged",
+      "id": "2.seed_no_growth",
+      "observed": "greened=331",
+      "status": "PASS"
+    },
+    {
+      "condition": "repeated landings never re-seed a seeded tile: totals equal disk size, then zero",
+      "id": "2.exhaust",
+      "observed": "counts=[6, 6, 6, 3, 0, 0] disk=21",
+      "status": "PASS"
+    },
+    {
+      "condition": "tiles with sprout/mature plants keep their stage; occupied tiles never get seeds; greened unchanged",
+      "id": "2.existing_plant_occupied",
+      "observed": "stages [2, 3, 4] -> [2, 3, 4] occupied_ok=true occ_clean=true greened 334->334",
+      "status": "PASS"
+    },
+    {
+      "condition": "same map + same landing sequence + same fixed seed gives identical placements",
+      "id": "2.reproducible",
+      "observed": "len=437",
+      "status": "PASS"
+    },
+    {
+      "condition": "a different scatter_seed changes the placements (the sequence is really seeded)",
+      "id": "2.seed_matters",
+      "observed": "differs=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "landing points outside / on the corners of the map do not crash and only touch in-map target tiles",
+      "id": "2.out_of_map",
+      "observed": "touched=52",
+      "status": "PASS"
+    },
+    {
+      "condition": "water adds +40 moisture to target tiles within 12 px (cap 100), nothing outside; 3 splashes cap at 100",
+      "id": "2.water_splash",
+      "observed": "changed=29 disk=29 outside=0 capped=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "real map has a water interior (>= 7x7) and a building interior (>= 3x3) to aim at",
+      "id": "3.sites",
+      "observed": "water=(235, 175) half=5 building=(488, 54) half=4",
+      "status": "PASS"
+    },
+    {
+      "condition": "200 seed + 200 water shots at water/building centres: no tile anywhere changed stage or moisture; greened/target counters unchanged",
+      "id": "3.centre_shots",
+      "observed": "changed_tiles=0 greened 331->331 seeds_spent=200 water_spent=200",
+      "status": "PASS"
+    },
+    {
+      "condition": "10 injected clicks aimed at the water centre (screen (370.0, 180.0)): seeds spent, no tile changed",
+      "id": "3.centre_clicks",
+      "observed": "seeds=0 greened=331",
+      "status": "PASS"
+    },
+    {
+      "condition": "OBSERVED: landing on a non-target tile next to target land still seeds the target tiles inside the 10 px radius (allowed by spec); never non-target, never greened",
+      "id": "3.edge_observation",
+      "observed": "water(245,80): placed=6 all_target_in_radius=true greened=331; building(296,86): placed=6 all_target_in_radius=true greened=331; building(296,89): placed=6 all_target_in_radius=true greened=331; building(296,92): placed=6 all_target_in_radius=true greened=331; water(392,125): placed=6 all_target_in_radius=true greened=331; water(395,125): placed=6 all_target_in_radius=true greened=331",
+      "status": "PASS"
+    },
+    {
+      "condition": "found map positions whose nearest waterside tile is exactly 1, 2, sqrt5, 3 tiles away (brute force)",
+      "id": "5.sites",
+      "observed": "{ 1.0: (242, 60), 2.0: (241, 60), 3.0: (240, 60), 2.236: (241, 84) }",
+      "status": "PASS"
+    },
+    {
+      "condition": "water refills at ~25/s only when the nearest waterside tile is within 2 tiles (1, 2 refill; sqrt5, 3 do not)",
+      "id": "5.distance_rule",
+      "observed": "dist=1.000 tile=(242, 60) gain=24.58 over 0.983s rate=25.00 expect_refill=true | dist=2.000 tile=(241, 60) gain=24.58 over 0.983s rate=25.00 expect_refill=true | dist=2.236 tile=(241, 84) gain=0.00 over 0.983s rate=0.00 expect_refill=false | dist=3.000 tile=(240, 60) gain=0.00 over 0.983s rate=0.00 expect_refill=false",
+      "status": "PASS"
+    },
+    {
+      "condition": "refill stops at the 100 cap",
+      "id": "5.refill_cap",
+      "observed": "water=100.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "after 20 clicks seeds are 0 and a further click does nothing",
+      "id": "4.seed_zero",
+      "observed": "seeds=0 shots=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "the source drops its first fruit by ~8 s of game time without any player action",
+      "id": "4.fruit_appears",
+      "observed": "ticks waited=442 (since scene start+setup) fruits=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking (injected WASD) to the fruit collects it: seeds 0 -> 1, fruit gone",
+      "id": "4.seed_recovered",
+      "observed": "seeds=1 frames=53 player=(772.4921, 749.7705) fruit=(770.3463, 750.3169) fruits_left=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "after recovery a click fires again and spends the recovered seed",
+      "id": "4.fire_again",
+      "observed": "seeds 1 -> 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "10 right clicks empty the gauge, the 11th does nothing",
+      "id": "4.water_zero",
+      "observed": "water=0.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "2 s away from water: gauge stays 0 and click still does nothing",
+      "id": "4.no_refill_away",
+      "observed": "water=0.0 refilling=false",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking to the waterside restores water; no gain was ever seen while the nearest waterside was > 2 tiles away",
+      "id": "4.water_recovered",
+      "observed": "water=83.7500000000001 walk_frames=374 violations=0 from=(738.0, 690.0) to=(970.0, 242.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "after recovery a right click fires (one more launch) and spends 10 (net of refill during 2 frames)",
+      "id": "4.water_fire_again",
+      "observed": "water 100.0 -> 90.4166666666667 launches 10 -> 11",
+      "status": "PASS"
+    },
+    {
+      "condition": "the source stands on a safe-zone tile and has an indestructible flag, no health/damage API",
+      "id": "6.safe_zone",
+      "observed": "tile=(189, 186) terrain=safe",
+      "status": "PASS"
+    },
+    {
+      "condition": "60 shots aimed at the source: still present, same position, node still in the tree",
+      "id": "6.survives_shots",
+      "observed": "sources=1 node=SeedSource1:<Sprite2D#230888048440>",
+      "status": "PASS"
+    },
+    {
+      "condition": "fruits drop every 8 s of game time (8, 16, 24) and the 4th does not come while 3 lie there",
+      "id": "6.interval",
+      "observed": "spawn_times=[8.02, 16.02, 24.02, 76.03]",
+      "status": "PASS"
+    },
+    {
+      "condition": "at most 3 fruits of the source ever lie on the ground (max seen 3); 3 are present at t=25..60 s (tick 1500: 3, 3000: 3)",
+      "id": "6.cap3",
+      "observed": "max=3 counts={ 1500: 3, 3000: 3, 3900: 3, 4200: 2, 4500: 2, 4800: 2 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "fruits expire 60 s after dropping (8.0 -> 68.0: count 3 -> 2 at 70 s) and the source drops the next one one interval later (~76 s)",
+      "id": "6.lifetime_respawn",
+      "observed": "spawns=[8.02, 16.02, 24.02, 76.03] counts={ 1500: 3, 3000: 3, 3900: 3, 4200: 2, 4500: 2, 4800: 2 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "a fruit 11.9 px away is collected (+1 seed), one 12.6 px away is not (radius 12)",
+      "id": "6.collect_radius",
+      "observed": "seeds=11 fruits=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "with 40 seeds standing on a fruit does not collect it; seeds stay 40, fruit stays",
+      "id": "6.full_no_collect",
+      "observed": "seeds=40 fruits=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "at 39 seeds the fruit is collected -> 40, never beyond",
+      "id": "6.collect_at_39",
+      "observed": "seeds=40 fruits=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "GroundPickups refuses spawns beyond the 24 total cap",
+      "id": "6.total_cap",
+      "observed": "accepted=24",
+      "status": "PASS"
+    },
+    {
+      "condition": "injected Esc pauses the tree and shows the pause panel",
+      "id": "7.esc_pauses",
+      "observed": "paused=true panel=true shots_in_flight=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "after 62 ms wall time and 185 ticks paused: elapsed, seeds, water, source timer, fruit ages, shot positions all unchanged; clicks/fire do nothing",
+      "id": "7.frozen",
+      "observed": "before={ \"elapsed\": 8.48333333333333, \"seeds\": 4, \"water\": 2.5, \"timer\": 0.48333333333331, \"ages\": \"[0.48333333333333]\", \"n_pick\": 1, \"shots\": \"[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]\", \"landing\": 0 } after={ \"elapsed\": 8.48333333333333, \"seeds\": 4, \"water\": 2.5, \"timer\": 0.48333333333331, \"ages\": \"[0.48333333333333]\", \"n_pick\": 1, \"shots\": \"[[(986.0001, 242.0), 16.0, 0.1], [(970.0, 258.0), 16.0, 0.1]]\", \"landing\": 0 } fire=false",
+      "status": "PASS"
+    },
+    {
+      "condition": "after Esc resume 30 ticks advance game time by ~0.5 s (not by the ~62 ms paused)",
+      "id": "7.resume_no_bank",
+      "observed": "advanced=0.4833 s unpaused=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "in-flight shots continue after resume",
+      "id": "7.shots_continue",
+      "observed": "shots now=2 (was 2)",
+      "status": "PASS"
+    },
+    {
+      "condition": "the refill did not run during pause (water unchanged 10) yet runs after resume",
+      "id": "7.refill_paused_only",
+      "observed": "water now=14.5833333333333 (before pause 2.5)",
+      "status": "PASS"
+    },
+    {
+      "condition": "HUD shows seeds 7/40 and water 63 (gauge value floor) after the values change",
+      "id": "8.seed_water_text",
+      "observed": "seed='  種 7/40' water='水分 63' green='緑化 0％'",
+      "status": "PASS"
+    },
+    {
+      "condition": "HUD follows: seeds at cap 40/40, water 0, gauge marked low",
+      "id": "8.follow",
+      "observed": "seed='  種 40/40' water='水分 0' low=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "HUD greening shows the floor: one tile below the threshold shows pct-1 (e.g. 36.99998 -> 36), at the threshold shows pct",
+      "id": "8.green_floor",
+      "observed": "37%: g=90594 below='緑化 36％' at='緑化 37％' | 63%: g=154253 below='緑化 62％' at='緑化 63％' | 99%: g=242398 below='緑化 98％' at='緑化 99％'",
+      "status": "PASS"
+    },
+    {
+      "condition": "one tile short of all targets shows 99％, all targets shows 100％",
+      "id": "8.green_99_100",
+      "observed": "short='緑化 99％' full='緑化 100％' g=244846 T=244846",
+      "status": "PASS"
+    },
+    {
+      "condition": "greened_count equals independent recount at the end",
+      "id": "8.green_counter",
+      "observed": "g=244846 recount=244846",
+      "status": "PASS"
+    },
+    {
+      "condition": "to_dict -> JSON -> load_dict -> to_dict is identical (seeds, water, counter, elapsed, fruits, source timers)",
+      "id": "9.roundtrip",
+      "observed": "ok=true fruits=3 seeds=13 water=42.5",
+      "status": "PASS"
+    },
+    {
+      "condition": "mismatched sources / wrong version are rejected without changing state; out-of-range seeds/water are clamped (40 / 0)",
+      "id": "9.reject_clamp",
+      "observed": "rej=true rej2=true clamped seeds=40 water=0.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "world with scattered seeds survives to_dict/JSON/from_dict (stages equal, counters equal)",
+      "id": "9.world_roundtrip",
+      "observed": "ok=true",
+      "status": "PASS"
+    }
+  ]
+}
