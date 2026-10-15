@@ -12,5 +12,5 @@ effect = &"spread_boost"
 seed_cost = 3
 max_count = 32
 grow_seconds = 40.0
-effect_radius_tiles = 12.0
-effect_multiplier = 2.0
+effect_radius_tiles = 24.0
+effect_multiplier = 3.0

@@ -1,0 +1,39 @@
+{
+  "arms": [
+    {
+      "area_ratio": 1.0,
+      "arm": "none",
+      "carrots": 0,
+      "front_gain": 25,
+      "front_ratio": 1.0,
+      "front_x": 54,
+      "greened": 3008,
+      "greened_gain": 2608
+    },
+    {
+      "area_ratio": 1.017,
+      "arm": "one",
+      "carrots": 1,
+      "front_gain": 26,
+      "front_ratio": 1.04,
+      "front_x": 55,
+      "greened": 3052,
+      "greened_gain": 2652
+    },
+    {
+      "area_ratio": 1.072,
+      "arm": "chain",
+      "carrots": 30,
+      "front_gain": 30,
+      "front_ratio": 1.2,
+      "front_x": 59,
+      "greened": 3196,
+      "greened_gain": 2796
+    }
+  ],
+  "cost": 3,
+  "interval": 20.0,
+  "minutes": 10.0,
+  "mult": 2.0,
+  "radius": 12.0
+}

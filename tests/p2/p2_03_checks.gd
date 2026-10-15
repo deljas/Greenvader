@@ -342,7 +342,7 @@ func test_nothing_rolled_back() -> void:
 	check(rig.play.cultivation.try_place(&"carrot", Vector2(120, 188)) != null and rig.play.cultivation.try_place(&"kiwi", Vector2(140, 188)) != null, "setup: a carrot and a kiwi stand in the mature block")
 	rig.field.add_nest(0, Vector2i(5, 5))
 	var second_nest: Nest = rig.field.add_nest(0, Vector2i(30, 5))
-	rig.field.damage_nest(second_nest, 20)
+	rig.field.damage_nest(second_nest, second_nest.hp_max)
 	put_boar(rig, Vector2(60, 100))
 	put_boar(rig, Vector2(80, 110))
 	rig.field.damage_boar(put_boar(rig, Vector2(70, 120)), 3)
@@ -538,7 +538,7 @@ func test_drop_direct_credit() -> void:
 			nest_rig.play.pickups.spawn(GroundPickups.KIND_SEED_FRUIT, Vector2(100 + i, 100), GroundPickups.ENEMY_OWNER_BASE + 900 + i)
 		var nest: Nest = nest_rig.field.add_nest(0, Vector2i(10, 10))
 		var nest_seeds: int = nest_rig.play.seeds
-		nest_rig.field.damage_nest(nest, 20)
+		nest_rig.field.damage_nest(nest, nest.hp_max)
 		var nest_ground: int = nest_rig.play.pickups.count_enemy_owned() - int(entry[0])
 		check(nest_ground == int(entry[3]) and nest_rig.play.seeds - nest_seeds == int(entry[4]), "enemy slot holds %d: a nest's reward is %d on the ground + %d seeds directly (ground %d, seeds +%d)" % [int(entry[0]), int(entry[3]), int(entry[4]), nest_ground, nest_rig.play.seeds - nest_seeds])
 	# Direct credit above the pouch cap is lost.

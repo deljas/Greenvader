@@ -16,7 +16,7 @@ extends Resource
 @export_group("Nest")
 ## A nest occupies a size x size block of tiles (WorldState.occupy) until it is destroyed.
 @export var nest_size_tiles: int = 4
-@export var nest_hp: int = 20
+@export var nest_hp: int = 30
 ## No more nests than this are placed (performance bound).
 @export var nest_max_count: int = 15
 

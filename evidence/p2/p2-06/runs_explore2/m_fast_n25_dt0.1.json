@@ -1,0 +1,390 @@
+{
+  "all_stable_at_min": 18.14,
+  "assaults": 24,
+  "assaults_given_up": 0,
+  "bot": {
+    "assault_trigger_tiles": 600,
+    "plant_in_hostile": true
+  },
+  "carrots_placed": 32,
+  "cleared": true,
+  "cleared_at_min": 33.42,
+  "clearing_at_min": {
+    "1": 6.57,
+    "2": 8.9,
+    "3": 18.14,
+    "4": 14.59,
+    "5": 11.83,
+    "6": 17.26
+  },
+  "complete_at_min": {
+    "0": 31.45,
+    "1": 29.88,
+    "2": 33.42,
+    "3": 32.43,
+    "4": 31.42,
+    "5": 32.67,
+    "6": 33.23
+  },
+  "counters_consistent": true,
+  "down_times": [],
+  "downs": 0,
+  "dt": 0.1,
+  "enemy": {
+    "nest_hp": 25
+  },
+  "evade_steps": 3,
+  "far_laps": 0,
+  "gnawed": 169,
+  "hits_taken": 0,
+  "hunts": 1,
+  "kills": 78,
+  "kiwis_placed": 5,
+  "minutes": 33.4166666666545,
+  "mode": "a",
+  "nests_destroyed": 15,
+  "percent_reach": 100.0,
+  "play": {},
+  "reach_times_min": {
+    "10": 10.53,
+    "100": 33.42,
+    "25": 18.28,
+    "50": 23.98,
+    "75": 27.02,
+    "90": 28.78,
+    "95": 29.63,
+    "99": 31.0
+  },
+  "samples": [
+    {
+      "boars": 0,
+      "carrots": 0,
+      "downs": 0,
+      "greened": 331,
+      "hp": 10,
+      "kills": 0,
+      "mature": 331,
+      "nests_left": 15,
+      "percent": 0.135543525442052,
+      "pickups": 0,
+      "seeds": 20,
+      "shots": 0,
+      "stall": 0.0,
+      "t": 0.1,
+      "water": 100.0,
+      "zones": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "boars": 37,
+      "carrots": 2,
+      "downs": 0,
+      "greened": 5455,
+      "hp": 10,
+      "kills": 12,
+      "mature": 4625,
+      "nests_left": 12,
+      "percent": 2.2338064389317,
+      "pickups": 25,
+      "seeds": 22,
+      "shots": 145,
+      "stall": 46.9000000000004,
+      "t": 300.0,
+      "water": 100.0,
+      "zones": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "boars": 28,
+      "carrots": 7,
+      "downs": 0,
+      "greened": 22428,
+      "hp": 10,
+      "kills": 33,
+      "mature": 21165,
+      "nests_left": 7,
+      "percent": 9.18419996560225,
+      "pickups": 22,
+      "seeds": 33,
+      "shots": 336,
+      "stall": 48.3000000000004,
+      "t": 600.000000000068,
+      "water": 100.0,
+      "zones": [
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "boars": 12,
+      "carrots": 14,
+      "downs": 0,
+      "greened": 42624,
+      "hp": 10,
+      "kills": 62,
+      "mature": 41414,
+      "nests_left": 3,
+      "percent": 17.454402502846,
+      "pickups": 22,
+      "seeds": 39,
+      "shots": 547,
+      "stall": 50.4000000000004,
+      "t": 900.000000000136,
+      "water": 100.0,
+      "zones": [
+        2,
+        2,
+        2,
+        0,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "boars": 0,
+      "carrots": 18,
+      "downs": 0,
+      "greened": 74193,
+      "hp": 10,
+      "kills": 78,
+      "mature": 71413,
+      "nests_left": 0,
+      "percent": 30.3818150547498,
+      "pickups": 28,
+      "seeds": 35,
+      "shots": 714,
+      "stall": 51.9000000000005,
+      "t": 1200.0,
+      "water": 100.0,
+      "zones": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "boars": 0,
+      "carrots": 23,
+      "downs": 0,
+      "greened": 140859,
+      "hp": 10,
+      "kills": 78,
+      "mature": 135459,
+      "nests_left": 0,
+      "percent": 57.6813457711239,
+      "pickups": 28,
+      "seeds": 31,
+      "shots": 816,
+      "stall": 51.9000000000005,
+      "t": 1499.99999999973,
+      "water": 0.0,
+      "zones": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "boars": 0,
+      "carrots": 31,
+      "downs": 0,
+      "greened": 235632,
+      "hp": 10,
+      "kills": 78,
+      "mature": 232918,
+      "nests_left": 0,
+      "percent": 96.4906102325124,
+      "pickups": 29,
+      "seeds": 38,
+      "shots": 936,
+      "stall": 51.9000000000005,
+      "t": 1799.99999999946,
+      "water": 22.5,
+      "zones": [
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "boars": 0,
+      "carrots": 32,
+      "downs": 0,
+      "greened": 244202,
+      "hp": 10,
+      "kills": 78,
+      "mature": 244743,
+      "nests_left": 0,
+      "percent": 100.0,
+      "pickups": 27,
+      "seeds": 39,
+      "shots": 962,
+      "stall": 51.9000000000005,
+      "t": 2004.99999999927,
+      "water": 25.0,
+      "zones": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  ],
+  "shots_at_boars": 311,
+  "shots_at_nests": 352,
+  "shots_carrot": 37,
+  "shots_seed": 962,
+  "sim": {},
+  "spawned": 78,
+  "stable_at_min": {
+    "1": 6.57,
+    "2": 8.9,
+    "3": 18.14,
+    "4": 14.59,
+    "5": 11.83,
+    "6": 17.26
+  },
+  "stall_log": [
+    [
+      8.0,
+      3.1
+    ],
+    [
+      12.5,
+      4.0
+    ],
+    [
+      17.9,
+      6.5
+    ],
+    [
+      26.0,
+      6.1
+    ],
+    [
+      33.9,
+      6.5
+    ],
+    [
+      42.4,
+      2.0
+    ],
+    [
+      46.3,
+      2.1
+    ],
+    [
+      50.2,
+      2.1
+    ],
+    [
+      54.0,
+      2.1
+    ],
+    [
+      58.5,
+      4.0
+    ],
+    [
+      64.9,
+      1.9
+    ],
+    [
+      69.4,
+      2.7
+    ],
+    [
+      80.7,
+      2.9
+    ],
+    [
+      124.8,
+      0.5
+    ],
+    [
+      176.8,
+      0.4
+    ],
+    [
+      358.1,
+      0.3
+    ],
+    [
+      415.1,
+      0.6
+    ],
+    [
+      480.2,
+      0.5
+    ],
+    [
+      631.0,
+      0.4
+    ],
+    [
+      709.9,
+      0.6
+    ],
+    [
+      761.0,
+      0.5
+    ],
+    [
+      818.0,
+      0.6
+    ],
+    [
+      918.7,
+      0.6
+    ],
+    [
+      975.3,
+      0.4
+    ],
+    [
+      1088.6,
+      0.5
+    ]
+  ],
+  "stall_longest_s": 6.5,
+  "stall_total_s": 51.9,
+  "worst_enemy_ms": 5.775,
+  "worst_far_ms": 1.326,
+  "worst_logic_ms": 15.926,
+  "worst_step_ms": 49.196
+}

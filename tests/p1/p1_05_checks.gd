@@ -20,6 +20,7 @@ var sim_tuning: SimTuning
 var shipped_tuning: SimTuning
 var play_tuning: PlayTuning
 var defs: Array[PlantDef] = []
+var shipped_carrot: PlantDef
 var info: Dictionary = {}
 
 func _initialize() -> void:
@@ -41,6 +42,10 @@ func run() -> void:
 	play_tuning = load("res://data/play_tuning.tres") as PlayTuning
 	check(region_def != null and sim_tuning != null and play_tuning != null, "region and tunings load")
 	defs.assign(region_def.plants)
+	# P2-06 retuned the shipped carrot (radius 24, x3.0). The oracles of this file are written for the P1-05 carrot (radius 12, x2.0):
+	# the mechanism tests use a pinned copy of it; test_data checks the shipped values separately.
+	shipped_carrot = defs[1]
+	defs[1] = pinned_carrot(shipped_carrot)
 	test_data()
 	test_selection()
 	test_hp()
@@ -57,6 +62,13 @@ func run() -> void:
 	print("INFO " + JSON.stringify(info))
 	print("P1_05_RESULT checks=%d failures=%d" % [checks, failures])
 	quit(1 if failures > 0 else 0)
+
+## A copy of the carrot with the P1-05 reference effect (radius 12 tiles, x2.0) that the oracles of this file are written for.
+func pinned_carrot(source: PlantDef) -> PlantDef:
+	var copy: PlantDef = source.duplicate() as PlantDef
+	copy.effect_radius_tiles = 12.0
+	copy.effect_multiplier = 2.0
+	return copy
 
 ## The P1-04 reference natural-spread values the oracles of this file are written for.
 func pin_reference_spread(tuning: SimTuning) -> void:
@@ -130,7 +142,8 @@ func test_data() -> void:
 	check(carrot.footprint_tiles == 2 and kiwi.footprint_tiles == 2 and defs[0].footprint_tiles == 1, "footprints: normal 1, carrot 2, kiwi 2 tiles")
 	check(carrot.seed_cost == 3 and kiwi.seed_cost == 3 and carrot.max_count == 32 and kiwi.max_count == 32, "cost 3 seeds, limit 32 per kind")
 	check(carrot.grow_seconds == 40.0 and kiwi.grow_seconds == 40.0, "40 s from young to mature")
-	check(carrot.effect == PlantDef.EFFECT_SPREAD_BOOST and carrot.effect_radius_tiles == 12.0 and carrot.effect_multiplier == 2.0, "carrot: spread boost, radius 12 tiles, x2.0")
+	check(carrot.effect == PlantDef.EFFECT_SPREAD_BOOST and carrot.effect_radius_tiles == 12.0 and carrot.effect_multiplier == 2.0, "carrot (pinned reference copy for the mechanism tests): spread boost, radius 12 tiles, x2.0")
+	check(shipped_carrot.effect == PlantDef.EFFECT_SPREAD_BOOST and shipped_carrot.effect_radius_tiles == 24.0 and shipped_carrot.effect_multiplier == 3.0 and shipped_carrot.seed_cost == 3 and shipped_carrot.max_count == 32, "shipped carrot (P2-06 retune): spread boost, radius 24 tiles, x3.0, 3 seeds, at most 32")
 	check(kiwi.effect == PlantDef.EFFECT_HEAL_FRUIT and kiwi.fruit_interval_seconds == 20.0 and kiwi.fruit_cap == 2 and kiwi.fruit_heal == 2 and kiwi.fruit_lifetime_seconds == 30.0, "kiwi: a fruit every 20 s, 2 per plant, +2 HP, fruit lifetime 30 s")
 	check(play_tuning.hp_max == 10 and play_tuning.hp_start == 10 and play_tuning.heal_fruit_total_cap == 16, "HP 10, healing fruits capped at 16 in the region")
 	check(sim_tuning.spread_progress_threshold == 100000 and sim_tuning.spread_progress_per_tick == 10000 and sim_tuning.spread_progress_per_extra_neighbor == 2500 and sim_tuning.spread_radius_tiles == 2.0, "spread constants used by the oracle below: threshold 100000, +10000 / tick, +2500 per extra neighbour, radius 2")
@@ -895,6 +908,10 @@ func test_scene() -> void:
 	main = packed.instantiate()
 	root.add_child(main)
 	pin_reference_spread(main.tuning)
+	# The scene's carrot is pinned to the reference effect as well (see run()); the shipped values are checked in test_data.
+	var scene_carrot: PlantDef = pinned_carrot(main.play.def_by_key(&"carrot"))
+	main.play.cultivation.defs[&"carrot"] = scene_carrot
+	main.play.selectable[1] = scene_carrot
 	await wait_frames(3)
 	player = main.player
 	var play: PlayState = main.play

@@ -29,6 +29,7 @@ var region_def: RegionDef
 var sim_tuning: SimTuning
 var play_tuning: PlayTuning
 var enemy_tuning: EnemyTuning
+var shipped_enemy_tuning: EnemyTuning
 var info: Dictionary = {}
 
 # Scene helpers.
@@ -49,7 +50,11 @@ func run() -> void:
 	region_def = load(REGION_PATH) as RegionDef
 	sim_tuning = load("res://data/sim_tuning.tres") as SimTuning
 	play_tuning = load("res://data/play_tuning.tres") as PlayTuning
-	enemy_tuning = load("res://data/enemy_tuning.tres") as EnemyTuning
+	shipped_enemy_tuning = load("res://data/enemy_tuning.tres") as EnemyTuning
+	# P2-06 retuned the shipped nest hit points (30). The oracles of this file are written for the P2-02 reference value (20): the mechanism
+	# tests run on a copy pinned to it; test_tuning_values checks the shipped value separately.
+	enemy_tuning = shipped_enemy_tuning.duplicate() as EnemyTuning
+	enemy_tuning.nest_hp = NEST_HP
 	check(region_def != null and enemy_tuning != null and play_tuning != null, "region and tunings load")
 	test_tuning_values()
 	test_seed_hit()
@@ -206,7 +211,8 @@ func run_time(field: EnemyField, seconds: float, hz: int = 60) -> void:
 
 func test_tuning_values() -> void:
 	var t: EnemyTuning = enemy_tuning
-	check(t.boar_hp == BOAR_HP and t.nest_hp == NEST_HP and t.seed_damage == 1, "boar hp 3, nest hp 20, seed damage 1")
+	check(t.boar_hp == BOAR_HP and t.nest_hp == NEST_HP and t.seed_damage == 1, "boar hp 3, nest hp 20 (pinned reference copy), seed damage 1")
+	check(shipped_enemy_tuning.boar_hp == BOAR_HP and shipped_enemy_tuning.nest_hp == 30 and shipped_enemy_tuning.seed_damage == 1, "shipped values (P2-06 retune): boar hp 3, nest hp 30, seed damage 1")
 	check(t.boar_drop_fruits == BOAR_FRUITS and t.nest_drop_fruits == NEST_FRUITS, "a boar drops 2 seed fruits, a nest 4")
 	check(is_equal_approx(t.carcass_radius_tiles, float(RADIUS_TILES)) and is_equal_approx(t.carcass_seconds, CORPSE_S) and is_equal_approx(t.bone_seconds, BONE_S), "carcass radius 4 tiles, 60 s carcass, 40 s bone")
 	check(t.carcass_fertility == FERT_CORPSE and t.bone_fertility == FERT_BONE and t.carcass_fertility_cap == FERT_CAP and t.carcass_cap == CARCASS_CAP, "fertility 40 / 20, rounding cap 60, at most 24 carcasses")

@@ -916,17 +916,17 @@ func test_scene() -> void:
 	play.seeds = play_tuning.seed_max
 	var percent: int = expected_percent(world, zone)
 	check(main.zone_label.text == "  西岸南1  未制圧  緑化 %d％" % percent, "scene: the top bar names the zone, state and rate: '%s'" % main.zone_label.text)
-	# Shoot the nest dead with injected clicks (20 hit points, 1 per seed).
+	# Shoot the nest dead with injected clicks (the shipped nest hit points, 30 since P2-06; 1 per seed).
 	await aim_at(centre)
 	var shots: int = 0
 	var state_before_last: int = -1
-	while keep.alive and shots < 40:
+	while keep.alive and shots < 50:
 		if keep.hp == 1:
 			state_before_last = world.zone_state[zone]
 		await click(MOUSE_BUTTON_LEFT)
 		await wait_frames(22)
 		shots += 1
-	check(not keep.alive and shots == 20, "scene: the nest fell to %d injected clicks" % shots)
+	check(main.enemy_tuning.nest_hp == 30 and not keep.alive and shots == 30, "scene: the nest (shipped hit points 30) fell to %d injected clicks" % shots)
 	check(state_before_last == U, "scene: with 1 hit point left the zone was still unconquered")
 	check(world.zone_state[zone] == C, "scene: the last nest destroyed: the zone is clearing")
 	check(notice.shown_log.size() >= 1 and notice.shown_log[0] == "西岸南1の巣をすべて壊した", "scene: the notice says so: %s" % [notice.shown_log])

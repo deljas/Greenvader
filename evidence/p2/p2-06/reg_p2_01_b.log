@@ -1,0 +1,120 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and enemy tuning load
+PASS tuning: 12 s interval, 4 per nest, 40 in total
+PASS tuning: tether 48 tiles, nest 4x4, at most 15 nests
+PASS tuning: a reached plant is inside the gnaw radius (no endless re-choice)
+PASS the region has 7 zones (about six)
+PASS the loader builds the zone layer (7 zones)
+PASS the zone layer is 512x512 (1 px = 1 tile)
+PASS every tile of the zone layer has a legend colour (unknown: 0)
+PASS WorldState.zone_of equals the legend id of every pixel (mismatches: 0)
+PASS every zone is a real area (tiles per zone [34593, 31741, 34495, 31950, 46865, 39601, 42899])
+PASS west and east bands follow the cuts (rows with a wrong zone: 0)
+PASS west of the river only zones 0-3, east of it only zones 4-6 (bad rows: 0)
+PASS the start tile lies in zone 0, which is stable from the start
+PASS all other zones start unconquered
+PASS zone target counts add up to the total (244759), which equals the PNG's target pixels (244759)
+PASS per-zone target counts equal an independent PNG count
+PASS greened counts add up (331); all of them are the start zone's 331 mature safe tiles
+PASS all counters (greening, mature, plants, zones) match a full recount at load
+PASS regenerating the zone layer gives byte-identical data/region_01_zones.png (sha256 f3bb1bb6c08daaf3)
+PASS 30,000 random stage changes: greening, mature, plant, per-zone and per-chunk counters stay equal to the recounts
+PASS per-zone greened counts still add up to the total (15977)
+PASS a saved world restores zone ids, count and states
+PASS a restored world has the same per-zone counters (and they match a recount)
+PASS the zone data survives a JSON text round trip
+PASS a saved zone state out of range is refused
+PASS a save without zones (older format) loads as one unconquered zone
+PASS 15 nests are placed (the allowed maximum)
+PASS no nest in the stable start zone
+PASS every unconquered zone has 1 to 3 nests (per zone [0, 2, 2, 2, 3, 3, 3])
+PASS every nest occupies its 4x4 block of greening-target tiles, completely inside its own zone
+PASS 15 distinct owner ids, all in the nest band (>= 1,000,000)
+PASS owner id bands are ordered: cultivated < helper < nest
+PASS exactly 15 x 16 tiles are occupied (240)
+PASS nest tiles stay in the greening-target counts (they can be greened once the nest is gone)
+PASS nest sites in the water, overlapping a nest or crossing a zone border are refused
+PASS counters still match a recount with the nests in place
+PASS a mature field around the nest leaves the nest's own tiles free
+PASS can_plant and the spread hook both refuse every nest tile
+PASS the hook allows ground next to the nest (unconquered zones can be spread into)
+PASS seed landings on / beside the nest never plant a nest tile
+PASS natural spread kept planting around the nest (256 seeds) but never inside it
+PASS carrot shots around the nest were placed (3) without ever covering a nest tile
+PASS the nest's occupancy block is unchanged
+PASS damage below the hit points leaves the nest standing
+PASS enough damage destroys the nest
+PASS a destroyed nest frees its tiles: plantable again, spread allowed
+PASS after the nest is gone natural spread plants its tiles (16 of 16 in 120 ticks)
+PASS a destroyed nest cannot be destroyed twice; 14 nests are left
+PASS counters match a recount after a nest was destroyed and planted over
+PASS a nest is placed on the open test map
+PASS the first boar appears at 12 s (12.000) and the second at 24 s (24.000)
+PASS the nest stops at its limit of 4 boars after 130 s (4, max 4)
+PASS a killed boar leaves the list and frees its nest slot
+PASS the replacement boar comes one interval after the kill (12.000 s)
+PASS a destroyed nest spawns nothing in 60 s
+PASS a field without any nest spawns nothing in 60 s
+PASS a nest in a stable zone stops spawning (2 boars before, 0 after, 2 spawned in total); the boars left with the state change (P2-04)
+PASS enabled = false: the enemy simulation does nothing
+PASS spawned boars stand on walkable ground in their zone
+PASS a boar appears next to the nest, outside its block (distance 11.8 px)
+PASS a boar aiming across water stops at the bank and never overlaps water (x=75.00, bank edge 75.00) 
+PASS a boar aiming through a building stops at its wall (x=115.00) 
+PASS a boar aiming into a stable zone stops at the zone border (x=234.80, border 240) 
+PASS a boar aiming far away stops at the tether (x=207.40, tether end 208.00) 
+PASS boars eat the plants of their own zone (16 tiles gnawed, the far patch is gone) and leave the nearer stable zone's untouched (changes: 0)
+PASS all boars of that run stand in their zone, inside the tether, on dry ground
+PASS the test field has 468 mature tiles, all greened
+PASS boars bite plants: 468 tiles gnawed in 150 s, and the greening count fell by exactly that (468 -> 0)
+PASS greening, per-zone and per-chunk counters equal a full recount after the gnawing
+PASS plants left: 0 of 468 (plant counter agrees)
+PASS gnawed tiles are empty, plantable ground again
+PASS seeds and sprouts are eaten as well (0 of 64 left)
+PASS the 119 tiles the boars cleared went back to the spread queue (117 queued, the rest have no mature tile near)
+PASS a cultivated plant's tiles stay mature while the plants around it are eaten
+PASS before: 3 boars are eating (119 tiles)
+PASS when its zone turns stable the 3 boars are gone at once, nothing is bitten and nothing new spawns
+PASS a complete zone is closed to enemies as well (no boar, nothing bitten)
+PASS in a clearing zone no boar is added, and the remaining boars still gnaw (61 -> 359 tiles)
+PASS the border test is meaningful: boars stood within 12 px of the start zone's border (3315 boar-frames)
+PASS 5 minutes with bait on both sides of the border: not one plant of the stable zone was bitten, no rule broken
+PASS the strip on the boars' side was eaten (2624 tiles) and the counters match a recount
+PASS a segment through a boar hits its body circle at the near edge
+PASS a segment passing just outside the circle misses the boar
+PASS a segment into the nest block hits the block's edge
+PASS a destroyed nest cannot be hit
+PASS hit_test has the shape of ProjectileField.enemy_hit_provider (from, to) -> {point, ...} (the connection is P2-02)
+PASS the saved nests and boars load onto the restored world
+PASS nests (hit points, timers), boars (positions, goals, timers, random state) and counters survive the round trip (40 boars)
+PASS the restored nests occupy their blocks again
+PASS after loading, the next 30 s run exactly like the original
+PASS the enemy data loads from JSON text too
+PASS a nest saved at a place that does not match the world is refused; the state stays as it was
+PASS a dead boar in the data is refused
+PASS a boar of an unknown zone is refused
+PASS after the refusals the valid data still loads
+PASS frame-rate scenario: 40 boars and 4765 tiles gnawed in 60 s
+PASS 30 / 60 / 144 Hz give the same boars, nests, positions and plants after 60 s (steps 3600 / 3600 / 3600)
+PASS all three ran exactly 3600 fixed steps
+PASS 60 s as 240 frames of 0.25 s equals 3600 frames of 1/60 s
+PASS advance(0) and advance(<0) change nothing
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS the scene creates 15 nests and connects the spread hook
+PASS the scene shows 15 nest sprites
+PASS the enemy simulation runs in the scene (44 steps)
+PASS while paused the enemy steps stand still (44 == 44)
+PASS after resuming it continues without banked time (30 new steps)
+PASS no boar appears while paused, even past the spawn time
+PASS the boars appear once the game runs again (0 -> 15)
+PASS one boar sprite per boar (15)
+PASS 30 minutes idle: the region-wide limit holds and is reached (max 40 boars, limit 40)
+PASS no nest ever had more than 4 boars (max 4); 40 boars at the end
+PASS all 2130520 boar positions of every frame were in their own zone, inside the 48-tile tether and on dry ground 
+PASS no boar was ever in the stable start zone
+PASS the plants of the stable start zone were never touched (34593 tiles)
+PASS 7 boars of the zone that turned stable at 15 min vanished at once and none of them (or any other boar of that zone) was seen again (frames seen: 0)
+PASS after 30 minutes the counters equal a full recount; 226513 tiles were gnawed in total
+INFO {"json_round_trip_exact":true,"long_run":{"boar_frames_checked":2130520,"cpu_seconds":27.742,"frames":54000,"game_minutes":30,"max_boars":40,"max_per_nest":4,"spawned_per_zone":{"1":8,"2":8,"3":6,"4":9,"5":7,"6":9},"spawned_total":47,"tiles_gnawed":226513,"violations":0},"zone_map_sha256":"f3bb1bb6c08daaf309026cac532796b6d481c9380cc018a6350a27698c60f438","zone_tiles":[34593,31741,34495,31950,46865,39601,42899]}
+P2_01_RESULT checks=115 failures=0

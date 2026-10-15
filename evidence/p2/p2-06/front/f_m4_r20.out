@@ -1,0 +1,3 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FRONT_RESULT {"arms":[{"area_ratio":1.0,"arm":"none","carrots":0,"front_gain":25,"front_ratio":1.0,"front_x":54,"greened":3008,"greened_gain":2608},{"area_ratio":1.079,"arm":"one","carrots":1,"front_gain":28,"front_ratio":1.12,"front_x":57,"greened":3214,"greened_gain":2814},{"area_ratio":1.169,"arm":"chain","carrots":30,"front_gain":33,"front_ratio":1.32,"front_x":62,"greened":3448,"greened_gain":3048}],"cost":3,"interval":20.0,"minutes":10.0,"mult":4.0,"radius":20.0}
