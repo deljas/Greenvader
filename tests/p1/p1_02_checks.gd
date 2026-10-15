@@ -640,6 +640,9 @@ func test_scene_scenarios() -> void:
 	var play: PlayState = main.play
 	var state: WorldState = main.grid
 	check(play.seeds == 20 and play.water == 100.0 and state.counters_consistent(), "scene: starts with 20 seeds and 100 water")
+	# P2-02: shots now hit enemies. The nest at tile (70,45) lies within reach of this flow's shots, which are about plain
+	# landings, so the enemy hit entry is left unset here (the hit behaviour itself is checked by tests/p2/p2_02_checks.gd).
+	main.projectile_view.enemy_hit_provider = Callable()
 	check(main.weather_buttons.size() == 3 and main.hud != null, "scene: the weather buttons are kept and the new HUD exists")
 	check(main.preview_projectiles == main.projectile_view.shots, "scene: the P0 preview list is the live shot list of the real projectile field")
 	# ---- A: seeds, all 20, scattered on open wasteland

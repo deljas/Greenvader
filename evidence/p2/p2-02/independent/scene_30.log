@@ -1,0 +1,37 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [wire] real scene wires the hit provider and combat :: nests=15
+PASS [hit.seed1] one seed shot takes exactly 1 HP from a boar (3 -> 2), costs 1 seed, no landing :: hp=2 seeds 30->29 landings 0->0
+PASS [hit.seed2] second shot: hp 1, still alive, still in field :: hp=1
+PASS [kill.boar3] third seed shot kills the boar (exactly 3 hits), leaves 1 carcass :: carcasses=1 killed=1
+PASS [kill.drop2] boar drops 2 seed fruits :: dropped=2
+PASS [kill.collect] walking over the fruit adds seeds (+2) and clears them :: seeds 28 -> 29 (kill shot spent 1)
+PASS [hit.water] water shot passes through a boar (hp 3, no enemy hit, water spent) :: hp=3 hits 3->3 water 100.0->90.0
+PASS [hit.plant] cultivated plant shot is stopped by the boar: hp unchanged, no planting, held seeds back :: key=carrot hp=3 seeds 30->30 reserved=0 plant_landings 0->0
+PASS [hit.first] two boars in a row: only the first one is hit :: near=2 far=3
+PASS [carcass.disk] carcass adds +40 on exactly the tiles within 4 tiles (brute force), nothing elsewhere :: disk tiles=47 changed=47
+PASS [carcass.growth] tile in disk grows faster by 1+0.5*f/100 ratio (6 s, same moisture) :: growth in=28008 out=23340 ratio=1.200 expected 1.200 (fert in=40 out=0)
+PASS [pause.freeze] Esc: 20 s paused leaves carcass age unchanged :: paused=true age 536 -> 536
+PASS [pause.nobank] after resume ~1 s of game time passes, no lump sum (age +60 +-6 steps) :: age +60 steps in 1 s
+PASS [timeline.bone] corpse turns to bone 60 s after the kill (+-0.1 s), fertility +40 -> +20 :: bone at 60.000 s, fert 40 -> 20
+PASS [timeline.gone] bone vanishes 100 s after the kill (+-0.1 s) and fertility returns to the original :: gone at 100.000 s, delta 0, whole map equal=true
+PASS [flash] non-lethal hit flashes for 0.25 s (+-0.07) :: flash length 0.267 s (measured from hp drop)
+PASS [slots.reservation_math] plant limit leaves the sources' reserved slots: plant_cap + sources*3 <= total :: plant_cap=20 sources=1 total=24
+FACT [slots.near_cap] plant-owned fruits at cap-1 (19): boar reward = 1 of 2
+FACT [slots.at_cap] plant-owned fruits at cap (20): boar reward = 0 of 2; boar still dies=true
+PASS [slots.never_over] plant-owned fruits never exceed plant_cap; boar dies anyway :: plant-owned=20 cap=20
+PASS [slots.sources_keep_room] with plant-owned at cap a seed source can still drop a fruit (reservation kept) :: source spawn accepted=true items=21/24
+PASS [cap.24] 25 kills leave 24 carcasses; the oldest vanished; fertility = exactly the other 24 disks :: carcasses=24 oldest_gone=true array_equal=true
+PASS [cap.restore] removing all returns fertility to the original :: equal=true
+PASS [cap.overlap] overlapping carcasses add up but cap at +60: 40, 60, 60 :: [40, 60, 60]
+PASS [cap.overlap_restore] after the overlap goes, fertility is back :: equal=true
+PASS [save.with_layer] load_dict(data, true) on a world restored from the same save reproduces carcasses :: ok=true n=2
+PASS [save.without_layer] load_dict(data,false) on a fresh world adds the layer (== live world); load_dict(data,true) on a world without layer is refused :: ok=true equal=true refused_true_on_bare_world=true
+PASS [save.continue] restored fields keep aging identically and fertility returns to base :: e=0 e2=0 e3=0
+PASS [nest.20hits] 19 seed hits leave the nest alive (hp 1); the 20th destroys it; hit shots never land :: hp after 19 = 1 alive=true; after 20 alive=false; landings 0->0; seeds left 20
+PASS [nest.drop4] nest drops 4 seed fruits :: dropped=4
+PASS [nest.release] destroyed nest releases its tiles (before: not plantable; after: occupant 0) :: blocked_before=true free_after=true
+PASS [nest.plantable] seeds landing on the cleared nest ground can be planted :: planted tiles=16 (before sum 0)
+PASS [nest.no_spawn] destroyed nest stops spawning (40 s, others keep spawning as control) :: nest.spawned 0->0, others total 9->49
+RESULT scene hz=30 checks=33 failures=0

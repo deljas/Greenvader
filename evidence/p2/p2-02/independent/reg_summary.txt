@@ -1,0 +1,10 @@
+p1_01 exit=0 fails=0 P1_01_RESULT checks=92 failures=0
+p1_02 exit=0 fails=0 P1_02_RESULT checks=130 failures=0
+p1_03 exit=0 fails=0 P1_03_RESULT checks=106 failures=0
+p1_04 exit=0 fails=0 P1_04_RESULT checks=86 failures=0
+p1_05 exit=0 fails=0 P1_05_RESULT checks=181 failures=0
+p1_06 exit=0 fails=0 P1_06_RESULT checks=95 failures=0
+p0_art exit=0 fails=0 
+p0_self exit=0 fails=0 P0_SELF_RESULT failures=0
+p2_02 exit=0 fails=0 P2_02_RESULT checks=139 failures=0
+p2_01 exit=0 fails=0 P2_01_RESULT checks=115 failures=0

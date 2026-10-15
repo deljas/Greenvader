@@ -197,6 +197,25 @@ func land_plant(key: StringName, point: Vector2) -> CultivatedPlant:
 	plant_landings += 1
 	return plant
 
+# ---- enemy drops (P2-02) ----------------------------------------------------------------------
+
+## Drops up to `count` seed fruits around `center` for a defeated enemy (owner `owner_id` >= GroundPickups.ENEMY_OWNER_BASE).
+## The ground pickup rules decide how many fit (total cap, and the plant limit that keeps the seed sources' slots free): the
+## rest is simply not dropped. Positions are a fixed sequence (golden-angle spiral from the owner id), moved to the centre
+## when a spot is not walkable. Returns how many were dropped.
+func drop_enemy_fruits(center: Vector2, count: int, owner_id: int, radius_min: float, radius_max: float, life: float) -> int:
+	var dropped: int = 0
+	for k: int in count:
+		var angle: float = TAU * fposmod(float(k) * 0.381966 + float(owner_id % 97) * 0.137, 1.0)
+		var radius: float = lerpf(radius_min, radius_max, fposmod(float(k) * 0.618034 + 0.25, 1.0))
+		var point: Vector2 = center + Vector2(cos(angle), sin(angle)) * radius
+		if not Walker.is_clear(world, tile_px, point, Vector2(1.0, 1.0)):
+			point = center
+		if not pickups.spawn(GroundPickups.KIND_SEED_FRUIT, point, owner_id, life):
+			break
+		dropped += 1
+	return dropped
+
 # ---- landing ----------------------------------------------------------------------------------
 
 ## A seed landed at `point` (world pixels). Returns the tiles that became seeds.

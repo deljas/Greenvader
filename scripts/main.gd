@@ -18,6 +18,7 @@ var play_driver: PlayDriver
 var enemy_tuning: EnemyTuning
 var enemies: EnemyField
 var enemy_driver: EnemyDriver
+var enemy_combat: EnemyCombat
 var enemy_view: EnemyView
 var pickup_view: PickupView
 var cultivated_view: CultivatedView
@@ -106,6 +107,7 @@ func _ready() -> void:
 	enemies = EnemyField.new(grid, enemy_tuning, region_def.tile_px)
 	enemies.setup_nests(region_def.zones)
 	simulation.spread.allow_hook = enemies.spread_allows
+	enemy_combat = EnemyCombat.new(enemies, play)
 	enemy_driver = EnemyDriver.new()
 	enemy_driver.name = "EnemyDriver"
 	enemy_driver.setup(enemies)
@@ -144,7 +146,11 @@ func _ready() -> void:
 	projectile_view.setup(play_tuning)
 	projectile_view.landed.connect(_on_projectile_landed)
 	projectile_view.expired.connect(_on_projectile_ended)
-	projectile_view.enemy_hit.connect(func(kind: String, _point: Vector2, _info: Dictionary) -> void: _on_projectile_ended(kind, Vector2.ZERO))
+	# P2-02: shots hit boars and nests (water passes through); a hit shot never lands. A cultivated shot gives its seeds back.
+	projectile_view.enemy_hit_provider = enemy_combat.hit_provider
+	projectile_view.enemy_hit.connect(func(kind: String, point: Vector2, info: Dictionary) -> void:
+		enemy_combat.on_enemy_hit(kind, point, info)
+		_on_projectile_ended(kind, Vector2.ZERO))
 	world.add_child(projectile_view)
 	preview_projectiles = projectile_view.shots
 	var weather_canvas: CanvasLayer = CanvasLayer.new()

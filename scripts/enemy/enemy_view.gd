@@ -8,11 +8,23 @@ var actors: Node2D
 var tile_px: int = 4
 var boar_sprites: Dictionary = {}
 var nest_sprites: Dictionary = {}
+## Ground layer under the y-sorted actors: carcasses, bones and the ruins of destroyed nests.
+var ground: Node2D
+var carcass_sprites: Dictionary = {}
+var ruin_sprites: Dictionary = {}
+
+const FLASH_COLOR: Color = Color(2.2, 2.2, 2.2, 1.0)
 
 func setup(field: EnemyField, actors_node: Node2D, tile_size: int) -> void:
 	enemies = field
 	actors = actors_node
 	tile_px = tile_size
+	ground = Node2D.new()
+	ground.name = "EnemyGround"
+	ground.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	var parent: Node = actors.get_parent()
+	parent.add_child(ground)
+	parent.move_child(ground, actors.get_index())
 	refresh()
 
 func _process(_delta: float) -> void:
@@ -22,6 +34,15 @@ func refresh() -> void:
 	var present: Dictionary = {}
 	for nest: Nest in enemies.nests:
 		if not nest.alive:
+			if not ruin_sprites.has(nest.id):
+				var ruin: Sprite2D = Sprite2D.new()
+				ruin.name = "NestRuin%d" % nest.id
+				ruin.texture = EnemyArt.nest_ruin()
+				ruin.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+				ruin.centered = false
+				ruin.position = Vector2(nest.tile.x * tile_px, nest.tile.y * tile_px)
+				ground.add_child(ruin)
+				ruin_sprites[nest.id] = ruin
 			continue
 		present[nest.id] = true
 		if not nest_sprites.has(nest.id):
@@ -34,6 +55,7 @@ func refresh() -> void:
 			sprite.position = Vector2(nest.tile.x * tile_px, (nest.tile.y + nest.size) * tile_px)
 			actors.add_child(sprite)
 			nest_sprites[nest.id] = sprite
+		(nest_sprites[nest.id] as Sprite2D).modulate = FLASH_COLOR if enemies.flash_bright(nest.flash_steps) else Color.WHITE
 	for id: int in nest_sprites.keys():
 		if not present.has(id):
 			(nest_sprites[id] as Sprite2D).queue_free()
@@ -53,7 +75,29 @@ func refresh() -> void:
 			boar_sprites[boar.id] = sprite
 		sprite.position = boar.pos.round()
 		sprite.flip_h = boar.facing < 0
+		sprite.modulate = FLASH_COLOR if enemies.flash_bright(boar.flash_steps) else Color.WHITE
 	for id: int in boar_sprites.keys():
 		if not present.has(id):
 			(boar_sprites[id] as Sprite2D).queue_free()
 			boar_sprites.erase(id)
+	present = {}
+	for carcass: Carcass in enemies.carcasses:
+		present[carcass.id] = true
+		var shown: Sprite2D = carcass_sprites.get(carcass.id) as Sprite2D
+		if shown == null:
+			shown = Sprite2D.new()
+			shown.name = "Carcass%d" % carcass.id
+			shown.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			shown.centered = false
+			shown.position = carcass.pos.round()
+			ground.add_child(shown)
+			carcass_sprites[carcass.id] = shown
+			shown.set_meta("stage", -1)
+		if int(shown.get_meta("stage")) != carcass.stage:
+			shown.set_meta("stage", carcass.stage)
+			shown.texture = EnemyArt.corpse() if carcass.stage == Carcass.STAGE_CORPSE else EnemyArt.bone()
+			shown.offset = Vector2(-shown.texture.get_width() / 2, -shown.texture.get_height())
+	for id: int in carcass_sprites.keys():
+		if not present.has(id):
+			(carcass_sprites[id] as Sprite2D).queue_free()
+			carcass_sprites.erase(id)

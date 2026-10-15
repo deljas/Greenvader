@@ -1,0 +1,9 @@
+{
+  "advance_us_per_step_24_carcasses": 4.311,
+  "growth_ticks_mature_inside_outside": [
+    100,
+    120
+  ],
+  "hit_provider_us": 0.545,
+  "scene_delta_ticks": 40
+}

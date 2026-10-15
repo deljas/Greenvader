@@ -17,6 +17,9 @@ const KIND_HEAL_FRUIT: String = "heal_fruit"
 const PLANT_OWNER_BASE: int = 1000000
 ## Owner ids of healing fruits: HEAL_OWNER_BASE + the uid of the cultivated plant that dropped them.
 const HEAL_OWNER_BASE: int = 2000000
+## Owner ids of seed fruits dropped by defeated enemies (P2-02): ENEMY_OWNER_BASE + boar id, ENEMY_OWNER_BASE + 1000000 + nest id.
+## They count as plant-owned (>= PLANT_OWNER_BASE), so they share the plant limit that keeps the seed sources' slots free.
+const ENEMY_OWNER_BASE: int = 4000000
 
 var items: Array[Dictionary] = []
 var total_cap: int = 24

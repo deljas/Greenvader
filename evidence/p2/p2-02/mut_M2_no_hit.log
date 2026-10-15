@@ -1,0 +1,136 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and tunings load
+PASS boar hp 3, nest hp 20, seed damage 1
+PASS a boar drops 2 seed fruits, a nest 4
+PASS carcass radius 4 tiles, 60 s carcass, 40 s bone
+PASS fertility 40 / 20, rounding cap 60, at most 24 carcasses
+PASS water passes through; a plant shot does no damage
+FAIL an injected seed shot that crosses the boar takes 1 hit point (hp 3)
+SCRIPT ERROR: Out of bounds get index '0' (on base: 'Array')
+   at: test_seed_hit (res://tests/p2/p2_02_checks.gd:223)
+   GDScript backtrace (most recent call first):
+       [0] test_seed_hit (res://tests/p2/p2_02_checks.gd:223)
+       [1] run (res://tests/p2/p2_02_checks.gd:55)
+PASS a water shot passes through the boar and lands behind it
+PASS the water lands at its aim point
+PASS water passes through a nest too
+PASS the carrot can be fired
+PASS the shot holds 3 seeds back
+FAIL the carrot shot is stopped by the boar
+FAIL the held-back seeds are given back and no plant was placed
+PASS a plant shot does no damage by default
+FAIL with plant_shot_damage 2 the kiwi shot takes 2 hit points (tuning switch)
+FAIL with water_hits_enemies water is stopped but does no damage (no water damage value)
+FAIL of two boars on the path only the first one is hit (a 3, b 3)
+FAIL from the other side the other boar is the first one
+FAIL a nest on the path is hit before the boar behind it
+FAIL from the east the boar is hit before the nest behind it
+FAIL one long frame step (0.25 s = 40 px) still hits the boar
+PASS before shot 1 the boar is alive
+PASS before shot 2 the boar is alive
+PASS before shot 3 the boar is alive
+FAIL three seed shots defeat the boar
+FAIL none of the three shots landed
+FAIL the boar leaves a carcass where it fell
+FAIL it drops 2 seed fruits (0)
+PASS the fruits lie within 8 px of the spot
+FAIL walking over them collects both (+0 seeds)
+PASS with a full pouch the fruits are not taken
+PASS an uncollected fruit disappears after about a minute
+PASS both nests spawned their first boar after 12 s
+PASS while alive the nest holds its 4x4 block
+FAIL after 19 shots the nest has 1 hit point left
+FAIL the 20th shot destroys the nest
+FAIL its tiles are free again (planting is allowed)
+FAIL it drops 4 seed fruits (0)
+PASS the fruits lie around the nest centre
+FAIL the destroyed nest spawns no more; the other nest still does (1 -> 4)
+FAIL after the nest is gone a shot flies through its place and lands
+FAIL seeds can be planted on the freed tiles (0 tiles)
+PASS boars that already came out of the destroyed nest stay
+PASS with 0 plant fruits on the ground the boar drops 2 of 2 fruits
+PASS the seed sources still get their 3 + 3 slots (total 8 <= 24)
+PASS with 10 plant fruits on the ground the boar drops 2 of 2 fruits
+PASS the seed sources still get their 3 + 3 slots (total 18 <= 24)
+PASS with 16 plant fruits on the ground the boar drops 2 of 2 fruits
+PASS the seed sources still get their 3 + 3 slots (total 24 <= 24)
+PASS with 17 plant fruits on the ground the boar drops 1 of 2 fruits
+PASS the seed sources still get their 3 + 3 slots (total 24 <= 24)
+PASS with 18 plant fruits on the ground the boar drops 0 of 2 fruits
+PASS the seed sources still get their 3 + 3 slots (total 24 <= 24)
+PASS a nest reward fills only the 3 slots left (dropped 3, refused 1)
+PASS the enemy owner band lies above plant tile owners and healing fruit owners
+PASS the world starts without any fertility
+PASS the carcass raises exactly the 49 tiles whose centres are within 4 tiles (49)
+PASS every tile of the map has the brute-force expected fertility (40 inside, 0 outside)
+PASS the tile under the carcass has fertility 40
+PASS a carcass at the map corner raises only the tiles that exist
+PASS after 50 ticks: 60000 growth inside (expected 60000), 50000 outside (expected 50000)
+PASS a seed beside the carcass is mature after 100 ticks, one far away after 120 (100 / 120)
+PASS all three inside tiles matured
+PASS after 3599 steps (59.98 s) it is still a carcass with fertility 40: [1, 0, 40]
+PASS after 3600 steps (60 s) it is bone with fertility 20: [1, 1, 20]
+PASS after 5999 steps it is still bone: [1, 1, 20]
+PASS after 6000 steps (100 s) it is gone and the fertility is back to 0: [0, -1, 0]
+PASS the whole map has no carcass fertility left
+PASS no carcass and no bone remain
+PASS carcasses and bones together never exceed 24 (max seen 24)
+PASS the 24 newest stay (the 6 oldest went first)
+PASS the fertility of the map matches the 24 that stay (the 6 removed ones left nothing behind)
+PASS 10 bones + 20 fresh carcasses: 24 remain (24)
+PASS the oldest 6 bones went, 4 bones and 20 carcasses remain (4 / 20)
+PASS one carcass: 40
+PASS two carcasses on one spot: 40 + 40 = 80 is rounded to 60
+PASS three carcasses: still 60
+PASS 30 s in: two corpses overlap on the middle tiles and are rounded to 60
+PASS 60.5 s: first is bone (20), second a corpse (40): 60 in the overlap
+PASS 90.5 s: both are bones: 20 + 20 = 40 in the overlap
+PASS 100.5 s: the first bone is gone; only the second one's 20 remains
+PASS 130.5 s: everything is gone
+PASS carcasses add to a non-zero base fertility
+PASS when the bones are gone the fertility is exactly the base again (restored, not left behind)
+PASS the decrease is staged: 10 + 40, then 10 + 20 as bone, then the base 10: [50, 30, 10]
+PASS a hit starts the flash in its bright half
+PASS the flash runs out after 15 steps
+PASS it blinks every 3 steps (0.05 s): 1110001110001110
+PASS second hit flashes again
+PASS without advance() (a paused game) the flash stands still
+PASS the third hit kills
+PASS corpse 60 s, bone 40 s, gone at 100 s at 30, 60 and 144 Hz alike: { 30: [[1, 40], [1, 20], [1, 20], [0, 0]], 60: [[1, 40], [1, 20], [1, 20], [0, 0]], 144: [[1, 40], [1, 20], [1, 20], [0, 0]] }
+PASS the flash lasts about 0.25 s at 30 / 60 / 144 Hz ([0.27, 0.25, 0.25])
+PASS setup: two carcasses and one bone (2 / 1)
+PASS the field loads onto the restored world (which holds the fertility)
+PASS carcasses (position, age), flashes, boars, nests and the fertility survive the round trip
+PASS a flash in progress is saved and restored
+PASS after loading, the next 90 s (bone, vanish, fertility) run exactly like the original
+PASS the data also loads from JSON text
+PASS world_has_layer: a world without the saved fertility refuses the data
+PASS the refused load left the field and the world unchanged
+PASS loading with world_has_layer = false adds the fertility; it equals the original's (116 tiles raised)
+PASS loading the same data again does not add it twice
+PASS a carcass outside the map is refused
+PASS duplicate carcass ids are refused
+PASS a carcass older than its life is refused
+PASS data without carcasses (a P2-01 save) still loads
+PASS 24 carcasses add little cost (4.3 us per step)
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS scene: the shot field is connected to the enemies
+PASS scene: a boar came out of nest 1
+PASS scene: a ruin is shown for each of the 15 destroyed nests
+FAIL scene: the first injected click takes 1 hit point and costs 1 seed (hp 3, seeds 19)
+FAIL scene: the hit seed did not land (no planting)
+FAIL scene: the boar flashes after the hit (0 steps left)
+PASS scene: while paused the flash stands still (0 == 0)
+PASS scene: after resuming the flash runs out
+FAIL scene: three injected clicks defeat the boar
+FAIL scene: the three seeds are spent and none landed
+FAIL scene: a carcass lies there and is shown
+FAIL scene: it dropped 0 seed fruits
+SCRIPT ERROR: Out of bounds get index '0' (on base: 'Array[Carcass]')
+   at: test_scene (res://tests/p2/p2_02_checks.gd:804)
+   GDScript backtrace (most recent call first):
+       [0] test_scene (res://tests/p2/p2_02_checks.gd:804)
+       [1] wait_frames (res://tests/p2/p2_02_checks.gd:717)
+INFO {"advance_us_per_step_24_carcasses":4.25566666666667,"growth_ticks_mature_inside_outside":[100,120],"hit_provider_us":0.335}
+P2_02_RESULT checks=121 failures=29

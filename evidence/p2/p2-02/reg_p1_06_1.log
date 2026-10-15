@@ -1,0 +1,116 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and tunings load
+PASS region has a shallows terrain at id 5
+PASS water and buildings are not walkable
+PASS shallows: walkable, waterside, not a greening target, not plantable
+PASS walkable terrains: wasteland, safe, shore, shallows ([&"wasteland", &"safe", &"shore", &"shallows"])
+PASS six distinct legend colours
+PASS legend colours used by the independent checks below match the terrain defs
+PASS feet rectangle: half size 3 x 2 px (6 x 4 px, 1.5 x 1 tiles)
+PASS walk: the test start position is clear
+PASS walk: water blocks; the player stops with its right edge on the water edge (x=93.0000, wanted 93)
+PASS walk: continued pushing keeps the player at the wall
+PASS walk: water blocks from the east side (x=115.0000, wanted 115)
+PASS walk: a building blocks from the east (x=51.0000, wanted 51)
+PASS walk: a building blocks from below (y=34.0000, wanted 34)
+PASS walk: a building blocks from above (y=14.0000, wanted 14)
+PASS walk: the shallows can be crossed (stood in the ford, ended at the map edge x=189.000, wanted 189)
+PASS walk: one row above the ford is still water (x=93.000)
+PASS walk: a rectangle half over water (y=40: rows 9 and 10) is stopped by the water row
+PASS walk: sliding along the wall for 0.3 s: x pinned at 93, y advanced 20.365 of 20.365 (the diagonal's full y component, no sticking)
+PASS walk: diagonal push along the wall slips through the ford opening (x=166.70) without entering water
+PASS walk: diagonal against the building's east face slides down along it and on past its corner (pos (3.0, 94.0))
+PASS walk: a free diagonal covers 96 px/s (47.9998 px in 0.5 s)
+PASS walk: a rectangle already overlapping water can still move away from it
+PASS walk: the map edge blocks like a wall (stopped at (3.0, 2.0), wanted (3, 2))
+PASS walk: 30 / 60 / 144 Hz give the same path along the wall, through the ford opening, to the map edge (36 samples every 1/6 s, worst deviation 0.1800 px, bound 0.25 px)
+PASS walk: the three rates end at the same place ((189.0, 59.51321) (189.0, 59.36295) (189.0, 59.34146))
+PASS walk: sliding along a closed wall gives the same path at 30 / 60 / 144 Hz (worst deviation 0.000414 px)
+PASS map PNG is 512 x 512
+PASS every map pixel is one of the six legend colours
+PASS the start tile and the seed source tile are walkable ground
+PASS the start and the seed source lie in the safe zone
+INFO map: targets=244759 reachable=244202 unreachable=557 in 8 pockets [64, 64, 64, 64, 64, 64, 64, 109]
+PASS reachable + closed-pocket targets add up to all targets (244202 + 557 = 244759)
+PASS walkable-reachable greening targets from the start: 244202 of 244759 (independent BFS; expected 244202 / 244759)
+PASS closed pockets that cannot be walked to: 8 pockets, 557 tiles (the lake island 109 and seven 64-tile ring enclosures)
+PASS the walkable part is almost all of the map (99.772 %)
+PASS shallows pixels are never greening targets
+PASS the river has 4 fords (shallows bands), at least 3 wanted
+PASS every ford is at least 4 rows tall and touches walkable ground west and east of it
+PASS every shallows tile is walkable-reachable from the start (539 of 539)
+PASS both banks are reachable on foot: west 111400 of 111592, east 108891 of 109256 targets
+INFO map: targets reachable by a 6x4 px rectangle (standable-tile BFS) = 241510
+INFO map: 2692 reachable targets cannot be stood on by the rectangle; the farthest is 1 tiles from ground it can reach
+PASS the 6x4 px rectangle reaches 241510 of 244202 walkable targets; the others (2692) are at most 1 tiles (4 px) from ground it can reach, well inside the 120 px shot range
+PASS WorldState walkability and target flags equal the PNG-derived ones on all 262,144 tiles
+PASS WorldState.target_count equals the independent count (244759)
+PASS tiles outside the map are not walkable
+PASS the generator ran again (exit code 0)
+PASS regenerating the map gives byte-identical data/region_01.png (sha256 95d86bef9bb715e4)
+PASS shallows: target flag 0, cannot be planted (land beside it can)
+PASS shallows: set_stage is refused, greening count unchanged
+PASS shallows: water does not wet them
+PASS a seed landing in the middle of the shallows plants nothing (0)
+PASS a seed landing at the shore plants only land tiles (6 planted, 0 on shallows)
+PASS natural spread never enters the shallows (1000 s next to a mature field)
+PASS standing in the shallows counts as being at the water (refill)
+PASS the start of the real map is not at the water
+PASS the safe zone starts mature (331 tiles)
+PASS safe-zone plants are fruitless: 0 producing tiles of 331 mature
+PASS 10 minutes next to the safe zone: no plant fruit is produced (total 0, most on the ground 0)
+PASS only the seed source's fruits lie around (3 <= 3); the start seed stock is 20
+PASS found an open 20 x 20 wasteland square at [P: (40, 40), S: (20, 20)]
+PASS a grown mature patch counts as producing (400 tiles)
+PASS a grown mature patch produces fruits around the player (28 in 60 s)
+PASS plant fruits drop only on producing tiles of the patch
+PASS clearing a ready-made tile clears its fruitless mark
+PASS the same tile grown back is a normal producing tile
+PASS producing counters equal a brute-force recount (401) and the chunk sum (401)
+PASS a save round trip keeps the fruitless marks and the producing count
+PASS an older save without the list derives it: every mature safe-zone tile is fruitless (even one that had regrown; the list is only a fallback)
+PASS the producer counts exactly the producing tiles within 160 px (400)
+PASS all three fruits are 4x4 sprites with 12 opaque pixels
+PASS the plant fruit is readable on every ground: at least 100 % of its pixels differ clearly (colour distance >= 0.28 or brightness >= 0.2) from the worst background ()
+PASS on mature green (and its half-transparent edges), at least 83 % of the plant fruit pixels also differ in brightness (not by hue alone)
+PASS the three fruits differ in colour: plant/source 0.38, plant/heal 0.32, source/heal 0.50
+PASS no pixel colour is shared between the plant fruit and the other two fruits
+PASS the plant fruit and the source fruit are different images
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS the scene wires the player to the world (feet rectangle (3.0, 2.0))
+PASS the player starts on clear ground
+PASS the injected D and S key events reach the move actions
+PASS injected D+S for 1 s in the open: 95.998 px travelled (96 wanted; the diagonal is not faster)
+PASS injected D: the player stops at the river bank on row 100 (x=981.000, wanted 981.000), never inside the water
+PASS injected D+S against the bank for 0.5 s: slid 33.94 px down (wanted 33.94), x moved 0.000
+PASS found a building tile on the real map at (98, 132)
+PASS injected A: the player stops at the building's east face (x=407.000, wanted 407.000)
+PASS injected D crosses each of the 4 fords (crossed 4) without entering the water
+PASS injected D three rows above the ford is stopped by the water (tile x 244, the ford starts at 245)
+PASS the real physics loop moves the held player: 45 ticks, 70.40 px (about 72.00)
+PASS while the tree is paused the held key moves nobody (20 physics frames)
+TEMPO_TABLE {"a":0.1,"b":0.1,"c":0.1,"minute":0}
+TEMPO_TABLE {"a":5.1,"b":0.6,"c":5.1,"minute":5}
+TEMPO_TABLE {"a":29.0,"b":1.4,"c":28.8,"minute":10}
+TEMPO_TABLE {"a":62.1,"b":2.5,"c":62.4,"minute":15}
+TEMPO_TABLE {"a":93.0,"b":3.8,"c":94.2,"minute":20}
+TEMPO_TABLE {"a":100.0,"b":5.3,"c":100.0,"minute":25}
+TEMPO_TABLE {"a":100.0,"b":7.0,"c":100.0,"minute":30}
+TEMPO_TABLE {"a":100.0,"b":8.9,"c":100.0,"minute":35}
+TEMPO_TABLE {"a":100.0,"b":11.0,"c":100.0,"minute":40}
+TEMPO_TABLE {"a":100.0,"b":13.3,"c":100.0,"minute":45}
+TEMPO_TABLE {"a":100.0,"b":15.6,"c":100.0,"minute":50}
+TEMPO_TABLE {"a":100.0,"b":18.3,"c":100.0,"minute":55}
+TEMPO_TABLE {"a":100.0,"b":21.0,"c":100.0,"minute":60}
+PASS (a) bot with carrots reaches 100 % of the walkable targets in 24.5 min (target window 20..35 min)
+PASS (a) ends with every walkable target greened (244202 of 244202) and consistent counters
+PASS (c) bot without carrots also finishes in the same order of time: 24.6 min
+PASS (a) planted 11 carrots, (c) none
+PASS (b) is at least twice as slow as (a): 25 % at 67.1 vs 9.4 min, 50 % at 143.0 vs 13.2 min
+PASS (b) never finishes: natural spread stops at the river (51.5 % after 180 min)
+PASS (b) when (a) has finished (24.5 min) has greened at most a quarter (3.8 %)
+PASS (a) seed stall: 84 s in total (5.7 % of the run), longest 8.8 s
+PASS (c) seed stall: 59 s in total, longest 11.4 s
+INFO {"bank_targets":{"east_all":109256,"east_reach":108891,"west_all":111592,"west_reach":111400},"farthest_no_standing_tiles":1,"fords":[[245,60,19,6],[245,200,27,6],[254,322,24,6],[251,432,24,6]],"frame_rate_path_worst_px":0.180014163255692,"frame_rate_plain_worst_px":0.000414383277529851,"map_counts":{"building":2295,"safe":331,"shallows":539,"shore":3234,"targets":244759,"wasteland":241194,"water":14551},"map_sha256":"95d86bef9bb715e45b1bf8b99df99f7a84416e19858cb60111171fe5e7153dd9","no_standing_targets":2692,"plant_fruit_brightness_fraction":{"mature":0.83,"safe ground":0.83,"safe mature edge":0.83,"shore ground":0.58,"shore mature edge":0.83,"sprout":0.58,"wasteland ground":0.83,"wasteland mature edge":0.83},"plant_fruit_readable_fraction":{"mature":1.0,"safe ground":1.0,"safe mature edge":1.0,"shore ground":1.0,"shore mature edge":1.0,"sprout":1.0,"wasteland ground":1.0,"wasteland mature edge":1.0},"standable_reach_targets":241510,"tempo":{"a_min":24.5,"b_percent_at_180":51.5,"c_min":24.57}}
+P1_06_RESULT checks=95 failures=0

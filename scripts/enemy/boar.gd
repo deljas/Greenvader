@@ -29,6 +29,8 @@ var blocked_steps: int = 0
 var window_steps: int = 0
 var window_pos: Vector2 = Vector2.ZERO
 var rng: int = 1
+## Hit flash: fixed steps left (0 = none).
+var flash_steps: int = 0
 
 func next_int(bound: int) -> int:
 	rng = (rng * 1103515245 + 12345) & 0x7FFFFFFF
@@ -38,7 +40,7 @@ func to_dict() -> Dictionary:
 	return {
 		"id": id, "nest_id": nest_id, "zone": zone, "pos": [pos.x, pos.y], "home": [home.x, home.y], "hp": hp, "facing": facing,
 		"mode": mode, "goal": ([] if goal == Vector2.INF else [goal.x, goal.y]), "goal_tile": goal_tile, "think": think, "gnaw_cooldown": gnaw_cooldown, "wait": wait,
-		"blocked_tile": blocked_tile, "blocked_steps": blocked_steps, "window_steps": window_steps, "window_pos": [window_pos.x, window_pos.y], "rng": rng,
+		"blocked_tile": blocked_tile, "blocked_steps": blocked_steps, "window_steps": window_steps, "window_pos": [window_pos.x, window_pos.y], "rng": rng, "flash": flash_steps,
 	}
 
 static func from_dict(data: Dictionary) -> Boar:
@@ -62,4 +64,5 @@ static func from_dict(data: Dictionary) -> Boar:
 	boar.window_steps = int(data["window_steps"])
 	boar.window_pos = Vector2(float(data["window_pos"][0]), float(data["window_pos"][1]))
 	boar.rng = int(data["rng"])
+	boar.flash_steps = maxi(int(data.get("flash", 0)), 0)
 	return boar

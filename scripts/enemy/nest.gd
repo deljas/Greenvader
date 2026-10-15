@@ -16,6 +16,8 @@ var spawn_steps: int = 0
 ## Boars spawned so far (picks the spawn position and the boar's random sequence) and boars alive from this nest.
 var spawned: int = 0
 var boar_count: int = 0
+## Hit flash: fixed steps left (0 = none).
+var flash_steps: int = 0
 
 func rect() -> Rect2i:
 	return Rect2i(tile.x, tile.y, size, size)
@@ -28,4 +30,4 @@ func center_px(tile_px: int) -> Vector2:
 	return (Vector2(tile) + Vector2(size, size) * 0.5) * tile_px
 
 func to_dict() -> Dictionary:
-	return {"id": id, "zone": zone, "x": tile.x, "y": tile.y, "size": size, "hp": hp, "hp_max": hp_max, "alive": alive, "spawn_steps": spawn_steps, "spawned": spawned}
+	return {"id": id, "zone": zone, "x": tile.x, "y": tile.y, "size": size, "hp": hp, "hp_max": hp_max, "alive": alive, "spawn_steps": spawn_steps, "spawned": spawned, "flash": flash_steps}

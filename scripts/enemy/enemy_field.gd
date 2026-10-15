@@ -16,6 +16,11 @@ extends RefCounted
 ## interval (WorldState.set_stage to empty: the greening counters follow, and the tile returns to the spread queue by itself).
 ## Without a target they wander around the nest. A boar that cannot get closer gives that plant up for a while.
 
+## A boar fell by a shot (P2-02): where, and its id. The pickups / view side listens (drops are not decided here).
+signal boar_defeated(position: Vector2, boar_id: int)
+## A nest was destroyed by a shot.
+signal nest_defeated(nest: Nest)
+
 const EPS: float = 1.0e-4
 
 var world: WorldState
@@ -24,6 +29,9 @@ var tile_px: int = 4
 var half: Vector2 = Vector2(5, 3)
 var nests: Array[Nest] = []
 var boars: Array[Boar] = []
+## Carcasses and bones, oldest first (P2-02).
+var carcasses: Array[Carcass] = []
+var next_carcass_id: int = 1
 var next_nest_id: int = 1
 var next_boar_id: int = 1
 var time: float = 0.0
@@ -33,6 +41,8 @@ var spawn_cursor: int = 0
 var total_spawned: int = 0
 var total_gnawed: int = 0
 var total_killed: int = 0
+var total_carcasses: int = 0
+var total_nests_destroyed: int = 0
 
 var _dt: float = 1.0 / 60.0
 var _speed_step: float = 0.0
@@ -43,6 +53,10 @@ var _gnaw_steps: int = 1
 var _wander_wait_steps: int = 1
 var _stuck_steps: int = 1
 var _blocked_steps: int = 1
+var _flash_steps: int = 1
+var _flash_toggle_steps: int = 1
+var _corpse_steps: int = 1
+var _bone_steps: int = 1
 var _cand_chunk: PackedInt32Array = PackedInt32Array()
 var _cand_dist: PackedFloat32Array = PackedFloat32Array()
 
@@ -61,6 +75,10 @@ func _init(world_state: WorldState, enemy_tuning: EnemyTuning, tile_size: int) -
 	_wander_wait_steps = _to_steps(tuning.wander_wait_seconds)
 	_stuck_steps = _to_steps(tuning.stuck_check_seconds)
 	_blocked_steps = _to_steps(tuning.blocked_seconds)
+	_flash_steps = _to_steps(tuning.hit_flash_seconds)
+	_flash_toggle_steps = _to_steps(tuning.hit_flash_toggle_seconds)
+	_corpse_steps = _to_steps(tuning.carcass_seconds)
+	_bone_steps = _to_steps(tuning.bone_seconds)
 
 func _to_steps(seconds: float) -> int:
 	return maxi(roundi(seconds * float(maxi(tuning.step_hz, 1))), 1)
@@ -131,8 +149,11 @@ func damage_nest(nest: Nest, amount: int) -> bool:
 		return false
 	nest.hp = maxi(nest.hp - amount, 0)
 	if nest.hp > 0:
+		nest.flash_steps = _flash_steps
 		return false
 	destroy_nest(nest)
+	total_nests_destroyed += 1
+	nest_defeated.emit(nest)
 	return true
 
 ## Removes a nest: its tiles are released (planting may take them), it stops spawning. Boars it spawned stay.
@@ -141,6 +162,7 @@ func destroy_nest(nest: Nest) -> void:
 		return
 	nest.alive = false
 	nest.hp = 0
+	nest.flash_steps = 0
 	world.release(nest.owner_id())
 
 ## Takes `amount` hit points from a boar; it is removed at 0. Returns true when it was killed by this call.
@@ -149,9 +171,12 @@ func damage_boar(boar: Boar, amount: int) -> bool:
 		return false
 	boar.hp = maxi(boar.hp - amount, 0)
 	if boar.hp > 0:
+		boar.flash_steps = _flash_steps
 		return false
 	remove_boar(boar)
 	total_killed += 1
+	add_carcass(boar.pos)
+	boar_defeated.emit(boar.pos, boar.id)
 	return true
 
 func remove_boar(boar: Boar) -> void:
@@ -250,6 +275,17 @@ func _step() -> void:
 	_spawn_step()
 	for boar: Boar in boars:
 		_boar_step(boar)
+		if boar.flash_steps > 0:
+			boar.flash_steps -= 1
+	for nest: Nest in nests:
+		if nest.flash_steps > 0:
+			nest.flash_steps -= 1
+	if not carcasses.is_empty():
+		_carcass_step()
+
+## True while the hit flash of a boar / nest (given its remaining flash steps) is in its bright half (view helper).
+func flash_bright(flash_steps: int) -> bool:
+	return flash_steps > 0 and ((flash_steps - 1) / _flash_toggle_steps) % 2 == 0
 
 # ---- spawning ---------------------------------------------------------------------------------------------
 
@@ -498,6 +534,100 @@ func _try_move(boar: Boar, motion: Vector2) -> Vector2:
 			return along_y
 	return boar.pos
 
+# ---- carcasses and bones (P2-02) --------------------------------------------------------------------------
+
+## Fertility one carcass adds on the tiles within its radius, by stage.
+func carcass_strength(carcass: Carcass) -> int:
+	return tuning.carcass_fertility if carcass.stage == Carcass.STAGE_CORPSE else tuning.bone_fertility
+
+## Tile indices whose centre lies within the carcass radius of `pos` (px).
+func carcass_tiles(pos: Vector2) -> PackedInt32Array:
+	var result: PackedInt32Array = PackedInt32Array()
+	var radius_px: float = tuning.carcass_radius_tiles * tile_px
+	var limit: float = radius_px * radius_px + 1.0e-6
+	for y: int in range(maxi(floori((pos.y - radius_px) / tile_px), 0), mini(floori((pos.y + radius_px) / tile_px), world.height - 1) + 1):
+		for x: int in range(maxi(floori((pos.x - radius_px) / tile_px), 0), mini(floori((pos.x + radius_px) / tile_px), world.width - 1) + 1):
+			if Vector2((x + 0.5) * tile_px, (y + 0.5) * tile_px).distance_squared_to(pos) <= limit:
+				result.append(world.index_of(x, y))
+	return result
+
+## The fertility the given carcasses add on tile `index`: the sum of their strengths, rounded down to the cap.
+func layer_of(list: Array[Carcass], index: int) -> int:
+	var centre: Vector2 = Vector2((index % world.width + 0.5) * tile_px, (index / world.width + 0.5) * tile_px)
+	var radius_px: float = tuning.carcass_radius_tiles * tile_px
+	var limit: float = radius_px * radius_px + 1.0e-6
+	var sum: int = 0
+	for carcass: Carcass in list:
+		if carcass.pos.distance_squared_to(centre) <= limit:
+			sum += carcass_strength(carcass)
+	return mini(sum, tuning.carcass_fertility_cap)
+
+func layer_at(index: int) -> int:
+	return layer_of(carcasses, index)
+
+func _layer_values(tiles: PackedInt32Array) -> PackedInt32Array:
+	var values: PackedInt32Array = PackedInt32Array()
+	values.resize(tiles.size())
+	for i: int in tiles.size():
+		values[i] = layer_at(tiles[i])
+	return values
+
+## Adds the change between the layer before (`old`) and now to the world's fertility of those tiles.
+func _apply_layer_delta(tiles: PackedInt32Array, old: PackedInt32Array) -> void:
+	for i: int in tiles.size():
+		var delta: int = layer_at(tiles[i]) - old[i]
+		if delta != 0:
+			world.fertility[tiles[i]] = clampi(int(world.fertility[tiles[i]]) + delta, 0, 255)
+
+## Leaves a carcass at `pos`. Over the limit the oldest one goes first (it passes through bone to nothing).
+func add_carcass(pos: Vector2) -> Carcass:
+	while carcasses.size() >= maxi(tuning.carcass_cap, 1):
+		_remove_carcass(carcasses[0])
+	var carcass: Carcass = Carcass.new()
+	carcass.id = next_carcass_id
+	carcass.pos = pos
+	next_carcass_id += 1
+	var tiles: PackedInt32Array = carcass_tiles(pos)
+	var old: PackedInt32Array = _layer_values(tiles)
+	carcasses.append(carcass)
+	_apply_layer_delta(tiles, old)
+	total_carcasses += 1
+	return carcass
+
+func _remove_carcass(carcass: Carcass) -> void:
+	var tiles: PackedInt32Array = carcass_tiles(carcass.pos)
+	var old: PackedInt32Array = _layer_values(tiles)
+	carcasses.erase(carcass)
+	_apply_layer_delta(tiles, old)
+
+func _carcass_step() -> void:
+	for carcass: Carcass in carcasses.duplicate():
+		carcass.age_steps += 1
+		if carcass.age_steps >= _corpse_steps + _bone_steps:
+			_remove_carcass(carcass)
+		elif carcass.age_steps >= _corpse_steps and carcass.stage == Carcass.STAGE_CORPSE:
+			var tiles: PackedInt32Array = carcass_tiles(carcass.pos)
+			var old: PackedInt32Array = _layer_values(tiles)
+			carcass.stage = Carcass.STAGE_BONE
+			_apply_layer_delta(tiles, old)
+
+## Every tile within the radius of any of the carcasses, once.
+func _covered_tiles(list: Array[Carcass]) -> Array[int]:
+	var seen: Dictionary = {}
+	for carcass: Carcass in list:
+		for index: int in carcass_tiles(carcass.pos):
+			seen[index] = true
+	var result: Array[int] = []
+	result.assign(seen.keys())
+	return result
+
+func carcass_count(stage: int) -> int:
+	var total: int = 0
+	for carcass: Carcass in carcasses:
+		if carcass.stage == stage:
+			total += 1
+	return total
+
 # ---- save structure ---------------------------------------------------------------------------------------
 
 func to_dict() -> Dictionary:
@@ -507,16 +637,23 @@ func to_dict() -> Dictionary:
 	var boar_list: Array = []
 	for boar: Boar in boars:
 		boar_list.append(boar.to_dict())
+	var carcass_list: Array = []
+	for carcass: Carcass in carcasses:
+		carcass_list.append(carcass.to_dict())
 	return {
 		"version": 1, "time": time, "steps_done": steps_done, "spawn_cursor": spawn_cursor,
 		"next_nest_id": next_nest_id, "next_boar_id": next_boar_id,
 		"total_spawned": total_spawned, "total_gnawed": total_gnawed, "total_killed": total_killed,
-		"nests": nest_list, "boars": boar_list,
+		"total_carcasses": total_carcasses, "total_nests_destroyed": total_nests_destroyed,
+		"nests": nest_list, "boars": boar_list, "carcasses": carcass_list, "next_carcass_id": next_carcass_id,
 	}
 
-## Restores the nests and boars onto a world that holds the matching occupancy (or can take it). False (state unchanged)
-## when the data does not fit the world.
-func load_dict(data: Dictionary) -> bool:
+## Restores the nests, boars and carcasses onto a world that holds the matching occupancy (or can take it). False (state
+## unchanged) when the data does not fit the world. The carcass fertility lives in WorldState.fertility, which the world's
+## own save holds: with `world_has_layer` (default) the world was restored from the same save and already contains it (this
+## is checked); without it the carcass fertility is added to the world's fertility here (a fresh world), and the fertility
+## of the carcasses that were present before the call is taken away.
+func load_dict(data: Dictionary, world_has_layer: bool = true) -> bool:
 	if int(data.get("version", 0)) != 1:
 		return false
 	var loaded_nests: Array[Nest] = []
@@ -535,6 +672,7 @@ func load_dict(data: Dictionary) -> bool:
 		nest.alive = bool(source.get("alive", false))
 		nest.spawn_steps = maxi(int(source.get("spawn_steps", 0)), 0)
 		nest.spawned = maxi(int(source.get("spawned", 0)), 0)
+		nest.flash_steps = maxi(int(source.get("flash", 0)), 0)
 		if nest.id <= 0 or seen.has(nest.id) or nest.zone < 0 or nest.zone >= world.zone_count or nest.size <= 0:
 			return false
 		if nest.alive != (nest.hp > 0):
@@ -552,6 +690,29 @@ func load_dict(data: Dictionary) -> bool:
 			return false
 		boar_ids[boar.id] = true
 		loaded_boars.append(boar)
+	var loaded_carcasses: Array[Carcass] = []
+	var carcass_ids: Dictionary = {}
+	var bounds_px: Rect2 = Rect2(Vector2.ZERO, Vector2(world.width, world.height) * tile_px)
+	for entry: Variant in data.get("carcasses", []):
+		if not (entry is Dictionary):
+			return false
+		var source: Dictionary = entry
+		var carcass: Carcass = Carcass.new()
+		carcass.id = int(source.get("id", 0))
+		carcass.pos = Vector2(float(source.get("x", -1.0)), float(source.get("y", -1.0)))
+		carcass.age_steps = maxi(int(source.get("age", 0)), 0)
+		if carcass.id <= 0 or carcass_ids.has(carcass.id) or not bounds_px.has_point(carcass.pos) or carcass.age_steps >= _corpse_steps + _bone_steps:
+			return false
+		carcass.stage = Carcass.STAGE_CORPSE if carcass.age_steps < _corpse_steps else Carcass.STAGE_BONE
+		carcass_ids[carcass.id] = true
+		loaded_carcasses.append(carcass)
+	if loaded_carcasses.size() > tuning.carcass_cap:
+		return false
+	if world_has_layer:
+		for carcass: Carcass in loaded_carcasses:
+			for index: int in carcass_tiles(carcass.pos):
+				if int(world.fertility[index]) < layer_of(loaded_carcasses, index):
+					return false
 	# Occupancy: every alive nest block must be this nest's own already, or free and takeable.
 	var backup: Array[Nest] = nests.duplicate()
 	for nest: Nest in backup:
@@ -579,6 +740,13 @@ func load_dict(data: Dictionary) -> bool:
 		return false
 	nests = loaded_nests
 	boars = loaded_boars
+	if not world_has_layer:
+		for index: int in _covered_tiles(carcasses):
+			world.fertility[index] = clampi(int(world.fertility[index]) - layer_at(index), 0, 255)
+	carcasses = loaded_carcasses
+	if not world_has_layer:
+		for index: int in _covered_tiles(carcasses):
+			world.fertility[index] = clampi(int(world.fertility[index]) + layer_at(index), 0, 255)
 	for nest: Nest in nests:
 		nest.boar_count = 0
 	for boar: Boar in boars:
@@ -597,4 +765,9 @@ func load_dict(data: Dictionary) -> bool:
 	total_spawned = maxi(int(data.get("total_spawned", 0)), 0)
 	total_gnawed = maxi(int(data.get("total_gnawed", 0)), 0)
 	total_killed = maxi(int(data.get("total_killed", 0)), 0)
+	total_carcasses = maxi(int(data.get("total_carcasses", 0)), 0)
+	total_nests_destroyed = maxi(int(data.get("total_nests_destroyed", 0)), 0)
+	next_carcass_id = maxi(int(data.get("next_carcass_id", 1)), 1)
+	for carcass: Carcass in carcasses:
+		next_carcass_id = maxi(next_carcass_id, carcass.id + 1)
 	return true

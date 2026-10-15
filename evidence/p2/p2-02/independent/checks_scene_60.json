@@ -1,0 +1,210 @@
+{
+  "hz": 60,
+  "observations": {
+    "bone_after_s": 60.0,
+    "disk_tiles": 47,
+    "flash_len": 0.25,
+    "gone_after_s": 100.0,
+    "kill_steps": 97
+  },
+  "results": [
+    {
+      "condition": "real scene wires the hit provider and combat",
+      "id": "wire",
+      "observed": "nests=15",
+      "status": "PASS"
+    },
+    {
+      "condition": "one seed shot takes exactly 1 HP from a boar (3 -> 2), costs 1 seed, no landing",
+      "id": "hit.seed1",
+      "observed": "hp=2 seeds 30->29 landings 0->0",
+      "status": "PASS"
+    },
+    {
+      "condition": "second shot: hp 1, still alive, still in field",
+      "id": "hit.seed2",
+      "observed": "hp=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "third seed shot kills the boar (exactly 3 hits), leaves 1 carcass",
+      "id": "kill.boar3",
+      "observed": "carcasses=1 killed=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "boar drops 2 seed fruits",
+      "id": "kill.drop2",
+      "observed": "dropped=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking over the fruit adds seeds (+2) and clears them",
+      "id": "kill.collect",
+      "observed": "seeds 28 -> 29 (kill shot spent 1)",
+      "status": "PASS"
+    },
+    {
+      "condition": "water shot passes through a boar (hp 3, no enemy hit, water spent)",
+      "id": "hit.water",
+      "observed": "hp=3 hits 3->3 water 100.0->90.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "cultivated plant shot is stopped by the boar: hp unchanged, no planting, held seeds back",
+      "id": "hit.plant",
+      "observed": "key=carrot hp=3 seeds 30->30 reserved=0 plant_landings 0->0",
+      "status": "PASS"
+    },
+    {
+      "condition": "two boars in a row: only the first one is hit",
+      "id": "hit.first",
+      "observed": "near=2 far=3",
+      "status": "PASS"
+    },
+    {
+      "condition": "carcass adds +40 on exactly the tiles within 4 tiles (brute force), nothing elsewhere",
+      "id": "carcass.disk",
+      "observed": "disk tiles=47 changed=47",
+      "status": "PASS"
+    },
+    {
+      "condition": "tile in disk grows faster by 1+0.5*f/100 ratio (6 s, same moisture)",
+      "id": "carcass.growth",
+      "observed": "growth in=28008 out=23340 ratio=1.200 expected 1.200 (fert in=40 out=0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "Esc: 20 s paused leaves carcass age unchanged",
+      "id": "pause.freeze",
+      "observed": "paused=true age 502 -> 502",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resume ~1 s of game time passes, no lump sum (age +60 +-6 steps)",
+      "id": "pause.nobank",
+      "observed": "age +60 steps in 1 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "corpse turns to bone 60 s after the kill (+-0.1 s), fertility +40 -> +20",
+      "id": "timeline.bone",
+      "observed": "bone at 60.000 s, fert 40 -> 20",
+      "status": "PASS"
+    },
+    {
+      "condition": "bone vanishes 100 s after the kill (+-0.1 s) and fertility returns to the original",
+      "id": "timeline.gone",
+      "observed": "gone at 100.000 s, delta 0, whole map equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "non-lethal hit flashes for 0.25 s (+-0.07)",
+      "id": "flash",
+      "observed": "flash length 0.250 s (measured from hp drop)",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant limit leaves the sources' reserved slots: plant_cap + sources*3 <= total",
+      "id": "slots.reservation_math",
+      "observed": "plant_cap=20 sources=1 total=24",
+      "status": "PASS"
+    },
+    {
+      "condition": "FACT (not a pass/fail)",
+      "id": "slots.near_cap",
+      "observed": "plant-owned fruits at cap-1 (19): boar reward = 1 of 2",
+      "status": "FACT"
+    },
+    {
+      "condition": "FACT (not a pass/fail)",
+      "id": "slots.at_cap",
+      "observed": "plant-owned fruits at cap (20): boar reward = 0 of 2; boar still dies=true",
+      "status": "FACT"
+    },
+    {
+      "condition": "plant-owned fruits never exceed plant_cap; boar dies anyway",
+      "id": "slots.never_over",
+      "observed": "plant-owned=20 cap=20",
+      "status": "PASS"
+    },
+    {
+      "condition": "with plant-owned at cap a seed source can still drop a fruit (reservation kept)",
+      "id": "slots.sources_keep_room",
+      "observed": "source spawn accepted=true items=21/24",
+      "status": "PASS"
+    },
+    {
+      "condition": "25 kills leave 24 carcasses; the oldest vanished; fertility = exactly the other 24 disks",
+      "id": "cap.24",
+      "observed": "carcasses=24 oldest_gone=true array_equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "removing all returns fertility to the original",
+      "id": "cap.restore",
+      "observed": "equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "overlapping carcasses add up but cap at +60: 40, 60, 60",
+      "id": "cap.overlap",
+      "observed": "[40, 60, 60]",
+      "status": "PASS"
+    },
+    {
+      "condition": "after the overlap goes, fertility is back",
+      "id": "cap.overlap_restore",
+      "observed": "equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "load_dict(data, true) on a world restored from the same save reproduces carcasses",
+      "id": "save.with_layer",
+      "observed": "ok=true n=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "load_dict(data,false) on a fresh world adds the layer (== live world); load_dict(data,true) on a world without layer is refused",
+      "id": "save.without_layer",
+      "observed": "ok=true equal=true refused_true_on_bare_world=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "restored fields keep aging identically and fertility returns to base",
+      "id": "save.continue",
+      "observed": "e=0 e2=0 e3=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "19 seed hits leave the nest alive (hp 1); the 20th destroys it; hit shots never land",
+      "id": "nest.20hits",
+      "observed": "hp after 19 = 1 alive=true; after 20 alive=false; landings 0->0; seeds left 20",
+      "status": "PASS"
+    },
+    {
+      "condition": "nest drops 4 seed fruits",
+      "id": "nest.drop4",
+      "observed": "dropped=4",
+      "status": "PASS"
+    },
+    {
+      "condition": "destroyed nest releases its tiles (before: not plantable; after: occupant 0)",
+      "id": "nest.release",
+      "observed": "blocked_before=true free_after=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "seeds landing on the cleared nest ground can be planted",
+      "id": "nest.plantable",
+      "observed": "planted tiles=16 (before sum 0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "destroyed nest stops spawning (40 s, others keep spawning as control)",
+      "id": "nest.no_spawn",
+      "observed": "nest.spawned 0->0, others total 9->49",
+      "status": "PASS"
+    }
+  ]
+}

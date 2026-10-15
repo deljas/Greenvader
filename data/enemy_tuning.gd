@@ -53,3 +53,34 @@ extends Resource
 ## Radius (px) of the circle around the boar body that shots hit (P2-02 uses it) and the body's centre height above the feet.
 @export var hit_radius_px: float = 8.0
 @export var hit_center_height_px: float = 6.0
+
+@export_group("Combat (P2-02)")
+## Hit points a shot takes away. A seed shot hurts; a cultivated plant shot (carrot / kiwi) is stopped by the enemy but
+## does no damage by default (its held-back seeds go back to the player). Water shots pass through enemies unless this is on.
+@export var seed_damage: int = 1
+@export var plant_shot_damage: int = 0
+@export var water_hits_enemies: bool = false
+## A hit that does not kill makes the boar / nest flash for this long; the flash toggles every flash_toggle_seconds.
+@export var hit_flash_seconds: float = 0.25
+@export var hit_flash_toggle_seconds: float = 0.05
+## Seed fruits dropped on defeat (as many as the ground pickup rules leave room for) and where they lie around the spot (px).
+@export var boar_drop_fruits: int = 2
+@export var nest_drop_fruits: int = 4
+@export var drop_radius_min_px: float = 3.0
+@export var drop_radius_max_px: float = 8.0
+@export var drop_fruit_lifetime_seconds: float = 60.0
+
+@export_group("Carcass and bones (P2-02)")
+## A defeated boar leaves a carcass; it raises the fertility of every tile whose centre is within this radius (tiles).
+@export var carcass_radius_tiles: float = 4.0
+## Carcass stage, then bone stage, then it vanishes (game seconds).
+@export var carcass_seconds: float = 60.0
+@export var bone_seconds: float = 40.0
+## Fertility (WorldState.fertility byte, GrowthSim: factor 1 + bonus * fertility / fertility_max) a carcass / bone adds.
+## When the carcass becomes bone the effect drops to the bone value; when the bone vanishes it is taken away completely.
+@export var carcass_fertility: int = 40
+@export var bone_fertility: int = 20
+## Overlapping carcasses add up but never beyond this (carcass effect per tile).
+@export var carcass_fertility_cap: int = 60
+## Carcasses and bones together; beyond it the oldest one goes (through bone) to nothing.
+@export var carcass_cap: int = 24
