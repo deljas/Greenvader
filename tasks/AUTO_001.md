@@ -7,7 +7,7 @@
 - 担当ツール: claude
 - 担当セッション: claude-20261014-auto（Claude Code session_01CcCWPY1pjxhCvM9gKR1cNV）
 - 更新日: 2026-10-14
-- 予約中の編集範囲: tasks/AUTO_001.md、tasks/P1.md〜P5.md（分割案の追記のみ）、tasks/P1_01.md〜P1_06.md（新規）、tasks/README.md（索引）
+- 予約中の編集範囲: docs/STATUS.md・DECISIONS.md・VALIDATION.md・BACKLOG.md・ASSETS.md（段階の区切りの記録。親とgreen-documenterのみ）、tasks/AUTO_001.md、tasks/P1.md〜P5.md（分割案の追記のみ）、tasks/P1_01.md〜P1_06.md（新規）、tasks/README.md（索引）
 - 予約中の共有資源: なし（計画のみ。ゲームファイル・Godotは使わない）
 - 最終担当: なし
 - 取得時の基準: 共有 `C:/godot/greenvader`、`master` `ce3cb15`、未コミット差分なし。
