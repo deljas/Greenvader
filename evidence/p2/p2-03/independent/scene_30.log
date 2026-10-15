@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [start] hp full 10 at start :: start=(738.0, 754.0) hp=10
+PASS [setup.cultivated] cultivated plants placed for the roll-back check :: placed=1
+PASS [setup.spot] found an open spot away from start :: P=(738.0, 354.0)
+PASS [dmg.no_touch] no contact, no damage :: hp=10
+PASS [dmg.contact2] contact takes exactly 2 HP (10 -> 8) :: hp=8 hits=[2]
+PASS [dmg.knockback] pushed 12 px (10.5..13.5) roughly away from the boar :: moved=12.00 dot=1.000
+PASS [dmg.invuln_nostack] continuous contact for ~1.1 s after a hit: no second hit :: hits=1 hp=8
+PASS [dmg.second] second hit after invuln ends (hp 6) :: hits=2 hp=6
+PASS [dmg.interval] interval between contact hits is 1.2 s (+-0.05) :: interval=1.2000
+PASS [pause.invuln] Esc freezes invulnerability + health time (4 s) :: paused=true invuln 53->53 time 2.500->2.500 hp=6
+PASS [pause.nobank] after resume invuln dropped < 0.2 s of steps (no lump sum) :: invuln 53->49
+PASS [dmg.third] third hit (hp 4) :: hp=4
+PASS [down.enter] a contact hit at HP 2 downs the player (hp 0) :: downed=true hp=0
+PASS [down.locked] downed: move + fire inputs do nothing (position kept, no shot, seeds kept, water not spent) :: moved=0.00 shots_empty=true seeds 25->25 water 60.0->60.0
+PASS [down.no_pickup] downed: fruits under the player not collected, hp stays 0 :: items=2 hp=0
+PASS [pause.downed] Esc freezes the downed timer (3 s) :: downed_steps 41 -> 41
+PASS [down.length] lying phase lasts 1.5 s of game time (+-0.05; pause excluded) :: len=1.5000
+PASS [down.world_runs] world kept running while downed (enemy time and production time advanced ~1.5 s) :: enemy dt=1.500 production dt=1.500
+PASS [revive.state] return: at start position, HP full 10, invulnerable 2.0 s (120 steps) :: pos=(738.0, 754.0) start=(738.0, 754.0) hp=10 inv=120
+PASS [keep.seeds_water] seeds exactly kept; water kept (>= before, not reset) :: seeds 25->25 water 60.00->60.00
+PASS [keep.plants_green] plants/greening not rolled back: no tile regressed, greened >= before, zone counters >= before, targets equal :: regressed tiles=0 greened 331->331 zg_equal=true
+PASS [keep.zones_nests_cult] zone state, nests (alive/hp), cultivated plants, carcasses, boars, kills, fertility identical :: zs=true nests=true cult=true carc=0 boars=1
+PASS [keep.cult_count] cultivated plants placed earlier are still in the save structure :: placed=1 cult_json_len=22
+PASS [revive.invuln] no damage for 2.0 s after the return (first hit 2.0 +-0.1 s after it), hp 8 after :: first hit 2.0000 s after return, hp=8
+PASS [knock.wall] knockback toward a wall: feet never inside water/building; moved < 5 px toward it :: hit=true violations=0 max dx=3.00 W=(966.0, 34.0)
+PASS [drop.caps] pickup caps: total 35, plant 20, enemy 12 :: total=35 plant=20 enemy=12
+PASS [drop.real_kill_plant_full] plant fruits at cap 20: killing a boar with shots still drops 2 seed fruits :: boar gone=true hp=0 drops=2 plant_owned=20 seeds=17 sel=normal player=(314.0, 242.0) boar=(354.0, 242.0) shots=0
+PASS [drop.collect] walking over them gives +2 seeds :: seeds 17->19
+PASS [drop.full_slot_refuse] 13th enemy fruit refused on the ground :: enemy=12
+PASS [drop.source_reserve] plants 20 + enemies 12 full: a source still gets 3 slots (4th refused, total 35) :: source accepted=3 total=35
+PASS [drop.heal_budget] healing fruit still spawns with every seed slot full :: heal items=1
+PASS [drop.direct] enemy slot full: kill credits +2 seeds directly (no new ground fruit) :: seeds 10->12 ground 35->35
+PASS [drop.direct_cap] pouch 39/40: +1 only, the rest lost :: seeds=40 lost 0->1
+PASS [save.invuln] round trip (not downed): hp, seeds, water, remaining invulnerability restored :: hp=4 seeds=40 inv 54->54
+PASS [save.downed] save taken while downed restores as returned: not downed, hp full, ~2 s invuln, at start, seeds kept :: was_down=true hp=10 inv=116 pos=(738.0, 754.0) seeds=40
+PASS [save.stable] to_dict -> JSON -> load_dict -> to_dict keeps the health block :: round-trip equal
+PASS [save.old] older save without the health block loads, not downed :: ok=true
+RESULT scene hz=30 checks=37 failures=0

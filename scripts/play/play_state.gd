@@ -35,6 +35,14 @@ var waterside_by_terrain: PackedByteArray = PackedByteArray()
 ## Hit points of the player (P1-05). Damage itself is P2; damage_player() is the entry for it, tests and the debug tools.
 var hp: int = 10
 var hp_max: int = 10
+## Contact damage, invulnerability, being downed and the return to the start (P2-03). Time runs inside advance().
+var health: PlayerHealth
+## Where the contact damage comes from (null = nothing hurts the player). Set by the composition root.
+var enemies: EnemyField
+## Observability of the enemy drops (P2-03): seeds credited directly because the enemy slot was full, and the part lost above the cap.
+var enemy_direct_seeds: int = 0
+var enemy_lost_seeds: int = 0
+var last_drop_direct_seeds: int = 0
 ## Cultivated plants (carrot, kiwi) and the plant kinds the player can choose between (the region's plant list in
 ## its order; index 0 is the ordinary plant that is planted by seed scatter).
 var cultivation: Cultivation
@@ -61,6 +69,7 @@ func _init(world_state: WorldState, play_tuning: PlayTuning, simulation_tuning: 
 	producer = PlantProducer.new(world, tuning, tile_px)
 	hp_max = maxi(tuning.hp_max, 1)
 	hp = clampi(tuning.hp_start, 0, hp_max)
+	health = PlayerHealth.new(tuning)
 	selectable = plant_defs.duplicate()
 	if selectable.is_empty() or selectable[0].is_cultivated():
 		var normal: PlantDef = PlantDef.new()
@@ -73,12 +82,14 @@ func _init(world_state: WorldState, play_tuning: PlayTuning, simulation_tuning: 
 	for def: TerrainDef in world.terrain_defs:
 		waterside_by_terrain[def.id] = 1 if def.is_waterside else 0
 
-## Pickup container with the plant limit that keeps the seed sources' slots free:
-## plants may use at most min(plant_fruit_cap, total - sources * source_fruit_cap) of the region-wide total.
+## Pickup container with separate slots (P2-03): seed sources keep sources * source_fruit_cap of the region-wide total, defeated
+## enemies may use enemy_fruit_cap of it and plants plant_fruit_cap (each reduced only when the total is too small), so no kind
+## crowds out another. Healing fruits have their own budget.
 func _new_pickups() -> GroundPickups:
 	var reserved: int = sources.size() * tuning.source_fruit_cap
-	var plant_limit: int = clampi(mini(tuning.plant_fruit_cap, tuning.pickup_total_cap - reserved), 0, tuning.pickup_total_cap)
-	return GroundPickups.new(tuning.pickup_total_cap, tuning.pickup_lifetime_seconds, plant_limit, tuning.plant_fruit_lifetime_seconds, tuning.heal_fruit_total_cap, tuning.heal_fruit_lifetime_seconds)
+	var enemy_limit: int = clampi(mini(tuning.enemy_fruit_cap, tuning.pickup_total_cap - reserved), 0, tuning.pickup_total_cap)
+	var plant_limit: int = clampi(mini(tuning.plant_fruit_cap, tuning.pickup_total_cap - reserved - enemy_limit), 0, tuning.pickup_total_cap)
+	return GroundPickups.new(tuning.pickup_total_cap, tuning.pickup_lifetime_seconds, plant_limit, tuning.plant_fruit_lifetime_seconds, tuning.heal_fruit_total_cap, tuning.heal_fruit_lifetime_seconds, enemy_limit)
 
 # ---- resources -----------------------------------------------------------------------------
 
@@ -200,11 +211,13 @@ func land_plant(key: StringName, point: Vector2) -> CultivatedPlant:
 # ---- enemy drops (P2-02) ----------------------------------------------------------------------
 
 ## Drops up to `count` seed fruits around `center` for a defeated enemy (owner `owner_id` >= GroundPickups.ENEMY_OWNER_BASE).
-## The ground pickup rules decide how many fit (total cap, and the plant limit that keeps the seed sources' slots free): the
-## rest is simply not dropped. Positions are a fixed sequence (golden-angle spiral from the owner id), moved to the centre
-## when a spot is not walkable. Returns how many were dropped.
+## Enemy drops have their own slot (enemy_fruit_cap), so plant fruits and the seed sources' reservation never take it. When the
+## slot is full, the fruits that do not fit are not lost: their seeds go straight into the player's pouch (seed_fruit_seeds each,
+## anything above seed_max is lost). Positions are a fixed sequence (golden-angle spiral from the owner id), moved to the centre
+## when a spot is not walkable. Returns how many fruits were dropped on the ground.
 func drop_enemy_fruits(center: Vector2, count: int, owner_id: int, radius_min: float, radius_max: float, life: float) -> int:
 	var dropped: int = 0
+	last_drop_direct_seeds = 0
 	for k: int in count:
 		var angle: float = TAU * fposmod(float(k) * 0.381966 + float(owner_id % 97) * 0.137, 1.0)
 		var radius: float = lerpf(radius_min, radius_max, fposmod(float(k) * 0.618034 + 0.25, 1.0))
@@ -212,6 +225,10 @@ func drop_enemy_fruits(center: Vector2, count: int, owner_id: int, radius_min: f
 		if not Walker.is_clear(world, tile_px, point, Vector2(1.0, 1.0)):
 			point = center
 		if not pickups.spawn(GroundPickups.KIND_SEED_FRUIT, point, owner_id, life):
+			var credit: int = (count - k) * tuning.seed_fruit_seeds
+			last_drop_direct_seeds = add_seeds(credit)
+			enemy_direct_seeds += last_drop_direct_seeds
+			enemy_lost_seeds += credit - last_drop_direct_seeds
 			break
 		dropped += 1
 	return dropped
@@ -265,8 +282,14 @@ func advance(delta: float, player_position: Vector2) -> void:
 		producer.produce(pickups, player_position)
 	pickups.advance(delta)
 	pickups.collect(player_position, tuning.pickup_collect_radius_px, _accept_pickup)
+	# Last: a return to the start (revived signal) happens after this tick's pickup collection at the old position, which the downed state
+	# still blocked; the next tick uses the new position.
+	health.advance(delta, self, player_position, enemies)
 
 func _accept_pickup(item: Dictionary) -> bool:
+	# A downed player cannot pick anything up (and must not be healed by a fruit lying there).
+	if health.downed:
+		return false
 	if String(item["kind"]) == GroundPickups.KIND_HEAL_FRUIT:
 		if hp >= hp_max:
 			return false
@@ -293,6 +316,8 @@ func to_dict() -> Dictionary:
 		"sources": source_list,
 		"production": {"time": production_time, "ticks": production_ticks, "producer": producer.to_dict()},
 		"hp": hp,
+		"health": health.to_dict(),
+		"enemy_drops": {"direct": enemy_direct_seeds, "lost": enemy_lost_seeds},
 		"cultivated": cultivation.to_dict(),
 		"selected": String(selected_def().key),
 	}
@@ -330,10 +355,15 @@ func load_dict(data: Dictionary) -> bool:
 	production_ticks = maxi(int(production.get("ticks", 0)), 0)
 	producer.load_dict(production.get("producer", {}))
 	hp = clampi(int(data.get("hp", hp_max)), 0, hp_max)
+	var drops: Dictionary = data.get("enemy_drops", {})
+	enemy_direct_seeds = maxi(int(drops.get("direct", 0)), 0)
+	enemy_lost_seeds = maxi(int(drops.get("lost", 0)), 0)
 	var loaded_def: PlantDef = def_by_key(StringName(String(data.get("selected", "normal"))))
 	selected_index = selectable.find(loaded_def) if loaded_def != null else 0
 	reserved_seeds = 0
 	inflight = {}
+	# The damage state last: a save taken while downed returns the player to the start (see PlayerHealth.load_dict).
+	health.load_dict(data.get("health", {}), self)
 	seeds_changed.emit(seeds)
 	water_changed.emit(water)
 	hp_changed.emit(hp)

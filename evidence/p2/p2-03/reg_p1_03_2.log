@@ -1,0 +1,111 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region, sim tuning and play tuning load
+PASS tuning: growth tick every 0.5 s
+PASS tuning: moisture factor has a positive floor and rises with moisture
+PASS tuning: stage thresholds rise in order
+PASS tuning: 120 base ticks to mature (60 s dry) and wet speed is twice the dry speed
+PASS tuning: moisture 0..100 falling 1 per 0.5 s tick (2 per second)
+PASS tuning: production every 2 s within 160 px, at most 3 per tick
+PASS tuning: plant fruits capped at 20 with a lifetime; the rest of the total keeps the source's 3 slots
+PASS no water at all: the seed still becomes mature, after 60 s (60.00 s)
+PASS full moisture: mature after 30 s (30.00 s)
+PASS half moisture (speed factor 1.5): mature after 40 s (40.00 s)
+PASS the more water, the sooner mature (30.0 < 40.0 < 60.0 s)
+PASS dry / wet time ratio equals the speed ratio 2.0 (2.000)
+PASS dry stages arrive at one third, two thirds, full (sprout 1 20.0 s, sprout 2 40.0 s)
+PASS stages come in order seed -> sprout 1 -> sprout 2 -> mature
+PASS a single splash (100) that dries out: mature at about 37.0 s (observed 37.00 s), between 30 s and 60 s
+PASS fertility 100 (factor 1.5, expected 40 s): not mature yet at 39 s
+PASS fertility 100: mature at 41 s, while the half-lit tile (sunlight hook 0.5, expected 120 s) is not
+PASS sunlight hook 0.5: still growing at 119 s
+PASS sunlight hook 0.5: mature at 121 s (twice as slow)
+PASS growth speed floor stays positive: +3 in 3 ticks even with factor 0
+PASS moisture factor 1.0 / 1.5 / 2.0 at 0 / 50 / 100; sunlight factor is 1 without a provider
+PASS seeds alone do not count as greened
+PASS greening count rises at the sprout 1 tick (tick 40 = 20 s), not before
+PASS the differential counters equal a full recount after every one of 130 ticks
+PASS three plants end at mature: greened 3 (a mature plant still counts once)
+PASS greened count was 0 throughout the seed phase
+PASS greened count at ticks 39/40/79/80/119/120 is 0/1/1/1/1/1 [0, 1, 1, 1, 1, 1]
+PASS moisture falls 2 per second: 100 -> 98 after 1 s, 90 after 5 s, 50 after 25 s, 0 after 50 s and never below 0 { 2: 98, 10: 90, 50: 50, 100: 0, 101: 0, 110: 0 }
+PASS a dried bare tile leaves the active set
+PASS moisture 3 -> 1 after two ticks (no underflow of the byte)
+PASS moisture 1 -> 0 clamps at 0
+PASS water tiles cannot hold moisture
+PASS an empty map has an empty active set
+PASS a tick on a 512x512 map with nothing growing visits 0 tiles (not 262144)
+PASS 3 growing or wet tiles -> exactly 3 tiles visited (3)
+PASS the active set equals the brute-force set of growing or wet tiles
+PASS after seed and water landings the active set is exact (27 tiles)
+PASS water and building tiles never enter the active set
+PASS the active set matched the brute-force set every 10 s over 160 s
+PASS when all plants are mature and dry, the active set is empty again
+PASS 70x50 tiles -> 5x4 chunks of 16 tiles
+PASS per-chunk mature counts equal a brute-force recount after 600 random stage changes
+PASS the chunk-based count of mature tiles within a radius equals brute force for 60 random circles 
+PASS tile_at(0..count-1) lists each of the 1841 mature tiles in range exactly once
+PASS all-mature map: the circle count equals brute force
+PASS no mature tile within 160 px of the player: 0 fruits in 2000 production ticks (the mature field is 200+ px away)
+PASS seeds and sprouts produce nothing: 0 fruits in 2000 ticks
+PASS fruits grow with the mature area: 16 / 64 / 256 tiles gave [147, 611, 2511] in 4000 ticks (expected [160.0, 640.0, 2560.0])
+PASS a huge mature field produces the per-tick maximum of 3 and never more (max 3)
+PASS every fruit lies on a mature tile within 160 px of the player and is owned by 1000000 + tile index
+PASS production is deterministic: two identical runs drop identical fruits (167)
+PASS pool: 40 plant fruits offered, only 21 (plant cap) are accepted
+PASS pool: the seed source still gets its 3 slots while plants are saturated (got 3), total 24
+PASS pool: nothing expires before the lifetime
+PASS pool: plant fruits live 45 s (shorter than the source's 60 s), then the source fruits remain
+PASS plant fruits fill up to 20 on the ground and never exceed it (max 20)
+PASS the region-wide total never exceeds 24 (max 23)
+PASS with 20 plant fruits lying around, the seed source still drops all 3 of its fruits (max 3, both at once: true)
+PASS no plant fruit is older than its lifetime (oldest 26.0 s)
+PASS zero seeds, plants saturated: the source's fruits (3) are on the ground for the player to collect
+PASS standing at the source fruit collects a seed from zero (seeds 1)
+PASS a plant fruit is collected like any seed fruit: +1 seed
+PASS with a full pouch the plant fruit stays
+PASS a single mature tile holds one fruit at a time, even at a huge rate (1)
+PASS same game time at 30 / 60 / 144 Hz: stage, moisture and growth identical at 15, 30, 45 and 60 s
+PASS greened, mature and tick counts equal at all rates { 30: [363, 363, 120], 60: [363, 363, 120], 144: [363, 363, 120] }
+PASS 30 production ticks in 60 s at every frame rate { 30: [30, 40], 60: [30, 40], 144: [30, 40] }
+PASS the same number of fruits at 30 / 60 / 144 Hz (40)
+PASS the grown world restores from JSON with consistent counters
+PASS growth amounts, moisture and stages survive to_dict / JSON / from_dict
+PASS the rebuilt active set equals the original set (386 tiles)
+PASS mature chunk counts are rebuilt identically
+PASS the clock phase is restored
+PASS original and restored worlds stay identical over 40 more seconds
+PASS production state also survives the JSON text form
+PASS production state (ticks, time) loads back
+PASS the restored production continues exactly like the original over 20 s
+PASS 10,000 growing tiles: median growth tick 2.89 ms, worst 4.08 ms
+PASS the tick visited exactly the 10,000 growing tiles, not the 262,144 of the map (dry steady tick 2.54 ms)
+PASS 10,000 tiles change stage in one tick (17.57 ms) and all end mature and out of the active set
+PASS an idle 512x512 map: tick visits 0 tiles (0.002 ms)
+PASS fully mature map (262,144 tiles): the production tick counted 5034 tiles in range, equal to brute force
+PASS fully mature map: production tick median 0.60 ms, worst 0.68 ms
+PASS 262,144 mature tiles: counters equal a recount
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS scene: the simulation driver owns the growth tick (0.5 s clock)
+PASS scene: found a 20x20 open wasteland block at tile (40, 46)
+PASS scene: four injected left clicks cost four seeds
+PASS scene: the four landings planted 21 seed tiles
+PASS scene: placed seeds do not count as greened (greened 331)
+PASS scene: 1.5 s after landing every planted tile is still a seed
+PASS scene: sprout 1 after about 20 s (20.0 s) and sprout 2 after about 40 s (40.0 s) of game time without water
+PASS scene: first mature plant after about 60 s of game time (60.0 s)
+PASS scene: the greened count grew exactly with the planted tiles at sprout 1 or later, the counters matched a recount every frame
+PASS scene: all 21 planted tiles are mature
+PASS scene: greened count rose by 21 (planted tiles)
+PASS scene: a mature plant dropped a seed fruit (64.2 s after landing)
+PASS scene: the fruit belongs to one of the mature planted tiles
+PASS scene: the fruit lies on the ground, not yet collected (seeds 0)
+PASS scene: standing next to the fruit collects it automatically (seeds 1)
+PASS scene: the collected seed is fired again: seed -> sprout -> mature -> fruit -> collection -> shot is a closed loop
+PASS scene: Esc through the input pipeline pauses
+PASS scene: 1.5 s of pause: sim clock, growth amount, moisture, production ticks and fruit ages do not move true
+PASS scene: the water shot wetted the new plant (moisture 39) so that decay would show
+PASS scene: Esc resumes
+PASS scene: after resume only the frames since resume count (0.133 s, not the 1.5 s pause)
+PERF {"fill_262k_mature_ms":430.0,"growth_tick_10k_dry_all_change_stage_ms":17.57,"growth_tick_10k_dry_all_change_stage_tiles":10000,"growth_tick_10k_dry_steady_median_ms":2.54,"growth_tick_10k_max_ms":4.08,"growth_tick_10k_median_ms":2.89,"growth_tick_idle_median_ms":0.0,"production_tick_full_map_max_ms":0.68,"production_tick_full_map_median_ms":0.6}
+P1_03_RESULT checks=106 failures=0

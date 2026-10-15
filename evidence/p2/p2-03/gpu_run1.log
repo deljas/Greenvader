@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(1280, 720)
+PASS the player is hurt (HP 8)
+PASS dim half of the flicker (alpha 0.30), HUD HP 8/10
+GPU_INFO camera_center=(695.0, 390.0) player=(695.0, 390.0) screen=(320.0, 180.0) hp_text=HP 8/10
+PASS hit_dim: internal frame is 640x360
+GPU_INFO hit_dim printwindow pid=48948 frames_waited=59 code=0
+PASS hit_dim: window image is real content (77 distinct colours)
+PASS hit_dim: every 2x2 block of the window image is one colour (non-uniform blocks: 0)
+PASS hit_dim: each block equals the internal-frame pixel (mismatching blocks: 0 of 230400)
+PASS bright half of the flicker
+PASS hit_bright: internal frame is 640x360
+GPU_INFO hit_bright printwindow pid=50424 frames_waited=56 code=0
+PASS hit_bright: window image is real content (68 distinct colours)
+PASS hit_bright: every 2x2 block of the window image is one colour (non-uniform blocks: 0)
+PASS hit_bright: each block equals the internal-frame pixel (mismatching blocks: 0 of 230400)
+PASS downed: lying flower, message panel, HUD HP 0/10
+PASS downed: internal frame is 640x360
+GPU_INFO downed printwindow pid=50072 frames_waited=56 code=0
+PASS downed: window image is real content (80 distinct colours)
+PASS downed: every 2x2 block of the window image is one colour (non-uniform blocks: 0)
+PASS downed: each block equals the internal-frame pixel (mismatching blocks: 0 of 230400)
+GPU_INFO renderer=forward_plus screens=3 window_screen=1 window_pos=(2236, 156) window_size=(1280, 720)
+P2_03_GPU_RESULT failures=0

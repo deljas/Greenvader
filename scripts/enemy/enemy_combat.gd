@@ -3,8 +3,8 @@ extends RefCounted
 ## Connects shots, enemies and drops (P2-02). Display-free.
 ##   hit_provider -> ProjectileField.enemy_hit_provider (first enemy shape on the shot's path; water passes through)
 ##   on_enemy_hit -> ProjectileField.enemy_hit (damage by shot kind)
-## Defeat rewards: a defeated boar / nest drops seed fruits through PlayState.drop_enemy_fruits (as many as the pickup rules
-## leave room for). The carcass of a boar is made by EnemyField itself.
+## Defeat rewards: a defeated boar / nest drops seed fruits through PlayState.drop_enemy_fruits (into the enemy slot of the ground
+## pickups; what does not fit there is added to the player's seeds directly). The carcass of a boar is made by EnemyField itself.
 
 var enemies: EnemyField
 var play: PlayState
@@ -12,7 +12,11 @@ var tuning: EnemyTuning
 ## Observability for tests.
 var hits: int = 0
 var fruits_dropped: int = 0
+## Fruits that fit neither on the ground (enemy slot full) nor into the seed pouch (pouch full): lost.
 var fruits_refused: int = 0
+## Fruits whose seeds were credited directly because the enemy slot was full, and those seeds.
+var fruits_direct: int = 0
+var seeds_direct: int = 0
 
 func _init(field: EnemyField, play_state: PlayState) -> void:
 	enemies = field
@@ -42,7 +46,9 @@ func on_enemy_hit(kind: String, _point: Vector2, info: Dictionary) -> void:
 func _drop(center: Vector2, count: int, owner_id: int) -> void:
 	var dropped: int = play.drop_enemy_fruits(center, count, owner_id, tuning.drop_radius_min_px, tuning.drop_radius_max_px, tuning.drop_fruit_lifetime_seconds)
 	fruits_dropped += dropped
-	fruits_refused += count - dropped
+	fruits_direct += count - dropped
+	seeds_direct += play.last_drop_direct_seeds
+	fruits_refused += (count - dropped) - play.last_drop_direct_seeds / maxi(play.tuning.seed_fruit_seeds, 1)
 
 func _on_boar_defeated(position: Vector2, boar_id: int) -> void:
 	_drop(position, tuning.boar_drop_fruits, GroundPickups.ENEMY_OWNER_BASE + boar_id)

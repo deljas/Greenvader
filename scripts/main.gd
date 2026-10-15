@@ -32,6 +32,7 @@ var modulation: CanvasModulate
 var weather: WeatherView
 var condition_label: Label
 var pause_panel: PanelContainer
+var down_panel: PanelContainer
 var condition: String = "sunny"
 ## Legacy P0 name kept for the existing P0 checks: it is the live shot list of the real projectile field.
 var preview_projectiles: Array[Dictionary] = []
@@ -108,6 +109,8 @@ func _ready() -> void:
 	enemies.setup_nests(region_def.zones)
 	simulation.spread.allow_hook = enemies.spread_allows
 	enemy_combat = EnemyCombat.new(enemies, play)
+	# P2-03: boars hurt the player on contact (PlayState.advance runs the damage state).
+	play.enemies = enemies
 	enemy_driver = EnemyDriver.new()
 	enemy_driver.name = "EnemyDriver"
 	enemy_driver.setup(enemies)
@@ -305,6 +308,18 @@ func build_ui() -> void:
 	pause_label.text = "ポーズ中\nEsc で再開"
 	pause_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(pause_label)
+	down_panel = PanelContainer.new()
+	down_panel.position = Vector2(240, 96)
+	down_panel.size = Vector2(160, 30)
+	down_panel.theme = theme
+	down_panel.visible = false
+	down_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	canvas.add_child(down_panel)
+	var down_label: Label = Label.new()
+	down_label.text = "たおれた…"
+	down_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	down_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	down_panel.add_child(down_label)
 	var resume: Button = Button.new()
 	resume.text = "再開"
 	resume.focus_mode = Control.FOCUS_NONE
@@ -355,7 +370,7 @@ func spawn_preview(water_shot: bool) -> void:
 ## paused, no seed / not enough water, or the in-flight shot limit is reached. Nothing is spent then.
 ## `aim_override` replaces the mouse's world point (tests, and later non-mouse aiming).
 func fire(water_shot: bool, aim_override: Vector2 = Vector2.INF) -> bool:
-	if get_tree().paused or projectile_view.is_full():
+	if get_tree().paused or projectile_view.is_full() or play.health.downed:
 		return false
 	var plant: PlantDef = null if water_shot else play.selected_def()
 	var cultivated: bool = plant != null and plant.is_cultivated()
@@ -396,6 +411,8 @@ func _process(_delta: float) -> void:
 	frames += 1
 	if hud != null:
 		hud.refresh(play, grid)
+	if down_panel != null:
+		down_panel.visible = play.health.downed
 	if frames == 12 and not capture_path.is_empty():
 		capture.call_deferred()
 	elif frames == 30 and auto_quit and capture_path.is_empty():

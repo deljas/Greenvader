@@ -75,3 +75,14 @@ static func heal_fruit() -> ImageTexture:
 	if _heal_fruit == null:
 		_heal_fruit = _build(PackedStringArray([".bb.", "bkKb", "bKkb", ".bb."]))
 	return _heal_fruit
+
+static var _flower_down: ImageTexture
+
+## The player's flower lying on its side (P2-03): the standing sprite turned a quarter, so every pixel stays a whole pixel.
+## The node using it is drawn dimmed (a modulate, no outline).
+static func flower_down() -> ImageTexture:
+	if _flower_down == null:
+		var image: Image = PixelArt.flower().get_image()
+		image.rotate_90(CLOCKWISE)
+		_flower_down = ImageTexture.create_from_image(image)
+	return _flower_down

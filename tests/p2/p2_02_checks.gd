@@ -380,7 +380,8 @@ func test_nest_defeat() -> void:
 
 func test_drop_slots() -> void:
 	var sources: Array[Vector2] = [Vector2(300, 200), Vector2(320, 200)]
-	# Two sources keep 2 x 3 = 6 of the 24 slots: the plant-owned share (fruits of plants and enemies) is at most 18.
+	# P2-03 (updated from the P2-02 shared-slot rule): enemy drops have their own slot, so plant fruits - even at their limit
+	# (two sources keep 2 x 3 of the 35 slots and the enemy slot 12, which leaves 17 for plants) - never reduce a boar's reward.
 	for prefill: int in [0, 10, 16, 17, 18]:
 		var rig: Rig = make_rig({}, sources)
 		for i: int in prefill:
@@ -388,24 +389,23 @@ func test_drop_slots() -> void:
 		var nest: Nest = rig.field.add_nest(0, Vector2i(10, 10))
 		var boar: Boar = put_boar(rig, Vector2(100, 80), nest)
 		rig.field.damage_boar(boar, 3)
-		var expected: int = clampi(18 - prefill, 0, BOAR_FRUITS)
 		var enemy_owned: int = 0
 		for item: Dictionary in rig.play.pickups.items:
 			enemy_owned += 1 if int(item["owner"]) >= GroundPickups.ENEMY_OWNER_BASE else 0
-		check(enemy_owned == expected and rig.combat.fruits_dropped == expected and rig.combat.fruits_refused == BOAR_FRUITS - expected, "with %d plant fruits on the ground the boar drops %d of %d fruits" % [prefill, enemy_owned, BOAR_FRUITS])
+		check(enemy_owned == BOAR_FRUITS and rig.combat.fruits_dropped == BOAR_FRUITS and rig.combat.fruits_refused == 0, "with %d plant fruits on the ground the boar still drops all %d fruits (%d)" % [prefill, BOAR_FRUITS, enemy_owned])
 		# The sources can still fill their own slots completely.
 		var source_ok: bool = true
 		for source: SeedSource in rig.play.sources:
 			for k: int in 3:
 				source_ok = source_ok and rig.play.pickups.spawn(GroundPickups.KIND_SEED_FRUIT, Vector2(source.position), source.id)
-		check(source_ok and rig.play.pickups.count_seed_items() <= 24, "the seed sources still get their 3 + 3 slots (total %d <= 24)" % rig.play.pickups.count_seed_items())
-	# Nest reward under the same rule: 15 plant fruits leave room for 3 of 4.
+		check(source_ok and rig.play.pickups.count_seed_items() <= play_tuning.pickup_total_cap, "the seed sources still get their 3 + 3 slots (total %d <= %d)" % [rig.play.pickups.count_seed_items(), play_tuning.pickup_total_cap])
+	# Nest reward under the same rule: 15 plant fruits leave all 4 fruits their room.
 	var rig2: Rig = make_rig({}, sources)
 	for i: int in 15:
 		rig2.play.pickups.spawn(GroundPickups.KIND_SEED_FRUIT, Vector2(200 + i, 200), GroundPickups.PLANT_OWNER_BASE + i)
 	var nest2: Nest = rig2.field.add_nest(0, Vector2i(10, 10))
 	rig2.field.damage_nest(nest2, NEST_HP)
-	check(rig2.combat.fruits_dropped == 3 and rig2.combat.fruits_refused == 1, "a nest reward fills only the 3 slots left (dropped %d, refused %d)" % [rig2.combat.fruits_dropped, rig2.combat.fruits_refused])
+	check(rig2.combat.fruits_dropped == NEST_FRUITS and rig2.combat.fruits_refused == 0, "a nest reward is not reduced by plant fruits (dropped %d, refused %d)" % [rig2.combat.fruits_dropped, rig2.combat.fruits_refused])
 	# Owner bands do not collide: boar fruit owner never equals a tile-index plant owner or a healing fruit owner.
 	check(GroundPickups.ENEMY_OWNER_BASE > GroundPickups.HEAL_OWNER_BASE + 1000000 and GroundPickups.ENEMY_OWNER_BASE > GroundPickups.PLANT_OWNER_BASE + 600 * 600, "the enemy owner band lies above plant tile owners and healing fruit owners")
 

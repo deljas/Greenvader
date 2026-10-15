@@ -54,6 +54,10 @@ extends Resource
 @export var hit_radius_px: float = 8.0
 @export var hit_center_height_px: float = 6.0
 
+@export_group("Contact (P2-03)")
+## HP the player loses when the feet touch the body circle (hit_radius_px) of a boar (once per invulnerability period).
+@export var contact_damage: int = 2
+
 @export_group("Combat (P2-02)")
 ## Hit points a shot takes away. A seed shot hurts; a cultivated plant shot (carrot / kiwi) is stopped by the enemy but
 ## does no damage by default (its held-back seeds go back to the player). Water shots pass through enemies unless this is on.

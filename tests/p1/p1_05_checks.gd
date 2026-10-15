@@ -629,13 +629,13 @@ func test_budget() -> void:
 			accepted_plant += 1
 	check(accepted_plant == 20 and play.pickups.count_plant_owned() == 20, "plant seed fruits still reach their cap of 20 with 16 healing fruits on the ground (accepted %d)" % accepted_plant)
 	var extra_source: int = 0
-	for i: int in 5:
+	for i: int in 20:
 		if play.pickups.spawn(GroundPickups.KIND_SEED_FRUIT, Vector2(400 + i, 300), 1):
 			extra_source += 1
 	var seed_items: int = play.pickups.count_seed_items()
-	check(seed_items == 24 and extra_source >= 1, "seed fruits fill their whole total of 24 in spite of the healing fruits (%d items, %d more source fruits accepted)" % [seed_items, extra_source])
-	check(not play.pickups.spawn(GroundPickups.KIND_SEED_FRUIT, Vector2(1, 1), 1), "a 25th seed fruit is refused")
-	check(play.pickups.count() == 24 + 16, "healing fruits sit on top of the seed budget: %d items = 24 seed + 16 healing" % play.pickups.count())
+	check(seed_items == play.tuning.pickup_total_cap and extra_source >= 1, "seed fruits fill their whole total of %d in spite of the healing fruits (%d items, %d more source fruits accepted)" % [play.tuning.pickup_total_cap, seed_items, extra_source])
+	check(not play.pickups.spawn(GroundPickups.KIND_SEED_FRUIT, Vector2(1, 1), 1), "one more seed fruit than the total is refused")
+	check(play.pickups.count() == play.tuning.pickup_total_cap + 16, "healing fruits sit on top of the seed budget: %d items = %d seed + 16 healing" % [play.pickups.count(), play.tuning.pickup_total_cap])
 	# And the other way round: with the seed budget full a healing fruit is still accepted once its own cap has room.
 	var removed: Dictionary = first_heal(play)
 	play.pickups.items.erase(removed)

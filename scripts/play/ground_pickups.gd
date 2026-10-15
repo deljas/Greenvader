@@ -18,7 +18,7 @@ const PLANT_OWNER_BASE: int = 1000000
 ## Owner ids of healing fruits: HEAL_OWNER_BASE + the uid of the cultivated plant that dropped them.
 const HEAL_OWNER_BASE: int = 2000000
 ## Owner ids of seed fruits dropped by defeated enemies (P2-02): ENEMY_OWNER_BASE + boar id, ENEMY_OWNER_BASE + 1000000 + nest id.
-## They count as plant-owned (>= PLANT_OWNER_BASE), so they share the plant limit that keeps the seed sources' slots free.
+## Since P2-03 they have their own slot (enemy_cap) and no longer count against plant_cap.
 const ENEMY_OWNER_BASE: int = 4000000
 
 var items: Array[Dictionary] = []
@@ -33,8 +33,11 @@ var plant_lifetime_seconds: float = -1.0
 var heal_cap: int = -1
 ## Lifetime of a healing fruit that has no "life" of its own. -1 = same as lifetime_seconds.
 var heal_lifetime_seconds: float = -1.0
+## Seed fruits dropped by defeated enemies (owner >= ENEMY_OWNER_BASE) have their own budget (P2-03). -1 = no separate limit.
+var enemy_cap: int = -1
 
-func _init(cap: int = 24, lifetime: float = 60.0, plant_limit: int = -1, plant_lifetime: float = -1.0, heal_limit: int = -1, heal_lifetime: float = -1.0) -> void:
+func _init(cap: int = 24, lifetime: float = 60.0, plant_limit: int = -1, plant_lifetime: float = -1.0, heal_limit: int = -1, heal_lifetime: float = -1.0, enemy_limit: int = -1) -> void:
+	enemy_cap = enemy_limit
 	total_cap = cap
 	lifetime_seconds = lifetime
 	plant_cap = plant_limit
@@ -45,11 +48,23 @@ func _init(cap: int = 24, lifetime: float = 60.0, plant_limit: int = -1, plant_l
 static func is_plant_owner(owner_id: int) -> bool:
 	return owner_id >= PLANT_OWNER_BASE
 
-## Seed fruits owned by plants (healing fruits are not among them).
+static func is_enemy_owner(owner_id: int) -> bool:
+	return owner_id >= ENEMY_OWNER_BASE
+
+## Seed fruits owned by plants (healing fruits and enemy drops are not among them).
 func count_plant_owned() -> int:
 	var total: int = 0
 	for item: Dictionary in items:
-		if int(item["owner"]) >= PLANT_OWNER_BASE and String(item["kind"]) != KIND_HEAL_FRUIT:
+		var owner_id: int = int(item["owner"])
+		if owner_id >= PLANT_OWNER_BASE and owner_id < ENEMY_OWNER_BASE and String(item["kind"]) != KIND_HEAL_FRUIT:
+			total += 1
+	return total
+
+## Seed fruits dropped by defeated enemies.
+func count_enemy_owned() -> int:
+	var total: int = 0
+	for item: Dictionary in items:
+		if int(item["owner"]) >= ENEMY_OWNER_BASE and String(item["kind"]) != KIND_HEAL_FRUIT:
 			total += 1
 	return total
 
@@ -69,7 +84,7 @@ func lifetime_of(item: Dictionary) -> float:
 		return float(item["life"])
 	if String(item["kind"]) == KIND_HEAL_FRUIT:
 		return heal_lifetime_seconds if heal_lifetime_seconds > 0.0 else lifetime_seconds
-	if plant_lifetime_seconds > 0.0 and int(item["owner"]) >= PLANT_OWNER_BASE:
+	if plant_lifetime_seconds > 0.0 and int(item["owner"]) >= PLANT_OWNER_BASE and int(item["owner"]) < ENEMY_OWNER_BASE:
 		return plant_lifetime_seconds
 	return lifetime_seconds
 
@@ -83,8 +98,8 @@ func count_owned(owner_id: int) -> int:
 			total += 1
 	return total
 
-## Adds one pickup. Refused (false) when its cap is reached: total_cap (and plant_cap for plant-owned seed fruits)
-## for seed fruits, heal_cap for healing fruits. `life` > 0 gives the item its own lifetime.
+## Adds one pickup. Refused (false) when its cap is reached: total_cap (and plant_cap for plant-owned seed fruits,
+## enemy_cap for enemy drops) for seed fruits, heal_cap for healing fruits. `life` > 0 gives the item its own lifetime.
 func spawn(kind: String, position: Vector2, owner_id: int, life: float = -1.0) -> bool:
 	if kind == KIND_HEAL_FRUIT:
 		if heal_cap >= 0 and count_kind(KIND_HEAL_FRUIT) >= heal_cap:
@@ -92,7 +107,10 @@ func spawn(kind: String, position: Vector2, owner_id: int, life: float = -1.0) -
 	else:
 		if count_seed_items() >= total_cap:
 			return false
-		if plant_cap >= 0 and owner_id >= PLANT_OWNER_BASE and count_plant_owned() >= plant_cap:
+		if owner_id >= ENEMY_OWNER_BASE:
+			if enemy_cap >= 0 and count_enemy_owned() >= enemy_cap:
+				return false
+		elif plant_cap >= 0 and owner_id >= PLANT_OWNER_BASE and count_plant_owned() >= plant_cap:
 			return false
 	var item: Dictionary = {"kind": kind, "x": position.x, "y": position.y, "age": 0.0, "owner": owner_id}
 	if life > 0.0:

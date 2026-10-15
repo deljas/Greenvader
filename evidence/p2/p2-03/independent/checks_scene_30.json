@@ -1,0 +1,227 @@
+{
+  "hz": 30,
+  "results": [
+    {
+      "condition": "hp full 10 at start",
+      "id": "start",
+      "observed": "start=(738.0, 754.0) hp=10",
+      "status": "PASS"
+    },
+    {
+      "condition": "cultivated plants placed for the roll-back check",
+      "id": "setup.cultivated",
+      "observed": "placed=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "found an open spot away from start",
+      "id": "setup.spot",
+      "observed": "P=(738.0, 354.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "no contact, no damage",
+      "id": "dmg.no_touch",
+      "observed": "hp=10",
+      "status": "PASS"
+    },
+    {
+      "condition": "contact takes exactly 2 HP (10 -> 8)",
+      "id": "dmg.contact2",
+      "observed": "hp=8 hits=[2]",
+      "status": "PASS"
+    },
+    {
+      "condition": "pushed 12 px (10.5..13.5) roughly away from the boar",
+      "id": "dmg.knockback",
+      "observed": "moved=12.00 dot=1.000",
+      "status": "PASS"
+    },
+    {
+      "condition": "continuous contact for ~1.1 s after a hit: no second hit",
+      "id": "dmg.invuln_nostack",
+      "observed": "hits=1 hp=8",
+      "status": "PASS"
+    },
+    {
+      "condition": "second hit after invuln ends (hp 6)",
+      "id": "dmg.second",
+      "observed": "hits=2 hp=6",
+      "status": "PASS"
+    },
+    {
+      "condition": "interval between contact hits is 1.2 s (+-0.05)",
+      "id": "dmg.interval",
+      "observed": "interval=1.2000",
+      "status": "PASS"
+    },
+    {
+      "condition": "Esc freezes invulnerability + health time (4 s)",
+      "id": "pause.invuln",
+      "observed": "paused=true invuln 53->53 time 2.500->2.500 hp=6",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resume invuln dropped < 0.2 s of steps (no lump sum)",
+      "id": "pause.nobank",
+      "observed": "invuln 53->49",
+      "status": "PASS"
+    },
+    {
+      "condition": "third hit (hp 4)",
+      "id": "dmg.third",
+      "observed": "hp=4",
+      "status": "PASS"
+    },
+    {
+      "condition": "a contact hit at HP 2 downs the player (hp 0)",
+      "id": "down.enter",
+      "observed": "downed=true hp=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "downed: move + fire inputs do nothing (position kept, no shot, seeds kept, water not spent)",
+      "id": "down.locked",
+      "observed": "moved=0.00 shots_empty=true seeds 25->25 water 60.0->60.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "downed: fruits under the player not collected, hp stays 0",
+      "id": "down.no_pickup",
+      "observed": "items=2 hp=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "Esc freezes the downed timer (3 s)",
+      "id": "pause.downed",
+      "observed": "downed_steps 41 -> 41",
+      "status": "PASS"
+    },
+    {
+      "condition": "lying phase lasts 1.5 s of game time (+-0.05; pause excluded)",
+      "id": "down.length",
+      "observed": "len=1.5000",
+      "status": "PASS"
+    },
+    {
+      "condition": "world kept running while downed (enemy time and production time advanced ~1.5 s)",
+      "id": "down.world_runs",
+      "observed": "enemy dt=1.500 production dt=1.500",
+      "status": "PASS"
+    },
+    {
+      "condition": "return: at start position, HP full 10, invulnerable 2.0 s (120 steps)",
+      "id": "revive.state",
+      "observed": "pos=(738.0, 754.0) start=(738.0, 754.0) hp=10 inv=120",
+      "status": "PASS"
+    },
+    {
+      "condition": "seeds exactly kept; water kept (>= before, not reset)",
+      "id": "keep.seeds_water",
+      "observed": "seeds 25->25 water 60.00->60.00",
+      "status": "PASS"
+    },
+    {
+      "condition": "plants/greening not rolled back: no tile regressed, greened >= before, zone counters >= before, targets equal",
+      "id": "keep.plants_green",
+      "observed": "regressed tiles=0 greened 331->331 zg_equal=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone state, nests (alive/hp), cultivated plants, carcasses, boars, kills, fertility identical",
+      "id": "keep.zones_nests_cult",
+      "observed": "zs=true nests=true cult=true carc=0 boars=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "cultivated plants placed earlier are still in the save structure",
+      "id": "keep.cult_count",
+      "observed": "placed=1 cult_json_len=22",
+      "status": "PASS"
+    },
+    {
+      "condition": "no damage for 2.0 s after the return (first hit 2.0 +-0.1 s after it), hp 8 after",
+      "id": "revive.invuln",
+      "observed": "first hit 2.0000 s after return, hp=8",
+      "status": "PASS"
+    },
+    {
+      "condition": "knockback toward a wall: feet never inside water/building; moved < 5 px toward it",
+      "id": "knock.wall",
+      "observed": "hit=true violations=0 max dx=3.00 W=(966.0, 34.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "pickup caps: total 35, plant 20, enemy 12",
+      "id": "drop.caps",
+      "observed": "total=35 plant=20 enemy=12",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant fruits at cap 20: killing a boar with shots still drops 2 seed fruits",
+      "id": "drop.real_kill_plant_full",
+      "observed": "boar gone=true hp=0 drops=2 plant_owned=20 seeds=17 sel=normal player=(314.0, 242.0) boar=(354.0, 242.0) shots=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking over them gives +2 seeds",
+      "id": "drop.collect",
+      "observed": "seeds 17->19",
+      "status": "PASS"
+    },
+    {
+      "condition": "13th enemy fruit refused on the ground",
+      "id": "drop.full_slot_refuse",
+      "observed": "enemy=12",
+      "status": "PASS"
+    },
+    {
+      "condition": "plants 20 + enemies 12 full: a source still gets 3 slots (4th refused, total 35)",
+      "id": "drop.source_reserve",
+      "observed": "source accepted=3 total=35",
+      "status": "PASS"
+    },
+    {
+      "condition": "healing fruit still spawns with every seed slot full",
+      "id": "drop.heal_budget",
+      "observed": "heal items=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "enemy slot full: kill credits +2 seeds directly (no new ground fruit)",
+      "id": "drop.direct",
+      "observed": "seeds 10->12 ground 35->35",
+      "status": "PASS"
+    },
+    {
+      "condition": "pouch 39/40: +1 only, the rest lost",
+      "id": "drop.direct_cap",
+      "observed": "seeds=40 lost 0->1",
+      "status": "PASS"
+    },
+    {
+      "condition": "round trip (not downed): hp, seeds, water, remaining invulnerability restored",
+      "id": "save.invuln",
+      "observed": "hp=4 seeds=40 inv 54->54",
+      "status": "PASS"
+    },
+    {
+      "condition": "save taken while downed restores as returned: not downed, hp full, ~2 s invuln, at start, seeds kept",
+      "id": "save.downed",
+      "observed": "was_down=true hp=10 inv=116 pos=(738.0, 754.0) seeds=40",
+      "status": "PASS"
+    },
+    {
+      "condition": "to_dict -> JSON -> load_dict -> to_dict keeps the health block",
+      "id": "save.stable",
+      "observed": "round-trip equal",
+      "status": "PASS"
+    },
+    {
+      "condition": "older save without the health block loads, not downed",
+      "id": "save.old",
+      "observed": "ok=true",
+      "status": "PASS"
+    }
+  ]
+}

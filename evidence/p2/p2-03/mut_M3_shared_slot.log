@@ -1,0 +1,144 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and tunings load
+PASS invulnerability 1.2 s, return invulnerability 2.0 s, lying 1.5 s
+PASS knockback 12 px, 60 steps/s, HP 10
+PASS contact damage 2 from a body circle of radius 8 centred 6 px above the feet
+PASS the default keeps every seed and all water
+PASS slots: enemy 12, plants 20, 3 per seed source
+PASS the region total (35) holds the sum of the slots (1 sources x 3 + 20 + 12)
+PASS contact geometry: standing on the boar -> hit (HP 8)
+PASS contact geometry: rectangle edge 7.5 px from the centre, side -> hit (HP 8)
+PASS contact geometry: rectangle edge 8.5 px from the centre, side -> no hit (HP 10)
+PASS contact geometry: rectangle top 7.9 px below the centre -> hit (HP 8)
+PASS contact geometry: rectangle top 8.5 px below the centre -> no hit (HP 10)
+PASS contact geometry: rectangle bottom 7.5 px above the centre -> hit (HP 8)
+PASS contact geometry: rectangle bottom 9.5 px above the centre -> no hit (HP 10)
+PASS contact geometry: corner 7.16 px from the centre -> hit (HP 8)
+PASS contact geometry: corner 8.24 px from the centre -> no hit (HP 10)
+PASS contact geometry: far away -> no hit (HP 10)
+PASS no boar: no damage, no invulnerability
+PASS a boar standing in another zone hurts on touch as well
+PASS the player staying on the boar is hurt at once and then every 1.2 s: steps [1, 73, 145, 217, 289]
+PASS HP 10 -> 8 -> 6 -> 4: no second hit inside 1.2 s (step 72 still 8, step 73 is 6)
+PASS the fifth hit at step 289 takes HP to 0
+PASS HP 0 downs the player at once (step 289)
+PASS one fall counted; six hits (five that downed him, one after the return)
+PASS while invulnerable the picture flickers (dim and bright halves are both seen)
+PASS the player returns exactly 1.5 s (90 steps) after falling (step [379])
+PASS HP is 0 until the return and 10 from the return step on
+PASS after the return the player standing at the start beside a second boar is hurt once more (6 hits)
+PASS the first hit after the return comes 120 steps (2.0 s) later (step 499)
+PASS HP 10 right up to the end of the return invulnerability, then 8
+PASS the player stands at the start position
+PASS the hit pushes the player 12 px straight away from the body centre: (110.6563, 89.98474) (expected (110.6564, 89.9846))
+PASS the push moved the player out of contact: still one hit after 2 s (a second would have come at 1.2 s)
+PASS the push never puts the feet into water
+PASS against the lake (tile edge 112 - 3 px) the push stops at x = 109 and slides along: (109.0, 89.98474)
+PASS a hit that takes the last HP leaves the player lying where he was (no push)
+PASS HP 0 reached by plain damage_player downs the player as well
+PASS lying there nothing is picked up and a healing fruit does not heal (the fruits stay)
+PASS the lying phase ends: full HP at the start
+PASS the fruits that lay there are still there
+PASS setup: a carrot and a kiwi stand in the mature block
+PASS setup: 1056 planted tiles, 2 carcasses, 1 live nest, 816 greened
+PASS walking into the boar until 2 HP are left
+PASS the last hit downed the player, who came back at the start with full HP
+PASS world state hash, greening and zone counters, zone states, nests, boars, carcasses, cultivated plants, seeds, water and selection are exactly as just before the fall
+PASS cultivated plants kept their age (they only grew on)
+PASS setup: the player is lying
+PASS the player returned
+PASS the carcass kept aging while the player lay there (+90 steps of 90)
+PASS the enemy simulation kept running (+90 steps)
+PASS the nest's spawn timer kept running
+PASS a boar kept walking and game time went on (1.50 s)
+PASS with a tuned loss of half the seeds (rounded down) and a quarter of the water: 21 -> 11 seeds, 80 -> 60 water
+PASS by default seeds and water are kept
+PASS setup: a kiwi stands in the mature block
+PASS HP 3 after taking 7
+PASS a kiwi's healing fruit gives back 2 HP (data: fruit_heal 2) and is eaten (HP 5)
+PASS hp_changed follows the healing and the damage: [7, 5]
+PASS at full HP the healing fruit stays on the ground
+PASS setup: hurt by contact (HP 8)
+PASS a healing fruit of a plant that no longer exists still heals the fallback amount (2)
+PASS plants fill only their own 20 slots (20)
+PASS plant fruits at the limit: the boar still drops both of its fruits on the ground
+PASS enemy drops stop at their own 12 slots
+PASS the seed source can still drop with plants and enemies at their limits (3 accepted, total 35 of 35)
+PASS the source's 3 reserved slots were available (3 on the ground)
+PASS the seed total never exceeds 35 (35)
+PASS 16 healing fruits do not take the boar's slots
+FAIL enemy drops are not plant fruits
+FAIL a full enemy slot does not shrink the plant slots (8)
+PASS an enemy fruit is still there after about 59 s (own lifetime 60 s, not the plants' 45 s)
+PASS and gone after 60 s
+PASS enemy slot holds 0: a boar's reward is 2 on the ground + 0 seeds directly (ground 2, seeds +0)
+PASS slot 0: defeating a boar always yields both fruits' worth of seeds
+PASS enemy slot holds 0: a nest's reward is 4 on the ground + 0 seeds directly (ground 4, seeds +0)
+PASS enemy slot holds 10: a boar's reward is 2 on the ground + 0 seeds directly (ground 2, seeds +0)
+PASS slot 10: defeating a boar always yields both fruits' worth of seeds
+PASS enemy slot holds 10: a nest's reward is 2 on the ground + 2 seeds directly (ground 2, seeds +2)
+PASS enemy slot holds 11: a boar's reward is 1 on the ground + 1 seeds directly (ground 1, seeds +1)
+PASS slot 11: defeating a boar always yields both fruits' worth of seeds
+PASS enemy slot holds 11: a nest's reward is 1 on the ground + 3 seeds directly (ground 1, seeds +3)
+PASS enemy slot holds 12: a boar's reward is 0 on the ground + 2 seeds directly (ground 0, seeds +2)
+PASS slot 12: defeating a boar always yields both fruits' worth of seeds
+PASS enemy slot holds 12: a nest's reward is 0 on the ground + 4 seeds directly (ground 0, seeds +4)
+PASS with the slot full and 1 pouch place left only one of two seeds is credited, the other is lost
+PASS the credit counters are saved
+PASS driver: the player gets the health state and the respawn place is its position at setup
+PASS driver: the push goes through the player's walking rules (stopped at the lake: (109.0, 89.98474))
+PASS driver: HP 0 locks the player
+PASS driver: a player without a scene tree has no picture to update (no crash)
+PASS driver: the return puts the player back at the start with full HP
+PASS HUD shows HP 10/10 at the start
+PASS HUD follows damage: HP 8/10
+PASS HUD follows healing: HP 9/10
+PASS HUD shows HP 0/10 with a low (amber) empty gauge
+PASS damage, falling, return and invulnerability follow the same timeline at 30, 60 and 144 Hz: [[8, false, 0, true], [8, false, 0, true], [6, false, 0, true], [4, false, 0, true], [2, false, 0, true], [0, true, 1, false], [0, true, 1, false], [10, false, 1, true], [10, false, 1, true], [8, false, 1, true]]
+PASS the push ends at the same place at 30, 60 and 144 Hz: [(110.6563, 89.98474), (110.6563, 89.98474), (110.6563, 89.98474)]
+PASS setup: a hit with the push still going on
+PASS the play state is JSON text
+PASS loading the saved play state succeeds
+PASS invulnerability, push and counters survive the round trip exactly
+PASS after loading, the next 8 s (push, invulnerability, a second hit) run exactly like the original
+PASS setup: lying, part of the 1.5 s gone
+PASS a save taken while lying loads
+PASS it is restored as already returned: full HP, 2 s of invulnerability, the fall still counted
+PASS the owner of the player is told to put him at the start
+PASS the seeds are as saved
+PASS a save without the damage block (older) still loads
+PASS HP 0 data loads
+PASS HP 0 after loading leads to falling on the next step
+PASS the contact check against 40 boars costs 16.96 us per step
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS scene: the damage state is wired to the enemies and the player, and the start is the respawn place
+PASS scene: a boar came out of nest 1
+PASS scene: a carrot was planted near the start
+PASS scene: open ground to approach the boar
+PASS scene: HP full before the walk
+PASS scene: walking into the boar costs 2 HP and starts the invulnerability (HP 8)
+PASS scene: the HUD shows HP 8/10 (HP 8/10)
+PASS scene: the player flickers while invulnerable (alpha 0.30 .. 1.00)
+PASS scene: Esc pauses
+PASS scene: while paused the invulnerability, the damage clock, the position and HP stand still
+PASS scene: resuming adds only the frames that were stepped (2 steps)
+PASS scene: three more hits later 2 HP are left (HP 2)
+PASS scene: the fifth hit downs the player (HP 0)
+PASS scene: the message panel shows and the HUD says HP 0/10
+PASS scene: shooting is locked while downed
+PASS scene: with the D/A/W/S key held, a downed player does not move
+PASS scene: the downed picture is the lying flower
+PASS scene: pausing while lying stops the lying timer (69 steps left)
+PASS scene: after the lying time HP is full again
+PASS scene: the player is back at the start ((738.0, 754.0))
+PASS scene: the message is gone and the HUD says HP 10/10
+PASS scene: the return starts the invulnerability
+PASS scene: seeds (20, before 20) and water (100.0, before 100.0) are as before
+PASS scene: the carrot and all cultivated plants are still there
+PASS scene: carcasses, nests and boars are not reset (the boar is the same one)
+PASS scene: zone states and terrain are unchanged
+PASS scene: the home zone's greened tiles did not go back (331 -> 331; the world's natural spread went on)
+PASS scene: the standing picture is back
+INFO {"gnawed_while_downed":4,"health_us_per_step_40_boars":16.9603333333333,"invulnerable_steps_in_520":430,"scene_greened_before_after":[331,331],"scene_hits":5}
+P2_03_RESULT checks=139 failures=2

@@ -12,8 +12,12 @@ var aim_direction: Vector2 = Vector2.RIGHT
 var walk_world: WorldState
 var walk_tile_px: int = 4
 var walk_half: Vector2 = Vector2(3, 2)
+## Damage state (P2-03): null = the player is never hurt (older tests build a bare player). While downed the controls are locked;
+## while invulnerable the picture flickers.
+var health: PlayerHealth
 var visual: Sprite2D
 var light: PointLight2D
+var _look_down: bool = false
 var glow: Sprite2D
 
 func _ready() -> void:
@@ -43,13 +47,41 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if is_downed():
+		direction = Vector2.ZERO
 	step(direction * SPEED * delta)
 	position = simulation_position.round()
+	update_look()
 	presentation_updated.emit(position)
 	var target: Vector2 = get_global_mouse_position() - position
 	if target.length_squared() > 1.0:
 		aim_direction = target.normalized()
 	queue_redraw()
+
+func is_downed() -> bool:
+	return health != null and health.downed
+
+## Puts the player at `location` (return to the start) and tells the camera.
+func teleport(location: Vector2) -> void:
+	simulation_position = location.clamp(world_bounds.position, world_bounds.end)
+	position = simulation_position.round()
+	presentation_updated.emit(position)
+
+## Picture of the damage state: lying dimmed while downed, flickering (dim / bright) while invulnerable, plain otherwise.
+func update_look() -> void:
+	if visual == null:
+		return
+	var down: bool = is_downed()
+	if down != _look_down:
+		_look_down = down
+		visual.texture = PlayArt.flower_down() if down else PixelArt.flower()
+		visual.position = Vector2(-8, -11) if down else Vector2(-8, -14)
+	if down:
+		visual.modulate = Color(0.62, 0.64, 0.78, 1.0)
+	elif health != null and health.flicker_dim():
+		visual.modulate = Color(1.0, 1.0, 1.0, 0.3)
+	else:
+		visual.modulate = Color.WHITE
 
 ## Moves the simulation position by `motion` px: against the map when walk_world is set (slides along water and
 ## buildings), then inside the world bounds.

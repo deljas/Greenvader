@@ -417,7 +417,7 @@ func test_pickups_and_source() -> void:
 	check(pool.count() == 24 and pool.advance(1.5) == 24 and pool.count() == 0, "pickups vanish after the lifetime (all 24 expired together)")
 	# A full cap holds a source's timer; room afterwards drops again.
 	var crowded: PlayState = make_source_play()
-	for i: int in 24:
+	for i: int in crowded.tuning.pickup_total_cap:
 		crowded.pickups.spawn(GroundPickups.KIND_SEED_FRUIT, Vector2(900 + i, 900), 5000 + i)
 	for i: int in 60 * 20:
 		crowded.advance(1.0 / 60.0, Vector2(5000, 5000))
