@@ -1,6 +1,6 @@
 # 検証記録
 
-更新日: 2026-10-14。最終合否は親Astra（Codex）／主会話Opus（Claude）が判断する。テンプレートの静的確認と実モデル稼働を区別する。
+更新日: 2026-10-15。最終合否は親Astra（Codex）／主会話Opus（Claude）が判断する。テンプレートの静的確認と実モデル稼働を区別する。
 
 ## ENV-001 共用環境テンプレート
 
@@ -68,3 +68,56 @@ P0_ARTは `32cf318` に保存済み。実装者報告は [`evidence/p0-art/self/
 ## 初回のインポート権限エラー
 
 独立P0_ART確認の初回は標準AppData / `user://` ログ書込み権限エラーが出た。`APPDATA` / `LOCALAPPDATA` を一時隔離profileへ向け、`--log-file` を指定した再実行でimportと独立回帰を完了。初回の環境権限エラーをゲームFAILとは扱わない。詳細はP0_ART独立報告を参照。
+
+## P1の結果
+
+更新日: 2026-10-15。P1（[段階票](../tasks/P1.md)）の子票P1-01〜P1-06は、親（Opus）の完了記録（2026-10-15）で完了。実装の自己試験は green-implementer、独立検証は別呼出しの green-verifier（いずれも親の報告によるモデル claude-sonnet-5-5）。最終合否は親が判断する。本節は親の完了記録の転記で、文書担当は追加の検証を行っていない。
+
+### 子票ごとの結果
+
+| 子票 | 実装の自己試験 | 独立検証 | 証拠 |
+|---|---|---|---|
+| P1-01 格子と地域データ | headless 92 PASS / 0 FAIL（P0既存 22/35 PASS） | 48 PASS / 0 FAIL。開始・終了のハッシュ一致 | `evidence/p1/p1-01/`、`independent/checks.json` |
+| P1-02 種・水の資源と着弾 | headless 130 PASS / 0 FAIL | 77件: PASS 75 / NOT_RUN 2（GPU窓の注入照準、物理入力）/ FAIL 0 | `evidence/p1/p1-02/`、`independent/checks.json` |
+| P1-03 成長サイクルと種生産 | 106 PASS（回帰: p1_02 130、p1_01 92、P0 22/35） | 199 PASS / 0 FAIL。ハッシュ一致 | `evidence/p1/p1-03/`、`independent/checks.json` |
+| P1-04 自然拡張 | 85 PASS（回帰 FAIL 0） | 56件: PASS 55 / FAIL 1（`gpu.pixel_oracle`、下記の扱い参照） | `evidence/p1/p1-04/`、`independent/checks.json`、`checks_gpu_offline.json` |
+| P1-05 にんじん・キウイとHP | 181 PASS（回帰 FAIL 0） | 1回目 127件: PASS 125 / FAIL 2（F1は製品の不具合で修正、F2は検証側の閾値ミス）。再検証r2でF1はPASS、ハッシュ一致、回帰 FAIL 0。r2の件数は完了記録に記載なし | `evidence/p1/p1-05/`、`independent/checks.json`、`checks_r2.json`、`r2/` |
+| P1-06 統合検証と調整 | 95 PASS（回帰 FAIL 0） | 173件を統合: PASS 170 / FAIL 3（下記の扱い参照）。ハッシュ一致 | `evidence/p1/p1-06/`、`independent/checks.json` |
+
+### 検証側のFAILと扱い（親の判断）
+
+- P1-04 `gpu.pixel_oracle`: P0の景観が試験領域を覆ったため、検証側の設計不備と判断。headlessで同じ世界を再構築して撮影画像と照合し、8,193タイルで不一致0（`checks_gpu_offline.json`）。実装者の `p1_04_gpu.gd` もFAIL 0。製品の不具合ではないとして親が受け入れた。
+- P1-05 F1: 保存の読込で未成熟の足場を受け入れていた。製品の不具合として実装者へ戻し、修正後にr2でPASS。
+- P1-05 F2: 検証側の閾値ミス。オフラインで再評価してPASS。
+- P1-06 FAIL 3件（`checks.json` の `fail_ids`）: `gpu.edge.water_beyond`、`gpu.fruit.readable_shore`、`gpu.stress_frame`。完了記録では「いずれも検証側の判定基準の問題（GPU窓のプローブ位置、自前の閾値、フレーム時間モニタの不具合）」と分類している。対応は、`gpu.edge.water_beyond` がプローブ位置の誤り（目視では岸で正しく停止）、`gpu.fruit.readable_shore` が検証者の自前のコントラスト閾値1.8を岸の砂で2色が下回ったもの（濃い赤は3.38。描画は仕様どおり正確）、`gpu.stress_frame` がフレーム時間モニタの不具合で固定値を返したもの（GPU込みのフレーム時間はNOT_RUNとし、P5-03で測る）。親が独立検証者の報告に基づいて判断した。
+- 親の判断: 完了記録は、P1の合格条件、歩行、地図、安全地帯の実、テンポの再現、性能をすべてPASSと記す。親はこれを根拠にP1を完了とした。
+
+### P1合格条件の統合結果（P1-06の独立検証）
+
+P1-06の完了記録は合格条件を「7項目」とし、すべてPASSとする。P1の段階票（[P1](../tasks/P1.md)）の箇条書きは6項目のため、対応は次の表に示す。「7項目」は[開発計画](03_DEVELOPMENT_PLAN.md)のP1合格条件（7項目。ポーズ中に資源・成長が進まないことを含む）を指す。段階票の6項目に、ポーズの条件を加えたものとして扱う。
+
+| P1の合格条件 | 主な検証ID（`checks.json`） | 結果 |
+|---|---|---|
+| 種の着弾→発芽→成熟→種生産がつながる | `chain.stages_in_order`、`chain.fruit_appears`、`chain.collect`、`chain.refire` | PASS |
+| 水やりで成長が速まり、水ゼロでも成長する | `water.dry_grows`、`water.faster` | PASS |
+| 種ゼロ・水ゼロから回復して開拓を再開できる | `recover.seeds_zero`〜`recover.refire`、`recover.water_zero`〜`recover.water_shallows` | PASS |
+| 成熟領域から自然に広がり、にんじんの促進とキウイの回復を確認できる | `spread.carrot.*`、`spread.control.*`、`kiwi.fruit`、`kiwi.heals` | PASS（にんじんの全体効果は小さい。下記の持ち越し） |
+| 対象外へ発射しても不正な増加が起きない | `invalid.*`（`invalid.no_change`、`invalid.greened` など） | PASS |
+| ポーズ中に資源・成長が進まない | `pause.frozen`、`pause.no_banked_time` | PASS |
+
+P1-06の統合結果: 173件中、PASS 170、FAIL 3（上記）。歩行、地図、安全地帯の実、テンポの再現、性能の項目はPASS。
+
+### 試験用ボットと測定値（P1-06）
+
+- 開拓（ボット(a)）: 24.5〜29.9分で100%。一地域クリアの目安（30〜60分）との比較は、P2の敵と人のプレイで再確認する。
+- 自然拡張のみ: 上限 51.5%。
+- 前線速度: 約2.6タイル/分（P1-06の記録）。P1-04の記録では4.0タイル/分。
+- 地図: 対象 244,759。開始点から歩いて届く対象 244,202、届かない対象 557（島8か所）。足で通るには浅瀬の渡りが必要な東岸は 118,520（python検算）。
+- 性能（CPU、GPU窓の結果ではない）: 実プレイ相当（3分）の最大 1.7ms。ストレス時で最大 9.7〜13.4ms。P1-04の記録では、最悪条件のCPUは約11.7ms、実GPU込みは約14.7msと推定。
+
+### 未検証事項
+
+- 物理入力: ホイール・Tabでの植物切替、クリックでのにんじん・キウイの植え付け、水・建物で止まる歩行、浅瀬の渡り。自動検証はエンジン内注入のみで、物理経路の証拠ではない。ユーザーの手動確認はSTATUSの「ユーザー確認待ち」に積んだ。
+- 実窓での照準の注入マウス（P1-02のNOT_RUN）。
+- GPU込みの最重フレーム: 実測はCPUのみ。GPU込みの計測はP5-03で行う。
+- 楽しさ・見た目の評価: AIは代行していない。ユーザーの感想は非同期で受け付ける。
