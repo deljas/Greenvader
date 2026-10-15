@@ -1,0 +1,38 @@
+{
+  "observations": {
+    "frames": 86400,
+    "frames_with_boar_within_12px_of_border": 20306,
+    "hz": 144,
+    "max_boars": 8,
+    "min_gap_px_to_stable_border": 0.005401611328125,
+    "stable_plants_seeded": 1200,
+    "total_gnawed": 704,
+    "total_spawned": 8
+  },
+  "results": [
+    {
+      "condition": "boars really near the stable border (<12 px) and gnawing (non-vacuous)",
+      "id": "r.nearby",
+      "observed": "near_frames=20306 gnawed=704 stable_plants=1200 min_gap=0.01 max_boars=8",
+      "status": "PASS"
+    },
+    {
+      "condition": "every frame: no boar footprint tile inside zone 0",
+      "id": "r.no_entry",
+      "observed": "intrusion tile-frames=0 over 86400 frames (10.0 game min @144Hz)",
+      "status": "PASS"
+    },
+    {
+      "condition": "stable-side greened count unchanged every frame; full tile compare each second",
+      "id": "r.plants_intact",
+      "observed": "changed=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone 0 stays stable, counters consistent",
+      "id": "r.zone_stays",
+      "observed": "state=2",
+      "status": "PASS"
+    }
+  ]
+}

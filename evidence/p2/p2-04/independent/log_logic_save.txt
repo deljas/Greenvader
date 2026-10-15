@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [s.round] world round trip through JSON keeps states :: [2, 3, 0]
+PASS [s.field] enemy data loads onto the restored world :: states=[2, 3, 0]
+PASS [s.cleared] cleared world round trips with cleared=true :: 
+PASS [s.refuse_cleared_false] all complete but cleared=false refused :: 
+PASS [s.refuse_cleared_true] cleared=true while zones are not all complete refused :: 
+PASS [s.refuse_complete_ungreened] zone state complete with no greened targets refused :: 
+PASS [s.refuse_enemy_in_stable] enemy data with live nest/boars of a zone the world says is stable refused :: boars=4
+PASS [s.refuse_alive_nest_clearing] alive nest in a clearing zone refused :: 
+PASS [s.refuse_dead_nests_unconquered] all nests dead but zone unconquered refused :: 
+RESULT save checks=9 failures=0

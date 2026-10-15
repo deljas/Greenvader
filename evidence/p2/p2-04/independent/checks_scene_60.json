@@ -1,0 +1,191 @@
+{
+  "observations": {
+    "hz": 60,
+    "label_final": "  開始地域 (西岸中部)  緑化完了  緑化 100％  【全地域緑化】",
+    "notice_log": [
+      "西岸南1の巣をすべて壊した",
+      "西岸南1が安定した",
+      "西岸南1の緑化が完了した"
+    ],
+    "start_label": "  開始地域 (西岸中部)  安定  緑化 1％",
+    "zone_names": [
+      "開始地域 (西岸中部)",
+      "西岸北",
+      "西岸南1",
+      "西岸南2",
+      "東岸北",
+      "東岸中部",
+      "東岸南"
+    ]
+  },
+  "results": [
+    {
+      "condition": "top bar at start shows the start zone name, stable (安定) and a percent",
+      "id": "hud.start",
+      "observed": "  開始地域 (西岸中部)  安定  緑化 1％",
+      "status": "PASS"
+    },
+    {
+      "condition": "start: zone 0 stable, all others unconquered, not cleared",
+      "id": "init.states",
+      "observed": "[2, 0, 0, 0, 0, 0, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone with 2 nests: one destroyed -> still unconquered",
+      "id": "trans.one_nest_left",
+      "observed": "state=0 alive_nests=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "unconquered zone with a live nest spawns boars",
+      "id": "trans.spawning",
+      "observed": "boars=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "found a standing spot near the nest in its zone",
+      "id": "trans.spot",
+      "observed": "(738.0, 1208.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "nest destroyed by injected clicks; zone still unconquered at 1 HP left",
+      "id": "trans.nest_shot",
+      "observed": "shots=23 state_at_hp1=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "all nests gone -> clearing (boars remain)",
+      "id": "trans.clearing",
+      "observed": "state=1 boars=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "top bar (player in zone) shows name + 掃討中",
+      "id": "hud.clearing",
+      "observed": "  西岸南1  掃討中  緑化 0％",
+      "status": "PASS"
+    },
+    {
+      "condition": "a notice for the clearing change was shown",
+      "id": "hud.notice_clearing",
+      "observed": "[\"西岸南1の巣をすべて壊した\"]",
+      "status": "PASS"
+    },
+    {
+      "condition": "Esc: tree paused, notice remaining and enemy steps unchanged over 2 s",
+      "id": "pause.freeze",
+      "observed": "paused=true rem 2.767->2.767 steps 2015->2015",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resume, enemy time advanced < 0.2 s (no lump sum)",
+      "id": "pause.nolump",
+      "observed": "enemy dt=0.033 notice dt=0.033",
+      "status": "PASS"
+    },
+    {
+      "condition": "boar fell to 3 injected clicks",
+      "id": "trans.boar_clicked",
+      "observed": "boars_left=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "last boar gone -> stable",
+      "id": "trans.stable",
+      "observed": "state=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "top bar shows 安定 for the zone",
+      "id": "hud.stable",
+      "observed": "  西岸南1  安定  緑化 0％",
+      "status": "PASS"
+    },
+    {
+      "condition": "a notice for stable shown or queued (one at a time, 3 s each)",
+      "id": "hud.notice_stable",
+      "observed": "shown=[\"西岸南1の巣をすべて壊した\"] queue=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "no new spawn from the dead nest area",
+      "id": "trans.no_spawn_after",
+      "observed": "spawned 2",
+      "status": "PASS"
+    },
+    {
+      "condition": "20 s in the stable zone: no boar, no damage",
+      "id": "contact.none",
+      "observed": "hp 10 -> 10 boars=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone targets all but one greened -> stays stable",
+      "id": "green.one_short",
+      "observed": "greened=32837/32838 pct=99 label=  西岸南1  安定  緑化 99％",
+      "status": "PASS"
+    },
+    {
+      "condition": "label shows 99％ (floor, never 100 while one short)",
+      "id": "hud.pct99",
+      "observed": "  西岸南1  安定  緑化 99％",
+      "status": "PASS"
+    },
+    {
+      "condition": "last target greened -> complete",
+      "id": "green.complete",
+      "observed": "state=3 label=  西岸南1  緑化完了  緑化 100％",
+      "status": "PASS"
+    },
+    {
+      "condition": "top bar shows 緑化完了 and 100",
+      "id": "hud.complete",
+      "observed": "  西岸南1  緑化完了  緑化 100％",
+      "status": "PASS"
+    },
+    {
+      "condition": "complete notice shown",
+      "id": "hud.notice_complete",
+      "observed": "[\"西岸南1の巣をすべて壊した\", \"西岸南1が安定した\", \"西岸南1の緑化が完了した\"]",
+      "status": "PASS"
+    },
+    {
+      "condition": "top bar follows the player back to the start zone",
+      "id": "hud.follow",
+      "observed": "  開始地域 (西岸中部)  安定  緑化 1％",
+      "status": "PASS"
+    },
+    {
+      "condition": "all nests/boars gone: zones 1..6 stable (zone 0 stable)",
+      "id": "clear.all_stable",
+      "observed": "[2, 2, 3, 2, 2, 2, 2]",
+      "status": "PASS"
+    },
+    {
+      "condition": "start zone one tile short: not cleared, no clear notice",
+      "id": "clear.not_yet",
+      "observed": "[2, 3, 3, 3, 3, 3, 3]",
+      "status": "PASS"
+    },
+    {
+      "condition": "all complete -> cleared flag, one signal, clear notice shown/queued once",
+      "id": "clear.cleared",
+      "observed": "cleared=true signals=1 notices=0+1 states=[3, 3, 3, 3, 3, 3, 3]",
+      "status": "PASS"
+    },
+    {
+      "condition": "play continues after clear: player moves via simulation, no second clear signal",
+      "id": "clear.go_on",
+      "observed": "signals=1 label=  開始地域 (西岸中部)  緑化完了  緑化 100％  【全地域緑化】",
+      "status": "PASS"
+    },
+    {
+      "condition": "cleared world saves/loads with cleared=true and all complete",
+      "id": "save.cleared",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

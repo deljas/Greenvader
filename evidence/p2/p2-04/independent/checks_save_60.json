@@ -1,0 +1,59 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "world round trip through JSON keeps states",
+      "id": "s.round",
+      "observed": "[2, 3, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "enemy data loads onto the restored world",
+      "id": "s.field",
+      "observed": "states=[2, 3, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "cleared world round trips with cleared=true",
+      "id": "s.cleared",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "all complete but cleared=false refused",
+      "id": "s.refuse_cleared_false",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "cleared=true while zones are not all complete refused",
+      "id": "s.refuse_cleared_true",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone state complete with no greened targets refused",
+      "id": "s.refuse_complete_ungreened",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "enemy data with live nest/boars of a zone the world says is stable refused",
+      "id": "s.refuse_enemy_in_stable",
+      "observed": "boars=4",
+      "status": "PASS"
+    },
+    {
+      "condition": "alive nest in a clearing zone refused",
+      "id": "s.refuse_alive_nest_clearing",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "all nests dead but zone unconquered refused",
+      "id": "s.refuse_dead_nests_unconquered",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

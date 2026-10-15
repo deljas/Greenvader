@@ -1,0 +1,8 @@
+M1_stable_without_boars_gone: 9 FAIL lines; P2_04_RESULT checks=132 failures=9
+M2_no_purge: 7 FAIL lines; P2_04_RESULT checks=135 failures=7
+M3_cross_zone: 2 FAIL lines; P2_04_RESULT checks=135 failures=2
+M4_complete_one_early: 0 FAIL lines; P2_04_RESULT checks=135 failures=0
+M5_clearing_one_nest_early: 18 FAIL lines; P2_04_RESULT checks=135 failures=18
+M6_load_nest_in_stable: 1 FAIL lines; P2_04_RESULT checks=135 failures=1
+M7_dummy: 0 FAIL lines; P2_04_RESULT checks=135 failures=0
+M4 (re-run after adding test_one_tile_short_on_stable, --skip-long): see log

@@ -1,0 +1,158 @@
+{
+  "observations": {
+    "transition_log": [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        2,
+        2,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ]
+    ],
+    "zone1_targets": 1200
+  },
+  "results": [
+    {
+      "condition": "after start: zone0 (no nest) stable, zones1/2 unconquered, not cleared",
+      "id": "t.init",
+      "observed": "[2, 0, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "one nest of two left -> zone 1 stays unconquered",
+      "id": "t.one_left",
+      "observed": "[2, 0, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone1 (one nest alive) still spawns boars",
+      "id": "t.spawning",
+      "observed": "boars=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "last nest destroyed with boars alive -> clearing",
+      "id": "t.clearing",
+      "observed": "[2, 1, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "clearing zone1: nests of zone 1 spawn nothing in 180 s, boar count does not grow",
+      "id": "t.spawn_stops",
+      "observed": "spawned 2 -> 2, z1 boars 2 -> 2",
+      "status": "PASS"
+    },
+    {
+      "condition": "boars remain -> not stable yet",
+      "id": "t.still_clearing",
+      "observed": "[2, 1, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "one boar left -> still clearing",
+      "id": "t.one_boar_left",
+      "observed": "killed=1 state=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "last boar killed -> stable",
+      "id": "t.stable",
+      "observed": "[2, 2, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "world target count of zone 1 equals own count",
+      "id": "t.target_count",
+      "observed": "world=1200 own=1200",
+      "status": "PASS"
+    },
+    {
+      "condition": "all targets but ONE greened -> stays stable (not complete)",
+      "id": "t.one_short",
+      "observed": "greened=1199/1200 state=2 pct=99",
+      "status": "PASS"
+    },
+    {
+      "condition": "last target greened -> complete",
+      "id": "t.complete",
+      "observed": "state=3",
+      "status": "PASS"
+    },
+    {
+      "condition": "complete zone stays complete after plants are removed",
+      "id": "t.no_regress",
+      "observed": "state=3 greened=1150",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone2 stable after its nest and boars are gone",
+      "id": "t.z2_stable",
+      "observed": "[2, 3, 2]",
+      "status": "PASS"
+    },
+    {
+      "condition": "not cleared while zone 0/2 not complete",
+      "id": "t.not_cleared_yet",
+      "observed": "cleared=false",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone2 complete, zone0 still stable -> not cleared",
+      "id": "t.not_cleared_z0",
+      "observed": "[2, 3, 3]",
+      "status": "PASS"
+    },
+    {
+      "condition": "zone0 one tile short -> not complete, not cleared",
+      "id": "t.z0_one_short",
+      "observed": "state=2",
+      "status": "PASS"
+    },
+    {
+      "condition": "all zones complete -> cleared flag and signal exactly once",
+      "id": "t.cleared",
+      "observed": "cleared=true signals=1 states=[3, 3, 3]",
+      "status": "PASS"
+    },
+    {
+      "condition": "further activity / start() again: still exactly one cleared signal, flag stays",
+      "id": "t.cleared_once",
+      "observed": "signals=1",
+      "status": "PASS"
+    },
+    {
+      "condition": "no logged transition goes backwards",
+      "id": "t.forward_only",
+      "observed": "[[1, 0, 1], [1, 1, 2], [1, 2, 3], [2, 0, 1], [2, 1, 2], [2, 2, 3], [0, 2, 3]]",
+      "status": "PASS"
+    }
+  ]
+}

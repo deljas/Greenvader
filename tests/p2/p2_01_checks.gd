@@ -481,7 +481,8 @@ func test_spawn_interval_and_caps() -> void:
 	rig4[0].set_zone_state(0, WorldState.ZONE_STABLE)
 	for i: int in 60 * 60:
 		field4.advance(dt)
-	check(before_stable == 2 and field4.boars.size() == before_stable, "a nest in a stable zone stops spawning (%d boars before, %d after)" % [before_stable, field4.boars.size()])
+	# P2-04: the boars of a zone that becomes stable vanish at once (they no longer stand still), and its nest spawns nothing more.
+	check(before_stable == 2 and field4.boars.is_empty() and field4.total_spawned == before_stable, "a nest in a stable zone stops spawning (%d boars before, %d after, %d spawned in total); the boars left with the state change (P2-04)" % [before_stable, field4.boars.size(), field4.total_spawned])
 	# Disabled switch.
 	var rig5: Array = single_nest({"enabled": false})
 	for i: int in 60 * 30:
@@ -689,24 +690,21 @@ func test_stable_zone() -> void:
 	for i: int in 60 * 40:
 		field.advance(dt)
 	check(field.boars.size() >= 3 and field.total_gnawed > 0, "before: %d boars are eating (%d tiles)" % [field.boars.size(), field.total_gnawed])
-	world.set_zone_state(0, WorldState.ZONE_STABLE)
-	var positions: Array[Vector2] = []
-	for boar: Boar in field.boars:
-		positions.append(boar.pos)
+	# P2-04: the boars of a zone that turns stable are removed at once (no standing still), so nothing bites and nothing spawns.
 	var gnawed: int = field.total_gnawed
 	var plants: PackedByteArray = world.stage.duplicate()
 	var count: int = field.boars.size()
+	var gone: bool = false
+	world.set_zone_state(0, WorldState.ZONE_STABLE)
+	gone = field.boars.is_empty()
 	for i: int in 60 * 60:
 		field.advance(dt)
-	var still: bool = true
-	for k: int in field.boars.size():
-		still = still and field.boars[k].pos == positions[k]
-	check(still and field.total_gnawed == gnawed and world.stage == plants and field.boars.size() == count, "when its zone turns stable the boars stand still, bite nothing and nothing new spawns")
+	check(count >= 3 and gone and field.boars.is_empty() and field.total_gnawed == gnawed and world.stage == plants, "when its zone turns stable the %d boars are gone at once, nothing is bitten and nothing new spawns" % count)
 	# Complete behaves the same.
 	world.set_zone_state(0, WorldState.ZONE_COMPLETE)
 	for i: int in 60 * 20:
 		field.advance(dt)
-	check(field.total_gnawed == gnawed and field.boars.size() == count, "a complete zone is closed to enemies as well")
+	check(field.total_gnawed == gnawed and field.boars.is_empty() and field.total_spawned >= count, "a complete zone is closed to enemies as well (no boar, nothing bitten)")
 	# A clearing zone (all nests destroyed, boars left) is still open: remaining boars keep working until killed.
 	var world2: WorldState = small_world(open_rows(100, 50), 100)
 	var field2: EnemyField = EnemyField.new(world2, tuning, TILE)
@@ -964,10 +962,10 @@ func test_long_run() -> void:
 		if i % 150 == 0:
 			feed_plants(world, field)
 		if i == frames / 2:
-			world.set_zone_state(stable_zone, WorldState.ZONE_STABLE)
 			for boar: Boar in field.boars:
 				if boar.zone == stable_zone:
 					frozen_positions[boar.id] = boar.pos
+			world.set_zone_state(stable_zone, WorldState.ZONE_STABLE)
 		max_boars = maxi(max_boars, field.boars.size())
 		for nest: Nest in field.nests:
 			max_per_nest = maxi(max_per_nest, nest.boar_count)
@@ -980,7 +978,7 @@ func test_long_run() -> void:
 					first_violation = "frame %d boar %d: %s" % [i, boar.id, why]
 			if boar.zone == 0:
 				in_zone0 += 1
-			if frozen_positions.has(boar.id) and boar.pos != frozen_positions[boar.id]:
+			if frozen_positions.has(boar.id) or (i > frames / 2 and boar.zone == stable_zone):
 				frozen_moved += 1
 	var cpu_seconds: float = float(Time.get_ticks_msec() - started) / 1000.0
 	check(max_boars == 40, "30 minutes idle: the region-wide limit holds and is reached (max %d boars, limit 40)" % max_boars)
@@ -991,7 +989,7 @@ func test_long_run() -> void:
 	for index: int in zone0_tiles:
 		zone0_after.append(world.stage[index])
 	check(zone0_after == zone0_before, "the plants of the stable start zone were never touched (%d tiles)" % zone0_tiles.size())
-	check(frozen_positions.size() > 0 and frozen_moved == 0, "%d boars of the zone that turned stable at 15 min never moved again (moved frames: %d)" % [frozen_positions.size(), frozen_moved])
+	check(frozen_positions.size() > 0 and frozen_moved == 0, "%d boars of the zone that turned stable at 15 min vanished at once and none of them (or any other boar of that zone) was seen again (frames seen: %d)" % [frozen_positions.size(), frozen_moved])
 	check(world.counters_consistent() and field.total_gnawed > 1000, "after 30 minutes the counters equal a full recount; %d tiles were gnawed in total" % field.total_gnawed)
 	var spawn_per_zone: Dictionary = {}
 	for nest: Nest in field.nests:

@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [t.init] after start: zone0 (no nest) stable, zones1/2 unconquered, not cleared :: [2, 0, 0]
+PASS [t.one_left] one nest of two left -> zone 1 stays unconquered :: [2, 0, 0]
+PASS [t.spawning] zone1 (one nest alive) still spawns boars :: boars=2
+PASS [t.clearing] last nest destroyed with boars alive -> clearing :: [2, 1, 0]
+PASS [t.spawn_stops] clearing zone1: nests of zone 1 spawn nothing in 180 s, boar count does not grow :: spawned 2 -> 2, z1 boars 2 -> 2
+PASS [t.still_clearing] boars remain -> not stable yet :: [2, 1, 0]
+PASS [t.one_boar_left] one boar left -> still clearing :: killed=1 state=1
+PASS [t.stable] last boar killed -> stable :: [2, 2, 0]
+PASS [t.target_count] world target count of zone 1 equals own count :: world=1200 own=1200
+PASS [t.one_short] all targets but ONE greened -> stays stable (not complete) :: greened=1199/1200 state=2 pct=99
+PASS [t.complete] last target greened -> complete :: state=3
+PASS [t.no_regress] complete zone stays complete after plants are removed :: state=3 greened=1150
+PASS [t.z2_stable] zone2 stable after its nest and boars are gone :: [2, 3, 2]
+PASS [t.not_cleared_yet] not cleared while zone 0/2 not complete :: cleared=false
+PASS [t.not_cleared_z0] zone2 complete, zone0 still stable -> not cleared :: [2, 3, 3]
+PASS [t.z0_one_short] zone0 one tile short -> not complete, not cleared :: state=2
+PASS [t.cleared] all zones complete -> cleared flag and signal exactly once :: cleared=true signals=1 states=[3, 3, 3]
+PASS [t.cleared_once] further activity / start() again: still exactly one cleared signal, flag stays :: signals=1
+PASS [t.forward_only] no logged transition goes backwards :: [[1, 0, 1], [1, 1, 2], [1, 2, 3], [2, 0, 1], [2, 1, 2], [2, 2, 3], [0, 2, 3]]
+RESULT trans checks=19 failures=0

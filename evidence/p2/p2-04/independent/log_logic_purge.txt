@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [p.vanish] zone set stable: its boars vanish at once, no kill credit / drop signal / carcass :: boars 4 -> 0 killed 0 -> 0 defeated_signals=0 carcasses 0 -> 0
+PASS [p.no_respawn] no boar returns to the stable zone (alive nest present) :: spawned 4 -> 4 boars=0 alive_nests=1
+RESULT purge checks=2 failures=0

@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(1280, 720)
+PASS stage 1: top bar '  西岸南1  未制圧  緑化 1％', no notice
+PASS stage 2: first notice shown: 西岸南1の巣をすべて壊した
+PASS stage 2: second notice '西岸南1が安定した', top bar '  西岸南1  安定  緑化 1％'
+PASS stage 3: cleared, notice 'すべての地域を緑化した', top bar '  西岸南1  緑化完了  緑化 100％  【全地域緑化】'
+GPU_INFO renderer=forward_plus screens=0 window_screen=-1 window_pos=(0, 0) window_size=(1280, 720)
+P2_04_GPU_RESULT failures=0

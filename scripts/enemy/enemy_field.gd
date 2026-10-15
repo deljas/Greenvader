@@ -9,17 +9,20 @@ extends RefCounted
 ## spawns a boar every spawn interval while it has room under the nest limit and the global limit (the timer does not run
 ## while a limit is reached, so a full region never banks spawns). Destroying a nest releases its tiles and stops its spawning.
 ##
-## Boars never leave their zone, never enter a stable / complete zone (they stand still when their own zone becomes one),
-## and never go farther than the tether from their nest. They walk like the player (Walker: no water, no buildings, sliding
+## Boars never leave their zone, never enter a stable / complete zone, and never go farther than the tether from their nest. They walk like the player (Walker: no water, no buildings, sliding
 ## along walls, no path finding). They pick the nearest plant (seed .. mature, not under an occupant) in their zone and
 ## tether range, found by walking the chunks' plant counts, walk to it and bite the plants within the gnaw radius at a fixed
 ## interval (WorldState.set_stage to empty: the greening counters follow, and the tile returns to the spread queue by itself).
 ## Without a target they wander around the nest. A boar that cannot get closer gives that plant up for a while.
+## When a zone becomes stable / complete (WorldState.zone_state_changed; ZoneProgress does this when the last enemy falls, tests
+## may do it from outside) the boars still in it are removed at once (P2-04): a stable zone holds no enemy, so none can bite or touch.
 
 ## A boar fell by a shot (P2-02): where, and its id. The pickups / view side listens (drops are not decided here).
 signal boar_defeated(position: Vector2, boar_id: int)
 ## A nest was destroyed by a shot.
 signal nest_defeated(nest: Nest)
+## The enemies of a zone changed in a way that may move its state (P2-04): a nest was destroyed or a boar left the field.
+signal enemies_changed(zone: int)
 
 const EPS: float = 1.0e-4
 
@@ -79,6 +82,7 @@ func _init(world_state: WorldState, enemy_tuning: EnemyTuning, tile_size: int) -
 	_flash_toggle_steps = _to_steps(tuning.hit_flash_toggle_seconds)
 	_corpse_steps = _to_steps(tuning.carcass_seconds)
 	_bone_steps = _to_steps(tuning.bone_seconds)
+	world.zone_state_changed.connect(_on_zone_state_changed)
 
 func _to_steps(seconds: float) -> int:
 	return maxi(roundi(seconds * float(maxi(tuning.step_hz, 1))), 1)
@@ -164,6 +168,7 @@ func destroy_nest(nest: Nest) -> void:
 	nest.hp = 0
 	nest.flash_steps = 0
 	world.release(nest.owner_id())
+	enemies_changed.emit(nest.zone)
 
 ## Takes `amount` hit points from a boar; it is removed at 0. Returns true when it was killed by this call.
 func damage_boar(boar: Boar, amount: int) -> bool:
@@ -187,6 +192,15 @@ func remove_boar(boar: Boar) -> void:
 	var nest: Nest = nest_by_id(boar.nest_id)
 	if nest != null:
 		nest.boar_count = maxi(nest.boar_count - 1, 0)
+	enemies_changed.emit(boar.zone)
+
+## A zone that became stable / complete holds no enemy: its remaining boars vanish (no carcass, no drop).
+func _on_zone_state_changed(zone: int, _old_state: int, new_state: int) -> void:
+	if new_state < WorldState.ZONE_STABLE:
+		return
+	for boar: Boar in boars.duplicate():
+		if boar.zone == zone:
+			remove_boar(boar)
 
 ## SpreadSim.allow_hook: natural spread never enters a nest's tiles.
 func spread_allows(index: int) -> bool:
@@ -364,9 +378,6 @@ func _allowed(zone: int, home: Vector2, p: Vector2) -> bool:
 	return true
 
 func _boar_step(boar: Boar) -> void:
-	# A zone that became stable / complete is never entered and never harmed: its boars stand still.
-	if not world.zone_open_to_enemies(boar.zone):
-		return
 	if boar.blocked_steps > 0:
 		boar.blocked_steps -= 1
 		if boar.blocked_steps == 0:
@@ -392,7 +403,7 @@ func _gnaw(boar: Boar) -> int:
 	for y: int in range(maxi(floori((boar.pos.y - radius_px) / tile_px), 0), mini(floori((boar.pos.y + radius_px) / tile_px), world.height - 1) + 1):
 		for x: int in range(maxi(floori((boar.pos.x - radius_px) / tile_px), 0), mini(floori((boar.pos.x + radius_px) / tile_px), world.width - 1) + 1):
 			var index: int = y * world.width + x
-			if world.stage[index] == WorldState.STAGE_EMPTY or world.occupant[index] != 0 or world.zone_of[index] != boar.zone:
+			if world.stage[index] == WorldState.STAGE_EMPTY or world.occupant[index] != 0 or world.zone_of[index] != boar.zone or not world.zone_open_to_enemies(world.zone_of[index]):
 				continue
 			var offset: Vector2 = Vector2((x + 0.5) * tile_px, (y + 0.5) * tile_px) - boar.pos
 			if offset.length_squared() <= limit and world.set_stage(index, WorldState.STAGE_EMPTY):
@@ -708,6 +719,23 @@ func load_dict(data: Dictionary, world_has_layer: bool = true) -> bool:
 		loaded_carcasses.append(carcass)
 	if loaded_carcasses.size() > tuning.carcass_cap:
 		return false
+	# P2-04: the data must agree with the zone states of the world (a stable zone holds no enemy, a zone past "unconquered" has no
+	# nest left alive, and a zone with nests that all fell is not "unconquered").
+	var alive_by_zone: Dictionary = {}
+	var any_by_zone: Dictionary = {}
+	for nest: Nest in loaded_nests:
+		any_by_zone[nest.zone] = true
+		if nest.alive:
+			alive_by_zone[nest.zone] = int(alive_by_zone.get(nest.zone, 0)) + 1
+	for zone: int in world.zone_count:
+		var zone_status: int = world.zone_state[zone]
+		if zone_status >= WorldState.ZONE_CLEARING and alive_by_zone.has(zone):
+			return false
+		if zone_status == WorldState.ZONE_UNCONQUERED and any_by_zone.has(zone) and not alive_by_zone.has(zone):
+			return false
+	for boar: Boar in loaded_boars:
+		if not world.zone_open_to_enemies(boar.zone):
+			return false
 	if world_has_layer:
 		for carcass: Carcass in loaded_carcasses:
 			for index: int in carcass_tiles(carcass.pos):

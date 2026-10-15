@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [hud.start] top bar at start shows the start zone name, stable (安定) and a percent ::   開始地域 (西岸中部)  安定  緑化 1％
+PASS [init.states] start: zone 0 stable, all others unconquered, not cleared :: [2, 0, 0, 0, 0, 0, 0]
+PASS [trans.one_nest_left] zone with 2 nests: one destroyed -> still unconquered :: state=0 alive_nests=1
+PASS [trans.spawning] unconquered zone with a live nest spawns boars :: boars=2
+PASS [trans.spot] found a standing spot near the nest in its zone :: (738.0, 1208.0)
+PASS [trans.nest_shot] nest destroyed by injected clicks; zone still unconquered at 1 HP left :: shots=23 state_at_hp1=0
+PASS [trans.clearing] all nests gone -> clearing (boars remain) :: state=1 boars=1
+PASS [hud.clearing] top bar (player in zone) shows name + 掃討中 ::   西岸南1  掃討中  緑化 0％
+PASS [hud.notice_clearing] a notice for the clearing change was shown :: ["西岸南1の巣をすべて壊した"]
+PASS [pause.freeze] Esc: tree paused, notice remaining and enemy steps unchanged over 2 s :: paused=true rem 2.733->2.733 steps 2070->2070
+PASS [pause.nolump] after resume, enemy time advanced < 0.2 s (no lump sum) :: enemy dt=0.067 notice dt=0.067
+PASS [trans.boar_clicked] boar fell to 3 injected clicks :: boars_left=0
+PASS [trans.stable] last boar gone -> stable :: state=2
+PASS [hud.stable] top bar shows 安定 for the zone ::   西岸南1  安定  緑化 0％
+PASS [hud.notice_stable] a notice for stable shown or queued (one at a time, 3 s each) :: shown=["西岸南1の巣をすべて壊した"] queue=1
+PASS [trans.no_spawn_after] no new spawn from the dead nest area :: spawned 2
+PASS [contact.none] 20 s in the stable zone: no boar, no damage :: hp 10 -> 10 boars=0
+PASS [green.one_short] zone targets all but one greened -> stays stable :: greened=32837/32838 pct=99 label=  西岸南1  安定  緑化 99％
+PASS [hud.pct99] label shows 99％ (floor, never 100 while one short) ::   西岸南1  安定  緑化 99％
+PASS [green.complete] last target greened -> complete :: state=3 label=  西岸南1  緑化完了  緑化 100％
+PASS [hud.complete] top bar shows 緑化完了 and 100 ::   西岸南1  緑化完了  緑化 100％
+PASS [hud.notice_complete] complete notice shown :: ["西岸南1の巣をすべて壊した", "西岸南1が安定した", "西岸南1の緑化が完了した"]
+PASS [hud.follow] top bar follows the player back to the start zone ::   開始地域 (西岸中部)  安定  緑化 1％
+PASS [clear.all_stable] all nests/boars gone: zones 1..6 stable (zone 0 stable) :: [2, 2, 3, 2, 2, 2, 2]
+PASS [clear.not_yet] start zone one tile short: not cleared, no clear notice :: [2, 3, 3, 3, 3, 3, 3]
+PASS [clear.cleared] all complete -> cleared flag, one signal, clear notice shown/queued once :: cleared=true signals=1 notices=0+1 states=[3, 3, 3, 3, 3, 3, 3]
+PASS [clear.go_on] play continues after clear: player moves via simulation, no second clear signal :: signals=1 label=  開始地域 (西岸中部)  緑化完了  緑化 100％  【全地域緑化】
+PASS [save.cleared] cleared world saves/loads with cleared=true and all complete :: 
+RESULT scene hz=30 checks=28 failures=0

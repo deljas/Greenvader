@@ -1,0 +1,140 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and tunings load
+PASS region_01 starts with the start zone stable and six unconquered zones; start() changes nothing
+PASS every unconquered zone starts with its nests (2 2 2 3 3 3), so none advances at start
+PASS a zone that has no nest at all settles to stable at start
+PASS two nests alive: unconquered
+PASS boars came out (4)
+PASS nest 1 is destroyed
+FAIL one nest left: the zone is still unconquered (no state change)
+PASS the surviving nest keeps spawning (2 -> 4)
+FAIL a nest with 1 hit point left keeps the zone unconquered
+PASS the last nest falls: clearing (events [[0,0,1]])
+PASS the other zone is untouched, and with boars left the zone is not stable yet
+PASS clearing: nothing spawns, the state stays clearing while boars live
+PASS one boar left: still clearing
+PASS the last boar falls: stable (events [[0,0,1],[0,1,2]])
+PASS no boar alive when the last nest falls: clearing, then stable, in that order
+FAIL all boars dead but a nest alive: still unconquered
+PASS zone 0 has 397 greening targets (400 tiles, 3 water)
+PASS water is not a target: planting it is refused
+PASS 396 of 397 greened: stable, not complete
+PASS 396 of 397 is 99 percent (floor), not 100
+PASS the status text shows 99％
+PASS the last tile only as a seed (not greened): still stable
+PASS the last tile greened (sprout 1): complete (events [[0,2,3]])
+PASS the other zone is not complete: not cleared
+PASS the status text shows 100％ / complete
+PASS 396 mature of 397: stable
+PASS all mature: complete
+FAIL boars exist in the unconquered test zone
+FAIL everything greened but nests alive: still unconquered
+FAIL nest destroyed: clearing (boars left, fully greened already)
+PASS last boar falls on a fully greened zone: stable and complete in order (events [[0,0,1],[0,1,2],[0,2,3]])
+PASS zone complete
+PASS greened count down by 2: the zone stays complete, no new event
+PASS greened again: no second event
+PASS stable after the only nest fell
+PASS a nest added to a stable zone neither reopens it nor spawns
+PASS (sanity) the low-level setter is only for tests / loading
+FAIL boars in both zones before (8, 0)
+PASS zone 0 set stable from outside: its boars are gone at once, the other zone's are not (0)
+PASS they vanish without a kill count or carcass
+PASS nest boar counters match the boars left
+FAIL external stable also leaves the zone stable (not pushed on); the other zone keeps its state
+PASS a minute later still no boar in zone 0 (their nests spawn nothing)
+PASS zone 1 set complete from outside: its boars are gone
+PASS (info) biting counter only grows: 0
+PASS setting clearing from outside removes no boar (2)
+PASS control: a boar in an unconquered zone hurts on touch (HP 0)
+PASS a boar of a zone that became stable is gone: no touch damage in 5 s (HP 10)
+PASS notice text: clearing
+PASS notice text: stable
+PASS notice text: complete
+PASS no notice for unconquered
+PASS clear text
+PASS state names
+PASS zone under a position
+FAIL status at 123 / 400: 30％ (floor of 30.75): 試験地域0  安定  緑化 30％
+PASS the other zone: its own state and rate
+PASS outside the map: no text
+PASS the first notice shows at once, the others wait
+PASS still the first at 2.9 s
+PASS the second after 3 s
+PASS the third has its own duration (8 s)
+PASS still showing at 7.9 s
+PASS hidden when the queue is empty
+PASS log of shown texts
+PASS the queue holds at most 6 waiting notices
+PASS the panel sits on whole pixels (160, 40) size 320 x 22
+PASS a transition produces its notice, in order
+PASS not cleared at start
+PASS one zone complete: not cleared
+PASS one tile short in the last zone: not cleared
+PASS the last tile: the region is cleared, signal once
+PASS the status shows the clear mark
+PASS greening drops and returns, start() again: still cleared, one signal
+PASS one zone set complete from outside: not cleared
+PASS all zones set complete from outside: cleared
+PASS a zone that is only clearing (boar-less settles to stable, not complete): not cleared
+PASS built a cleared world (states [3, 3])
+PASS states, clear flag and counters survive a round trip
+PASS states and the clear flag survive a JSON text round trip
+PASS all four states round trip, not cleared
+PASS the enemy data loads onto the restored world and round trips
+FAIL start() on the restored world only settles: zone 0 keeps its live nest (unconquered), the nest-less clearing zone 1 with no boar becomes stable, 2 and 3 stay
+FAIL (control) consistent data loads: unconquered zone with a live nest and a boar
+PASS a complete zone with ungreened targets is refused
+PASS the clear flag with zones that are not complete is refused
+PASS (control) a fully greened world is cleared
+PASS all zones complete but the flag off is refused
+PASS a save without the flag derives it from the zone states
+PASS an unknown state is refused
+PASS refused: a live nest in a stable zone (state unchanged)
+PASS refused: a live nest in a complete zone (state unchanged)
+PASS refused: a live nest in a clearing zone (state unchanged)
+PASS refused: a boar in a stable zone (state unchanged)
+FAIL refused: every nest of an unconquered zone is dead
+PASS the same data with the zone stable loads
+PASS loads: clearing, a boar left
+PASS loads: unconquered
+PASS 30 / 60 / 144 Hz: the same transitions, spawns and kills (state [2, 2], spawned 8, killed 8)
+PASS the greening event hook adds under 5 us per set_stage (0.84 -> 0.92 us)
+PASS 20 min, every frame: no boar footprint left zone 1 (boar-frames within bite reach of the border: 841269) 
+PASS the test is not vacuous: boars were at the border for 841269 boar-frames
+PASS no tile of the stable zone changed in 20 min: 0 change events, stages equal the snapshot, 2000 of 2000 greened
+PASS zone 0 was fully planted, so it is complete (closed all the same); the enemy zone was active (max 12 boars, 14299 tiles bitten)
+PASS counters equal a recount after the run
+PASS region_01 at 10 min: zone 4 (9 boars) set stable from outside: all its boars gone at once
+PASS region_01, 20 min, every frame (1409800 boar-frames): every boar stood in its own open zone, none in a closed one 
+PASS region_01: no plant of the closed zones (start zone for 20 min; zone 4 after 10 min) changed (0 change events)
+PASS region_01: counters equal a recount; 150706 tiles bitten overall
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS scene: ZoneProgress, the notice panel and the zone label exist
+PASS scene: the player at the start sees the start zone: '  開始地域 (西岸中部)  安定  緑化 1％'
+FAIL scene: zone 2 keeps one nest and is still unconquered after the other one was removed
+FAIL scene: the start zone is stable, the six others unconquered
+PASS scene: a boar of the zone stands near the nest
+PASS scene: a free spot opposite to the boar was found
+FAIL scene: the top bar names the zone, state and rate: '  西岸南1  安定  緑化 0％'
+PASS scene: the nest fell to 20 injected clicks
+FAIL scene: with 1 hit point left the zone was still unconquered
+FAIL scene: the last nest destroyed: the zone is clearing
+PASS scene: the notice says so: ["西岸南1の巣をすべて壊した", "西岸南1が安定した"]
+FAIL scene: the top bar shows clearing: '  西岸南1  安定  緑化 0％'
+PASS scene: while paused the notice neither ages nor hides (-0.001) and the enemy steps stand still
+PASS scene: the boar is still there and the zone is not stable yet
+PASS scene: three clicks defeat the last boar of the zone
+PASS scene: the zone is stable
+PASS scene: the top bar shows stable: '  西岸南1  安定  緑化 0％'
+PASS scene: the stable notice follows the first one: ["西岸南1の巣をすべて壊した", "西岸南1が安定した"]
+PASS scene: the other zones did not move (their nests live) and exactly two notices were shown
+PASS scene: not cleared yet
+PASS scene: every zone greened: complete, cleared flag and one clear signal
+PASS scene: the clear notice is shown for 8 s
+PASS scene: the top bar shows the clear mark: '  西岸南1  緑化完了  緑化 100％  【全地域緑化】'
+PASS scene: after the clear the game goes on (a shot still costs a seed)
+PASS scene: the cleared world survives a save round trip
+INFO {"hz_scenario":{"killed":8,"spawned":8},"no_reinvasion_region_01":{"boar_frames_checked":1409800,"closed_late_zone":4,"cpu_seconds":14.815,"frames":36000,"game_minutes":20,"tiles_gnawed":150706},"no_reinvasion_test_map":{"cpu_seconds":9.589,"frames":72000,"game_minutes":20,"max_boars":12,"near_border_boar_frames":841269,"tiles_gnawed":14299},"set_stage_us":{"with_progress":0.924333333333333,"without_progress":0.84205}}
+P2_04_RESULT checks=135 failures=18

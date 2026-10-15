@@ -17,7 +17,10 @@ const SLOT_COUNT: int = 4
 ## Side of the square tile chunks used for the per-chunk mature counts (fast "how many mature plants near here").
 const CHUNK_TILES: int = 16
 
-## Zone states (P2-01 holds them; the transitions are P2-04). Stable and complete zones are never entered by enemies.
+## A zone changed its state (P2-04): zone id, old and new state. Emitted by set_zone_state only when the state really changes.
+signal zone_state_changed(zone: int, old_state: int, new_state: int)
+
+## Zone states (P2-01 holds them; ZoneProgress moves them forward, P2-04). Stable and complete zones are never entered by enemies.
 const ZONE_UNCONQUERED: int = 0
 const ZONE_CLEARING: int = 1
 const ZONE_STABLE: int = 2
@@ -95,6 +98,12 @@ var zone_of: PackedByteArray = PackedByteArray()
 var zone_state: PackedByteArray = PackedByteArray()
 var zone_target_count: PackedInt32Array = PackedInt32Array()
 var zone_greened_count: PackedInt32Array = PackedInt32Array()
+## Optional observer Callable(zone: int), called by set_stage whenever a tile of that zone becomes greened (the greened count
+## of the zone went up). ZoneProgress uses it to notice a complete zone by the event instead of scanning. Empty = nobody listens.
+var zone_greened_listener: Callable = Callable()
+## True once every zone is complete (P2-04). Set by ZoneProgress, saved, never cleared. Play goes on after it (the clear
+## screen is P5-02).
+var cleared: bool = false
 ## Tiles holding a plant (any stage above empty) per CHUNK_TILES chunk and in total: a cheap "is there anything to
 ## eat near here" for enemies. Derived data (rebuilt by rebuild_derived()), kept by set_stage.
 var plant_chunk_count: PackedInt32Array = PackedInt32Array()
@@ -251,9 +260,11 @@ func set_stage(index: int, new_stage: int) -> bool:
 	var old_stage: int = stage[index]
 	if old_stage == new_stage:
 		return true
+	var greened_up: bool = false
 	if old_stage < GREENED_MIN_STAGE and new_stage >= GREENED_MIN_STAGE:
 		greened_count += 1
 		zone_greened_count[zone_of[index]] += 1
+		greened_up = true
 	elif old_stage >= GREENED_MIN_STAGE and new_stage < GREENED_MIN_STAGE:
 		greened_count -= 1
 		zone_greened_count[zone_of[index]] -= 1
@@ -296,6 +307,9 @@ func set_stage(index: int, new_stage: int) -> bool:
 			mark_dirty(index - width)
 		if y < height - 1:
 			mark_dirty(index + width)
+	# Last, when the tile is completely updated: a zone's greened count went up (ZoneProgress may complete the zone).
+	if greened_up and zone_greened_listener.is_valid():
+		zone_greened_listener.call(zone_of[index])
 	return true
 
 ## Debug / test helper: sets a rectangle of tiles to one stage. Returns the number accepted.
@@ -412,11 +426,35 @@ func recount_zone_greened() -> PackedInt32Array:
 func zone_at(index: int) -> int:
 	return zone_of[index]
 
-## Sets the state of a zone (the rules for when are P2-04). False for an unknown zone or state.
+## Sets the state of a zone. This is the low-level entry (loading, tests, and ZoneProgress, which owns the forward-only
+## rules of when a zone advances). False for an unknown zone or state; emits zone_state_changed when the state changes.
 func set_zone_state(zone: int, state: int) -> bool:
 	if zone < 0 or zone >= zone_count or state < ZONE_UNCONQUERED or state > ZONE_COMPLETE:
 		return false
+	var old_state: int = zone_state[zone]
+	if old_state == state:
+		return true
 	zone_state[zone] = state
+	zone_state_changed.emit(zone, old_state, state)
+	return true
+
+## Floor of the greening percentage of one zone (integers). 100 only when every target of the zone is greened; a zone without
+## any greening target counts as 100.
+func zone_greening_percent_floor(zone: int) -> int:
+	if zone < 0 or zone >= zone_count:
+		return 0
+	if zone_target_count[zone] == 0:
+		return 100
+	return zone_greened_count[zone] * 100 / zone_target_count[zone]
+
+## Integer equality of the zone's greened and target counts (no rounded ratio).
+func zone_fully_greened(zone: int) -> bool:
+	return zone >= 0 and zone < zone_count and zone_greened_count[zone] == zone_target_count[zone]
+
+func all_zones_complete() -> bool:
+	for state: int in zone_state:
+		if state != ZONE_COMPLETE:
+			return false
 	return true
 
 ## Enemies may enter / harm a zone unless it is stable or complete (the hard "no re-invasion" rule).
@@ -502,6 +540,7 @@ func to_dict() -> Dictionary:
 		"fruitless": _pack_bytes(fruitless),
 		"occupancy_owners": owners,
 		"zones": {"count": zone_count, "of": _pack_bytes(zone_of), "state": Array(zone_state)},
+		"cleared": cleared,
 	}
 
 ## Restores a state. Target flags and counters are re-derived from the shared defs and the restored
@@ -568,4 +607,15 @@ static func from_dict(data: Dictionary, defs: Array[TerrainDef]) -> WorldState:
 				return null
 	state.rebuild_derived()
 	state.rebuild_zone_counts()
+	# P2-04: a state that contradicts the counters is refused. A complete zone has every target greened; the clear flag is set
+	# exactly when every zone is complete. (Files from before P2-04 have no flag: they are derived.)
+	for zone: int in state.zone_count:
+		if state.zone_state[zone] == ZONE_COMPLETE and not state.zone_fully_greened(zone):
+			return null
+	if data.has("cleared"):
+		state.cleared = bool(data["cleared"])
+		if state.cleared != state.all_zones_complete():
+			return null
+	else:
+		state.cleared = state.all_zones_complete()
 	return state

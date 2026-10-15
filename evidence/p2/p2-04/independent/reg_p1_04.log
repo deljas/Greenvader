@@ -1,0 +1,92 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and sim tuning load
+PASS tuning: spread tick 1.0 s, growth tick 0.5 s
+PASS tuning: growth limit G = 3000 and spread limit B = 1500 tiles per tick (lowered from the 4000 / 2000 proposal to meet the 16 ms frame target)
+PASS tuning (pinned P1-04 reference values): spread radius 2 tiles, natural growth multiplier 3, +10000 progress per tick
+PASS tuning as shipped (P1-06 retune): radius 2 tiles, natural growth multiplier 2, +6000 progress per tick (+1500 per extra neighbour), threshold 100000
+PASS tuning: spread progress has a positive rate, a threshold above one tick and an event limit
+PASS selection map: four mature tiles
+PASS selection map: one tile occupied by a big plant
+PASS selection map: 15 tiles are expected to be planted
+PASS selection map: the tile 2 tiles from the mature block is a candidate, 3 tiles away is not
+PASS candidate queue holds exactly the in-range empty plantable free tiles at start (16 = 15 expected + the hook-refused one)
+PASS after one hop exactly the expected 15 tiles were planted by spread (15)
+PASS planted tiles are seeds (or just sprouting), not mature
+PASS water and building tiles in range are not planted
+PASS the occupied tile and the hook-refused tile are not planted
+PASS a manually planted seed is left alone and is not marked natural
+PASS the hook was asked about the refused candidate but not about out-of-range tiles
+PASS the refused tile stays empty as long as the hook refuses
+PASS once the hook allows it (empty Callable = always allowed) the tile is planted by itself
+PASS counters consistent after the selection run
+PASS a tile freed from its occupant is planted by spread
+PASS fairness map: 52 candidates, B = 7
+PASS visit interval bound = ceil(Q / B) = 8 ticks
+PASS every spread tick examined exactly min(B, queue size) candidates (limit B = 7)
+PASS no candidate waited more than ceil(Q/B) = 8 ticks between visits (worst gap 7)
+PASS refusing hook: queue unchanged and nothing planted
+PASS examination limit B held while planting
+PASS all 52 candidates became seeds within the computed bound (12 ticks <= 18 = events + progress + ceil(Q/B))
+PASS every candidate was planted exactly once (52)
+PASS mature events: 400 new mature tiles applied at most 25 per tick (all applied after 16 ticks)
+PASS growth tick visits at most G = 300 of 10,000 active tiles, and one sweep covers each exactly once (visited 10000 in 34 ticks)
+PASS sweep length = ceil(10,000 / 300) = 34 ticks
+PASS random map (seed 20261015): 9 start tiles, 948 reachable target tiles, deepest 30 hops, 64 unreachable pockets
+PASS every connected target tile (948) was reached within the computed bound of 1050 ticks (30 hops x 35 ticks per hop)
+PASS every tile was reached no later than depth x per-hop bound (worst used 83% of its bound)
+PASS tiles outside the connected area (unreachable pockets, water, buildings) were never planted
+PASS random map: counters consistent after the run
+PASS gap of 1 water tile: the far side is reached by spread (133 of 133 tiles green)
+PASS isolated-land map (gap 1): counters consistent
+PASS gap of 2 water tiles: the near side is fully green (84/84) and the far side stays empty (0 of 126) after 238 s
+PASS isolated-land map (gap 2): counters consistent
+PASS split map: 3,600 active tiles with G = 500 are swept in 8 ticks (8)
+PASS unsplit growth matures every tile exactly at the tick the spec oracle gives (wet tiles 60..120 ticks)
+PASS split growth: every tile matures no earlier than unsplit and at most one sweep (8 ticks) later (worst delay 7)
+PASS split growth is never ahead of unsplit growth
+PASS after catch_up the split world equals the unsplit world exactly (stage, growth, moisture, counters at tick 100)
+PASS split run ends with all tiles mature and consistent counters (3600)
+PASS an active set within G behaves exactly like the unlimited tick (140 ticks, same arrays and order)
+PASS natural seed grows 3x as fast as a player seed (30000 vs 10000 after 10 ticks)
+PASS natural seed is mature after 40 ticks = 20 s (dry), the player seed is not
+PASS the natural mark is cleared when the tile becomes empty
+PASS counters (greened, mature, targets) equal a full recount every 5 s during 150 s of spreading
+PASS greening grew only upwards while spreading (388 greened, 416 natural tiles)
+PASS greening percent is the integer floor of greened / targets (16 %)
+PASS mature_near (incremental) equals a brute-force count of mature tiles within the radius for every tile
+PASS 30 / 60 / 144 Hz: same number of spread tiles after 95 s ([418, 418, 418])
+PASS 30 / 60 / 144 Hz: identical world, growth and spread state after 95 s
+PASS paused: 40 s of stepping changes neither growth nor spread nor the queue
+PASS after resuming only the two stepped frames of time were added
+PASS SimulationDriver owns the growth and the spread simulation
+PASS driver: 30 s = 30 spread ticks and 60 growth ticks
+PASS save point is mid-sweep (growth cursor 32, sweep 3 ticks)
+PASS save point has a queue longer than B (25 candidates, 2 pending events)
+PASS world state restores from its save data
+PASS growth, spread and clock restore
+PASS right after restoring, the saved data equals the original (state, growth phase, queue, progress)
+PASS restored and original run 45 s more with identical results
+PASS the continued run really spread (271 natural tiles) and the restored counters are consistent
+PASS flat front: natural spread advances 4.00 tiles per minute (green front [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41])
+PASS a manual shot lays a front 30 tiles away that is mature in 60 s (= 30.0 tiles/min), far faster than natural spread (4.00)
+PASS the mature front follows the green front closely (45 vs 41)
+PASS region_01: 331 mature start tiles, 125682 target tiles connected to them, 119077 isolated target tiles (247 hops deepest)
+PASS region_01: counters equal a full recount after 5 min of natural spread only
+PASS region_01: after 5 min no isolated, water or building tile was planted
+PASS region_01: 5 min of spread alone grows the greening rate from 0.14 % to 1.01 % (2219 tiles planted)
+PASS region_01: after 30 min still nothing planted outside the connected area; counters consistent
+PASS performance map: 131072 of 262144 tiles growing (50 %), 32768 spread candidates queued
+PASS performance run respected G (max visited 3000) and B (max examined 1500)
+FAIL frame total (growth tick + spread tick + RegionView flush) stays under 16 ms: max 17.37 ms, p99 10.01 ms, both-ticks max 17.37 ms
+PASS performance map: counters consistent after 25 s
+PASS burst: 3000 + 3000 tiles changed stage in two single ticks
+PASS burst frames under 16 ms: contiguous 7.54 ms (tick 5.81 + flush 1.73), scattered 10.39 ms (tick 7.04 + flush 3.35)
+PASS spread burst: B = 1216 candidates planted in one tick (queue held 1216)
+PASS spread burst frame (tick 1.55 ms + flush 0.82 ms) under 16 ms
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS scene: the simulation driver owns the spread tick (1.0 s clock)
+PASS scene: 60 s of game time spread green from the safe zone (232 natural tiles) with consistent counters
+PERF {"burst_contiguous_changes":3000,"burst_contiguous_drain_frame_ms_max":0.0,"burst_contiguous_drain_frames_after":0,"burst_contiguous_flush_ms":1.73,"burst_contiguous_flush_tiles":3221,"burst_contiguous_growth_tick_ms":5.81,"burst_scattered_changes":3000,"burst_scattered_drain_frame_ms_max":2.44,"burst_scattered_drain_frames_after":1,"burst_scattered_flush_ms":3.35,"burst_scattered_flush_tiles":6000,"burst_scattered_growth_tick_ms":7.04,"flush_ms_max":3.53,"flush_tiles_max":5014,"frame_both_ticks_ms_max":17.37,"frame_both_ticks_ms_median":11.24,"frame_growth_only_ms_max":9.71,"frame_idle_ms_max":0.01,"frame_ms_max":17.37,"frame_ms_mean":0.28,"frame_ms_p99":10.01,"frame_spread_only_ms_max":0.0,"growth_tick_ms_max":7.92,"growth_tick_ms_median":4.96,"perf_active_tiles_start":131072,"perf_queue_start":32768,"spread_burst_flush_ms":0.82,"spread_burst_planted":1216,"spread_burst_tick_ms":1.55,"spread_tick_ms_max":6.19,"spread_tick_ms_median":3.74}
+INFO {"front_green_tiles_per_minute":4.0,"front_samples_per_minute":[1,5,9,13,17,21,25,29,33,37,41],"manual_front_tiles_per_minute":30.0,"random_map_bound_ticks":1050,"random_map_hop_bound_ticks":35,"random_map_max_depth":30,"random_map_worst_ratio":0.83,"region_connected_from_start":125682,"region_isolated_plantable":119077,"region_max_hops":247,"region_start_mature":331,"region_targets":244759,"region_timeline":{"120":{"active":116,"greened":963,"greened_pct":0.39,"natural_planted":708,"queue":72},"1200":{"active":540,"greened":18076,"greened_pct":7.39,"natural_planted":17999,"queue":134},"180":{"active":148,"greened":1419,"greened_pct":0.58,"natural_planted":1132,"queue":72},"1800":{"active":648,"greened":34327,"greened_pct":14.02,"natural_planted":34098,"queue":170},"30":{"active":0,"greened":455,"greened_pct":0.19,"natural_planted":124,"queue":140},"300":{"active":136,"greened":2461,"greened_pct":1.01,"natural_planted":2219,"queue":151},"60":{"active":44,"greened":595,"greened_pct":0.24,"natural_planted":308,"queue":112},"600":{"active":221,"greened":6267,"greened_pct":2.56,"natural_planted":6080,"queue":210},"900":{"active":431,"greened":11563,"greened_pct":4.72,"natural_planted":11442,"queue":124}}}
+P1_04_RESULT checks=86 failures=1

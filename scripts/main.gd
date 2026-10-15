@@ -19,6 +19,11 @@ var enemy_tuning: EnemyTuning
 var enemies: EnemyField
 var enemy_driver: EnemyDriver
 var enemy_combat: EnemyCombat
+## Zone state transitions (P2-04), the status label in the top bar and the notices of state changes.
+var zone_progress: ZoneProgress
+var zone_label: Label
+var zone_notice: ZoneNotice
+var _zone_text: String = ""
 var enemy_view: EnemyView
 var pickup_view: PickupView
 var cultivated_view: CultivatedView
@@ -107,6 +112,7 @@ func _ready() -> void:
 	# Enemies (P2-01): nests of the unconquered zones and their boars. Natural spread must not enter a nest's tiles.
 	enemies = EnemyField.new(grid, enemy_tuning, region_def.tile_px)
 	enemies.setup_nests(region_def.zones)
+	zone_progress = ZoneProgress.new(grid, enemies)
 	simulation.spread.allow_hook = enemies.spread_allows
 	enemy_combat = EnemyCombat.new(enemies, play)
 	# P2-03: boars hurt the player on contact (PlayState.advance runs the damage state).
@@ -174,6 +180,10 @@ func _ready() -> void:
 			var layout_origin: Vector2i = region_def.start_tile + Vector2i(-8, -28)
 			DebugLayout.apply(grid, layout_origin)
 			player.simulation_position = Vector2(layout_origin * region_def.tile_px) + Vector2(24, -8)
+	grid.zone_state_changed.connect(_on_zone_state_changed)
+	zone_progress.cleared.connect(_on_region_cleared)
+	zone_progress.start()
+	update_zone_label()
 	set_condition(condition)
 	print("P0_READY condition=%s renderer=%s viewport=%s window=%s" % [condition, RenderingServer.get_current_rendering_method(), get_viewport().get_visible_rect().size, get_window().size])
 
@@ -276,8 +286,10 @@ func build_ui() -> void:
 	top.add_child(row)
 	var title: Label = Label.new()
 	title.text = "  グリーンベーダー"
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(title)
+	zone_label = Label.new()
+	zone_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(zone_label)
 	condition_label = Label.new()
 	row.add_child(condition_label)
 	for mode: String in ["sunny", "rain", "night"]:
@@ -308,6 +320,10 @@ func build_ui() -> void:
 	pause_label.text = "ポーズ中\nEsc で再開"
 	pause_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(pause_label)
+	zone_notice = ZoneNotice.new()
+	zone_notice.name = "ZoneNotice"
+	canvas.add_child(zone_notice)
+	zone_notice.setup(theme, Vector2(160, 40))
 	down_panel = PanelContainer.new()
 	down_panel.position = Vector2(240, 96)
 	down_panel.size = Vector2(160, 30)
@@ -407,10 +423,26 @@ func _on_projectile_ended(kind: String, _point: Vector2) -> void:
 	if kind != ProjectileField.KIND_WATER and kind != ProjectileField.KIND_SEED:
 		play.cancel_plant(StringName(kind))
 
+## The zone state change notices (P2-04): one short line per state the zone reached.
+func _on_zone_state_changed(zone: int, _old_state: int, new_state: int) -> void:
+	zone_notice.push(ZoneHud.change_text(region_def.zones, zone, new_state))
+
+func _on_region_cleared() -> void:
+	zone_notice.push(ZoneHud.CLEARED_TEXT, ZoneNotice.CLEARED_SECONDS)
+
+## Top bar: name, state and greening rate of the zone the player stands in. Only touches the label when the text changes.
+func update_zone_label() -> void:
+	var zone: int = ZoneHud.zone_at_position(grid, region_def.tile_px, player.simulation_position)
+	var text: String = ZoneHud.status_text(grid, region_def.zones, zone)
+	if text != _zone_text:
+		_zone_text = text
+		zone_label.text = "  " + text
+
 func _process(_delta: float) -> void:
 	frames += 1
 	if hud != null:
 		hud.refresh(play, grid)
+		update_zone_label()
 	if down_panel != null:
 		down_panel.visible = play.health.downed
 	if frames == 12 and not capture_path.is_empty():

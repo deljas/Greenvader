@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [r.nearby] boars really near the stable border (<12 px) and gnawing (non-vacuous) :: near_frames=20306 gnawed=704 stable_plants=1200 min_gap=0.01 max_boars=8
+PASS [r.no_entry] every frame: no boar footprint tile inside zone 0 :: intrusion tile-frames=0 over 86400 frames (10.0 game min @144Hz)
+PASS [r.plants_intact] stable-side greened count unchanged every frame; full tile compare each second :: changed=0
+PASS [r.zone_stays] zone 0 stays stable, counters consistent :: state=2
+RESULT reinvade checks=4 failures=0
