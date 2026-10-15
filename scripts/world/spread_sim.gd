@@ -144,6 +144,10 @@ func _apply_events(limit: int) -> int:
 			mature_near[other] = near
 			if step == 1 and near == 1:
 				_try_enqueue(other)
+		# A tile that just stopped being mature (eaten by an enemy, P2-01) is itself a candidate again when mature
+		# tiles are still in range: no neighbour will turn mature later to wake it up.
+		if step == -1:
+			_try_enqueue(index)
 	if pending_head >= size:
 		pending.clear()
 		pending_head = 0

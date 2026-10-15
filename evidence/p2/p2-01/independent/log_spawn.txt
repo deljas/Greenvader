@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [spawn.before] no boar before 12 s :: n=0
+PASS [spawn.at12] after 12.1 s exactly one boar per nest (15) :: n=15
+PASS [spawn.at24] after 24.1 s: 30 boars :: n=30
+PASS [spawn.at36] after 36.1 s: 40 (global cap, 15*3=45>40) :: n=40
+PASS [spawn.cap_hold] 10 more minutes: never above 40; per nest <= 4 :: peak=40 nest_peak=3 total_spawned=40
+PASS [spawn.per_nest_recount] own recount of boars per nest <= 4 :: { 1: 3, 2: 3, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3, 8: 3, 9: 3, 10: 3, 11: 2, 12: 2, 13: 2, 14: 2, 15: 2 }
+PASS [spawn.nobank] after killing 5 at cap, no instant refill (timer did not run while capped) :: spawned_delta=0 boars=35
+PASS [spawn.refill] after 13 s refilled to 40 :: n=40
+PASS [spawn.stable_none] only zone 6 nests (3) spawn when zones 1-5 stable: <=12 boars all in zone 6, per nest <=4 :: n=12 zones={ 6: 12 }
+PASS [spawn.destroyed_none] no spawn after all nests destroyed :: before=15 now=0 spawned=15
+PASS [spawn.one_destroyed] 14 boars when one nest destroyed :: n=14
+RESULT spawn checks=11 failures=0

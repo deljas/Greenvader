@@ -806,6 +806,8 @@ func test_scene_flow() -> void:
 	main.projectile_view.landed.connect(record_landing)
 	# P1-04: this flow is about the player-planted tiles, so natural spread is switched off here (it would add greened tiles).
 	main.simulation.spread.allow_hook = func(_index: int) -> bool: return false
+	# P2-01: the same for the enemies (boars gnaw plants near their nests): switched off in this flow.
+	main.enemies.tuning.enabled = false
 	var greened_before: int = state.greened_count
 	# ---- seeds in with injected clicks; all four land at one spot so enough plants stand together
 	var aim_point: Vector2 = centre + Vector2(40, 0)

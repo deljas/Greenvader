@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [map.size] map 1px=1tile layer size equals map; every pixel in legend :: [512, 512]
+PASS [map.zones7] 7 zones :: zone_count=7
+PASS [map.zone_of] world.zone_of equals independent PNG decode for all tiles :: 
+PASS [map.target_sum] sum of per-zone targets (own decode) == world.target_count == 244759 :: own=244759 world_sum=244759 total=244759
+PASS [map.zone_target_each] per-zone target equals own per-zone recount :: [32799, 30438, 32838, 29799, 41361, 37321, 40203]
+PASS [map.start_stable] start zone stable (state 2), others unconquered (0) :: [2, 0, 0, 0, 0, 0, 0]
+PASS [map.start_in_zone0] player start tile lies in zone 0 :: start=(184, 188) zone=0
+PASS [map.consistent] counters_consistent on fresh world :: 
+RESULT map checks=8 failures=0

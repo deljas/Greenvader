@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [scene.nests] main scene has 15 nests wired, spread hook set :: nests=15
+PASS [scene.spawn] boars exist after ~14 s of game time :: boars=15
+PASS [scene.paused] Esc injection pauses :: paused=true
+PASS [scene.pause_freeze] 20 s paused: no spawn, move or bite (state identical) :: time 14.100000 -> 14.100000
+PASS [scene.resume_nobank] after resume ~1 s of enemy time, no lump sum (<= 1.3 s) :: dt=1.066667 spawned=15
+RESULT scene hz=30 checks=5 failures=0

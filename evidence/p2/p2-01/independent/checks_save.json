@@ -1,0 +1,41 @@
+{
+  "observations": {
+    "zone_png_size": [
+      512,
+      512
+    ],
+    "zone_png_unmapped_pixels": 0
+  },
+  "results": [
+    {
+      "condition": "world restores from JSON incl. zones and counters",
+      "id": "save.world",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "enemy field restores from JSON",
+      "id": "save.field",
+      "observed": "boars=40",
+      "status": "PASS"
+    },
+    {
+      "condition": "occupancy (nest tiles) identical after restore",
+      "id": "save.occupancy",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "original and restored continue identically for 120 s",
+      "id": "save.continue",
+      "observed": "3141495736|11014|40|40|18951|1:694.78,324.22;2:273.50,119.66;3:768.88,1297.86;4: vs 3141495736|11014|40|40|18951|1:694.78,324.22;2:273.50,119.66;3:768.88,1297.86;4:",
+      "status": "PASS"
+    },
+    {
+      "condition": "invalid zone in nest data rejected",
+      "id": "save.reject",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

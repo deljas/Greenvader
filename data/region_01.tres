@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RegionDef" load_steps=12 format=3]
+[gd_resource type="Resource" script_class="RegionDef" load_steps=20 format=3]
 
 [ext_resource type="Script" path="res://data/region_def.gd" id="1_reg"]
 [ext_resource type="Script" path="res://data/terrain_def.gd" id="2_ter"]
@@ -12,6 +12,14 @@
 [ext_resource type="Resource" path="res://data/plants/normal.tres" id="9_f"]
 [ext_resource type="Resource" path="res://data/plants/carrot.tres" id="10_g"]
 [ext_resource type="Resource" path="res://data/plants/kiwi.tres" id="11_h"]
+[ext_resource type="Script" path="res://data/zone_def.gd" id="13_zd"]
+[ext_resource type="Resource" path="res://data/zones/zone_00_start.tres" id="z0"]
+[ext_resource type="Resource" path="res://data/zones/zone_01_west_north.tres" id="z1"]
+[ext_resource type="Resource" path="res://data/zones/zone_02_west_south1.tres" id="z2"]
+[ext_resource type="Resource" path="res://data/zones/zone_03_west_south2.tres" id="z3"]
+[ext_resource type="Resource" path="res://data/zones/zone_04_east_north.tres" id="z4"]
+[ext_resource type="Resource" path="res://data/zones/zone_05_east_middle.tres" id="z5"]
+[ext_resource type="Resource" path="res://data/zones/zone_06_east_south.tres" id="z6"]
 
 [resource]
 script = ExtResource("1_reg")
@@ -24,3 +32,5 @@ terrains = Array[ExtResource("2_ter")]([ExtResource("4_a"), ExtResource("5_b"), 
 plants = Array[ExtResource("3_pla")]([ExtResource("9_f"), ExtResource("10_g"), ExtResource("11_h")])
 start_tile = Vector2i(184, 188)
 sprout_seed = 20261014
+zone_map_path = "res://data/region_01_zones.png"
+zones = Array[ExtResource("13_zd")]([ExtResource("z0"), ExtResource("z1"), ExtResource("z2"), ExtResource("z3"), ExtResource("z4"), ExtResource("z5"), ExtResource("z6")])

@@ -1,0 +1,68 @@
+{
+  "observations": {
+    "gnaw_times": [
+      0.017,
+      0.633,
+      1.25,
+      1.867,
+      2.483,
+      3.1,
+      3.717
+    ],
+    "nest0": [
+      1,
+      "(170, 100)"
+    ],
+    "q_planted": 1,
+    "r_planted": 8,
+    "zone_png_size": [
+      512,
+      512
+    ],
+    "zone_png_unmapped_pixels": 0
+  },
+  "results": [
+    {
+      "condition": "boar left alone for 60 s reduces greening",
+      "id": "gnaw.reduce",
+      "observed": "greened 366 -> 331 gnawed=50",
+      "status": "PASS"
+    },
+    {
+      "condition": "global + per-zone differential counters == own recount",
+      "id": "gnaw.delta_counters",
+      "observed": "own=331 world=331 zone_before=35 zone_after=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "global drop equals zone drop (differential)",
+      "id": "gnaw.delta_equal",
+      "observed": "drop=35",
+      "status": "PASS"
+    },
+    {
+      "condition": "cultivated (occupied) plant tiles not gnawed even with boar adjacent",
+      "id": "gnaw.cultivated",
+      "observed": "alive=4 gnawed=0 boar=(660.396, 391.1494)",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant 3 tiles away is not bitten (radius 1 tile)",
+      "id": "gnaw.radius_out",
+      "observed": "stage=4",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant within 1 tile is bitten",
+      "id": "gnaw.radius_in",
+      "observed": "stage=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "consecutive bites at least 0.6 s apart",
+      "id": "gnaw.interval",
+      "observed": "[0.017, 0.633, 1.25, 1.867, 2.483, 3.1, 3.717]",
+      "status": "PASS"
+    }
+  ]
+}

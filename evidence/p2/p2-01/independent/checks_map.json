@@ -1,0 +1,77 @@
+{
+  "observations": {
+    "own_target_per_zone": [
+      32799,
+      30438,
+      32838,
+      29799,
+      41361,
+      37321,
+      40203
+    ],
+    "world_target_per_zone": [
+      32799,
+      30438,
+      32838,
+      29799,
+      41361,
+      37321,
+      40203
+    ],
+    "zone_png_size": [
+      512,
+      512
+    ],
+    "zone_png_unmapped_pixels": 0
+  },
+  "results": [
+    {
+      "condition": "map 1px=1tile layer size equals map; every pixel in legend",
+      "id": "map.size",
+      "observed": "[512, 512]",
+      "status": "PASS"
+    },
+    {
+      "condition": "7 zones",
+      "id": "map.zones7",
+      "observed": "zone_count=7",
+      "status": "PASS"
+    },
+    {
+      "condition": "world.zone_of equals independent PNG decode for all tiles",
+      "id": "map.zone_of",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "sum of per-zone targets (own decode) == world.target_count == 244759",
+      "id": "map.target_sum",
+      "observed": "own=244759 world_sum=244759 total=244759",
+      "status": "PASS"
+    },
+    {
+      "condition": "per-zone target equals own per-zone recount",
+      "id": "map.zone_target_each",
+      "observed": "[32799, 30438, 32838, 29799, 41361, 37321, 40203]",
+      "status": "PASS"
+    },
+    {
+      "condition": "start zone stable (state 2), others unconquered (0)",
+      "id": "map.start_stable",
+      "observed": "[2, 0, 0, 0, 0, 0, 0]",
+      "status": "PASS"
+    },
+    {
+      "condition": "player start tile lies in zone 0",
+      "id": "map.start_in_zone0",
+      "observed": "start=(184, 188) zone=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "counters_consistent on fresh world",
+      "id": "map.consistent",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

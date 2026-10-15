@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "condition": "main scene has 15 nests wired, spread hook set",
+      "id": "scene.nests",
+      "observed": "nests=15",
+      "status": "PASS"
+    },
+    {
+      "condition": "boars exist after ~14 s of game time",
+      "id": "scene.spawn",
+      "observed": "boars=15",
+      "status": "PASS"
+    },
+    {
+      "condition": "Esc injection pauses",
+      "id": "scene.paused",
+      "observed": "paused=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "20 s paused: no spawn, move or bite (state identical)",
+      "id": "scene.pause_freeze",
+      "observed": "time 14.100000 -> 14.100000",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resume ~1 s of enemy time, no lump sum (<= 1.3 s)",
+      "id": "scene.resume_nobank",
+      "observed": "dt=1.066667 spawned=15",
+      "status": "PASS"
+    }
+  ]
+}

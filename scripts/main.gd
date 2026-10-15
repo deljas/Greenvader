@@ -4,6 +4,7 @@ extends Node
 const REGION_PATH: String = "res://data/region_01.tres"
 const TUNING_PATH: String = "res://data/sim_tuning.tres"
 const PLAY_TUNING_PATH: String = "res://data/play_tuning.tres"
+const ENEMY_TUNING_PATH: String = "res://data/enemy_tuning.tres"
 ## The P0 decorative composition (trees, rocks, ruin sprite, samples) is placed shifted by this many pixels.
 ## It is scenery only and never defines greening targets.
 const LANDSCAPE_OFFSET: Vector2 = Vector2(256, 384)
@@ -14,6 +15,10 @@ var tuning: SimTuning
 var play_tuning: PlayTuning
 var play: PlayState
 var play_driver: PlayDriver
+var enemy_tuning: EnemyTuning
+var enemies: EnemyField
+var enemy_driver: EnemyDriver
+var enemy_view: EnemyView
 var pickup_view: PickupView
 var cultivated_view: CultivatedView
 var hud: PlayHud
@@ -49,6 +54,7 @@ func _ready() -> void:
 	region_def = load(REGION_PATH) as RegionDef
 	tuning = load(TUNING_PATH) as SimTuning
 	play_tuning = load(PLAY_TUNING_PATH) as PlayTuning
+	enemy_tuning = load(ENEMY_TUNING_PATH) as EnemyTuning
 	grid = RegionLoader.load_region(region_def)
 	if grid == null:
 		push_error("Region failed to load: %s" % REGION_PATH)
@@ -96,6 +102,18 @@ func _ready() -> void:
 	play_driver.name = "PlayDriver"
 	play_driver.setup(play, player)
 	world.add_child(play_driver)
+	# Enemies (P2-01): nests of the unconquered zones and their boars. Natural spread must not enter a nest's tiles.
+	enemies = EnemyField.new(grid, enemy_tuning, region_def.tile_px)
+	enemies.setup_nests(region_def.zones)
+	simulation.spread.allow_hook = enemies.spread_allows
+	enemy_driver = EnemyDriver.new()
+	enemy_driver.name = "EnemyDriver"
+	enemy_driver.setup(enemies)
+	world.add_child(enemy_driver)
+	enemy_view = EnemyView.new()
+	enemy_view.name = "EnemyView"
+	enemy_view.setup(enemies, actors, region_def.tile_px)
+	world.add_child(enemy_view)
 	for source: SeedSource in play.sources:
 		var source_sprite: Sprite2D = Sprite2D.new()
 		source_sprite.name = "SeedSource%d" % source.id

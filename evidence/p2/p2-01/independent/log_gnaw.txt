@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [gnaw.reduce] boar left alone for 60 s reduces greening :: greened 366 -> 331 gnawed=50
+PASS [gnaw.delta_counters] global + per-zone differential counters == own recount :: own=331 world=331 zone_before=35 zone_after=0
+PASS [gnaw.delta_equal] global drop equals zone drop (differential) :: drop=35
+PASS [gnaw.cultivated] cultivated (occupied) plant tiles not gnawed even with boar adjacent :: alive=4 gnawed=0 boar=(660.396, 391.1494)
+PASS [gnaw.radius_out] plant 3 tiles away is not bitten (radius 1 tile) :: stage=4
+PASS [gnaw.radius_in] plant within 1 tile is bitten :: stage=0
+PASS [gnaw.interval] consecutive bites at least 0.6 s apart :: [0.017, 0.633, 1.25, 1.867, 2.483, 3.1, 3.717]
+RESULT gnaw checks=7 failures=0

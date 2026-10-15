@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [spread.pre] patch mature and center eligible :: 
+PASS [spread.regrow_mature] gnawed formerly-mature tile in a mature patch is planted again by natural spread :: ticks=11 (planted_at=7)
+PASS [spread.regrow_edge] gnawed edge mature tile replanted :: k=9
+PASS [spread.nest_excluded] 400 spread ticks next to a nest: no plant on its 16 tiles; surroundings spread :: bad=0 planted=264
+PASS [spread.after_destroy] tiles free for spread after the nest is destroyed :: planted_tiles=16
+PASS [spread.e2e] boar + spread 120 s: counters consistent, spread keeps planting :: gnawed=139 planted=226 plants=483
+PASS [spread.plant_chunks] plant chunk counters equal recount :: 
+RESULT spread checks=7 failures=0

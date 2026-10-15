@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(1280, 720)
+PASS the first nest ((170, 100), zone 1) belongs to the unconquered zone north of the start
+PASS the nest is bare, its 4 boars came out and (with the other nests' boars) bit 285 tiles of the 992 planted (greened 1323 -> 1038)
+PASS counters match a recount
+GPU_INFO camera_center=(628.0, 472.0) player=(628.0, 472.0) simulation_position=(628.0, 472.0) boars=[(703.6644, 418.6086), (723.795, 421.3487), (746.6389, 455.2006), (674.7061, 448.1602)]
+PASS 4 of the 4 boars are inside the camera view
+PASS the view shows the nest and one sprite per boar (4)
+PASS nest: internal frame is 640x360
+GPU_INFO nest printwindow pid=2088 frames_waited=60 code=0
+PASS nest: window image is real content (76 distinct colours)
+PASS nest: every 2x2 block of the window image is one colour (non-uniform blocks: 0)
+PASS nest: each block equals the internal-frame pixel (mismatching blocks: 0 of 230400)
+GPU_INFO renderer=forward_plus screens=3 window_screen=1 window_pos=(2236, 156) window_size=(1280, 720)
+P2_01_GPU_RESULT failures=0

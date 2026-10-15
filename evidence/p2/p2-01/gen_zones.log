@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+GEN_ZONES result=0 path=C:/godot/greenvader/data/region_01_zones.png counts={ 1: 31741, 4: 46865, 0: 34593, 5: 39601, 2: 34495, 6: 42899, 3: 31950 }
+NEST zone=1 tile=(170, 100)
+NEST zone=1 tile=(70, 45)
+NEST zone=2 tile=(175, 300)
+NEST zone=2 tile=(60, 350)
+NEST zone=3 tile=(80, 430)
+NEST zone=3 tile=(190, 425)
+NEST zone=4 tile=(320, 95)
+NEST zone=4 tile=(440, 40)
+NEST zone=4 tile=(480, 150)
+NEST zone=5 tile=(335, 225)
+NEST zone=5 tile=(450, 260)
+NEST zone=5 tile=(400, 320)
+NEST zone=6 tile=(335, 380)
+NEST zone=6 tile=(400, 410)
+NEST zone=6 tile=(450, 480)

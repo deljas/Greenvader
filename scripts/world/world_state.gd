@@ -17,6 +17,21 @@ const SLOT_COUNT: int = 4
 ## Side of the square tile chunks used for the per-chunk mature counts (fast "how many mature plants near here").
 const CHUNK_TILES: int = 16
 
+## Zone states (P2-01 holds them; the transitions are P2-04). Stable and complete zones are never entered by enemies.
+const ZONE_UNCONQUERED: int = 0
+const ZONE_CLEARING: int = 1
+const ZONE_STABLE: int = 2
+const ZONE_COMPLETE: int = 3
+
+## Occupancy owner id bands (WorldState.occupy owner ids must be > 0 and never collide between users):
+##   1 .. 999           reserved (tests, debug)
+##   1000 .. 99999      cultivated plants: Cultivation.OWNER_BASE (1000) + uid (P1-05)
+##   100000 .. 999999   helper plants of P3 (100000 + uid)
+##   1000000 .. above   enemy nests: OWNER_BAND_NEST + nest id (P2-01)
+const OWNER_BAND_CULTIVATED: int = 1000
+const OWNER_BAND_HELPER: int = 100000
+const OWNER_BAND_NEST: int = 1000000
+
 var width: int = 0
 var height: int = 0
 var sprout_seed: int = 0
@@ -72,6 +87,19 @@ var producing_count: int = 0
 ## 1 per terrain id when the player can walk on it (from TerrainDef.walkable).
 var walkable_by_terrain: PackedByteArray = PackedByteArray()
 
+## Zones (P2-01): zone id of every tile, state per zone, and per zone the number of greening targets and of greened
+## tiles (differential, kept by set_stage; checked against recounts in tests). Without a zone layer there is one
+## unconquered zone 0 covering the whole map.
+var zone_count: int = 1
+var zone_of: PackedByteArray = PackedByteArray()
+var zone_state: PackedByteArray = PackedByteArray()
+var zone_target_count: PackedInt32Array = PackedInt32Array()
+var zone_greened_count: PackedInt32Array = PackedInt32Array()
+## Tiles holding a plant (any stage above empty) per CHUNK_TILES chunk and in total: a cheap "is there anything to
+## eat near here" for enemies. Derived data (rebuilt by rebuild_derived()), kept by set_stage.
+var plant_chunk_count: PackedInt32Array = PackedInt32Array()
+var plant_count: int = 0
+
 func _init(w: int, h: int, defs: Array[TerrainDef], seed_value: int) -> void:
 	width = w
 	height = h
@@ -99,6 +127,11 @@ func _init(w: int, h: int, defs: Array[TerrainDef], seed_value: int) -> void:
 	chunks_y = (h + CHUNK_TILES - 1) / CHUNK_TILES
 	mature_chunk_count.resize(chunks_x * chunks_y)
 	producing_chunk_count.resize(chunks_x * chunks_y)
+	plant_chunk_count.resize(chunks_x * chunks_y)
+	zone_of.resize(n)
+	zone_state = PackedByteArray([ZONE_UNCONQUERED])
+	zone_target_count = PackedInt32Array([0])
+	zone_greened_count = PackedInt32Array([0])
 	for index: int in n:
 		sprout_slot[index] = slot_for(index, seed_value)
 
@@ -148,6 +181,7 @@ func apply_terrain_defs() -> void:
 			plant_id[index] = PLANT_NONE
 			fruitless[index] = 0
 	rebuild_derived()
+	rebuild_zone_counts()
 
 ## Rebuilds the derived data (active set, mature chunk counts) from stage and moisture.
 func rebuild_derived() -> void:
@@ -155,10 +189,15 @@ func rebuild_derived() -> void:
 	active_flag.fill(0)
 	mature_chunk_count.fill(0)
 	producing_chunk_count.fill(0)
+	plant_chunk_count.fill(0)
 	mature_count = 0
 	producing_count = 0
+	plant_count = 0
 	for index: int in tile_count():
 		var s: int = stage[index]
+		if s != STAGE_EMPTY:
+			plant_chunk_count[chunk_of(index)] += 1
+			plant_count += 1
 		if s == STAGE_MATURE:
 			mature_chunk_count[chunk_of(index)] += 1
 			mature_count += 1
@@ -214,8 +253,14 @@ func set_stage(index: int, new_stage: int) -> bool:
 		return true
 	if old_stage < GREENED_MIN_STAGE and new_stage >= GREENED_MIN_STAGE:
 		greened_count += 1
+		zone_greened_count[zone_of[index]] += 1
 	elif old_stage >= GREENED_MIN_STAGE and new_stage < GREENED_MIN_STAGE:
 		greened_count -= 1
+		zone_greened_count[zone_of[index]] -= 1
+	if (old_stage == STAGE_EMPTY) != (new_stage == STAGE_EMPTY):
+		var plant_delta: int = 1 if old_stage == STAGE_EMPTY else -1
+		plant_chunk_count[chunk_of(index)] += plant_delta
+		plant_count += plant_delta
 	var was_producing: int = 1 if (old_stage == STAGE_MATURE and fruitless[index] == 0) else 0
 	if old_stage == STAGE_MATURE and new_stage != STAGE_MATURE:
 		fruitless[index] = 0
@@ -309,8 +354,74 @@ func recount_mature() -> int:
 			total += 1
 	return total
 
+func recount_plants() -> int:
+	var total: int = 0
+	for index: int in tile_count():
+		if stage[index] != STAGE_EMPTY:
+			total += 1
+	return total
+
+func recount_plant_chunks() -> PackedInt32Array:
+	var result: PackedInt32Array = PackedInt32Array()
+	result.resize(chunks_x * chunks_y)
+	for index: int in tile_count():
+		if stage[index] != STAGE_EMPTY:
+			result[chunk_of(index)] += 1
+	return result
+
 func counters_consistent() -> bool:
-	return recount_targets() == target_count and recount_greened() == greened_count and recount_mature() == mature_count
+	return recount_targets() == target_count and recount_greened() == greened_count and recount_mature() == mature_count and recount_plants() == plant_count and recount_zone_targets() == zone_target_count and recount_zone_greened() == zone_greened_count
+
+# ---- Zones (P2-01: container and counters; transitions are P2-04) -------------------------------
+
+## Installs the zone layer: `ids` holds the zone id of every tile, `states` the initial state per zone. False when the
+## data does not fit (size, ids out of range). Counters are rebuilt.
+func set_zones(ids: PackedByteArray, states: PackedByteArray) -> bool:
+	if ids.size() != tile_count() or states.is_empty():
+		return false
+	for id: int in ids:
+		if id >= states.size():
+			return false
+	zone_of = ids
+	zone_count = states.size()
+	zone_state = states.duplicate()
+	rebuild_zone_counts()
+	return true
+
+## Rebuilds the per-zone target and greened counters from the tile data.
+func rebuild_zone_counts() -> void:
+	zone_target_count = recount_zone_targets()
+	zone_greened_count = recount_zone_greened()
+
+func recount_zone_targets() -> PackedInt32Array:
+	var result: PackedInt32Array = PackedInt32Array()
+	result.resize(zone_count)
+	for index: int in tile_count():
+		if target[index] == 1:
+			result[zone_of[index]] += 1
+	return result
+
+func recount_zone_greened() -> PackedInt32Array:
+	var result: PackedInt32Array = PackedInt32Array()
+	result.resize(zone_count)
+	for index: int in tile_count():
+		if target[index] == 1 and stage[index] >= GREENED_MIN_STAGE:
+			result[zone_of[index]] += 1
+	return result
+
+func zone_at(index: int) -> int:
+	return zone_of[index]
+
+## Sets the state of a zone (the rules for when are P2-04). False for an unknown zone or state.
+func set_zone_state(zone: int, state: int) -> bool:
+	if zone < 0 or zone >= zone_count or state < ZONE_UNCONQUERED or state > ZONE_COMPLETE:
+		return false
+	zone_state[zone] = state
+	return true
+
+## Enemies may enter / harm a zone unless it is stable or complete (the hard "no re-invasion" rule).
+func zone_open_to_enemies(zone: int) -> bool:
+	return zone >= 0 and zone < zone_count and zone_state[zone] < ZONE_STABLE
 
 ## 100 % is decided by integer equality, never by a rounded ratio.
 func is_fully_greened() -> bool:
@@ -390,6 +501,7 @@ func to_dict() -> Dictionary:
 		"natural": _pack_bytes(natural),
 		"fruitless": _pack_bytes(fruitless),
 		"occupancy_owners": owners,
+		"zones": {"count": zone_count, "of": _pack_bytes(zone_of), "state": Array(zone_state)},
 	}
 
 ## Restores a state. Target flags and counters are re-derived from the shared defs and the restored
@@ -443,5 +555,17 @@ static func from_dict(data: Dictionary, defs: Array[TerrainDef]) -> WorldState:
 				state.greened_count += 1
 		elif state.stage[index] != STAGE_EMPTY:
 			return null
+	if data.has("zones"):
+		var zone_data: Dictionary = data["zones"]
+		var ids: PackedByteArray = _unpack_bytes(zone_data["of"])
+		var states: PackedByteArray = PackedByteArray()
+		for value: Variant in zone_data["state"]:
+			states.append(int(value))
+		if int(zone_data.get("count", 0)) != states.size() or not state.set_zones(ids, states):
+			return null
+		for value: int in states:
+			if value > ZONE_COMPLETE:
+				return null
 	state.rebuild_derived()
+	state.rebuild_zone_counts()
 	return state

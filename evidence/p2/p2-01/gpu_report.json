@@ -1,0 +1,10 @@
+{
+  "boars_of_nest": 4,
+  "boars_total": 4,
+  "nest_k": 2,
+  "nest_tile": [
+    170,
+    100
+  ],
+  "tiles_gnawed": 285
+}

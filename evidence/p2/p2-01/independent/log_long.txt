@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Out of bounds get index '262564' (on base: 'PackedByteArray')
+   at: plant_patch (res://tests/p2/independent/p2_01_v_logic.gd:252)
+   GDScript backtrace (most recent call first):
+       [0] plant_patch (res://tests/p2/independent/p2_01_v_logic.gd:252)
+       [1] t_long (res://tests/p2/independent/p2_01_v_logic.gd:289)
+       [2] run (res://tests/p2/independent/p2_01_v_logic.gd:39)
+PASS [long.cap] 30 min idle: boars never > 40, per nest never > 4 :: peak=40 nest_peak=3 spawned=40
+PASS [long.confine] every frame, every boar: own zone, no water/building/nest, within 48 tiles tether, zone not stable :: []
+PASS [long.safe_back] start-zone (stable) plants untouched :: before=9708 after=9708
+PASS [long.gnawed] boars gnawed plants (total_gnawed>0, plants decreased) :: gnawed=59892
+PASS [long.counters] global and per-zone greened counters equal own recount; counters_consistent :: own=10039 world=10039
+PASS [long.nest_tiles_empty] nest tiles never planted :: 
+RESULT long checks=6 failures=0

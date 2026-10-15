@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [nests.count] 15 nests :: n=15
+PASS [nests.zone] all 16 tiles of each nest in a non-start zone (own decode) :: { 1: 2, 2: 2, 3: 2, 4: 3, 5: 3, 6: 3 }
+PASS [nests.occupant] all 16 tiles occupant == 1000000+id :: 
+PASS [nests.terrain] nests on plantable ground :: 
+PASS [nests.tilesum] occupied tile total == 15*16 :: occupied=240
+PASS [nests.noplant] can_plant and spread hook refuse nest tile :: 
+PASS [nests.occupy_refused] occupy over a nest refused (cultivated owner band) :: 
+PASS [nests.release] destroyed nest frees tiles :: 
+PASS [nests.refuse_start] add_nest in stable start zone region tile refused when zone mismatch :: 
+RESULT nests checks=9 failures=0

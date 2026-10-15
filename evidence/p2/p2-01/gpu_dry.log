@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS the first nest ((170, 100), zone 1) belongs to the unconquered zone north of the start
+PASS the nest is bare, its 4 boars came out and (with the other nests' boars) bit 283 tiles of the 992 planted (greened 1323 -> 1040)
+PASS counters match a recount
+GPU_INFO camera_center=(628.0, 472.0) player=(628.0, 472.0) simulation_position=(628.0, 472.0) boars=[(703.6644, 418.6086), (723.795, 421.3487), (745.5088, 455.6041), (674.7061, 448.1602)]
+PASS 4 of the 4 boars are inside the camera view
+PASS the view shows the nest and one sprite per boar (4)
+GPU_INFO renderer=forward_plus screens=0 window_screen=-1 window_pos=(0, 0) window_size=(640, 360)
+P2_01_GPU_RESULT failures=0

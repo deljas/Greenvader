@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+hz 30 steps=10800 boars=40 gnawed=16197
+hz 60 steps=10800 boars=40 gnawed=16197
+hz 144 steps=10800 boars=40 gnawed=16197
+PASS [rates.same] 30/60/144 Hz after 180 s give identical boar positions, stages, counters :: steps: 10800 10800 10800
+PASS [rates.hitch] a single 60 s delta adds at most 0.25 s :: time=0.250000
+RESULT rates checks=2 failures=0

@@ -1,0 +1,54 @@
+{
+  "observations": {
+    "patch": 45,
+    "zone_png_size": [
+      512,
+      512
+    ],
+    "zone_png_unmapped_pixels": 0
+  },
+  "results": [
+    {
+      "condition": "patch mature and center eligible",
+      "id": "spread.pre",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "gnawed formerly-mature tile in a mature patch is planted again by natural spread",
+      "id": "spread.regrow_mature",
+      "observed": "ticks=11 (planted_at=7)",
+      "status": "PASS"
+    },
+    {
+      "condition": "gnawed edge mature tile replanted",
+      "id": "spread.regrow_edge",
+      "observed": "k=9",
+      "status": "PASS"
+    },
+    {
+      "condition": "400 spread ticks next to a nest: no plant on its 16 tiles; surroundings spread",
+      "id": "spread.nest_excluded",
+      "observed": "bad=0 planted=264",
+      "status": "PASS"
+    },
+    {
+      "condition": "tiles free for spread after the nest is destroyed",
+      "id": "spread.after_destroy",
+      "observed": "planted_tiles=16",
+      "status": "PASS"
+    },
+    {
+      "condition": "boar + spread 120 s: counters consistent, spread keeps planting",
+      "id": "spread.e2e",
+      "observed": "gnawed=139 planted=226 plants=483",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant chunk counters equal recount",
+      "id": "spread.plant_chunks",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ZONE 0 start state=2 targets=32799 greened=331 nests=[]
+ZONE 1 west_north state=0 targets=30438 greened=0 nests=[(170, 100), (70, 45)]
+ZONE 2 west_south1 state=0 targets=32838 greened=0 nests=[(175, 300), (60, 350)]
+ZONE 3 west_south2 state=0 targets=29799 greened=0 nests=[(80, 430), (190, 425)]
+ZONE 4 east_north state=0 targets=41361 greened=0 nests=[(320, 95), (440, 40), (480, 150)]
+ZONE 5 east_middle state=0 targets=37321 greened=0 nests=[(335, 225), (450, 260), (400, 320)]
+ZONE 6 east_south state=0 targets=40203 greened=0 nests=[(335, 380), (400, 410), (450, 480)]

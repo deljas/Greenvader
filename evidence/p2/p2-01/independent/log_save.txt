@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS [save.world] world restores from JSON incl. zones and counters :: 
+PASS [save.field] enemy field restores from JSON :: boars=40
+PASS [save.occupancy] occupancy (nest tiles) identical after restore :: 
+PASS [save.continue] original and restored continue identically for 120 s :: 3141495736|11014|40|40|18951|1:694.78,324.22;2:273.50,119.66;3:768.88,1297.86;4: vs 3141495736|11014|40|40|18951|1:694.78,324.22;2:273.50,119.66;3:768.88,1297.86;4:
+PASS [save.reject] invalid zone in nest data rejected :: 
+RESULT save checks=5 failures=0

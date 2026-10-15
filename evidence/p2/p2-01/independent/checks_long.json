@@ -1,0 +1,232 @@
+{
+  "observations": {
+    "boar_frames_over_nest_tiles": 2197365,
+    "seeded_enemy": 56338,
+    "series_min_boars_gnawed_green": [
+      [
+        0,
+        0,
+        0,
+        69931
+      ],
+      [
+        1,
+        40,
+        4622,
+        65309
+      ],
+      [
+        2,
+        40,
+        11276,
+        58655
+      ],
+      [
+        3,
+        40,
+        17125,
+        52806
+      ],
+      [
+        4,
+        40,
+        22892,
+        47039
+      ],
+      [
+        5,
+        40,
+        28685,
+        41246
+      ],
+      [
+        6,
+        40,
+        33945,
+        35986
+      ],
+      [
+        7,
+        40,
+        39457,
+        30474
+      ],
+      [
+        8,
+        40,
+        44695,
+        25236
+      ],
+      [
+        9,
+        40,
+        49679,
+        20252
+      ],
+      [
+        10,
+        40,
+        53996,
+        15935
+      ],
+      [
+        11,
+        40,
+        56486,
+        13445
+      ],
+      [
+        12,
+        40,
+        57889,
+        12042
+      ],
+      [
+        13,
+        40,
+        58944,
+        10987
+      ],
+      [
+        14,
+        40,
+        59539,
+        10392
+      ],
+      [
+        15,
+        40,
+        59776,
+        10155
+      ],
+      [
+        16,
+        40,
+        59892,
+        10039
+      ],
+      [
+        17,
+        40,
+        59892,
+        10039
+      ],
+      [
+        18,
+        40,
+        59892,
+        10039
+      ],
+      [
+        19,
+        40,
+        59892,
+        10039
+      ],
+      [
+        20,
+        40,
+        59892,
+        10039
+      ],
+      [
+        21,
+        40,
+        59892,
+        10039
+      ],
+      [
+        22,
+        40,
+        59892,
+        10039
+      ],
+      [
+        23,
+        40,
+        59892,
+        10039
+      ],
+      [
+        24,
+        40,
+        59892,
+        10039
+      ],
+      [
+        25,
+        40,
+        59892,
+        10039
+      ],
+      [
+        26,
+        40,
+        59892,
+        10039
+      ],
+      [
+        27,
+        40,
+        59892,
+        10039
+      ],
+      [
+        28,
+        40,
+        59892,
+        10039
+      ],
+      [
+        29,
+        40,
+        59892,
+        10039
+      ]
+    ],
+    "start_plants_before": 9708,
+    "zone_png_size": [
+      512,
+      512
+    ],
+    "zone_png_unmapped_pixels": 0
+  },
+  "results": [
+    {
+      "condition": "30 min idle: boars never > 40, per nest never > 4",
+      "id": "long.cap",
+      "observed": "peak=40 nest_peak=3 spawned=40",
+      "status": "PASS"
+    },
+    {
+      "condition": "every frame, every boar: own zone, no water/building/nest, within 48 tiles tether, zone not stable",
+      "id": "long.confine",
+      "observed": "[]",
+      "status": "PASS"
+    },
+    {
+      "condition": "start-zone (stable) plants untouched",
+      "id": "long.safe_back",
+      "observed": "before=9708 after=9708",
+      "status": "PASS"
+    },
+    {
+      "condition": "boars gnawed plants (total_gnawed>0, plants decreased)",
+      "id": "long.gnawed",
+      "observed": "gnawed=59892",
+      "status": "PASS"
+    },
+    {
+      "condition": "global and per-zone greened counters equal own recount; counters_consistent",
+      "id": "long.counters",
+      "observed": "own=10039 world=10039",
+      "status": "PASS"
+    },
+    {
+      "condition": "nest tiles never planted",
+      "id": "long.nest_tiles_empty",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

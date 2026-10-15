@@ -1,0 +1,65 @@
+{
+  "observations": {
+    "zone_png_size": [
+      512,
+      512
+    ],
+    "zone_png_unmapped_pixels": 0
+  },
+  "results": [
+    {
+      "condition": "15 nests",
+      "id": "nests.count",
+      "observed": "n=15",
+      "status": "PASS"
+    },
+    {
+      "condition": "all 16 tiles of each nest in a non-start zone (own decode)",
+      "id": "nests.zone",
+      "observed": "{ 1: 2, 2: 2, 3: 2, 4: 3, 5: 3, 6: 3 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "all 16 tiles occupant == 1000000+id",
+      "id": "nests.occupant",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "nests on plantable ground",
+      "id": "nests.terrain",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "occupied tile total == 15*16",
+      "id": "nests.tilesum",
+      "observed": "occupied=240",
+      "status": "PASS"
+    },
+    {
+      "condition": "can_plant and spread hook refuse nest tile",
+      "id": "nests.noplant",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "occupy over a nest refused (cultivated owner band)",
+      "id": "nests.occupy_refused",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "destroyed nest frees tiles",
+      "id": "nests.release",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "add_nest in stable start zone region tile refused when zone mismatch",
+      "id": "nests.refuse_start",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

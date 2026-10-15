@@ -1,0 +1,28 @@
+{
+  "observations": {
+    "sig_lengths": [
+      750,
+      750,
+      750
+    ],
+    "zone_png_size": [
+      512,
+      512
+    ],
+    "zone_png_unmapped_pixels": 0
+  },
+  "results": [
+    {
+      "condition": "30/60/144 Hz after 180 s give identical boar positions, stages, counters",
+      "id": "rates.same",
+      "observed": "steps: 10800 10800 10800",
+      "status": "PASS"
+    },
+    {
+      "condition": "a single 60 s delta adds at most 0.25 s",
+      "id": "rates.hitch",
+      "observed": "time=0.250000",
+      "status": "PASS"
+    }
+  ]
+}

@@ -16,3 +16,9 @@ extends Resource
 @export var seed_source_tiles: Array[Vector2i] = [Vector2i(189, 186)]
 ## Seed of the fixed per-tile sprout position hash.
 @export var sprout_seed: int = 20261014
+
+@export_group("Zones (P2-01)")
+## Zone layer: 1 px = 1 tile, every tile coloured with its zone's map_color. Empty = no zones (one unconquered zone).
+@export_file("*.png") var zone_map_path: String = ""
+## Zone legend and nest sites; zones[i].id must equal i.
+@export var zones: Array[ZoneDef] = []

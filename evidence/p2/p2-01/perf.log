@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PERF A enemies alone (15 nests, up to 40 boars, 10 min game time): 36000 frames, mean 0.140 ms, p50 0.039, p99 1.246, p99.9 1.335, max 2.113 ms; frames >= 16 ms: 0
+PERF B whole logic (play + clock + enemies + view flush) on the stress scene, 5 min game time: 18000 frames, mean 0.277 ms, p50 0.085, p99 3.110, p99.9 9.998, max 13.532 ms; frames >= 16 ms: 0
+PERF B enemy part only: 18000 frames, mean 0.155 ms, p50 0.049, p99 1.434, p99.9 1.676, max 2.433 ms; frames >= 16 ms: 0
+P2_01_PERF_RESULT worst_ms=13.532 frames_ge_16ms=0 counters_consistent=true
