@@ -34,3 +34,7 @@ PATHで見つからない場合のローカル実行ファイルは、親が確�
 ## 公式形式
 
 モデル設定は [Claude公式Model configuration](https://code.claude.com/docs/en/model-config)、プロジェクトのMarkdown/YAML役定義は [Claude公式Subagents](https://code.claude.com/docs/en/sub-agents) に従います。
+
+## Codexとの引き継ぎ
+
+Codex ⇄ Claude の引き継ぎは、プロジェクトスキル [`codex-handoff`](skills/codex-handoff/SKILL.md) の手順で行う（「Codexに引き継ぐ」「Codexから引き継ぐ」で起動）。規則の正本は AGENTS.md と tasks/README.md で、スキルはその実行手順と管理欄更新スクリプトだけを持つ。
