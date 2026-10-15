@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS found the ford on row 202: tiles 247..268
+PASS the player starts on dry ground west of the ford
+PASS the injected walk put the player in the middle of the ford (tile x 257, terrain shallows)
+PASS the injected walk stopped at the water's edge (x=981.000, edge stop 981.000)
+PASS at the water's edge the gauge refills (water 65.8, refilling true)
+PASS found an open wasteland block at (120, 88)
+PASS the game logic produced 6 plant fruits on the mature field (6 s of game time)
+PASS plant fruits, a source fruit and a healing fruit lie on the field (10 pickups)
+GPU_INFO busy scene (vsync off, 600 frames, 31724 active tiles): frame mean 6.90 ms, p99 9.46 ms, max 11.72 ms, frames >= 16 ms: 0; script+physics process time max 96.73 ms
+GPU_INFO renderer=forward_plus screens=0 window_screen=-1 window_pos=(0, 0) window_size=(640, 360)
+P1_06_GPU_RESULT failures=0

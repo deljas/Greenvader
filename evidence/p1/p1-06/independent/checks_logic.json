@@ -1,0 +1,367 @@
+{
+  "observations": {
+    "walk_rate_maxdiff": 0.0740096122026443
+  },
+  "results": [
+    {
+      "condition": "player speed constant is 96 px/s (spec of earlier stages)",
+      "id": "walk.speed_const",
+      "observed": "96.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "feet are 6x4 px (half 3 x 2)",
+      "id": "walk.feet_size",
+      "observed": "3.0 x 2.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "over 60 s of scripted 8-direction walking at 30/60/144 Hz the feet never overlap water, buildings or the map edge",
+      "id": "walk.never_inside",
+      "observed": "bad=0 of 14040 steps",
+      "status": "PASS"
+    },
+    {
+      "condition": "a 24 px single move toward a 1-tile wall stops at the wall (x <= 38*4-3 = 149)",
+      "id": "walk.no_tunnel",
+      "observed": "(58.0, 60.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "from x=140 a 24 px move stops at 149",
+      "id": "walk.no_tunnel2",
+      "observed": "(149.0, 60.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking right into water stops with the foot at the water edge (x=93, within 0.01)",
+      "id": "walk.water_blocks",
+      "observed": "(93.0, 60.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking up into a building stops at its edge (y=38)",
+      "id": "walk.building_blocks",
+      "observed": "(36.0, 38.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "map edge blocks (x=3)",
+      "id": "walk.map_edge_blocks",
+      "observed": "(3.0, 100.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "diagonal into a wall: feet pinned to the wall and slide down at the full axis speed every step (no sticking)",
+      "id": "walk.slides",
+      "observed": "dy_min=1.1313 expected=1.1314 max_dev=0.00002 final=(93.0, 105.254)",
+      "status": "PASS"
+    },
+    {
+      "condition": "diagonal up-left into the building's bottom edge slides left along it (y pinned at 38, x decreasing)",
+      "id": "walk.slides_building",
+      "observed": "(19.81763, 38.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "a gap exactly as tall as the feet (4 px), entered centred while walking east, can be passed",
+      "id": "walk.exact_fit_gap",
+      "observed": "(149.0, 42.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "an 8 px gap is passable (feet 4 px tall)",
+      "id": "walk.wide_gap_passes",
+      "observed": "(149.0, 124.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "a 4 px wide gap (feet 6 px wide) cannot be entered going north: stops below the wall (y=166)",
+      "id": "walk.narrow_gap_blocked",
+      "observed": "(50.0, 166.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "the 8 px wide gap can be passed going north",
+      "id": "walk.wide_gap_north",
+      "observed": "(68.0, 2.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "off-centre (y=45, feet 43..47 overlaps the wall rows) the 4 px gap is closed",
+      "id": "walk.off_center_blocked",
+      "observed": "(93.0, 45.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "diagonal movement on open ground covers 48.0 px in 0.5 s at 30/60/144 Hz (within 0.01)",
+      "id": "walk.diagonal_speed",
+      "observed": "worst error 0.00037 px",
+      "status": "PASS"
+    },
+    {
+      "condition": "same scripted input at 30/60/144 Hz gives the same path within 0.25 px at every 0.5 s",
+      "id": "walk.rate_independence",
+      "observed": "max diff 0.0740 px; end 30=(93.0, 158.0) 60=(93.0, 158.0) 144=(93.0, 158.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "8 hitch frames of 0.25 s end within 0.25 px of 288 frames at 144 Hz (diagonal into a wall)",
+      "id": "walk.hitch_vs_fast",
+      "observed": "hitch=(149.0, 181.8603) fast=(149.0, 181.7829)",
+      "status": "PASS"
+    },
+    {
+      "condition": "the start position is a legal standing place",
+      "id": "walk.start_clear",
+      "observed": "(738.0, 754.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "the seed source tile and the whole fruit drop ring (up to 18 px + tile) are walkable",
+      "id": "walk.source_reachable",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking east along the ford row y-tile 62 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+      "id": "walk.ford_62",
+      "observed": "start_clear=true end=(1477.892, 252.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking east along the ford row y-tile 202 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+      "id": "walk.ford_202",
+      "observed": "start_clear=true end=(1477.892, 812.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking east along the ford row y-tile 324 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+      "id": "walk.ford_324",
+      "observed": "start_clear=true end=(1477.892, 1300.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking east along the ford row y-tile 434 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+      "id": "walk.ford_434",
+      "observed": "start_clear=true end=(1293.0, 1740.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "outside the fords the river stops the player at the first water tile on the row",
+      "id": "walk.river_blocks",
+      "observed": "stopped=(981.0, 402.0) first_block_tile=246",
+      "status": "PASS"
+    },
+    {
+      "condition": "the ruin building (tiles x137.., y176..183) stops the player from the west",
+      "id": "walk.ruin_blocks",
+      "observed": "(545.0, 712.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "is_walkable is false outside the map",
+      "id": "walk.is_walkable_outside",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "per-terrain tile counts of the loaded world equal my python decode of data/region_01.png",
+      "id": "map.terrain_counts",
+      "observed": "wasteland=241194/241194 safe=331/331 shore=3234/3234 water=14551/14551 building=2295/2295 shallows=539/539 ",
+      "status": "PASS"
+    },
+    {
+      "condition": "target count 244,759 (python: wasteland+safe+shore)",
+      "id": "map.target_count",
+      "observed": "244759",
+      "status": "PASS"
+    },
+    {
+      "condition": "water+building not walkable; shallows walkable but not target/plantable; others walkable targets",
+      "id": "map.terrain_flags",
+      "observed": "wasteland(walk=true tgt=true plant=true side=false) safe(walk=true tgt=true plant=true side=false) shore(walk=true tgt=true plant=true side=true) water(walk=false tgt=false plant=false side=true) building(walk=false tgt=false plant=false side=false) shallows(walk=true tgt=false plant=false side=true) ",
+      "status": "PASS"
+    },
+    {
+      "condition": "shallows count as waterside (refill possible)",
+      "id": "map.shallows_waterside",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "targets reachable on foot from the start = 244,202 (python 4-neighbour BFS: 244202); unreachable = 557",
+      "id": "map.walk_reach",
+      "observed": "reach=244202 unreached=557",
+      "status": "PASS"
+    },
+    {
+      "condition": "python: 8 walk-islands holding 557 tiles",
+      "id": "map.python_islands",
+      "observed": "islands=8 targets=557",
+      "status": "PASS"
+    },
+    {
+      "condition": "python: 4 shallows bands (fords), each crossing the river",
+      "id": "map.python_fords",
+      "observed": "[{ \"tiles\": 114.0, \"x\": [245.0, 263.0], \"y\": [60.0, 65.0] }, { \"tiles\": 137.0, \"x\": [245.0, 271.0], \"y\": [200.0, 205.0] }, { \"tiles\": 144.0, \"x\": [254.0, 277.0], \"y\": [322.0, 327.0] }, { \"tiles\": 144.0, \"x\": [251.0, 274.0], \"y\": [432.0, 437.0] }]",
+      "status": "PASS"
+    },
+    {
+      "condition": "python: a foot-rectangle (6x4) flood reaches the same 244,202 targets as the tile BFS (no 1-tile corridor traps)",
+      "id": "map.python_foot_bfs",
+      "observed": "foot=244202",
+      "status": "PASS"
+    },
+    {
+      "condition": "python: 118,520 targets are only reachable across the fords (east bank); 125,682 without crossing",
+      "id": "map.east_bank",
+      "observed": "east=118520 west=125682",
+      "status": "PASS"
+    },
+    {
+      "condition": "start tile is a safe-zone tile and walkable",
+      "id": "map.start_safe",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "at start only the 331 safe tiles are mature/greened",
+      "id": "map.initial_green",
+      "observed": "green=331 mature=331",
+      "status": "PASS"
+    },
+    {
+      "condition": "all 539 shallows tiles are non-target and cannot be planted",
+      "id": "map.shallows_not_plantable",
+      "observed": "n=539",
+      "status": "PASS"
+    },
+    {
+      "condition": "every safe-zone tile is reachable on foot",
+      "id": "map.safe_reachable",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "reachable shore tiles exist for water refill",
+      "id": "map.shore_reachable",
+      "observed": "3158",
+      "status": "PASS"
+    },
+    {
+      "condition": "my four test points are on shallows",
+      "id": "ground.ford_points_shallow",
+      "observed": "[(1016.0, 252.0), (1032.0, 812.0), (1060.0, 1300.0), (1048.0, 1740.0)]",
+      "status": "PASS"
+    },
+    {
+      "condition": "160 seeds landing in the middle of the fords plant nothing",
+      "id": "ground.shallows_seed",
+      "observed": "planted=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "water landing on shallows wets nothing (no tile gets moisture)",
+      "id": "ground.shallows_water",
+      "observed": "wet=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "water and building test points really are water / building",
+      "id": "ground.points_ok",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "seeds and water landing in the middle of water and a building change nothing",
+      "id": "ground.water_building",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "carrot landing on shallows/water/building places nothing and keeps all seeds",
+      "id": "ground.cultivated_refused",
+      "observed": "seeds=20/20 reserved=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "600 s of natural spread around a mature tile at the ford edge never touches shallows, water or buildings",
+      "id": "ground.spread_no_shallows",
+      "observed": "bank=30964 bad=0 grown=4063",
+      "status": "PASS"
+    },
+    {
+      "condition": "greened counter equals a recount after all this",
+      "id": "ground.counters",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "331 safe tiles are mature but none produces seed fruit (producing_count 0)",
+      "id": "fruit.initial_counts",
+      "observed": "mature=331 producing=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "5 minutes standing in the safe zone: no plant-owned seed fruit ever lies on the ground",
+      "id": "fruit.safe_zone_silent",
+      "observed": "max plant fruit 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "the seed source still drops fruits (at most its cap of 3 on the ground)",
+      "id": "fruit.source_still_gives",
+      "observed": "max source fruit 3",
+      "status": "PASS"
+    },
+    {
+      "condition": "clearing a safe tile lowers mature_count by one and leaves producing_count at 0",
+      "id": "fruit.cleared_not_counted",
+      "observed": "330/0",
+      "status": "PASS"
+    },
+    {
+      "condition": "a landed seed can be planted again on the cleared safe tile (the seed scatter finds free tiles)",
+      "id": "fruit.reseed_possible",
+      "observed": "planted 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "the replanted tiles matured by themselves (dry, 60 s) and now count as producing",
+      "id": "fruit.regrown_counts",
+      "observed": "mature=336 producing=6 tile_mature=false",
+      "status": "PASS"
+    },
+    {
+      "condition": "within 10 minutes a regrown mature tile drops a plant seed fruit",
+      "id": "fruit.regrown_produces",
+      "observed": "fruit=1 after 4 s, producing tiles 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "save/load keeps the fruitless flags: still 331 mature and 0 producing",
+      "id": "fruit.save_roundtrip",
+      "observed": "mature=331 producing=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "a world with regrown producing tiles keeps producing_count after JSON save/load",
+      "id": "fruit.save_roundtrip_regrown",
+      "observed": "producing 6 -> 6 mature 336 -> 336",
+      "status": "PASS"
+    },
+    {
+      "condition": "producing counters (total and per chunk) equal a recount",
+      "id": "fruit.counters",
+      "observed": "recount mature 336 producing 6 chunk sum 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "PlantProducer.gather around the start finds 0 producing tiles (331 mature but fruitless)",
+      "id": "fruit.gather_zero",
+      "observed": "gather=0",
+      "status": "PASS"
+    }
+  ]
+}

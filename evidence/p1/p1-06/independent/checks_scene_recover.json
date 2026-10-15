@@ -1,0 +1,65 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "20 clicks spend all 20 seeds",
+      "id": "recover.seeds_zero",
+      "observed": "seeds 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "with 0 seeds a click fires nothing",
+      "id": "recover.no_fire_at_zero",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "10 right clicks empty the water gauge",
+      "id": "recover.water_zero",
+      "observed": "water 0.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "from 0 seeds, walking onto the seed source's fruits gives seeds again",
+      "id": "recover.seed_from_source",
+      "observed": "seeds 0 -> 2 (collected 2)",
+      "status": "PASS"
+    },
+    {
+      "condition": "a free planting spot exists for the re-fire",
+      "id": "recover.spot",
+      "observed": "(812.1436, 747.1312)",
+      "status": "PASS"
+    },
+    {
+      "condition": "the recovered seed plants new ground",
+      "id": "recover.refire",
+      "observed": "seeds 2 -> 1 right after the click, scatter 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking to the shore refills the empty gauge (25/s) to 50",
+      "id": "recover.water_shore",
+      "observed": "water 0.0 -> 50.4 at terrain 2 tile (231.4869, 186.3828)",
+      "status": "PASS"
+    },
+    {
+      "condition": "water can be fired again after the refill",
+      "id": "recover.water_fire",
+      "observed": "50.4 -> 41.2",
+      "status": "PASS"
+    },
+    {
+      "condition": "standing on the shallows (all tiles within 2 tiles are shallows, no shore/land) refills the gauge: waterside includes shallows",
+      "id": "recover.water_shallows",
+      "observed": "on_ford=true pure_shallows_area=true water 3.3 -> 53.3 at (258.7233, 202.4657)",
+      "status": "PASS"
+    },
+    {
+      "condition": "counters consistent",
+      "id": "recover.counters",
+      "observed": "greened 575 (was 332)",
+      "status": "PASS"
+    }
+  ]
+}

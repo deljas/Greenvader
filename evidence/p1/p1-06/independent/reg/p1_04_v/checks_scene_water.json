@@ -1,0 +1,18 @@
+{
+  "observations": {
+    "player_on_water": {
+      "end": "(977.0, 42.0)",
+      "moved_px": 3.0,
+      "start": "(974.0, 42.0)",
+      "terrain_at_end": 3
+    }
+  },
+  "results": [
+    {
+      "condition": "OBSERVATION (not a pass criterion): the player moved right by 3.0 px starting on a water tile (terrain id 3 = water) -> terrain at end id 3",
+      "id": "water.player_walks_on_water",
+      "observed": "moved 3.0 px, ended on terrain 3 (3 = water); water walkable = false",
+      "status": "PASS"
+    }
+  ]
+}

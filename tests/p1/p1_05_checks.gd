@@ -16,6 +16,8 @@ var failures: int = 0
 var checks: int = 0
 var region_def: RegionDef
 var sim_tuning: SimTuning
+## The tuning as shipped in data/ (not pinned).
+var shipped_tuning: SimTuning
 var play_tuning: PlayTuning
 var defs: Array[PlantDef] = []
 var info: Dictionary = {}
@@ -31,7 +33,11 @@ func check(ok: bool, message: String) -> void:
 
 func run() -> void:
 	region_def = load(REGION_PATH) as RegionDef
-	sim_tuning = load("res://data/sim_tuning.tres") as SimTuning
+	# P1-06 retuned the shipped natural-spread speed (data/sim_tuning.gd). These checks verify mechanisms against the
+	# P1-04 reference values (their oracles and run lengths are written for them), so the values are pinned here.
+	shipped_tuning = load("res://data/sim_tuning.tres") as SimTuning
+	sim_tuning = shipped_tuning.duplicate() as SimTuning
+	pin_reference_spread(sim_tuning)
 	play_tuning = load("res://data/play_tuning.tres") as PlayTuning
 	check(region_def != null and sim_tuning != null and play_tuning != null, "region and tunings load")
 	defs.assign(region_def.plants)
@@ -51,6 +57,12 @@ func run() -> void:
 	print("INFO " + JSON.stringify(info))
 	print("P1_05_RESULT checks=%d failures=%d" % [checks, failures])
 	quit(1 if failures > 0 else 0)
+
+## The P1-04 reference natural-spread values the oracles of this file are written for.
+func pin_reference_spread(tuning: SimTuning) -> void:
+	tuning.spread_progress_per_tick = 10000
+	tuning.spread_progress_per_extra_neighbor = 2500
+	tuning.natural_growth_multiplier = 3.0
 
 # ---- helpers ---------------------------------------------------------------------------------------------------
 
@@ -882,6 +894,7 @@ func test_scene() -> void:
 	var packed: PackedScene = load("res://scenes/main.tscn")
 	main = packed.instantiate()
 	root.add_child(main)
+	pin_reference_spread(main.tuning)
 	await wait_frames(3)
 	player = main.player
 	var play: PlayState = main.play

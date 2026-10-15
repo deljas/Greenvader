@@ -1,0 +1,20 @@
+{
+  "busy_frame_ms": {
+    "active_tiles": 31724,
+    "frames": 600,
+    "frames_ge_16ms": 0,
+    "max": 3.22,
+    "mean": 0.39,
+    "p99": 1.37,
+    "renderer": "forward_plus"
+  },
+  "edge_k": 2,
+  "edge_player_x": 981.0,
+  "ford_k": 2,
+  "ford_player_tile": [
+    257,
+    203
+  ],
+  "fruit_k": 2,
+  "fruits_on_ground": 10
+}

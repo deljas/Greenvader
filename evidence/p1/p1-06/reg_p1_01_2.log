@@ -1,0 +1,126 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region definition loads with 6 terrains (wasteland, safe, shore, water, building, shallows)
+INFO region load ms=169.0
+PASS region_01 loads
+PASS map is 512x512 tiles (512x512)
+PASS 4x4 px tiles, region 2048x2048 px
+PASS independent count file exists
+INFO terrain wasteland id=0 tiles=241194 independent_png_count=241194 target=true
+INFO terrain safe id=1 tiles=331 independent_png_count=331 target=true
+INFO terrain shore id=2 tiles=3234 independent_png_count=3234 target=true
+INFO terrain water id=3 tiles=14551 independent_png_count=14551 target=false
+INFO terrain building id=4 tiles=2295 independent_png_count=2295 target=false
+INFO terrain shallows id=5 tiles=539 independent_png_count=539 target=false
+PASS per-terrain tile counts equal the independent PNG count
+PASS target count 244759 equals independent count 244759
+PASS non-target tiles exist and are outside the denominator (17385)
+WARNING: Loaded resource as image file, this will not work on export: 'res://data/region_01.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] test_region_load (res://tests/p1/p1_01_checks.gd:111)
+       [1] run (res://tests/p1/p1_01_checks.gd:42)
+PASS imported texture pixels equal raw PNG pixels
+PASS safe zone is fully mature at start (331 tiles) and is the only greened set
+PASS start tile lies in the safe zone
+PASS differential counters equal recount after load
+ERROR: RegionLoader: tile (0,0) has colour 010203/alpha 255 that is not in the legend
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] build_state (res://scripts/world/region_loader.gd:59)
+       [1] test_region_load (res://tests/p1/p1_01_checks.gd:135)
+       [2] run (res://tests/p1/p1_01_checks.gd:42)
+PASS map with a colour outside the legend is rejected (expected ERROR line above)
+ERROR: RegionLoader: map is 5x4 but the region expects 4x4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] build_state (res://scripts/world/region_loader.gd:35)
+       [1] test_region_load (res://tests/p1/p1_01_checks.gd:137)
+       [2] run (res://tests/p1/p1_01_checks.gd:42)
+PASS map with the wrong size is rejected (expected ERROR line above)
+PASS small map: 9 targets, water and building excluded from the denominator
+PASS small map: only the mature safe tile is greened at start (1/9, floor 11 percent)
+PASS non-target tiles refuse every stage
+PASS refused writes change nothing
+PASS non-target tiles cannot be planted
+PASS seeds do not count as greened
+PASS sprout1 and above count: 3/9, floor 33 percent
+PASS 3/9 is not fully greened
+PASS all 9 targets mature: 9/9 full
+PASS regressing one tile gives 8/9, not full
+PASS small map counters equal recount
+PASS a map without targets is never 100 percent
+PASS real map: every target mature gives exact full integer equality
+PASS one tile short is 99 percent and not full, although the float ratio is 0.999996
+INFO a rounded display (100.00 percent) would have claimed 100 here; the integer test does not
+PASS counters equal recount after mass change
+PASS set_stage is accepted exactly on target tiles
+PASS after 60000 random stage changes the counters equal an independent recount (checked every 10000)
+PASS sprout slots are evenly spread over the 4 centre candidates [25056, 24873, 25188, 24883]
+PASS slots are deterministic per (tile, seed) and change with the seed
+PASS tuning periods are 0.5 s growth and 1.0 s spread
+PASS game time 7.3 s: growth/spread ticks [(14, 7), (14, 7), (14, 7)] at 30/60/144 Hz equal the expected (14, 7)
+PASS game time 30.0 s: growth/spread ticks [(60, 30), (60, 30), (60, 30)] at 30/60/144 Hz equal the expected (60, 30)
+PASS game time 30.3 s: growth/spread ticks [(60, 30), (60, 30), (60, 30)] at 30/60/144 Hz equal the expected (60, 30)
+PASS game time 120.0 s: growth/spread ticks [(240, 120), (240, 120), (240, 120)] at 30/60/144 Hz equal the expected (240, 120)
+PASS irregular frame times: ticks follow elapsed game time (200/100 at 100.118 s)
+PASS signals fire in time order, growth first on ties: GGSGGS
+PASS a single huge delta is capped at max_advance
+PASS paused clock: no time and no ticks while stopped
+PASS resume adds one step only, the stopped 10 s are not added in bulk
+PASS driver advances game time in physics steps (0.650 s after 40 frames)
+PASS SceneTree pause freezes the driver clock for 60 frames
+PASS after resume only the frames since resume count (0.500 s over 30 frames)
+PASS 2x2 occupancy on free plantable tiles
+PASS overlap and owner reuse are refused
+PASS occupancy over water or building is refused
+PASS occupancy beyond the map is refused
+PASS owner lookup
+PASS an occupied tile cannot be planted
+PASS to_dict / JSON / from_dict round trip
+PASS every per-tile array survives the round trip
+PASS owners, counters and consistency survive
+PASS release frees the tiles once
+PASS inconsistent save data is rejected
+INFO full-region to_dict+JSON+from_dict ms=135.0 json_bytes=118777
+PASS full 512x512 region round trip
+PASS a block image is 256x256 px (64x64 tiles)
+PASS empty tile: 16 ground pixels
+PASS all 4 sprout slots occur on the 8x8 test map
+PASS slot 1 stage 1: lit pixels [(2, 1)] (want [(2, 1)]), colour ok=true
+PASS slot 1 stage 2: lit pixels [(2, 1)] (want [(2, 1)]), colour ok=true
+PASS slot 1 stage 3: lit pixels [(2, 0), (2, 1)] (want [(2, 0), (2, 1)]), colour ok=true
+PASS slot 3 stage 1: lit pixels [(2, 2)] (want [(2, 2)]), colour ok=true
+PASS slot 3 stage 2: lit pixels [(2, 2)] (want [(2, 2)]), colour ok=true
+PASS slot 3 stage 3: lit pixels [(2, 1), (2, 2)] (want [(2, 1), (2, 2)]), colour ok=true
+PASS slot 2 stage 1: lit pixels [(1, 2)] (want [(1, 2)]), colour ok=true
+PASS slot 2 stage 2: lit pixels [(1, 2)] (want [(1, 2)]), colour ok=true
+PASS slot 2 stage 3: lit pixels [(1, 1), (1, 2)] (want [(1, 1), (1, 2)]), colour ok=true
+PASS slot 0 stage 1: lit pixels [(1, 1)] (want [(1, 1)]), colour ok=true
+PASS slot 0 stage 2: lit pixels [(1, 1)] (want [(1, 1)]), colour ok=true
+PASS slot 0 stage 3: lit pixels [(1, 0), (1, 1)] (want [(1, 0), (1, 1)]), colour ok=true
+PASS isolated mature tile: inner 2x2 is opaque mature green
+PASS isolated mature tile: all 12 outer ring pixels are the half-transparent green composited on the ground
+PASS ring colour lies strictly between ground and mature and is stored opaque
+PASS neighbouring tiles keep their ground pixels (the ring is inside the tile, nothing bleeds out)
+PASS two adjacent mature tiles: the shared side is opaque on both (neighbour was repainted)
+PASS two adjacent mature tiles: the other sides stay half-transparent
+PASS corner pixels on the shared side stay half-transparent (they lie on the top / bottom ring)
+PASS when the neighbour stops being mature the shared side becomes half-transparent again
+PASS diagonal mature neighbour does not change the edge (full ring still half-transparent)
+PASS centre tile of a 3x3 mature block is fully opaque
+PASS edge is composited over the tile's own terrain ground colour
+PASS 512x512 tiles make 8x8 = 64 blocks
+PASS a flush with no change repaints and uploads nothing
+PASS test tiles are wasteland
+PASS one non-mature change repaints 1 tile and uploads 1 block (1/1)
+PASS a mature tile on a block boundary repaints itself and 4 neighbours, uploading exactly the 2 touched blocks (5/2)
+PASS the start tile (inside the mature safe zone) is fully green
+PERF load_region_ms=151.3 initial_full_render_ms=37.1 total_init_ms=188.4
+PERF scattered_1000_sprout1_set_and_render_ms=4.76 tiles=1000 blocks_uploaded=64
+PERF scattered_1000_mature_set_and_render_ms=4.16 tiles=4945 blocks_uploaded=64
+PERF clustered_1024_mature_patch_ms=2.04 tiles=1124 blocks_uploaded=2
+PERF idle_flush_ms=0.000
+PASS region initialisation (load + first full render) stays under 3 s (188 ms)
+PASS 1000 scattered changes are set and repainted in under 500 ms (4 ms)
+P1_01_RESULT checks=92 failures=0

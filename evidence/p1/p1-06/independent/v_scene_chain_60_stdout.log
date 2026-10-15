@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [chain.start] start: 20 seeds, water 100, HP full, standing at the start tile :: seeds=20 water=100 pos=(738.0, 754.0)
+PASS [chain.land_6] a left click lands a seed near the aim point (landed signal fired) :: scatter 6
+PASS [chain.land_12] a left click lands a seed near the aim point (landed signal fired) :: scatter 6
+PASS [chain.land_18] a left click lands a seed near the aim point (landed signal fired) :: scatter 6
+PASS [chain.land_24] a left click lands a seed near the aim point (landed signal fired) :: scatter 6
+PASS [chain.land_30] a left click lands a seed near the aim point (landed signal fired) :: scatter 6
+PASS [chain.seeds_spent] 5 shots spent exactly 5 seeds :: 15
+PASS [chain.seed_tiles] landing planted tiles (stage seed or later) for every shot :: 30 tiles
+PASS [chain.stages_in_order] seed -> sprout 1 -> sprout 2 -> mature in this order for every tile :: median t1=17.4 t2=37.4 t3=57.4 s (n=30)
+PASS [chain.dry_time] dry growth takes about one minute (30..90 s) to mature :: 57.4 s
+PASS [chain.fruit_appears] mature planted tiles drop a plant seed fruit :: first fruit 38.9 s after landing
+PASS [chain.fruit_not_from_safe] no plant fruit belongs to a safe-zone / fruitless tile (only regrown and planted tiles produce) :: fruits 4, from safe 0
+PASS [chain.collect] walking onto the plant fruit (WASD) returns a seed :: seeds 15 -> 16
+PASS [chain.refire] the collected seed can be fired again and plants new tiles :: seeds 16 -> 15, scatter 6
+PASS [chain.counters] greening counters stay consistent after the whole chain :: greened 569 (was 561)
+V_RESULT total=15 fails=0

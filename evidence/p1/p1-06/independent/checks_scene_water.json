@@ -1,0 +1,46 @@
+{
+  "observations": {
+    "water_times": {
+      "dry": 59.3833333333309,
+      "watered": 36.3999999999992
+    }
+  },
+  "results": [
+    {
+      "condition": "open wasteland test site: no waterside near, water 100, not refilling",
+      "id": "water.setup",
+      "observed": "100 false",
+      "status": "PASS"
+    },
+    {
+      "condition": "3 water shots wet the planted tiles",
+      "id": "water.wets",
+      "observed": "wet 6/6, water gauge 70",
+      "status": "PASS"
+    },
+    {
+      "condition": "water gauge is empty (< one shot) and a water click fires nothing",
+      "id": "water.zero",
+      "observed": "water 0.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "seeds plant fine with the gauge empty",
+      "id": "water.b_planted",
+      "observed": "tiles 6 water 0.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "without any water the dry seeds still mature (about a minute)",
+      "id": "water.dry_grows",
+      "observed": "median 59.4 s, 6/6 mature",
+      "status": "PASS"
+    },
+    {
+      "condition": "watered seeds mature clearly earlier than dry ones (at least 10 s sooner)",
+      "id": "water.faster",
+      "observed": "watered 36.4 s vs dry 59.4 s",
+      "status": "PASS"
+    }
+  ]
+}

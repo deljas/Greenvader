@@ -1,0 +1,438 @@
+{
+  "observations": {
+    "edge_pixels": {
+      "left_982": [
+        64,
+        136,
+        99
+      ],
+      "right_985": [
+        46,
+        98,
+        106
+      ]
+    },
+    "fruit_summary": {
+      "mature": {
+        "heal": {
+          "bad": 0,
+          "bg": [
+            63,
+            155,
+            74
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.25,
+          "ring_n": 24,
+          "tl": "(294, 150)"
+        },
+        "plant": {
+          "bad": 0,
+          "bg": [
+            63,
+            155,
+            74
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.25,
+          "ring_n": 24,
+          "tl": "(270, 150)"
+        },
+        "plant_vs_bg": {
+          "R": {
+            "contrast": 1.97,
+            "dist": 157.0
+          },
+          "r": {
+            "contrast": 1.03,
+            "dist": 182.0
+          },
+          "w": {
+            "contrast": 2.65,
+            "dist": 249.0
+          }
+        },
+        "source": {
+          "bad": 0,
+          "bg": [
+            63,
+            155,
+            74
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.25,
+          "ring_n": 24,
+          "tl": "(282, 150)"
+        }
+      },
+      "shallows": {
+        "heal": {
+          "bad": 0,
+          "bg": [
+            107,
+            175,
+            178
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.37,
+          "ring_n": 24,
+          "tl": "(390, 182)"
+        },
+        "plant": {
+          "bad": 0,
+          "bg": [
+            107,
+            175,
+            178
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.37,
+          "ring_n": 24,
+          "tl": "(366, 182)"
+        },
+        "plant_vs_bg": {
+          "R": {
+            "contrast": 2.76,
+            "dist": 184.0
+          },
+          "r": {
+            "contrast": 1.44,
+            "dist": 166.0
+          },
+          "w": {
+            "contrast": 1.9,
+            "dist": 159.0
+          }
+        },
+        "source": {
+          "bad": 0,
+          "bg": [
+            107,
+            175,
+            178
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.37,
+          "ring_n": 24,
+          "tl": "(378, 182)"
+        }
+      },
+      "shore": {
+        "heal": {
+          "bad": 0,
+          "bg": [
+            193,
+            180,
+            135
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(338, 158)"
+        },
+        "plant": {
+          "bad": 0,
+          "bg": [
+            195,
+            181,
+            136
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(338, 134)"
+        },
+        "plant_vs_bg": {
+          "R": {
+            "contrast": 3.38,
+            "dist": 159.0
+          },
+          "r": {
+            "contrast": 1.76,
+            "dist": 105.0
+          },
+          "w": {
+            "contrast": 1.55,
+            "dist": 110.0
+          }
+        },
+        "source": {
+          "bad": 0,
+          "bg": [
+            193,
+            180,
+            135
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(338, 146)"
+        }
+      },
+      "sprout": {
+        "heal": {
+          "bad": 0,
+          "bg": [
+            159,
+            149,
+            110
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(294, 170)"
+        },
+        "plant": {
+          "bad": 0,
+          "bg": [
+            159,
+            149,
+            110
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(270, 170)"
+        },
+        "plant_vs_bg": {
+          "R": {
+            "contrast": 2.3,
+            "dist": 117.0
+          },
+          "r": {
+            "contrast": 1.2,
+            "dist": 93.0
+          },
+          "w": {
+            "contrast": 2.28,
+            "dist": 161.0
+          }
+        },
+        "source": {
+          "bad": 0,
+          "bg": [
+            159,
+            149,
+            110
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(282, 170)"
+        }
+      },
+      "wasteland": {
+        "heal": {
+          "bad": 0,
+          "bg": [
+            159,
+            149,
+            110
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(294, 190)"
+        },
+        "plant": {
+          "bad": 0,
+          "bg": [
+            159,
+            149,
+            110
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(270, 190)"
+        },
+        "plant_vs_bg": {
+          "R": {
+            "contrast": 2.3,
+            "dist": 117.0
+          },
+          "r": {
+            "contrast": 1.2,
+            "dist": 93.0
+          },
+          "w": {
+            "contrast": 2.28,
+            "dist": 161.0
+          }
+        },
+        "source": {
+          "bad": 0,
+          "bg": [
+            159,
+            149,
+            110
+          ],
+          "first": "",
+          "ring_darkest_lum": 0.3,
+          "ring_n": 24,
+          "tl": "(282, 190)"
+        }
+      }
+    },
+    "gpu_stress_frame": {
+      "frames": 379,
+      "script_max_ms": 338.384,
+      "script_p99_ms": 338.384,
+      "wall_max_ms": 1.356,
+      "wall_mean_ms": 0.309282321899736,
+      "wall_p99_ms": 0.578
+    }
+  },
+  "results": [
+    {
+      "condition": "the player walked east and stopped with the feet at the water edge x=981 (injected D held 2.5 s)",
+      "id": "gpu.edge.stopped",
+      "observed": "(981.0, 402.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "edge: PrintWindow capture is 1280x720 (k=2) and the internal frame 640x360",
+      "id": "gpu.edge.size",
+      "observed": "native=(1280, 720) vp=(640, 360)",
+      "status": "PASS"
+    },
+    {
+      "condition": "edge: every 2x2 block of the window image is a single colour",
+      "id": "gpu.edge.k2_uniform",
+      "observed": "non-uniform samples 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "edge: each block equals the internal frame pixel",
+      "id": "gpu.edge.native_equals_internal",
+      "observed": "mismatching 0 of 230400",
+      "status": "PASS"
+    },
+    {
+      "condition": "the screen pixel just beyond the feet (x=985) is water-coloured, the pixel under the feet's right edge (x=982) is not",
+      "id": "gpu.edge.water_beyond",
+      "observed": "left [64, 136, 99] right [46, 98, 106] water [57, 134, 154]",
+      "status": "FAIL"
+    },
+    {
+      "condition": "ford: PrintWindow capture is 1280x720 (k=2) and the internal frame 640x360",
+      "id": "gpu.ford.size",
+      "observed": "native=(1280, 720) vp=(640, 360)",
+      "status": "PASS"
+    },
+    {
+      "condition": "ford: every 2x2 block of the window image is a single colour",
+      "id": "gpu.ford.k2_uniform",
+      "observed": "non-uniform samples 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "ford: each block equals the internal frame pixel",
+      "id": "gpu.ford.native_equals_internal",
+      "observed": "mismatching 0 of 230400",
+      "status": "PASS"
+    },
+    {
+      "condition": "the player stands on a shallows tile",
+      "id": "gpu.ford.on_shallows",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "fruit test layout: the chosen tiles have the intended terrain; nothing else picked up (player 20+ px from all fruits)",
+      "id": "gpu.fruit.layout",
+      "observed": "items 15",
+      "status": "PASS"
+    },
+    {
+      "condition": "fruit: PrintWindow capture is 1280x720 (k=2) and the internal frame 640x360",
+      "id": "gpu.fruit.size",
+      "observed": "native=(1280, 720) vp=(640, 360)",
+      "status": "PASS"
+    },
+    {
+      "condition": "fruit: every 2x2 block of the window image is a single colour",
+      "id": "gpu.fruit.k2_uniform",
+      "observed": "non-uniform samples 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "fruit: each block equals the internal frame pixel",
+      "id": "gpu.fruit.native_equals_internal",
+      "observed": "mismatching 0 of 230400",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant fruit on mature: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+      "id": "gpu.fruit.readable_mature",
+      "observed": "{\"R\":{\"contrast\":1.97,\"dist\":157.0},\"r\":{\"contrast\":1.03,\"dist\":182.0},\"w\":{\"contrast\":2.65,\"dist\":249.0}} bg=[63, 155, 74]",
+      "status": "PASS"
+    },
+    {
+      "condition": "on mature the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+      "id": "gpu.fruit.pixels_mature",
+      "observed": "plant {\"bad\":0,\"bg\":[63,155,74],\"first\":\"\",\"ring_darkest_lum\":0.25,\"ring_n\":24,\"tl\":\"(270, 150)\"} | source {\"bad\":0,\"bg\":[63,155,74],\"first\":\"\",\"ring_darkest_lum\":0.25,\"ring_n\":24,\"tl\":\"(282, 150)\"} | heal {\"bad\":0,\"bg\":[63,155,74],\"first\":\"\",\"ring_darkest_lum\":0.25,\"ring_n\":24,\"tl\":\"(294, 150)\"}",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant fruit on sprout: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+      "id": "gpu.fruit.readable_sprout",
+      "observed": "{\"R\":{\"contrast\":2.3,\"dist\":117.0},\"r\":{\"contrast\":1.2,\"dist\":93.0},\"w\":{\"contrast\":2.28,\"dist\":161.0}} bg=[159, 149, 110]",
+      "status": "PASS"
+    },
+    {
+      "condition": "on sprout the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+      "id": "gpu.fruit.pixels_sprout",
+      "observed": "plant {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(270, 170)\"} | source {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(282, 170)\"} | heal {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(294, 170)\"}",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant fruit on wasteland: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+      "id": "gpu.fruit.readable_wasteland",
+      "observed": "{\"R\":{\"contrast\":2.3,\"dist\":117.0},\"r\":{\"contrast\":1.2,\"dist\":93.0},\"w\":{\"contrast\":2.28,\"dist\":161.0}} bg=[159, 149, 110]",
+      "status": "PASS"
+    },
+    {
+      "condition": "on wasteland the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+      "id": "gpu.fruit.pixels_wasteland",
+      "observed": "plant {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(270, 190)\"} | source {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(282, 190)\"} | heal {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(294, 190)\"}",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant fruit on shore: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+      "id": "gpu.fruit.readable_shore",
+      "observed": "{\"R\":{\"contrast\":3.38,\"dist\":159.0},\"r\":{\"contrast\":1.76,\"dist\":105.0},\"w\":{\"contrast\":1.55,\"dist\":110.0}} bg=[195, 181, 136]",
+      "status": "FAIL"
+    },
+    {
+      "condition": "on shore the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+      "id": "gpu.fruit.pixels_shore",
+      "observed": "plant {\"bad\":0,\"bg\":[195,181,136],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(338, 134)\"} | source {\"bad\":0,\"bg\":[193,180,135],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(338, 146)\"} | heal {\"bad\":0,\"bg\":[193,180,135],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(338, 158)\"}",
+      "status": "PASS"
+    },
+    {
+      "condition": "plant fruit on shallows: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+      "id": "gpu.fruit.readable_shallows",
+      "observed": "{\"R\":{\"contrast\":2.76,\"dist\":184.0},\"r\":{\"contrast\":1.44,\"dist\":166.0},\"w\":{\"contrast\":1.9,\"dist\":159.0}} bg=[107, 175, 178]",
+      "status": "PASS"
+    },
+    {
+      "condition": "on shallows the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+      "id": "gpu.fruit.pixels_shallows",
+      "observed": "plant {\"bad\":0,\"bg\":[107,175,178],\"first\":\"\",\"ring_darkest_lum\":0.37,\"ring_n\":24,\"tl\":\"(366, 182)\"} | source {\"bad\":0,\"bg\":[107,175,178],\"first\":\"\",\"ring_darkest_lum\":0.37,\"ring_n\":24,\"tl\":\"(378, 182)\"} | heal {\"bad\":0,\"bg\":[107,175,178],\"first\":\"\",\"ring_darkest_lum\":0.37,\"ring_n\":24,\"tl\":\"(390, 182)\"}",
+      "status": "PASS"
+    },
+    {
+      "condition": "no colour of the plant fruit is within 60 RGB units of any colour of the seed-source fruit or the healing fruit",
+      "id": "gpu.fruit.distinct_kinds",
+      "observed": "closest pair 62.5",
+      "status": "PASS"
+    },
+    {
+      "condition": "real window (vsync off), stress fixture: wall time per frame stays under 16 ms (p99) and the script CPU (process+physics monitors) max under 16 ms",
+      "id": "gpu.stress_frame",
+      "observed": "{\"frames\":379,\"script_max_ms\":338.384,\"script_p99_ms\":338.384,\"wall_max_ms\":1.356,\"wall_mean_ms\":0.309282321899736,\"wall_p99_ms\":0.578}",
+      "status": "FAIL"
+    }
+  ]
+}

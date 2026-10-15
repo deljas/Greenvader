@@ -8,6 +8,10 @@ var simulation_position: Vector2 = Vector2(480, 368)
 ## Walkable pixel rectangle; main sets it from the region size.
 var world_bounds: Rect2 = Rect2(32, 32, 1984, 1984)
 var aim_direction: Vector2 = Vector2.RIGHT
+## Walking against the map (P1-06): null = free movement (older tests build a bare player).
+var walk_world: WorldState
+var walk_tile_px: int = 4
+var walk_half: Vector2 = Vector2(3, 2)
 var visual: Sprite2D
 var light: PointLight2D
 var glow: Sprite2D
@@ -39,14 +43,22 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	simulation_position += direction * SPEED * delta
-	simulation_position = simulation_position.clamp(world_bounds.position, world_bounds.end)
+	step(direction * SPEED * delta)
 	position = simulation_position.round()
 	presentation_updated.emit(position)
 	var target: Vector2 = get_global_mouse_position() - position
 	if target.length_squared() > 1.0:
 		aim_direction = target.normalized()
 	queue_redraw()
+
+## Moves the simulation position by `motion` px: against the map when walk_world is set (slides along water and
+## buildings), then inside the world bounds.
+func step(motion: Vector2) -> void:
+	if walk_world != null:
+		simulation_position = Walker.move(walk_world, walk_tile_px, simulation_position, motion, walk_half)
+	else:
+		simulation_position += motion
+	simulation_position = simulation_position.clamp(world_bounds.position, world_bounds.end)
 
 func _draw() -> void:
 	draw_rect(Rect2(-6, 0, 12, 3), Color(0.13, 0.22, 0.19, 0.45))

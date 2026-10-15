@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [recover.seeds_zero] 20 clicks spend all 20 seeds :: seeds 0
+PASS [recover.no_fire_at_zero] with 0 seeds a click fires nothing :: 
+PASS [recover.water_zero] 10 right clicks empty the water gauge :: water 0.0
+PASS [recover.seed_from_source] from 0 seeds, walking onto the seed source's fruits gives seeds again :: seeds 0 -> 2 (collected 2)
+PASS [recover.spot] a free planting spot exists for the re-fire :: (812.1436, 747.1312)
+PASS [recover.refire] the recovered seed plants new ground :: seeds 2 -> 1 right after the click, scatter 6
+PASS [recover.water_shore] walking to the shore refills the empty gauge (25/s) to 50 :: water 0.0 -> 50.4 at terrain 2 tile (231.4869, 186.3828)
+PASS [recover.water_fire] water can be fired again after the refill :: 50.4 -> 41.2
+PASS [recover.water_shallows] standing on the shallows (all tiles within 2 tiles are shallows, no shore/land) refills the gauge: waterside includes shallows :: on_ford=true pure_shallows_area=true water 3.3 -> 53.3 at (258.7233, 202.4657)
+PASS [recover.counters] counters consistent :: greened 575 (was 332)
+V_RESULT total=10 fails=0

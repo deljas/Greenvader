@@ -1,0 +1,38 @@
+=== walk hz=30
+exit=1
+FAIL [walk.speed_equal] hz=30: 1 s of D+S covers the same distance as 1 s of D (96 px, +-1.7 for the tick boundary) :: diag=92.808 straight=92.777
+V_RESULT total=7 fails=1
+=== walk hz=144
+exit=0
+V_RESULT total=7 fails=0
+=== pause hz=60
+exit=0
+V_RESULT total=7 fails=0
+=== chain hz=60
+exit=1
+FAIL [chain.fruit_from_planted] every plant fruit lies on one of the tiles I planted (none from the safe zone) :: fruits 4
+V_RESULT total=15 fails=1
+=== water hz=60
+exit=0
+V_RESULT total=6 fails=0
+=== recover hz=60
+exit=1
+FAIL [recover.refire] the recovered seed plants new ground :: scatter 6
+V_RESULT total=9 fails=1
+=== spread hz=60
+exit=0
+V_RESULT total=4 fails=0
+=== control hz=60
+exit=0
+V_RESULT total=4 fails=0
+=== carrot hz=60
+exit=0
+V_RESULT total=7 fails=0
+=== kiwi hz=60
+exit=0
+V_RESULT total=5 fails=0
+=== invalid hz=60
+exit=1
+FAIL [invalid.fired] 20 seeds-worth of shots were really fired (seeds spent) :: fired 21, seeds 0
+V_RESULT total=7 fails=1
+ALLDONE

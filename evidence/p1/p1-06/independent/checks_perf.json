@@ -1,0 +1,43 @@
+{
+  "observations": {
+    "play_180s_4shots_per_s": {
+      "frames": 10799,
+      "frames_over_16ms": 0,
+      "max_ms": 1.678,
+      "mean_ms": 0.105138160940826,
+      "p50_ms": 0.077,
+      "p999_ms": 1.25,
+      "p99_ms": 0.757
+    },
+    "stress_60s_12shots_per_s": {
+      "frames": 3599,
+      "frames_over_16ms": 0,
+      "max_ms": 9.652,
+      "mean_ms": 0.246459016393442,
+      "p50_ms": 0.138,
+      "p999_ms": 7.227,
+      "p99_ms": 3.146
+    },
+    "stress_setup": {
+      "active_tiles_end": 4897,
+      "cultivated": 29,
+      "mature": 41626,
+      "pickups": 37,
+      "seeded": 11598
+    }
+  },
+  "results": [
+    {
+      "condition": "real play 3 min (walking, 4 shots/s, spread running): CPU per frame max < 16 ms and p99 < 8 ms",
+      "id": "perf.play",
+      "observed": "{\"frames\":10799,\"frames_over_16ms\":0,\"max_ms\":1.678,\"mean_ms\":0.105138160940826,\"p50_ms\":0.077,\"p999_ms\":1.25,\"p99_ms\":0.757}",
+      "status": "PASS"
+    },
+    {
+      "condition": "stress fixture (41626 mature, 11598 wet seeds, 29 cultivated plants, 12 shots/s) CPU per frame max < 16 ms",
+      "id": "perf.stress",
+      "observed": "{\"frames\":3599,\"frames_over_16ms\":0,\"max_ms\":9.652,\"mean_ms\":0.246459016393442,\"p50_ms\":0.138,\"p999_ms\":7.227,\"p99_ms\":3.146} {\"active_tiles_end\":4897,\"cultivated\":29,\"mature\":41626,\"pickups\":37,\"seeded\":11598}",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "observations": {
+    "spread_carrot": {
+      "first_mature_t": 37.4499999999991,
+      "first_seed_t": 7.44999999999998,
+      "series": {
+        "100": {
+          "greened": 642,
+          "mature_total": 595,
+          "natural": 375
+        },
+        "120": {
+          "greened": 728,
+          "mature_total": 642,
+          "natural": 427
+        },
+        "160": {
+          "greened": 900,
+          "mature_total": 792,
+          "natural": 599
+        },
+        "20": {
+          "greened": 379,
+          "mature_total": 331,
+          "natural": 124
+        },
+        "200": {
+          "greened": 1066,
+          "mature_total": 960,
+          "natural": 763
+        },
+        "40": {
+          "greened": 455,
+          "mature_total": 379,
+          "natural": 124
+        },
+        "60": {
+          "greened": 502,
+          "mature_total": 455,
+          "natural": 241
+        },
+        "80": {
+          "greened": 595,
+          "mature_total": 502,
+          "natural": 268
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "condition": "Tab selects the carrot",
+      "id": "carrot.select",
+      "observed": "carrot",
+      "status": "PASS"
+    },
+    {
+      "condition": "a carrot is placed on the mature safe ground and costs 3 seeds",
+      "id": "carrot.placed",
+      "observed": "carrots 1 seeds 20 -> 17",
+      "status": "PASS"
+    },
+    {
+      "condition": "placing the carrot changes no greening counters (mature ground stays mature)",
+      "id": "carrot.counter_unchanged",
+      "observed": "331/331",
+      "status": "PASS"
+    },
+    {
+      "condition": "natural spread from the safe zone plants tiles by itself (no input)",
+      "id": "spread.carrot.starts",
+      "observed": "first natural seed at 7.4 s, natural now 765",
+      "status": "PASS"
+    },
+    {
+      "condition": "naturally planted tiles grow up to mature within 200 s",
+      "id": "spread.carrot.matures",
+      "observed": "first natural mature 37.4 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "counters consistent; greened >= 331 and monotonic with natural tiles",
+      "id": "spread.carrot.counters",
+      "observed": "greened 1066",
+      "status": "PASS"
+    },
+    {
+      "condition": "natural tiles lie only on plantable target terrain (never water, buildings, shallows)",
+      "id": "spread.carrot.only_targets",
+      "observed": "bad 0",
+      "status": "PASS"
+    }
+  ]
+}

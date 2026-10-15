@@ -47,10 +47,10 @@ extends Resource
 ## A candidate becomes a seed when its progress reaches the threshold.
 @export var spread_progress_threshold: int = 100000
 ## Progress gained per spread tick (1 s) with one mature tile in range, plus this much for each further one.
-@export var spread_progress_per_tick: int = 10000
-@export var spread_progress_per_extra_neighbor: int = 2500
+@export var spread_progress_per_tick: int = 6000
+@export var spread_progress_per_extra_neighbor: int = 1500
 ## Growth speed multiplier of seeds and sprouts planted by natural spread (the front speed knob).
-@export var natural_growth_multiplier: float = 3.0
+@export var natural_growth_multiplier: float = 2.0
 
 @export_group("Rendering (P1-04)")
 ## RegionView repaints at most this many dirty tiles per frame (the rest waits for the next frame, oldest first).

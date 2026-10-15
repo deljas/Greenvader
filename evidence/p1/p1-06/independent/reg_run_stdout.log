@@ -1,0 +1,76 @@
+=== r_impl_p1_05
+exit=1
+FAIL inside: 68 candidates faster than without the carrot; outside (patch A beyond the radius and all of patch B): 0 unchanged
+FAIL a candidate with one mature neighbour inside the radius: 5 ticks (10 without the carrot)
+FAIL scene: by spread tick 9 (9 ticks after the patch appeared) all 63 candidates inside the carrot radius are seeds (visit wait bound 1)
+P1_05_RESULT checks=181 failures=6
+=== r_impl_p1_01
+exit=1
+FAIL per-terrain tile counts equal the independent PNG count
+FAIL target count 244759 equals independent count 244846
+FAIL non-target tiles exist and are outside the denominator (17298)
+P1_01_RESULT checks=92 failures=4
+=== r_impl_p1_02
+exit=0
+P1_02_RESULT checks=130 failures=0
+=== r_impl_p1_03
+exit=0
+P1_03_RESULT checks=106 failures=0
+=== r_impl_p1_04
+exit=1
+FAIL natural seed grows 3x as fast as a player seed (20000 vs 10000 after 10 ticks)
+FAIL natural seed is mature after 40 ticks = 20 s (dry), the player seed is not
+FAIL save point has a queue longer than B (0 candidates, 1 pending events)
+P1_04_RESULT checks=85 failures=6
+=== r_p0_checks
+exit=0
+P0_SELF_RESULT failures=0
+=== r_p0_art
+exit=0
+INDEPENDENT_SUMMARY checks=35 failures=0 native_ui=NOT_RUN raster_art=NOT_RUN
+=== r_p1_01_v
+exit=1
+FAIL [1.terrain_counts] per-terrain tile counts equal independent count for all 5 legend colours :: { "b0a060": 241194, "e0d090": 3234, "4080e0": 14551, "808080": 2295, "70b0e0": 539, "60b060": 331 }
+FAIL [2.integer_100] all 244846 targets mature = full; one tile short is not full (float ratio 0.9999959) :: full=false short: greened=244758 full=false floor=99
+FAIL [5.moves] player moves ~96 px/s inside the region (1 s) :: (1033.0, 1000.0)
+V_RESULT total=40 fails=4
+=== r_p1_02_v
+exit=0
+V_RESULT total=61 fails=0
+=== r_p1_03_logic
+exit=0
+V_RESULT total=57 fails=0
+=== scene3_chain
+exit=0
+V_RESULT total=11 fails=0
+=== scene3_pause
+exit=0
+V_RESULT total=4 fails=0
+=== scene3_night
+exit=0
+V_RESULT total=1 fails=0
+=== scene3_rate
+exit=0
+V_RESULT total=1 fails=0
+=== r_p1_04_logic
+exit=1
+FAIL [front.growth_multiplier] dry manual seed matures in 120 growth ticks (60 s); natural seed in 40 (20 s) = natural_growth_multiplier 3 :: manual 120 ticks natural 60 ticks
+FAIL [region.reach_count] my BFS from the initial mature (safe zone) tiles, radius 2 over plantable targets, reaches 125,670 targets (implementer's figure; incl. or excl. the start tiles) :: reach incl start=125682 excl start=125351 (start tiles=331) unreached=119077 targets=244759
+FAIL [region.isolated_count] unreached targets = 119,176 (implementer's figure) :: unreached=119077, targets-reach=119077
+V_RESULT total=39 fails=8
+=== scene4_pause
+exit=0
+V_RESULT total=3 fails=0
+=== scene4_water
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_30
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_60
+exit=0
+V_RESULT total=1 fails=0
+=== scene4_rate_144
+exit=0
+V_RESULT total=1 fails=0
+ALLDONE

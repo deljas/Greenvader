@@ -1,0 +1,11 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "growth never stops: at night (injected key 3) a dry seed still gains 1000 per tick (5 s = 10 ticks = 10000), same as in daylight; same in rain (key 2)",
+      "id": "night.not_stopped",
+      "observed": "night=true rain=true gains day=10000 night=10000 (ticks 10) rain=10000",
+      "status": "PASS"
+    }
+  ]
+}

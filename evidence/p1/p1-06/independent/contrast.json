@@ -1,0 +1,136 @@
+{
+ "mature 3f9b4a": {
+  "plant w": {
+   "contrast": 2.65,
+   "dist": 249
+  },
+  "plant r": {
+   "contrast": 1.03,
+   "dist": 182
+  },
+  "plant R": {
+   "contrast": 1.97,
+   "dist": 157
+  }
+ },
+ "sprout 86d65f": {
+  "plant w": {
+   "contrast": 1.35,
+   "dist": 175
+  },
+  "plant r": {
+   "contrast": 2.02,
+   "dist": 159
+  },
+  "plant R": {
+   "contrast": 3.88,
+   "dist": 180
+  }
+ },
+ "seed ffe5a0": {
+  "plant w": {
+   "contrast": 1.07,
+   "dist": 64
+  },
+  "plant r": {
+   "contrast": 2.9,
+   "dist": 155
+  },
+  "plant R": {
+   "contrast": 5.57,
+   "dist": 228
+  }
+ },
+ "wasteland": {
+  "plant w": {
+   "contrast": 2.25,
+   "dist": 160
+  },
+  "plant r": {
+   "contrast": 1.21,
+   "dist": 93
+  },
+  "plant R": {
+   "contrast": 2.33,
+   "dist": 119
+  }
+ },
+ "shore": {
+  "plant w": {
+   "contrast": 1.39,
+   "dist": 96
+  },
+  "plant r": {
+   "contrast": 1.96,
+   "dist": 113
+  },
+  "plant R": {
+   "contrast": 3.76,
+   "dist": 173
+  }
+ },
+ "shallows": {
+  "plant w": {
+   "contrast": 1.88,
+   "dist": 159
+  },
+  "plant r": {
+   "contrast": 1.45,
+   "dist": 167
+  },
+  "plant R": {
+   "contrast": 2.79,
+   "dist": 185
+  }
+ },
+ "water": {
+  "plant w": {
+   "contrast": 3.15,
+   "dist": 224
+  },
+  "plant r": {
+   "contrast": 1.16,
+   "dist": 184
+  },
+  "plant R": {
+   "contrast": 1.66,
+   "dist": 169
+  }
+ },
+ "safe ground": {
+  "plant w": {
+   "contrast": 2.49,
+   "dist": 210
+  },
+  "plant r": {
+   "contrast": 1.09,
+   "dist": 140
+  },
+  "plant R": {
+   "contrast": 2.1,
+   "dist": 131
+  }
+ },
+ "plant_vs_source": {
+  "plant w|src y": 64,
+  "plant w|src e": 63,
+  "plant w|src s": 121,
+  "plant r|src y": 155,
+  "plant r|src e": 139,
+  "plant r|src s": 86,
+  "plant R|src y": 228,
+  "plant R|src e": 211,
+  "plant R|src s": 149
+ },
+ "plant_vs_heal": {
+  "plant w|heal b": 182,
+  "plant w|heal k": 158,
+  "plant w|heal K": 223,
+  "plant r|heal b": 78,
+  "plant r|heal k": 142,
+  "plant r|heal K": 151,
+  "plant R|heal b": 85,
+  "plant R|heal k": 176,
+  "plant R|heal K": 142
+ }
+}

@@ -63,6 +63,14 @@ var chunks_x: int = 0
 var chunks_y: int = 0
 var mature_chunk_count: PackedInt32Array = PackedInt32Array()
 var mature_count: int = 0
+## 1 = this mature tile came ready-made with its terrain (TerrainDef.initial_stage) and does not produce seed fruits
+## (P1-06). Cleared when the tile stops being mature, so a tile that regrows produces normally.
+var fruitless: PackedByteArray = PackedByteArray()
+## Mature tiles that DO produce seed fruits (mature and not fruitless), per chunk and in total. PlantProducer reads these.
+var producing_chunk_count: PackedInt32Array = PackedInt32Array()
+var producing_count: int = 0
+## 1 per terrain id when the player can walk on it (from TerrainDef.walkable).
+var walkable_by_terrain: PackedByteArray = PackedByteArray()
 
 func _init(w: int, h: int, defs: Array[TerrainDef], seed_value: int) -> void:
 	width = w
@@ -83,9 +91,14 @@ func _init(w: int, h: int, defs: Array[TerrainDef], seed_value: int) -> void:
 	active_flag.resize(n)
 	last_growth_tick.resize(n)
 	natural.resize(n)
+	fruitless.resize(n)
+	walkable_by_terrain.resize(defs.size())
+	for def: TerrainDef in defs:
+		walkable_by_terrain[def.id] = 1 if def.walkable else 0
 	chunks_x = (w + CHUNK_TILES - 1) / CHUNK_TILES
 	chunks_y = (h + CHUNK_TILES - 1) / CHUNK_TILES
 	mature_chunk_count.resize(chunks_x * chunks_y)
+	producing_chunk_count.resize(chunks_x * chunks_y)
 	for index: int in n:
 		sprout_slot[index] = slot_for(index, seed_value)
 
@@ -108,6 +121,10 @@ func index_of(x: int, y: int) -> int:
 func in_bounds(x: int, y: int) -> bool:
 	return x >= 0 and y >= 0 and x < width and y < height
 
+## True when the player can stand on tile (x, y). Outside the map is not walkable.
+func is_walkable(x: int, y: int) -> bool:
+	return x >= 0 and y >= 0 and x < width and y < height and walkable_by_terrain[terrain[y * width + x]] == 1
+
 ## Applies terrain defs: target flags, initial plant/stage, counters. Call once after filling `terrain`.
 func apply_terrain_defs() -> void:
 	var is_target_by_id: PackedByteArray = PackedByteArray()
@@ -123,11 +140,13 @@ func apply_terrain_defs() -> void:
 			target_count += 1
 			stage[index] = def.initial_stage
 			plant_id[index] = def.initial_plant_id
+			fruitless[index] = 1 if (def.initial_stage == STAGE_MATURE and not def.initial_produces_fruit) else 0
 			if def.initial_stage >= GREENED_MIN_STAGE:
 				greened_count += 1
 		else:
 			stage[index] = STAGE_EMPTY
 			plant_id[index] = PLANT_NONE
+			fruitless[index] = 0
 	rebuild_derived()
 
 ## Rebuilds the derived data (active set, mature chunk counts) from stage and moisture.
@@ -135,12 +154,19 @@ func rebuild_derived() -> void:
 	active_tiles = PackedInt32Array()
 	active_flag.fill(0)
 	mature_chunk_count.fill(0)
+	producing_chunk_count.fill(0)
 	mature_count = 0
+	producing_count = 0
 	for index: int in tile_count():
 		var s: int = stage[index]
 		if s == STAGE_MATURE:
 			mature_chunk_count[chunk_of(index)] += 1
 			mature_count += 1
+			if fruitless[index] == 0:
+				producing_chunk_count[chunk_of(index)] += 1
+				producing_count += 1
+		else:
+			fruitless[index] = 0
 		if (s >= STAGE_SEED and s < STAGE_MATURE) or moisture[index] > 0:
 			active_flag[index] = 1
 			last_growth_tick[index] = growth_tick
@@ -190,11 +216,18 @@ func set_stage(index: int, new_stage: int) -> bool:
 		greened_count += 1
 	elif old_stage >= GREENED_MIN_STAGE and new_stage < GREENED_MIN_STAGE:
 		greened_count -= 1
+	var was_producing: int = 1 if (old_stage == STAGE_MATURE and fruitless[index] == 0) else 0
+	if old_stage == STAGE_MATURE and new_stage != STAGE_MATURE:
+		fruitless[index] = 0
 	stage[index] = new_stage
 	if (old_stage == STAGE_MATURE) != (new_stage == STAGE_MATURE):
 		var delta: int = 1 if new_stage == STAGE_MATURE else -1
 		mature_chunk_count[chunk_of(index)] += delta
 		mature_count += delta
+	var now_producing: int = 1 if (new_stage == STAGE_MATURE and fruitless[index] == 0) else 0
+	if now_producing != was_producing:
+		producing_chunk_count[chunk_of(index)] += now_producing - was_producing
+		producing_count += now_producing - was_producing
 	if new_stage >= STAGE_SEED and new_stage < STAGE_MATURE:
 		activate(index)
 	if new_stage == STAGE_EMPTY:
@@ -355,6 +388,7 @@ func to_dict() -> Dictionary:
 		"sprout_slot": _pack_bytes(sprout_slot),
 		"occupant": _pack_bytes(occupant.to_byte_array()),
 		"natural": _pack_bytes(natural),
+		"fruitless": _pack_bytes(fruitless),
 		"occupancy_owners": owners,
 	}
 
@@ -386,6 +420,14 @@ static func from_dict(data: Dictionary, defs: Array[TerrainDef]) -> WorldState:
 		var natural_loaded: PackedByteArray = _unpack_bytes(data["natural"])
 		if natural_loaded.size() == n:
 			state.natural = natural_loaded
+	# Ready-made mature tiles of terrains that do not produce fruits (older saves have no list: derive it).
+	var fruitless_loaded: PackedByteArray = _unpack_bytes(data["fruitless"]) if data.has("fruitless") else PackedByteArray()
+	if fruitless_loaded.size() == n:
+		state.fruitless = fruitless_loaded
+	else:
+		for index: int in n:
+			var def: TerrainDef = defs[state.terrain[index]]
+			state.fruitless[index] = 1 if (state.stage[index] == STAGE_MATURE and def.initial_stage == STAGE_MATURE and not def.initial_produces_fruit) else 0
 	state.occupancy_owners = {}
 	var owners: Dictionary = data.get("occupancy_owners", {})
 	for key: String in owners:

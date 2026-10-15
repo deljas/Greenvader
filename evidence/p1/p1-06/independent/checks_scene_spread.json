@@ -1,0 +1,76 @@
+{
+  "observations": {
+    "spread_control": {
+      "first_mature_t": 37.9833333333325,
+      "first_seed_t": 7.98333333333331,
+      "series": {
+        "100": {
+          "greened": 619,
+          "mature_total": 595,
+          "natural": 364
+        },
+        "120": {
+          "greened": 719,
+          "mature_total": 619,
+          "natural": 420
+        },
+        "160": {
+          "greened": 891,
+          "mature_total": 775,
+          "natural": 592
+        },
+        "20": {
+          "greened": 379,
+          "mature_total": 331,
+          "natural": 124
+        },
+        "200": {
+          "greened": 1055,
+          "mature_total": 947,
+          "natural": 748
+        },
+        "40": {
+          "greened": 455,
+          "mature_total": 379,
+          "natural": 124
+        },
+        "60": {
+          "greened": 483,
+          "mature_total": 455,
+          "natural": 232
+        },
+        "80": {
+          "greened": 595,
+          "mature_total": 483,
+          "natural": 264
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "condition": "natural spread from the safe zone plants tiles by itself (no input)",
+      "id": "spread.control.starts",
+      "observed": "first natural seed at 8.0 s, natural now 748",
+      "status": "PASS"
+    },
+    {
+      "condition": "naturally planted tiles grow up to mature within 200 s",
+      "id": "spread.control.matures",
+      "observed": "first natural mature 38.0 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "counters consistent; greened >= 331 and monotonic with natural tiles",
+      "id": "spread.control.counters",
+      "observed": "greened 1055",
+      "status": "PASS"
+    },
+    {
+      "condition": "natural tiles lie only on plantable target terrain (never water, buildings, shallows)",
+      "id": "spread.control.only_targets",
+      "observed": "bad 0",
+      "status": "PASS"
+    }
+  ]
+}

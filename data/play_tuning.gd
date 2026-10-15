@@ -83,6 +83,11 @@ extends Resource
 ## HP restored by a healing fruit whose plant no longer exists.
 @export var heal_fruit_fallback_heal: int = 2
 
+@export_group("Walking (P1-06)")
+## The player's feet are a rectangle of this half size (px) around the position; it cannot enter water or buildings.
+@export var walk_half_width_px: float = 3.0
+@export var walk_half_height_px: float = 2.0
+
 @export_group("Time")
 ## One advance never adds more than this (hitch guard), seconds. Same value as SimTuning.max_advance_seconds.
 @export var max_step_seconds: float = 0.25

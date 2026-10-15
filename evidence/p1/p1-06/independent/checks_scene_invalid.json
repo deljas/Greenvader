@@ -1,0 +1,47 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "test points: open water, ruin building, ford shallows",
+      "id": "invalid.points",
+      "observed": "water (994.0, 602.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "15 seed shots and 9 water shots were really fired (seeds spent, 5 kept for the carrot test)",
+      "id": "invalid.fired",
+      "observed": "fired 15, seeds 5",
+      "status": "PASS"
+    },
+    {
+      "condition": "no water/building/shallows tile around the targets got a plant or moisture",
+      "id": "invalid.no_change",
+      "observed": "changed 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "carrots shot at water, building and shallows place nothing and keep the seeds",
+      "id": "invalid.carrot",
+      "observed": "carrots 0 seeds 5/5 reserved 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "no tile outside the safe zone was planted by the player's shots, and the greened count of non-natural tiles is still the 331 safe tiles",
+      "id": "invalid.greened",
+      "observed": "player-planted 0, green(non-natural) 331, greened 331 (natural spread may add: natural 0 -> 48)",
+      "status": "PASS"
+    },
+    {
+      "condition": "10 s later still no player-planted tile and no moisture anywhere (no deferred growth from the shots)",
+      "id": "invalid.later",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "counters consistent",
+      "id": "invalid.counters",
+      "observed": "",
+      "status": "PASS"
+    }
+  ]
+}

@@ -16,6 +16,8 @@ var failures: int = 0
 var checks: int = 0
 var region_def: RegionDef
 var sim_tuning: SimTuning
+## The tuning as shipped in data/ (not pinned).
+var shipped_tuning: SimTuning
 var perf: Dictionary = {}
 var info: Dictionary = {}
 
@@ -51,7 +53,11 @@ func check(ok: bool, message: String) -> void:
 
 func run() -> void:
 	region_def = load(REGION_PATH) as RegionDef
-	sim_tuning = load("res://data/sim_tuning.tres") as SimTuning
+	# P1-06 retuned the shipped natural-spread speed (data/sim_tuning.gd). These checks verify mechanisms against the
+	# P1-04 reference values (their oracles and run lengths are written for them), so the values are pinned here.
+	shipped_tuning = load("res://data/sim_tuning.tres") as SimTuning
+	sim_tuning = shipped_tuning.duplicate() as SimTuning
+	pin_reference_spread(sim_tuning)
 	check(region_def != null and sim_tuning != null, "region and sim tuning load")
 	test_tuning_values()
 	test_candidate_selection()
@@ -160,13 +166,21 @@ func percentile(values: Array[float], q: float) -> float:
 func dump(state: WorldState, rig: Rig) -> String:
 	return JSON.stringify([state.to_dict(), rig.growth.to_dict(), rig.spread.to_dict()])
 
+## The P1-04 reference natural-spread values the oracles of this file are written for.
+func pin_reference_spread(tuning: SimTuning) -> void:
+	tuning.spread_progress_per_tick = 10000
+	tuning.spread_progress_per_extra_neighbor = 2500
+	tuning.natural_growth_multiplier = 3.0
+
 # ---- tuning ----------------------------------------------------------------------------------
 
 func test_tuning_values() -> void:
 	var t: SimTuning = sim_tuning
 	check(t.spread_tick_seconds == 1.0 and t.growth_tick_seconds == 0.5, "tuning: spread tick 1.0 s, growth tick 0.5 s")
 	check(t.max_growth_tiles_per_tick == 3000 and t.spread_candidates_per_tick == 1500, "tuning: growth limit G = 3000 and spread limit B = 1500 tiles per tick (lowered from the 4000 / 2000 proposal to meet the 16 ms frame target)")
-	check(t.spread_radius_tiles == 2.0 and t.natural_growth_multiplier == 3.0, "tuning: spread radius 2 tiles, natural growth multiplier 3")
+	check(t.spread_radius_tiles == 2.0 and t.natural_growth_multiplier == 3.0 and t.spread_progress_per_tick == 10000, "tuning (pinned P1-04 reference values): spread radius 2 tiles, natural growth multiplier 3, +10000 progress per tick")
+	var shipped: SimTuning = shipped_tuning
+	check(shipped.spread_radius_tiles == 2.0 and shipped.natural_growth_multiplier == 2.0 and shipped.spread_progress_per_tick == 6000 and shipped.spread_progress_per_extra_neighbor == 1500 and shipped.spread_progress_threshold == 100000, "tuning as shipped (P1-06 retune): radius 2 tiles, natural growth multiplier 2, +6000 progress per tick (+1500 per extra neighbour), threshold 100000")
 	check(t.spread_progress_per_tick > 0 and t.spread_progress_threshold > t.spread_progress_per_tick and t.spread_mature_events_per_tick > 0, "tuning: spread progress has a positive rate, a threshold above one tick and an event limit")
 
 # ---- selection --------------------------------------------------------------------------------

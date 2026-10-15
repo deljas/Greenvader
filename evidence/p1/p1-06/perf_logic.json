@@ -1,0 +1,17 @@
+{
+  "complete": false,
+  "frames": 108001,
+  "frames_over_16ms": 0,
+  "frames_over_8ms": 0,
+  "game_minutes": 30.000277777756,
+  "heavy_frames": [],
+  "max_at_s": 1363.99999999909,
+  "max_ms": 1.65,
+  "mean_ms": 0.0389690095461963,
+  "p50_ms": 0.023,
+  "p999_ms": 1.233,
+  "p99_ms": 0.72,
+  "stress_frames_over_16ms": 0,
+  "stress_max_ms": 13.373,
+  "stress_p99_ms": 8.241
+}

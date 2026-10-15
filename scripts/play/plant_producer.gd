@@ -28,6 +28,7 @@ func _init(world_state: WorldState, play_tuning: PlayTuning, tile_size: int) -> 
 	tuning = play_tuning
 	tile_px = tile_size
 
+## Only producing tiles count: mature and not fruitless (the ready-made plants of the safe zone are left out, P1-06).
 ## Collects the mature tiles whose centre is within `radius` px of `center`:
 ## chunks lying completely inside the circle are counted by their stored count only,
 ## chunks cut by the circle are scanned tile by tile. Returns the number of mature tiles.
@@ -35,7 +36,7 @@ func gather(center: Vector2, radius: float) -> int:
 	_full_chunks = PackedInt32Array()
 	_edge_tiles = PackedInt32Array()
 	_full_total = 0
-	if world.mature_count == 0:
+	if world.producing_count == 0:
 		return 0
 	var chunk_px: float = float(WorldState.CHUNK_TILES * tile_px)
 	var r2: float = radius * radius
@@ -47,7 +48,7 @@ func gather(center: Vector2, radius: float) -> int:
 	for cy: int in range(cy0, cy1 + 1):
 		for cx: int in range(cx0, cx1 + 1):
 			var chunk: int = cy * world.chunks_x + cx
-			var in_chunk: int = world.mature_chunk_count[chunk]
+			var in_chunk: int = world.producing_chunk_count[chunk]
 			if in_chunk == 0:
 				continue
 			var left: float = cx * chunk_px
@@ -82,7 +83,7 @@ func _scan_chunk(cx: int, cy: int, center: Vector2, r2: float, collect: bool) ->
 			continue
 		var row: int = y * world.width
 		for x: int in range(x_start, x_end):
-			if world.stage[row + x] != WorldState.STAGE_MATURE:
+			if world.stage[row + x] != WorldState.STAGE_MATURE or world.fruitless[row + x] == 1:
 				continue
 			var dx: float = (x + 0.5) * tile_px - center.x
 			if dx * dx + dy2 <= r2:
@@ -96,7 +97,7 @@ func tile_at(k: int) -> int:
 	if k >= _full_total:
 		return _edge_tiles[k - _full_total]
 	for chunk: int in _full_chunks:
-		var in_chunk: int = world.mature_chunk_count[chunk]
+		var in_chunk: int = world.producing_chunk_count[chunk]
 		if k >= in_chunk:
 			k -= in_chunk
 			continue
@@ -104,7 +105,7 @@ func tile_at(k: int) -> int:
 		var y_start: int = (chunk / world.chunks_x) * WorldState.CHUNK_TILES
 		for y: int in range(y_start, mini(y_start + WorldState.CHUNK_TILES, world.height)):
 			for x: int in range(x_start, mini(x_start + WorldState.CHUNK_TILES, world.width)):
-				if world.stage[y * world.width + x] == WorldState.STAGE_MATURE:
+				if world.stage[y * world.width + x] == WorldState.STAGE_MATURE and world.fruitless[y * world.width + x] == 0:
 					if k == 0:
 						return y * world.width + x
 					k -= 1

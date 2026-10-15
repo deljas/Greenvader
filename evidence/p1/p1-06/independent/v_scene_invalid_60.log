@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [invalid.points] test points: open water, ruin building, ford shallows :: water (994.0, 602.0)
+PASS [invalid.fired] 15 seed shots and 9 water shots were really fired (seeds spent, 5 kept for the carrot test) :: fired 15, seeds 5
+PASS [invalid.no_change] no water/building/shallows tile around the targets got a plant or moisture :: changed 0
+PASS [invalid.carrot] carrots shot at water, building and shallows place nothing and keep the seeds :: carrots 0 seeds 5/5 reserved 0
+PASS [invalid.greened] no tile outside the safe zone was planted by the player's shots, and the greened count of non-natural tiles is still the 331 safe tiles :: player-planted 0, green(non-natural) 331, greened 331 (natural spread may add: natural 0 -> 48)
+PASS [invalid.later] 10 s later still no player-planted tile and no moisture anywhere (no deferred growth from the shots) :: 
+PASS [invalid.counters] counters consistent :: 
+V_RESULT total=7 fails=0

@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [walk.route_never_inside] hz=144: along the river edge with held WASD combos the feet never overlap water/buildings (every tick) :: bad 0 of 1152
+PASS [walk.fords_cross] hz=144: holding D along three ford rows carries the player across the river (x > 1160) :: [1475.69812011719, 1475.89343261719, 1475.89343261719]
+PASS [walk.river_stop] hz=144: holding D on a non-ford row stops at the water edge (x = 981) :: (981.0, 402.0)
+PASS [walk.ruin_stop] hz=144: holding D stops at the ruin building edge (x = 545) :: (545.0, 712.0)
+PASS [walk.speed_equal] hz=144: 1 s of D+S covers the same distance as 1 s of D (96 px, +-1.7 for the tick boundary) :: diag=95.315 straight=95.310
+PASS [walk.edge_stop] hz=144: the 32 px world margin still stops the player at the edge :: (32.0, 1000.0)
+PASS [walk.presentation_round] player node position is the rounded simulation position :: (32.0, 1000.0) vs (32.0, 1000.0)
+V_RESULT total=7 fails=0

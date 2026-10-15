@@ -1,0 +1,79 @@
+{
+  "observations": {
+    "chain_groups": {
+      "dry_n": 44,
+      "mean_dry_ticks": 120.0,
+      "mean_wet_ticks": 89.0,
+      "wet_n": 36
+    },
+    "chain_site": "(172, 115)"
+  },
+  "results": [
+    {
+      "condition": "site found far (>=260 px) from the initially mature safe zone, player placed, 20 seeds, 100 water",
+      "id": "chain.setup",
+      "observed": "site=(172, 115) seeds=20 water=100.0 mature in circle=0",
+      "status": "PASS"
+    },
+    {
+      "condition": "injected right clicks landed water: bare ground near the wet spots has moisture, greening unchanged",
+      "id": "chain.water_landed",
+      "observed": "wet tiles=52 water gauge=60.0",
+      "status": "PASS"
+    },
+    {
+      "condition": "20 injected left clicks spent 20 seeds and planted seed tiles (stage 1); greening count did not move at planting",
+      "id": "chain.seeds_landed",
+      "observed": "seeds=0 tracked seed tiles=80 greened delta=0 (tiles already sprouting 0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "greening counter == base + my count of tracked tiles at sprout1 or later, checked every 15 frames over the whole run",
+      "id": "chain.green_tracking",
+      "observed": "mismatches=0, final greened=411 base=331 tracked=80",
+      "status": "PASS"
+    },
+    {
+      "condition": "every tracked tile went seed -> sprout1 -> sprout2 -> mature, no skips, no regress",
+      "id": "chain.stage_order",
+      "observed": "sequence violations=0, tiles checked=80",
+      "status": "PASS"
+    },
+    {
+      "condition": "the tick at which each tile reached sprout1/sprout2/mature equals my integration from its moisture and growth at planting (exact), for wet-then-drying and dry tiles",
+      "id": "chain.model_times",
+      "observed": "mismatching tiles=0 of 80 ",
+      "status": "PASS"
+    },
+    {
+      "condition": "watered tiles mature faster than unwatered ones; unwatered still mature, in 120 ticks (60 s)",
+      "id": "chain.water_faster",
+      "observed": "wet n=36 mean 89.0 ticks (44.5 s); dry n=44 mean 120.0 ticks (60.0 s)",
+      "status": "PASS"
+    },
+    {
+      "condition": "a plant fruit appeared on one of the tiles we grew (owner = base + tile), lying on a mature tile",
+      "id": "chain.fruit_from_our_plants",
+      "observed": "first fruit at game t=62.0 s (60.3 s after the growth watch started): { \"kind\": \"seed_fruit\", \"x\": 709.072387695313, \"y\": 447.488189697266, \"age\": 0.01666666666667, \"owner\": 1057009 }",
+      "status": "PASS"
+    },
+    {
+      "condition": "starting from 0 seeds, walking to a plant fruit with injected WASD collects it automatically (+1 seed)",
+      "id": "chain.collect",
+      "observed": "seeds now=1 after 15 walk frames, player at (708.3763, 448.4238)",
+      "status": "PASS"
+    },
+    {
+      "condition": "the collected seed can be shot again: seed count down by 1, a new landing planted fresh seed tiles",
+      "id": "chain.refire",
+      "observed": "landing 20 -> 21, seeds 1 -> 0, new seed tiles=6",
+      "status": "PASS"
+    },
+    {
+      "condition": "world counters consistent at the end (greened/mature/targets vs recount), active set equals brute force",
+      "id": "chain.counters",
+      "observed": "greened=411 mature=411 (base 331)",
+      "status": "PASS"
+    }
+  ]
+}

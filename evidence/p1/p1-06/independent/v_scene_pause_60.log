@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [pause.setup] setup: seeds planted, carrot and kiwi placed, standing on shore (refilling), spread active :: arrived=true plants=2 refilling=true water=62.5
+PASS [pause.paused] Esc pauses the tree :: paused=true
+PASS [pause.frozen] 10 s paused with held keys, clicks and a refill spot: world, growth, moisture, natural, seeds, water, pickups, plants, time, player all unchanged :: {"clock":14.63333,"elapsed":14.63333,"hp":7,"pickups":4100093049,"plants":55606636,"player":"(930.0044, 754.0)","production":7,"seeds":14,"shots":0,"water":50.4167,"world":"2803125716/4152745053/3601651429/1027521688/331"}
+PASS [pause.resumed] Esc resumes :: 
+PASS [pause.no_banked_time] after resuming, 1 s of ticks advances game time by about 1 s (no catch-up of the 10 s pause) :: advanced 1.033 s
+PASS [pause.clock_no_catchup] the simulation clock also advanced about 1 s :: clock advanced 1.033
+PASS [pause.refill_after] water refill works again after resume (gauge went up) :: 50.4 -> 76.3
+V_RESULT total=7 fails=0

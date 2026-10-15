@@ -5,7 +5,7 @@ extends SceneTree
 ## not copied from the implementation.
 
 const REGION_PATH: String = "res://data/region_01.tres"
-const COUNTS_PATH: String = "res://evidence/p1/p1-01/png_counts.json"
+const COUNTS_PATH: String = "res://evidence/p1/p1-06/png_counts.json"
 
 var failures: int = 0
 var checks: int = 0
@@ -38,7 +38,7 @@ func now_ms() -> float:
 
 func run() -> void:
 	region_def = load(REGION_PATH) as RegionDef
-	check(region_def != null and region_def.terrains.size() == 5, "region definition loads with 5 terrains")
+	check(region_def != null and region_def.terrains.size() == 6, "region definition loads with 6 terrains (wasteland, safe, shore, water, building, shallows)")
 	test_region_load()
 	test_greening_small_map()
 	test_greening_real_map_rounding_and_diff()

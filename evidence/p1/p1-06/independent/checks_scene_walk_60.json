@@ -1,0 +1,114 @@
+{
+  "observations": {
+    "route_60": [
+      [
+        972.809,
+        434.809
+      ],
+      [
+        983.748,
+        468.75
+      ],
+      [
+        984.879,
+        516.282
+      ],
+      [
+        985.0,
+        517.882
+      ],
+      [
+        985.0,
+        485.073
+      ],
+      [
+        985.0,
+        466.0
+      ],
+      [
+        952.191,
+        498.809
+      ],
+      [
+        918.25,
+        532.75
+      ],
+      [
+        917.119,
+        487.48
+      ],
+      [
+        949.928,
+        518.689
+      ],
+      [
+        985.0,
+        519.82
+      ],
+      [
+        985.0,
+        534.0
+      ],
+      [
+        938.599,
+        534.0
+      ],
+      [
+        904.19,
+        501.191
+      ],
+      [
+        903.058,
+        546.461
+      ],
+      [
+        935.868,
+        580.87
+      ]
+    ]
+  },
+  "results": [
+    {
+      "condition": "hz=60: along the river edge with held WASD combos the feet never overlap water/buildings (every tick)",
+      "id": "walk.route_never_inside",
+      "observed": "bad 0 of 480",
+      "status": "PASS"
+    },
+    {
+      "condition": "hz=60: holding D along three ford rows carries the player across the river (x > 1160)",
+      "id": "walk.fords_cross",
+      "observed": "[1475.42395019531, 1475.89245605469, 1475.89245605469]",
+      "status": "PASS"
+    },
+    {
+      "condition": "hz=60: holding D on a non-ford row stops at the water edge (x = 981)",
+      "id": "walk.river_stop",
+      "observed": "(981.0, 402.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "hz=60: holding D stops at the ruin building edge (x = 545)",
+      "id": "walk.ruin_stop",
+      "observed": "(545.0, 712.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "hz=60: 1 s of D+S covers the same distance as 1 s of D (96 px, +-1.7 for the tick boundary)",
+      "id": "walk.speed_equal",
+      "observed": "diag=94.398 straight=94.377",
+      "status": "PASS"
+    },
+    {
+      "condition": "hz=60: the 32 px world margin still stops the player at the edge",
+      "id": "walk.edge_stop",
+      "observed": "(32.0, 1000.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "player node position is the rounded simulation position",
+      "id": "walk.presentation_round",
+      "observed": "(32.0, 1000.0) vs (32.0, 1000.0)",
+      "status": "PASS"
+    }
+  ]
+}

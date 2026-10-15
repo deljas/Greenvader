@@ -1,0 +1,47 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "setup: seeds planted, carrot and kiwi placed, standing on shore (refilling), spread active",
+      "id": "pause.setup",
+      "observed": "arrived=true plants=2 refilling=true water=62.5",
+      "status": "PASS"
+    },
+    {
+      "condition": "Esc pauses the tree",
+      "id": "pause.paused",
+      "observed": "paused=true",
+      "status": "PASS"
+    },
+    {
+      "condition": "10 s paused with held keys, clicks and a refill spot: world, growth, moisture, natural, seeds, water, pickups, plants, time, player all unchanged",
+      "id": "pause.frozen",
+      "observed": "{\"clock\":14.63333,\"elapsed\":14.63333,\"hp\":7,\"pickups\":4100093049,\"plants\":55606636,\"player\":\"(930.0044, 754.0)\",\"production\":7,\"seeds\":14,\"shots\":0,\"water\":50.4167,\"world\":\"2803125716/4152745053/3601651429/1027521688/331\"}",
+      "status": "PASS"
+    },
+    {
+      "condition": "Esc resumes",
+      "id": "pause.resumed",
+      "observed": "",
+      "status": "PASS"
+    },
+    {
+      "condition": "after resuming, 1 s of ticks advances game time by about 1 s (no catch-up of the 10 s pause)",
+      "id": "pause.no_banked_time",
+      "observed": "advanced 1.033 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "the simulation clock also advanced about 1 s",
+      "id": "pause.clock_no_catchup",
+      "observed": "clock advanced 1.033",
+      "status": "PASS"
+    },
+    {
+      "condition": "water refill works again after resume (gauge went up)",
+      "id": "pause.refill_after",
+      "observed": "50.4 -> 76.3",
+      "status": "PASS"
+    }
+  ]
+}

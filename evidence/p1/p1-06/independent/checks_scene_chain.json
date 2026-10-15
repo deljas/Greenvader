@@ -1,0 +1,102 @@
+{
+  "observations": {
+    "chain_times": {
+      "first_fruit": 38.8999999999988,
+      "mature": 57.3999999999977,
+      "sprout1": 17.4,
+      "sprout2": 37.3999999999989
+    }
+  },
+  "results": [
+    {
+      "condition": "start: 20 seeds, water 100, HP full, standing at the start tile",
+      "id": "chain.start",
+      "observed": "seeds=20 water=100 pos=(738.0, 754.0)",
+      "status": "PASS"
+    },
+    {
+      "condition": "a left click lands a seed near the aim point (landed signal fired)",
+      "id": "chain.land_6",
+      "observed": "scatter 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "a left click lands a seed near the aim point (landed signal fired)",
+      "id": "chain.land_12",
+      "observed": "scatter 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "a left click lands a seed near the aim point (landed signal fired)",
+      "id": "chain.land_18",
+      "observed": "scatter 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "a left click lands a seed near the aim point (landed signal fired)",
+      "id": "chain.land_24",
+      "observed": "scatter 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "a left click lands a seed near the aim point (landed signal fired)",
+      "id": "chain.land_30",
+      "observed": "scatter 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "5 shots spent exactly 5 seeds",
+      "id": "chain.seeds_spent",
+      "observed": "15",
+      "status": "PASS"
+    },
+    {
+      "condition": "landing planted tiles (stage seed or later) for every shot",
+      "id": "chain.seed_tiles",
+      "observed": "30 tiles",
+      "status": "PASS"
+    },
+    {
+      "condition": "seed -> sprout 1 -> sprout 2 -> mature in this order for every tile",
+      "id": "chain.stages_in_order",
+      "observed": "median t1=17.4 t2=37.4 t3=57.4 s (n=30)",
+      "status": "PASS"
+    },
+    {
+      "condition": "dry growth takes about one minute (30..90 s) to mature",
+      "id": "chain.dry_time",
+      "observed": "57.4 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "mature planted tiles drop a plant seed fruit",
+      "id": "chain.fruit_appears",
+      "observed": "first fruit 38.9 s after landing",
+      "status": "PASS"
+    },
+    {
+      "condition": "no plant fruit belongs to a safe-zone / fruitless tile (only regrown and planted tiles produce)",
+      "id": "chain.fruit_not_from_safe",
+      "observed": "fruits 4, from safe 0",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking onto the plant fruit (WASD) returns a seed",
+      "id": "chain.collect",
+      "observed": "seeds 15 -> 16",
+      "status": "PASS"
+    },
+    {
+      "condition": "the collected seed can be fired again and plants new tiles",
+      "id": "chain.refire",
+      "observed": "seeds 16 -> 15, scatter 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "greening counters stay consistent after the whole chain",
+      "id": "chain.counters",
+      "observed": "greened 569 (was 561)",
+      "status": "PASS"
+    }
+  ]
+}

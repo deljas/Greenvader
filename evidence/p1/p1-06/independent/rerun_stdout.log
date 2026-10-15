@@ -1,0 +1,15 @@
+=== walk hz=30
+exit=0
+V_RESULT total=7 fails=0
+=== chain hz=60
+exit=0
+V_RESULT total=15 fails=0
+=== recover hz=60
+exit=1
+FAIL [recover.refire] the recovered seed plants new ground :: seeds 2 -> 2 right after the click, scatter 6
+V_RESULT total=9 fails=1
+=== invalid hz=60
+exit=1
+FAIL [invalid.fired] 15 seed shots and 9 water shots were really fired (seeds spent, 5 seeds kept for the carrot test) :: fired 15, seeds 5
+V_RESULT total=7 fails=1
+ALLDONE

@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [water.setup] open wasteland test site: no waterside near, water 100, not refilling :: 100 false
+PASS [water.wets] 3 water shots wet the planted tiles :: wet 6/6, water gauge 70
+PASS [water.zero] water gauge is empty (< one shot) and a water click fires nothing :: water 0.0
+PASS [water.b_planted] seeds plant fine with the gauge empty :: tiles 6 water 0.0
+PASS [water.dry_grows] without any water the dry seeds still mature (about a minute) :: median 59.4 s, 6/6 mature
+PASS [water.faster] watered seeds mature clearly earlier than dry ones (at least 10 s sooner) :: watered 36.4 s vs dry 59.4 s
+V_RESULT total=6 fails=0

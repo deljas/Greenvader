@@ -1,0 +1,12 @@
+{
+ "source": "tests/p1/independent/p1_06_map.py (zlib decoder)",
+ "counts": {
+  "b0a060": 241194,
+  "e0d090": 3234,
+  "4080e0": 14551,
+  "808080": 2295,
+  "70b0e0": 539,
+  "60b060": 331
+ },
+ "total": 262144
+}

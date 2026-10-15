@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [carrot.select] Tab selects the carrot :: carrot
+PASS [carrot.placed] a carrot is placed on the mature safe ground and costs 3 seeds :: carrots 1 seeds 20 -> 17
+PASS [carrot.counter_unchanged] placing the carrot changes no greening counters (mature ground stays mature) :: 331/331
+PASS [spread.carrot.starts] natural spread from the safe zone plants tiles by itself (no input) :: first natural seed at 7.4 s, natural now 765
+PASS [spread.carrot.matures] naturally planted tiles grow up to mature within 200 s :: first natural mature 37.4 s
+PASS [spread.carrot.counters] counters consistent; greened >= 331 and monotonic with natural tiles :: greened 1066
+PASS [spread.carrot.only_targets] natural tiles lie only on plantable target terrain (never water, buildings, shallows) :: bad 0
+V_RESULT total=7 fails=0

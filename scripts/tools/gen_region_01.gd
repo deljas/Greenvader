@@ -1,6 +1,7 @@
 extends SceneTree
 ## Regenerates data/region_01.png (512x512 tiles, 1 px = 1 tile, colours = TerrainDef.map_color).
-## Deterministic. Run: Godot --headless --path <project> --script res://scripts/tools/gen_region_01.gd
+## Deterministic. Run: Godot --headless --path <project> --script res://scripts/tools/gen_region_01.gd [-- --out=<png path>]
+## (without --out it writes the map path of data/region_01.tres; the tests regenerate to a temporary path and compare).
 ## The P0 landscape composition (river bed, ruin, start) is reused, shifted by OFFSET_PX; the P0 decorative
 ## props (trees / rocks) are NOT used here. What counts as a greening target comes only from this map.
 
@@ -10,6 +11,14 @@ const H: int = 512
 const OFFSET_PX: Vector2 = Vector2(256, 384)
 const TILE: float = 4.0
 const START: Vector2i = Vector2i(184, 188)
+## Fords (P1-06): walkable shallows bands across the river. Each is FORD_HEIGHT tile rows, from this top row, over the
+## river's x range. The player cannot walk on water, so these are the crossings between the banks.
+const FORD_ROWS: Array[int] = [60, 200, 322, 432]
+const FORD_HEIGHT: int = 6
+const FORD_X_FROM: int = 200
+const FORD_X_TO: int = 320
+## Scattered building blocks keep this many tiles away from a ford's band (rows) so the approach stays open.
+const FORD_CLEAR_MARGIN: int = 12
 
 var map: PackedByteArray = PackedByteArray()
 var id_wasteland: int = 0
@@ -17,6 +26,7 @@ var id_safe: int = 0
 var id_shore: int = 0
 var id_water: int = 0
 var id_building: int = 0
+var id_shallows: int = 0
 var seed_state: int = 12345
 
 func _initialize() -> void:
@@ -28,6 +38,7 @@ func _initialize() -> void:
 			&"shore": id_shore = terrain.id
 			&"water": id_water = terrain.id
 			&"building": id_building = terrain.id
+			&"shallows": id_shallows = terrain.id
 	map.resize(W * H)
 	map.fill(id_wasteland)
 	# River: the P0 stream, extended straight to both map edges.
@@ -54,6 +65,9 @@ func _initialize() -> void:
 						shore_tiles.append(ny * W + nx)
 	for index: int in shore_tiles:
 		map[index] = id_shore
+	# Fords: the river water inside each band becomes walkable shallows (shore tiles on the banks stay shore).
+	for top: int in FORD_ROWS:
+		fill_rect(Rect2i(FORD_X_FROM, top, FORD_X_TO - FORD_X_FROM, FORD_HEIGHT), id_shallows, [id_water])
 	# Ruined buildings: the P0 ruin footprint, closed ring enclosures (isolated pockets), scattered blocks.
 	fill_rect(Rect2i(int((292 + OFFSET_PX.x) / TILE), int((320 + OFFSET_PX.y) / TILE), 21, 8), id_building, [id_wasteland])
 	for centre: Vector2i in [Vector2i(330, 300), Vector2i(450, 420), Vector2i(160, 300), Vector2i(400, 60), Vector2i(120, 60), Vector2i(330, 440), Vector2i(60, 210)]:
@@ -69,6 +83,8 @@ func _initialize() -> void:
 		var y: int = 8 + next_random(H - 16 - h)
 		if Vector2(x + w / 2.0, y + h / 2.0).distance_to(Vector2(START)) < 50.0:
 			continue
+		if touches_ford(Rect2i(x, y, w, h)):
+			continue
 		if rect_only(Rect2i(x - 1, y - 1, w + 2, h + 2), id_wasteland):
 			fill_rect(Rect2i(x, y, w, h), id_building, [id_wasteland])
 			placed += 1
@@ -76,6 +92,13 @@ func _initialize() -> void:
 	fill_ellipse(START, Vector2i(12, 9), id_safe, [id_wasteland, id_shore])
 	write_png(def)
 	quit(0)
+
+func touches_ford(rect: Rect2i) -> bool:
+	for top: int in FORD_ROWS:
+		var keep_clear: Rect2i = Rect2i(FORD_X_FROM - 30, top - FORD_CLEAR_MARGIN, FORD_X_TO - FORD_X_FROM + 60, FORD_HEIGHT + 2 * FORD_CLEAR_MARGIN)
+		if rect.intersects(keep_clear):
+			return true
+	return false
 
 func next_random(bound: int) -> int:
 	seed_state = (seed_state * 1103515245 + 12345) & 0x7FFFFFFF
@@ -130,5 +153,9 @@ func write_png(def: RegionDef) -> void:
 			var legend_color: Color = def.terrains[id].map_color
 			image.set_pixel(x, y, Color8(roundi(legend_color.r * 255.0), roundi(legend_color.g * 255.0), roundi(legend_color.b * 255.0)))
 			counts[id] = int(counts.get(id, 0)) + 1
-	var error: Error = image.save_png(ProjectSettings.globalize_path(def.map_path))
-	print("GEN_REGION result=%s path=%s counts=%s" % [error, def.map_path, counts])
+	var out_path: String = ProjectSettings.globalize_path(def.map_path)
+	for argument: String in OS.get_cmdline_user_args():
+		if argument.begins_with("--out="):
+			out_path = argument.trim_prefix("--out=")
+	var error: Error = image.save_png(out_path)
+	print("GEN_REGION result=%s path=%s counts=%s" % [error, out_path, counts])

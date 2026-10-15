@@ -1,0 +1,1224 @@
+{
+ "target": "master 4ea6eef + uncommitted diff; source hash start==end",
+ "checks": [
+  {
+   "condition": "the player walked east and stopped with the feet at the water edge x=981 (injected D held 2.5 s)",
+   "id": "gpu.edge.stopped",
+   "observed": "(981.0, 402.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "edge: PrintWindow capture is 1280x720 (k=2) and the internal frame 640x360",
+   "id": "gpu.edge.size",
+   "observed": "native=(1280, 720) vp=(640, 360)",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "edge: every 2x2 block of the window image is a single colour",
+   "id": "gpu.edge.k2_uniform",
+   "observed": "non-uniform samples 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "edge: each block equals the internal frame pixel",
+   "id": "gpu.edge.native_equals_internal",
+   "observed": "mismatching 0 of 230400",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "the screen pixel just beyond the feet (x=985) is water-coloured, the pixel under the feet's right edge (x=982) is not",
+   "id": "gpu.edge.water_beyond",
+   "observed": "left [64, 136, 99] right [46, 98, 106] water [57, 134, 154]",
+   "status": "FAIL",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "ford: PrintWindow capture is 1280x720 (k=2) and the internal frame 640x360",
+   "id": "gpu.ford.size",
+   "observed": "native=(1280, 720) vp=(640, 360)",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "ford: every 2x2 block of the window image is a single colour",
+   "id": "gpu.ford.k2_uniform",
+   "observed": "non-uniform samples 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "ford: each block equals the internal frame pixel",
+   "id": "gpu.ford.native_equals_internal",
+   "observed": "mismatching 0 of 230400",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "the player stands on a shallows tile",
+   "id": "gpu.ford.on_shallows",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "fruit test layout: the chosen tiles have the intended terrain; nothing else picked up (player 20+ px from all fruits)",
+   "id": "gpu.fruit.layout",
+   "observed": "items 15",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "fruit: PrintWindow capture is 1280x720 (k=2) and the internal frame 640x360",
+   "id": "gpu.fruit.size",
+   "observed": "native=(1280, 720) vp=(640, 360)",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "fruit: every 2x2 block of the window image is a single colour",
+   "id": "gpu.fruit.k2_uniform",
+   "observed": "non-uniform samples 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "fruit: each block equals the internal frame pixel",
+   "id": "gpu.fruit.native_equals_internal",
+   "observed": "mismatching 0 of 230400",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "plant fruit on mature: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+   "id": "gpu.fruit.readable_mature",
+   "observed": "{\"R\":{\"contrast\":1.97,\"dist\":157.0},\"r\":{\"contrast\":1.03,\"dist\":182.0},\"w\":{\"contrast\":2.65,\"dist\":249.0}} bg=[63, 155, 74]",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "on mature the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+   "id": "gpu.fruit.pixels_mature",
+   "observed": "plant {\"bad\":0,\"bg\":[63,155,74],\"first\":\"\",\"ring_darkest_lum\":0.25,\"ring_n\":24,\"tl\":\"(270, 150)\"} | source {\"bad\":0,\"bg\":[63,155,74],\"first\":\"\",\"ring_darkest_lum\":0.25,\"ring_n\":24,\"tl\":\"(282, 150)\"} | heal {\"bad\":0,\"bg\":[63,155,74],\"first\":\"\",\"ring_darkest_lum\":0.25,\"ring_n\":24,\"tl\":\"(294, 150)\"}",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "plant fruit on sprout: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+   "id": "gpu.fruit.readable_sprout",
+   "observed": "{\"R\":{\"contrast\":2.3,\"dist\":117.0},\"r\":{\"contrast\":1.2,\"dist\":93.0},\"w\":{\"contrast\":2.28,\"dist\":161.0}} bg=[159, 149, 110]",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "on sprout the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+   "id": "gpu.fruit.pixels_sprout",
+   "observed": "plant {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(270, 170)\"} | source {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(282, 170)\"} | heal {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(294, 170)\"}",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "plant fruit on wasteland: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+   "id": "gpu.fruit.readable_wasteland",
+   "observed": "{\"R\":{\"contrast\":2.3,\"dist\":117.0},\"r\":{\"contrast\":1.2,\"dist\":93.0},\"w\":{\"contrast\":2.28,\"dist\":161.0}} bg=[159, 149, 110]",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "on wasteland the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+   "id": "gpu.fruit.pixels_wasteland",
+   "observed": "plant {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(270, 190)\"} | source {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(282, 190)\"} | heal {\"bad\":0,\"bg\":[159,149,110],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(294, 190)\"}",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "plant fruit on shore: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+   "id": "gpu.fruit.readable_shore",
+   "observed": "{\"R\":{\"contrast\":3.38,\"dist\":159.0},\"r\":{\"contrast\":1.76,\"dist\":105.0},\"w\":{\"contrast\":1.55,\"dist\":110.0}} bg=[195, 181, 136]",
+   "status": "FAIL",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "on shore the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+   "id": "gpu.fruit.pixels_shore",
+   "observed": "plant {\"bad\":0,\"bg\":[195,181,136],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(338, 134)\"} | source {\"bad\":0,\"bg\":[193,180,135],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(338, 146)\"} | heal {\"bad\":0,\"bg\":[193,180,135],\"first\":\"\",\"ring_darkest_lum\":0.3,\"ring_n\":24,\"tl\":\"(338, 158)\"}",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "plant fruit on shallows: >= 2 of its 3 colours have luminance contrast >= 1.8 against the rendered surroundings and all 3 are >= 80 away in RGB",
+   "id": "gpu.fruit.readable_shallows",
+   "observed": "{\"R\":{\"contrast\":2.76,\"dist\":184.0},\"r\":{\"contrast\":1.44,\"dist\":166.0},\"w\":{\"contrast\":1.9,\"dist\":159.0}} bg=[107, 175, 178]",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "on shallows the three fruits are drawn pixel-exact (plant, seed-source, healing) with no dark outline ring (ring luminance >= 0.2)",
+   "id": "gpu.fruit.pixels_shallows",
+   "observed": "plant {\"bad\":0,\"bg\":[107,175,178],\"first\":\"\",\"ring_darkest_lum\":0.37,\"ring_n\":24,\"tl\":\"(366, 182)\"} | source {\"bad\":0,\"bg\":[107,175,178],\"first\":\"\",\"ring_darkest_lum\":0.37,\"ring_n\":24,\"tl\":\"(378, 182)\"} | heal {\"bad\":0,\"bg\":[107,175,178],\"first\":\"\",\"ring_darkest_lum\":0.37,\"ring_n\":24,\"tl\":\"(390, 182)\"}",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "no colour of the plant fruit is within 60 RGB units of any colour of the seed-source fruit or the healing fruit",
+   "id": "gpu.fruit.distinct_kinds",
+   "observed": "closest pair 62.5",
+   "status": "PASS",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "real window (vsync off), stress fixture: wall time per frame stays under 16 ms (p99) and the script CPU (process+physics monitors) max under 16 ms",
+   "id": "gpu.stress_frame",
+   "observed": "{\"frames\":379,\"script_max_ms\":338.384,\"script_p99_ms\":338.384,\"wall_max_ms\":1.356,\"wall_mean_ms\":0.309282321899736,\"wall_p99_ms\":0.578}",
+   "status": "FAIL",
+   "evidence": "independent\\checks_gpu.json"
+  },
+  {
+   "condition": "player speed constant is 96 px/s (spec of earlier stages)",
+   "id": "walk.speed_const",
+   "observed": "96.0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "feet are 6x4 px (half 3 x 2)",
+   "id": "walk.feet_size",
+   "observed": "3.0 x 2.0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "over 60 s of scripted 8-direction walking at 30/60/144 Hz the feet never overlap water, buildings or the map edge",
+   "id": "walk.never_inside",
+   "observed": "bad=0 of 14040 steps",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "a 24 px single move toward a 1-tile wall stops at the wall (x <= 38*4-3 = 149)",
+   "id": "walk.no_tunnel",
+   "observed": "(58.0, 60.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "from x=140 a 24 px move stops at 149",
+   "id": "walk.no_tunnel2",
+   "observed": "(149.0, 60.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "walking right into water stops with the foot at the water edge (x=93, within 0.01)",
+   "id": "walk.water_blocks",
+   "observed": "(93.0, 60.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "walking up into a building stops at its edge (y=38)",
+   "id": "walk.building_blocks",
+   "observed": "(36.0, 38.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "map edge blocks (x=3)",
+   "id": "walk.map_edge_blocks",
+   "observed": "(3.0, 100.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "diagonal into a wall: feet pinned to the wall and slide down at the full axis speed every step (no sticking)",
+   "id": "walk.slides",
+   "observed": "dy_min=1.1313 expected=1.1314 max_dev=0.00002 final=(93.0, 105.254)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "diagonal up-left into the building's bottom edge slides left along it (y pinned at 38, x decreasing)",
+   "id": "walk.slides_building",
+   "observed": "(19.81763, 38.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "a gap exactly as tall as the feet (4 px), entered centred while walking east, can be passed",
+   "id": "walk.exact_fit_gap",
+   "observed": "(149.0, 42.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "an 8 px gap is passable (feet 4 px tall)",
+   "id": "walk.wide_gap_passes",
+   "observed": "(149.0, 124.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "a 4 px wide gap (feet 6 px wide) cannot be entered going north: stops below the wall (y=166)",
+   "id": "walk.narrow_gap_blocked",
+   "observed": "(50.0, 166.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "the 8 px wide gap can be passed going north",
+   "id": "walk.wide_gap_north",
+   "observed": "(68.0, 2.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "off-centre (y=45, feet 43..47 overlaps the wall rows) the 4 px gap is closed",
+   "id": "walk.off_center_blocked",
+   "observed": "(93.0, 45.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "diagonal movement on open ground covers 48.0 px in 0.5 s at 30/60/144 Hz (within 0.01)",
+   "id": "walk.diagonal_speed",
+   "observed": "worst error 0.00037 px",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "same scripted input at 30/60/144 Hz gives the same path within 0.25 px at every 0.5 s",
+   "id": "walk.rate_independence",
+   "observed": "max diff 0.0740 px; end 30=(93.0, 158.0) 60=(93.0, 158.0) 144=(93.0, 158.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "8 hitch frames of 0.25 s end within 0.25 px of 288 frames at 144 Hz (diagonal into a wall)",
+   "id": "walk.hitch_vs_fast",
+   "observed": "hitch=(149.0, 181.8603) fast=(149.0, 181.7829)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "the start position is a legal standing place",
+   "id": "walk.start_clear",
+   "observed": "(738.0, 754.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "the seed source tile and the whole fruit drop ring (up to 18 px + tile) are walkable",
+   "id": "walk.source_reachable",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "walking east along the ford row y-tile 62 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+   "id": "walk.ford_62",
+   "observed": "start_clear=true end=(1477.892, 252.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "walking east along the ford row y-tile 202 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+   "id": "walk.ford_202",
+   "observed": "start_clear=true end=(1477.892, 812.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "walking east along the ford row y-tile 324 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+   "id": "walk.ford_324",
+   "observed": "start_clear=true end=(1477.892, 1300.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "walking east along the ford row y-tile 434 from x-tile 225 crosses the river (ends beyond x-tile 290)",
+   "id": "walk.ford_434",
+   "observed": "start_clear=true end=(1293.0, 1740.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "outside the fords the river stops the player at the first water tile on the row",
+   "id": "walk.river_blocks",
+   "observed": "stopped=(981.0, 402.0) first_block_tile=246",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "the ruin building (tiles x137.., y176..183) stops the player from the west",
+   "id": "walk.ruin_blocks",
+   "observed": "(545.0, 712.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "is_walkable is false outside the map",
+   "id": "walk.is_walkable_outside",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "per-terrain tile counts of the loaded world equal my python decode of data/region_01.png",
+   "id": "map.terrain_counts",
+   "observed": "wasteland=241194/241194 safe=331/331 shore=3234/3234 water=14551/14551 building=2295/2295 shallows=539/539 ",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "target count 244,759 (python: wasteland+safe+shore)",
+   "id": "map.target_count",
+   "observed": "244759",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "water+building not walkable; shallows walkable but not target/plantable; others walkable targets",
+   "id": "map.terrain_flags",
+   "observed": "wasteland(walk=true tgt=true plant=true side=false) safe(walk=true tgt=true plant=true side=false) shore(walk=true tgt=true plant=true side=true) water(walk=false tgt=false plant=false side=true) building(walk=false tgt=false plant=false side=false) shallows(walk=true tgt=false plant=false side=true) ",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "shallows count as waterside (refill possible)",
+   "id": "map.shallows_waterside",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "targets reachable on foot from the start = 244,202 (python 4-neighbour BFS: 244202); unreachable = 557",
+   "id": "map.walk_reach",
+   "observed": "reach=244202 unreached=557",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "python: 8 walk-islands holding 557 tiles",
+   "id": "map.python_islands",
+   "observed": "islands=8 targets=557",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "python: 4 shallows bands (fords), each crossing the river",
+   "id": "map.python_fords",
+   "observed": "[{ \"tiles\": 114.0, \"x\": [245.0, 263.0], \"y\": [60.0, 65.0] }, { \"tiles\": 137.0, \"x\": [245.0, 271.0], \"y\": [200.0, 205.0] }, { \"tiles\": 144.0, \"x\": [254.0, 277.0], \"y\": [322.0, 327.0] }, { \"tiles\": 144.0, \"x\": [251.0, 274.0], \"y\": [432.0, 437.0] }]",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "python: a foot-rectangle (6x4) flood reaches the same 244,202 targets as the tile BFS (no 1-tile corridor traps)",
+   "id": "map.python_foot_bfs",
+   "observed": "foot=244202",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "python: 118,520 targets are only reachable across the fords (east bank); 125,682 without crossing",
+   "id": "map.east_bank",
+   "observed": "east=118520 west=125682",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "start tile is a safe-zone tile and walkable",
+   "id": "map.start_safe",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "at start only the 331 safe tiles are mature/greened",
+   "id": "map.initial_green",
+   "observed": "green=331 mature=331",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "all 539 shallows tiles are non-target and cannot be planted",
+   "id": "map.shallows_not_plantable",
+   "observed": "n=539",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "every safe-zone tile is reachable on foot",
+   "id": "map.safe_reachable",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "reachable shore tiles exist for water refill",
+   "id": "map.shore_reachable",
+   "observed": "3158",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "my four test points are on shallows",
+   "id": "ground.ford_points_shallow",
+   "observed": "[(1016.0, 252.0), (1032.0, 812.0), (1060.0, 1300.0), (1048.0, 1740.0)]",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "160 seeds landing in the middle of the fords plant nothing",
+   "id": "ground.shallows_seed",
+   "observed": "planted=0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "water landing on shallows wets nothing (no tile gets moisture)",
+   "id": "ground.shallows_water",
+   "observed": "wet=0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "water and building test points really are water / building",
+   "id": "ground.points_ok",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "seeds and water landing in the middle of water and a building change nothing",
+   "id": "ground.water_building",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "carrot landing on shallows/water/building places nothing and keeps all seeds",
+   "id": "ground.cultivated_refused",
+   "observed": "seeds=20/20 reserved=0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "600 s of natural spread around a mature tile at the ford edge never touches shallows, water or buildings",
+   "id": "ground.spread_no_shallows",
+   "observed": "bank=30964 bad=0 grown=4063",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "greened counter equals a recount after all this",
+   "id": "ground.counters",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "331 safe tiles are mature but none produces seed fruit (producing_count 0)",
+   "id": "fruit.initial_counts",
+   "observed": "mature=331 producing=0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "5 minutes standing in the safe zone: no plant-owned seed fruit ever lies on the ground",
+   "id": "fruit.safe_zone_silent",
+   "observed": "max plant fruit 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "the seed source still drops fruits (at most its cap of 3 on the ground)",
+   "id": "fruit.source_still_gives",
+   "observed": "max source fruit 3",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "clearing a safe tile lowers mature_count by one and leaves producing_count at 0",
+   "id": "fruit.cleared_not_counted",
+   "observed": "330/0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "a landed seed can be planted again on the cleared safe tile (the seed scatter finds free tiles)",
+   "id": "fruit.reseed_possible",
+   "observed": "planted 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "the replanted tiles matured by themselves (dry, 60 s) and now count as producing",
+   "id": "fruit.regrown_counts",
+   "observed": "mature=336 producing=6 tile_mature=false",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "within 10 minutes a regrown mature tile drops a plant seed fruit",
+   "id": "fruit.regrown_produces",
+   "observed": "fruit=1 after 4 s, producing tiles 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "save/load keeps the fruitless flags: still 331 mature and 0 producing",
+   "id": "fruit.save_roundtrip",
+   "observed": "mature=331 producing=0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "a world with regrown producing tiles keeps producing_count after JSON save/load",
+   "id": "fruit.save_roundtrip_regrown",
+   "observed": "producing 6 -> 6 mature 336 -> 336",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "producing counters (total and per chunk) equal a recount",
+   "id": "fruit.counters",
+   "observed": "recount mature 336 producing 6 chunk sum 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "PlantProducer.gather around the start finds 0 producing tiles (331 mature but fruitless)",
+   "id": "fruit.gather_zero",
+   "observed": "gather=0",
+   "status": "PASS",
+   "evidence": "independent\\checks_logic.json"
+  },
+  {
+   "condition": "real play 3 min (walking, 4 shots/s, spread running): CPU per frame max < 16 ms and p99 < 8 ms",
+   "id": "perf.play",
+   "observed": "{\"frames\":10799,\"frames_over_16ms\":0,\"max_ms\":1.678,\"mean_ms\":0.105138160940826,\"p50_ms\":0.077,\"p999_ms\":1.25,\"p99_ms\":0.757}",
+   "status": "PASS",
+   "evidence": "independent\\checks_perf.json"
+  },
+  {
+   "condition": "stress fixture (41626 mature, 11598 wet seeds, 29 cultivated plants, 12 shots/s) CPU per frame max < 16 ms",
+   "id": "perf.stress",
+   "observed": "{\"frames\":3599,\"frames_over_16ms\":0,\"max_ms\":9.652,\"mean_ms\":0.246459016393442,\"p50_ms\":0.138,\"p999_ms\":7.227,\"p99_ms\":3.146} {\"active_tiles_end\":4897,\"cultivated\":29,\"mature\":41626,\"pickups\":37,\"seeded\":11598}",
+   "status": "PASS",
+   "evidence": "independent\\checks_perf.json"
+  },
+  {
+   "condition": "Tab selects the carrot",
+   "id": "carrot.select",
+   "observed": "carrot",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_carrot.json"
+  },
+  {
+   "condition": "a carrot is placed on the mature safe ground and costs 3 seeds",
+   "id": "carrot.placed",
+   "observed": "carrots 1 seeds 20 -> 17",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_carrot.json"
+  },
+  {
+   "condition": "placing the carrot changes no greening counters (mature ground stays mature)",
+   "id": "carrot.counter_unchanged",
+   "observed": "331/331",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_carrot.json"
+  },
+  {
+   "condition": "natural spread from the safe zone plants tiles by itself (no input)",
+   "id": "spread.carrot.starts",
+   "observed": "first natural seed at 7.4 s, natural now 765",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_carrot.json"
+  },
+  {
+   "condition": "naturally planted tiles grow up to mature within 200 s",
+   "id": "spread.carrot.matures",
+   "observed": "first natural mature 37.4 s",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_carrot.json"
+  },
+  {
+   "condition": "counters consistent; greened >= 331 and monotonic with natural tiles",
+   "id": "spread.carrot.counters",
+   "observed": "greened 1066",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_carrot.json"
+  },
+  {
+   "condition": "natural tiles lie only on plantable target terrain (never water, buildings, shallows)",
+   "id": "spread.carrot.only_targets",
+   "observed": "bad 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_carrot.json"
+  },
+  {
+   "condition": "start: 20 seeds, water 100, HP full, standing at the start tile",
+   "id": "chain.start",
+   "observed": "seeds=20 water=100 pos=(738.0, 754.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "a left click lands a seed near the aim point (landed signal fired)",
+   "id": "chain.land_6",
+   "observed": "scatter 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "a left click lands a seed near the aim point (landed signal fired)",
+   "id": "chain.land_12",
+   "observed": "scatter 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "a left click lands a seed near the aim point (landed signal fired)",
+   "id": "chain.land_18",
+   "observed": "scatter 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "a left click lands a seed near the aim point (landed signal fired)",
+   "id": "chain.land_24",
+   "observed": "scatter 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "a left click lands a seed near the aim point (landed signal fired)",
+   "id": "chain.land_30",
+   "observed": "scatter 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "5 shots spent exactly 5 seeds",
+   "id": "chain.seeds_spent",
+   "observed": "15",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "landing planted tiles (stage seed or later) for every shot",
+   "id": "chain.seed_tiles",
+   "observed": "30 tiles",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "seed -> sprout 1 -> sprout 2 -> mature in this order for every tile",
+   "id": "chain.stages_in_order",
+   "observed": "median t1=17.4 t2=37.4 t3=57.4 s (n=30)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "dry growth takes about one minute (30..90 s) to mature",
+   "id": "chain.dry_time",
+   "observed": "57.4 s",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "mature planted tiles drop a plant seed fruit",
+   "id": "chain.fruit_appears",
+   "observed": "first fruit 38.9 s after landing",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "no plant fruit belongs to a safe-zone / fruitless tile (only regrown and planted tiles produce)",
+   "id": "chain.fruit_not_from_safe",
+   "observed": "fruits 4, from safe 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "walking onto the plant fruit (WASD) returns a seed",
+   "id": "chain.collect",
+   "observed": "seeds 15 -> 16",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "the collected seed can be fired again and plants new tiles",
+   "id": "chain.refire",
+   "observed": "seeds 16 -> 15, scatter 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "greening counters stay consistent after the whole chain",
+   "id": "chain.counters",
+   "observed": "greened 569 (was 561)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_chain.json"
+  },
+  {
+   "condition": "natural spread from the safe zone plants tiles by itself (no input)",
+   "id": "spread.control.starts",
+   "observed": "first natural seed at 8.0 s, natural now 748",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_control.json"
+  },
+  {
+   "condition": "naturally planted tiles grow up to mature within 200 s",
+   "id": "spread.control.matures",
+   "observed": "first natural mature 38.0 s",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_control.json"
+  },
+  {
+   "condition": "counters consistent; greened >= 331 and monotonic with natural tiles",
+   "id": "spread.control.counters",
+   "observed": "greened 1055",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_control.json"
+  },
+  {
+   "condition": "natural tiles lie only on plantable target terrain (never water, buildings, shallows)",
+   "id": "spread.control.only_targets",
+   "observed": "bad 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_control.json"
+  },
+  {
+   "condition": "test points: open water, ruin building, ford shallows",
+   "id": "invalid.points",
+   "observed": "water (994.0, 602.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_invalid.json"
+  },
+  {
+   "condition": "15 seed shots and 9 water shots were really fired (seeds spent, 5 kept for the carrot test)",
+   "id": "invalid.fired",
+   "observed": "fired 15, seeds 5",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_invalid.json"
+  },
+  {
+   "condition": "no water/building/shallows tile around the targets got a plant or moisture",
+   "id": "invalid.no_change",
+   "observed": "changed 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_invalid.json"
+  },
+  {
+   "condition": "carrots shot at water, building and shallows place nothing and keep the seeds",
+   "id": "invalid.carrot",
+   "observed": "carrots 0 seeds 5/5 reserved 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_invalid.json"
+  },
+  {
+   "condition": "no tile outside the safe zone was planted by the player's shots, and the greened count of non-natural tiles is still the 331 safe tiles",
+   "id": "invalid.greened",
+   "observed": "player-planted 0, green(non-natural) 331, greened 331 (natural spread may add: natural 0 -> 48)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_invalid.json"
+  },
+  {
+   "condition": "10 s later still no player-planted tile and no moisture anywhere (no deferred growth from the shots)",
+   "id": "invalid.later",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_invalid.json"
+  },
+  {
+   "condition": "counters consistent",
+   "id": "invalid.counters",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_invalid.json"
+  },
+  {
+   "condition": "Tab twice selects the kiwi",
+   "id": "kiwi.select",
+   "observed": "kiwi",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_kiwi.json"
+  },
+  {
+   "condition": "a kiwi is placed on the safe ground",
+   "id": "kiwi.placed",
+   "observed": "1",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_kiwi.json"
+  },
+  {
+   "condition": "HP lowered through the official damage entry (P2 will use it)",
+   "id": "kiwi.damaged",
+   "observed": "hp 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_kiwi.json"
+  },
+  {
+   "condition": "the mature kiwi drops a healing fruit within 120 s",
+   "id": "kiwi.fruit",
+   "observed": "after 59.5 s",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_kiwi.json"
+  },
+  {
+   "condition": "walking onto the healing fruit restores HP (+2)",
+   "id": "kiwi.heals",
+   "observed": "hp 6 -> 8",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_kiwi.json"
+  },
+  {
+   "condition": "setup: seeds planted, carrot and kiwi placed, standing on shore (refilling), spread active",
+   "id": "pause.setup",
+   "observed": "arrived=true plants=2 refilling=true water=62.5",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_pause.json"
+  },
+  {
+   "condition": "Esc pauses the tree",
+   "id": "pause.paused",
+   "observed": "paused=true",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_pause.json"
+  },
+  {
+   "condition": "10 s paused with held keys, clicks and a refill spot: world, growth, moisture, natural, seeds, water, pickups, plants, time, player all unchanged",
+   "id": "pause.frozen",
+   "observed": "{\"clock\":14.63333,\"elapsed\":14.63333,\"hp\":7,\"pickups\":4100093049,\"plants\":55606636,\"player\":\"(930.0044, 754.0)\",\"production\":7,\"seeds\":14,\"shots\":0,\"water\":50.4167,\"world\":\"2803125716/4152745053/3601651429/1027521688/331\"}",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_pause.json"
+  },
+  {
+   "condition": "Esc resumes",
+   "id": "pause.resumed",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_pause.json"
+  },
+  {
+   "condition": "after resuming, 1 s of ticks advances game time by about 1 s (no catch-up of the 10 s pause)",
+   "id": "pause.no_banked_time",
+   "observed": "advanced 1.033 s",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_pause.json"
+  },
+  {
+   "condition": "the simulation clock also advanced about 1 s",
+   "id": "pause.clock_no_catchup",
+   "observed": "clock advanced 1.033",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_pause.json"
+  },
+  {
+   "condition": "water refill works again after resume (gauge went up)",
+   "id": "pause.refill_after",
+   "observed": "50.4 -> 76.3",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_pause.json"
+  },
+  {
+   "condition": "20 clicks spend all 20 seeds",
+   "id": "recover.seeds_zero",
+   "observed": "seeds 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "with 0 seeds a click fires nothing",
+   "id": "recover.no_fire_at_zero",
+   "observed": "",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "10 right clicks empty the water gauge",
+   "id": "recover.water_zero",
+   "observed": "water 0.0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "from 0 seeds, walking onto the seed source's fruits gives seeds again",
+   "id": "recover.seed_from_source",
+   "observed": "seeds 0 -> 2 (collected 2)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "a free planting spot exists for the re-fire",
+   "id": "recover.spot",
+   "observed": "(812.1436, 747.1312)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "the recovered seed plants new ground",
+   "id": "recover.refire",
+   "observed": "seeds 2 -> 1 right after the click, scatter 6",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "walking to the shore refills the empty gauge (25/s) to 50",
+   "id": "recover.water_shore",
+   "observed": "water 0.0 -> 50.4 at terrain 2 tile (231.4869, 186.3828)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "water can be fired again after the refill",
+   "id": "recover.water_fire",
+   "observed": "50.4 -> 41.2",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "standing on the shallows (all tiles within 2 tiles are shallows, no shore/land) refills the gauge: waterside includes shallows",
+   "id": "recover.water_shallows",
+   "observed": "on_ford=true pure_shallows_area=true water 3.3 -> 53.3 at (258.7233, 202.4657)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "counters consistent",
+   "id": "recover.counters",
+   "observed": "greened 575 (was 332)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_recover.json"
+  },
+  {
+   "condition": "natural spread from the safe zone plants tiles by itself (no input)",
+   "id": "spread.control.starts",
+   "observed": "first natural seed at 8.0 s, natural now 748",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_spread.json"
+  },
+  {
+   "condition": "naturally planted tiles grow up to mature within 200 s",
+   "id": "spread.control.matures",
+   "observed": "first natural mature 38.0 s",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_spread.json"
+  },
+  {
+   "condition": "counters consistent; greened >= 331 and monotonic with natural tiles",
+   "id": "spread.control.counters",
+   "observed": "greened 1055",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_spread.json"
+  },
+  {
+   "condition": "natural tiles lie only on plantable target terrain (never water, buildings, shallows)",
+   "id": "spread.control.only_targets",
+   "observed": "bad 0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_spread.json"
+  },
+  {
+   "condition": "hz=144: along the river edge with held WASD combos the feet never overlap water/buildings (every tick)",
+   "id": "walk.route_never_inside",
+   "observed": "bad 0 of 1152",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_144.json"
+  },
+  {
+   "condition": "hz=144: holding D along three ford rows carries the player across the river (x > 1160)",
+   "id": "walk.fords_cross",
+   "observed": "[1475.69812011719, 1475.89343261719, 1475.89343261719]",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_144.json"
+  },
+  {
+   "condition": "hz=144: holding D on a non-ford row stops at the water edge (x = 981)",
+   "id": "walk.river_stop",
+   "observed": "(981.0, 402.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_144.json"
+  },
+  {
+   "condition": "hz=144: holding D stops at the ruin building edge (x = 545)",
+   "id": "walk.ruin_stop",
+   "observed": "(545.0, 712.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_144.json"
+  },
+  {
+   "condition": "hz=144: 1 s of D+S covers the same distance as 1 s of D (96 px, +-1.7 for the tick boundary)",
+   "id": "walk.speed_equal",
+   "observed": "diag=95.315 straight=95.310",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_144.json"
+  },
+  {
+   "condition": "hz=144: the 32 px world margin still stops the player at the edge",
+   "id": "walk.edge_stop",
+   "observed": "(32.0, 1000.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_144.json"
+  },
+  {
+   "condition": "player node position is the rounded simulation position",
+   "id": "walk.presentation_round",
+   "observed": "(32.0, 1000.0) vs (32.0, 1000.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_144.json"
+  },
+  {
+   "condition": "hz=30: along the river edge with held WASD combos the feet never overlap water/buildings (every tick)",
+   "id": "walk.route_never_inside",
+   "observed": "bad 0 of 240",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_30.json"
+  },
+  {
+   "condition": "hz=30: holding D along three ford rows carries the player across the river (x > 1160)",
+   "id": "walk.fords_cross",
+   "observed": "[1474.95324707031, 1475.89013671875, 1475.89013671875]",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_30.json"
+  },
+  {
+   "condition": "hz=30: holding D on a non-ford row stops at the water edge (x = 981)",
+   "id": "walk.river_stop",
+   "observed": "(981.0, 402.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_30.json"
+  },
+  {
+   "condition": "hz=30: holding D stops at the ruin building edge (x = 545)",
+   "id": "walk.ruin_stop",
+   "observed": "(545.0, 712.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_30.json"
+  },
+  {
+   "condition": "hz=30: 1 s of D+S covers the same distance as 1 s of D (96 px, within one tick step)",
+   "id": "walk.speed_equal",
+   "observed": "diag=92.808 straight=92.777",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_30.json"
+  },
+  {
+   "condition": "hz=30: the 32 px world margin still stops the player at the edge",
+   "id": "walk.edge_stop",
+   "observed": "(32.0, 1000.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_30.json"
+  },
+  {
+   "condition": "player node position is the rounded simulation position",
+   "id": "walk.presentation_round",
+   "observed": "(32.0, 1000.0) vs (32.0, 1000.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_30.json"
+  },
+  {
+   "condition": "hz=60: along the river edge with held WASD combos the feet never overlap water/buildings (every tick)",
+   "id": "walk.route_never_inside",
+   "observed": "bad 0 of 480",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_60.json"
+  },
+  {
+   "condition": "hz=60: holding D along three ford rows carries the player across the river (x > 1160)",
+   "id": "walk.fords_cross",
+   "observed": "[1475.42395019531, 1475.89245605469, 1475.89245605469]",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_60.json"
+  },
+  {
+   "condition": "hz=60: holding D on a non-ford row stops at the water edge (x = 981)",
+   "id": "walk.river_stop",
+   "observed": "(981.0, 402.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_60.json"
+  },
+  {
+   "condition": "hz=60: holding D stops at the ruin building edge (x = 545)",
+   "id": "walk.ruin_stop",
+   "observed": "(545.0, 712.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_60.json"
+  },
+  {
+   "condition": "hz=60: 1 s of D+S covers the same distance as 1 s of D (96 px, +-1.7 for the tick boundary)",
+   "id": "walk.speed_equal",
+   "observed": "diag=94.398 straight=94.377",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_60.json"
+  },
+  {
+   "condition": "hz=60: the 32 px world margin still stops the player at the edge",
+   "id": "walk.edge_stop",
+   "observed": "(32.0, 1000.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_60.json"
+  },
+  {
+   "condition": "player node position is the rounded simulation position",
+   "id": "walk.presentation_round",
+   "observed": "(32.0, 1000.0) vs (32.0, 1000.0)",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_walk_60.json"
+  },
+  {
+   "condition": "open wasteland test site: no waterside near, water 100, not refilling",
+   "id": "water.setup",
+   "observed": "100 false",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_water.json"
+  },
+  {
+   "condition": "3 water shots wet the planted tiles",
+   "id": "water.wets",
+   "observed": "wet 6/6, water gauge 70",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_water.json"
+  },
+  {
+   "condition": "water gauge is empty (< one shot) and a water click fires nothing",
+   "id": "water.zero",
+   "observed": "water 0.0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_water.json"
+  },
+  {
+   "condition": "seeds plant fine with the gauge empty",
+   "id": "water.b_planted",
+   "observed": "tiles 6 water 0.0",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_water.json"
+  },
+  {
+   "condition": "without any water the dry seeds still mature (about a minute)",
+   "id": "water.dry_grows",
+   "observed": "median 59.4 s, 6/6 mature",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_water.json"
+  },
+  {
+   "condition": "watered seeds mature clearly earlier than dry ones (at least 10 s sooner)",
+   "id": "water.faster",
+   "observed": "watered 36.4 s vs dry 59.4 s",
+   "status": "PASS",
+   "evidence": "independent\\checks_scene_water.json"
+  }
+ ],
+ "summary": {
+  "total": 173,
+  "fail_ids": [
+   "gpu.edge.water_beyond",
+   "gpu.fruit.readable_shore",
+   "gpu.stress_frame"
+  ]
+ }
+}

@@ -12,10 +12,13 @@ static func fruit() -> ImageTexture:
 		_fruit = PixelArt.texture([".yy.", "yyye", "yees", ".ss."])
 	return _fruit
 
-## 4x4 seed fruit of a mature plant: same shape, greener so it can be told from the source's fruit.
+## 4x4 seed fruit of a mature plant (P1-06): a pale-pink top over a rose-red middle and a dark crimson base. Colours and
+## brightness are chosen so it stays readable on mature green (3f9b4a), sprout green, sand and wasteland ground (bright
+## and dark pixels both differ in brightness from the green; the hue is far from green and sand), and it is clearly not
+## the seed source's warm yellow fruit nor the kiwi's brown-and-green healing fruit. No outline.
 static func plant_fruit() -> ImageTexture:
 	if _plant_fruit == null:
-		_plant_fruit = PixelArt.texture([".ll.", "llyg", "lggG", ".GG."])
+		_plant_fruit = _build(PackedStringArray([".ww.", "wwwr", "rRRR", ".RR."]))
 	return _plant_fruit
 
 ## 10x10 provisional seed source (pedestal with a glowing seed on top). The node position is its foot.
@@ -35,6 +38,7 @@ const CULTIVATED_PALETTE: Dictionary = {
 	"g": Color("77bd77"), "G": Color("408863"), "l": Color("badc83"),
 	"o": Color("f09a4a"), "O": Color("c9692f"), "b": Color("9c7469"), "B": Color("795c58"),
 	"k": Color("a8d65a"), "K": Color("6fa83a"),
+	"w": Color("ffd6de"), "r": Color("e4566b"), "R": Color("a82746"),
 }
 
 static var _cultivated: Dictionary = {}

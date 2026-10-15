@@ -15,6 +15,11 @@ extends Resource
 ## Seeds/plants may be placed here.
 @export var plantable: bool = false
 @export var is_waterside: bool = false
+## The player can stand on / walk through this terrain (P1-06). Water and buildings block; shallows and ground do not.
+@export var walkable: bool = true
+## Tiles of this terrain that start mature (initial_stage) also produce seed fruits. False for the safe zone: its
+## ready-made plants must not flood the start with fruits (P1-06); a tile that is cleared and regrows produces normally.
+@export var initial_produces_fruit: bool = false
 ## Initial plant id / growth stage of every tile of this terrain when a region is loaded.
 @export var initial_plant_id: int = 0
 @export var initial_stage: int = 0

@@ -1,0 +1,138 @@
+{
+ "size": [
+  512,
+  512
+ ],
+ "unknown_pixels": 0,
+ "counts": {
+  "wasteland": 241194,
+  "shore": 3234,
+  "water": 14551,
+  "building": 2295,
+  "shallows": 539,
+  "safe": 331
+ },
+ "targets": 244759,
+ "tile_bfs_walk_tiles": 244741,
+ "tile_bfs_reach_targets": 244202,
+ "no_shallows_reach_targets": 125682,
+ "east_bank_targets_via_fords": 118520,
+ "islands": [
+  {
+   "walk_tiles": 64,
+   "targets": 64,
+   "seed_xy": [
+    116,
+    56
+   ]
+  },
+  {
+   "walk_tiles": 64,
+   "targets": 64,
+   "seed_xy": [
+    396,
+    56
+   ]
+  },
+  {
+   "walk_tiles": 109,
+   "targets": 109,
+   "seed_xy": [
+    400,
+    145
+   ]
+  },
+  {
+   "walk_tiles": 64,
+   "targets": 64,
+   "seed_xy": [
+    56,
+    206
+   ]
+  },
+  {
+   "walk_tiles": 64,
+   "targets": 64,
+   "seed_xy": [
+    156,
+    296
+   ]
+  },
+  {
+   "walk_tiles": 64,
+   "targets": 64,
+   "seed_xy": [
+    326,
+    296
+   ]
+  },
+  {
+   "walk_tiles": 64,
+   "targets": 64,
+   "seed_xy": [
+    446,
+    416
+   ]
+  },
+  {
+   "walk_tiles": 64,
+   "targets": 64,
+   "seed_xy": [
+    326,
+    436
+   ]
+  }
+ ],
+ "island_count": 8,
+ "island_targets_total": 557,
+ "island_walk_tiles_total": 557,
+ "shallows_components": [
+  {
+   "tiles": 114,
+   "x": [
+    245,
+    263
+   ],
+   "y": [
+    60,
+    65
+   ]
+  },
+  {
+   "tiles": 137,
+   "x": [
+    245,
+    271
+   ],
+   "y": [
+    200,
+    205
+   ]
+  },
+  {
+   "tiles": 144,
+   "x": [
+    254,
+    277
+   ],
+   "y": [
+    322,
+    327
+   ]
+  },
+  {
+   "tiles": 144,
+   "x": [
+    251,
+    274
+   ],
+   "y": [
+    432,
+    437
+   ]
+  }
+ ],
+ "foot_bfs_reach_targets": 244202,
+ "foot_bfs_tiles": 244741,
+ "start_terrain": "safe"
+}

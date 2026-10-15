@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS [kiwi.select] Tab twice selects the kiwi :: kiwi
+PASS [kiwi.placed] a kiwi is placed on the safe ground :: 1
+PASS [kiwi.damaged] HP lowered through the official damage entry (P2 will use it) :: hp 6
+PASS [kiwi.fruit] the mature kiwi drops a healing fruit within 120 s :: after 59.5 s
+PASS [kiwi.heals] walking onto the healing fruit restores HP (+2) :: hp 6 -> 8
+V_RESULT total=5 fails=0

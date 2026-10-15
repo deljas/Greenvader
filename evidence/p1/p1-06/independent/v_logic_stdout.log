@@ -1,0 +1,67 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+--- section walk
+PASS [walk.speed_const] player speed constant is 96 px/s (spec of earlier stages) :: 96.0
+PASS [walk.feet_size] feet are 6x4 px (half 3 x 2) :: 3.0 x 2.0
+PASS [walk.never_inside] over 60 s of scripted 8-direction walking at 30/60/144 Hz the feet never overlap water, buildings or the map edge :: bad=0 of 14040 steps
+PASS [walk.no_tunnel] a 24 px single move toward a 1-tile wall stops at the wall (x <= 38*4-3 = 149) :: (58.0, 60.0)
+PASS [walk.no_tunnel2] from x=140 a 24 px move stops at 149 :: (149.0, 60.0)
+PASS [walk.water_blocks] walking right into water stops with the foot at the water edge (x=93, within 0.01) :: (93.0, 60.0)
+PASS [walk.building_blocks] walking up into a building stops at its edge (y=38) :: (36.0, 38.0)
+PASS [walk.map_edge_blocks] map edge blocks (x=3) :: (3.0, 100.0)
+PASS [walk.slides] diagonal into a wall: feet pinned to the wall and slide down at the full axis speed every step (no sticking) :: dy_min=1.1313 expected=1.1314 max_dev=0.00002 final=(93.0, 105.254)
+PASS [walk.slides_building] diagonal up-left into the building's bottom edge slides left along it (y pinned at 38, x decreasing) :: (19.81763, 38.0)
+PASS [walk.exact_fit_gap] a gap exactly as tall as the feet (4 px), entered centred while walking east, can be passed :: (149.0, 42.0)
+PASS [walk.wide_gap_passes] an 8 px gap is passable (feet 4 px tall) :: (149.0, 124.0)
+PASS [walk.narrow_gap_blocked] a 4 px wide gap (feet 6 px wide) cannot be entered going north: stops below the wall (y=166) :: (50.0, 166.0)
+PASS [walk.wide_gap_north] the 8 px wide gap can be passed going north :: (68.0, 2.0)
+PASS [walk.off_center_blocked] off-centre (y=45, feet 43..47 overlaps the wall rows) the 4 px gap is closed :: (93.0, 45.0)
+PASS [walk.diagonal_speed] diagonal movement on open ground covers 48.0 px in 0.5 s at 30/60/144 Hz (within 0.01) :: worst error 0.00037 px
+PASS [walk.rate_independence] same scripted input at 30/60/144 Hz gives the same path within 0.25 px at every 0.5 s :: max diff 0.0740 px; end 30=(93.0, 158.0) 60=(93.0, 158.0) 144=(93.0, 158.0)
+PASS [walk.hitch_vs_fast] 8 hitch frames of 0.25 s end within 0.25 px of 288 frames at 144 Hz (diagonal into a wall) :: hitch=(149.0, 181.8603) fast=(149.0, 181.7829)
+PASS [walk.start_clear] the start position is a legal standing place :: (738.0, 754.0)
+PASS [walk.source_reachable] the seed source tile and the whole fruit drop ring (up to 18 px + tile) are walkable :: 
+PASS [walk.ford_62] walking east along the ford row y-tile 62 from x-tile 225 crosses the river (ends beyond x-tile 290) :: start_clear=true end=(1477.892, 252.0)
+PASS [walk.ford_202] walking east along the ford row y-tile 202 from x-tile 225 crosses the river (ends beyond x-tile 290) :: start_clear=true end=(1477.892, 812.0)
+PASS [walk.ford_324] walking east along the ford row y-tile 324 from x-tile 225 crosses the river (ends beyond x-tile 290) :: start_clear=true end=(1477.892, 1300.0)
+PASS [walk.ford_434] walking east along the ford row y-tile 434 from x-tile 225 crosses the river (ends beyond x-tile 290) :: start_clear=true end=(1293.0, 1740.0)
+PASS [walk.river_blocks] outside the fords the river stops the player at the first water tile on the row :: stopped=(981.0, 402.0) first_block_tile=246
+PASS [walk.ruin_blocks] the ruin building (tiles x137.., y176..183) stops the player from the west :: (545.0, 712.0)
+PASS [walk.is_walkable_outside] is_walkable is false outside the map :: 
+--- section map
+PASS [map.terrain_counts] per-terrain tile counts of the loaded world equal my python decode of data/region_01.png :: wasteland=241194/241194 safe=331/331 shore=3234/3234 water=14551/14551 building=2295/2295 shallows=539/539 
+PASS [map.target_count] target count 244,759 (python: wasteland+safe+shore) :: 244759
+PASS [map.terrain_flags] water+building not walkable; shallows walkable but not target/plantable; others walkable targets :: wasteland(walk=true tgt=true plant=true side=false) safe(walk=true tgt=true plant=true side=false) shore(walk=true tgt=true plant=true side=true) water(walk=false tgt=false plant=false side=true) building(walk=false tgt=false plant=false side=false) shallows(walk=true tgt=false plant=false side=true) 
+PASS [map.shallows_waterside] shallows count as waterside (refill possible) :: 
+PASS [map.walk_reach] targets reachable on foot from the start = 244,202 (python 4-neighbour BFS: 244202); unreachable = 557 :: reach=244202 unreached=557
+PASS [map.python_islands] python: 8 walk-islands holding 557 tiles :: islands=8 targets=557
+PASS [map.python_fords] python: 4 shallows bands (fords), each crossing the river :: [{ "tiles": 114.0, "x": [245.0, 263.0], "y": [60.0, 65.0] }, { "tiles": 137.0, "x": [245.0, 271.0], "y": [200.0, 205.0] }, { "tiles": 144.0, "x": [254.0, 277.0], "y": [322.0, 327.0] }, { "tiles": 144.0, "x": [251.0, 274.0], "y": [432.0, 437.0] }]
+PASS [map.python_foot_bfs] python: a foot-rectangle (6x4) flood reaches the same 244,202 targets as the tile BFS (no 1-tile corridor traps) :: foot=244202
+PASS [map.east_bank] python: 118,520 targets are only reachable across the fords (east bank); 125,682 without crossing :: east=118520 west=125682
+PASS [map.start_safe] start tile is a safe-zone tile and walkable :: 
+PASS [map.initial_green] at start only the 331 safe tiles are mature/greened :: green=331 mature=331
+PASS [map.shallows_not_plantable] all 539 shallows tiles are non-target and cannot be planted :: n=539
+PASS [map.safe_reachable] every safe-zone tile is reachable on foot :: 
+PASS [map.shore_reachable] reachable shore tiles exist for water refill :: 3158
+--- section ground
+PASS [ground.ford_points_shallow] my four test points are on shallows :: [(1016.0, 252.0), (1032.0, 812.0), (1060.0, 1300.0), (1048.0, 1740.0)]
+PASS [ground.shallows_seed] 160 seeds landing in the middle of the fords plant nothing :: planted=0
+PASS [ground.shallows_water] water landing on shallows wets nothing (no tile gets moisture) :: wet=0
+PASS [ground.points_ok] water and building test points really are water / building :: 
+PASS [ground.water_building] seeds and water landing in the middle of water and a building change nothing :: 
+PASS [ground.cultivated_refused] carrot landing on shallows/water/building places nothing and keeps all seeds :: seeds=20/20 reserved=0
+PASS [ground.spread_no_shallows] 600 s of natural spread around a mature tile at the ford edge never touches shallows, water or buildings :: bank=30964 bad=0 grown=4063
+PASS [ground.counters] greened counter equals a recount after all this :: 
+--- section fruit
+PASS [fruit.initial_counts] 331 safe tiles are mature but none produces seed fruit (producing_count 0) :: mature=331 producing=0
+PASS [fruit.safe_zone_silent] 5 minutes standing in the safe zone: no plant-owned seed fruit ever lies on the ground :: max plant fruit 0
+PASS [fruit.source_still_gives] the seed source still drops fruits (at most its cap of 3 on the ground) :: max source fruit 3
+PASS [fruit.cleared_not_counted] clearing a safe tile lowers mature_count by one and leaves producing_count at 0 :: 330/0
+PASS [fruit.reseed_possible] a landed seed can be planted again on the cleared safe tile (the seed scatter finds free tiles) :: planted 6
+PASS [fruit.regrown_counts] the replanted tiles matured by themselves (dry, 60 s) and now count as producing :: mature=336 producing=6 tile_mature=false
+PASS [fruit.regrown_produces] within 10 minutes a regrown mature tile drops a plant seed fruit :: fruit=1 after 4 s, producing tiles 6
+PASS [fruit.save_roundtrip] save/load keeps the fruitless flags: still 331 mature and 0 producing :: mature=331 producing=0
+PASS [fruit.save_roundtrip_regrown] a world with regrown producing tiles keeps producing_count after JSON save/load :: producing 6 -> 6 mature 336 -> 336
+PASS [fruit.counters] producing counters (total and per chunk) equal a recount :: recount mature 336 producing 6 chunk sum 6
+PASS [fruit.gather_zero] PlantProducer.gather around the start finds 0 producing tiles (331 mature but fruitless) :: gather=0
+V_RESULT total=60 fails=0

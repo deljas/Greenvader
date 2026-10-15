@@ -1,0 +1,35 @@
+{
+  "observations": {},
+  "results": [
+    {
+      "condition": "Tab twice selects the kiwi",
+      "id": "kiwi.select",
+      "observed": "kiwi",
+      "status": "PASS"
+    },
+    {
+      "condition": "a kiwi is placed on the safe ground",
+      "id": "kiwi.placed",
+      "observed": "1",
+      "status": "PASS"
+    },
+    {
+      "condition": "HP lowered through the official damage entry (P2 will use it)",
+      "id": "kiwi.damaged",
+      "observed": "hp 6",
+      "status": "PASS"
+    },
+    {
+      "condition": "the mature kiwi drops a healing fruit within 120 s",
+      "id": "kiwi.fruit",
+      "observed": "after 59.5 s",
+      "status": "PASS"
+    },
+    {
+      "condition": "walking onto the healing fruit restores HP (+2)",
+      "id": "kiwi.heals",
+      "observed": "hp 6 -> 8",
+      "status": "PASS"
+    }
+  ]
+}

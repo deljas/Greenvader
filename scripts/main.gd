@@ -84,6 +84,9 @@ func _ready() -> void:
 	var region_px: Vector2 = Vector2(grid.width * region_def.tile_px, grid.height * region_def.tile_px)
 	player.world_bounds = Rect2(Vector2(32, 32), region_px - Vector2(64, 64))
 	player.simulation_position = Vector2(region_def.start_tile * region_def.tile_px) + Vector2(2, 2)
+	player.walk_world = grid
+	player.walk_tile_px = region_def.tile_px
+	player.walk_half = Vector2(play_tuning.walk_half_width_px, play_tuning.walk_half_height_px)
 	actors.add_child(player)
 	cultivated_view = CultivatedView.new()
 	cultivated_view.name = "CultivatedView"
