@@ -543,7 +543,9 @@ func test_load_refusals() -> void:
 	# World level.
 	var bad: Dictionary = good_world.duplicate(true)
 	bad["zones"]["state"] = [K, S]
-	check(WorldState.from_dict(bad, rig.world.terrain_defs) == null, "a complete zone with ungreened targets is refused")
+	# P2-05 (parent decision): complete is forward-only, so a complete zone with fewer greened tiles than targets is accepted.
+	var short_complete: WorldState = WorldState.from_dict(bad, rig.world.terrain_defs)
+	check(short_complete != null and short_complete.zone_state[0] == K and short_complete.zone_greened_count[0] < short_complete.zone_target_count[0] and not short_complete.cleared, "a complete zone with ungreened targets is accepted (P2-05: complete is forward-only)")
 	bad = good_world.duplicate(true)
 	bad["cleared"] = true
 	check(WorldState.from_dict(bad, rig.world.terrain_defs) == null, "the clear flag with zones that are not complete is refused")

@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS G1-default-initial initial-stable zone reaches exactly 100 (int equal) within initial_zone_bound { "t": 1357.0, "bound": 3624.0, "hops": 68, "greened": 1136, "target": 1136 }
+PASS G2-default-cleared cleared-then-stable zone reaches exactly 100 within stable_time + completion_bound { "t": 230.0, "limit": 257.0, "greened": 962, "target": 962 }
+PASS G3-default-counters counters equal recount { "greened": 2098, "target": 2098 }
+PASS G4-default-sweep-only sweep alone (no spread, no island seeding) reaches 100 within bound { "t": 290.0, "bound": 312.0 }
+PASS G5-default-all-initial world stable from the start reaches exactly 100 within initial bound; sweep planted nothing { "t": 1416.0, "bound": 3762.0, "sweep_planted": 0 }
+PASS G1-slowsweep_K8_S128-initial initial-stable zone reaches exactly 100 (int equal) within initial_zone_bound { "t": 1357.0, "bound": 3624.0, "hops": 68, "greened": 1136, "target": 1136 }
+PASS G2-slowsweep_K8_S128-cleared cleared-then-stable zone reaches exactly 100 within stable_time + completion_bound { "t": 720.0, "limit": 877.0, "greened": 962, "target": 962 }
+PASS G3-slowsweep_K8_S128-counters counters equal recount { "greened": 2098, "target": 2098 }
+PASS G4-slowsweep_K8_S128-sweep-only sweep alone (no spread, no island seeding) reaches 100 within bound { "t": 1440.0, "bound": 1557.0 }
+PASS G5-slowsweep_K8_S128-all-initial world stable from the start reaches exactly 100 within initial bound; sweep planted nothing { "t": 1416.0, "bound": 3762.0, "sweep_planted": 0 }
+PASS D1-delay swept zone: no seed 119 s after turning stable, seeds at 121 s { "at119": 0, "at121": 64 }
+PASS D2-initial-not-swept initial-stable zone gets no sweep seed (island seeding and spread off) { "zone0_plants": 0 }
+PASS D3-untouched clearing zone gets nothing { "zone2_plants": 0 }
+PASS D4-unstable-untouched unconquered and clearing zones get no far seeds { "sweep": 0, "island": 0 }
+PASS I1-one-seed-per-empty-component every independent component has exactly one plant (planted island gets none extra) { "components": 5, "bad": [] }
+PASS I2-natural island seeds have natural=1 and sit on plantable targets { "natural_ok": true, "placed_ok": true }
+PASS I3-grow seeds grow to sprout1 or more { "greened": 5, "components": 5 }
+PASS M1-multiplier unstable 17, stable/complete at 1.25 -> 14, stable at 1.0 -> 17, clearing 17 (ceil(100000/6000)=17, ceil(100000/7500)=14) { "unconquered": 17, "stable": 14, "complete": 14, "stable_mult1": 17, "clearing": 17 }
+PASS T1-hz 30/60/144 Hz identical [3323062076, 3323062076, 3323062076]
+PASS T2-pause clock paused: nothing changes (clock level; Esc injection not exercised here) {  }
+PASS T3-save save/restore (JSON) then same time later is identical [[3.3, true, true, true], [31.7, true, true, true], [137.3, true, true, true], [500.1, true, true, true]]
+V_RESULT total=21 fails=0

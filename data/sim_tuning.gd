@@ -52,6 +52,29 @@ extends Resource
 ## Growth speed multiplier of seeds and sprouts planted by natural spread (the front speed knob).
 @export var natural_growth_multiplier: float = 2.0
 
+@export_group("Far seeding (P2-05)")
+## Natural spread progress of candidates in stable / complete zones is multiplied by this (1.0 = no effect). Multiplies with the carrot boost.
+@export var stable_spread_multiplier: float = 1.25
+## Far seed spreading in stable / complete zones only (FarSeedSim). Switch for tests.
+@export var far_seed_enabled: bool = true
+## (b) Fair sweep. Every far_sweep_period_seconds a sweep step walks a tile cursor around the map and plants natural seeds on
+## free plantable targets of stable zones: at most far_sweep_seeds_per_step (K) seeds, and it reads at most
+## far_sweep_scan_per_step (S) tiles. Tiles that are not free are skipped: they do not count against K, only against S.
+@export var far_sweep_period_seconds: float = 5.0
+@export var far_sweep_seeds_per_step: int = 64
+@export var far_sweep_scan_per_step: int = 4096
+## The sweep works in a zone only this long after it turned stable (the sweep is a safety net, natural spread is the main way).
+## Zones that start stable (ZoneDef initial state stable / complete) are never swept: (a) + natural spread greens them.
+@export var far_sweep_start_delay_seconds: float = 120.0
+## (a) Isolated components. When a zone becomes stable its plantable targets are labelled once into components (radius
+## = spread_radius_tiles, Euclidean), sliced: at most far_label_tiles_per_tick tiles are expanded and
+## far_label_scan_per_tick tiles are read per spread tick. Every far_island_period_seconds a check round visits the components not yet
+## holding a plant (at most far_check_reads_per_tick tile reads per tick) and puts one natural seed into each.
+@export var far_island_period_seconds: float = 10.0
+@export var far_label_tiles_per_tick: int = 400
+@export var far_label_scan_per_tick: int = 4096
+@export var far_check_reads_per_tick: int = 2048
+
 @export_group("Rendering (P1-04)")
 ## RegionView repaints at most this many dirty tiles per frame (the rest waits for the next frame, oldest first).
 @export var render_tiles_per_frame: int = 6000

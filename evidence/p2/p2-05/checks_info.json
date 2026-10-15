@@ -1,0 +1,42 @@
+{
+  "fairness": {
+    "bound_steps": 179,
+    "free_tiles": 3986,
+    "used_steps": 160
+  },
+  "islands_only_200s_seeds": 4,
+  "map_a_full": {
+    "a_plus_spread_s": 2443.0,
+    "bound_s": 1183.0,
+    "done_at_s": 984.0
+  },
+  "map_a_initial_zone": {
+    "bound_s": 7660.0,
+    "done_at_s": 2443.0,
+    "max_hops": 118
+  },
+  "map_a_sweep_only": {
+    "bound_s": 1183.0,
+    "done_at_s": 1025.0,
+    "free_targets": 6493,
+    "targets": 6518
+  },
+  "region_bound_default_s": 17065.5,
+  "region_bound_k128_s": 8785.5,
+  "region_bound_k256_s": 4645.5,
+  "region_bound_k512_s": 2575.5,
+  "region_bound_k64_s": 17065.5,
+  "stress_frame_ms": {
+    "mean": 0.432055303030303,
+    "p99": 2.806,
+    "worst": 3.411,
+    "worst_far": 0.83,
+    "worst_growth": 2.071,
+    "worst_spread": 0.866
+  },
+  "two_zones": {
+    "bound_s": 452.5,
+    "done_at_s": 795.0,
+    "stable_at_s": 420.0
+  }
+}

@@ -607,11 +607,9 @@ static func from_dict(data: Dictionary, defs: Array[TerrainDef]) -> WorldState:
 				return null
 	state.rebuild_derived()
 	state.rebuild_zone_counts()
-	# P2-04: a state that contradicts the counters is refused. A complete zone has every target greened; the clear flag is set
-	# exactly when every zone is complete. (Files from before P2-04 have no flag: they are derived.)
-	for zone: int in state.zone_count:
-		if state.zone_state[zone] == ZONE_COMPLETE and not state.zone_fully_greened(zone):
-			return null
+	# P2-04 / P2-05: complete is a forward-only state. A complete zone whose greened count fell short of its targets (tiles
+	# lost, later reseeded by the far seeding) is accepted; the clear flag must still be set exactly when every zone is
+	# complete. (Files from before P2-04 have no flag: they are derived.)
 	if data.has("cleared"):
 		state.cleared = bool(data["cleared"])
 		if state.cleared != state.all_zones_complete():

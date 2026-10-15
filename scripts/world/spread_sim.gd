@@ -190,6 +190,18 @@ func tick() -> void:
 	var flags: PackedByteArray = queued_flag
 	var scales: PackedInt32Array = speed_scale
 	var scaled: bool = not scales.is_empty()
+	# P2-05: candidates of stable / complete zones progress faster (SimTuning.stable_spread_multiplier). Read from the zone states
+	# at the start of every tick, so it takes effect from the first spread tick after a zone turns stable. It multiplies with the
+	# carrot boost (speed_scale): both are permille factors applied one after the other.
+	var zone_permille: PackedInt32Array = PackedInt32Array()
+	var zone_scaled: bool = false
+	var stable_permille: int = roundi(tuning.stable_spread_multiplier * 1000.0)
+	if stable_permille != 1000:
+		zone_permille.resize(world.zone_count)
+		for zone: int in world.zone_count:
+			zone_permille[zone] = stable_permille if world.zone_state[zone] >= WorldState.ZONE_STABLE else 1000
+			zone_scaled = zone_scaled or zone_permille[zone] != 1000
+	var zone_of: PackedByteArray = world.zone_of
 	queue = PackedInt32Array()
 	progress = PackedInt32Array()
 	last_visit = PackedInt32Array()
@@ -215,6 +227,10 @@ func tick() -> void:
 			var permille: int = scales[index]
 			if permille != 1000:
 				gain = gain * permille / 1000
+		if zone_scaled:
+			var zone_mult: int = zone_permille[zone_of[index]]
+			if zone_mult != 1000:
+				gain = gain * zone_mult / 1000
 		var value: int = values[index] + gain
 		if value >= threshold:
 			flags[index] = 0

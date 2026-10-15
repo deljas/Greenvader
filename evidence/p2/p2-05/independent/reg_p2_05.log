@@ -1,0 +1,128 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and tunings load
+PASS region_01 has 244759 greening targets (244759)
+PASS K = 256: lap bound is 1022 sweep steps (1022)
+PASS a natural seed needs 20 growth ticks to sprout 1 at the slowest speed (20)
+PASS K = 256: completion bound is 5290.5 s (5290.500000)
+PASS shipped values: K = 64, start delay 120 s
+PASS K = 64 (shipped): the bound is 19630.5 s (19630.500000)
+PASS with a 10 s sweep period the bound is 10405.5 s (10405.500000)
+PASS with natural multiplier 1.0 the growth part is 64.5 s (5300.500000)
+PASS without start delay the bound is 5170.5 s (5170.500000)
+PASS the zone that starts stable is not swept (zone 0 has 32799 targets, swept 211960)
+PASS labelling of the stable zone finished after 126 spread ticks
+PASS map A has 5 components by the independent flood fill (west, island 1, island 2, island 3, east bank with the chamber): 5
+PASS FarSeedSim found the same number of components (5)
+PASS the labels partition the tiles exactly like the independent flood fill (same members, one label per component)
+PASS the BFS list holds every plantable target exactly once (6518)
+PASS labelling alone plants nothing
+PASS tiles 2 apart are connected, 3 apart are not
+PASS an offset of (2,1) does not connect, a diagonal does
+PASS the tiny map has 5 components (5)
+PASS (a) alone: each of the 4 green-less components (3 islands + east bank with the chamber) holds exactly one seed after 200 s
+PASS (a) planted 4 seeds (4), the sweep none (0)
+PASS the component seeds are natural seeds (natural = 1)
+PASS the component that already holds mature plants gets no seed
+PASS the one-tile island is seeded
+PASS the two-tile island is seeded
+PASS (b) alone: greened 6518 == targets 6518 (integer equality)
+PASS the zone is complete and the region is cleared
+PASS (b) alone finished at 1025.00 s <= bound 1183.00 s (bound with every target free: 1188.00 s)
+PASS greening counters equal the recount
+PASS no component seeding happened in this run
+PASS the bound is not absurdly loose: measured 1025.0 s vs bound 1183.0 s
+PASS a nest is placed on the west bank
+PASS the zone is unconquered while the nest lives
+PASS an unconquered zone is not enumerated
+PASS nest destroyed, no boar: the zone is stable
+PASS all parts: 100 % (6518 == 6518), complete, cleared
+PASS finished at 984.00 s <= bound 1183.00 s
+PASS the ground of the destroyed nest is greened too
+PASS counters equal the recount
+PASS (a) + natural spread alone also reaches 100 % (2443.0 s)
+PASS zone 0 stable, zone 1 unconquered
+PASS 300 s: the unconquered zone holds no plant, the stable zone does (0 / 1945)
+PASS the unconquered zone was not enumerated
+PASS zone 1 is clearing while a boar lives
+PASS a clearing zone is not seeded either (0 plants)
+PASS last boar killed: zone 1 stable
+PASS 30 s after it became stable zone 1 receives seeds (192 plants)
+PASS both zones reach 100 % (stable at 420 s, done at 795 s, bound 453 s after stable)
+PASS within the bound counted from the last zone becoming stable
+PASS a zone that is stable when the simulation is created is flagged as started-stable
+PASS 10 min: the sweep planted nothing and its cursor did not move (0 seeds)
+PASS (a) + natural spread alone: exactly 100 % (6518 == 6518), no sweep seed at all
+PASS start-stable zone finished at 2443 s <= bound 7660 s (deepest component hops bound 118)
+PASS counters equal the recount
+PASS zone turned stable at t = 5.0 s
+PASS 119 s after the transition: no sweep seed (0)
+PASS 121 s after the transition: the sweep has planted its first step (32 seeds)
+PASS the completion bound grows by exactly the start delay (120 s)
+PASS 100 % reached 625 s after the transition <= bound 703 s (delay included)
+PASS nothing is planted before the first sweep step
+PASS the first sweep step plants K = 32 seeds (32)
+PASS the seeds are the first 32 free tiles from the cursor (row 0, x 0..31), natural = 1
+PASS seeds are not greened yet
+PASS t = 14.5 s: growth 38000 (19 ticks x 2000), still a seed (38000)
+PASS t = 15.0 s: growth 40000, sprout 1 (40000)
+PASS the 32 seeds count as greened from sprout 1 on (32)
+PASS t = 34.5 s: sprout 2, growth 118000 (118000)
+PASS t = 35.0 s: mature
+PASS 500 occupied tiles are skipped without using K: planted 8, read 508, cursor 508
+PASS S = 100: five steps read the 500 occupied tiles and plant nothing, then K seeds per step ([0, 0, 0, 0, 0, 8, 8], cursor 516)
+PASS S > n: one step reads each tile once (100 reads, 100 plants)
+PASS after 179 sweep steps (bound for 3986 free tiles) no free tile is left
+PASS each free tile was seeded exactly once (3986 seeds, 3986 free)
+PASS the free tiles were all processed in 160 steps <= bound 179
+PASS cursor stays inside the map; laps so far 1
+PASS a complete zone with fewer greened tiles than targets loads (complete is forward-only)
+PASS other contradictions stay refused: all zones complete but the clear flag off
+PASS other contradictions stay refused: the clear flag with a zone that is not complete
+PASS other contradictions stay refused: an unknown state
+PASS the complete + cleared state with 200 missing tiles loads (1600 of 1800 greened)
+PASS the complete zone is refilled to exactly 100 % in 45.0 s <= 97.0 s (200 tiles were missing)
+PASS state stays complete / cleared (forward only), counters equal the recount
+PASS 30 Hz: 240 s of game time = 240 spread ticks for the far seeding (240)
+PASS 60 Hz: 240 s of game time = 240 spread ticks for the far seeding (240)
+PASS 144 Hz: 240 s of game time = 240 spread ticks for the far seeding (240)
+PASS 30 / 60 / 144 Hz give identical worlds after 240 s
+PASS 30 / 60 / 144 Hz give identical far seeding states
+PASS paused: the world and the far seeding do not change
+PASS resuming adds no banked time (far ticks 30)
+PASS snapshot at 23 s: the restored state equals the saved one (busy labelling true, round active false)
+PASS snapshot at 23 s: 150 s later the original and the restored run are identical
+PASS the restored run's counters equal the recount
+PASS snapshot at 143 s: the restored state equals the saved one (busy labelling true, round active false)
+PASS snapshot at 143 s: 150 s later the original and the restored run are identical
+PASS the restored run's counters equal the recount
+PASS snapshot at 401 s: the restored state equals the saved one (busy labelling true, round active false)
+PASS snapshot at 401 s: 150 s later the original and the restored run are identical
+PASS the restored run's counters equal the recount
+PASS snapshot at 700 s: the restored state equals the saved one (busy labelling false, round active false)
+PASS snapshot at 700 s: 150 s later the original and the restored run are identical
+PASS the restored run's counters equal the recount
+PASS snapshot at 800 s: the restored state equals the saved one (busy labelling false, round active false)
+PASS snapshot at 800 s: 150 s later the original and the restored run are identical
+PASS the restored run's counters equal the recount
+PASS (coverage) one snapshot was taken in the middle of labelling
+PASS (coverage) a snapshot taken in the middle of a check round (component 1, position 104, at 132 s)
+PASS the run restored in the middle of a check round continues identically (800 s)
+PASS in both runs the check rounds planted the 4 component seeds (4 / 4)
+PASS an unknown version is refused
+PASS a zone count that does not fit is refused
+PASS unconquered zone: first seeds at tick 17, stable zone (x1.25): tick 14 ([17, 14])
+PASS a zone that turns stable after tick 5 speeds up from tick 6: first seeds at tick 15
+PASS carrot boost 2.0 alone (unconquered zone): 12000 per tick -> tick 9 (9)
+PASS carrot boost 2.0 and stable x1.25 multiply: 15000 per tick -> tick 7
+PASS stable_spread_multiplier 1.0: no change (tick 17)
+PERF stress: frames=1320 mean=0.43 ms p99=2.81 ms worst frame=3.41 ms (growth 2.07, spread 0.87, far 0.83); active set now 1948, plants 21612
+PASS worst frame of the logic (growth + spread + far) 3.41 ms < 16 ms
+PASS the far seeding alone costs at most 0.83 ms in a frame
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS the real scene has the far seeding in its simulation driver
+PASS scene: the start zone is flagged as started-stable
+PASS scene: 600 s, no sweep seed (0), component seeds so far 1
+PASS the plant counters follow
+INFO {"fairness":{"bound_steps":179,"free_tiles":3986,"used_steps":160},"islands_only_200s_seeds":4,"map_a_full":{"a_plus_spread_s":2443.0,"bound_s":1183.0,"done_at_s":984.0},"map_a_initial_zone":{"bound_s":7660.0,"done_at_s":2443.0,"max_hops":118},"map_a_sweep_only":{"bound_s":1183.0,"done_at_s":1025.0,"free_targets":6493,"targets":6518},"region_bound_default_s":17065.5,"region_bound_k128_s":8785.5,"region_bound_k256_s":4645.5,"region_bound_k512_s":2575.5,"region_bound_k64_s":17065.5,"stress_frame_ms":{"mean":0.432055303030303,"p99":2.806,"worst":3.411,"worst_far":0.83,"worst_growth":2.071,"worst_spread":0.866},"two_zones":{"bound_s":452.5,"done_at_s":795.0,"stable_at_s":420.0}}
+P2_05_RESULT checks=122 failures=0

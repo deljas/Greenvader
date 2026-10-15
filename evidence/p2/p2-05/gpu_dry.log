@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+GPU_INFO t=1500 far: components=15 finished=15 island_seeds=11 sweep_seeds=76800 cursor=88140 greened=96031/244759
+PASS found an island-like component (64 tiles)
+GPU_INFO renderer=forward_plus screens=0 window_screen=-1 window_pos=(0, 0) window_size=(640, 360)
+P2_05_GPU_RESULT failures=0

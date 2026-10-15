@@ -116,6 +116,8 @@ func _init(sim_overrides: Dictionary = {}, play_overrides: Dictionary = {}) -> v
 	region_def = load(REGION_PATH) as RegionDef
 	sim_tuning = (load("res://data/sim_tuning.tres") as SimTuning).duplicate() as SimTuning
 	play_tuning = (load("res://data/play_tuning.tres") as PlayTuning).duplicate() as PlayTuning
+	# P2-05: the P1 tempo bots measure the P1 mechanism; the stable-zone spread bonus (start zone) is pinned off here.
+	sim_tuning.stable_spread_multiplier = 1.0
 	for key: String in sim_overrides:
 		sim_tuning.set(key, sim_overrides[key])
 	for key: String in play_overrides:

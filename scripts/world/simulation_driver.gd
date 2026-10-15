@@ -10,6 +10,8 @@ var tuning: SimTuning
 var growth: GrowthSim
 ## Natural spread (P1-04): connected to the clock's spread tick in setup().
 var spread: SpreadSim
+## Far seed spreading (P2-05): stable zones reach 100 % without input. Runs on the spread tick, after SpreadSim.
+var far: FarSeedSim
 
 func setup(world_state: WorldState, sim_tuning: SimTuning) -> void:
 	world = world_state
@@ -17,6 +19,7 @@ func setup(world_state: WorldState, sim_tuning: SimTuning) -> void:
 	clock.configure(sim_tuning)
 	growth = GrowthSim.new(world_state, sim_tuning)
 	spread = SpreadSim.new(world_state, sim_tuning)
+	far = FarSeedSim.new(world_state, sim_tuning)
 	clock.growth_ticked.connect(_on_growth_ticked)
 	clock.spread_ticked.connect(_on_spread_ticked)
 
@@ -25,6 +28,7 @@ func _on_growth_ticked(_tick_index: int) -> void:
 
 func _on_spread_ticked(_tick_index: int) -> void:
 	spread.tick()
+	far.tick()
 
 func _physics_process(delta: float) -> void:
 	clock.advance(delta)

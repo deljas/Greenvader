@@ -1,0 +1,224 @@
+[
+  {
+    "condition": "initial-stable zone reaches exactly 100 (int equal) within initial_zone_bound",
+    "id": "G1-default-initial",
+    "observed": {
+      "bound": 3624.0,
+      "greened": 1136,
+      "hops": 68,
+      "t": 1357.0,
+      "target": 1136
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "cleared-then-stable zone reaches exactly 100 within stable_time + completion_bound",
+    "id": "G2-default-cleared",
+    "observed": {
+      "greened": 962,
+      "limit": 257.0,
+      "t": 230.0,
+      "target": 962
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "counters equal recount",
+    "id": "G3-default-counters",
+    "observed": {
+      "greened": 2098,
+      "target": 2098
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "sweep alone (no spread, no island seeding) reaches 100 within bound",
+    "id": "G4-default-sweep-only",
+    "observed": {
+      "bound": 312.0,
+      "t": 290.0
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "world stable from the start reaches exactly 100 within initial bound; sweep planted nothing",
+    "id": "G5-default-all-initial",
+    "observed": {
+      "bound": 3762.0,
+      "sweep_planted": 0,
+      "t": 1416.0
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "initial-stable zone reaches exactly 100 (int equal) within initial_zone_bound",
+    "id": "G1-slowsweep_K8_S128-initial",
+    "observed": {
+      "bound": 3624.0,
+      "greened": 1136,
+      "hops": 68,
+      "t": 1357.0,
+      "target": 1136
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "cleared-then-stable zone reaches exactly 100 within stable_time + completion_bound",
+    "id": "G2-slowsweep_K8_S128-cleared",
+    "observed": {
+      "greened": 962,
+      "limit": 877.0,
+      "t": 720.0,
+      "target": 962
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "counters equal recount",
+    "id": "G3-slowsweep_K8_S128-counters",
+    "observed": {
+      "greened": 2098,
+      "target": 2098
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "sweep alone (no spread, no island seeding) reaches 100 within bound",
+    "id": "G4-slowsweep_K8_S128-sweep-only",
+    "observed": {
+      "bound": 1557.0,
+      "t": 1440.0
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "world stable from the start reaches exactly 100 within initial bound; sweep planted nothing",
+    "id": "G5-slowsweep_K8_S128-all-initial",
+    "observed": {
+      "bound": 3762.0,
+      "sweep_planted": 0,
+      "t": 1416.0
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "swept zone: no seed 119 s after turning stable, seeds at 121 s",
+    "id": "D1-delay",
+    "observed": {
+      "at119": 0,
+      "at121": 64
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "initial-stable zone gets no sweep seed (island seeding and spread off)",
+    "id": "D2-initial-not-swept",
+    "observed": {
+      "zone0_plants": 0
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "clearing zone gets nothing",
+    "id": "D3-untouched",
+    "observed": {
+      "zone2_plants": 0
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "unconquered and clearing zones get no far seeds",
+    "id": "D4-unstable-untouched",
+    "observed": {
+      "island": 0,
+      "sweep": 0
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "every independent component has exactly one plant (planted island gets none extra)",
+    "id": "I1-one-seed-per-empty-component",
+    "observed": {
+      "bad": [],
+      "components": 5
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "island seeds have natural=1 and sit on plantable targets",
+    "id": "I2-natural",
+    "observed": {
+      "natural_ok": true,
+      "placed_ok": true
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "seeds grow to sprout1 or more",
+    "id": "I3-grow",
+    "observed": {
+      "components": 5,
+      "greened": 5
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "unstable 17, stable/complete at 1.25 -> 14, stable at 1.0 -> 17, clearing 17 (ceil(100000/6000)=17, ceil(100000/7500)=14)",
+    "id": "M1-multiplier",
+    "observed": {
+      "clearing": 17,
+      "complete": 14,
+      "stable": 14,
+      "stable_mult1": 17,
+      "unconquered": 17
+    },
+    "result": "PASS"
+  },
+  {
+    "condition": "30/60/144 Hz identical",
+    "id": "T1-hz",
+    "observed": [
+      3323062076,
+      3323062076,
+      3323062076
+    ],
+    "result": "PASS"
+  },
+  {
+    "condition": "clock paused: nothing changes (clock level; Esc injection not exercised here)",
+    "id": "T2-pause",
+    "observed": {},
+    "result": "PASS"
+  },
+  {
+    "condition": "save/restore (JSON) then same time later is identical",
+    "id": "T3-save",
+    "observed": [
+      [
+        3.3,
+        true,
+        true,
+        true
+      ],
+      [
+        31.7,
+        true,
+        true,
+        true
+      ],
+      [
+        137.3,
+        true,
+        true,
+        true
+      ],
+      [
+        500.1,
+        true,
+        true,
+        true
+      ]
+    ],
+    "result": "PASS"
+  }
+]
