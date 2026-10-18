@@ -227,7 +227,9 @@ func step_along(field: PackedInt32Array, goal: Vector2i) -> int:
 	if ground.length() < 0.2:
 		frame()
 		return here
-	frame(Coords.ground_dir_to_screen(ground.normalized()))
+	# Do not overshoot the next cell centre (a one-cell-wide turn would otherwise be stepped over and the bot oscillates).
+	var reach: float = clampf(ground.length() / (Config.walk_speed_px() * DT), 0.15, 1.0)
+	frame(Coords.ground_dir_to_screen(ground.normalized()) * reach)
 	return here
 
 ## Walks to `goal` (fights boars on the way). True when within `arrive_px`.
@@ -262,15 +264,42 @@ func nearest_source_cell() -> Vector2i:
 			best = c
 	return best
 
-## Round trip to a seed source and wait (standing) until `target_seeds` is reached. Returns the waiting seconds.
+## Nearest seed fruit lying on the ground within `max_path` cells (path distance), skipping `skip` cells. (-1, -1) when none.
+func nearest_fruit(max_path: int, skip: Array[Vector2i]) -> Vector2i:
+	var field: PackedInt32Array = field_from(cell_now())
+	var best: Vector2i = Vector2i(-1, -1)
+	var best_d: int = 1 << 30
+	for item: Dictionary in s.play.pickups.items:
+		if String(item["kind"]) != GroundPickupsScript.KIND_SEED_FRUIT:
+			continue
+		var c: Vector2i = Coords.logic_to_cell(Vector2(float(item["x"]), float(item["y"])))
+		if not is_clear_cell(c) or skip.has(c):
+			continue
+		var d: int = field[c.y * width + c.x]
+		if d >= 0 and d <= max_path and d < best_d:
+			best_d = d
+			best = c
+	return best
+
+## Round trip to a seed source, then until `target_seeds` is reached: pick up the seed fruits lying around (normal walking, the
+## same pickups a player collects) and otherwise wait at the source. Returns the seconds spent after arriving.
 func restock(target_seeds: int, timeout: float = 240.0) -> float:
 	var source: Vector2i = nearest_source_cell()
 	var t_start: float = s.clock.elapsed
 	events.append("t=%.1f restock: go to source %s with seeds=%d (target %d)" % [t_start, source, s.play.seeds, target_seeds])
 	go(source, 200.0, 2.0)
 	var t_arrive: float = s.clock.elapsed
+	var skip: Array[Vector2i] = []
 	while not stopped and s.play.seeds < target_seeds and s.clock.elapsed - t_arrive < timeout:
-		idle(1.0)
+		var fruit: Vector2i = nearest_fruit(60, skip)
+		if fruit.x >= 0:
+			if not go(fruit, 25.0, 3.0):
+				skip.append(fruit)
+			idle(0.3)
+		else:
+			if s.position.distance_to(cpx(source)) > 6.0:
+				go(source, 40.0, 2.0)
+			idle(1.0)
 	events.append("t=%.1f restock done: seeds=%d (wait %.1f s)" % [s.clock.elapsed, s.play.seeds, s.clock.elapsed - t_arrive])
 	return s.clock.elapsed - t_arrive
 

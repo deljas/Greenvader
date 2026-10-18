@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS load_town 
+INFO mode=tempo far_K=160 delay=60 period=5.0 bound=389.0 swept=8979
+PASS stable t=0.0
+INFO progress 100:2185,200:5983,300:9463
+PASS exact_100_within_bound after stable 300.0 s of bound 389.0 s (77.1%), greened 9463/9463
+INFO stable_at=0.0 done_after=300.0 bound=389.0
+RESULT passes=3 failures=0

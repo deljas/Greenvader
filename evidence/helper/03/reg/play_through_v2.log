@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS A0.new_game_defaults seeds=20 water=100 hp=10 zones=[3, 0] targets=9463 greened=484
+PASS A1.sow_and_water landing spots=8 seeds shot=8 (20->12) planted tiles=47 water shots=8 (100->20) moist tiles=47/47
+PASS A2.germinate_and_mature sprout at +104.6 s, first mature at +104.6 s after sowing; stage counts [empty,seed,s1,s2,mature]=[0, 0, 0, 0, 47]; greened=1706
+PASS A3.seed_recovery_from_source_and_plants pickups collected: { "source": 5, "plant": 7, "enemy": 0 } (plant fruit collected in the wait window=7, producer total produced=64), seeds now=40
+PASS A4.three_nests_destroyed nest log=[{ "nest": 3, "tile": [88, 38], "result": "dead", "t_start": 213.9, "t_end": 222.8, "seeds_start": 40, "seeds_end": 24, "hp_start": 10 }, { "nest": 1, "tile": [14, 93], "result": "dead", "t_start": 533.8, "t_end": 543.6, "seeds_start": 38, "seeds_end": 26, "hp_start": 10 }, { "nest": 2, "tile": [14, 36], "result": "fail", "t_start": 586.2, "t_end": 946.2, "seeds_start": 38, "seeds_end": 0, "hp_start": 10 }, { "nest": 2, "tile": [14, 36], "result": "dead", "t_start": 1157.7, "t_end": 1170.4, "seeds_start": 30, "seeds_end": 20, "hp_start": 10 }]; downs=0
+PASS A5.remaining_enemies_removed_then_stable boars at clearing=3, hunted=3, spawned total=23 (at clearing 23)
+PASS A5b.zone_notices_in_order ["廃街区の巣をすべて壊した", "廃街区が安定した"]
+PASS A5c.finite_resources_observed min seeds=0 min water=20 min hp=8 seed shots=107 restock events=12 downs=0 hits taken=1
+INFO stable at 1175.7 s, bound 389.0 s (start-time bound 389.0), limit 1564.7, greened 4603/9463
+PASS A6.no_reinvasion_after_stable invaded steps=0 spawned=23 boars=0
+PASS A7.exact_100_percent_within_bound_with_island greened 9463/9463, 100% at game time 1368.2 s = 192.5 s after stable; bound 389.0 s (49% used); island ok=true
+PASS A8.no_input_after_stable position kept, shots launched 115->115, hits 1->1, seeds 12->13 (gain by pickups only), water 100->100
+PASS A9.zone_complete_and_notice zone_state=[3, 3] cleared=true notices=1 log=["廃街区の巣をすべて壊した", "廃街区が安定した", "廃街区の緑化が完了した", "すべての地域を緑化した"]
+PASS A10.save_load_while_far_seed_running hook={ "t": 1176.20000000003, "job_zone": 1, "round_active": false, "job_open": true, "far_ticks": 1176, "sweep_cursor": 0, "equal_at_save": true, "copy_job_zone": 1, "copy_round_active": false }; diff sections: [play{pickups}] after +30 s idle: orig elapsed=1206.20 copy elapsed=1206.20 greened 4741/4741 far job_zone=-1 round_active=false; whole-state equal after +30 s (float tol 1e-6) = true 
+PASS A11.stays_complete_120s_more greened 9463, invaded steps 0, game time 1488.2 s (hour 19.53)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS A12.completion_display badge=[内部緑化率 100％（9463/9463）　★緑化完了 / 開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】] summary=[開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】]
+RESULT passes=15 failures=0

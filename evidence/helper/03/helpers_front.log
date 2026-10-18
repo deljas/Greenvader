@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS F0.safe_patch_is_the_start_of_natural_spread greened 484 -> 1059 in 120 s
+RUN A done: {"army_kills":4,"boars_alive":8,"boars_killed_total":4,"boars_spawned":12,"cultivated_mature":6,"cultivated_plants":6,"downs":1,"frames":6017,"front_m":14.0,"gat_seeded":43,"gat_shots":43,"gat_wasted":0,"greened_total":2667,"helper_collected":8,"helper_dropped":15,"helper_seeds_left":1,"helpers_alive":1,"helpers_lost":2,"pct":28,"player_hits":6,"seed_shots_player":613,"spr_pulses":31,"t":601.7,"walked_m":1459.7,"water_shots":22,"zone1_gain":2183,"zone1_greened_end":2183,"zone1_greened_start":0}
+RUN B done: {"army_kills":9,"boars_alive":8,"boars_killed_total":9,"boars_spawned":17,"cultivated_mature":6,"cultivated_plants":6,"downs":0,"frames":6000,"front_m":12.6,"gat_seeded":0,"gat_shots":0,"gat_wasted":0,"greened_total":2739,"helper_collected":6,"helper_dropped":15,"helper_seeds_left":1,"helpers_alive":2,"helpers_lost":0,"pct":28,"player_hits":0,"seed_shots_player":10,"spr_pulses":8,"t":600.0,"walked_m":2467.2,"water_shots":4,"zone1_gain":2255,"zone1_greened_end":2255,"zone1_greened_start":0}
+PASS F1.bot_placed_all_three_with_normal_input placements [{ "kind": "gatlinger", "t": 143.6, "origin": [63, 72] }, { "kind": "sprinkler", "t": 219.4, "origin": [62, 67] }, { "kind": "army", "t": 342.5, "origin": [62, 55] }]; helper seeds dropped=15 collected=8
+PASS F2.gatlinger_sowed_for_the_player shots=43 seeded=43 wasted=0 relocations=1
+PASS F3.front_moved_in_both_runs zone-1 greened gain with=2183 without=2255, front 14.0 m vs 12.6 m
+INFO front speed ratio (zone-1 greened gain, with/without gatlinger) = 0.97
+PASS T0.three_spots_found { "water": [41, 43], "narrow": [49, 67, 152], "wide": [69, 80, 289] }
+PASS T1.sprinkler_placed_by_water origin (41, 43)
+PASS T2.sprinkler_by_water_works_without_refill seeds=12 pulses=19 in 60 s, stock 30 -> 30, wet growing cells=15
+PASS T3.army_in_narrow_road_kills_boar openness 152/289, killed after 1.9 s, back at post 0.00 px
+PASS T4.gatlinger_on_wide_wasteland_sows free greenable cells in range 354, shots=46 seeded=46 wasted=0 in 60 s
+PASS T5.narrow_road_has_fewer_gatlinger_targets_than_wide in-range free greenable cells: narrow 301 vs wide 354
+PASS R1a.state_has_placed_carried_and_flight placed=2 carried=true flights in the air=1
+PASS R1b.save_load_ok 
+PASS R1c.restored_state_identical diff=[] carried=true flights=1 plants=2
+PASS R1d.runs_on_identically_30s diff=[] greened 900 vs 900, seeded 39 vs 39
+PASS R1e.carried_plant_can_be_placed_after_load { "ok": true, "code": "", "reason": "", "uid": 3 }
+PASS R2a.three_kinds_placed 3
+PASS R2b.exact_100_within_bound_with_helpers_working stable at 0.0 s, 100% after 295.0 s of bound 389.0 s, greened 9463/9463, shots=113 seeded=110 pulses=3
+PASS R2c.no_reinvasion_and_helpers_stand invaded steps=0 spawned=0 plants=3
+PASS R3.pause_freezes_helpers_and_resumes frozen=true place while paused=paused
+RESULT passes=19 failures=0

@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS fixture.zones states=[3, 0]
+PASS fixture.nests nests=3
+PASS fixture.target_set_excludes_building_water_sealed targets=1170 expect=1170 excluded=750 sealed=230
+PASS fixture.island_isolated_target target=true unreachable=true isolated=true
+PASS fixture.nest_shoot_spots_reachable reachable cells=733
+PASS fixture.island_shootable 
+PASS fixture.fixed_seed 
+PASS wiring.hooks 
+PASS pause.nothing_advances elapsed=0.000000 etime=0.000000
+PASS pause.resume_runs_without_banked_time etime=20.000000 spawned=6
+PASS spawn.capped max_boars=8 cap=8 per_nest_max=3 spawned=8
+PASS walls.boars_never_leave_walkable_cells violations=0 over 1600 steps (400 s), boars alive=8, gnawed=1166
+PASS zones.boars_stay_out_of_start_zone violations=0
+PASS spread.never_enters_nest_tiles planted on nest tiles=0
+PASS counters.consistent_after_run 
+PASS player.untouched_in_safe_patch_centre hp=10
+PASS hit.seed_damages_boar hp=2 hits=1
+PASS hit.boar_defeated killed=1 landed_extra=0
+PASS reward.fruits_dropped dropped=2 direct=0 pickups=2
+PASS reward.seeds_collected seeds=2 (was 39 before zeroing)
+PASS carcass.created_at_kill 
+PASS hit.seed_damages_nest hp=9
+PASS hit.nest_destroyed_and_reward alive=2
+PASS carcass.corpse_adds_fertility 0 -> 40
+PASS carcass.becomes_bone fert=20
+PASS carcass.vanishes_fertility_returns fert=0 base=0
+PASS order.wall_hides_enemy_behind_it blocked=3 hits=0 hp=3
+PASS order.enemy_in_front_of_wall_is_hit_first front hp=2 behind hp=3
+PASS order.enemy_before_ground hp=2 landed=0
+PASS order.water_passes_through_enemy hp=2 landed=1
+PASS contact.damages_player hp=8
+PASS contact.downed_then_returns_to_safe_zone pos=(98.0, 98.0) hp=10
+PASS revive.does_not_roll_back_state greened 30 -> 30 zones=[3, 0]
+PASS downed.hit_possible_again_after_invulnerability 
+PASS downed.blocks_walk_and_fire 
+PASS determinism.fixed_seed_same_enemy_state spawned=8 len=3064
+INFO bound=127.0
+INFO nest 1: from (24, 24) walked to (24, 14) ([true, 10]) shots=12
+INFO nest 2: from (24, 14) walked to (31, 23) ([true, 16]) shots=13
+INFO nest 3: from (31, 23) walked to (21, 22) ([true, 11]) shots=13
+PASS clear.walked_and_shot_all_nests walk steps=37
+PASS clear.zone_is_clearing_not_stable boars left=6 log=["イノシシの原の巣をすべて壊した"]
+PASS clear.spawning_stopped spawned 8 -> 8, boars=6
+PASS clear.remaining_enemies_removed killed 6 by shots, spawned total 8, killed total 8
+PASS stable.reached_in_order log=["イノシシの原の巣をすべて壊した", "イノシシの原が安定した"]
+PASS stable.notice_text last=イノシシの原が安定した t_stable=93.50
+PASS stable.no_reinvasion invaded steps=0, intruder nest placed=true, spawned=8
+PASS complete.exact_100_percent_within_bound greened=1170/1170 took 99.5 s after stable, bound 127.0 s (limit time 220.5)
+PASS complete.island_included_and_non_targets_untouched island ok=true
+PASS complete.no_resources_or_input_used seeds 40->40
+PASS complete.zone_and_region_state state=[3, 3] cleared=true log=["イノシシの原の巣をすべて壊した", "イノシシの原が安定した", "イノシシの原の緑化が完了した", "すべての地域を緑化した"]
+PASS revive.after_complete_keeps_progress state=[3, 3] greened=1170
+REPORT hit order: wall (clear_end) -> enemy on the clear part of the segment -> ground landing; an enemy in front of a wall is hit, one behind is not; a hit shot is consumed (no landing); water passes through enemies
+REPORT 100% bound = completion_bound_seconds() = 127.0 s (swept targets 1140, lap_steps_bound 10, sweep period 5 ticks of 1.0 s, sweep delay 60 s, growth wait derived from sprout1_growth/slowest rate)
+REPORT 100% result: stable at 93.5 s, 100% at 193.0 s (took 99.5 s of the 127.0 s bound), greened 1170/1170, green at stable 34
+RESULT passes=48 failures=0

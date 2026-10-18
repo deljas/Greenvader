@@ -11,7 +11,7 @@ const Session: GDScript = preload("res://scripts/poc/poc_session.gd")
 const PocSave: GDScript = preload("res://scripts/poc/save/poc_save.gd")
 const Cmp: GDScript = preload("res://tests/poc/integration/cmp.gd")
 const Bot: GDScript = preload("res://tests/poc/integration/bot.gd")
-const OUT: String = "res://evidence/poc/09/"
+const OUT: String = "res://evidence/helper/03/"
 const SAVE_DIR: String = "user://poc_saves_integration/"
 const STAND: Vector2i = Vector2i(78, 84)
 

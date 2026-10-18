@@ -11,7 +11,7 @@ const PocSave: GDScript = preload("res://scripts/poc/save/poc_save.gd")
 const Day: GDScript = preload("res://scripts/poc/environment/poc_day.gd")
 const Cmp: GDScript = preload("res://tests/poc/integration/cmp.gd")
 const Bot: GDScript = preload("res://tests/poc/integration/bot.gd")
-const OUT: String = "res://evidence/poc/09/"
+const OUT: String = "res://evidence/helper/03/"
 const SAVE_DIR: String = "user://poc_saves_integration/"
 const STAND: Vector2i = Vector2i(78, 84)
 const WATER_BANK: Vector2i = Vector2i(44, 55)
@@ -188,13 +188,20 @@ func _b2_downed() -> void:
 		if s.enemies.boars.is_empty():
 			bot.idle(1.0)
 			continue
-		var target: Boar = s.enemies.boars[0]
-		var best_d: float = 1.0e12
+		# Nearest boar by WALKING distance (a boar behind a wall cannot be reached; walking into the wall never makes contact).
+		var from_player: PackedInt32Array = bot.field_from(bot.cell_now())
+		var target: Boar = null
+		var best_d: int = 1 << 30
 		for boar: Boar in s.enemies.boars:
-			var d: float = boar.pos.distance_to(s.position)
-			if d < best_d:
+			var bc: Vector2i = Coords.logic_to_cell(boar.pos)
+			var near_c: Vector2i = bc if bot.is_clear_cell(bc) else bot.nearest_clear(bc)
+			var d: int = from_player[near_c.y * st.width + near_c.x]
+			if d >= 0 and d < best_d:
 				best_d = d
 				target = boar
+		if target == null:
+			bot.idle(1.0)
+			continue
 		var goal: Vector2i = Coords.logic_to_cell(target.pos)
 		if field_age >= 5:
 			field = bot.field_from(goal)
@@ -208,6 +215,19 @@ func _b2_downed() -> void:
 	var fire_while_down: Dictionary = s.fire(false, s.position + Vector2(20, 0))
 	var greened_down: int = st.greened_count
 	check("B2.contact_damage_downs_the_player", arrived and was_downed and hp_down == 0 and move_while_down == Vector2.ZERO and String(fire_while_down["reason"]) == "downed", "arrived=%s downed=%s hp=%d hits=%d walk=%s fire=%s at cell %s zone %d" % [arrived, was_downed, hp_down, s.play.health.hit_count, move_while_down, fire_while_down["reason"], Coords.logic_to_cell(pos_down), s.player_zone()])
+	# The fruit production draws its plant around the PLAYER position. The loaded copy is already back at the start while the original
+	# still lies at the nest, so a production tick inside the remaining lying time would legitimately differ. Let such a tick pass
+	# (still lying: <= downed_seconds) before saving, so that the lockstep comparison below is about the loading, not about that tick.
+	var tick_guard: int = 0
+	while s.play.health.downed and tick_guard < 80:
+		tick_guard += 1
+		var to_tick: float = float(s.play.production_ticks + 1) * s.play_tuning.plant_production_interval_seconds - s.play.production_time
+		var lying_left: float = float(s.play.health.downed_steps) / float(maxi(s.play_tuning.health_step_hz, 1))
+		if to_tick > lying_left + 0.05 or lying_left < 0.2:
+			break
+		s.advance_game(0.05)
+	var still_down: bool = s.play.health.downed
+	greened_down = st.greened_count
 	# Save while downed -> new session (state restored as 'already returned', see PlayerHealth.load_dict).
 	clean_dir()
 	var saved: Dictionary = PocSave.save(s, SAVE_DIR, {"resolution_index": 0})
@@ -217,7 +237,7 @@ func _b2_downed() -> void:
 	var copy_info: String = "saved=%s loaded=%s" % [saved["ok"], loaded["ok"]]
 	if copy != null:
 		copy_info += " copy: downed=%s hp=%d/%d zone=%d position=%s world_equal=%s" % [copy.play.health.downed, copy.play.hp, copy.play.hp_max, copy.player_zone(), Coords.logic_to_cell(copy.position), world_hash(copy) == world_hash(s)]
-	check("B4d.downed_save_loads_as_returned_with_world_intact", copy_ok and world_hash(copy) == world_hash(s) and copy.state.greened_count == greened_down and copy.enemies.alive_nest_count(-1) == nests_before, copy_info)
+	check("B4d.downed_save_loads_as_returned_with_world_intact", still_down and copy_ok and world_hash(copy) == world_hash(s) and copy.state.greened_count == greened_down and copy.enemies.alive_nest_count(-1) == nests_before, copy_info)
 	# The original now lies down for 1.5 s and returns; advance both in lockstep and compare.
 	bot.stop_when = Callable()
 	for i: int in 120:

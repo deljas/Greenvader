@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS A0.new_game_defaults seeds=20 water=100 hp=10 zones=[3, 0] targets=9463 greened=484
+PASS A1.sow_and_water landing spots=8 seeds shot=8 (20->12) planted tiles=47 water shots=8 (100->20) moist tiles=47/47
+PASS A2.germinate_and_mature sprout at +104.6 s, first mature at +104.6 s after sowing; stage counts [empty,seed,s1,s2,mature]=[0, 0, 0, 0, 47]; greened=1706
+PASS A3.seed_recovery_from_source_and_plants pickups collected: { "source": 5, "plant": 7, "enemy": 0 } (plant fruit collected in the wait window=7, producer total produced=64), seeds now=40
+PASS A4.three_nests_destroyed nest log=[{ "nest": 3, "tile": [88, 38], "result": "dead", "t_start": 213.9, "t_end": 222.8, "seeds_start": 40, "seeds_end": 24, "hp_start": 10 }, { "nest": 2, "tile": [14, 36], "result": "dead", "t_start": 623.0, "t_end": 635.2, "seeds_start": 24, "seeds_end": 9, "hp_start": 10 }, { "nest": 1, "tile": [14, 93], "result": "dead", "t_start": 1035.4, "t_end": 1046.0, "seeds_start": 11, "seeds_end": 2, "hp_start": 10 }]; downs=0
+FAIL A5.remaining_enemies_removed_then_stable boars at clearing=4, hunted=1, spawned total=8 (at clearing 8)
+FAIL A5b.zone_notices_in_order ["廃街区の巣をすべて壊した"]
+PASS A5c.finite_resources_observed min seeds=2 min water=20 min hp=10 seed shots=53 restock events=11 downs=0 hits taken=0
+INFO stable at -1.0 s, bound 389.0 s (start-time bound 389.0), limit 388.0, greened 5414/9463
+FAIL A6.no_reinvasion_after_stable invaded steps=0 spawned=8 boars=3
+FAIL A7.exact_100_percent_within_bound_with_island greened 5414/9463, 100% at game time 1667.2 s = 1668.2 s after stable; bound 389.0 s (429% used); island ok=false
+PASS A8.no_input_after_stable position kept, shots launched 61->61, hits 0->0, seeds 29->29 (gain by pickups only), water 100->100
+FAIL A9.zone_complete_and_notice zone_state=[3, 1] cleared=false notices=0 log=["廃街区の巣をすべて壊した"]
+FAIL A10.save_load_while_far_seed_running FarSeed never reported job_zone>=0 or round_active before 100%: {  }
+FAIL A11.stays_complete_120s_more greened 5748, invaded steps 480, game time 1787.2 s (hour 7.49)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+FAIL A12.completion_display badge=[内部緑化率 60％（5748/9463） / 開始安全地帯:緑化完了　廃街区:掃討中] summary=[開始安全地帯:緑化完了　廃街区:掃討中]
+RESULT passes=7 failures=8

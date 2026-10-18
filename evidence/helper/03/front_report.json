@@ -1,0 +1,508 @@
+{
+  "natural_120s": {
+    "start": 484,
+    "end": 1059
+  },
+  "with_gatlinger": {
+    "use_gat": true,
+    "sow_rounds": 22,
+    "cultivated": 6,
+    "cultivated_failed": 0,
+    "seeds_sown_by_hand": 130,
+    "restock_trips": 1,
+    "restock_wait_s": 30.600000000000435,
+    "helper_pickup_trips": 6,
+    "spr_refill_trips": 0,
+    "spr_refill_seconds": 0.0,
+    "relocations": 2,
+    "placed": [
+      {
+        "kind": "gatlinger",
+        "t": 109.5,
+        "origin": [
+          64,
+          75
+        ]
+      },
+      {
+        "kind": "sprinkler",
+        "t": 145.70000000000002,
+        "origin": [
+          64,
+          71
+        ]
+      },
+      {
+        "kind": "army",
+        "t": 187.60000000000002,
+        "origin": [
+          61,
+          67
+        ]
+      }
+    ],
+    "events": [
+      "t=8.1 cultivated にんじん (1)",
+      "t=10.7 cultivated キウイ (2)",
+      "t=13.0 cultivated にんじん (3)",
+      "t=15.3 cultivated キウイ (4)",
+      "t=17.9 cultivated にんじん (5)",
+      "t=53.8 cultivated キウイ (6)",
+      "t=103.7 helper seed pickup (77, 75): 0 -> 1",
+      "t=106.3 helper seed pickup (85, 90): 1 -> 2",
+      "t=109.5 place gatlinger at (64, 75) -> true ",
+      "t=113.0 helper seed pickup (80, 95): 0 -> 1",
+      "t=143.2 helper seed pickup (78, 86): 1 -> 3",
+      "t=145.7 place sprinkler at (64, 71) -> true ",
+      "t=164.1 helper seed pickup (80, 76): 1 -> 2",
+      "t=185.2 helper seed pickup (80, 76): 2 -> 3",
+      "t=187.6 place army at (61, 67) -> true ",
+      "t=214.1 gatlinger moved to (61, 62) (ok)",
+      "t=318.3 gatlinger moved to (55, 65) (ok)"
+    ],
+    "samples": [
+      {
+        "t": 0.0,
+        "zone1_greened": 0,
+        "front_m": 0.0,
+        "helper_seeds": 0,
+        "seeds": 20,
+        "hp": 10,
+        "boars": 0,
+        "helpers": 0,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 62.6,
+        "zone1_greened": 429,
+        "front_m": 4.800000000000001,
+        "helper_seeds": 0,
+        "seeds": 12,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 0,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 122.0,
+        "zone1_greened": 864,
+        "front_m": 5.300000000000001,
+        "helper_seeds": 1,
+        "seeds": 28,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 1,
+        "kills": 0,
+        "seeded": 7
+      },
+      {
+        "t": 181.5,
+        "zone1_greened": 1299,
+        "front_m": 8.3,
+        "helper_seeds": 2,
+        "seeds": 34,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 13
+      },
+      {
+        "t": 241.10000000000002,
+        "zone1_greened": 1681,
+        "front_m": 12.200000000000001,
+        "helper_seeds": 0,
+        "seeds": 37,
+        "hp": 8,
+        "boars": 7,
+        "helpers": 3,
+        "kills": 1,
+        "seeded": 64
+      },
+      {
+        "t": 301.7,
+        "zone1_greened": 1950,
+        "front_m": 12.8,
+        "helper_seeds": 0,
+        "seeds": 38,
+        "hp": 8,
+        "boars": 8,
+        "helpers": 3,
+        "kills": 3,
+        "seeded": 150
+      },
+      {
+        "t": 363.20000000000005,
+        "zone1_greened": 2147,
+        "front_m": 14.100000000000001,
+        "helper_seeds": 0,
+        "seeds": 40,
+        "hp": 8,
+        "boars": 7,
+        "helpers": 3,
+        "kills": 7,
+        "seeded": 236
+      },
+      {
+        "t": 421.40000000000003,
+        "zone1_greened": 2244,
+        "front_m": 14.5,
+        "helper_seeds": 0,
+        "seeds": 40,
+        "hp": 8,
+        "boars": 7,
+        "helpers": 2,
+        "kills": 10,
+        "seeded": 275
+      },
+      {
+        "t": 481.8,
+        "zone1_greened": 2341,
+        "front_m": 14.3,
+        "helper_seeds": 0,
+        "seeds": 40,
+        "hp": 8,
+        "boars": 7,
+        "helpers": 2,
+        "kills": 14,
+        "seeded": 275
+      },
+      {
+        "t": 541.5,
+        "zone1_greened": 2453,
+        "front_m": 15.3,
+        "helper_seeds": 0,
+        "seeds": 40,
+        "hp": 8,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 14,
+        "seeded": 275
+      }
+    ],
+    "end": {
+      "t": 600.0,
+      "zone1_greened_start": 0,
+      "zone1_greened_end": 2431,
+      "zone1_gain": 2431,
+      "front_m": 16.3,
+      "greened_total": 2915,
+      "pct": 30,
+      "cultivated_plants": 6,
+      "cultivated_mature": 6,
+      "helper_dropped": 17,
+      "helper_collected": 7,
+      "helper_seeds_left": 0,
+      "helpers_alive": 2,
+      "helpers_lost": 1,
+      "gat_seeded": 275,
+      "gat_wasted": 2,
+      "gat_shots": 277,
+      "spr_pulses": 17,
+      "army_kills": 14,
+      "boars_alive": 8,
+      "boars_spawned": 22,
+      "boars_killed_total": 14,
+      "player_hits": 1,
+      "downs": 0,
+      "seed_shots_player": 229,
+      "water_shots": 58,
+      "walked_m": 328.90000000000003,
+      "frames": 6000
+    },
+    "plants": [
+      {
+        "kind": "sprinkler",
+        "hp": 6,
+        "stock": 60.0,
+        "x": 64,
+        "y": 71
+      },
+      {
+        "kind": "army",
+        "hp": 12,
+        "stock": 0.0,
+        "x": 61,
+        "y": 67
+      }
+    ],
+    "bot_events": [
+      "t=17.9 restock: go to source (82, 80) with seeds=1 (target 14)",
+      "t=50.0 restock done: seeds=14 (wait 30.6 s)",
+      "GUARD: game-time limit 600 s hit"
+    ]
+  },
+  "without_gatlinger": {
+    "use_gat": false,
+    "sow_rounds": 22,
+    "cultivated": 6,
+    "cultivated_failed": 0,
+    "seeds_sown_by_hand": 130,
+    "restock_trips": 1,
+    "restock_wait_s": 30.600000000000435,
+    "helper_pickup_trips": 4,
+    "spr_refill_trips": 0,
+    "spr_refill_seconds": 0.0,
+    "relocations": 0,
+    "placed": [
+      {
+        "kind": "sprinkler",
+        "t": 109.5,
+        "origin": [
+          64,
+          75
+        ]
+      },
+      {
+        "kind": "army",
+        "t": 145.9,
+        "origin": [
+          63,
+          70
+        ]
+      }
+    ],
+    "events": [
+      "t=8.1 cultivated にんじん (1)",
+      "t=10.7 cultivated キウイ (2)",
+      "t=13.0 cultivated にんじん (3)",
+      "t=15.3 cultivated キウイ (4)",
+      "t=17.9 cultivated にんじん (5)",
+      "t=53.8 cultivated キウイ (6)",
+      "t=103.7 helper seed pickup (77, 75): 0 -> 1",
+      "t=106.3 helper seed pickup (85, 90): 1 -> 2",
+      "t=109.5 place sprinkler at (64, 75) -> true ",
+      "t=113.0 helper seed pickup (80, 95): 0 -> 1",
+      "t=143.2 helper seed pickup (78, 86): 1 -> 3",
+      "t=145.9 place army at (63, 70) -> true "
+    ],
+    "samples": [
+      {
+        "t": 0.0,
+        "zone1_greened": 0,
+        "front_m": 0.0,
+        "helper_seeds": 0,
+        "seeds": 20,
+        "hp": 10,
+        "boars": 0,
+        "helpers": 0,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 62.6,
+        "zone1_greened": 429,
+        "front_m": 4.800000000000001,
+        "helper_seeds": 0,
+        "seeds": 12,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 0,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 122.0,
+        "zone1_greened": 864,
+        "front_m": 5.300000000000001,
+        "helper_seeds": 1,
+        "seeds": 27,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 1,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 180.60000000000002,
+        "zone1_greened": 1258,
+        "front_m": 6.7,
+        "helper_seeds": 0,
+        "seeds": 32,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 240.9,
+        "zone1_greened": 1626,
+        "front_m": 8.200000000000001,
+        "helper_seeds": 0,
+        "seeds": 32,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 300.3,
+        "zone1_greened": 1841,
+        "front_m": 9.0,
+        "helper_seeds": 0,
+        "seeds": 33,
+        "hp": 10,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 361.90000000000003,
+        "zone1_greened": 2016,
+        "front_m": 9.700000000000001,
+        "helper_seeds": 0,
+        "seeds": 34,
+        "hp": 6,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 420.5,
+        "zone1_greened": 2141,
+        "front_m": 9.9,
+        "helper_seeds": 0,
+        "seeds": 36,
+        "hp": 4,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 480.1,
+        "zone1_greened": 2223,
+        "front_m": 10.8,
+        "helper_seeds": 0,
+        "seeds": 36,
+        "hp": 4,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 0
+      },
+      {
+        "t": 540.3000000000001,
+        "zone1_greened": 2246,
+        "front_m": 11.8,
+        "helper_seeds": 0,
+        "seeds": 36,
+        "hp": 4,
+        "boars": 8,
+        "helpers": 2,
+        "kills": 0,
+        "seeded": 0
+      }
+    ],
+    "end": {
+      "t": 600.0,
+      "zone1_greened_start": 0,
+      "zone1_greened_end": 2275,
+      "zone1_gain": 2275,
+      "front_m": 12.8,
+      "greened_total": 2759,
+      "pct": 29,
+      "cultivated_plants": 6,
+      "cultivated_mature": 6,
+      "helper_dropped": 17,
+      "helper_collected": 5,
+      "helper_seeds_left": 0,
+      "helpers_alive": 2,
+      "helpers_lost": 0,
+      "gat_seeded": 0,
+      "gat_wasted": 0,
+      "gat_shots": 0,
+      "spr_pulses": 15,
+      "army_kills": 0,
+      "boars_alive": 8,
+      "boars_spawned": 8,
+      "boars_killed_total": 0,
+      "player_hits": 3,
+      "downs": 0,
+      "seed_shots_player": 310,
+      "water_shots": 10,
+      "walked_m": 238.5,
+      "frames": 6000
+    },
+    "plants": [
+      {
+        "kind": "sprinkler",
+        "hp": 6,
+        "stock": 60.0,
+        "x": 64,
+        "y": 75
+      },
+      {
+        "kind": "army",
+        "hp": 12,
+        "stock": 0.0,
+        "x": 63,
+        "y": 70
+      }
+    ],
+    "bot_events": [
+      "t=17.9 restock: go to source (82, 80) with seeds=1 (target 14)",
+      "t=50.0 restock done: seeds=14 (wait 30.6 s)",
+      "GUARD: game-time limit 600 s hit"
+    ]
+  },
+  "front_speed_ratio_zone1_gain": 1.0685714285714285,
+  "spots": {
+    "water": [
+      41,
+      43
+    ],
+    "narrow": [
+      49,
+      67,
+      152
+    ],
+    "wide": [
+      69,
+      80,
+      289
+    ]
+  },
+  "terrain": {
+    "water_pulses_60s": 19,
+    "narrow_kill_s": 1.9000000000000001,
+    "wide_free_cells": 354,
+    "narrow_free_cells_same_radius": 301,
+    "wide_gat_seeded_60s": 46,
+    "wide_gat_shots": 46
+  },
+  "hundred": {
+    "t_stable": 0.0,
+    "after_stable_s": 295.0,
+    "bound_s": 389.0
+  },
+  "checks": [
+    "PASS F0.safe_patch_is_the_start_of_natural_spread greened 484 -> 1059 in 120 s",
+    "PASS F1.bot_placed_all_three_with_normal_input placements [{ \"kind\": \"gatlinger\", \"t\": 109.5, \"origin\": [64, 75] }, { \"kind\": \"sprinkler\", \"t\": 145.7, \"origin\": [64, 71] }, { \"kind\": \"army\", \"t\": 187.6, \"origin\": [61, 67] }]; helper seeds dropped=17 collected=7",
+    "PASS F2.gatlinger_sowed_for_the_player shots=277 seeded=275 wasted=2 relocations=2",
+    "PASS F3.front_moved_in_both_runs zone-1 greened gain with=2431 without=2275, front 16.3 m vs 12.8 m",
+    "PASS T0.three_spots_found { \"water\": [41, 43], \"narrow\": [49, 67, 152], \"wide\": [69, 80, 289] }",
+    "PASS T1.sprinkler_placed_by_water origin (41, 43)",
+    "PASS T2.sprinkler_by_water_works_without_refill seeds=12 pulses=19 in 60 s, stock 30 -> 30, wet growing cells=15",
+    "PASS T3.army_in_narrow_road_kills_boar openness 152/289, killed after 1.9 s, back at post 0.00 px",
+    "PASS T4.gatlinger_on_wide_wasteland_sows free greenable cells in range 354, shots=46 seeded=46 wasted=0 in 60 s",
+    "PASS T5.narrow_road_has_fewer_gatlinger_targets_than_wide in-range free greenable cells: narrow 301 vs wide 354",
+    "PASS R1a.state_has_placed_carried_and_flight placed=2 carried=true flights in the air=1",
+    "PASS R1b.save_load_ok ",
+    "PASS R1c.restored_state_identical diff=[] carried=true flights=1 plants=2",
+    "PASS R1d.runs_on_identically_30s diff=[] greened 900 vs 900, seeded 39 vs 39",
+    "PASS R1e.carried_plant_can_be_placed_after_load { \"ok\": true, \"code\": \"\", \"reason\": \"\", \"uid\": 3 }",
+    "PASS R2a.three_kinds_placed 3",
+    "PASS R2b.exact_100_within_bound_with_helpers_working stable at 0.0 s, 100% after 295.0 s of bound 389.0 s, greened 9463/9463, shots=113 seeded=110 pulses=3",
+    "PASS R2c.no_reinvasion_and_helpers_stand invaded steps=0 spawned=0 plants=3",
+    "PASS R3.pause_freezes_helpers_and_resumes frozen=true place while paused=paused"
+  ],
+  "passes": 19,
+  "failures": 0
+}

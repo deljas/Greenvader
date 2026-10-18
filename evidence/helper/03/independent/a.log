@@ -1,0 +1,11 @@
+PASS c1.initial_mature_exists initial mature cells=484 greened_count=484
+PASS c1.new_game_spreads_from_initial_edge t=180s new green cells=806 (touching other green=806) greened_count=1415
+PASS c1.save_load_ok 
+PASS c1.loaded_equal_at_save orig=1415 copy=1415
+PASS c1.loaded_keeps_spreading copy new cells after +240s=1017
+PASS c1.loaded_matches_original orig new=1017 copy new=1017 greened 2365 vs 2365
+PASS c1.fixture_fixture_02.json initial mature=30 new after 240s=270
+PASS c1.fixture_fixture_04.json initial mature=30 new after 240s=352
+PASS c2.knockback_never_enters_wall wall-contact knocks=579 violations=0 
+PASS c2.open_knockback_still_pushes open knocks=173 mean displacement=30.34 px (tuning knockback_px=12.0)
+RESULT passes=10 failures=0

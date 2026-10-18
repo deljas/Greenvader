@@ -185,11 +185,17 @@ func load_placement(map_path: String = PLACEMENT_MAP) -> bool:
 	base_terrain = open_base_terrain()
 	base_terrain = _apply_paving(base_terrain)
 	loaded.attach(state, base_terrain)
+	_resync_spread()
 	placement = loaded
 	position = Coords.cell_center_logic(loaded.player_start_cell)
 	_build_play("seed_sources_placement")
 	_build_wall_growth()
 	return true
+
+## attach() re-applies the terrain defs (initial stages) without tile notifications, so the SpreadSim built earlier
+## has not counted the initial mature patch. Rebuild it (one full sync) before _build_play binds its speed sink.
+func _resync_spread() -> void:
+	spread = SpreadSim.new(state, sim_tuning)
 
 ## Moves the player by `screen_dir` (x right, y down, <= 1) for `delta` seconds with wall collision.
 ## Returns the actual logical displacement. No movement while paused.
@@ -399,6 +405,7 @@ func load_combat(setup_path: String = COMBAT_SETUP) -> bool:
 	if not town:
 		base_terrain = _apply_paving(base_terrain)
 	loaded.attach(state, base_terrain)
+	_resync_spread()
 	placement = loaded
 	position = Coords.cell_center_logic(loaded.player_start_cell)
 	combat_setup = setup
@@ -470,7 +477,10 @@ func _build_enemies(setup: Dictionary) -> void:
 
 ## A contact hit pushes the player; the walking rules (walls, water) still apply.
 func _on_knocked(motion: Vector2) -> void:
-	position = Walker.move(state, Config.TILE_PX, position, motion, Config.player_half_px())
+	var moved: Vector2 = Walker.move(state, Config.TILE_PX, position, motion, Config.player_half_px())
+	# A body that already overlaps a wall (standing in a map corner) must not be shoved to a centre inside the wall.
+	if is_walkable_logic(moved) or not is_walkable_logic(position):
+		position = moved
 
 func _on_zone_state_changed(zone: int, _old_state: int, new_state: int) -> void:
 	if not zone_times.has(zone):
