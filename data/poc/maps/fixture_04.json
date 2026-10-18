@@ -1,0 +1,101 @@
+{
+ "version": 1,
+ "catalog": "res://data/poc/asset_catalog.json",
+ "note": "POC-04 combat fixture: POC-02 objects without the chapel (open ground for nests), start inside the safe patch. pos = [x, z] metres of the AABB centre, yaw_deg about +Y.",
+ "player_start_cell": [
+  24,
+  24
+ ],
+ "instances": [
+  {
+   "instance_id": "ruin_01",
+   "asset": "BLD-091",
+   "pos": [
+    5.9,
+    4.0
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "instance_id": "mill_01",
+   "asset": "BLD-079",
+   "pos": [
+    -6.0,
+    4.0
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "instance_id": "tree_01",
+   "asset": "TRE-001",
+   "pos": [
+    6.4,
+    -1.8
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "instance_id": "tree_02",
+   "asset": "TRE-001",
+   "pos": [
+    -8.0,
+    -0.2
+   ],
+   "yaw_deg": 70
+  },
+  {
+   "instance_id": "hydrant_01",
+   "asset": "PRP-034",
+   "pos": [
+    -2.0,
+    0.9
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "instance_id": "shelter_01",
+   "asset": "PRP-012",
+   "pos": [
+    -0.2,
+    3.6
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "instance_id": "pole_01",
+   "asset": "PRP-005",
+   "pos": [
+    1.7,
+    0.2
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "instance_id": "bin_01",
+   "asset": "PRP-017",
+   "pos": [
+    0.3,
+    6.3
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "instance_id": "puddle_01",
+   "kind": "puddle",
+   "pos": [
+    -0.4,
+    1.3
+   ],
+   "radius": 0.9
+  },
+  {
+   "instance_id": "puddle_02",
+   "kind": "puddle",
+   "pos": [
+    -5.2,
+    0.2
+   ],
+   "radius": 0.7
+  }
+ ]
+}

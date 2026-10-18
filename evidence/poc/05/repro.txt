@@ -1,0 +1,30 @@
+POC-05 evidence (Sonnet 5.5 implementer). Target: HEAD 99013702eaf36db72a64d60d284680fb834f13c5 + uncommitted working tree.
+Godot 4.7.2 stable, Vulkan Forward+, NVIDIA GeForce RTX 5070 Ti. root.unfocusable=true, no OS input.
+
+Repro (one process at a time, from the repo root):
+  Godot_v4.7.2-stable_win64_console.exe --path C:\godot\greenvader --headless --script res://tests/poc/environment/logic.gd   -> logs/logic_environment.log
+  Godot_v4.7.2-stable_win64_console.exe --path C:\godot\greenvader --headless --script res://tests/poc/combat/logic.gd   -> logs/logic_combat.log
+  Godot_v4.7.2-stable_win64_console.exe --path C:\godot\greenvader --headless --script res://tests/poc/base/logic.gd   -> logs/logic_base.log
+  Godot_v4.7.2-stable_win64_console.exe --path C:\godot\greenvader --headless --script res://tests/poc/assets/logic.gd   -> logs/logic_assets.log
+  Godot_v4.7.2-stable_win64_console.exe --path C:\godot\greenvader --headless --script res://tests/poc/play/logic.gd   -> logs/logic_play.log
+  Godot_v4.7.2-stable_win64_console.exe --path C:\godot\greenvader --script res://tests/poc/environment/gpu.gd   -> logs/gpu_environment.log + *.png
+
+Files (sha256 first 12):
+8ce445c380e7 scripts/poc/environment/poc_day.gd
+e746d55eb518 scripts/poc/environment/environment_view.gd
+e855c40f8f3c scripts/poc/environment/ground_cover.gd
+40768dabbe80 scripts/poc/environment/water_view.gd
+c7e880e62997 scripts/poc/environment/water_surface.gdshader
+10bc4ecc0ff8 scripts/poc/environment/wall_layout.gd
+09e8bd92bf33 scripts/poc/environment/wall_growth.gd
+e262d1bda3a4 scripts/poc/environment/wall_view.gd
+080e68a3ae10 scripts/poc/environment/wall_parts.gd
+b106dd3471a5 scripts/poc/environment/wall_moss.gdshader
+592e6dfb0b8f scripts/poc/poc_session.gd
+2553d35fc67a scripts/poc/poc_main.gd
+99079673d8e5 scripts/poc/play/poc_play_view.gd
+0eaffae398cf data/poc/environment.json
+4e38ebfebd76 data/poc/terrain/paved.tres
+11df356923cf tests/poc/environment/logic.gd
+0b24e91a5ed5 tests/poc/environment/gpu.gd
+ece0323222b2 data/poc/combat_setup.json

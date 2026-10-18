@@ -1,0 +1,23 @@
+title_640.png: 640x360 { "green": 0.009, "dark": 0.0043, "mean_luma": 0.1277 }
+title_960.png: 960x540 { "green": 0.0084, "dark": 0.0028, "mean_luma": 0.1269 }
+combat_640.png: { "green": 0.0702, "dark": 0.0, "mean_luma": 0.218, "hour": 17.6, "t": 240.1, "greened": "832/9464", "boars": 6, "size": "640x360", "window_png": "640x360" }
+combat_960.png: { "green": 0.0686, "dark": 0.0, "mean_luma": 0.2141, "hour": 17.63, "t": 240.8, "greened": "832/9464", "boars": 6, "size": "960x540", "window_png": "960x540" }
+stable_640.png: { "green": 0.0693, "dark": 0.0, "mean_luma": 0.3261, "hour": 12.03, "t": 700.7, "greened": "3770/9464", "boars": 0, "size": "640x360", "window_png": "640x360" }
+stable_960.png: { "green": 0.0711, "dark": 0.0, "mean_luma": 0.3272, "hour": 12.06, "t": 701.4, "greened": "3774/9464", "boars": 0, "size": "960x540", "window_png": "960x540" }
+full_night_640.png: { "green": 0.019, "dark": 0.0023, "mean_luma": 0.1476, "hour": 1.23, "t": 1030.8, "greened": "9464/9464", "boars": 0, "size": "640x360", "window_png": "640x360" }
+full_night_960.png: { "green": 0.0194, "dark": 0.0022, "mean_luma": 0.1478, "hour": 1.26, "t": 1031.5, "greened": "9464/9464", "boars": 0, "size": "960x540", "window_png": "960x540" }
+full_day_640.png: { "green": 0.1603, "dark": 0.0, "mean_luma": 0.314, "hour": 12.03, "t": 1300.7, "greened": "9464/9464", "boars": 0, "size": "640x360", "window_png": "640x360" }
+full_day_960.png: { "green": 0.1616, "dark": 0.0, "mean_luma": 0.3151, "hour": 12.06, "t": 1301.4, "greened": "9464/9464", "boars": 0, "size": "960x540", "window_png": "960x540" }
+occlusion_640.png: faded=["bld_gallery_01"]
+occlusion_960.png: faded=["bld_gallery_01"]
+
+PASS C0.combat_state_reached t=239.4 nest hp 9/10 boars=6 shots=1 hp=10
+PASS C0b.stable_reached t=482.2 hour 3.3
+PASS C0c.partly_green_at_midday_after_stable t=700.0 hour 12.00 greened 3770/9464
+PASS C0d.hundred_percent t=1030.1 hour 1.21
+PASS C2.occlusion_spot_found group bld_gallery_01
+PASS C2.occlusion_active_640 faded=["bld_gallery_01"] alpha=0.40 hour 12.1
+PASS C2.occlusion_active_960 faded=["bld_gallery_01"] alpha=0.40 hour 12.2
+PASS C1.night_darker_than_day mean luma night 0.1476 day 0.3140 (640)
+PASS C1.full_day_greener_than_combat green share 100% day 0.1603 vs combat start 0.0702 (640)
+PASS C1.sizes_640_960 

@@ -1,0 +1,38 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti display=Windows window=(1280, 720)
+PASS gpu.wall_grew_from_ground progress sum=11.000000 of 1
+INFO noon 640 hour=12:00（昼） light_energy=0.80000001192093 mean=0.23792207368677
+INFO night 640 hour=00:00（夜） light_energy=0.15999999642372 mean=0.14737343780793
+INFO morning 640 hour=07:00（昼） light_energy=0.80000001192093 mean=0.22177662587772
+INFO evening 640 hour=17:30（昼） light_energy=0.42650842666626 mean=0.19956157503334
+PASS gpu.size_640 
+INFO noon 960 hour=12:00（昼） light_energy=0.80000001192093 mean=0.23820177291586
+INFO night 960 hour=00:00（夜） light_energy=0.15999999642372 mean=0.14752101355914
+INFO morning 960 hour=07:00（昼） light_energy=0.80000001192093 mean=0.22186150999012
+INFO evening 960 hour=17:30（昼） light_energy=0.42650842666626 mean=0.19967791843128
+PASS gpu.size_960 
+PASS gpu.noon_brighter_than_night_640 0.237922 vs 0.147373
+PASS gpu.noon_brighter_than_night_960 0.238202 vs 0.147521
+PASS gpu.morning_differs_from_evening diff=229922
+PASS gpu.sprite_shadow_synced_noon_640 light_toward=(0.40558, 0.819152, 0.40558)
+PASS gpu.sprite_shadow_synced_night_640 light_toward=(0.40558, 0.819152, 0.40558)
+PASS gpu.sprite_shadow_synced_noon_960 light_toward=(0.40558, 0.819152, 0.40558)
+PASS gpu.sprite_shadow_synced_night_960 light_toward=(0.40558, 0.819152, 0.40558)
+PASS gpu.wall_vegetation_visible_640 diff=493
+PASS gpu.wall_vegetation_visible_960 diff=1108
+PASS gpu.ground_cover_visible diff=21379
+PASS gpu.fixture_has_pavement 
+PASS gpu.water_reflection_640 diff=2574 reflection viewport=(320, 180)
+PASS gpu.water_receives_shadow_640 diff=524
+PASS gpu.water_reflection_960 diff=5911 reflection viewport=(480, 270)
+PASS gpu.water_receives_shadow_960 diff=1208
+PASS gpu.chapel_vegetation_grew progress sum=35.897325
+PASS gpu.chapel_wall_visible_640 diff=1732
+PASS gpu.chapel_wall_visible_960 diff=4023
+RESULT passes=21 failures=0
+WARNING: 82 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 38 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

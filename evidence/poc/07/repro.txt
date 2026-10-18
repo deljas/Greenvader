@@ -1,0 +1,10 @@
+POC-07 repro (Windows Godot 4.7.2 console, one process at a time, no OS-level input):
+  G="/mnt/c/godot/Godot_v4.7.2-stable_win64_console.exe --path C:\godot\greenvader"
+  logic (headless):  $G --headless --script res://tests/poc/map/logic.gd        -> evidence/poc/07/logic_map.log (49 PASS)
+  regressions:       $G --headless --script res://tests/poc/{base,assets,play,combat,environment,occlusion}/logic.gd -> regress_*.log
+  GPU capture:       $G --script res://tests/poc/map/gpu.gd                       -> gpu.log + PNGs (staging described in the script header)
+  ascii picture:     $G --headless --script res://tests/poc/map/ascii.gd          -> town_ascii.txt
+  default launch:    $G res://scenes/poc.tscn          (town_01, combat on; prints "PoC: map town_01 ...")
+  old fixtures:      ... res://scenes/poc.tscn -- --fixture=02 | --fixture=04 | --combat | --bare
+Town data: data/poc/maps/town_01.json (map + zones + nests + sources + layout in one file); catalog additions in data/poc/asset_catalog.json.
+Staging in the GPU shots: "before" = start state at noon; "after" = nests/boars removed, all targets set mature, 560 s fast-forward (wall vegetation), noon / midnight.

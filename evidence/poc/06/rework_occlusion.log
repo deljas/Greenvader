@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS syn.aabb_coarse_hit_but_opening AABB covers the opening
+PASS syn.opening_not_detected []
+PASS syn.behind_pillar_detected ["gate_a", "gate_b"]
+PASS syn.in_front_of_gate_a_not_detected []
+PASS syn.two_groups_at_once ["gate_a", "gate_b"]
+PASS syn.only_second_gate_when_first_missed ["gate_b"]
+PASS syn.between_gates_ignores_far_gate 
+PASS syn.corner_margin miss=[] hit=["gate_a"]
+PASS fx.view_present groups=9
+PASS fx.base_masks cam=1048559 refl=1
+PASS fx.behind_ruin_only_ruin ["ruin_01"]
+PASS fx.in_front_of_ruin_none []
+PASS fx.behind_tree_01_only_tree_01 ["tree_01"]
+PASS fx.beside_tree_01_none []
+PASS fx.two_groups_chapel_and_tree ["chapel_01", "tree_01"]
+PASS fx.tree_02_behind_mill_and_tree ["mill_01", "tree_02"]
+PASS fx.stepping_out_front_clears 
+PASS fx.fade_target_alpha alpha=0.400000 groups=["ruin_01"]
+PASS fx.others_untouched_incl_same_glb 
+PASS fx.shadow_and_reflection_copies copies=16 mask between frames=1 during draw=17
+PASS fx.display_faded_materials 
+INFO vegetation ids=["chapel_01", "mill_01"]
+PASS fx.display_only_world_unchanged 
+PASS fx.boundary_found k=-3.326464
+PASS fx.no_flicker_at_boundary flips=0 jump=0.000000
+PASS fx.release_is_delayed 
+PASS fx.released_and_restored occ=false faded=[] copies=0 same=true mask=1
+PASS fx.two_groups_faded 
+PASS fx.vegetation_follows_chapel chapel veg=0.600000
+PASS fx.one_group_left_other_restored chapel=1.000000
+PASS fx.snap_after_switch alpha=0.400000
+PASS fx.rebuild_clears copies=0
+PASS fx.gap_precondition_faded 
+PASS fx.gap_frame_then_bind_clean 
+PASS fx.open_ground_nothing_faded raw=[]
+PASS fx.world_and_walkable_unchanged 
+PASS fx.walkable_plantable_count_same 754 vs 754
+PASS fx.disabled_no_fade 
+RESULT passes=37 failures=0

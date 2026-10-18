@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "note": "POC-05 environment tuning (reversible initial values). The time of day is derived from SimClock.elapsed only: hour = fposmod(start_hour + elapsed / day_seconds * 24, 24).",
+ "day_seconds": 600.0,
+ "start_hour": 8.0,
+ "sunlight": {"night": 1.0, "day_max": 1.25},
+ "light": {"sun_energy": 0.8, "moon_energy": 0.16, "moon_color": "90b5e0", "moon_fade": 0.15, "max_elevation_deg": 55.0},
+ "ambient": {"day_color": "9fadb8", "day_energy": 0.55, "night_color": "6b85b5", "night_energy": 0.22, "day_background": "29332f", "night_background": "172334"},
+ "paving": {"note": "Opt-in fixture pavement (poc_main applies it before loading; direct Session users such as the POC-02/04 logic tests see none). Cell rects [x, y, w, h]; only wasteland cells are repaved.", "rects": [[13, 9, 24, 3]]},
+ "ground": {"soil_density": 1.0, "pave_density": 1.0},
+ "wall": {"radius_m": 0.65, "anchor_offset_m": 0.35, "vine_seconds": 90.0, "moss_seconds": 135.0, "moss_span_scale": 0.7, "leaf_scale": 0.85, "stem_scale": 1.8, "stand_off_m": 0.05, "moss_stand_off_m": 0.03},
+ "water": {"reflection_strength": 0.78, "height_m": 0.006, "reflection_divisor": 2}
+}

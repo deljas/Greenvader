@@ -1,0 +1,1447 @@
+{
+  "bound_at_start_s": 869.0,
+  "start": {
+    "t": 0.0,
+    "hour": 8.0,
+    "seeds": 20,
+    "water": 100.0,
+    "hp": 10,
+    "downed": false,
+    "greened": 484,
+    "targets": 9464,
+    "pct": 5,
+    "zone0": 3,
+    "zone1": 0,
+    "nests": 3,
+    "boars": 0,
+    "pos": [
+      354.0,
+      346.0
+    ],
+    "pickups": 0,
+    "shots": 0
+  },
+  "sow": {
+    "landing_cells": 8,
+    "planted_tiles": 47,
+    "stage_counts_after_sow": [
+      0,
+      47,
+      0,
+      0,
+      0
+    ],
+    "seeds": [
+      20,
+      12
+    ],
+    "water": [
+      100.0,
+      20.0
+    ]
+  },
+  "growth": {
+    "sprout_after_s": 3.1999999999999886,
+    "mature_after_s": 21.20000000000023,
+    "stage_counts_mid": [
+      0,
+      0,
+      0,
+      0,
+      47
+    ],
+    "greened_mid": 664
+  },
+  "seed_recovery_pre_combat": {
+    "gain_by_class": {
+      "source": 8,
+      "plant": 9,
+      "enemy": 0
+    },
+    "plant_producer_total": 11,
+    "seeds_now": 37
+  },
+  "nests": [
+    {
+      "nest": 3,
+      "tile": [
+        88,
+        38
+      ],
+      "result": "dead",
+      "t_start": 126.2,
+      "t_end": 139.0,
+      "seeds_start": 37,
+      "seeds_end": 21,
+      "hp_start": 10
+    },
+    {
+      "nest": 1,
+      "tile": [
+        14,
+        93
+      ],
+      "result": "dead",
+      "t_start": 259.2,
+      "t_end": 275.90000000000003,
+      "seeds_start": 38,
+      "seeds_end": 27,
+      "hp_start": 10
+    },
+    {
+      "nest": 2,
+      "tile": [
+        14,
+        36
+      ],
+      "result": "dead",
+      "t_start": 351.40000000000003,
+      "t_end": 370.1,
+      "seeds_start": 38,
+      "seeds_end": 30,
+      "hp_start": 10
+    }
+  ],
+  "resources_until_stable": {
+    "seed_shots": 65,
+    "water_shots": 8,
+    "min_seeds": 12,
+    "min_water": 20.0,
+    "min_hp": 10,
+    "downs": 0,
+    "down_times": [],
+    "hits_taken": 0,
+    "gain_by_class": {
+      "source": 14,
+      "plant": 16,
+      "enemy": 10
+    },
+    "walked_m": 240.4614223957062,
+    "frames": 3779
+  },
+  "stable": {
+    "t_stable_s": 377.9000000000174,
+    "bound_at_stable_s": 869.0,
+    "limit_time_s": 1246.9000000000174,
+    "greened_at_stable": 1096,
+    "targets": 9464,
+    "pct_at_stable": 11,
+    "position_cell": [
+      17,
+      17
+    ],
+    "zone_times": {
+      "0": {
+        "3": 0.0
+      },
+      "1": {
+        "0": 0.0,
+        "1": 370.10000000001565,
+        "2": 377.9000000000174
+      }
+    }
+  },
+  "completion": {
+    "t_100_s": 960.1500000000174,
+    "since_stable_s": 582.25,
+    "bound_s": 869.0,
+    "ratio": 0.6700230149597238,
+    "greened": 9464,
+    "targets": 9464,
+    "pct": 100,
+    "samples_every_30s": [
+      {
+        "t": 378.20000000000005,
+        "hour": 23.13,
+        "seeds": 25,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 1098,
+        "targets": 9464,
+        "pct": 11,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 25,
+        "shots": 0
+      },
+      {
+        "t": 407.90000000000003,
+        "hour": 0.32,
+        "seeds": 25,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 1225,
+        "targets": 9464,
+        "pct": 12,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 12,
+        "shots": 0
+      },
+      {
+        "t": 437.90000000000003,
+        "hour": 1.52,
+        "seeds": 26,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 1374,
+        "targets": 9464,
+        "pct": 14,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 6,
+        "shots": 0
+      },
+      {
+        "t": 467.90000000000003,
+        "hour": 2.72,
+        "seeds": 26,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 1505,
+        "targets": 9464,
+        "pct": 15,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 9,
+        "shots": 0
+      },
+      {
+        "t": 497.90000000000003,
+        "hour": 3.92,
+        "seeds": 26,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 1632,
+        "targets": 9464,
+        "pct": 17,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 10,
+        "shots": 0
+      },
+      {
+        "t": 527.9,
+        "hour": 5.12,
+        "seeds": 26,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 2071,
+        "targets": 9464,
+        "pct": 21,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 12,
+        "shots": 0
+      },
+      {
+        "t": 557.9,
+        "hour": 6.32,
+        "seeds": 26,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 2624,
+        "targets": 9464,
+        "pct": 27,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 17,
+        "shots": 0
+      },
+      {
+        "t": 587.9,
+        "hour": 7.5200000000000005,
+        "seeds": 27,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 3155,
+        "targets": 9464,
+        "pct": 33,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 22,
+        "shots": 0
+      },
+      {
+        "t": 617.9000000000001,
+        "hour": 8.72,
+        "seeds": 27,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 3692,
+        "targets": 9464,
+        "pct": 39,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 21,
+        "shots": 0
+      },
+      {
+        "t": 647.9000000000001,
+        "hour": 9.92,
+        "seeds": 27,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 4227,
+        "targets": 9464,
+        "pct": 44,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 22,
+        "shots": 0
+      },
+      {
+        "t": 677.9000000000001,
+        "hour": 11.120000000000001,
+        "seeds": 27,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 4741,
+        "targets": 9464,
+        "pct": 50,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 22,
+        "shots": 0
+      },
+      {
+        "t": 707.9000000000001,
+        "hour": 12.32,
+        "seeds": 27,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 5283,
+        "targets": 9464,
+        "pct": 55,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 22,
+        "shots": 0
+      },
+      {
+        "t": 737.9000000000001,
+        "hour": 13.52,
+        "seeds": 28,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 5843,
+        "targets": 9464,
+        "pct": 61,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 22,
+        "shots": 0
+      },
+      {
+        "t": 767.9000000000001,
+        "hour": 14.72,
+        "seeds": 28,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 6404,
+        "targets": 9464,
+        "pct": 67,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 20,
+        "shots": 0
+      },
+      {
+        "t": 797.9000000000001,
+        "hour": 15.92,
+        "seeds": 29,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 6955,
+        "targets": 9464,
+        "pct": 73,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 23,
+        "shots": 0
+      },
+      {
+        "t": 827.9000000000001,
+        "hour": 17.12,
+        "seeds": 29,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 7496,
+        "targets": 9464,
+        "pct": 79,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 20,
+        "shots": 0
+      },
+      {
+        "t": 857.9000000000001,
+        "hour": 18.32,
+        "seeds": 29,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 7981,
+        "targets": 9464,
+        "pct": 84,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 23,
+        "shots": 0
+      },
+      {
+        "t": 887.9000000000001,
+        "hour": 19.52,
+        "seeds": 31,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 8443,
+        "targets": 9464,
+        "pct": 89,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 22,
+        "shots": 0
+      },
+      {
+        "t": 917.9000000000001,
+        "hour": 20.72,
+        "seeds": 31,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 8872,
+        "targets": 9464,
+        "pct": 93,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 23,
+        "shots": 0
+      },
+      {
+        "t": 947.9000000000001,
+        "hour": 21.92,
+        "seeds": 31,
+        "water": 20.0,
+        "hp": 10,
+        "downed": false,
+        "greened": 9287,
+        "targets": 9464,
+        "pct": 98,
+        "zone0": 3,
+        "zone1": 2,
+        "nests": 0,
+        "boars": 0,
+        "pos": [
+          70.0,
+          68.8
+        ],
+        "pickups": 22,
+        "shots": 0
+      }
+    ]
+  },
+  "far_hook": {
+    "t": 378.1500000000174,
+    "job_zone": 1,
+    "round_active": false,
+    "job_open": true,
+    "far_ticks": 378,
+    "sweep_cursor": 0,
+    "equal_at_save": true,
+    "copy_job_zone": 1,
+    "copy_round_active": false
+  },
+  "end": {
+    "t": 1080.2,
+    "hour": 3.21,
+    "seeds": 33,
+    "water": 20.0,
+    "hp": 10,
+    "downed": false,
+    "greened": 9464,
+    "targets": 9464,
+    "pct": 100,
+    "zone0": 3,
+    "zone1": 3,
+    "nests": 0,
+    "boars": 0,
+    "pos": [
+      70.0,
+      68.8
+    ],
+    "pickups": 23,
+    "shots": 0
+  },
+  "events": [
+    "t=126.2 nest 3: go to spot (96, 44) (hp 10/10, seeds 37)",
+    "t=139.0 restock: go to source (82, 80) with seeds=21 (target 38)",
+    "t=259.2 restock done: seeds=38 (wait 112.2 s)",
+    "t=259.2 nest 1: go to spot (23, 92) (hp 10/10, seeds 38)",
+    "t=275.9 restock: go to source (82, 80) with seeds=27 (target 38)",
+    "t=351.4 restock done: seeds=38 (wait 63.8 s)",
+    "t=351.4 nest 2: go to spot (22, 42) (hp 10/10, seeds 38)"
+  ],
+  "zone_log": [
+    "廃街区の巣をすべて壊した",
+    "廃街区が安定した",
+    "廃街区の緑化が完了した",
+    "すべての地域を緑化した"
+  ],
+  "rows_every_10s": [
+    {
+      "t": 0.1,
+      "hour": 8.0,
+      "seeds": 20,
+      "water": 100.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 484,
+      "targets": 9464,
+      "pct": 5,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 0,
+      "pos": [
+        351.6,
+        346.0
+      ],
+      "pickups": 0,
+      "shots": 0
+    },
+    {
+      "t": 10.200000000000001,
+      "hour": 8.41,
+      "seeds": 12,
+      "water": 30.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 484,
+      "targets": 9464,
+      "pct": 5,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 3,
+      "pos": [
+        314.1,
+        339.0
+      ],
+      "pickups": 2,
+      "shots": 1
+    },
+    {
+      "t": 20.200000000000003,
+      "hour": 8.81,
+      "seeds": 14,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 551,
+      "targets": 9464,
+      "pct": 5,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 6,
+      "pos": [
+        330.0,
+        323.8
+      ],
+      "pickups": 2,
+      "shots": 0
+    },
+    {
+      "t": 30.200000000000003,
+      "hour": 9.21,
+      "seeds": 14,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 557,
+      "targets": 9464,
+      "pct": 5,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        330.0,
+        323.8
+      ],
+      "pickups": 4,
+      "shots": 0
+    },
+    {
+      "t": 40.2,
+      "hour": 9.61,
+      "seeds": 16,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 536,
+      "targets": 9464,
+      "pct": 5,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        330.0,
+        323.8
+      ],
+      "pickups": 4,
+      "shots": 0
+    },
+    {
+      "t": 50.2,
+      "hour": 10.01,
+      "seeds": 17,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 547,
+      "targets": 9464,
+      "pct": 5,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        330.0,
+        323.8
+      ],
+      "pickups": 4,
+      "shots": 0
+    },
+    {
+      "t": 60.2,
+      "hour": 10.41,
+      "seeds": 18,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 579,
+      "targets": 9464,
+      "pct": 6,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        330.0,
+        323.8
+      ],
+      "pickups": 4,
+      "shots": 0
+    },
+    {
+      "t": 70.3,
+      "hour": 10.81,
+      "seeds": 21,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 596,
+      "targets": 9464,
+      "pct": 6,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        330.0,
+        320.40000000000003
+      ],
+      "pickups": 2,
+      "shots": 0
+    },
+    {
+      "t": 80.4,
+      "hour": 11.22,
+      "seeds": 23,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 613,
+      "targets": 9464,
+      "pct": 6,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        305.40000000000003,
+        318.1
+      ],
+      "pickups": 3,
+      "shots": 0
+    },
+    {
+      "t": 90.5,
+      "hour": 11.620000000000001,
+      "seeds": 26,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 613,
+      "targets": 9464,
+      "pct": 6,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        301.2,
+        322.0
+      ],
+      "pickups": 3,
+      "shots": 0
+    },
+    {
+      "t": 100.60000000000001,
+      "hour": 12.02,
+      "seeds": 28,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 630,
+      "targets": 9464,
+      "pct": 6,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        329.90000000000003,
+        321.0
+      ],
+      "pickups": 4,
+      "shots": 0
+    },
+    {
+      "t": 110.7,
+      "hour": 12.43,
+      "seeds": 32,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 648,
+      "targets": 9464,
+      "pct": 6,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        329.90000000000003,
+        321.0
+      ],
+      "pickups": 6,
+      "shots": 0
+    },
+    {
+      "t": 120.80000000000001,
+      "hour": 12.83,
+      "seeds": 35,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 662,
+      "targets": 9464,
+      "pct": 6,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        284.40000000000003,
+        322.0
+      ],
+      "pickups": 5,
+      "shots": 0
+    },
+    {
+      "t": 130.9,
+      "hour": 13.24,
+      "seeds": 37,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 665,
+      "targets": 9464,
+      "pct": 7,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 3,
+      "boars": 8,
+      "pos": [
+        386.0,
+        264.5
+      ],
+      "pickups": 5,
+      "shots": 0
+    },
+    {
+      "t": 141.0,
+      "hour": 13.64,
+      "seeds": 21,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 689,
+      "targets": 9464,
+      "pct": 7,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        371.6,
+        214.0
+      ],
+      "pickups": 16,
+      "shots": 0
+    },
+    {
+      "t": 151.1,
+      "hour": 14.040000000000001,
+      "seeds": 24,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 710,
+      "targets": 9464,
+      "pct": 7,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 15,
+      "shots": 0
+    },
+    {
+      "t": 161.20000000000002,
+      "hour": 14.450000000000001,
+      "seeds": 25,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 719,
+      "targets": 9464,
+      "pct": 7,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 19,
+      "shots": 0
+    },
+    {
+      "t": 171.3,
+      "hour": 14.85,
+      "seeds": 27,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 723,
+      "targets": 9464,
+      "pct": 7,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 20,
+      "shots": 0
+    },
+    {
+      "t": 181.4,
+      "hour": 15.26,
+      "seeds": 28,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 752,
+      "targets": 9464,
+      "pct": 7,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 22,
+      "shots": 0
+    },
+    {
+      "t": 191.5,
+      "hour": 15.66,
+      "seeds": 29,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 767,
+      "targets": 9464,
+      "pct": 8,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 25,
+      "shots": 0
+    },
+    {
+      "t": 201.60000000000002,
+      "hour": 16.06,
+      "seeds": 30,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 774,
+      "targets": 9464,
+      "pct": 8,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 17,
+      "shots": 0
+    },
+    {
+      "t": 211.70000000000002,
+      "hour": 16.47,
+      "seeds": 32,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 789,
+      "targets": 9464,
+      "pct": 8,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 16,
+      "shots": 0
+    },
+    {
+      "t": 221.8,
+      "hour": 16.87,
+      "seeds": 33,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 812,
+      "targets": 9464,
+      "pct": 8,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 17,
+      "shots": 0
+    },
+    {
+      "t": 231.9,
+      "hour": 17.28,
+      "seeds": 34,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 823,
+      "targets": 9464,
+      "pct": 8,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 14,
+      "shots": 0
+    },
+    {
+      "t": 242.0,
+      "hour": 17.68,
+      "seeds": 35,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 833,
+      "targets": 9464,
+      "pct": 8,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 14,
+      "shots": 0
+    },
+    {
+      "t": 252.10000000000002,
+      "hour": 18.080000000000002,
+      "seeds": 37,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 849,
+      "targets": 9464,
+      "pct": 8,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 6,
+      "pos": [
+        330.0,
+        321.70000000000005
+      ],
+      "pickups": 16,
+      "shots": 0
+    },
+    {
+      "t": 262.1,
+      "hour": 18.48,
+      "seeds": 39,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 873,
+      "targets": 9464,
+      "pct": 9,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 5,
+      "pos": [
+        274.8,
+        322.0
+      ],
+      "pickups": 14,
+      "shots": 0
+    },
+    {
+      "t": 272.1,
+      "hour": 18.88,
+      "seeds": 37,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 887,
+      "targets": 9464,
+      "pct": 9,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 2,
+      "boars": 3,
+      "pos": [
+        117.10000000000001,
+        370.0
+      ],
+      "pickups": 16,
+      "shots": 0
+    },
+    {
+      "t": 282.1,
+      "hour": 19.28,
+      "seeds": 27,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 900,
+      "targets": 9464,
+      "pct": 9,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        244.3,
+        370.0
+      ],
+      "pickups": 23,
+      "shots": 0
+    },
+    {
+      "t": 292.1,
+      "hour": 19.68,
+      "seeds": 30,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 921,
+      "targets": 9464,
+      "pct": 9,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        330.0,
+        322.20000000000005
+      ],
+      "pickups": 25,
+      "shots": 0
+    },
+    {
+      "t": 302.1,
+      "hour": 20.080000000000002,
+      "seeds": 31,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 944,
+      "targets": 9464,
+      "pct": 9,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        330.0,
+        322.20000000000005
+      ],
+      "pickups": 26,
+      "shots": 0
+    },
+    {
+      "t": 312.1,
+      "hour": 20.48,
+      "seeds": 33,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 962,
+      "targets": 9464,
+      "pct": 10,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        330.0,
+        322.20000000000005
+      ],
+      "pickups": 25,
+      "shots": 0
+    },
+    {
+      "t": 322.1,
+      "hour": 20.88,
+      "seeds": 34,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 980,
+      "targets": 9464,
+      "pct": 10,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        330.0,
+        322.20000000000005
+      ],
+      "pickups": 26,
+      "shots": 0
+    },
+    {
+      "t": 332.1,
+      "hour": 21.28,
+      "seeds": 35,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 997,
+      "targets": 9464,
+      "pct": 10,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        330.0,
+        322.20000000000005
+      ],
+      "pickups": 24,
+      "shots": 0
+    },
+    {
+      "t": 342.1,
+      "hour": 21.68,
+      "seeds": 36,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 1017,
+      "targets": 9464,
+      "pct": 10,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        330.0,
+        322.20000000000005
+      ],
+      "pickups": 19,
+      "shots": 0
+    },
+    {
+      "t": 352.1,
+      "hour": 22.080000000000002,
+      "seeds": 38,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 1046,
+      "targets": 9464,
+      "pct": 11,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        313.20000000000005,
+        322.0
+      ],
+      "pickups": 19,
+      "shots": 0
+    },
+    {
+      "t": 362.1,
+      "hour": 22.48,
+      "seeds": 40,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 1064,
+      "targets": 9464,
+      "pct": 11,
+      "zone0": 3,
+      "zone1": 0,
+      "nests": 1,
+      "boars": 3,
+      "pos": [
+        154.0,
+        234.0
+      ],
+      "pickups": 20,
+      "shots": 0
+    },
+    {
+      "t": 372.1,
+      "hour": 22.88,
+      "seeds": 34,
+      "water": 20.0,
+      "hp": 10,
+      "downed": false,
+      "greened": 1091,
+      "targets": 9464,
+      "pct": 11,
+      "zone0": 3,
+      "zone1": 1,
+      "nests": 0,
+      "boars": 3,
+      "pos": [
+        66.0,
+        144.4
+      ],
+      "pickups": 21,
+      "shots": 0
+    }
+  ],
+  "game_end_time_s": 1080.1500000000174,
+  "completion_display": {
+    "badge": "内部緑化率 100％（9464/9464）　★緑化完了\n開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】",
+    "zone_summary": "開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】",
+    "hud": "解像度 640×360（窓 1920×1080, 3倍）　視野 18.5m\n論理 (70.0, 68.8) セル (17,17)　ゲーム時刻 18:00.2　時刻 03:12（夜） ×1\n種 33　水 20/100　HP 10/10　選択 通常　緑化 100%（9464/9464）\n廃街区  緑化完了  緑化 100％  【全地域緑化】　残巣 0　残敵 0　巣HP[壊,壊,壊]\nWASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる　Esc=メニュー　F2=解像度　F3=倍速　F5=保存"
+  },
+  "checks": [
+    "PASS A0.new_game_defaults seeds=20 water=100 hp=10 zones=[3, 0] targets=9464 greened=484",
+    "PASS A1.sow_and_water landing spots=8 seeds shot=8 (20->12) planted tiles=47 water shots=8 (100->20) moist tiles=47/47",
+    "PASS A2.germinate_and_mature sprout at +3.2 s, first mature at +21.2 s after sowing; stage counts [empty,seed,s1,s2,mature]=[0, 0, 0, 0, 47]; greened=664",
+    "PASS A3.seed_recovery_from_source_and_plants pickups collected: { \"source\": 8, \"plant\": 9, \"enemy\": 0 } (plant fruit collected in the wait window=9, producer total produced=11), seeds now=37",
+    "PASS A4.three_nests_destroyed nest log=[{ \"nest\": 3, \"tile\": [88, 38], \"result\": \"dead\", \"t_start\": 126.2, \"t_end\": 139.0, \"seeds_start\": 37, \"seeds_end\": 21, \"hp_start\": 10 }, { \"nest\": 1, \"tile\": [14, 93], \"result\": \"dead\", \"t_start\": 259.2, \"t_end\": 275.9, \"seeds_start\": 38, \"seeds_end\": 27, \"hp_start\": 10 }, { \"nest\": 2, \"tile\": [14, 36], \"result\": \"dead\", \"t_start\": 351.4, \"t_end\": 370.1, \"seeds_start\": 38, \"seeds_end\": 30, \"hp_start\": 10 }]; downs=0",
+    "PASS A5.remaining_enemies_removed_then_stable boars at clearing=3, hunted=3, spawned total=9 (at clearing 9)",
+    "PASS A5b.zone_notices_in_order [\"廃街区の巣をすべて壊した\", \"廃街区が安定した\"]",
+    "PASS A5c.finite_resources_observed min seeds=12 min water=20 min hp=10 seed shots=65 restock events=7 downs=0 hits taken=0",
+    "PASS A6.no_reinvasion_after_stable invaded steps=0 spawned=9 boars=0",
+    "PASS A7.exact_100_percent_within_bound_with_island greened 9464/9464, 100% at game time 960.2 s = 582.3 s after stable; bound 869.0 s (67% used); island ok=true",
+    "PASS A8.no_input_after_stable position kept, shots launched 73->73, hits 0->0, seeds 25->32 (gain by pickups only), water 20->20",
+    "PASS A9.zone_complete_and_notice zone_state=[3, 3] cleared=true notices=1 log=[\"廃街区の巣をすべて壊した\", \"廃街区が安定した\", \"廃街区の緑化が完了した\", \"すべての地域を緑化した\"]",
+    "PASS A10.save_load_while_far_seed_running hook={ \"t\": 378.150000000017, \"job_zone\": 1, \"round_active\": false, \"job_open\": true, \"far_ticks\": 378, \"sweep_cursor\": 0, \"equal_at_save\": true, \"copy_job_zone\": 1, \"copy_round_active\": false }; diff sections: [play{pickups}] after +30 s idle: orig elapsed=408.15 copy elapsed=408.15 greened 1230/1230 far job_zone=-1 round_active=false; whole-state equal after +30 s (float tol 1e-6) = true ",
+    "PASS A11.stays_complete_120s_more greened 9464, invaded steps 0, game time 1080.2 s (hour 3.21)",
+    "PASS A12.completion_display badge=[内部緑化率 100％（9464/9464）　★緑化完了 / 開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】] summary=[開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】]"
+  ],
+  "passes": 15,
+  "failures": 0
+}

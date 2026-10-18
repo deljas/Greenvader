@@ -1,0 +1,110 @@
+{
+  "b1": {
+    "downs": 0,
+    "events": [
+      "t=27.5 restock: go to source (82, 80) with seeds=0 (target 6)",
+      "t=60.6 restock done: seeds=6 (wait 31.9 s)"
+    ]
+  },
+  "b2": {
+    "down_count": 1,
+    "hits": 5,
+    "events": [
+      "t=119.6 downed (hp=0) at cell (89, 47)"
+    ]
+  },
+  "b4": {
+    "germinating": {
+      "growing": 67
+    },
+    "combat": {
+      "boars": 7,
+      "shots_in_flight": 1
+    }
+  },
+  "b7": {
+    "behind": {
+      "group": "bld_gallery_01",
+      "k": 10,
+      "cell": [
+        26,
+        16
+      ]
+    },
+    "front": {
+      "k": -10,
+      "cell": [
+        43,
+        33
+      ]
+    }
+  },
+  "b8": {
+    "samples": [
+      {
+        "hour": 10.0,
+        "east": 0.5,
+        "south": 0.866,
+        "west": -0.5,
+        "elevation_deg": 47.6,
+        "matches_formula": true
+      },
+      {
+        "hour": 12.0,
+        "east": 0.0,
+        "south": 1.0,
+        "west": 0.0,
+        "elevation_deg": 55.0,
+        "matches_formula": true
+      },
+      {
+        "hour": 14.0,
+        "east": -0.5,
+        "south": 0.866,
+        "west": 0.5,
+        "elevation_deg": 47.6,
+        "matches_formula": true
+      },
+      {
+        "hour": 16.0,
+        "east": -0.866,
+        "south": 0.5,
+        "west": 0.866,
+        "elevation_deg": 27.5,
+        "matches_formula": true
+      },
+      {
+        "hour": 17.5,
+        "east": -0.991,
+        "south": 0.131,
+        "west": 0.991,
+        "elevation_deg": 7.2,
+        "matches_formula": true
+      }
+    ]
+  },
+  "checks": [
+    "PASS B1.water_zero_blocks_water_shot water=0.0 reason=no_water msg=水が足りない（水辺で補給） water shots=10",
+    "PASS B1.growth_continues_without_water water stays 0.0 (10 water shots were all fired before sowing); sown tiles=61, ground moisture sum 88 -> 63 (natural, not from the player's water); growth sum 357238 -> 2724744, stage sum 61 -> 93 over 12 s",
+    "PASS B1.seeds_zero_blocks_seed_shot seeds=0 reason=no_seed msg=種がない（木の実を拾う） seed shots=20",
+    "PASS B1.seeds_recover_at_source seeds 0 -> 6 in 33.1 s game time (31.9 s waiting at the source), shot ok=true",
+    "PASS B1.water_refill_at_waterside arrived=true refilling seen=true water 35 -> 100, round trip 23.0 s game time, water shot after return ok=true (back=true)",
+    "PASS B2.contact_damage_downs_the_player arrived=true downed=true hp=0 hits=5 walk=(0.0, 0.0) fire=downed at cell (89, 47) zone 1",
+    "PASS B4d.downed_save_loads_as_returned_with_world_intact saved=true loaded=true copy: downed=false hp=10/10 zone=0 position=(88, 86) world_equal=true",
+    "PASS B4d.downed_original_and_loaded_copy_match_after_30s first difference: none",
+    "PASS B2.return_to_safe_zone_without_rollback revived=true zone=0 hp=10/10; greened 637 -> 662 -> 705; zone_state before=[3, 0] now=[3, 0]; nests alive 3 -> 3; sown stage sum 188 -> 188; downs=1",
+    "PASS B4a.germinating_save_load_same_progress growing tiles at save=67, t=15.1 s; diff at load='', diff after +30 s=''; greened 535/535",
+    "PASS B4b.combat_save_load_same_progress boars=7 nest hp=9/10 shots in flight at save=1 (dropped and refunded by design), seeds 18, t=69.5; diff at load='', after +20 s=''; boars now 8/8 hp 8/8",
+    "PASS B5.pause_stops_everything boars=8; 200 paused ticks with walk input and a shot: elapsed 75.00 -> 75.00, position kept, enemies/world/pickups/growth unchanged, fire reason=paused",
+    "PASS B5.resume_does_not_catch_up after resume a 5 s long frame advances 0.250 s (cap 0.25), a 16 ms frame advances 0.0160 s",
+    "PASS B5.pause_menu_pauses_and_restores menu paused=true frozen=true resumed unpaused=true",
+    "PASS B6.resolution_switch_keeps_position_aim_view 640: { \"res\": (640, 360), \"pos\": (354.0, 322.0), \"aim\": (378.0, 306.0), \"size_m\": 18.5, \"render\": (640, 360), \"aim_frac\": (0.586024, 0.570838), \"player_frac\": (0.500025, 0.55555) } | 960: { \"res\": (960, 540), \"pos\": (354.0, 322.0), \"aim\": (378.0, 306.0), \"size_m\": 18.5, \"render\": (960, 540), \"aim_frac\": (0.586024, 0.570838), \"player_frac\": (0.500025, 0.55555) } | back: { \"res\": (640, 360), \"pos\": (354.0, 322.0), \"aim\": (378.0, 306.0), \"size_m\": 18.5, \"render\": (640, 360), \"aim_frac\": (0.586024, 0.570838), \"player_frac\": (0.500025, 0.55555) }",
+    "PASS B7.occlusion_behind_building_only_target group bld_gallery_01 at k=10: occluded=[\"bld_gallery_01\"] faded=[\"bld_gallery_01\"] alpha=0.40 others opaque=true",
+    "PASS B7.occlusion_restored_in_front front k=-10: occluded=[] faded=[], all instance alpha 1.0, terrain/targets/occupancy unchanged",
+    "PASS B8.hour_derives_from_game_clock elapsed 78.07 s -> hour 11.123 (formula 11.123); unchanged while paused",
+    "PASS B8.sun_goes_east_south_west samples=[{ \"hour\": 10.0, \"east\": 0.5, \"south\": 0.866, \"west\": -0.5, \"elevation_deg\": 47.6, \"matches_formula\": true }, { \"hour\": 12.0, \"east\": 0.0, \"south\": 1.0, \"west\": 0.0, \"elevation_deg\": 55.0, \"matches_formula\": true }, { \"hour\": 14.0, \"east\": -0.5, \"south\": 0.866, \"west\": 0.5, \"elevation_deg\": 47.6, \"matches_formula\": true }, { \"hour\": 16.0, \"east\": -0.866, \"south\": 0.5, \"west\": 0.866, \"elevation_deg\": 27.5, \"matches_formula\": true }, { \"hour\": 17.5, \"east\": -0.991, \"south\": 0.131, \"west\": 0.991, \"elevation_deg\": 7.2, \"matches_formula\": true }]",
+    "PASS B8.night_uses_moon_and_unit_sunlight hour 1.00 moon=true sunlight factor=1.0000 night=1.00 light energy=0.160"
+  ],
+  "passes": 20,
+  "failures": 0
+}

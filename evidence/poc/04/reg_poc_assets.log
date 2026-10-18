@@ -1,0 +1,48 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS fixture.loads 
+PASS catalog.hashes 10 adopted assets
+PASS fixture.instance_ids_unique 11 instances
+PASS fixture.three_building_shapes { "BLD-038": [(32, 17), 458], "BLD-091": [(17, 17), 216], "BLD-079": [(16, 14), 201] }
+PASS fixture.buildings_differ_in_shape 
+PASS catalog.aux_fields_and_no_external_path 
+PASS catalog.vine_surfaces_recorded 
+PASS place.relocate_same_id_new_transform_moves_cells 80 cells, shift (+5,+3)
+PASS place.old_cells_released_new_cells_blocked 
+PASS place.yaw_90_swaps_extent yaw0 (16, 14) yaw90 (14, 16)
+PASS place.move_and_back_restores_state 
+PASS place.remove_restores_base 
+PASS walk.start_cell_free 
+PASS walk.chapel_wall_stops_player ended at ground (0.0, -0.52)
+PASS walk.exterior_wall_cells_blocked 
+PASS walk.outer_ring_blocked 
+PASS walk.street_between_chapel_and_mill 
+PASS walk.gap_between_buildings 
+PASS walk.plaza_to_east_side 
+PASS walk.under_shelter_roof cell (23, 30) under the roof AABB
+PASS walk.cannot_enter_closed_building 
+PASS walk.small_props_block_few_cells 
+PASS roof.chapel_aabb_not_filled 86 of 576 cells inside the roof AABB are walkable
+PASS roof.gallery_aabb_has_walkable_ground 34 of 544 cells walkable inside the BLD-007 roof AABB, sealed=332
+PASS puddle.walkable_target_plantable cell (11, 20) (wasteland) / (23, 23) (on the safe patch, already green)
+PASS puddle.not_a_water_source 
+PASS water.terrain_blocks_walk_not_target 
+PASS water.shore_is_source_and_target 
+PASS puddle.cells_exist_never_obstacles 22 puddle cells
+PASS shot.through_wall_blocked 
+PASS shot.clear_corridor_open 
+PASS shot.diagonal_clear_plaza 
+PASS shot.over_tree_pole_hydrant_not_blocked 
+PASS shot.over_water_open 
+PASS shot.outside_map_blocked 
+PASS shot.ruin_wall_blocked 
+PASS denominator.excludes_obstacles target_count=784 expected=784 (open terrain 1718)
+PASS denominator.no_target_on_obstacle 
+PASS denominator.detach_restores_base 
+PASS shared.walker_enemy_mover_matches_blocks_walk all 1920 cells, mismatches=0
+PASS shared.boar_footprint_matches_blocks_walk 300 random footprints, mismatches=0
+PASS material.same_glb_instances_own_materials 6 materials each
+PASS material.alpha_is_per_instance tree_01=0.350000 tree_02=1.000000
+PASS material.shared_glb_resource_untouched 
+PASS material.alpha_restore 
+RESULT passes=45 failures=0

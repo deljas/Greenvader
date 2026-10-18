@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "note": "POC-03 play setup. seed_sources are cells inside the safe zone (open ground, >=5 cells clear). tuning overrides data/play_tuning.tres by property name (logical px, seconds).",
+ "plants": ["res://data/plants/normal.tres", "res://data/plants/carrot.tres", "res://data/plants/kiwi.tres"],
+ "seed_sources_placement": [[25, 23]],
+ "seed_sources_bare": [[21, 15]],
+ "tuning": {
+  "projectile_range_px": 70.0,
+  "projectile_speed": 140.0,
+  "max_projectiles": 24,
+  "source_drop_radius_min_px": 6.0,
+  "source_drop_radius_max_px": 12.0
+ },
+ "debug_refill_seeds": 20,
+ "debug_refill_water": 100.0
+}

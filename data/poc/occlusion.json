@@ -1,0 +1,19 @@
+{
+ "version": 1,
+ "note": "POC-06 occlusion fade tuning (reversible initial values). Display only: collision, enemies, greening and shots never read this.",
+ "enabled": true,
+ "target_alpha": 0.4,
+ "fade_out_seconds": 0.15,
+ "fade_in_seconds": 0.25,
+ "release_hold_seconds": 0.35,
+ "ray_length_m": 70.0,
+ "ray_start_offset_m": 0.03,
+ "foot_lift_m": 0.1,
+ "head_fraction": 0.92,
+ "torso_fraction": 0.5,
+ "lateral_m": 0.2,
+ "follow_vegetation": true,
+ "depth_draw": "opaque_only",
+ "transparency": "alpha",
+ "single_layer": true
+}

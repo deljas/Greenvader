@@ -1,0 +1,32 @@
+PASS load_town_01 size (112, 112)
+PASS debug_refill_off 
+INFO oracle target cells=9464 state.target_count=9464 target terrain ids=[1, 2, 0, 6]
+PASS oracle_target_count_matches 
+INFO target components (8-neigh) sizes=[9448, 16]
+INFO island rect [52,53,4,4] target cells=16
+INFO start pos cell=(88, 86) seeds=20 water=100 hp=10
+PASS hand_sow_and_water_by_fire_api sowed=3 water=true
+PASS combat_zone_is_1 
+INFO t=300 stuck=21 pos=(16, 87) seeds=14 hp=6 nests=1 boars=3 downs=0
+PASS zone_reached_stable_by_play t_stable=560.7 game s (limit 3000), shots=76, downs=0, wallclock=3.3s
+PASS all_nests_destroyed 
+INFO STABLE at 560.7 s; completion_bound_seconds()=869.0; greened=484/9464 (5%) zone_states=[3, 2]
+INFO far at stable: job_zone=-1 round_active=false comp_count=1
+PASS bound_positive 
+PASS reached_100_within_bound reached after 794.0 s (bound 869.0 s, 91.4% of bound); max shown pct before full=99
+PASS percent_shows_99_not_100_before_full 
+PASS no_reinvasion_after_stable 
+PASS no_zone_state_regress 
+PASS greened_equals_target_independent_recount recount 9464 / oracle 9464 / state 9464/9464 / off-target greened 0
+PASS terrain_unchanged_during_run 
+PASS island_greened island target cells 16
+PASS greening_percent_is_100_only_when_full 
+PASS zones_complete_and_cleared zones=[3, 3] cleared=true notices=1
+PASS no_boar_ever_in_start_zone samples=0
+PASS seed_gain_explained_by_pickups_or_rewards gain steps=63 unexplained=0
+INFO seeds at end=18 after +60s=18 (sources keep ground fruit capped; pouch max 40); pickups on ground=20 (cap 35)
+PASS pickups_capped 
+INFO RESULT timeline: stable 560.7 s; 100% at 1354.7 s (after 794.0 s, bound 869.0); wallclock 4.1 s
+INFO zone_times={"0":{"3":0.0},"1":{"0":0.0,"1":552.899999999989,"2":560.699999999991,"3":1353.19999999999}}
+INFO shots_fired=76 downs=0 hits=75 fruits_dropped=42 seeds_direct=0
+RESULT passes=20 failures=0

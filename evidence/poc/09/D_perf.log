@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti display=Windows window=(1280, 720) refresh=143.981002807617 vsync(initial)=1
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+INFO fight state: t=79.0 nest hp 9/10 boars=7 (within 12 m of the player: 1, cap 8) hp=10
+PERF {"avg_fps":144.0,"avg_frame_ms":6.95,"boars_max":8,"boars_min":7,"downs":0,"draw_calls_avg":991.0,"engine_fps_now":144.0,"frames":1440,"frames_over_16.7ms":0,"game_seconds_advanced":10.0,"hp_end":10,"label":"640 vsync(config)","min_fps_from_worst":133.2,"p99_frame_ms":7.2,"resolution":"640x360","seconds":10.0,"viewport_cpu_render_ms_avg":0.22,"viewport_gpu_ms_avg":0.54,"vsync_mode":1,"worst_frame_ms":7.51}
+PERF {"avg_fps":144.0,"avg_frame_ms":6.95,"boars_max":8,"boars_min":8,"downs":0,"draw_calls_avg":993.0,"engine_fps_now":144.0,"frames":1440,"frames_over_16.7ms":0,"game_seconds_advanced":10.01,"hp_end":10,"label":"960 vsync(config)","min_fps_from_worst":75.8,"p99_frame_ms":9.18,"resolution":"960x540","seconds":10.0,"viewport_cpu_render_ms_avg":0.21,"viewport_gpu_ms_avg":0.58,"vsync_mode":1,"worst_frame_ms":13.19}
+PERF {"avg_fps":459.1,"avg_frame_ms":2.18,"boars_max":8,"boars_min":8,"downs":0,"draw_calls_avg":1027.0,"engine_fps_now":466.0,"frames":4591,"frames_over_16.7ms":0,"game_seconds_advanced":10.0,"hp_end":10,"label":"640 vsync off","min_fps_from_worst":153.5,"p99_frame_ms":4.43,"resolution":"640x360","seconds":10.0,"viewport_cpu_render_ms_avg":0.21,"viewport_gpu_ms_avg":0.54,"vsync_mode":0,"worst_frame_ms":6.51}
+PERF {"avg_fps":457.5,"avg_frame_ms":2.19,"boars_max":8,"boars_min":8,"downs":0,"draw_calls_avg":1076.0,"engine_fps_now":453.0,"frames":4575,"frames_over_16.7ms":0,"game_seconds_advanced":9.99,"hp_end":10,"label":"960 vsync off","min_fps_from_worst":175.2,"p99_frame_ms":4.43,"resolution":"960x540","seconds":10.0,"viewport_cpu_render_ms_avg":0.23,"viewport_gpu_ms_avg":0.56,"vsync_mode":0,"worst_frame_ms":5.71}
+RESULT done
+WARNING: 76 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 38 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti
+veg progress 36.0
+behind cell (1, 13)
+front cell (21, 38)
+inside rect: shadowcopy px=7807 on-vs-off px=13016
+shadow: shadow copies=14 px diff outside mill rect on-vs-off=0 ; without shadow copies vs with (outside)=0 mill rect=[P: (188, 138), S: (161, 169)]
+WARNING: 48 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 30 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

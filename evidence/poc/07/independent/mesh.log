@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS bld_gallery_01 mesh x[-1.95,10.75] z[-1.15,5.15] cells x[-2.00,10.80] z[-1.20,5.20] edge-diff(m, -x,-z,+x,+z)=[-0.06, -0.05, 0.05, 0.05] ncells=512
+PASS bld_chapel_01 mesh x[16.52,29.08] z[-0.90,5.70] cells x[16.40,29.20] z[-1.20,6.00] edge-diff(m, -x,-z,+x,+z)=[-0.12, -0.3, 0.12, 0.3] ncells=472
+PASS bld_lighthouse_01 mesh x[11.98,15.22] z[5.18,8.42] cells x[11.60,15.60] z[4.80,8.80] edge-diff(m, -x,-z,+x,+z)=[-0.38, -0.38, 0.38, 0.38] ncells=76
+PASS bld_cafe_01 mesh x[-2.53,4.13] z[11.01,18.59] cells x[-2.80,4.40] z[10.80,18.00] edge-diff(m, -x,-z,+x,+z)=[-0.27, -0.21, 0.27, -0.59] ncells=320
+PASS bld_ruin_01 mesh x[20.14,26.27] z[11.10,17.70] cells x[20.00,26.40] z[10.80,18.00] edge-diff(m, -x,-z,+x,+z)=[-0.14, -0.3, 0.13, 0.3] ncells=146
+PASS bld_pump_01 mesh x[6.72,15.68] z[20.65,27.35] cells x[6.80,16.00] z[20.40,27.60] edge-diff(m, -x,-z,+x,+z)=[0.08, -0.25, 0.32, 0.25] ncells=388
+PASS bld_mill_01 mesh x[-2.32,3.92] z[23.06,28.14] cells x[-2.40,4.00] z[22.80,28.40] edge-diff(m, -x,-z,+x,+z)=[-0.08, -0.26, 0.08, 0.26] ncells=201
+RESULT fails=0

@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti display=Windows window=(1280, 720)
+PASS gpu.size_640 (640, 360)
+PASS gpu.hud_capture_size_640 (640, 360)
+PASS gpu.sync_flags_640 { "frame": 1, "texels": [16, 24], "pixel_size": 0.05138888888889, "matching_texture": true, "matching_feet": true, "matching_flip": true, "shaded": true, "foot_screen": (320.0, 199.0), "height_m": 1.23333333333333 }
+PASS gpu.sprite_palette_640 unique colors under sprite mask=9
+PASS gpu.shadow_cast_640 differing px with/without shadow board=135
+PASS gpu.no_blur_follow_640 worst sprite pixel mismatches over 4 sub-pixel moves=0 of 168; background samples changed (proves the camera moved)=1246
+PASS gpu.follow_moved_world_640 changed=1246
+PASS gpu.size_960 (960, 540)
+PASS gpu.hud_capture_size_960 (960, 540)
+PASS gpu.sync_flags_960 { "frame": 1, "texels": [24, 36], "pixel_size": 0.03425925925926, "matching_texture": true, "matching_feet": true, "matching_flip": true, "shaded": true, "foot_screen": (479.9999, 299.0), "height_m": 1.23333333333333 }
+PASS gpu.sprite_palette_960 unique colors under sprite mask=9
+PASS gpu.shadow_cast_960 differing px with/without shadow board=293
+PASS gpu.no_blur_follow_960 worst sprite pixel mismatches over 4 sub-pixel moves=0 of 380; background samples changed (proves the camera moved)=1415
+PASS gpu.follow_moved_world_960 changed=1415
+RESULT passes=14 failures=0
+WARNING: 21 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 13 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

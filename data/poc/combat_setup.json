@@ -1,0 +1,26 @@
+{
+ "version": 1,
+ "note": "POC-04 combat fixture. Coordinates are cells (x, y); rects are [x, y, w, h]. Zone 0 = the safe patch (stable from the start, never entered by enemies); zone 1 = the rest (unconquered, holds the nests). paint overrides the open base terrain before the placed objects are applied; open_cells are extra cells treated as open when sealing enclosed interiors (the island must stay a greening target).",
+ "map": "res://data/poc/maps/fixture_04.json",
+ "paint": [
+  {"rect": [3, 3, 9, 9], "terrain": "water"},
+  {"rect": [6, 6, 3, 3], "terrain": "wasteland"}
+ ],
+ "open_cells": [[7, 7]],
+ "zones": [
+  {"id": 0, "key": "start", "name": "開始安全地帯", "state": 2, "rect": [21, 22, 6, 5], "nest_tiles": []},
+  {"id": 1, "key": "boar_field", "name": "イノシシの原", "state": 0, "rect": null, "nest_tiles": [[24, 5], [34, 15], [14, 15]]}
+ ],
+ "enemy_tuning": {
+  "rng_seed": 20261018,
+  "nest_hp": 10,
+  "spawn_interval_seconds": 8.0,
+  "nest_boar_cap": 3,
+  "boar_cap": 8,
+  "boar_hp": 3,
+  "boar_speed_px": 18.0,
+  "hit_radius_px": 6.0,
+  "hit_center_height_px": 0.0,
+  "tether_tiles": 48
+ }
+}

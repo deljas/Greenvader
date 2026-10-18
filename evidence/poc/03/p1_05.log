@@ -1,0 +1,187 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS region and tunings load
+PASS region plant list in selection order: normal, carrot, kiwi ([&"normal", &"carrot", &"kiwi"])
+PASS footprints: normal 1, carrot 2, kiwi 2 tiles
+PASS cost 3 seeds, limit 32 per kind
+PASS 40 s from young to mature
+PASS carrot (pinned reference copy for the mechanism tests): spread boost, radius 12 tiles, x2.0
+PASS shipped carrot (P2-06 retune): spread boost, radius 24 tiles, x3.0, 3 seeds, at most 32
+PASS kiwi: a fruit every 20 s, 2 per plant, +2 HP, fruit lifetime 30 s
+PASS HP 10, healing fruits capped at 16 in the region
+PASS spread constants used by the oracle below: threshold 100000, +10000 / tick, +2500 per extra neighbour, radius 2
+PASS selection starts at the ordinary plant
+PASS next x4 cycles carrot, kiwi, normal, carrot ([&"carrot", &"kiwi", &"normal", &"carrot"])
+PASS previous goes back and wraps from the first to the last
+PASS every change reports selection_changed (6)
+PASS HUD text marks the current plant with its cost: 植物 通常 [にんじん:3] キウイ
+PASS HUD text follows the selection: 植物 通常 にんじん [キウイ:3]
+PASS without plant data there is still the ordinary plant
+PASS a plant added as data shows up in the selection (植物 [通常] にんじん キウイ ビート)
+PASS HP starts full at 10
+PASS damage_player(3): HP 7
+PASS negative damage does nothing
+PASS healing never goes above the maximum (9 + 5 -> 10, 1 gained)
+PASS healing at full HP gains nothing
+PASS damage never goes below 0
+PASS hp_changed is reported for real changes only ([7, 9, 10, 0])
+PASS an empty array packs and unpacks without engine errors
+PASS SpreadSim.to_dict with an empty queue works
+PASS SpreadSim.load_dict restores the empty save
+PASS GrowthSim.to_dict / load_dict with an empty active set works
+PASS landing in the lower right of tile (7,7): the block (7,7)-(8,8) is chosen
+PASS exactly the 2x2 footprint is occupied by the plant
+PASS the footprint was green ground already: greened count 36 unchanged, counters match a recount
+PASS the occupied tiles stay mature ground
+PASS landing on an occupied tile places nothing (corner (0.5, 0.5))
+PASS landing on an occupied tile places nothing (corner (3.5, 0.5))
+PASS landing on an occupied tile places nothing (corner (0.5, 3.5))
+PASS landing on an occupied tile places nothing (corner (3.5, 3.5))
+PASS no plant was added by the refused landings
+PASS nearest block (10,10) reaches into empty ground, so the up-left block (9,9) is used
+PASS try order: nearest block, then up-left, up-right, down-left ([(12, 12), (11, 11), (12, 11), (11, 12)])
+PASS point in the lower left: block (11,12) first, then the fixed order of the rest ([(11, 12), (11, 11), (12, 11), (12, 12)])
+PASS empty ground: nothing is planted
+PASS the map corner and points outside the map plant nothing
+PASS the ordinary plant and unknown kinds are not cultivated plants
+PASS 3x3 mature field with a 'empty' middle tile: no 2x2 fits anywhere, nothing changes
+PASS 3x3 mature field with a 'seed' middle tile: no 2x2 fits anywhere, nothing changes
+PASS 3x3 mature field with a 'sprout1' middle tile: no 2x2 fits anywhere, nothing changes
+PASS 3x3 mature field with a 'sprout2' middle tile: no 2x2 fits anywhere, nothing changes
+PASS 3x3 mature field with a 'water' middle tile: no 2x2 fits anywhere, nothing changes
+PASS 3x3 mature field with a 'building' middle tile: no 2x2 fits anywhere, nothing changes
+PASS 3x3 mature field with a 'occupied' middle tile: no 2x2 fits anywhere, nothing changes
+PASS control: the clean 3x3 field accepts a carrot
+PASS a mature strip one tile wide is too narrow
+PASS the safe zone (mature at the start) accepts a kiwi
+PASS a block at the edge of the mature area plants (fallback to the in-field block) and leaves the water alone
+PASS a carrot can be fired with 20 seeds; the ordinary plant is not a cultivated shot
+PASS firing holds 3 seeds back (seeds 20, available 17)
+PASS a successful landing spends exactly 3 seeds (20 -> 17)
+PASS a landing on ground that does not fit spends nothing and gives the held-back seeds back
+PASS a shot that ends in the air (cancel) releases its seeds
+PASS with 2 seeds neither cultivated plant can be fired
+PASS with 5 seeds a carrot can be fired
+PASS while a shot is in flight only 2 seeds are free: no second cultivated shot
+PASS the 2 free seeds still allow ordinary seed shots but not another carrot
+PASS at most 32 carrots are placed (32 of 40 tries)
+PASS at the limit no carrot can be fired, kiwis still can (the limit is per kind)
+PASS limit 2: one placed + one in flight reaches the limit, a third cannot be fired
+PASS after the shots end the limit frees up again
+PASS carrot placed on a mature 2x2 patch surrounded by empty ground
+PASS can_plant is false on the four occupied tiles
+PASS 12 seed landings on the plant plant 24 tiles around it and never into its footprint; the footprint stays mature
+PASS natural spread skips an occupied empty tile but plants its free neighbours
+PASS 40 spread ticks around a kiwi leave its footprint mature and occupied; counters match a recount
+PASS greening count equals a recount and is still the 36 field tiles (planted seeds are not green yet; 52 seeds around)
+PASS carrot placed at the corner of patch A, young
+PASS two patches have 136 spread candidates in total
+PASS radius 12 covers 68 of the 136 candidates (almost all of patch A's ring, none of patch B's)
+PASS after 39 s the carrot is still young and no boost exists
+PASS young carrot: after 12 ticks exactly the candidates whose unboosted time (<= 12 ticks) passed are seeds, inside the radius too
+PASS after 40 s the carrot is mature and the boost array is installed
+PASS the speed multiplier is 2.0 inside radius 12 of the footprint centre and 1.0 everywhere else (wrong tiles: 0)
+PASS every candidate (136) became a seed at exactly the oracle tick: boosted inside the radius, normal outside ()
+PASS inside: 68 candidates faster than without the carrot; outside (patch A beyond the radius and all of patch B): 68 unchanged
+PASS a candidate with one mature neighbour inside the radius: 5 ticks (10 without the carrot)
+PASS counters consistent after the boosted spread
+PASS two overlapping carrots: the larger multiplier wins in the overlap (124 tiles covered by both), values seen [1000, 2000, 3000]
+PASS kiwi placed
+PASS young until 40 s, mature at 40.1 s, no fruit yet ([false, 0] [true, 0])
+PASS first fruit exactly 20 s after maturity, at 60 s ([true, 0] then [true, 1])
+PASS second fruit at 80 s ([true, 1] then [true, 2])
+PASS the cap of 2 fruits per kiwi holds (never more than 2)
+PASS the first fruit disappears after its 30 s lifetime (at 90 s), the replacement is not due before 110 s
+PASS no fruit grew older than its lifetime of 30 s (oldest seen 30.000 s)
+PASS fruits lie 6..12 px from the kiwi centre and belong to the kiwi
+PASS a fruit is lying around and the player is at full HP
+PASS standing on the fruit at full HP: it is NOT collected
+PASS at 9 HP the fruit is collected: +2 clamps at the maximum 10
+PASS HP 5 after 5 damage
+PASS the kiwi keeps producing (next fruit after 18.0 s)
+PASS collecting a fruit restores exactly 2 HP (5 -> 7)
+PASS a player 13.5 px away does not collect (radius is 12)
+PASS a player 11 px away collects
+PASS full HP: the seed fruit is taken (seeds 5 -> 6), the healing fruit stays
+PASS orphan healing fruit (no plant) heals the fallback amount 2 (HP 4 -> 6)
+PASS full seed pouch: the healing fruit is collected, the seed fruit stays
+PASS ten kiwis placed
+PASS ten kiwis want 20 fruits: the region holds 16 (cap); the seed source kept dropping fruits (16 healing, 2 source fruits on the ground, 5 dropped)
+PASS plant seed fruits still reach their cap of 20 with 16 healing fruits on the ground (accepted 20)
+PASS seed fruits fill their whole total of 35 in spite of the healing fruits (35 items, 13 more source fruits accepted)
+PASS one more seed fruit than the total is refused
+PASS healing fruits sit on top of the seed budget: 51 items = 35 seed + 16 healing
+PASS a full seed budget does not block a healing fruit; the healing cap of 16 still applies
+PASS count_plant_owned ignores healing fruits
+PASS 30 / 60 / 144 Hz: maturity at 40 s and the first fruit at 60 s to within a frame ([[40.0, 60.0], [40.0, 60.0], [40.0, 60.0]])
+PASS 30 / 60 / 144 Hz: the same two fruits at the same places after 85 s
+PASS 30 / 60 / 144 Hz: identical carrot boost array
+PASS 30 / 60 / 144 Hz: same number of drops after 100 s ([2, 2, 2])
+PASS save point: young and mature plants, fruits on the ground, HP 6
+PASS the world save holds the four occupied footprints
+PASS play state restores from its save
+PASS HP and the selection survive the round trip
+PASS the plant list (kind, position, growth, fruit timer, drops) is identical after the round trip
+PASS occupancy and the ground fruits (with their own lifetimes) are identical
+PASS restored and original run 45 s more with identical plants, fruits and HP
+PASS the carrot boost is rebuilt from the plant list
+PASS loading the same save twice does not duplicate plants or occupancy
+PASS a save with a plant on ground that cannot hold it is refused and leaves the running state alone
+PASS a save without HP / plants loads with defaults
+PASS bad plant save (empty ground): refused, nothing changed (accepted=false)
+PASS bad plant save (partly outside the map (right)): refused, nothing changed (accepted=false)
+PASS bad plant save (partly outside the map (negative)): refused, nothing changed (accepted=false)
+PASS bad plant save (far outside the map): refused, nothing changed (accepted=false)
+PASS bad plant save (a seed tile in the footprint): refused, nothing changed (accepted=false)
+PASS bad plant save (a sprout 1 tile in the footprint): refused, nothing changed (accepted=false)
+PASS bad plant save (a sprout 2 tile in the footprint): refused, nothing changed (accepted=false)
+PASS bad plant save (an empty tile in the footprint): refused, nothing changed (accepted=false)
+PASS bad plant save (water in the footprint (not a target)): refused, nothing changed (accepted=false)
+PASS bad plant save (overlap with another occupant): refused, nothing changed (accepted=false)
+PASS bad plant save (two saved plants on the same tiles): refused, nothing changed (accepted=false)
+PASS bad plant save (mature with an age below the growth time): refused, nothing changed (accepted=false)
+PASS bad plant save (young with an age past the growth time): refused, nothing changed (accepted=false)
+PASS bad plant save (age beyond the growth time): refused, nothing changed (accepted=false)
+PASS every inconsistent plant save is refused
+PASS a refused save on a running state keeps its plants and occupancy
+PASS the consistent save still loads onto a world without occupancy (footprints validated first, then occupied)
+P0_READY condition=sunny renderer=forward_plus viewport=(640.0, 360.0) window=(640, 360)
+PASS scene: the HUD lists the three plants, the ordinary one is selected (植物 [通常] にんじん キウイ)
+PASS scene: the HUD shows HP 10/10
+PASS scene: Tab selects the carrot, the HUD follows (植物 通常 [にんじん:3] キウイ)
+PASS scene: wheel down selects the kiwi (植物 通常 にんじん [キウイ:3])
+PASS scene: wheel up twice goes back to the ordinary plant
+PASS scene: wheel up from the first wraps to the last
+PASS scene: Tab from the last wraps to the first
+PASS scene: found an open wasteland block at (40, 58)
+PASS scene: the patch has 196 spread candidates around it
+PASS scene: a left click with the carrot selected planted a carrot at (33, 53)
+PASS scene: 3 seeds were spent (20 -> 17) and the HUD shows   種 17/40
+PASS scene: planting changed no greening count (907)
+PASS scene: wheel down selects the kiwi
+PASS scene: the kiwi was planted too, 3 more seeds spent (14)
+PASS scene: a kiwi shot at unplantable ground spends no seeds (14) and places nothing
+PASS scene: a shot onto the carrot's own tile places nothing
+PASS scene: with 2 seeds a kiwi cannot be fired (no shot in the air, seeds unchanged)
+PASS scene: the 8 footprint tiles are occupied and closed to planting
+PASS scene: after 39.75 s both are young, no boost is installed yet
+PASS scene: after 40+ s both are mature and the spread simulation holds the boost array
+PASS scene: 63 candidates inside the carrot radius, 69 single-neighbour candidates outside
+PASS scene: the real SpreadSim holds multiplier 2000 inside the radius and 1000 outside for all candidates
+PASS scene: by spread tick 9 (9 ticks after the patch appeared) all 63 candidates inside the carrot radius are seeds (visit wait bound 1)
+PASS scene: at the same moment none of the 69 single-neighbour candidates outside the radius is a seed yet (they need 10 ticks)
+PASS scene: counters consistent after the boosted spread
+PASS scene: no fruit yet right after maturity
+PASS scene: the kiwi dropped a healing fruit ~20 s after maturity
+PASS scene: HP full and the player is away from the fruit
+PASS scene: Esc pauses
+PASS scene: 90 frames of pause change neither plant growth, fruit timer and age, game time, spread, nor HP
+PASS scene: Tab and the wheel do not change the selection while paused
+PASS scene: after resuming only the stepped frames of time were added (0.050 s)
+PASS scene: after 5 damage the HUD shows HP 5/10
+PASS scene: picking the fruit up healed 2 HP (5 -> 7) and used up one fruit; HUD HP 7/10
+PASS scene: the kiwi produced another fruit
+PASS scene: at full HP the fruit under the player is left on the ground
+PASS scene: the seed source's fruits exist next to the kiwi fruits (2)
+INFO {"carrot_boosted_candidates":68,"carrot_candidates":136,"kiwi_first_fruit_s":60.0,"scene_inside_planted":63,"scene_outside_planted":0,"scene_spread_queue":320,"scene_visit_bound":1}
+P1_05_RESULT checks=182 failures=0

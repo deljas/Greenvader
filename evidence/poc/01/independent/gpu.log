@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer: NVIDIA GeForce RTX 5070 Ti Windows
+PASS res0 sync { "frame": 1, "texels": [16, 24], "pixel_size": 0.05138888888889, "matching_texture": true, "matching_feet": true, "matching_flip": true, "shaded": true, "foot_screen": (320.0, 199.0), "height_m": 1.23333333333333 }
+PASS res0 no outside-mask change/outline outside diffs=0 inside=168 changed=168 colors=9
+PASS res0 follow foot integer (320.0, 199.0)
+PASS res0 follow foot integer (320.0, 200.0)
+PASS res0 follow foot integer (320.0, 200.0)
+PASS res0 follow colours stable static=9 follow=[9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+PASS res1 sync { "frame": 1, "texels": [24, 36], "pixel_size": 0.03425925925926, "matching_texture": true, "matching_feet": true, "matching_flip": true, "shaded": true, "foot_screen": (480.0, 299.0), "height_m": 1.23333333333333 }
+PASS res1 no outside-mask change/outline outside diffs=0 inside=380 changed=380 colors=9
+PASS res1 follow foot integer (480.0, 299.0)
+PASS res1 follow foot integer (479.9999, 299.0)
+PASS res1 follow foot integer (480.0001, 300.0)
+PASS res1 follow colours stable static=9 follow=[9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+RESULT fails=0

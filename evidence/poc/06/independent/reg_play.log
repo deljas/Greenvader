@@ -1,0 +1,76 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS shot.range_clip planned=(220.0, 100.0) range=120.000000
+PASS shot.lands_once_at_target 
+PASS shot.speed x=16.000000 speed=160.000000
+PASS shot.cap n=64
+PASS shot.enemy_hook_ends_shot 
+PASS shot.lifetime 
+PASS shot.blocked_in_front stop=[(19.5, 0.0)]
+PASS cycle.spot_found spot=(32, 15)
+PASS cycle.fire_ok_spends_seed 
+PASS cycle.seeded seed cells=6 6マスに種をまいた
+PASS cycle.sprout_to_mature mature=80 green 30->116
+PASS cycle.natural_spread plant cells 481 > planted 6 (spread ticks 332)
+PASS cycle.plant_produces_fruit after 332s game time
+PASS cycle.collect_fruit_gives_seed seeds 35 -> 37
+PASS cycle.counters_match_recount 
+PASS water.fire_spends_water water 100.000000 -> 90.000000
+PASS water.wets_tile_only_near wet=35 dry=0
+PASS water.faster_than_dry wet=35380 dry=27500
+PASS recover.sources_from_fixture 
+PASS recover.source_in_safe_zone cell=(25, 23)
+PASS recover.zero_seed_denied 
+PASS recover.drops_reachable dropped samples=629
+PASS recover.source_makes_fruit 
+PASS recover.seed_back_and_fire after firing the recovered seed
+PASS water0.fire_denied 
+PASS water0.no_refill_away_from_water 
+PASS water0.shore_is_waterside 
+PASS water0.refills_at_shore water=50.000000
+PASS water0.puddle_not_a_source puddle=(24, 24)
+PASS plant.selectable_order ["normal", "carrot", "kiwi"]
+PASS plant.cycle 
+PASS plant.carrot_reserves_cost 
+PASS plant.carrot_placed_cost_spent seeds=17
+PASS plant.carrot_boosts_spread boost max=3000
+PASS plant.kiwi_placed 置いた
+PASS plant.kiwi_drops_heal_fruit 
+PASS plant.kiwi_heals_hp hp 5 -> 7
+PASS plant.failed_placement_refunds seeds=23
+PASS wall.test_row_found player=(36, 22) wall=(37, 22) far=(40, 22)
+PASS wall.shot_stops_before_wall stop=[(147.5, 90.0)] wall x>=148
+PASS wall.nothing_behind_wall seed cells=0 landing_counter=0
+PASS wall.water_stops_too moisture 0/0 blocked=2
+PASS wall.cultivated_refunded 
+PASS wall.scatter_filtered_across_wall filtered=6
+PASS wall.sealed_interior_blocks_shots sealed cells=512
+PASS nontarget.water_landing_plants_nothing 
+PASS nontarget.building_water_untouched wall=(7, 1)
+PASS nontarget.shot_over_water_no_gain 
+PASS pause.everything_stops [0.1, 0.1, 0, 0.1, 0.0, 0.1, 0]
+PASS pause.no_fire 
+PASS pause.no_collect 
+PASS pause.resume_no_banking dt=0.250000
+PASS counters.full_matches_recount 
+PASS counters.almost_full_is_not_100 percent=99 ratio=0.998724
+PASS counters.sprout_counts 
+PASS debug.refill_off_by_default 
+PASS debug.refill_explicit 
+PASS main.hud_shows_resources 解像度 640×360（窓 1920×1080, 3倍）　視野 18.5m | 論理 (98.0, 82.0) セル (24,20)　ゲーム時刻 00:00.1　時刻 08:00（昼） ×1 | 種 20　水 100/100　HP 10/10　選択 通常　緑化 3%（30/784） | WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる　Esc=停止　F2=解像度　F3=倍速
+PASS main.view_built 
+PASS click.fire_640 { "ok": true, "reason": "", "landing": (109.0815, 71.27908), "logic": (109.0815, 71.27908) }
+PASS click.same_logic_target_960 640=(109.0815, 71.27908) 960=(108.8393, 71.03683)
+PASS click.range_is_logical_px 
+PASS click.follow_keeps_offset off0=(10.83928, -10.96317) off1=(10.8192, -10.75761)
+PASS click.ui_and_margin_rejected 
+PASS input.left_seed_right_water seeds 18->17 water 100.000000->90.000000
+PASS input.wheel_and_tab_switch_plant 0 1 2
+PASS input.interact_inspects (7,15) building 緑化対象外　近くの拾得物:0
+PASS main.paused_click_denied 
+PASS view.incremental_cell_update rewrote 1 of 1920 cells
+RESULT passes=69 failures=0
+WARNING: 48 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 30 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,64 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS map.size_about_45m 112x112 cells = 44.8 x 44.8 m
+PASS map.buildings_5_to_8_distinct_shapes 7 buildings, footprints (w,h,cells)={ "BLD-007": [32, 16, 512], "BLD-038": [32, 18, 472], "BLD-123": [10, 10, 76], "BLD-019": [18, 18, 320], "BLD-091": [16, 18, 146], "BLD-046": [23, 18, 388], "BLD-079": [16, 14, 201] }
+PASS map.props_cars_puddles_trees puddles=7 cars=3 lamps=10 trees=11 props=23
+PASS map.paved_streets_are_greening_targets paved cells=3854 (targets 3854)
+PASS map.instance_ids_unique_and_catalog_aux 48 instances, 15 adopted assets
+PASS map.every_object_has_collision_cells_and_aux_defs buildings with vine surfaces=5
+PASS elements.zones states=[3, 0]
+PASS elements.safe_zone_is_zone_0_safe_terrain_and_initial_green zone0 greened 484/484
+PASS elements.seed_sources_in_safe_zone 2 sources
+PASS elements.nests_in_combat_zone nests=3
+PASS elements.constant_water_not_walkable water rect [P: (46, 48), S: (16, 14)]
+PASS elements.island_target_unreachable_isolated island [P: (52, 53), S: (4, 4)] target=true unreachable=true isolated=true
+PASS elements.frontier_between_zones zone0/zone1 border walkable cells=84
+PASS elements.fixed_seeds 
+PASS reach.start_free_and_walkable_area reachable cells 8006 (wide 1.6 m body: 6318)
+PASS reach.route_loop_all_waypoints_wide_body waypoints=9, loop length 404 cells = 162 m
+PASS reach.every_nest_walkable_and_shootable nests=3 range=70 px
+PASS reach.every_nest_shootable_from_wide_route 
+PASS reach.island_shootable 
+PASS reach.seed_source_drops_collectable drop points checked=96
+PASS reach.water_bank_reachable_and_refills bank (44, 55)
+PASS reach.plaza_and_alley_reachable plaza (40, 54)
+PASS reach.no_stranded_open_pockets_except_island free but unreachable cells=4 (island 16)
+PASS reach.start_in_safe_zone 
+PASS targets.exclude_buildings_water_blocked_cells targets=9464 expect=9464 excluded=3080 sealed interiors=1237
+PASS water.puddles_walkable_decor_only puddle cells=76
+PASS water.constant_water_blocks_and_supplies water cells=208
+PASS water.puddle_gives_no_water_shore_does after 2 s on the shore: 60.0
+PASS shots.building_blocks_projectile_puddle_does_not wall cell (19, 17)
+PASS regen.instances_identical 
+PASS regen.instance_ids_fixed_by_data_order 48 ids
+PASS regen.target_set_identical 1356403921/4099287451/3333149534/9464/484
+PASS regen.nests_and_sources_identical 
+PASS regen.same_seed_same_run spawned=8
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS start.scene_loads_town instances=48
+PASS start.occlusion_groups_cover_buildings groups=41
+PASS start.no_occlusion_at_start occluded=[]
+PASS start.route_walk_occlusion_comes_and_goes frames=140 with occlusion=84, groups seen=["bus_stop_01", "lamp_09", "lamp_10", "tree_08", "lamp_05", "tree_03", "bld_cafe_01", "pole_01", "bld_gallery_01", "tree_01", "bld_lighthouse_01", "bld_chapel_01", "tree_02"]
+PASS launch.default_is_town_and_fixtures_kept 
+INFO bound=869.0
+INFO nest 1: from (88, 86) walked to (23, 92) ([true, 120]) shots=12
+INFO nest 2: from (23, 92) walked to (13, 45) ([true, 112]) shots=10
+INFO nest 3: from (13, 45) walked to (84, 45) ([true, 122]) shots=10
+PASS clear.walked_and_shot_all_nests start (88, 86), walk steps=354 (35 s at 0.1 s)
+PASS clear.zone_is_clearing_not_stable boars at clear 8, log=["廃街区の巣をすべて壊した"]
+PASS clear.spawning_stopped spawned 8 -> 8
+PASS clear.remaining_enemies_removed killed 8 by shots, spawned total 8, killed total 8
+PASS stable.reached_in_order log=["廃街区の巣をすべて壊した", "廃街区が安定した"]
+PASS stable.no_reinvasion invaded steps=0 spawned=8
+PASS complete.exact_100_percent_within_bound greened=9464/9464 took 796.5 s after stable, bound 869.0 s (limit time 942.5)
+PASS complete.island_included_and_non_targets_untouched island ok=true
+PASS complete.no_resources_or_input_used seeds 40->40
+PASS complete.zone_and_region_state state=[3, 3] cleared=true
+RESULT passes=49 failures=0
+REPORT route loop (1.6 m body): 404 cells = 162 m, walk 67 s at 2.4 m/s
+REPORT 100% bound = completion_bound_seconds() = 869.0 s (tiles 12544, swept targets 8980, lap_steps_bound 146, sweep period 5 ticks of 1.0 s, sweep delay 120 s)
+REPORT 100% result: stable at 73.5 s, 100% at 870.0 s (took 796.5 s of the 869.0 s bound = 92%), greened 9464/9464, green at stable 484, island 16 cells included
+WARNING: 70 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 38 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

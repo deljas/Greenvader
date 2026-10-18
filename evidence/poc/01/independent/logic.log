@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS cell0.4 
+PASS 4px=1cell 
+PASS switch->1 [(960, 540), (960, 540), 18.5, true, true]
+PASS switch->0 [(640, 360), (640, 360), 18.5, true, true]
+PASS switch->1 [(960, 540), (960, 540), 18.5, true, true]
+PASS scale 960@1080=2, 640=3 
+PASS noncint scale 640@1000x700=1 
+PASS 960 refused in 800x600 
+PASS enforce falls to 640 with notice 窓が小さいため 960×540 から 640×360 へ戻しました idx=0 dis=true size=(640, 360)
+PASS roundtrip <3cm worst=0.00001 m
+PASS margin rejected 
+PASS ui rejected [P: (608.0, 2.0), S: (28.0, 22.0)]
+PASS place_aim on ui false 
+PASS far corner outside 
+PASS dist res0 [68] 1.9200 m mv=(1.0, 0.0) expect 1.920
+PASS dist res0 [68, 83] 1.9200 m mv=(0.707107, 0.707107) expect 1.920
+PASS dist res0 [87, 68] 1.9200 m mv=(0.707107, -0.707107) expect 1.920
+PASS dist res1 [68] 1.9200 m mv=(1.0, 0.0) expect 1.920
+PASS dist res1 [68, 83] 1.9200 m mv=(0.707107, 0.707107) expect 1.920
+PASS dist res1 [87, 68] 1.9200 m mv=(0.707107, -0.707107) expect 1.920
+PASS W moves screen-up only (480.0, 304.128) -> (480.0, 300.6252)
+PASS pause freezes time+pos 5.100 5.100
+PASS resume no catch-up dt=0.0160
+PASS big delta capped 0.250
+PASS walk unaffected by x16 1.920
+RESULT fails=0

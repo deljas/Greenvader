@@ -1,0 +1,763 @@
+{
+ "version": 1,
+ "note": "Adopted subset of the TECH-3D-15 copy under assets/models/town_lab (read only). Hashes are sha256 of the copied files. Aux definitions (collision/greenable/water_source/vine_surfaces/occlusion_group) are hand-written for these models only.",
+ "source_manifest": "res://assets/models/town_lab/manifest.json",
+ "assets": [
+  {
+   "id": "BLD-038",
+   "name": "小さな礼拝堂",
+   "kind": "building",
+   "glb": "res://assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel.glb",
+   "glb_sha256": "9eed7fe3953382a2158fe2d0e5808104d297442550b00885d4052415345ba149",
+   "metadata": "res://assets/models/town_lab/BLD-038/metadata.json",
+   "metadata_sha256": "6ec4e06bc7c1304868b60e9e6713b5fdc1da7287383fd2764b800d74e50051db",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\038_cross_plan_stone_chapel\\038_cross_plan_stone_chapel.glb",
+   "collision": "walls",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [
+    {
+     "id": "chapel_front_00",
+     "origin": [
+      -4.0,
+      0.18,
+      3.19
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ],
+     "size": [
+      8,
+      5.07
+     ]
+    },
+    {
+     "id": "chapel_back_01",
+     "origin": [
+      4.0,
+      0.18,
+      -3.19
+     ],
+     "normal": [
+      0,
+      0,
+      -1
+     ],
+     "size": [
+      8,
+      5.07
+     ]
+    },
+    {
+     "id": "chapel_sides_02",
+     "origin": [
+      -3.9899999999999998,
+      0.18,
+      -3.08
+     ],
+     "normal": [
+      -1,
+      0,
+      0
+     ],
+     "size": [
+      6.16,
+      5.07
+     ]
+    },
+    {
+     "id": "chapel_sides_03",
+     "origin": [
+      3.9899999999999998,
+      0.18,
+      3.08
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ],
+     "size": [
+      6.16,
+      5.07
+     ]
+    },
+    {
+     "id": "chapel_arm_west_front_04",
+     "origin": [
+      -6.15,
+      0.24,
+      0.6
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ],
+     "size": [
+      2.3,
+      3.51
+     ]
+    },
+    {
+     "id": "chapel_arm_west_side_-1_05",
+     "origin": [
+      -6.25,
+      0.24,
+      -2.1
+     ],
+     "normal": [
+      -1,
+      0,
+      0
+     ],
+     "size": [
+      2.6,
+      3.51
+     ]
+    },
+    {
+     "id": "chapel_arm_west_side_1_06",
+     "origin": [
+      -3.75,
+      0.24,
+      0.5
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ],
+     "size": [
+      2.6,
+      3.51
+     ]
+    },
+    {
+     "id": "chapel_arm_east_front_07",
+     "origin": [
+      3.85,
+      0.24,
+      0.6
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ],
+     "size": [
+      2.3,
+      3.51
+     ]
+    },
+    {
+     "id": "chapel_arm_east_side_-1_08",
+     "origin": [
+      3.75,
+      0.24,
+      -2.1
+     ],
+     "normal": [
+      -1,
+      0,
+      0
+     ],
+     "size": [
+      2.6,
+      3.51
+     ]
+    },
+    {
+     "id": "chapel_arm_east_side_1_09",
+     "origin": [
+      6.25,
+      0.24,
+      0.5
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ],
+     "size": [
+      2.6,
+      3.51
+     ]
+    }
+   ],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "BLD-091",
+   "name": "直交コンテナ建屋の廃墟",
+   "kind": "building",
+   "glb": "res://assets/models/town_lab/BLD-091/091_crossed_container_ruin.glb",
+   "glb_sha256": "05f37f10c2b884ccdfefc1240dc4fa6300053ebfdc45aefc303028cf233ef18c",
+   "metadata": "res://assets/models/town_lab/BLD-091/metadata.json",
+   "metadata_sha256": "8a8c675d9df8c0d88214ac4a47896f735d2099400b5befab2c43f919162d833e",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\091_crossed_container_ruin\\091_crossed_container_ruin.glb",
+   "collision": "walls",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "BLD-079",
+   "name": "水車付き石造廃屋",
+   "kind": "building",
+   "glb": "res://assets/models/town_lab/BLD-079/079_stone_watermill_ruin.glb",
+   "glb_sha256": "a88c703d505061cb294696b6ff6f6adaca4806f01a1422bc32558eb100b2e040",
+   "metadata": "res://assets/models/town_lab/BLD-079/metadata.json",
+   "metadata_sha256": "f0a024bc4e4f17ddc1582bce17c434ab6a62e94017dfbb40a46e5d6f6ea72671",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\079_stone_watermill_ruin\\079_stone_watermill_ruin.glb",
+   "collision": "walls",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [
+    {
+     "id": "Mill_front",
+     "origin": [
+      0,
+      0,
+      2.4
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "id": "Mill_back",
+     "origin": [
+      0,
+      0,
+      -2.4
+     ],
+     "normal": [
+      0,
+      0,
+      -1
+     ]
+    },
+    {
+     "id": "Mill_side-2.25",
+     "origin": [
+      -2.4,
+      0,
+      0
+     ],
+     "normal": [
+      -1,
+      0,
+      0
+     ]
+    },
+    {
+     "id": "Mill_side2.25",
+     "origin": [
+      2.4,
+      0,
+      0
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ]
+    }
+   ],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "BLD-007",
+   "name": "外廊下付き低層集合住宅",
+   "kind": "building",
+   "glb": "res://assets/models/town_lab/BLD-007/007_ochre_gallery_apartment_pitched_roof.glb",
+   "glb_sha256": "eeaf596afb6a585f003e028bc0be6badec99a3ac60b30e5406ecc31972cf1adc",
+   "metadata": "res://assets/models/town_lab/BLD-007/metadata.json",
+   "metadata_sha256": "520a1e6f93bf6d508f29c398151694983249acb8f3a4275907d011d4e93c5dc1",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\007_ochre_gallery_apartment_pitched_roof\\007_ochre_gallery_apartment_pitched_roof.glb",
+   "collision": "walls",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [
+    {
+     "id": "gallery_front_00",
+     "origin": [
+      -6.0,
+      0.18,
+      1.4000000000000001
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ],
+     "size": [
+      12,
+      7.32
+     ]
+    },
+    {
+     "id": "gallery_back_01",
+     "origin": [
+      6.0,
+      0.18,
+      -3.0
+     ],
+     "normal": [
+      0,
+      0,
+      -1
+     ],
+     "size": [
+      12,
+      7.32
+     ]
+    },
+    {
+     "id": "gallery_ends_02",
+     "origin": [
+      -6.0,
+      0.18,
+      -2.8899999999999997
+     ],
+     "normal": [
+      -1,
+      0,
+      0
+     ],
+     "size": [
+      4.18,
+      7.32
+     ]
+    },
+    {
+     "id": "gallery_ends_03",
+     "origin": [
+      6.0,
+      0.18,
+      1.2899999999999998
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ],
+     "size": [
+      4.18,
+      7.32
+     ]
+    }
+   ],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "BLD-019",
+   "name": "カフェの店舗",
+   "kind": "building",
+   "glb": "res://assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof.glb",
+   "glb_sha256": "7239c0e3f224f116f2aaa3a67811b38c1708f869aa44ef854b57024b9d20a4bc",
+   "metadata": "res://assets/models/town_lab/BLD-019/metadata.json",
+   "metadata_sha256": "7ebcba349a13eaf0e47a5c8a75db592136c67010dc0f9c7d59e8567ab72704a6",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\019_dusty_rose_terrace_cafe_pitched_roof\\019_dusty_rose_terrace_cafe_pitched_roof.glb",
+   "collision": "walls",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [
+    {
+     "id": "cafe_front_00",
+     "origin": [
+      -3.2,
+      0.18,
+      3.19
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ],
+     "size": [
+      6.4,
+      4.32
+     ]
+    },
+    {
+     "id": "cafe_terrace_side_01",
+     "origin": [
+      3.19,
+      0.18,
+      3.08
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ],
+     "size": [
+      6.16,
+      4.32
+     ]
+    },
+    {
+     "id": "cafe_back_02",
+     "origin": [
+      3.2,
+      0.18,
+      -3.19
+     ],
+     "normal": [
+      0,
+      0,
+      -1
+     ],
+     "size": [
+      6.4,
+      4.32
+     ]
+    },
+    {
+     "id": "cafe_left_03",
+     "origin": [
+      -3.19,
+      0.18,
+      -3.08
+     ],
+     "normal": [
+      -1,
+      0,
+      0
+     ],
+     "size": [
+      6.16,
+      4.32
+     ]
+    }
+   ],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "PRP-012",
+   "name": "屋根付きバス停",
+   "kind": "prop",
+   "glb": "res://assets/models/town_lab/PRP-012/012_ruined_bus_shelter.glb",
+   "glb_sha256": "17418891b3e387282f591202fcb5f4253aa718ac67e4c62712ee5929f6dd19df",
+   "metadata": "res://assets/models/town_lab/PRP-012/metadata.json",
+   "metadata_sha256": "ff5a65c9396cf0223a09fc43b051f98089ad3689c3f767e2d06c63465044883a",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\012_ruined_bus_shelter\\012_ruined_bus_shelter.glb",
+   "collision": "walls",
+   "blocks_projectile": false,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "PRP-017",
+   "name": "大型廃棄物コンテナ",
+   "kind": "prop",
+   "glb": "res://assets/models/town_lab/PRP-017/017_open_waste_container.glb",
+   "glb_sha256": "6bbd718052e19762e44c27e0c4f28144ec3e9f648943bd9c57933d6b06a901d3",
+   "metadata": "res://assets/models/town_lab/PRP-017/metadata.json",
+   "metadata_sha256": "a08fdf5221ee58638ab3a8950c8e4df8474ba489d0a615939d4ed0fa8887f7d6",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\017_open_waste_container\\017_open_waste_container.glb",
+   "collision": "aabb",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "PRP-034",
+   "name": "消火栓",
+   "kind": "prop",
+   "glb": "res://assets/models/town_lab/PRP-034/034_generic_fire_hydrant.glb",
+   "glb_sha256": "e663fd157152a8e4f6c36d1cfcd1ebd5b5c01fc16c069d79584a62554b822010",
+   "metadata": "res://assets/models/town_lab/PRP-034/metadata.json",
+   "metadata_sha256": "aa83c8c3ce9d8394500113b61ac96ccd2e6dcaaa1b3354aeee595d537624e7bc",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\034_generic_fire_hydrant\\034_generic_fire_hydrant.glb",
+   "collision": "circle",
+   "blocks_projectile": false,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance",
+   "radius": 0.25
+  },
+  {
+   "id": "PRP-005",
+   "name": "電線の残る電柱",
+   "kind": "prop",
+   "glb": "res://assets/models/town_lab/PRP-005/005_wired_utility_pole.glb",
+   "glb_sha256": "7a00519cb5f03fc2a21d054d1bb260e7fa510809597d557ab57542170e6dde98",
+   "metadata": "res://assets/models/town_lab/PRP-005/metadata.json",
+   "metadata_sha256": "172951050577f17f333c36ad2556433f5bb60eb2f2bf523ae80e49fd00e43b77",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\005_wired_utility_pole\\005_wired_utility_pole.glb",
+   "collision": "circle",
+   "blocks_projectile": false,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance",
+   "radius": 0.3
+  },
+  {
+   "id": "TRE-001",
+   "name": "非対称な広葉樹",
+   "kind": "tree",
+   "glb": "res://assets/models/town_lab/TRE-001/001_asymmetric_broadleaf.glb",
+   "glb_sha256": "d058c573abeaa0bc7a99e07098049e69deb09ff61d5cd31e7fcf00a944d75150",
+   "metadata": "res://assets/models/town_lab/TRE-001/metadata.json",
+   "metadata_sha256": "4f0d3c1562795c8bd120980f8688ed2b5689c22f34ae675854b13e7ef23a6f8f",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\001_asymmetric_broadleaf\\001_asymmetric_broadleaf.glb",
+   "collision": "circle",
+   "blocks_projectile": false,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance",
+   "radius": 0.45
+  },
+  {
+   "id": "BLD-046",
+   "name": "水処理ポンプ棟",
+   "kind": "building",
+   "glb": "res://assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof.glb",
+   "glb_sha256": "a4ae511b1a27191b2c88c3c164bc6dbb5a3d0715d514c4228703e205b4ccee02",
+   "metadata": "res://assets/models/town_lab/BLD-046/metadata.json",
+   "metadata_sha256": "4e6f4a0b44a94e5be0df85560b15b6915b79e26c4340ff87ab87d8c803d2ee14",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\046_sage_pump_building_pitched_roof\\046_sage_pump_building_pitched_roof.glb",
+   "collision": "walls",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [
+    {
+     "id": "pump_high_front_00",
+     "origin": [
+      -4.0,
+      0.18,
+      3.19
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ],
+     "size": [
+      4.8,
+      4.32
+     ]
+    },
+    {
+     "id": "pump_low_front_01",
+     "origin": [
+      0.7999999999999998,
+      0.18,
+      3.19
+     ],
+     "normal": [
+      0,
+      0,
+      1
+     ],
+     "size": [
+      3.2,
+      3.2199999999999998
+     ]
+    },
+    {
+     "id": "pump_high_back_02",
+     "origin": [
+      0.7999999999999998,
+      0.18,
+      -3.19
+     ],
+     "normal": [
+      0,
+      0,
+      -1
+     ],
+     "size": [
+      4.8,
+      4.32
+     ]
+    },
+    {
+     "id": "pump_low_back_03",
+     "origin": [
+      4.0,
+      0.18,
+      -3.19
+     ],
+     "normal": [
+      0,
+      0,
+      -1
+     ],
+     "size": [
+      3.2,
+      3.2199999999999998
+     ]
+    },
+    {
+     "id": "pump_left_04",
+     "origin": [
+      -3.9899999999999998,
+      0.18,
+      -3.08
+     ],
+     "normal": [
+      -1,
+      0,
+      0
+     ],
+     "size": [
+      6.16,
+      4.32
+     ]
+    },
+    {
+     "id": "pump_right_05",
+     "origin": [
+      3.9899999999999998,
+      0.18,
+      3.08
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ],
+     "size": [
+      6.16,
+      3.2199999999999998
+     ]
+    },
+    {
+     "id": "Pump_roof_step_06",
+     "origin": [
+      0.86,
+      3.45,
+      3.08
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ],
+     "size": [
+      6.16,
+      1.13
+     ]
+    }
+   ],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "BLD-123",
+   "name": "円筒灯台",
+   "kind": "building",
+   "glb": "res://assets/models/town_lab/BLD-123/123_lighthouse.glb",
+   "glb_sha256": "9135597459883cfddc2c1cbf3d065007ffc8bd3a3adfa4090200ed68ade2de90",
+   "metadata": "res://assets/models/town_lab/BLD-123/metadata.json",
+   "metadata_sha256": "7133250124ca80527498d1c2509ed3592a64e58816d16c4e5347598e9e347210",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\123_lighthouse\\123_lighthouse.glb",
+   "collision": "walls",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "PRP-001",
+   "name": "折れた街灯",
+   "kind": "prop",
+   "glb": "res://assets/models/town_lab/PRP-001/001_broken_streetlamp.glb",
+   "glb_sha256": "18fba8991523fcb7ec0e70b748dffe329c16da5d1e79a4ea1ba0c7c90328d9f1",
+   "metadata": "res://assets/models/town_lab/PRP-001/metadata.json",
+   "metadata_sha256": "9a79e0e68b8ef2b49afe28b5618514ecff0f85ef23d06ee3e0653ac75ce109bd",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\001_broken_streetlamp\\001_broken_streetlamp.glb",
+   "collision": "circle",
+   "radius": 0.22,
+   "blocks_projectile": false,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "PRP-041",
+   "name": "錆びた乗用車の外殻",
+   "kind": "prop",
+   "glb": "res://assets/models/town_lab/PRP-041/041_crumpled_passenger_car_shell.glb",
+   "glb_sha256": "c3f9bec4492c9cb7c84cc3be6448cb1725169e8aeba20a169e5e1302b5c59951",
+   "metadata": "res://assets/models/town_lab/PRP-041/metadata.json",
+   "metadata_sha256": "424483473894f5f65edad9364aeff6d54fbe3cc4e70911b3f68ccdbbf7fdb04e",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\041_crumpled_passenger_car_shell\\041_crumpled_passenger_car_shell.glb",
+   "collision": "aabb",
+   "blocks_projectile": true,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  },
+  {
+   "id": "PRP-075",
+   "name": "放置された滑り台",
+   "kind": "prop",
+   "glb": "res://assets/models/town_lab/PRP-075/075_abandoned_playground_slide.glb",
+   "glb_sha256": "8b355925b2cafdd98352f52f7e8bfbb0e07c7d8be17053fc0f768e026da560b4",
+   "metadata": "res://assets/models/town_lab/PRP-075/metadata.json",
+   "metadata_sha256": "3b04b634971006b5009440cab3278f0838bf484b71cd2a23923a8cad5bea8ae6",
+   "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\075_abandoned_playground_slide\\075_abandoned_playground_slide.glb",
+   "collision": "aabb",
+   "blocks_projectile": false,
+   "walkable": false,
+   "greenable": false,
+   "water_source": false,
+   "vine_surfaces": [],
+   "vine_frame": "glb_local_before_centering",
+   "occlusion_group": "instance"
+  }
+ ]
+}

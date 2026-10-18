@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti display=Windows window=(1280, 720)
+PASS gpu.vegetation_grown progress=36.000000
+PASS gpu.player_cell_walkable 
+PASS gpu.occluded_by_mill_only ["mill_01"]
+PASS gpu.player_visible_through_faded_noon_640 sprite px=162
+PASS gpu.player_hidden_without_fade_noon_640 sprite px=0 (opaque building covers him)
+PASS gpu.building_changes_noon_640 diff=13016
+PASS gpu.outside_building_unchanged_noon_640 outside px diff=0 (ground, shadow, water, other objects)
+PASS gpu.player_visible_through_faded_night_640 sprite px=162
+PASS gpu.player_hidden_without_fade_night_640 sprite px=0 (opaque building covers him)
+PASS gpu.building_changes_night_640 diff=13016
+PASS gpu.outside_building_unchanged_night_640 outside px diff=0 (ground, shadow, water, other objects)
+PASS gpu.player_visible_through_faded_noon_960 sprite px=364
+PASS gpu.player_hidden_without_fade_noon_960 sprite px=0 (opaque building covers him)
+PASS gpu.building_changes_noon_960 diff=29226
+PASS gpu.outside_building_unchanged_noon_960 outside px diff=0 (ground, shadow, water, other objects)
+PASS gpu.player_visible_through_faded_night_960 sprite px=364
+PASS gpu.player_hidden_without_fade_night_960 sprite px=0 (opaque building covers him)
+PASS gpu.building_changes_night_960 diff=29226
+PASS gpu.outside_building_unchanged_night_960 outside px diff=0 (ground, shadow, water, other objects)
+PASS gpu.shadow_copy_keeps_ground_shadow shadow copies=14 px diff without them=7914
+PASS gpu.reflection_copy_keeps_building_in_reflection reflection px diff without copies=2086
+PASS gpu.restored_after_leaving 
+RESULT passes=22 failures=0

@@ -1,0 +1,79 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS germinating.save_ok 
+PASS germinating.state_present growing tiles=24
+PASS germinating.load_ok 
+PASS germinating.extras_resolution 
+PASS germinating.key_state_equal elapsed=5.20 green=484/9464 seeds=36 boars=0 pickups=0
+PASS germinating.full_signature_equal 
+PASS germinating.wall_growth_equal 
+PASS germinating.counters_consistent 
+PASS germinating.deterministic_after_load  elapsed 35.2 / 35.2
+PASS germinating.no_duplication_on_reload seeds 36 boars 0 pickups 0
+PASS combat.save_ok 
+PASS combat.state_present boars=8 nests=3 carcasses=1 shots=3 plants_in_flight=2
+PASS combat.shots_dropped_and_refunded seeds 40->40 water 90.0->100.0 reserved 6->0
+PASS combat.load_ok 
+PASS combat.extras_resolution 
+PASS combat.key_state_equal elapsed=75.00 green=484/9464 seeds=40 boars=8 pickups=4
+PASS combat.full_signature_equal 
+PASS combat.wall_growth_equal 
+PASS combat.counters_consistent 
+PASS combat.deterministic_after_load  elapsed 105.0 / 105.0
+PASS combat.no_duplication_on_reload seeds 40 boars 8 pickups 4
+PASS stable.save_ok 
+PASS stable.state_present zone1=2 far ticks=170
+PASS stable.load_ok 
+PASS stable.extras_resolution 
+PASS stable.key_state_equal elapsed=170.00 green=1131/9464 seeds=20 boars=0 pickups=6
+PASS stable.full_signature_equal 
+PASS stable.wall_growth_equal 
+PASS stable.counters_consistent 
+PASS stable.deterministic_after_load  elapsed 200.0 / 200.0
+PASS stable.no_duplication_on_reload seeds 20 boars 0 pickups 6
+PASS reject.version code=version reason=セーブの形式が違うため読み込めません（保存 v99 / 現在 v1）。
+PASS reject.map_id code=map reason=別のマップのセーブです（保存 other_town / 現在 town_01）。
+PASS reject.map_hash code=hash reason=マップの内容（地形・緑化対象）がセーブ時と違うため読み込めません。
+PASS reject.missing_key code=missing_key reason=セーブデータの必須項目「play.pickups」が欠けています。
+PASS reject.missing_section code=missing_key reason=セーブデータの必須項目「enemies」が欠けています。
+PASS reject.out_of_range_position code=invalid reason=セーブデータの値が範囲外または不整合です（プレイヤー位置）。
+PASS reject.bad_elapsed code=invalid reason=セーブデータの値が範囲外または不整合です（ゲーム時間）。
+PASS reject.bad_stage code=invalid reason=セーブデータの値が範囲外または不整合です（world.stage の大きさ）。
+PASS reject.bad_resolution code=invalid reason=セーブデータの値が範囲外または不整合です（ui.resolution_index）。
+PASS reject.far_job_zone code=invalid reason=セーブデータの値が範囲外または不整合です（far の添字）。
+PASS reject.far_zone_queue_type code=invalid reason=セーブデータの値が範囲外または不整合です（far.zone_queue）。
+PASS reject.plant_id_250 code=invalid reason=セーブデータの値が範囲外または不整合です（world.plant_id）。
+PASS reject.moisture_255 code=invalid reason=セーブデータの値が範囲外または不整合です（world.moisture）。
+PASS reject.fertility_255 code=invalid reason=セーブデータの値が範囲外または不整合です（world.fertility）。
+PASS reject.boar_hp_huge code=invalid reason=セーブデータの値が範囲外または不整合です（敵のHP・地域）。
+PASS reject.nest_hp_huge code=invalid reason=セーブデータの値が範囲外または不整合です（巣のHP）。
+PASS reject.seeds_neg code=invalid reason=セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+PASS reject.seeds_huge code=invalid reason=セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+PASS reject.water_neg code=invalid reason=セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+PASS reject.hp_huge code=invalid reason=セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+PASS reject.hp_neg code=invalid reason=セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+PASS reject.growth_ticks_neg code=invalid reason=セーブデータの値が範囲外または不整合です（clock）。
+PASS reject.spread_queue_type code=invalid reason=セーブデータの値が範囲外または不整合です（spread.queue）。
+PASS reject.growth_cursor_huge code=invalid reason=セーブデータの値が範囲外または不整合です（growth）。
+PASS reject.corrupt_json セーブデータが壊れています（読み取れません）。
+PASS reject.empty_file セーブデータが壊れています（読み取れません）。
+PASS reject.current_state_unchanged 
+PASS reject.no_slot セーブデータがありません
+PASS backup.none_after_first_save 
+PASS backup.created_on_second_save 
+PASS backup.slot_info { "slot": true, "backup": true, "slot_text": "2026-10-18 18:16:05　ゲーム時間 00:35", "backup_text": "2026-10-18 18:16:05　ゲーム時間 00:05", "slot_valid": true }
+PASS backup.slot_is_latest 
+PASS backup.backup_is_previous 
+PASS backup.broken_slot_points_to_backup セーブデータが壊れています（読み取れません）。　バックアップから読み込めます
+PASS backup.rescue_ok 
+PASS backup.save_over_broken_slot_keeps_good_backup 
+PASS backup.file_untouched_by_failed_load 
+PASS downed.load_ok 
+PASS downed.returns_to_respawn zone=0 pos=(354.0, 346.0)
+PASS downed.region_not_rolled_back 
+PASS time.load_ok_with_forged_saved_at 
+PASS time.no_real_time_added elapsed 170.000
+PASS time.pause_holds 
+PASS time.unpause_no_lump advanced 0.016000 s on the first frame after unpause
+PASS old_saves.untouched files=2
+RESULT passes=76 failures=0

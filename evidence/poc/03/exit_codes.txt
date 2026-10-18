@@ -1,0 +1,9 @@
+logic exit=0
+regress_base exit=0
+regress_assets exit=0
+p1_01 exit=0
+p1_02 exit=0
+p1_03 exit=0
+p1_04 exit=0
+p1_05 exit=0
+p1_06 exit=0

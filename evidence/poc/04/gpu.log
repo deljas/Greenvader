@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti display=Windows window=(1280, 720)
+PASS gpu.combat_session 
+INFO boar 1 cell=(17, 10) screen=(297.5119, 172.9682)
+INFO boar 2 cell=(19, 12) screen=(297.5119, 183.9762)
+INFO boar 3 cell=(21, 10) screen=(319.5277, 183.9762)
+INFO boar 4 cell=(28, 10) screen=(358.0555, 203.24)
+INFO boar 5 cell=(30, 12) screen=(358.0555, 214.248)
+INFO boar 6 cell=(32, 10) screen=(380.0714, 214.248)
+INFO boar 7 cell=(20, 8) screen=(325.0317, 175.7202)
+INFO boar 8 cell=(30, 8) screen=(380.0714, 203.24)
+INFO player screen=(319.5278, 200.4881)
+PASS gpu.fight_entities_shown { "boars": 8, "nests": 3, "ruins": 0, "carcasses": 0, "shadow_pairs_match": true, "boar_texels": [16, 8] } shots=3
+PASS gpu.enemy_sprites_change_picture diff=2188
+PASS gpu.hud_shows_zone_state 解像度 640×360（窓 1920×1080, 3倍）　視野 18.5m | 論理 (98.0, 54.0) セル (24,13)　ゲーム時刻 00:40.1 ×1 | 種 37　水 100/100　HP 10/10　選択 通常　緑化 2%（30/1170） | イノシシの原  未制圧  緑化 0％　残巣 3　残敵 8　巣HP[10/10,10/10,10/10] | WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる　Esc=停止　F2=解像度　F3=倍速
+PASS gpu.stable_state_shown { "boars": 0, "nests": 0, "ruins": 3, "carcasses": 8, "shadow_pairs_match": true, "boar_texels": [16, 8] } notice=イノシシの原が安定した
+PASS gpu.stable_picture_differs_from_fight 
+PASS gpu.complete_state_shown greened=1170/1170
+RESULT passes=7 failures=0
+WARNING: 63 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 36 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
