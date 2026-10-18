@@ -7,6 +7,7 @@ const Placement: GDScript = preload("res://scripts/poc/assets/placement.gd")
 const Projectiles: GDScript = preload("res://scripts/poc/play/poc_projectiles.gd")
 const Day: GDScript = preload("res://scripts/poc/environment/poc_day.gd")
 const WallGrowthScript: GDScript = preload("res://scripts/poc/environment/wall_growth.gd")
+const HelpersScript: GDScript = preload("res://scripts/poc/helpers/poc_helpers.gd")
 const PLAY_SETUP: String = "res://data/poc/play_setup.json"
 ## POL-01 PoC-side override of SimTuning (tempo): {"sim_tuning": {property: value}}. Missing file = shipped defaults.
 static var tempo_path: String = "res://data/poc/tempo.json"
@@ -60,6 +61,10 @@ var multiplier: float = 1.0
 var play: PlayState
 var play_tuning: PlayTuning
 var projectiles: RefCounted
+## HLP-01 helper seeds / helper plants (RefCounted, scripts/poc/helpers/poc_helpers.gd). Advanced in advance_game() only.
+var helpers: RefCounted
+## HLP-01 placement mode: index into helpers.kinds, -1 = off (the mode itself is not saved).
+var helper_mode: int = -1
 var play_setup: Dictionary = {}
 ## Last result line for the HUD, and a counter so a view can tell a new one arrived.
 var last_message: String = ""
@@ -209,6 +214,7 @@ func advance_game(seconds: float) -> void:
 		play.advance(step, position)
 		if enemies != null:
 			enemies.advance(step)
+		helpers.advance(step, position, play.health.downed)
 		projectiles.advance(step)
 		remaining -= step
 
@@ -246,6 +252,8 @@ func snapshot() -> Dictionary:
 		"selected": String(play.selected_def().key),
 		"shots": projectiles.shots.size(),
 		"pickups": play.pickups.count(),
+		"helper_seeds": helpers.seeds,
+		"helper_plants": helpers.plants.size(),
 	}
 
 func to_dict() -> Dictionary:
@@ -452,6 +460,7 @@ func _build_enemies(setup: Dictionary) -> void:
 	play.health.damaged.connect(func(amount: int, _source: Vector2) -> void: say("イノシシに当たった（HP -%d）" % amount))
 	play.health.downed_started.connect(func() -> void: say("戦闘不能… 安全地帯へ戻る"))
 	play.health.revived.connect(func(_at: Vector2) -> void: say("安全地帯で復帰した"))
+	helpers.attach_enemies(enemies)
 	zone_progress.start()
 	for zone: int in state.zone_count:
 		zone_times[zone] = {int(state.zone_state[zone]): 0.0}
@@ -530,6 +539,9 @@ func _build_play(sources_key: String, sources_override: Array = []) -> void:
 	projectiles.blocked.connect(_on_blocked)
 	projectiles.expired.connect(func(kind: String, _point: Vector2) -> void: _release(kind))
 	projectiles.enemy_hit.connect(func(kind: String, _point: Vector2, _info: Dictionary) -> void: _release(kind))
+	helpers = HelpersScript.new(state, play, Config.TILE_PX)
+	helpers.notify = Callable(self, "say")
+	helper_mode = -1
 
 ## Sets the HUD message. A message with `hold_seconds` (zone notices) is not replaced by ordinary messages for that long (game time).
 func say(text: String, hold_seconds: float = 0.0) -> void:
@@ -658,5 +670,93 @@ func debug_refill() -> bool:
 		return false
 	play.add_seeds(int(play_setup.get("debug_refill_seeds", 20)))
 	play.add_water(float(play_setup.get("debug_refill_water", 100.0)))
+	helpers.debug_refill()
 	say("【デバッグ補給】")
 	return true
+
+
+# ---------------------------------------------------------------- HLP-01 helper plants
+
+func helper_mode_active() -> bool:
+	return helper_mode >= 0
+
+## Kind key shown / placed in the current mode: the carried plant's kind while carrying, else the selected kind ("" = mode off).
+func helper_active_kind() -> String:
+	if helpers.is_carrying():
+		return String(helpers.carried["kind"]) if helper_mode >= 0 else ""
+	return String(helpers.kinds[helper_mode]["key"]) if helper_mode >= 0 else ""
+
+## Q: off -> first kind -> ... -> last kind -> off. While carrying there is nothing to choose: only on / off.
+func cycle_helper_mode() -> void:
+	if paused or play.health.downed:
+		return
+	if helpers.is_carrying():
+		helper_mode = -1 if helper_mode >= 0 else helpers.kind_index(String(helpers.carried["kind"]))
+	else:
+		helper_mode = helper_mode + 1 if helper_mode + 1 < helpers.kinds.size() else -1
+	if helper_mode < 0:
+		say("設置モード終了")
+	else:
+		var def: Dictionary = helpers.kind_def(helper_active_kind())
+		if helpers.is_carrying():
+			say("設置モード：%sを置き直す（左クリック、Qで終了）" % String(def["name"]))
+		else:
+			say("設置モード：%s（おたすけたね%d個、左クリックで置く、Qで種類切替）" % [String(def["name"]), int(def["cost"])])
+
+## Right click in placement mode: leaves the mode.
+func end_helper_mode() -> void:
+	if helper_mode >= 0:
+		helper_mode = -1
+		say("設置モード終了")
+
+## Current placement preview for the HUD / ghost: {kind, origin, ok, code, reason}; empty when the mode is off or there is no aim.
+func helper_preview() -> Dictionary:
+	if helper_mode < 0 or not has_aim:
+		return {}
+	var kind: String = helper_active_kind()
+	var origin: Vector2i = helpers.origin_for(aim)
+	var checked: Dictionary = helpers.evaluate(kind, origin, position)
+	checked["kind"] = kind
+	checked["origin"] = origin
+	return checked
+
+## Left click in placement mode. Returns {ok, code, reason, uid}.
+func place_helper(aim_logic: Vector2 = Vector2.INF) -> Dictionary:
+	if paused or play.health.downed:
+		return {"ok": false, "code": "paused", "reason": "", "uid": 0}
+	if helper_mode < 0:
+		return {"ok": false, "code": "mode", "reason": "", "uid": 0}
+	var target: Vector2 = aim_logic
+	if target == Vector2.INF:
+		if not has_aim:
+			return {"ok": false, "code": "no_aim", "reason": "", "uid": 0}
+		target = aim
+	var carried_before: bool = helpers.is_carrying()
+	var result: Dictionary = helpers.place(helper_active_kind(), target, position)
+	if bool(result["ok"]):
+		say("%sを%s" % [String(helpers.kind_def(helper_kind_of(int(result["uid"])))["name"]), "置き直した" if carried_before else "設置した"])
+	else:
+		say(String(result["reason"]))
+	return result
+
+func helper_kind_of(uid: int) -> String:
+	return String(helpers.plant_by_uid(uid).get("kind", ""))
+
+## E: picks up a helper plant near the player. Returns {ok, code, reason, uid}.
+func lift_helper() -> Dictionary:
+	if paused or play.health.downed:
+		return {"ok": false, "code": "paused", "reason": "", "uid": 0}
+	var result: Dictionary = helpers.lift(position)
+	if bool(result["ok"]):
+		say("%sを持ち上げた（Qで設置モード、左クリックで置き直し）" % String(helpers.kind_def(String(helpers.carried["kind"]))["name"]))
+	return result
+
+## HUD text of the helper part.
+func helper_status_text() -> String:
+	var text: String = "おたすけたね %d/%d　おたすけ植物 %d/%d" % [helpers.seeds, helpers.seeds_max, helpers.total_count(), helpers.max_helpers]
+	if helpers.is_carrying():
+		text += "　【持ち上げ中：%s HP%d】" % [String(helpers.kind_def(String(helpers.carried["kind"]))["name"]), int(helpers.carried["hp"])]
+	if helper_mode >= 0:
+		var def: Dictionary = helpers.kind_def(helper_active_kind())
+		text += "　【設置モード：%s%s】" % [String(def["name"]), "" if helpers.is_carrying() else "（%d個）" % int(def["cost"])]
+	return text

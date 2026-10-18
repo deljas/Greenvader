@@ -13,6 +13,7 @@ const EnvViewScript: GDScript = preload("res://scripts/poc/environment/environme
 const WaterViewScript: GDScript = preload("res://scripts/poc/environment/water_view.gd")
 const ReadabilityScript: GDScript = preload("res://scripts/poc/environment/readability_view.gd")
 const WallViewScript: GDScript = preload("res://scripts/poc/environment/wall_view.gd")
+const HelperViewScript: GDScript = preload("res://scripts/poc/helpers/poc_helper_view.gd")
 const OcclusionViewScript: GDScript = preload("res://scripts/poc/occlusion/occlusion_view.gd")
 const PocSave: GDScript = preload("res://scripts/poc/save/poc_save.gd")
 const PocUi: GDScript = preload("res://scripts/poc/ui/poc_ui.gd")
@@ -35,6 +36,8 @@ var marker: MeshInstance3D
 var play_view: Node3D
 ## POC-04 provisional display of nests / boars / carcasses; null unless the combat fixture is loaded (--combat or meta "poc_combat").
 var enemy_view: Node3D
+## HLP-01 display of helper plants, their effect areas, the ground helper seeds and the placement ghost.
+var helper_view: Node3D
 ## POC-05: day/night lighting from the game clock, water reflection, wall vegetation (null without a placement).
 var env_view: Node
 var water_view: Node3D
@@ -210,6 +213,11 @@ func _build_world() -> void:
 		world.add_child(enemy_view)
 		enemy_view.setup(session, camera, sun)
 		enemy_view.set_resolution(resolution_index)
+	helper_view = HelperViewScript.new()
+	helper_view.name = "HelperView"
+	world.add_child(helper_view)
+	helper_view.setup(session, camera, sun)
+	helper_view.set_resolution(resolution_index)
 	marker = MeshInstance3D.new()
 	var box: BoxMesh = BoxMesh.new()
 	box.size = Vector3(0.5, 0.04, 0.5)
@@ -263,6 +271,7 @@ func _teardown_world() -> void:
 	water_view = null
 	play_view = null
 	enemy_view = null
+	helper_view = null
 	actor = null
 	marker = null
 
@@ -451,6 +460,7 @@ func set_resolution(index: int, window_size_: Vector2i = Vector2i(-1, -1)) -> bo
 	actor.set_resolution(index)
 	if enemy_view != null:
 		enemy_view.set_resolution(index)
+	helper_view.set_resolution(index)
 	water_view.set_render_size(res)
 	_apply_resolution_layout()
 	_update_camera()
@@ -504,6 +514,7 @@ func tick(delta: float, screen_dir: Vector2) -> void:
 		wall_view.sync()
 	if enemy_view != null:
 		enemy_view.sync()
+	helper_view.sync()
 	if session.message_serial != _seen_message:
 		_seen_message = session.message_serial
 		show_notice(session.last_message)
@@ -568,7 +579,8 @@ func _refresh() -> void:
 	lines.append(status)
 	if session.enemies != null:
 		lines.append(session.combat_status_text())
-	lines.append("WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる　Esc=メニュー　F2=解像度　F3=倍速　F5=保存")
+	lines.append(session.helper_status_text())
+	lines.append("WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ　Q=設置モード　Esc=メニュー　F2=解像度　F3=倍速　F5=保存")
 	hud.text = "\n".join(lines)
 	ui.set_badge(session.greening_percent(), session.state.greened_count, session.state.target_count, zone_summary())
 	pause_button.text = "再開" if session.paused else "停止"
@@ -606,15 +618,24 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed(&"poc_plant_wheel_prev"):
 		session.cycle_plant(-1)
 		_refresh()
+	elif event.is_action_pressed(&"poc_helper_mode", false, true):
+		session.cycle_helper_mode()
+		_refresh()
 	elif event.is_action_pressed(&"poc_interact", false, true):
-		show_notice(session.inspect(session.aim if session.has_aim else session.position))
+		interact()
 	elif event.is_action_pressed(&"poc_debug_refill", false, true):
 		if not session.debug_refill():
 			show_notice("デバッグ補給は無効です（--debug-refill で有効化）")
 	elif event is InputEventMouseButton and event.is_action_pressed(&"poc_primary"):
-		click_fire((event as InputEventMouseButton).position, false)
+		if session.helper_mode_active():
+			click_place((event as InputEventMouseButton).position)
+		else:
+			click_fire((event as InputEventMouseButton).position, false)
 	elif event is InputEventMouseButton and event.is_action_pressed(&"poc_secondary"):
-		click_fire((event as InputEventMouseButton).position, true)
+		if session.helper_mode_active():
+			session.end_helper_mode()
+		else:
+			click_fire((event as InputEventMouseButton).position, true)
 	elif event is InputEventMouseMotion:
 		place_aim_at((event as InputEventMouseMotion).position)
 
@@ -650,6 +671,28 @@ func place_aim_at(content_pos: Vector2) -> bool:
 	session.set_aim(result["logic"])
 	_update_actor()
 	return true
+
+## E: lifts a helper plant next to the player; otherwise describes the aimed cell (the old inspect).
+func interact() -> void:
+	if session.helpers.is_carrying():
+		show_notice("持ち上げ中（Qで設置モード→左クリックで置き直し）")
+		return
+	var lifted: Dictionary = session.lift_helper()
+	if bool(lifted["ok"]):
+		_refresh()
+		return
+	show_notice(session.inspect(session.aim if session.has_aim else session.position))
+
+## Click in placement mode: aim there and try to place. Rejected UI / margin / off-map clicks place nothing.
+func click_place(content_pos: Vector2) -> Dictionary:
+	var result: Dictionary = pick_ground(content_pos)
+	if not result["ok"]:
+		return {"ok": false, "code": String(result["reason"]), "reason": "", "uid": 0}
+	session.set_aim(result["logic"])
+	var placed: Dictionary = session.place_helper(result["logic"])
+	_update_actor()
+	_refresh()
+	return placed
 
 ## Click at a content (root viewport) pixel: aim there and fire seed (water_shot false) or water. UI / margin / off-map
 ## clicks are rejected and fire nothing. Returns the session.fire() result plus the picked point.

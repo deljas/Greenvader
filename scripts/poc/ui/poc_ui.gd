@@ -7,6 +7,7 @@ signal chosen(action: StringName)
 const HELP_LINES: Array[String] = [
 	"操作説明",
 	"移動　W A S D / 矢印キー　　調べる　E",
+	"おたすけ植物　Q 設置モード（種類切替）→左クリックで置く・右クリックで終了　近くで E=持ち上げ",
 	"種をまく　左クリック　　水をまく　右クリック",
 	"植物の切替　Tab / マウスホイール",
 	"Esc　メニュー（再開・保存・読込・操作説明）",

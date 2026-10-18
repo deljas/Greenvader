@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "note": "HLP-01 helper seeds (おたすけたね) and helper plants (おたすけ植物). Lengths in metres (m) or logical px, times in game seconds. Provisional values.",
+ "seeds": {"start": 0, "max": 20, "debug_refill": 6},
+ "drop": {
+  "rng_seed": 20261019,
+  "interval_seconds": 20.0,
+  "chance": 0.12,
+  "ground_cap": 10,
+  "lifetime_seconds": 300.0,
+  "ring_min_px": 5.0,
+  "ring_max_px": 7.0,
+  "collect_radius_px": 12.0,
+  "nest_reward": 3,
+  "nest_ring_min_px": 6.0,
+  "nest_ring_max_px": 14.0
+ },
+ "place": {"max_helpers": 6, "range_m": 4.0, "lift_range_m": 2.4},
+ "damage": {"interval_seconds": 1.0, "amount": 1, "contact_px": 6.0},
+ "kinds": [
+  {"key": "gatlinger", "name": "ガトリンガー", "cost": 2, "hp": 8, "radius_m": 3.6, "color": "f2c230"},
+  {"key": "sprinkler", "name": "スプリンクラー", "cost": 2, "hp": 6, "radius_m": 3.0, "color": "4fb8e8"},
+  {"key": "army", "name": "アーミー", "cost": 3, "hp": 12, "radius_m": 4.0, "color": "c2763a"}
+ ]
+}

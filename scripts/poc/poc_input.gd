@@ -13,6 +13,7 @@ const KEYS: Dictionary = {
 	&"poc_plant_next": [KEY_TAB],
 	&"poc_debug_refill": [KEY_F9],
 	&"poc_quick_save": [KEY_F5],
+	&"poc_helper_mode": [KEY_Q],
 }
 const MOUSE: Dictionary = {
 	&"poc_primary": MOUSE_BUTTON_LEFT,

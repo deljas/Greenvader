@@ -1,0 +1,88 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS data.kinds [{ "key": "gatlinger", "name": "ガトリンガー", "cost": 2, "hp": 8, "radius_m": 3.6, "radius_px": 36.0, "color": "f2c230" }, { "key": "sprinkler", "name": "スプリンクラー", "cost": 2, "hp": 6, "radius_m": 3.0, "radius_px": 30.0, "color": "4fb8e8" }, { "key": "army", "name": "アーミー", "cost": 3, "hp": 12, "radius_m": 4.0, "radius_px": 40.0, "color": "c2763a" }]
+PASS data.start_zero_cap_20 
+PASS drop.probability_as_configured mature=6 rolls=9000 drops=1018 expected=1080
+PASS drop.ticks_follow_time 
+PASS drop.only_mature_plants 
+PASS drop.deterministic_independent_of_step_split drops=111
+PASS drop.real_loop_only_after_maturity early=0 after=2
+PASS drop.lands_near_plant_on_walkable 
+PASS nest.destroy_drops_reward items=3
+PASS nest.reward_near_nest 
+PASS nest.no_double_reward 
+PASS collect.increases_seeds seeds=1 left=2
+PASS collect.not_while_downed 
+PASS collect.full_pouch_keeps_items 
+PASS pickup.expires 
+PASS place.found_free_block (88, 86)
+PASS place.mode_off_places_nothing 
+PASS place.q_selects_first_kind 
+PASS place.preview_ok { "ok": true, "code": "", "reason": "", "kind": "gatlinger", "origin": (88, 86) }
+PASS place.success_costs_seeds { "ok": true, "code": "", "reason": "", "uid": 1 }
+PASS place.occupies_4x4_mature 
+PASS place.counts_as_greened_unchanged 484/9463
+PASS place.occupied_rejected_no_cost ほかの植物がある場所には置けない
+PASS place.q_cycles_kinds 
+PASS place.q_wraps_to_off 
+PASS place.message_japanese 
+PASS reject.immature (95, 86) 成熟した緑地の上にだけ置ける（未緑化・成長中のマスがある）
+PASS reject.terrain (100, 89) 建物・水など緑化できない地面には置けない
+PASS reject.terrain_water (45, 47)
+PASS reject.terrain_building (86, 1)
+PASS reject.nest (14, 93) 巣の上には置けない
+PASS reject.occupied_by_cultivated 
+PASS reject.range 遠すぎて置けない（射程 4.0m）
+PASS range.inside_limit_ok 
+PASS reject.cost おたすけたねが足りない（必要 2・所持 1）
+PASS reject.limit おたすけ植物の上限（1）に達している
+PASS reject.bounds 
+PASS reject.leave_state_untouched 
+PASS lift.too_far_rejected 
+PASS lift.picks_up { "ok": true, "code": "", "reason": "", "uid": 1 }
+PASS lift.releases_occupancy_keeps_greened 
+PASS lift.second_lift_rejected 
+PASS lift.status_text_shows_carried おたすけたね 6/20　おたすけ植物 1/6　【持ち上げ中：ガトリンガー HP3】　【設置モード：ガトリンガー】
+PASS replace.mode_uses_carried_kind 
+PASS replace.free_same_uid_hp_even_at_limit { "ok": true, "code": "", "reason": "", "uid": 1 }
+PASS replace.single_owner_no_duplicate 
+PASS damage.far_boar_no_damage 
+PASS damage.contact_hits_at_once 
+PASS damage.interval_respected 
+PASS damage.next_hit_after_interval 
+PASS damage.hp_zero_removes_and_frees hp_before=6
+PASS damage.notice_shown ガトリンガーが倒された…（おたすけたねで再建できる）
+PASS damage.counters_untouched 
+PASS damage.rebuild_with_seeds 
+PASS damage.carried_plant_safe 
+PASS save.fixture_three_placed 3
+PASS save.roundtrip_placed 
+PASS save.helpers_identical 
+PASS save.format_version_2 
+PASS save.counters_and_owners 
+PASS save.fixture_carried 
+PASS save.carried_roundtrip_no_dup_no_loss 
+PASS save.carried_placeable_after_load_free 
+PASS save.old_v1_rejected_with_notice セーブの形式が違うため読み込めません（保存 v1 / 現在 v2）。
+PASS save.reject.seeds_over_cap invalid セーブデータの値が範囲外または不整合です（helpers の資源・時間）。　バックアップから読み込めます
+PASS save.reject.seeds_negative invalid セーブデータの値が範囲外または不整合です（helpers の資源・時間）。　バックアップから読み込めます
+PASS save.reject.hp_over_max invalid セーブデータの値が範囲外または不整合です（helpers.plants の値）。　バックアップから読み込めます
+PASS save.reject.hp_zero invalid セーブデータの値が範囲外または不整合です（helpers.plants の値）。　バックアップから読み込めます
+PASS save.reject.unknown_kind invalid セーブデータの値が範囲外または不整合です（helpers.plants の値）。　バックアップから読み込めます
+PASS save.reject.duplicate_uid invalid セーブデータの値が範囲外または不整合です（helpers.plants の値）。　バックアップから読み込めます
+PASS save.reject.moved_block_without_occupancy invalid セーブデータの値が範囲外または不整合です（helpers（占有・数の不整合））。　バックアップから読み込めます
+PASS save.reject.missing_plant_leaves_owner invalid セーブデータの値が範囲外または不整合です（helpers（占有・数の不整合））。　バックアップから読み込めます
+PASS save.reject.carried_duplicates_placed invalid セーブデータの値が範囲外または不整合です（helpers.carried の値）。　バックアップから読み込めます
+PASS save.reject.too_many_plants invalid セーブデータの値が範囲外または不整合です（helpers の型）。　バックアップから読み込めます
+PASS save.reject.bad_pickup invalid セーブデータの値が範囲外または不整合です（helpers.pickups）。　バックアップから読み込めます
+PASS save.reject.negative_time invalid セーブデータの値が範囲外または不整合です（helpers の資源・時間）。　バックアップから読み込めます
+PASS save.reject.next_uid_low invalid セーブデータの値が範囲外または不整合です（helpers.next_uid）。　バックアップから読み込めます
+PASS save.reject.section_missing missing_key セーブデータの必須項目「helpers」が欠けています。　バックアップから読み込めます
+PASS save.reject.cooldown_huge invalid セーブデータの値が範囲外または不整合です（helpers.plants の値）。　バックアップから読み込めます
+PASS pause.drops_and_damage_frozen 
+PASS pause.no_damage_while_paused 
+PASS pause.resume_continues 
+PASS hundred.three_helpers_placed 3
+PASS hundred.exact_100_with_helpers_within_bound after stable 345.0 s of bound 389.0 s, greened 9463/9463 (was 484 with helpers placed)
+PASS hundred.helpers_still_standing_counters_ok 
+RESULT passes=85 failures=0

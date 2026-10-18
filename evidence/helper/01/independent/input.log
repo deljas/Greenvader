@@ -1,0 +1,28 @@
+PASS keys.q_only_helper_mode ["poc_helper_mode"]
+PASS keys.e_only_interact all=["ui_text_caret_line_end.macos", "poc_interact"] (ui_text_caret_line_end.macos is a Godot built-in text-edit action, not a game action)
+PASS keys.no_duplicate_poc_keys 
+PASS ui.screen_round_trip scr (308.992, 194.7578) -> (352.0, 344.0001) vs (352.0, 344.0)
+PASS input.q_cycles_modes_off [0, 1, 2, -1]
+PASS input.left_click_places plants=1 seeds 15->13 kind=gatlinger
+PASS input.left_click_no_shot_no_plain_seed_spent 
+INFO ui control @Button@165 visible=true rect=[P: (522.0, 2.0), S: (49.0, 22.0)]
+INFO ui control @Button@166 visible=true rect=[P: (575.0, 2.0), S: (49.0, 22.0)]
+INFO ui control @Button@167 visible=true rect=[P: (628.0, 2.0), S: (28.0, 22.0)]
+INFO ui control @HBoxContainer@164 visible=true rect=[P: (522.0, 2.0), S: (134.0, 22.0)]
+INFO ui control @ColorRect@171 visible=false rect=[P: (0.0, 0.0), S: (640.0, 360.0)]
+INFO ui control @PanelContainer@193 visible=false rect=[P: (-51.5, 21.0), S: (743.0, 318.0)]
+INFO ui control @PanelContainer@179 visible=false rect=[P: (220.0, 85.0), S: (220.0, 190.0)]
+INFO ui control @PanelContainer@189 visible=false rect=[P: (220.0, 50.0), S: (220.0, 260.0)]
+PASS ui.control_inside_view_found (546.5, 13.0)
+PASS input.click_on_ui_does_not_place code=ui
+PASS input.right_click_ends_mode_no_water mode=-1 water 100.0/100.0 launched 0/0
+PASS input.right_click_outside_mode_still_waters launched 1 water 90.0
+PASS input.left_click_outside_mode_fires_not_places 
+PASS input.e_lifts_nearby 
+PASS input.e_again_while_carrying_does_not_duplicate 
+PASS input.q_while_carrying_enters_carried_kind 
+PASS input.click_replaces_free seeds 13->13
+PASS input.e_far_no_lift 
+PASS hud.shows_helper_seeds おたすけたね 13/20　おたすけ植物 1/6　【設置モード：スプリンクラー（2個）】
+WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ　Q=設置モード　Esc=メニュー　F2=解像度　F3=倍速　F5=保存
+RESULT passes=18 failures=0

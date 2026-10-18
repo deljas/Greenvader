@@ -4,7 +4,8 @@ extends RefCounted
 ## Saved (see SECTIONS): world/map identity (format_version, map_id, map_hash), WorldState (terrain, plants, growth, moisture,
 ## fertility, occupancy, zones; sprout_seed is its random source), GrowthSim / SpreadSim / FarSeedSim progress, SimClock,
 ## PlayState (resources, HP, selection, pickups, cultivated plants, source timers, drops), EnemyField (nests, boars with their
-## rng, carcasses), wall vegetation growth, player position, zone notices/times, and UI settings (resolution).
+## rng, carcasses), HLP-01 helpers (helper seeds, ground seed items, helper plants with hp / cooldown, the lifted plant, the drop
+## roll position; format_version 2: a v1 file is rejected as a different format), wall vegetation growth, player position, zone notices/times, and UI settings (resolution).
 ## NOT saved on purpose: shots in flight (the live session drops them at save time: spent seeds / water are refunded and the
 ## seeds reserved for cultivated plants are released, so nothing is lost or duplicated), the aim point, the real-time clock
 ## (saved_at is display only; the game clock continues from game_elapsed with no real time added), the fast-forward multiplier,
@@ -13,12 +14,12 @@ extends RefCounted
 ## Loading builds a NEW session, applies the file to it and returns it only when everything checked out; the caller then swaps
 ## it in. A rejected file therefore never touches the running session.
 const Config: GDScript = preload("res://scripts/poc/poc_config.gd")
-const FORMAT_VERSION: int = 1
+const FORMAT_VERSION: int = 2
 const DEFAULT_DIR: String = "user://poc_saves/"
 const SLOT_FILE: String = "slot.json"
 const BACKUP_FILE: String = "slot.bak.json"
 const TEMP_FILE: String = "slot.tmp.json"
-const SECTIONS: Array[String] = ["world", "growth", "spread", "far", "clock", "play", "enemies", "wall_growth", "session", "combat_stats", "ui"]
+const SECTIONS: Array[String] = ["world", "growth", "spread", "far", "clock", "play", "enemies", "helpers", "wall_growth", "session", "combat_stats", "ui"]
 
 const WORLD_PACKED: Array[String] = ["terrain", "plant_id", "stage", "growth", "moisture", "fertility", "sprout_slot", "occupant"]
 const REQUIRED: Dictionary = {
@@ -29,6 +30,7 @@ const REQUIRED: Dictionary = {
 	"clock": ["version", "elapsed", "growth_ticks", "spread_ticks"],
 	"play": ["version", "seeds", "water", "pickups", "sources", "hp", "health", "cultivated", "selected"],
 	"enemies": ["version", "nests", "boars", "carcasses"],
+	"helpers": ["version", "seeds", "time", "ticks", "next_uid", "pickups", "plants", "carried", "stats"],
 	"wall_growth": ["version", "ticks", "entries"],
 	"session": ["position", "zone_log", "cleared_notices", "zone_times"],
 	"combat_stats": [],
@@ -78,6 +80,7 @@ static func capture(s: RefCounted, extras: Dictionary = {}) -> Dictionary:
 		"clock": s.clock.to_dict(),
 		"play": s.play.to_dict(),
 		"enemies": s.enemies.to_dict(),
+		"helpers": s.helpers.to_dict(),
 		"wall_growth": s.wall_growth.to_dict(),
 		"session": {
 			"position": [s.position.x, s.position.y],
@@ -381,6 +384,10 @@ static func _validate_values(s: RefCounted, data: Dictionary) -> String:
 	for entry: Variant in enemies["carcasses"]:
 		if not _keys_ok(entry, ["id", "x", "y", "age"]) or not _vec_ok([entry["x"], entry["y"]]) or not _int_in(entry["id"], 1, big) or not _int_in(entry["age"], 0, big):
 			return "enemies.carcasses"
+	# helpers (HLP-01)
+	var helper_problem: String = _validate_helpers(s, data["helpers"])
+	if not helper_problem.is_empty():
+		return helper_problem
 	# wall vegetation: rows of two arrays
 	var wall: Dictionary = data["wall_growth"]
 	if not (wall["entries"] is Dictionary) or not _int_in(wall["ticks"], 0, big):
@@ -392,6 +399,50 @@ static func _validate_values(s: RefCounted, data: Dictionary) -> String:
 		for value: Variant in (row["roots"] as Array) + (row["moss"] as Array):
 			if not _num_in(value, 0.0, 1.0):
 				return "wall_growth の進捗"
+	return ""
+
+## HLP-01: helper seeds / ground items / helper plants / carried plant. The world side (occupancy of the placed blocks) is checked
+## by PocHelpers.load_dict against the restored world.
+static func _validate_helpers(s: RefCounted, helpers: Variant) -> String:
+	var h: RefCounted = s.helpers
+	var big: int = 2000000000
+	if not (helpers is Dictionary):
+		return "helpers"
+	var d: Dictionary = helpers
+	if not _int_in(d["version"], 1, 1) or not _int_in(d["seeds"], 0, h.seeds_max) or not _num_in(d["time"], 0.0, 1.0e9) or not _int_in(d["ticks"], 0, big) or not _int_in(d["next_uid"], 1, big):
+		return "helpers の資源・時間"
+	if absf(float(d["ticks"]) - floorf(float(d["time"]) / h.drop_interval)) > 1.0:
+		return "helpers の判定回数"
+	if not (d["pickups"] is Array) or not (d["plants"] is Array) or not (d["stats"] is Dictionary) or (d["pickups"] as Array).size() > 200 or (d["plants"] as Array).size() > h.max_helpers:
+		return "helpers の型"
+	var px_limit: float = float(maxi(s.state.width, s.state.height) * Config.TILE_PX)
+	for item: Variant in d["pickups"]:
+		if not _keys_ok(item, ["x", "y", "age"]) or not _num_in(item["x"], 0.0, px_limit) or not _num_in(item["y"], 0.0, px_limit) or not _num_in(item["age"], 0.0, h.pickup_lifetime):
+			return "helpers.pickups"
+	var uids: Dictionary = {}
+	for plant: Variant in d["plants"]:
+		if not _keys_ok(plant, ["uid", "kind", "x", "y", "hp", "cooldown"]) or not _is_str(plant["kind"]):
+			return "helpers.plants"
+		var def: Dictionary = h.kind_def(String(plant["kind"]))
+		if def.is_empty() or not _int_in(plant["uid"], 1, big) or uids.has(int(plant["uid"])) or not _int_in(plant["x"], 0, s.state.width - 4) or not _int_in(plant["y"], 0, s.state.height - 4) or not _int_in(plant["hp"], 1, int(def["hp"])) or not _num_in(plant["cooldown"], 0.0, h.damage_interval):
+			return "helpers.plants の値"
+		uids[int(plant["uid"])] = true
+	if d["carried"] != null:
+		var held: Variant = d["carried"]
+		if not _keys_ok(held, ["uid", "kind", "hp"]) or not _is_str(held["kind"]):
+			return "helpers.carried"
+		var held_def: Dictionary = h.kind_def(String(held["kind"]))
+		if held_def.is_empty() or not _int_in(held["uid"], 1, big) or uids.has(int(held["uid"])) or not _int_in(held["hp"], 1, int(held_def["hp"])):
+			return "helpers.carried の値"
+		uids[int(held["uid"])] = true
+		if uids.size() > h.max_helpers:
+			return "helpers の数"
+	for uid: Variant in uids:
+		if int(uid) >= int(d["next_uid"]):
+			return "helpers.next_uid"
+	for key: String in ["dropped", "collected", "nest_rewards", "lost"]:
+		if not d["stats"].has(key) or not _int_in(d["stats"][key], 0, big):
+			return "helpers.stats"
 	return ""
 
 static func _is_str(value: Variant) -> bool:
@@ -486,6 +537,8 @@ static func apply(s: RefCounted, data: Dictionary) -> Dictionary:
 		return _invalid("play")
 	if not s.enemies.load_dict(data["enemies"], true):
 		return _invalid("enemies")
+	if not s.helpers.load_dict(data["helpers"]):
+		return _invalid("helpers（占有・数の不整合）")
 	# Position after play (a save taken while downed would revive the player at the start: the saved position is restored by
 	# the revive handler only in that case, so set it for the normal case here).
 	if not saved_downed:
