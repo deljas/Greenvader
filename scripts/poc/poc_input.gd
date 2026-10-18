@@ -14,6 +14,11 @@ const KEYS: Dictionary = {
 	&"poc_debug_refill": [KEY_F9],
 	&"poc_quick_save": [KEY_F5],
 	&"poc_helper_mode": [KEY_Q],
+	# WTH-01 development keys: handled only when the game is started with --debug-weather.
+	&"poc_debug_weather_clear": [KEY_1],
+	&"poc_debug_weather_cloudy": [KEY_2],
+	&"poc_debug_weather_rain": [KEY_3],
+	&"poc_debug_weather_auto": [KEY_0],
 }
 const MOUSE: Dictionary = {
 	&"poc_primary": MOUSE_BUTTON_LEFT,

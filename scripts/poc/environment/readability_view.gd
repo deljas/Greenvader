@@ -20,6 +20,13 @@ var last_lamp_energy: float = 0.0
 var _lamp_energy_max: float = 0.0
 var _foot: Vector3 = Vector3.ZERO
 var see_through: bool = false
+## Enemy foot markers (display only): one MultiMesh of flat ellipses under every boar, red-orange so it differs from the
+## player's pale disc. Layer 32 like the player's disc (not in the water reflection, casts no shadow).
+var enemy_marker: MultiMeshInstance3D
+var enemy_material: StandardMaterial3D
+var enemy_capacity: int = 0
+var last_enemy_alpha: float = 0.0
+var last_enemy_count: int = 0
 
 func setup(tuning_: Dictionary, placement: RefCounted, holders: Dictionary) -> void:
 	tuning = tuning_.get("readability", {})
@@ -44,6 +51,32 @@ func setup(tuning_: Dictionary, placement: RefCounted, holders: Dictionary) -> v
 	marker.layers = 32 # own layer: seen by the main camera only (16 is the hidden reflection-copy layer, 1 the water reflection, 8 shadows)
 	marker.visible = bool(disc.get("enabled", true))
 	add_child(marker)
+	var foe: Dictionary = tuning.get("enemy_marker", {})
+	enemy_marker = MultiMeshInstance3D.new()
+	enemy_marker.name = "EnemyMarkers"
+	var foe_mesh: CylinderMesh = CylinderMesh.new()
+	foe_mesh.top_radius = 1.0
+	foe_mesh.bottom_radius = 1.0
+	foe_mesh.height = 0.01
+	foe_mesh.radial_segments = 20
+	foe_mesh.rings = 1
+	enemy_material = StandardMaterial3D.new()
+	enemy_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	enemy_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	enemy_material.depth_draw_mode = BaseMaterial3D.DEPTH_DRAW_DISABLED
+	enemy_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	enemy_material.albedo_color = Color(String(foe.get("color", "ff6a2a")))
+	var multi: MultiMesh = MultiMesh.new()
+	multi.transform_format = MultiMesh.TRANSFORM_3D
+	multi.mesh = foe_mesh
+	multi.instance_count = 0
+	enemy_marker.multimesh = multi
+	enemy_marker.material_override = enemy_material
+	enemy_marker.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	enemy_marker.layers = 32
+	enemy_marker.visible = bool(foe.get("enabled", true))
+	enemy_marker.extra_cull_margin = 200.0
+	add_child(enemy_marker)
 	var local: Dictionary = tuning.get("player_light", {})
 	player_light = OmniLight3D.new()
 	player_light.name = "PlayerLight"
@@ -103,6 +136,11 @@ func apply(day: Dictionary) -> void:
 	var color: Color = marker_material.albedo_color
 	color.a = last_marker_alpha
 	marker_material.albedo_color = color
+	var foe: Dictionary = tuning.get("enemy_marker", {})
+	last_enemy_alpha = lerpf(float(foe.get("alpha_day", 0.28)), float(foe.get("alpha_night", 0.6)), night)
+	var foe_color: Color = enemy_material.albedo_color
+	foe_color.a = last_enemy_alpha
+	enemy_material.albedo_color = foe_color
 	var local: Dictionary = tuning.get("player_light", {})
 	last_player_light_energy = float(local.get("energy", 0.9)) * night if bool(local.get("enabled", true)) else 0.0
 	player_light.light_energy = last_player_light_energy
@@ -121,11 +159,31 @@ func follow(foot: Vector3, toward_camera: Vector3) -> void:
 	var local: Dictionary = tuning.get("player_light", {})
 	player_light.position = foot + Vector3.UP * float(local.get("height_m", 1.5)) + toward_camera * float(local.get("toward_camera_m", 0.9))
 
+## Places one ellipse under every living boar (a single draw call however many there are). Display only.
+func sync_enemies(boars: Array) -> void:
+	var foe: Dictionary = tuning.get("enemy_marker", {})
+	var multi: MultiMesh = enemy_marker.multimesh
+	if boars.size() > enemy_capacity:
+		enemy_capacity = maxi(boars.size() * 2, 32)
+		multi.instance_count = enemy_capacity
+	var rx: float = float(foe.get("radius_m", 0.34))
+	var rz: float = rx * float(foe.get("squash", 0.7))
+	var height: float = float(foe.get("height_m", 0.06))
+	var n: int = 0
+	for boar: Variant in boars:
+		if int(boar.hp) <= 0:
+			continue
+		var ground: Vector2 = Coords.logic_to_ground(boar.pos)
+		multi.set_instance_transform(n, Transform3D(Basis.from_scale(Vector3(rx, 1.0, rz)), Vector3(ground.x, height, ground.y)))
+		n += 1
+	multi.visible_instance_count = n
+	last_enemy_count = n
+
 func snapshot() -> Dictionary:
 	var on: int = 0
 	for light: OmniLight3D in lamp_lights:
 		on += 1 if light.visible else 0
-	return {"night": last_night, "marker_alpha": last_marker_alpha, "player_light": last_player_light_energy, "lamp_energy": last_lamp_energy, "lamps": lamp_lights.size(), "lamps_on": on}
+	return {"night": last_night, "marker_alpha": last_marker_alpha, "player_light": last_player_light_energy, "lamp_energy": last_lamp_energy, "lamps": lamp_lights.size(), "lamps_on": on, "enemy_markers": last_enemy_count, "enemy_alpha": last_enemy_alpha}
 
 ## While a building/tree hides the player (a faded instance exists) the faded surface's depth pre-pass would reject the disc
 ## behind it; the disc is then drawn without the depth test (after the transparent surfaces). Otherwise it is depth-tested.

@@ -82,6 +82,7 @@ static func capture(s: RefCounted, extras: Dictionary = {}) -> Dictionary:
 		"enemies": s.enemies.to_dict(),
 		"helpers": s.helpers.to_dict(),
 		"wall_growth": s.wall_growth.to_dict(),
+		"weather": _weather_dict(s),
 		"session": {
 			"position": [s.position.x, s.position.y],
 			"zone_log": Array(s.zone_log),
@@ -93,6 +94,10 @@ static func capture(s: RefCounted, extras: Dictionary = {}) -> Dictionary:
 		"combat_stats": stats,
 		"ui": {"resolution_index": int(extras.get("resolution_index", 0))},
 	}
+
+static func _weather_dict(s: RefCounted) -> Dictionary:
+	s.weather.update(s.clock.elapsed)
+	return s.weather.to_dict()
 
 ## Canonical text of a capture without the wall-clock field (state comparison in tests).
 static func signature(s: RefCounted) -> String:
@@ -543,6 +548,13 @@ static func apply(s: RefCounted, data: Dictionary) -> Dictionary:
 		return _invalid("clock")
 	if not s.wall_growth.load_dict(data["wall_growth"]):
 		return _invalid("wall_growth")
+	# WTH-01: the weather section is optional (a file written before it still loads: the schedule is a function of the seed and
+	# the clock). When present it must match the replayed schedule exactly and be in range.
+	if data.has("weather"):
+		if not (data["weather"] is Dictionary) or s.weather.load_dict(data["weather"], s.clock.elapsed) != "":
+			return _invalid("weather")
+	else:
+		s.weather.update(s.clock.elapsed)
 	# PlayerHealth.load_dict turns a save taken while downed into a return to the respawn point (revived handler sets the
 	# position): the saved position must not overwrite it.
 	var saved_downed: bool = bool(((data["play"] as Dictionary)["health"] as Dictionary).get("downed", false))

@@ -48,14 +48,16 @@ static func state(hour: float, tuning: Dictionary = {}) -> Dictionary:
 	}
 
 ## Sunlight growth factor: exactly night (1.0) when the sun is down, rising to day_max at noon. Never below 1.0.
-static func sunlight_factor(day_state: Dictionary, tuning: Dictionary) -> float:
+## WTH-01: `clear` (0..1, default 1) is the share of the sky that is clear: overcast / rain take the daytime bonus away
+## (exactly night's 1.0 at clear = 0). The result stays >= 1.0 for every weather, so FarSeedSim's completion bound holds.
+static func sunlight_factor(day_state: Dictionary, tuning: Dictionary, clear: float = 1.0) -> float:
 	var sun: Dictionary = tuning.get("sunlight", {})
 	var night_factor: float = maxf(float(sun.get("night", 1.0)), 1.0)
 	var day_max: float = maxf(float(sun.get("day_max", 1.25)), night_factor)
-	return lerpf(night_factor, day_max, float(day_state["sun_power"]))
+	return lerpf(night_factor, day_max, float(day_state["sun_power"]) * clampf(clear, 0.0, 1.0))
 
-static func sunlight_factor_at(elapsed: float, tuning: Dictionary) -> float:
-	return sunlight_factor(state(hour_at(elapsed, tuning), tuning), tuning)
+static func sunlight_factor_at(elapsed: float, tuning: Dictionary, clear: float = 1.0) -> float:
+	return sunlight_factor(state(hour_at(elapsed, tuning), tuning), tuning, clear)
 
 static func clock_text(hour: float) -> String:
 	var minutes: int = int(floor(fposmod(hour, 24.0) * 60.0))

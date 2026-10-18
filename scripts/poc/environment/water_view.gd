@@ -18,6 +18,7 @@ var strength: float = 0.78
 var reflection_enabled: bool = true
 var water_cells: int = 0
 var puddle_nodes: Array[MeshInstance3D] = []
+var ripple_tuning: Dictionary = {}
 
 func setup(parent_view: SubViewport, camera: Camera3D, session: RefCounted, tuning: Dictionary, placement_view: Node3D) -> void:
 	main_camera = camera
@@ -25,6 +26,7 @@ func setup(parent_view: SubViewport, camera: Camera3D, session: RefCounted, tuni
 	height_m = float(water.get("height_m", 0.006))
 	divisor = maxi(int(water.get("reflection_divisor", 2)), 1)
 	strength = float(water.get("reflection_strength", 0.78))
+	ripple_tuning = session.weather.tuning.get("water_ripples", {}) if session.weather != null else {}
 	reflection_view = SubViewport.new()
 	reflection_view.size = parent_view.size / divisor
 	reflection_view.transparent_bg = true # no object drawn = alpha 0 -> the shader paints the sky colour there
@@ -104,6 +106,18 @@ func sync_camera() -> void:
 func set_reflection(enabled: bool) -> void:
 	reflection_enabled = enabled
 	material_.set_shader_parameter("reflection_strength", strength if enabled else 0.0)
+
+## WTH-01: overcast weakens the reflection a little, rain more, and adds rain ripples (world-space rings, fixed cell size).
+func set_weather(overcast: float, rain: float, elapsed: float) -> void:
+	var ripples: Dictionary = ripple_tuning
+	var weakened: float = clampf(1.0 - overcast * 0.12 - rain * 0.3, 0.0, 1.0)
+	material_.set_shader_parameter("reflection_strength", (strength * weakened) if reflection_enabled else 0.0)
+	material_.set_shader_parameter("rain_level", rain)
+	material_.set_shader_parameter("ripple_time", elapsed)
+	material_.set_shader_parameter("ripple_cell_m", float(ripples.get("cell_m", 0.8)))
+	material_.set_shader_parameter("ripple_period", float(ripples.get("period_s", 0.9)))
+	material_.set_shader_parameter("ripple_radius_m", float(ripples.get("radius_m", 0.32)))
+	material_.set_shader_parameter("ripple_strength", float(ripples.get("strength", 0.5)))
 
 ## Day brightness of the wet tint (from the day state).
 func set_daylight(value: float) -> void:

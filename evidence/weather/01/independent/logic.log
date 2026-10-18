@@ -1,0 +1,36 @@
+PASS c1.same_elapsed_same_weather_any_query_order 858 samples
+PASS c1.all_three_weathers_occur [0, 1, 2]
+PASS c1.different_step_sizes_same_weather elapsed 1600.00/1600.00
+PASS c1.session_weather_equals_function_of_elapsed 
+PASS c1.pause_keeps_weather_and_clock 
+PASS c1.no_unseeded_rng_reads see grep
+PASS c2.found_noon_and_night_times_in_all_weathers noon { 0: 1300.0, 2: 5500.0, 1: 7900.0 } night { 2: 400.0, 0: 1000.0, 1: 2200.0 }
+PASS c2.clear_noon_is_max_and_gt_others { "noon0": 1.25, "noon2": 1.0, "noon1": 1.0, "night2": 1.0, "night0": 1.0, "night1": 1.0 }
+PASS c2.sunlight_factor_ge_1_all_times_all_weather min below1=99.0
+PASS c2.growth_faster_clear_noon_and_positive_everywhere { "noon0": 1625, "noon2": 1300, "noon1": 1300, "night2": 1300, "night0": 1300, "night1": 1300 }
+PASS c2.rain_raises_moisture_and_growth_vs_cloudy { 1: [0, 0, 12000, 0, "g0=12000 g1=24000 stage=1"], 2: [26, 50, 16620, 12, "g0=13350 g1=29970 stage=1"] }
+PASS c4.save_ok 
+PASS c4.weather_section_present { "version": 1.0, "seed": "20261018", "index": 3.0, "type": 0.0, "prev_type": 2.0, "start": 527.147676944733, "duration": 161.271556466818, "rng_state": "1187210798120851730" }
+PASS c4.load_ok 
+PASS c4.roundtrip_weather_sequence_matches_after_advance 120 samples kinds [0, 1] elapsed 1154.42/1154.42
+PASS c4.rejects_index_oob invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_index_huge invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_type_oob invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_prev_oob invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_dur_neg invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_start_neg invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_seed_diff invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_rng_diff invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_type_mismatch invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_start_shift invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_version invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_seed_type invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_index_str invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.rejects_nan_start invalid セーブデータの値が範囲外または不整合です（weather）。
+PASS c4.old_file_without_weather_loads 
+PASS c4.old_file_weather_equals_schedule 
+PASS c6.keys_1230_inert_without_flag override=-1 enabled=false
+PASS c6.flag_comes_only_from_cmdline_arg 
+PASS c3.rain.exact_100_within_bound start weather 2 at t=357.2; stable at 357.2; done after 293.0 s <= bound 389.0 s; targets 9463 not_green 0 pct 100 invaded false weathers [2, 0] rain_pulses 175
+PASS c3.cloudy_night.exact_100_within_bound start weather 1 at t=2220.0; stable at 2220.0; done after 303.0 s <= bound 389.0 s; targets 9463 not_green 0 pct 100 invaded false weathers [1, 0] rain_pulses 0
+RESULT passes=35 failures=0

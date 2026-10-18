@@ -6,6 +6,7 @@ const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
 const Placement: GDScript = preload("res://scripts/poc/assets/placement.gd")
 const Projectiles: GDScript = preload("res://scripts/poc/play/poc_projectiles.gd")
 const Day: GDScript = preload("res://scripts/poc/environment/poc_day.gd")
+const Weather: GDScript = preload("res://scripts/poc/environment/poc_weather.gd")
 const WallGrowthScript: GDScript = preload("res://scripts/poc/environment/wall_growth.gd")
 const HelpersScript: GDScript = preload("res://scripts/poc/helpers/poc_helpers.gd")
 const PLAY_SETUP: String = "res://data/poc/play_setup.json"
@@ -80,6 +81,14 @@ var wall_growth: RefCounted
 ## Opt-in fixture pavement (cell rects). Empty by default: set before load_placement()/load_combat() (poc_main does, from
 ## data/poc/environment.json "paving"). Only wasteland cells of the base terrain are repaved.
 var paving: Array[Rect2i] = []
+## WTH-01 weather (RefCounted): a function of clock.elapsed and data/poc/weather.json; saved with the game. Rain wets the growing
+## cells on growth ticks (rain_pulses / rain_wetted count what it did). `--debug-weather` (poc_main) enables the 1/2/3 keys.
+var weather: RefCounted
+var debug_weather_enabled: bool = false
+var rain_pulses: int = 0
+var rain_wetted: int = 0
+var _rain_cells: PackedInt32Array = PackedInt32Array()
+var _rain_cells_built: bool = false
 ## Display cache of the sunlight factor for the current clock.elapsed (the clock stays the only state).
 var _sun_cache_elapsed: float = -1.0
 var _sun_cache_value: float = 1.0
@@ -138,6 +147,8 @@ func _init(grid_width: int = WIDTH, grid_height: int = HEIGHT) -> void:
 	position = Coords.cell_center_logic(Vector2i(24, 20))
 	env_tuning = Day.load_tuning()
 	growth.sunlight_provider = Callable(self, "sunlight_factor")
+	weather = Weather.new()
+	clock.growth_ticked.connect(_on_weather_growth_tick)
 	_load_setup()
 	_build_play("seed_sources_bare")
 
@@ -260,6 +271,7 @@ func snapshot() -> Dictionary:
 		"pickups": play.pickups.count(),
 		"helper_seeds": helpers.seeds,
 		"helper_plants": helpers.plants.size(),
+		"weather": weather_text(),
 	}
 
 func to_dict() -> Dictionary:
@@ -331,8 +343,50 @@ func day_state() -> Dictionary:
 func sunlight_factor(_index: int = 0) -> float:
 	if clock.elapsed != _sun_cache_elapsed:
 		_sun_cache_elapsed = clock.elapsed
-		_sun_cache_value = Day.sunlight_factor_at(clock.elapsed, env_tuning)
+		_sun_cache_value = Day.sunlight_factor_at(clock.elapsed, env_tuning, weather.clear_amount_at(clock.elapsed))
 	return _sun_cache_value
+
+# ---------------------------------------------------------------- WTH-01 weather
+
+func weather_type() -> int:
+	return weather.type_at(clock.elapsed)
+
+func weather_text() -> String:
+	return weather.label_at(clock.elapsed)
+
+## Development override (`--debug-weather`): -1 = back to the schedule. Never saved.
+func set_debug_weather(type: int) -> void:
+	weather.override_type = type
+	_sun_cache_elapsed = -1.0
+
+## Growth tick hook: while it rains, every `pulse_ticks` ticks the moisture of every non-mature greening target cell goes up
+## (capped at moisture_max). Decided from the tick's own game time, so the result does not depend on how the time is stepped.
+func _on_weather_growth_tick(tick: int) -> void:
+	var rain: Dictionary = weather.tuning.get("rain", {})
+	if tick % maxi(int(rain.get("pulse_ticks", 2)), 1) != 0:
+		return
+	if not weather.is_raining_at(float(tick) * clock.growth_period):
+		return
+	rain_pulse(int(rain.get("moisture_add", 6)))
+
+func rain_pulse(amount: int) -> int:
+	if not _rain_cells_built:
+		_rain_cells_built = true
+		for index: int in state.tile_count():
+			if state.target[index] == 1:
+				_rain_cells.append(index)
+	var top: int = sim_tuning.moisture_max
+	var wetted: int = 0
+	for index: int in _rain_cells:
+		if state.stage[index] == WorldState.STAGE_MATURE:
+			continue
+		var wet: int = state.moisture[index]
+		if wet < top:
+			state.set_moisture(index, mini(wet + amount, top))
+			wetted += 1
+	rain_pulses += 1
+	rain_wetted += wetted
+	return wetted
 
 ## The configured pavement rects from the environment tuning (for poc_main).
 static func paving_from(tuning: Dictionary) -> Array[Rect2i]:

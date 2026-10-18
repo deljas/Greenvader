@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS readability.built lamps=10
+PASS lamps.at_PRP001_positions 
+PASS lamps.off_by_day { "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+PASS lamps.on_at_night { "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+PASS marker.alpha_day_night_as_tuned day 0.30 night 0.62
+PASS lamps.follow_clock_not_wallclock 
+PASS lamps.off_at_start_hour 
+PASS marker.follows_player (7.607181, 0.07, 11.24093) -> (9.569402, 0.07, 11.16825)
+PASS player_light.follows_player 
+PASS marker.is_filled_disc_depth_tested 
+PASS display_change.simulation_untouched 
+PASS walk.speed_4_8_diag_normalised_multiplier_free axis 4.800 px diag 4.800 px (expect 4.800)
+PASS walk.max_motion_substepped_below_cell frame max 12.00 px in substeps of <= 0.25 px (cell 4 px)
+PASS walk.no_tunnelling_at_max_frame wall (65, 21) player (64, 21)
+PASS town.building_yaws_vary_no_mirror yaws=[180.0, 0.0, 270.0, 90.0]
+RESULT passes=15 failures=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

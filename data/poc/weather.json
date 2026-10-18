@@ -1,0 +1,22 @@
+{
+ "version": 1,
+ "note": "WTH-01 weather (clear / cloudy / rain). A deterministic state machine of the one game clock (SimClock.elapsed): a fixed-seed RNG draws the next weather and its length; the schedule never depends on how time is split into steps. Durations in game seconds (a game day is 600 s). Reversible initial values.",
+ "seed": 20261018,
+ "initial": "clear",
+ "durations": {"clear": [150.0, 300.0], "cloudy": [60.0, 150.0], "rain": [90.0, 180.0]},
+ "transitions": {
+  "clear": {"cloudy": 0.75, "rain": 0.25},
+  "cloudy": {"clear": 0.5, "rain": 0.5},
+  "rain": {"cloudy": 0.6, "clear": 0.4}
+ },
+ "blend_seconds": 20.0,
+ "overcast": {"clear": 0.0, "cloudy": 1.0, "rain": 1.0},
+ "rain_level": {"clear": 0.0, "cloudy": 0.0, "rain": 1.0},
+ "rain": {"pulse_ticks": 2, "moisture_add": 6, "min_level": 0.5},
+ "light": {"sun_cloud": 0.5, "sun_rain": 0.18, "ambient_cloud": 0.1, "ambient_rain": 0.1, "overcast_color": "8a97a3", "overcast_color_mix": 0.45, "background_dim": 0.18},
+ "display": {
+  "rain_streaks": {"cell_px": 12, "length_px": 8, "speed_px_s": 220.0, "density": 0.26, "slant": 0.35, "alpha": 0.42, "color": "c8dcf0"},
+  "cloud_shadow": {"scale_m": 11.0, "speed_mps": [0.55, 0.3], "darkness": 0.42, "coverage_clear": 0.56, "coverage_cloudy": 0.72, "steps": 4, "height_m": 0.012, "extent_m": 56.0}
+ },
+ "water_ripples": {"cell_m": 0.8, "period_s": 0.9, "radius_m": 0.32, "strength": 0.5}
+}

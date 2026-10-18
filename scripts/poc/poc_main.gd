@@ -14,6 +14,7 @@ const WaterViewScript: GDScript = preload("res://scripts/poc/environment/water_v
 const ReadabilityScript: GDScript = preload("res://scripts/poc/environment/readability_view.gd")
 const WallViewScript: GDScript = preload("res://scripts/poc/environment/wall_view.gd")
 const HelperViewScript: GDScript = preload("res://scripts/poc/helpers/poc_helper_view.gd")
+const WeatherViewScript: GDScript = preload("res://scripts/poc/environment/weather_view.gd")
 const OcclusionViewScript: GDScript = preload("res://scripts/poc/occlusion/occlusion_view.gd")
 const PocSave: GDScript = preload("res://scripts/poc/save/poc_save.gd")
 const PocUi: GDScript = preload("res://scripts/poc/ui/poc_ui.gd")
@@ -28,6 +29,9 @@ var view_rect: TextureRect
 var world: Node3D
 var camera: Camera3D
 var sun: DirectionalLight3D
+## WTH-01 weather display: the rain overlay (a ColorRect inside the render SubViewport, over the 3D picture) and the 3D part (cloud shadows).
+var rain_rect: ColorRect
+var weather_view: Node3D
 var actor: Node3D
 ## POC-02 placed objects (GLB instances); null with the bare POC-01 fixture (user arg --bare).
 var placement_view: Node3D
@@ -134,6 +138,7 @@ func make_session() -> RefCounted:
 		elif not _args_bare:
 			made.load_placement()
 	made.debug_refill_enabled = OS.get_cmdline_user_args().has("--debug-refill")
+	made.debug_weather_enabled = OS.get_cmdline_user_args().has("--debug-weather")
 	return made
 
 # ---------------------------------------------------------------- construction
@@ -154,6 +159,12 @@ func _build_view() -> void:
 	view_rect.stretch_mode = TextureRect.STRETCH_SCALE
 	view_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(view_rect)
+	rain_rect = ColorRect.new()
+	rain_rect.name = "RainOverlay"
+	rain_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	rain_rect.color = Color(1, 1, 1, 1)
+	rain_rect.visible = false
+	render_view.add_child(rain_rect) # inside the render viewport: drawn in render pixels, over the 3D picture
 
 func _build_world() -> void:
 	world = Node3D.new()
@@ -241,6 +252,12 @@ func _build_world() -> void:
 	world.add_child(readability)
 	readability.setup(session.env_tuning, session.placement, placement_view.holders if placement_view != null else {})
 	env_view.readability = readability
+	weather_view = WeatherViewScript.new()
+	weather_view.name = "WeatherView"
+	world.add_child(weather_view)
+	weather_view.setup(session, camera, rain_rect)
+	weather_view.set_resolution(Config.RESOLUTIONS[resolution_index])
+	env_view.weather_view = weather_view
 	env_view.setup(session, world_environment, sun, water_view)
 	if placement_view != null:
 		occlusion_view = OcclusionViewScript.new()
@@ -266,6 +283,7 @@ func _teardown_world() -> void:
 		world.free()
 		world = null
 	readability = null
+	weather_view = null
 	placement_view = null
 	wall_view = null
 	water_view = null
@@ -432,6 +450,9 @@ func _apply_resolution_layout() -> void:
 	button_box.reset_size()
 	button_box.position = Vector2(res.x - button_box.get_combined_minimum_size().x - 4, 2)
 	view_rect.size = Vector2(res)
+	rain_rect.size = Vector2(res)
+	if weather_view != null:
+		weather_view.set_resolution(res)
 	if ui != null:
 		ui.set_scale_for(res)
 
@@ -571,7 +592,7 @@ func _refresh() -> void:
 	var cell: Vector2i = Coords.logic_to_cell(session.position)
 	var lines: PackedStringArray = []
 	lines.append("解像度 %d×%d（窓 %d×%d, %d倍）　視野 %.1fm" % [res.x, res.y, window_size().x, window_size().y, scale_, camera.size])
-	lines.append("論理 (%.1f, %.1f) セル (%d,%d)　ゲーム時刻 %s　時刻 %s ×%d%s" % [session.position.x, session.position.y, cell.x, cell.y, game_time_text(), env_view.hour_text(), int(session.multiplier), "　【一時停止】" if session.paused else ""])
+	lines.append("論理 (%.1f, %.1f) セル (%d,%d)　ゲーム時刻 %s　時刻 %s　天気 %s%s ×%d%s" % [session.position.x, session.position.y, cell.x, cell.y, game_time_text(), env_view.hour_text(), session.weather_text(), "【デバッグ固定 1/2/3, 0=解除】" if session.weather.override_type >= 0 else "", int(session.multiplier), "　【一時停止】" if session.paused else ""])
 	var play: PlayState = session.play
 	var status: String = "種 %d　水 %d/%d　HP %d/%d　選択 %s　緑化 %d%%（%d/%d）" % [play.seeds, roundi(play.water), roundi(play.tuning.water_max), play.hp, play.hp_max, session.selected_label(), session.greening_percent(), session.state.greened_count, session.state.target_count]
 	if session.debug_refill_enabled:
@@ -623,6 +644,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_refresh()
 	elif event.is_action_pressed(&"poc_interact", false, true):
 		interact()
+	elif session.debug_weather_enabled and _debug_weather_key(event):
+		pass
 	elif event.is_action_pressed(&"poc_debug_refill", false, true):
 		if not session.debug_refill():
 			show_notice("デバッグ補給は無効です（--debug-refill で有効化）")
@@ -638,6 +661,24 @@ func _unhandled_input(event: InputEvent) -> void:
 			click_fire((event as InputEventMouseButton).position, true)
 	elif event is InputEventMouseMotion:
 		place_aim_at((event as InputEventMouseMotion).position)
+
+## WTH-01 development keys (only with --debug-weather): 1 clear, 2 cloudy, 3 rain, 0 back to the schedule. Never saved.
+func _debug_weather_key(event: InputEvent) -> bool:
+	var picked: int = -2
+	if event.is_action_pressed(&"poc_debug_weather_clear", false, true):
+		picked = 0
+	elif event.is_action_pressed(&"poc_debug_weather_cloudy", false, true):
+		picked = 1
+	elif event.is_action_pressed(&"poc_debug_weather_rain", false, true):
+		picked = 2
+	elif event.is_action_pressed(&"poc_debug_weather_auto", false, true):
+		picked = -1
+	if picked == -2:
+		return false
+	session.set_debug_weather(picked)
+	env_view.sync()
+	_refresh()
+	return true
 
 func _over_ui(content_pos: Vector2) -> bool:
 	for control: Control in ui_controls:

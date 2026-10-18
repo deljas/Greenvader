@@ -1,0 +1,56 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS schedule.deterministic_any_query_order 
+PASS schedule.all_three_weathers_in_4h [0, 1, 2]
+PASS schedule.starts_clear 
+PASS schedule.durations_in_data_ranges 95 segments
+PASS schedule.no_same_weather_twice 
+PASS schedule.rain_is_minutes_not_hours rain 90..179 s
+PASS schedule.levels_blend_continuously { "type": 0, "prev": 0, "blend": 1.0, "index": 0, "overcast": 0.0, "rain": 0.0 } -> { "type": 1, "prev": 0, "blend": 0.00000074975, "index": 1, "overcast": 0.00000074975, "rain": 0.0 }
+PASS clock.same_elapsed_same_weather_any_step 曇り {"duration":228.35958302021,"index":0,"prev_type":0,"rng_state":"3951480237799601366","seed":"20261018","start":0.0,"type":0,"version":1}
+PASS clock.pause_freezes_weather 
+PASS clock.rain_wetting_independent_of_step 30/30 pulses, 254244 wetted
+PASS sun.found_times 1300.0 16300.0 12700.0 7600.0
+PASS sun.clear_noon_is_maximum 1.2500
+PASS sun.cloudy_rain_night_are_exactly_1 1.000000 1.000000 1.000000
+PASS sun.never_below_1_all_weather_all_hours min 1.000000
+PASS rain.raises_moisture 14 -> 100 (max 100)
+PASS rain.cap_respected_everywhere max 100
+PASS rain.mature_cells_untouched mature index 8364
+PASS rain.clear_day_does_not_wet pulses 0 moisture 0
+PASS growth.watering_worth_more_on_a_clear_day clear 2500/1250 cloudy 2000/1000
+PASS growth.positive_night_cloudy_dry growth 0 -> 20000, gain 1000
+PASS save.written 
+PASS save.has_weather_section {"duration":90.483992965892,"index":45.0,"prev_type":0.0,"rng_state":"9173667700813701530","seed":"20261018","start":7254.35788219795,"type":2.0,"version":1.0}
+PASS save.round_trip 
+PASS save.continues_identically 
+PASS save.file_without_weather_loads 
+PASS save.rejects_type_out_of_range セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_prev_type_negative セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_index_huge セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_index_negative セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_start_negative セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_duration_zero セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_duration_huge セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_rng_state_text セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_rng_state_other セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_seed_other セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_version_other セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_type_string セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_start_elsewhere セーブデータの値が範囲外または不整合です（weather）。
+PASS save.rejects_missing_field 
+PASS save.rejects_wrong_container 
+PASS debug.session_default_off 
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS debug.main_default_off 
+PASS debug.keys_ignored_by_default 
+PASS debug.keys_work_when_enabled 
+PASS debug.hud_shows_weather 論理 (354.0, 346.0) セル (88,86)　ゲーム時刻 00:00.1　時刻 08:00（昼）　天気 晴れ ×1
+PASS hundred.from_start.exact_100_within_bound_with_weather after stable 300.0 s of bound 389.0 s, greened 9463/9463, weathers seen [0, 1], rain pulses 0
+PASS hundred.from_rain.exact_100_within_bound_with_weather after stable 293.0 s of bound 389.0 s, greened 9463/9463, weathers seen [1, 2, 0], rain pulses 175
+PASS hundred.from_cloudy_night.exact_100_within_bound_with_weather after stable 303.5 s of bound 389.0 s, greened 9463/9463, weathers seen [1, 0], rain pulses 0
+RESULT passes=48 failures=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

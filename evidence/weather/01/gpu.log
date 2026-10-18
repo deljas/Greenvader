@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti window=(1280, 720)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS plant_cells_found [(98, 86), (98, 88), (98, 90)]
+PASS times_found 1300.0 16300.0 12700.0
+INFO day_clear_640 weather=晴れ levels={ "type": 0, "prev": 1, "blend": 1.0, "index": 7, "overcast": 0.0, "rain": 0.0 } hour=12.04 sun=1.25 light=0.8 ambient=0.55
+PASS day_clear_640.player_differs_from_ground 23.4% of (24, 28) px differ
+INFO day_clear_640.enemy differs from the ground in 14.0% of (24, 28) px
+INFO day_clear_640.seeds differs from the ground in 7.6% of (24, 28) px
+PASS day_clear_640.no_rain_overlay 
+INFO day_cloudy_640 weather=曇り levels={ "type": 1, "prev": 0, "blend": 1.0, "index": 107, "overcast": 1.0, "rain": 0.0 } hour=12.04 sun=1.0 light=0.4 ambient=0.495
+PASS day_cloudy_640.no_rain_overlay 
+INFO day_rain_640 weather=雨 levels={ "type": 2, "prev": 1, "blend": 1.0, "index": 83, "overcast": 1.0, "rain": 1.0 } hour=12.04 sun=1.0 light=0.256 ambient=0.44
+PASS day_rain_640.player_differs_from_ground 23.2% of (24, 28) px differ
+INFO day_rain_640.enemy differs from the ground in 8.0% of (24, 28) px
+INFO day_rain_640.seeds differs from the ground in 5.7% of (24, 28) px
+PASS day_rain_640.rain_streaks_local_not_a_full_screen_effect 8.30% of pixels touched
+INFO day_rain_960 weather=雨 levels={ "type": 2, "prev": 1, "blend": 1.0, "index": 83, "overcast": 1.0, "rain": 1.0 } hour=12.04 sun=1.0 light=0.256 ambient=0.44
+PASS day_rain_960.player_differs_from_ground 22.4% of (36, 42) px differ
+INFO day_rain_960.enemy differs from the ground in 9.6% of (36, 42) px
+INFO day_rain_960.seeds differs from the ground in 5.8% of (36, 42) px
+PASS day_rain_960.rain_streaks_local_not_a_full_screen_effect 7.94% of pixels touched
+INFO night_clear_640 weather=晴れ levels={ "type": 0, "prev": 0, "blend": 1.0, "overcast": 0.0, "rain": 0.0, "index": 2 } hour=0.04 sun=1.0 light=0.16 ambient=0.22
+PASS night_clear_640.player_differs_from_ground 23.5% of (24, 28) px differ
+PASS night_clear_640.enemy_with_marker_clearly_differs_from_ground 9.2%
+INFO night_clear_640.enemy differs from the ground in 9.2% of (24, 28) px
+INFO night_clear_640.seeds differs from the ground in 18.5% of (24, 28) px
+PASS night_clear_640.no_rain_overlay 
+INFO night_rain_640 weather=雨 levels={ "type": 2, "prev": 2, "blend": 1.0, "overcast": 1.0, "rain": 1.0, "index": 2 } hour=0.04 sun=1.0 light=0.096 ambient=0.176
+PASS night_rain_640.player_differs_from_ground 23.4% of (24, 28) px differ
+PASS night_rain_640.enemy_with_marker_clearly_differs_from_ground 9.2%
+INFO night_rain_640.enemy differs from the ground in 9.2% of (24, 28) px
+INFO night_rain_640.seeds differs from the ground in 21.9% of (24, 28) px
+PASS night_rain_640.rain_streaks_local_not_a_full_screen_effect 8.39% of pixels touched
+INFO night_rain_960 weather=雨 levels={ "type": 2, "prev": 2, "blend": 1.0, "overcast": 1.0, "rain": 1.0, "index": 2 } hour=0.04 sun=1.0 light=0.096 ambient=0.176
+PASS night_rain_960.player_differs_from_ground 23.1% of (36, 42) px differ
+PASS night_rain_960.enemy_with_marker_clearly_differs_from_ground 9.7%
+INFO night_rain_960.enemy differs from the ground in 9.7% of (36, 42) px
+INFO night_rain_960.seeds differs from the ground in 20.6% of (36, 42) px
+PASS night_rain_960.rain_streaks_local_not_a_full_screen_effect 8.16% of pixels touched
+PASS day_rain_640.enemy_not_much_worse_than_day_clear_640 8.0% vs 14.0% without rain
+PASS night_rain_640.enemy_not_much_worse_than_night_clear_640 9.2% vs 9.2% without rain
+PASS night_rain_640.seeds_not_much_worse_than_night_clear_640 21.9% vs 18.5% without rain
+PASS cloudshadow.dark_patches_cover_part_of_the_ground 14.7% of the picture
+PASS cloudshadow.patches_move_with_the_game_clock 26.1% differ after 24 s
+PASS water.rain_ripples_change_the_pond_surface 2.27% of the pond window differ
+RESULT passes=24 failures=0
+WARNING: 76 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

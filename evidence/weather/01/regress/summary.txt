@@ -1,0 +1,18 @@
+weather/logic 48 pass 0 fail
+base/logic exit=0 40 pass 0 fail RESULT passes=40 failures=0
+map/logic exit=0 49 pass 0 fail RESULT passes=49 failures=0
+assets/logic exit=0 45 pass 0 fail RESULT passes=45 failures=0
+combat/logic exit=0 48 pass 0 fail RESULT passes=48 failures=0
+play/logic exit=0 69 pass 0 fail RESULT passes=69 failures=0
+environment/logic exit=0 81 pass 0 fail RESULT passes=81 failures=0
+occlusion/logic exit=0 37 pass 0 fail RESULT passes=37 failures=0
+polish/logic exit=0 15 pass 0 fail RESULT passes=15 failures=0
+polish/tempo exit=0 3 pass 0 fail RESULT passes=3 failures=0
+save/logic exit=0 76 pass 0 fail RESULT passes=76 failures=0
+save/ui_logic exit=0 28 pass 0 fail RESULT passes=28 failures=0
+helpers/logic exit=0 85 pass 0 fail RESULT passes=85 failures=0
+helpers/ui_logic exit=0 10 pass 0 fail RESULT passes=10 failures=0
+helpers/work exit=0 71 pass 0 fail RESULT passes=71 failures=0
+integration/regress exit=0 20 pass 0 fail RESULT passes=20 failures=0
+integration/helpers_front exit=0 19 pass 0 fail RESULT passes=19 failures=0
+DONE
