@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti window=(1280, 720)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS place_0 ガトリンガーを設置した
+PASS place_1 スプリンクラーを設置した
+PASS place_2 アーミーを設置した
+PASS gatlinger_flights_in_air flights=2
+INFO gatlinger_640 640x360 view=(640, 360) helper_view={ "plants": 3, "areas": 3, "units": 1, "flights_visible": 1, "pickups_visible": 0, "ghost_visible": false, "shadow_pairs_match": true, "texels": [28, 36] }
+PASS flights_visible_in_view { "plants": 3, "areas": 3, "units": 1, "flights_visible": 1, "pickups_visible": 0, "ghost_visible": false, "shadow_pairs_match": true, "texels": [28, 36] }
+INFO sprinkler_640 640x360 view=(640, 360) helper_view={ "plants": 3, "areas": 3, "units": 1, "flights_visible": 1, "pickups_visible": 0, "ghost_visible": false, "shadow_pairs_match": true, "texels": [28, 36] }
+PASS sprinkler_pulse_shown sown=14 pulses=1
+INFO army_640 640x360 view=(640, 360) helper_view={ "plants": 3, "areas": 3, "units": 1, "flights_visible": 1, "pickups_visible": 0, "ghost_visible": false, "shadow_pairs_match": true, "texels": [28, 36] }
+PASS army_unit_out_at_boar unit offset 21.8 hp=3
+INFO army_960 960x540 view=(960, 540) helper_view={ "plants": 3, "areas": 3, "units": 1, "flights_visible": 2, "pickups_visible": 0, "ghost_visible": false, "shadow_pairs_match": true, "texels": [42, 54] }
+PASS texels_960 
+PASS army_kills_boar_in_game_view 
+INFO all_640 640x360 view=(640, 360) helper_view={ "plants": 3, "areas": 3, "units": 1, "flights_visible": 2, "pickups_visible": 0, "ghost_visible": false, "shadow_pairs_match": true, "texels": [28, 36] }
+PASS hud_shows_work_state 廃街区  未制圧  緑化 0％　残巣 3　残敵 0　巣HP[10/10,10/10,10/10]
+RESULT passes=10 failures=0
+WARNING: 70 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 39 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

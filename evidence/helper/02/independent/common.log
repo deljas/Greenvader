@@ -1,0 +1,62 @@
+PASS rt.three_placed [1, 2, 3]
+INFO state before save: gat stock 5.0 flights 1, spr stock 10.0, army unit (369.5, 390.25) home (360.0, 376.0)
+PASS rt.nontrivial_extra_state 
+PASS rt.has_flights_in_air 
+PASS rt.army_unit_displaced 
+PASS rt.save_ok 
+PASS rt.load_ok 
+PASS rt.helpers_dict_identical 
+PASS rt.fields_per_kind 
+PASS rt.continue_identical_10s 
+PASS rt.lift_kind0 carried stock 7.00 vs 7.00
+PASS rt.carry_roundtrip_kind0 
+PASS rt.replace_kind0_stock_kept_unit_home 
+PASS rt.lift_kind1 carried stock 0.00 vs 0.00
+PASS rt.carry_roundtrip_kind1 
+PASS rt.replace_kind1_stock_kept_unit_home 
+PASS rt.lift_kind2 carried stock 0.00 vs 0.00
+PASS rt.carry_roundtrip_kind2 
+PASS rt.replace_kind2_stock_kept_unit_home 
+PASS rt.counters 
+PASS rej.control_loads 
+PASS rej.gat_stock_over_max reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.gat_stock_over_max_live_untouched 
+PASS rej.gat_stock_negative reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.gat_stock_negative_live_untouched 
+PASS rej.spr_stock_over_max reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.spr_stock_over_max_live_untouched 
+PASS rej.spr_stock_negative reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.spr_stock_negative_live_untouched 
+PASS rej.army_unit_beyond_radius reason=セーブデータの値が範囲外または不整合です（helpers（占有・数の不整合））。
+PASS rej.army_unit_beyond_radius_live_untouched 
+PASS rej.army_unit_far_away reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.army_unit_far_away_live_untouched 
+PASS rej.timer_over_max reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.timer_over_max_live_untouched 
+PASS rej.timer_negative reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.timer_negative_live_untouched 
+PASS rej.timer2_over_max reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.timer2_over_max_live_untouched 
+PASS rej.stock_missing reason=セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。
+PASS rej.stock_missing_live_untouched 
+PASS rej.flights_not_array reason=セーブデータの値が範囲外または不整合です（helpers.flights）。
+PASS rej.flights_not_array_live_untouched 
+PASS rej.flight_cell_out_of_map reason=セーブデータの値が範囲外または不整合です（helpers.flights）。
+PASS rej.flight_cell_out_of_map_live_untouched 
+PASS rej.flight_age_ge_dur reason=セーブデータの値が範囲外または不整合です（helpers.flights）。
+PASS rej.flight_age_ge_dur_live_untouched 
+PASS rej.flight_dur_huge reason=セーブデータの値が範囲外または不整合です（helpers.flights）。
+PASS rej.flight_dur_huge_live_untouched 
+PASS rej.carried_stock_over reason=セーブデータの値が範囲外または不整合です（helpers.carried の在庫）。
+PASS rej.carried_stock_over_live_untouched 
+PASS rej.fire_serial_negative reason=セーブデータの値が範囲外または不整合です（helpers.flights）。
+PASS rej.fire_serial_negative_live_untouched 
+PASS pause.no_work_at_all 
+PASS pause.resumes fire 1->7 pulses 0->1 decoy hp 98->88
+PASS hundred.three_placed 
+PASS hundred.zones_stable [3, 2]
+INFO hundred: stable at 0.0, bound 389.0, greened 484/9463, boars 0, nests 0
+PASS hundred.reached_within_bound after 310.0s of bound 389.0s
+PASS hundred.own_recount_exact_100 targets 9463 not green 0
+PASS hundred.three_kept_no_reinvasion 
+RESULT passes=59 failures=0

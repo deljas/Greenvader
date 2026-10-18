@@ -1,0 +1,20 @@
+PASS shore.block_found (41, 43)
+PASS shore.placed 
+PASS shore.player_far_whole_run dist 244 px
+PASS shore.pulses_continue_without_refill_600s pulses=200 (600s)
+PASS shore.stock_not_consumed min stock 30.0 start 30.0
+PASS shore.moisture_rises_on_pulse 9600/9600
+PASS inland.block_found (76, 74)
+PASS inland.placed 
+PASS inland.stops_when_stock_runs_out pulses=3 stock=0.0 (start 30, cost 10)
+PASS inland.no_more_pulses_without_player pulses=3
+PASS inland.refilled_by_player stock 0.0 -> 60.0 pulses 6
+PASS inland.resumes_after_refill pulses 3 -> 6
+PASS inland.no_refill_when_far 
+PASS growth.placed 
+PASS growth.same_seeds n=48
+INFO growth t=30s: sum stage dry=96 sprinkler=192 ; sum moisture dry=0 sprinkler=4512 (n=48)
+INFO growth t=60s: sum stage dry=192 sprinkler=192 ; sum moisture dry=0 sprinkler=1632 (n=48)
+INFO growth t=120s: sum stage dry=192 sprinkler=192 ; sum moisture dry=0 sprinkler=0 (n=48)
+PASS growth.sprinkler_grows_faster stage sums dry=96 sprinkler=192 at 30s
+RESULT passes=16 failures=0

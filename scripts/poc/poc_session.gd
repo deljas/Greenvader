@@ -288,6 +288,7 @@ func close() -> void:
 		clock.spread_ticked.disconnect(connection["callable"])
 	play.cultivation.boost_sink = Callable()
 	projectiles.blocker = Callable()
+	helpers.blocker = Callable()
 	projectiles.enemy_hit_provider = Callable()
 	spread.allow_hook = Callable()
 	growth.sunlight_provider = Callable()
@@ -541,6 +542,7 @@ func _build_play(sources_key: String, sources_override: Array = []) -> void:
 	projectiles.enemy_hit.connect(func(kind: String, _point: Vector2, _info: Dictionary) -> void: _release(kind))
 	helpers = HelpersScript.new(state, play, Config.TILE_PX)
 	helpers.notify = Callable(self, "say")
+	helpers.blocker = Callable(self, "shot_blocked")
 	helper_mode = -1
 
 ## Sets the HUD message. A message with `hold_seconds` (zone notices) is not replaced by ordinary messages for that long (game time).
@@ -756,6 +758,12 @@ func helper_status_text() -> String:
 	var text: String = "おたすけたね %d/%d　おたすけ植物 %d/%d" % [helpers.seeds, helpers.seeds_max, helpers.total_count(), helpers.max_helpers]
 	if helpers.is_carrying():
 		text += "　【持ち上げ中：%s HP%d】" % [String(helpers.kind_def(String(helpers.carried["kind"]))["name"]), int(helpers.carried["hp"])]
+	for plant: Dictionary in helpers.plants:
+		var key: String = String(plant["kind"])
+		if key == "gatlinger":
+			text += "　ガトリンガー在庫%d/%d" % [int(plant["stock"]), int(helpers.stock_max_of(key))]
+		elif key == "sprinkler":
+			text += "　スプリンクラー%s" % ("水辺（補給不要）" if helpers.is_by_water(plant) else "水%d/%d" % [int(plant["stock"]), int(helpers.stock_max_of(key))])
 	if helper_mode >= 0:
 		var def: Dictionary = helpers.kind_def(helper_active_kind())
 		text += "　【設置モード：%s%s】" % [String(def["name"]), "" if helpers.is_carrying() else "（%d個）" % int(def["cost"])]

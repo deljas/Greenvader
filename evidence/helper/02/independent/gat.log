@@ -1,0 +1,44 @@
+INFO gatlinger radius px (from data) = 60.0
+PASS A.gat.placed 
+PASS A.gat.stock_in_bounds max stock seen 12.0
+PASS A.gat.accounting receives=432 fires=420 stock=12.0
+PASS A.gat.fires_equal_seeded_wasted_inflight fires=420 seeded=411 wasted=8 inflight=1
+PASS A.gat.fired_something fires=420
+PASS A.gat.all_targets_valid_at_fire []
+PASS A.gat.no_inflight_duplicates dup=0
+PASS A.gat.low_waste wasted=8 of 420
+INFO window 80s (cells newly planted stage>=1 in radius): base=0 gat=271 ; stage>=2: base=0 gat=175
+INFO front speed multiple (stage>=1, 80s) = 271.00 (base zero? true)
+PASS A.gat.frontier_faster_than_natural ratio 271.00
+INFO 300s: base new(stage>=1)=0 gat=440
+PASS A.gat.seeds_remote_origins targets with no pre-existing plant within 3 cells: 109 of 162
+PASS B.gat.placed 
+PASS B.gat.stock_in_bounds max stock seen 12.0
+PASS B.gat.accounting receives=440 fires=428 stock=12.0
+PASS B.gat.fires_equal_seeded_wasted_inflight fires=428 seeded=427 wasted=0 inflight=1
+PASS B.gat.fired_something fires=428
+PASS B.gat.all_targets_valid_at_fire []
+PASS B.gat.no_inflight_duplicates dup=0
+PASS B.gat.low_waste wasted=0 of 428
+INFO window 80s (cells newly planted stage>=1 in radius): base=0 gat=207 ; stage>=2: base=0 gat=117
+INFO front speed multiple (stage>=1, 80s) = 207.00 (base zero? true)
+PASS B.gat.frontier_faster_than_natural ratio 207.00
+INFO 300s: base new(stage>=1)=0 gat=379
+PASS B.gat.seeds_remote_origins targets with no pre-existing plant within 3 cells: 73 of 104
+PASS fair.placed 
+INFO fair t=40s new cells in radius: natural stage>=1 60, with gatlinger 92 (x1.53); stage>=2: 50 vs 72 (x1.44)
+INFO fair t=80s new cells in radius: natural stage>=1 17, with gatlinger 152 (x8.94); stage>=2: 5 vs 103 (x20.60)
+INFO fair t=160s new cells in radius: natural stage>=1 7, with gatlinger 193 (x27.57); stage>=2: 0 vs 164 (x164.00)
+PASS fair.faster_at_all_marks [1.53333333333333, 8.94117647058824, 27.5714285714286]
+PASS obs.island_found (14, 28)
+PASS obs.placed 
+INFO obstacle teeth: nest in range=true, non-greenable cells in range=166, wall-shadowed free cells=50
+PASS obs.targets_never_invalid fired=92 bad=[]
+PASS obs.nest_cells_never_seeded 
+PASS obs.nest_still_alive_occupied 
+PASS zero.placed 
+PASS zero.no_fire_without_stock serial=0 stock=0.0 mature_around_max=0 (15s)
+PASS zero.mature_stayed_below_receive_threshold max 0
+PASS zero.exactly_stock_fired_then_stops serial=3 stock=0.0
+PASS zero.three_accounted seeded=3 wasted=0
+RESULT passes=32 failures=0

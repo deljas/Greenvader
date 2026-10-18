@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "HLP-01 helper seeds (おたすけたね) and helper plants (おたすけ植物). Lengths in metres (m) or logical px, times in game seconds. Provisional values.",
+ "note": "HLP-01/02 helper seeds (おたすけたね) and helper plants (おたすけ植物). Lengths in metres (m) or logical px, times in game seconds. Provisional values.",
  "seeds": {"start": 0, "max": 20, "debug_refill": 6},
  "drop": {
   "rng_seed": 20261019,
@@ -17,8 +17,11 @@
  },
  "place": {"max_helpers": 6, "range_m": 4.0, "lift_range_m": 2.4},
  "damage": {"interval_seconds": 1.0, "amount": 1, "contact_px": 6.0},
+ "gatlinger": {"stock_max": 12, "stock_start": 0, "receive_interval": 0.6, "min_mature_cells": 8, "fire_interval": 0.7, "retry_interval": 0.5, "flight_speed_px": 60.0, "pioneer_window": 2, "tries": 24},
+ "sprinkler": {"stock_max": 60.0, "stock_start": 30.0, "pulse_interval": 3.0, "pulse_cost": 10.0, "moisture_add": 40, "refill_per_second": 20.0, "refill_range_px": 24.0, "fx_seconds": 0.8},
+ "army": {"damage": 2, "attack_interval": 0.8, "unit_speed_px": 24.0, "reach_px": 6.0},
  "kinds": [
-  {"key": "gatlinger", "name": "ガトリンガー", "cost": 2, "hp": 8, "radius_m": 3.6, "color": "f2c230"},
+  {"key": "gatlinger", "name": "ガトリンガー", "cost": 2, "hp": 8, "radius_m": 6.0, "color": "f2c230"},
   {"key": "sprinkler", "name": "スプリンクラー", "cost": 2, "hp": 6, "radius_m": 3.0, "color": "4fb8e8"},
   {"key": "army", "name": "アーミー", "cost": 3, "hp": 12, "radius_m": 4.0, "color": "c2763a"}
  ]

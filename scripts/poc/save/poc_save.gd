@@ -5,7 +5,7 @@ extends RefCounted
 ## fertility, occupancy, zones; sprout_seed is its random source), GrowthSim / SpreadSim / FarSeedSim progress, SimClock,
 ## PlayState (resources, HP, selection, pickups, cultivated plants, source timers, drops), EnemyField (nests, boars with their
 ## rng, carcasses), HLP-01 helpers (helper seeds, ground seed items, helper plants with hp / cooldown, the lifted plant, the drop
-## roll position; format_version 2: a v1 file is rejected as a different format), wall vegetation growth, player position, zone notices/times, and UI settings (resolution).
+## roll position; format_version 2: a v1 file is rejected as a different format; HLP-02 adds to the helpers section (section version 2: per-plant stock / timers / Army unit position, seed flights in the air, work counters; a section version 1 still loads with default work state, so format_version stays 2)), wall vegetation growth, player position, zone notices/times, and UI settings (resolution).
 ## NOT saved on purpose: shots in flight (the live session drops them at save time: spent seeds / water are refunded and the
 ## seeds reserved for cultivated plants are released, so nothing is lost or duplicated), the aim point, the real-time clock
 ## (saved_at is display only; the game clock continues from game_elapsed with no real time added), the fast-forward multiplier,
@@ -409,13 +409,16 @@ static func _validate_helpers(s: RefCounted, helpers: Variant) -> String:
 	if not (helpers is Dictionary):
 		return "helpers"
 	var d: Dictionary = helpers
-	if not _int_in(d["version"], 1, 1) or not _int_in(d["seeds"], 0, h.seeds_max) or not _num_in(d["time"], 0.0, 1.0e9) or not _int_in(d["ticks"], 0, big) or not _int_in(d["next_uid"], 1, big):
+	if not _int_in(d["version"], 1, 2) or not _int_in(d["seeds"], 0, h.seeds_max) or not _num_in(d["time"], 0.0, 1.0e9) or not _int_in(d["ticks"], 0, big) or not _int_in(d["next_uid"], 1, big):
 		return "helpers の資源・時間"
 	if absf(float(d["ticks"]) - floorf(float(d["time"]) / h.drop_interval)) > 1.0:
 		return "helpers の判定回数"
 	if not (d["pickups"] is Array) or not (d["plants"] is Array) or not (d["stats"] is Dictionary) or (d["pickups"] as Array).size() > 200 or (d["plants"] as Array).size() > h.max_helpers:
 		return "helpers の型"
 	var px_limit: float = float(maxi(s.state.width, s.state.height) * Config.TILE_PX)
+	var v2: bool = int(d["version"]) >= 2
+	if v2 and (not (d.get("flights") is Array) or (d["flights"] as Array).size() > 200 or not _int_in(d.get("fire_serial"), 0, big)):
+		return "helpers.flights"
 	for item: Variant in d["pickups"]:
 		if not _keys_ok(item, ["x", "y", "age"]) or not _num_in(item["x"], 0.0, px_limit) or not _num_in(item["y"], 0.0, px_limit) or not _num_in(item["age"], 0.0, h.pickup_lifetime):
 			return "helpers.pickups"
@@ -427,6 +430,14 @@ static func _validate_helpers(s: RefCounted, helpers: Variant) -> String:
 		if def.is_empty() or not _int_in(plant["uid"], 1, big) or uids.has(int(plant["uid"])) or not _int_in(plant["x"], 0, s.state.width - 4) or not _int_in(plant["y"], 0, s.state.height - 4) or not _int_in(plant["hp"], 1, int(def["hp"])) or not _num_in(plant["cooldown"], 0.0, h.damage_interval):
 			return "helpers.plants の値"
 		uids[int(plant["uid"])] = true
+		if v2:
+			var cap: float = h.stock_max_of(String(plant["kind"]))
+			if not _keys_ok(plant, ["stock", "timer", "timer2", "ax", "ay"]) or not _num_in(plant["stock"], 0.0, cap) or not _num_in(plant["timer"], 0.0, h._timer_max()) or not _num_in(plant["timer2"], 0.0, h._timer_max()) or not _num_in(plant["ax"], 0.0, px_limit) or not _num_in(plant["ay"], 0.0, px_limit):
+				return "helpers.plants の作業状態"
+	if v2:
+		for flight: Variant in d["flights"]:
+			if not _keys_ok(flight, ["ox", "oy", "cx", "cy", "age", "dur"]) or not _num_in(flight["ox"], 0.0, px_limit) or not _num_in(flight["oy"], 0.0, px_limit) or not _int_in(flight["cx"], 0, s.state.width - 1) or not _int_in(flight["cy"], 0, s.state.height - 1) or not _num_in(flight["dur"], 0.01, 30.0) or not _num_in(flight["age"], 0.0, float(flight["dur"])):
+				return "helpers.flights"
 	if d["carried"] != null:
 		var held: Variant = d["carried"]
 		if not _keys_ok(held, ["uid", "kind", "hp"]) or not _is_str(held["kind"]):
@@ -435,12 +446,14 @@ static func _validate_helpers(s: RefCounted, helpers: Variant) -> String:
 		if held_def.is_empty() or not _int_in(held["uid"], 1, big) or uids.has(int(held["uid"])) or not _int_in(held["hp"], 1, int(held_def["hp"])):
 			return "helpers.carried の値"
 		uids[int(held["uid"])] = true
+		if v2 and (not _keys_ok(held, ["stock"]) or not _num_in(held["stock"], 0.0, h.stock_max_of(String(held["kind"])))):
+			return "helpers.carried の在庫"
 		if uids.size() > h.max_helpers:
 			return "helpers の数"
 	for uid: Variant in uids:
 		if int(uid) >= int(d["next_uid"]):
 			return "helpers.next_uid"
-	for key: String in ["dropped", "collected", "nest_rewards", "lost"]:
+	for key: String in ["dropped", "collected", "nest_rewards", "lost"] + (["seeded", "wasted", "pulses", "kills"] if v2 else []):
 		if not d["stats"].has(key) or not _int_in(d["stats"][key], 0, big):
 			return "helpers.stats"
 	return ""

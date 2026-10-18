@@ -1,0 +1,19 @@
+INFO army defence radius px (data) = 40.0
+PASS real.spot (14, 28) dist to nest 8.0 cells
+PASS real.placed 
+PASS real.boars_from_nest_came_in_range spawned=53 inside-steps=1612 outside-steps=48306
+PASS real.boars_killed kills_total=47 vanished=47
+PASS real.kills_only_inside_radius far-vanish 0
+PASS real.unit_never_beyond_radius max 35.21 of 40.0
+PASS real.unit_always_on_walkable_cell bad=0
+PASS real.outside_boars_existed_not_chased 
+PASS real.teeth_unit_left_post_for_decoy 18.0 px from post
+INFO unit before idle (63.58016, 137.9943) after 15s idle (64.00002, 120.0) home (64.0, 120.0)
+PASS real.returns_to_post_when_no_target 
+PASS wall.found (75, 54)
+PASS wall.placed 
+INFO behind wall: min unit-boar distance 5.50 px (reach 6), boar damage 0, wall cell (75, 54)
+PASS wall.no_attack_through_wall damage 0
+PASS wall.teeth_unit_came_within_reach min gap 5.50
+PASS wall.control_open_side_is_attacked hp 34
+RESULT passes=15 failures=0

@@ -24,6 +24,8 @@ var _seen: Dictionary = {}
 var _cache: Dictionary = {}
 var _materials: Dictionary = {}
 var _pickup_pool: Array[MeshInstance3D] = []
+var _flight_pool: Array[MeshInstance3D] = []
+var _units: Dictionary = {}
 var _pickup_mesh: SphereMesh
 var ghost: MeshInstance3D
 var ghost_area: MeshInstance3D
@@ -103,6 +105,16 @@ static func _rect(image: Image, x: int, y: int, w: int, h: int, color: Color) ->
 
 ## 28x36 base art per kind. Flat colours, no outline.
 func _art(key: String) -> Image:
+	if key == "army_unit":
+		var unit_image: Image = Image.create(12, 18, false, Image.FORMAT_RGBA8)
+		unit_image.fill(Color(0, 0, 0, 0))
+		var body: Color = _kind_color("army", 1.0)
+		_rect(unit_image, 3, 12, 2, 6, body.darkened(0.4))
+		_rect(unit_image, 7, 12, 2, 6, body.darkened(0.4))
+		_rect(unit_image, 2, 5, 8, 8, body)
+		_rect(unit_image, 3, 0, 6, 5, body.lightened(0.2))
+		_rect(unit_image, 10, 1, 1, 14, Color("d8d8d0"))
+		return unit_image
 	var image: Image = Image.create(FRAMES[0].x, FRAMES[0].y, false, Image.FORMAT_RGBA8)
 	image.fill(Color(0, 0, 0, 0))
 	var main_color: Color = _kind_color(key, 1.0)
@@ -140,7 +152,7 @@ func texture_for(key: String) -> ImageTexture:
 	var cache_key: String = "%s:%d" % [key, resolution_index]
 	if not _cache.has(cache_key):
 		var image: Image = _art(key)
-		var size: Vector2i = FRAMES[resolution_index]
+		var size: Vector2i = image.get_size() if resolution_index == 0 else Vector2i(roundi(image.get_width() * 1.5), roundi(image.get_height() * 1.5))
 		if image.get_size() != size:
 			image.resize(size.x, size.y, Image.INTERPOLATE_NEAREST)
 		_cache[cache_key] = ImageTexture.create_from_image(image)
@@ -210,7 +222,7 @@ func sync() -> void:
 		_pose(entry, key, centre, tint)
 		var area: MeshInstance3D = _areas[uid]
 		_set_disc(area, float(def["radius_m"]))
-		area.material_override = _area_material(key)
+		area.material_override = _area_material_for(plant)
 		var ground: Vector2 = Coords.logic_to_ground(centre)
 		area.position = Vector3(ground.x, GROUND_Y, ground.y)
 	for uid: Variant in _cards.keys():
@@ -222,11 +234,28 @@ func sync() -> void:
 			_areas.erase(uid)
 	_sync_ghost()
 	_sync_pickups()
+	_sync_units()
+	_sync_flights()
 
 func _area_material(key: String) -> StandardMaterial3D:
 	if not _materials.has(key):
 		_materials[key] = _flat(_kind_color(key, AREA_ALPHA))
 	return _materials[key]
+
+## Sprinkler states shown on its area: a pulse just wetted (bright), out of water (grey), else the kind colour.
+func _area_material_for(plant: Dictionary) -> StandardMaterial3D:
+	var key: String = String(plant["kind"])
+	if key == "sprinkler":
+		var helpers: RefCounted = session.helpers
+		if helpers.pulse_fx.has(int(plant["uid"])):
+			if not _materials.has("pulse"):
+				_materials["pulse"] = _flat(Color(0.55, 0.85, 1.0, 0.42))
+			return _materials["pulse"]
+		if not helpers.is_by_water(plant) and float(plant["stock"]) + 1.0e-6 < float(helpers.spr["pulse_cost"]):
+			if not _materials.has("dry"):
+				_materials["dry"] = _flat(Color(0.5, 0.5, 0.5, 0.2))
+			return _materials["dry"]
+	return _area_material(key)
 
 func _sync_ghost() -> void:
 	var preview: Dictionary = session.helper_preview()
@@ -264,6 +293,44 @@ func _sync_pickups() -> void:
 			_pickup_pool[i].position = Vector3(ground.x, 0.26 + 0.04 * sin(bob_time * 4.0 + float(i)), ground.y)
 			_pickup_pool[i].rotation.y = bob_time * 2.0 + float(i)
 
+## The Army's field unit: a small camera-facing card at its position (home when idle), same pixel-grid pose as the other cards.
+func _sync_units() -> void:
+	var seen: Dictionary = {}
+	for plant: Dictionary in session.helpers.plants:
+		if String(plant["kind"]) != "army":
+			continue
+		var uid: int = int(plant["uid"])
+		seen[uid] = true
+		if not _units.has(uid):
+			_units[uid] = {"display": _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, 1), "shadow": _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY, SUN_CARD)}
+		_pose(_units[uid], "army_unit", session.helpers.unit_pos(plant), Color.WHITE)
+	for uid: Variant in _units.keys():
+		if not seen.has(uid):
+			(_units[uid]["display"] as Node).queue_free()
+			(_units[uid]["shadow"] as Node).queue_free()
+			_units.erase(uid)
+
+## Seeds in the air (Gatlinger): small yellow dots on a short arc from the plant to the target cell.
+func _sync_flights() -> void:
+	var list: Array[Dictionary] = session.helpers.flights
+	while _flight_pool.size() < list.size():
+		var node: MeshInstance3D = MeshInstance3D.new()
+		node.mesh = _pickup_mesh
+		node.material_override = _flat(Color("ffe066"))
+		node.scale = Vector3(0.22, 0.22, 0.22)
+		node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(node)
+		_flight_pool.append(node)
+	for i: int in _flight_pool.size():
+		_flight_pool[i].visible = i < list.size()
+		if i < list.size():
+			var f: Dictionary = list[i]
+			var t: float = clampf(float(f["age"]) / float(f["dur"]), 0.0, 1.0)
+			var tile: float = float(session.helpers.tile_px)
+			var logic: Vector2 = Vector2(float(f["ox"]), float(f["oy"])).lerp(Vector2((float(f["cx"]) + 0.5) * tile, (float(f["cy"]) + 0.5) * tile), t)
+			var ground: Vector2 = Coords.logic_to_ground(logic)
+			_flight_pool[i].position = Vector3(ground.x, lerpf(1.4, 0.4, t) + 1.2 * 4.0 * t * (1.0 - t), ground.y)
+
 ## Observability for tests / screenshots.
 func snapshot() -> Dictionary:
 	var pairs_ok: bool = true
@@ -274,6 +341,8 @@ func snapshot() -> Dictionary:
 	return {
 		"plants": _cards.size(),
 		"areas": _areas.size(),
+		"units": _units.size(),
+		"flights_visible": _flight_pool.filter(func(n: MeshInstance3D) -> bool: return n.visible).size(),
 		"pickups_visible": _pickup_pool.filter(func(n: MeshInstance3D) -> bool: return n.visible).size(),
 		"ghost_visible": ghost.visible,
 		"shadow_pairs_match": pairs_ok,
