@@ -27,6 +27,7 @@ func setup(parent_view: SubViewport, camera: Camera3D, session: RefCounted, tuni
 	strength = float(water.get("reflection_strength", 0.78))
 	reflection_view = SubViewport.new()
 	reflection_view.size = parent_view.size / divisor
+	reflection_view.transparent_bg = true # no object drawn = alpha 0 -> the shader paints the sky colour there
 	reflection_view.world_3d = parent_view.find_world_3d()
 	reflection_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	reflection_view.msaa_3d = Viewport.MSAA_DISABLED
@@ -43,6 +44,11 @@ func setup(parent_view: SubViewport, camera: Camera3D, session: RefCounted, tuni
 	material_ = ShaderMaterial.new()
 	material_.shader = Surface
 	material_.set_shader_parameter("reflection_texture", reflection_view.get_texture())
+	material_.set_shader_parameter("reflection_gain", float(water.get("reflection_gain", 1.0)))
+	material_.set_shader_parameter("sky_day", Color(String(water.get("sky_day", "99b8cc"))))
+	material_.set_shader_parameter("sky_night", Color(String(water.get("sky_night", "0d1424"))))
+	material_.set_shader_parameter("floor_day", float(water.get("floor_day", 0.42)))
+	material_.set_shader_parameter("floor_night", float(water.get("floor_night", 0.78)))
 	_build_surface(session.state)
 	if placement_view != null:
 		for id: Variant in placement_view.holders.keys():

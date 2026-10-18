@@ -9,5 +9,11 @@
  "paving": {"note": "Opt-in fixture pavement (poc_main applies it before loading; direct Session users such as the POC-02/04 logic tests see none). Cell rects [x, y, w, h]; only wasteland cells are repaved.", "rects": [[13, 9, 24, 3]]},
  "ground": {"soil_density": 1.0, "pave_density": 1.0},
  "wall": {"radius_m": 0.65, "anchor_offset_m": 0.35, "vine_seconds": 90.0, "moss_seconds": 135.0, "moss_span_scale": 0.7, "leaf_scale": 0.85, "stem_scale": 1.8, "stand_off_m": 0.05, "moss_stand_off_m": 0.03},
- "water": {"reflection_strength": 0.78, "height_m": 0.006, "reflection_divisor": 2}
+ "water": {"reflection_strength": 0.92, "reflection_gain": 1.6, "sky_day": "9fc0d8", "sky_night": "1c2a44", "floor_day": 0.62, "floor_night": 0.78, "height_m": 0.006, "reflection_divisor": 2},
+ "readability": {
+  "note": "POL-01 display-only readability aids. marker = filled disc under the feet (depth-tested, not an outline); player_light = weak night light that follows the player; lamps = night OmniLight3D at every placed asset 'asset' (head_local in the lamp's holder frame). Light energies are multiplied by the night factor of the game clock.",
+  "marker": {"enabled": true, "radius_m": 0.42, "color": "cfefff", "alpha_day": 0.3, "alpha_night": 0.62, "height_m": 0.07},
+  "player_light": {"enabled": true, "energy": 0.9, "range_m": 3.6, "attenuation": 1.2, "color": "ffe0b0", "height_m": 1.5, "toward_camera_m": 0.9},
+  "lamps": {"enabled": true, "asset": "PRP-001", "head_local": [0.4, 3.0, 0.0], "energy": 2.2, "range_m": 6.0, "attenuation": 1.3, "color": "ffc880", "shadow": false, "bulb_radius_m": 0.1, "bulb_color": "fff0c0"}
+ }
 }

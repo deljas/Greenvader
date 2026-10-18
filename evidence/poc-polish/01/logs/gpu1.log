@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti window=(1280, 720)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+INFO after1_night_lamp_640 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_night_dark_640 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_day_lamp_640 hour=12.06 readability={ "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+INFO after1_night_lamp_960 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_night_dark_960 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_day_lamp_960 hour=12.06 readability={ "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+PASS occlusion_spot (0.864465, -1.535535)
+INFO after1_occluded_day_640 hour=12.06 readability={ "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+PASS occluded_fading_0 ["bld_gallery_01"]
+INFO after1_occluded_night_640 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_occluded_day_960 hour=12.06 readability={ "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+PASS occluded_fading_1 ["bld_gallery_01"]
+INFO after1_occluded_night_960 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_water_day_640 hour=12.06 readability={ "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+INFO after1_water_night_640 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_water_dusk_640 hour=17.56 readability={ "night": 0.44408983421699, "marker_alpha": 0.44210874694944, "player_light": 0.39968085079529, "lamp_energy": 0.97699763527738, "lamps": 10, "lamps_on": 10 }
+INFO after1_water_day_960 hour=12.06 readability={ "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+INFO after1_water_night_960 hour=0.06 readability={ "night": 1.0, "marker_alpha": 0.62, "player_light": 0.9, "lamp_energy": 2.2, "lamps": 10, "lamps_on": 10 }
+INFO after1_water_dusk_960 hour=17.56 readability={ "night": 0.44408983421699, "marker_alpha": 0.44210874694944, "player_light": 0.39968085079529, "lamp_energy": 0.97699763527738, "lamps": 10, "lamps_on": 10 }
+INFO overview saved
+RESULT passes=3 failures=0
+WARNING: 75 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 38 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

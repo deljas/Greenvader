@@ -24,8 +24,8 @@ const CAMERA_TARGET_HEIGHT_M: float = 1.2
 const CAMERA_DISTANCE_M: float = 49.0
 const CAMERA_FAR_M: float = 150.0
 
-## Player movement (m/s, unaffected by time multiplier) and feet half size.
-const WALK_SPEED_MPS: float = 2.4
+## Player movement (m/s, POL-01: 2.4 -> 4.8; unaffected by time multiplier) and feet half size.
+const WALK_SPEED_MPS: float = 4.8
 const PLAYER_HALF_M: float = 0.28
 ## Reserved ranges for later PoC steps (seed throw range, pickup distance).
 const THROW_RANGE_M: float = 3.0

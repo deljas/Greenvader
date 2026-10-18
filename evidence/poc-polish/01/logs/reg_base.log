@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS coords.roundtrip worst=0.00001705984505 px
+PASS coords.scale 4px = 0.4m
+PASS coords.cell 
+PASS coords.origin world centre
+PASS coords.screen_dirs up=(-0.707107, -0.707107) right=(0.707107, -0.707107) down=(0.707107, 0.707107)
+PASS coords.diagonal_unit len=1.000000
+PASS coords.ground_to_screen 
+PASS session.diagonal_speed axis=9.599998 diag=9.600037 expected=9.600000
+PASS session.up_moves_north screen up goes toward ground(-1,-1)
+PASS session.wall_stop x=58.799999 expected=58.800000
+PASS session.border_blocks pos=(6.8, 6.8)
+PASS session.pause elapsed=0.000000
+PASS session.resume elapsed=1.000000
+PASS session.fast_forward_split elapsed=60.000000/60.000000 growth=120/120 spread=60/60
+PASS session.real_delta_cap_and_multiplier elapsed=4.000000
+PASS session.snapshot 
+PASS input.actions 
+PASS main.default_resolution 
+PASS input.wasd_diagonal vector=(0.707107, -0.707107)
+PASS input.release 
+PASS pick.center_640 hit=(-1.126461, -1.199135) expected=(-1.139694, -1.199694)
+PASS pick.unproject_roundtrip back=(320.0, 180.0)
+PASS res.unfit_denied 窓が小さく 960×540 は選べません（現在 800×450）
+PASS res.buttons_disabled_when_small 
+PASS res.switch_960 
+PASS res.keeps_state camera.size=18.500000
+PASS pick.center_960_same_world_point 640=(-1.126461, -1.199135) 960=(-1.138573, -1.187023)
+PASS res.aim_marker_unmoved 
+PASS res.scale_factors 
+PASS pick.reject_margin margin
+PASS pick.reject_ui at (622.0, 13.0)
+PASS pick.place_rejected_keeps_aim 
+PASS pick.place_ok 
+PASS input.click_places_aim aim=(19.328, 89.8111) expected=(19.328, 89.8111)
+PASS input.esc_pauses_single_clock 
+PASS main.paused_no_progress 
+PASS main.resumes 
+PASS actor.synced { "frame": 1, "texels": [16, 24], "pixel_size": 0.05138888888889, "matching_texture": true, "matching_feet": true, "matching_flip": true, "shaded": true, "foot_screen": (320.0, 200.0), "height_m": 1.23333333333333 }
+PASS actor.height_same_both_res 640=1.233333 960=1.233333 pixel=0.034259
+PASS actor.feet_on_pixel_grid foot_screen=(480.0, 299.0)
+RESULT passes=40 failures=0
+WARNING: 48 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 30 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

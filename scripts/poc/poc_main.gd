@@ -11,6 +11,7 @@ const PlayView: GDScript = preload("res://scripts/poc/play/poc_play_view.gd")
 const EnemyViewScript: GDScript = preload("res://scripts/poc/combat/poc_enemy_view.gd")
 const EnvViewScript: GDScript = preload("res://scripts/poc/environment/environment_view.gd")
 const WaterViewScript: GDScript = preload("res://scripts/poc/environment/water_view.gd")
+const ReadabilityScript: GDScript = preload("res://scripts/poc/environment/readability_view.gd")
 const WallViewScript: GDScript = preload("res://scripts/poc/environment/wall_view.gd")
 const OcclusionViewScript: GDScript = preload("res://scripts/poc/occlusion/occlusion_view.gd")
 const PocSave: GDScript = preload("res://scripts/poc/save/poc_save.gd")
@@ -38,6 +39,8 @@ var enemy_view: Node3D
 var env_view: Node
 var water_view: Node3D
 var wall_view: Node3D
+## POL-01 foot marker / night lights (display only).
+var readability: Node3D
 var world_environment: Environment
 ## POC-06: fades the placed objects that hide the player (display only); null without a placement.
 var occlusion_view: Node
@@ -225,6 +228,11 @@ func _build_world() -> void:
 	env_view = EnvViewScript.new()
 	env_view.name = "EnvView"
 	add_child(env_view)
+	readability = ReadabilityScript.new()
+	readability.name = "Readability"
+	world.add_child(readability)
+	readability.setup(session.env_tuning, session.placement, placement_view.holders if placement_view != null else {})
+	env_view.readability = readability
 	env_view.setup(session, world_environment, sun, water_view)
 	if placement_view != null:
 		occlusion_view = OcclusionViewScript.new()
@@ -249,6 +257,7 @@ func _teardown_world() -> void:
 		render_view.remove_child(world)
 		world.free()
 		world = null
+	readability = null
 	placement_view = null
 	wall_view = null
 	water_view = null
@@ -514,6 +523,8 @@ func _update_occlusion(delta: float) -> void:
 		return
 	var upright: float = 1.0 / maxf(camera.global_basis.y.dot(Vector3.UP), 0.1)
 	occlusion_view.update(delta, player_ground3() + Vector3.UP * 0.04, float(actor.snapshot()["height_m"]) * upright)
+	if readability != null:
+		readability.set_see_through(not occlusion_view.fading.is_empty())
 
 func player_ground3() -> Vector3:
 	return Coords.ground3(Coords.logic_to_ground(session.position), 0.0)
@@ -529,6 +540,8 @@ func _update_camera() -> void:
 
 func _update_actor() -> void:
 	actor.pose(player_ground3() + Vector3.UP * 0.04, (int(animation_time * 6.0) % 4) if walking else 1, facing_left, sun)
+	if readability != null:
+		readability.follow(actor.render_foot, Vector3(camera.global_basis.z.x, 0.0, camera.global_basis.z.z).normalized())
 	if session.has_aim:
 		marker.position = Coords.ground3(Coords.logic_to_ground(session.aim), 0.03)
 		marker.visible = true

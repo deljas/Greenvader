@@ -9,6 +9,8 @@ var session: RefCounted
 var environment: Environment
 var key_light: DirectionalLight3D
 var water: Node
+## POL-01 optional readability aids (marker, night lights); fed with the day state on every sync.
+var readability: Node
 var tuning: Dictionary = {}
 ## Last applied values (observability / tests).
 var last_state: Dictionary = {}
@@ -43,6 +45,8 @@ func sync() -> void:
 	environment.background_color = Color(String(ambient.get("night_background", "172334"))).lerp(Color(String(ambient.get("day_background", "29332f"))), daylight)
 	if water != null:
 		water.set_daylight(daylight)
+	if readability != null:
+		readability.apply(day)
 
 func hour_text() -> String:
 	return "%s（%s）" % [Day.clock_text(float(last_state.get("hour", 0.0))), Day.phase_label(last_state)]

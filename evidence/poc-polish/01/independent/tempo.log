@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS tempo_load 
+INFO tempo: bound_at_start=389.0 bound_at_stable=389.0 stable_at=32.0 reached_after=343.0 targets(oracle)=9463 state=9463/9463 recount_green=9463 missing=0 pct=100
+PASS tempo_stable_reached 
+PASS tempo_exact_100_within_bound after stable 343.0 s <= bound 389.0 s
+PASS tempo_no_early_100 
+PASS shipped_load 
+INFO shipped: bound_at_start=869.0 bound_at_stable=869.0 stable_at=32.0 reached_after=797.0 targets(oracle)=9463 state=9463/9463 recount_green=9463 missing=0 pct=100
+PASS shipped_stable_reached 
+PASS shipped_exact_100_within_bound after stable 797.0 s <= bound 869.0 s
+PASS shipped_no_early_100 
+INFO summary: tempo bound 389.0 real 343.0 ; shipped bound 869.0 real 797.0
+RESULT pass=8 fail=0
+ERROR: 38 resources still in use at exit (run with --verbose for details).

@@ -104,7 +104,7 @@ func walk_to(s: RefCounted, reach: Dictionary, goal: Vector2i) -> Array:
 		var guard: int = 0
 		while s.position.distance_to(target) > 1.2 and guard < 60:
 			var ground: Vector2 = (target - s.position).normalized()
-			s.walk(Coords.ground_dir_to_screen(ground), 0.1)
+			s.walk(Coords.ground_dir_to_screen(ground), minf(0.1, s.position.distance_to(target) / Config.walk_speed_px()))
 			guard += 1
 			steps += 1
 	return [s.position.distance_to(cpx(goal)) <= 1.5, steps]

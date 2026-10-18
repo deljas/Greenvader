@@ -8,6 +8,8 @@ const Projectiles: GDScript = preload("res://scripts/poc/play/poc_projectiles.gd
 const Day: GDScript = preload("res://scripts/poc/environment/poc_day.gd")
 const WallGrowthScript: GDScript = preload("res://scripts/poc/environment/wall_growth.gd")
 const PLAY_SETUP: String = "res://data/poc/play_setup.json"
+## POL-01 PoC-side override of SimTuning (tempo): {"sim_tuning": {property: value}}. Missing file = shipped defaults.
+static var tempo_path: String = "res://data/poc/tempo.json"
 
 const WIDTH: int = 48
 const HEIGHT: int = 40
@@ -122,6 +124,7 @@ func _init(grid_width: int = WIDTH, grid_height: int = HEIGHT) -> void:
 			for x: int in range(rect.position.x, rect.end.x):
 				state.terrain[state.index_of(x, y)] = T_BUILDING
 	state.apply_terrain_defs()
+	apply_tempo(sim_tuning)
 	clock.configure(sim_tuning)
 	growth = GrowthSim.new(state, sim_tuning)
 	spread = SpreadSim.new(state, sim_tuning)
@@ -340,6 +343,22 @@ func _build_wall_growth() -> void:
 	wall_growth.setup(state, placement, env_tuning.get("wall", {}), sim_tuning)
 	clock.growth_ticked.connect(wall_growth.on_growth_tick)
 
+
+## POL-01: applies data/poc/tempo.json over the shipped SimTuning (PoC only; scripts/world and data/ stay untouched). Unknown
+## properties are ignored. Returns the number of properties set.
+static func apply_tempo(tuning: SimTuning, path: String = tempo_path) -> int:
+	if not FileAccess.file_exists(path):
+		return 0
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not (parsed is Dictionary):
+		return 0
+	var count: int = 0
+	var values: Dictionary = (parsed as Dictionary).get("sim_tuning", {})
+	for key: Variant in values:
+		if String(key) in tuning:
+			tuning.set(String(key), values[key])
+			count += 1
+	return count
 
 # ---------------------------------------------------------------- POC-04 combat layer
 

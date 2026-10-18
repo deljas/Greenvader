@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS ref_load 
+PASS same_start 
+A=["f585885cf651c6da","c6387910c8635cf3","6182ba8a831d4fd5","e927bd27935ebbe2","c4149ee7500fa4df",484,9463,[3,0],0,0,0,0,20,100.0,0.0]
+B=["f585885cf651c6da","c6387910c8635cf3","6182ba8a831d4fd5","e927bd27935ebbe2","c4149ee7500fa4df",484,9463,[3,0],0,0,0,0,20,100.0,0.0]
+PASS ten_lamps { "night": 0.0, "marker_alpha": 0.3, "player_light": 0.0, "lamp_energy": 0.0, "lamps": 10, "lamps_on": 0 }
+PASS lamp_lights_on_placed_lamps 10/10 lights within 0.7 m of PRP-001 positions
+PASS disc_filled_cylinder CylinderMesh r=0.42
+PASS display_does_not_change_world views on vs display-free session after 170 ticks, elapsed 680.0
+PASS lamps_off_by_day_on_by_night hours seen 24
+PASS paused_clock_keeps_lamp_state 
+PASS noon_lamps_off h12.0 lamps_on=0 night=0.00
+PASS night_lamps_on h1.0 lamps_on=10 night=1.00
+PASS world_equal_after_jumps 
+RESULT pass=11 fail=0

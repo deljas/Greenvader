@@ -1,0 +1,5 @@
+{
+ "version": 1,
+ "note": "POL-01 PoC-side tempo override of SimTuning (scripts/world and data/sim_tuning are untouched). Only the far-seeding sweep is changed: more seeds per step and an earlier start; completion_bound_seconds() is recomputed from these values, so the exact-100% guarantee is kept. Delete the file (or empty sim_tuning) to return to the shipped pace (about 793 s after stable).",
+ "sim_tuning": {"far_sweep_seeds_per_step": 160, "far_sweep_start_delay_seconds": 60.0}
+}

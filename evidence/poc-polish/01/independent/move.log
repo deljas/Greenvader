@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS started menu=
+PASS config_speed 
+PASS set_res_0 
+PASS speed_res0_x1_W speed 4.800 m/s over 0.457 s, game_rate 1.04, mult 1
+PASS speed_res0_x1_S speed 4.800 m/s over 0.458 s, game_rate 1.05, mult 1
+PASS speed_res0_x1_A speed 4.800 m/s over 0.458 s, game_rate 1.05, mult 1
+PASS speed_res0_x1_D speed 4.800 m/s over 0.462 s, game_rate 1.04, mult 1
+PASS speed_res0_x1_W+D speed 4.800 m/s over 0.463 s, game_rate 1.05, mult 1
+PASS speed_res0_x1_W+A speed 4.800 m/s over 0.460 s, game_rate 1.05, mult 1
+PASS speed_res0_x1_S+D speed 4.800 m/s over 0.464 s, game_rate 1.05, mult 1
+PASS speed_res0_x1_S+A speed 4.800 m/s over 0.460 s, game_rate 1.06, mult 1
+PASS speed_res0_x1_UP+RIGHT speed 4.800 m/s over 0.458 s, game_rate 1.05, mult 1
+PASS speed_res0_x4_W speed 4.800 m/s over 0.460 s, game_rate 4.18, mult 4
+PASS speed_res0_x4_W+D speed 4.800 m/s over 0.459 s, game_rate 4.18, mult 4
+PASS speed_res0_x16_W speed 4.800 m/s over 0.460 s, game_rate 16.78, mult 16
+PASS speed_res0_x16_W+D speed 4.800 m/s over 0.461 s, game_rate 16.81, mult 16
+PASS mult_back_x1_res0 1.0
+PASS set_res_1 
+PASS speed_res1_x1_W speed 4.800 m/s over 0.462 s, game_rate 1.05, mult 1
+PASS speed_res1_x1_S speed 4.800 m/s over 0.468 s, game_rate 1.05, mult 1
+PASS speed_res1_x1_A speed 4.800 m/s over 0.458 s, game_rate 1.05, mult 1
+PASS speed_res1_x1_D speed 4.800 m/s over 0.460 s, game_rate 1.05, mult 1
+PASS speed_res1_x1_W+D speed 4.800 m/s over 0.465 s, game_rate 1.05, mult 1
+PASS speed_res1_x1_W+A speed 4.800 m/s over 0.464 s, game_rate 1.04, mult 1
+PASS speed_res1_x1_S+D speed 4.800 m/s over 0.461 s, game_rate 1.05, mult 1
+PASS speed_res1_x1_S+A speed 4.800 m/s over 0.466 s, game_rate 1.05, mult 1
+PASS speed_res1_x1_UP+RIGHT speed 4.800 m/s over 0.462 s, game_rate 1.05, mult 1
+PASS speed_res1_x4_W speed 4.800 m/s over 0.458 s, game_rate 4.21, mult 4
+PASS speed_res1_x4_W+D speed 4.800 m/s over 0.464 s, game_rate 4.20, mult 4
+PASS speed_res1_x16_W speed 4.800 m/s over 0.458 s, game_rate 16.82, mult 16
+PASS speed_res1_x16_W+D speed 4.800 m/s over 0.460 s, game_rate 16.67, mult 16
+PASS mult_back_x1_res1 1.0
+INFO thin wall candidates: 38
+PASS thin_wall_no_tunnel configs 456 tunnels 0 overlaps 0 max step per capped frame 12.001 px (cap 12.0)
+PASS frame_cap_step 12.001
+RESULT pass=34 fail=0
+WARNING: 75 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 38 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
