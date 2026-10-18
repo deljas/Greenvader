@@ -1,0 +1,12 @@
+{
+ "version": 1,
+ "note": "WTH-02 sound tuning (display only; no sound touches the simulation). All sounds are synthesised in code (scripts/poc/audio/poc_audio.gd): no external material. master and categories are linear 0..1 gains. Ambient sound is softened (calm_factor) while the game is paused / a menu is open / the viewpoint is shown, and action sounds are not played then. 'muted' is only the first-run default: the M key toggles and the choice is kept in user://poc_ui_settings.json. Reversible initial values.",
+ "muted": false,
+ "master": 0.8,
+ "categories": {"action": 0.8, "wind": 0.3, "rain": 0.45, "birds": 0.5},
+ "calm_factor": 0.25,
+ "overcast_wind_boost": 0.4,
+ "rain_min_level": 0.05,
+ "birds": {"start_percent": 5, "full_percent": 100, "interval_s_at_start": 18.0, "interval_s_at_full": 3.5, "seed": 20261018},
+ "action_gain": {"seed": 0.7, "water": 0.8, "place": 0.9, "pickup": 0.8, "hit": 0.9, "nest": 1.0, "zone": 0.9, "clear": 1.0}
+}

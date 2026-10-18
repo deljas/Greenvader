@@ -18,6 +18,10 @@ const WeatherViewScript: GDScript = preload("res://scripts/poc/environment/weath
 const OcclusionViewScript: GDScript = preload("res://scripts/poc/occlusion/occlusion_view.gd")
 const PocSave: GDScript = preload("res://scripts/poc/save/poc_save.gd")
 const PocUi: GDScript = preload("res://scripts/poc/ui/poc_ui.gd")
+const ViewpointScript: GDScript = preload("res://scripts/poc/view/poc_viewpoint.gd")
+const ViewMarkerScript: GDScript = preload("res://scripts/poc/view/viewpoint_view.gd")
+const ViewPanelScript: GDScript = preload("res://scripts/poc/view/viewpoint_panel.gd")
+const AudioScript: GDScript = preload("res://scripts/poc/audio/poc_audio.gd")
 
 const WALL_BORDER_M: float = 1.0
 const WALL_BLOCK_M: float = 1.6
@@ -51,6 +55,13 @@ var readability: Node3D
 var world_environment: Environment
 ## POC-06: fades the placed objects that hide the player (display only); null without a placement.
 var occlusion_view: Node
+## WTH-02: viewpoint logic (RefCounted; `active` = the panorama is shown and the world is stopped), its ground marker, the panel
+## and the sound (display / effect only).
+var viewpoint: RefCounted
+var viewpoint_view: Node3D
+var view_panel: PanelContainer
+var audio: Node
+var _near_spot_prev: bool = false
 var _seen_message: int = 0
 var resolution_index: int = Config.DEFAULT_RESOLUTION
 ## Per-frame driving from Input/_process; tests turn this off and call tick() themselves.
@@ -114,6 +125,10 @@ func _ready() -> void:
 	_build_view()
 	_build_world()
 	_build_ui()
+	audio = AudioScript.new()
+	add_child(audio)
+	audio.calm_provider = Callable(self, "is_calm")
+	audio.attach(session)
 	_apply_resolution_layout()
 	_refresh()
 	if show_title_at_start:
@@ -264,6 +279,14 @@ func _build_world() -> void:
 		occlusion_view.name = "OcclusionView"
 		add_child(occlusion_view)
 		occlusion_view.setup(placement_view, wall_view, camera, water_view)
+	viewpoint = ViewpointScript.new(session)
+	viewpoint_view = null
+	if viewpoint.has_spot:
+		viewpoint_view = ViewMarkerScript.new()
+		viewpoint_view.name = "ViewpointMarker"
+		world.add_child(viewpoint_view)
+		viewpoint_view.build(viewpoint.cell, viewpoint.tuning)
+	_near_spot_prev = false
 	_update_camera()
 	_update_actor()
 	_update_occlusion(0.0)
@@ -283,6 +306,7 @@ func _teardown_world() -> void:
 		world.free()
 		world = null
 	readability = null
+	viewpoint_view = null
 	weather_view = null
 	placement_view = null
 	wall_view = null
@@ -302,6 +326,10 @@ func replace_session(new_session: RefCounted) -> void:
 	if old != null and old != new_session:
 		old.close()
 	_build_world()
+	if view_panel != null:
+		view_panel.hide_panel()
+	if audio != null:
+		audio.attach(session)
 	_seen_message = session.message_serial
 	walking = false
 	animation_time = 0.0
@@ -431,6 +459,9 @@ func _build_ui() -> void:
 	button_box.add_child(pause_button)
 	ui_controls.append(pause_button)
 	ui_controls.append(button_box)
+	view_panel = ViewPanelScript.new()
+	view_panel.name = "ViewpointPanel"
+	add_child(view_panel)
 	ui = PocUi.new()
 	ui.name = "PocUi"
 	add_child(ui)
@@ -451,6 +482,8 @@ func _apply_resolution_layout() -> void:
 	button_box.position = Vector2(res.x - button_box.get_combined_minimum_size().x - 4, 2)
 	view_rect.size = Vector2(res)
 	rain_rect.size = Vector2(res)
+	if view_panel != null:
+		view_panel.layout(res)
 	if weather_view != null:
 		weather_view.set_resolution(res)
 	if ui != null:
@@ -529,6 +562,8 @@ func tick(delta: float, screen_dir: Vector2) -> void:
 			facing_left = screen_dir.x < 0.0
 	session.advance(delta)
 	ui.tick(delta)
+	audio.update(delta)
+	_check_spot_hint()
 	env_view.sync()
 	play_view.sync()
 	if wall_view != null:
@@ -563,8 +598,10 @@ func player_ground3() -> Vector3:
 
 ## Camera follows the player; the target is rounded to the screen pixel grid so sprites do not shimmer.
 func _update_camera() -> void:
+	var viewing: bool = is_viewing()
+	camera.size = viewpoint.camera_size() if viewing else Config.CAMERA_SIZE_M
 	var pixel: float = camera.size / float(render_view.size.y)
-	var focus: Vector3 = player_ground3() + Vector3.UP * Config.CAMERA_TARGET_HEIGHT_M
+	var focus: Vector3 = viewpoint.focus_point() if viewing else player_ground3() + Vector3.UP * Config.CAMERA_TARGET_HEIGHT_M
 	focus += _right * (snappedf(focus.dot(_right), pixel) - focus.dot(_right))
 	focus += _up * (snappedf(focus.dot(_up), pixel) - focus.dot(_up))
 	camera.position = focus + _offset
@@ -592,7 +629,7 @@ func _refresh() -> void:
 	var cell: Vector2i = Coords.logic_to_cell(session.position)
 	var lines: PackedStringArray = []
 	lines.append("解像度 %d×%d（窓 %d×%d, %d倍）　視野 %.1fm" % [res.x, res.y, window_size().x, window_size().y, scale_, camera.size])
-	lines.append("論理 (%.1f, %.1f) セル (%d,%d)　ゲーム時刻 %s　時刻 %s　天気 %s%s ×%d%s" % [session.position.x, session.position.y, cell.x, cell.y, game_time_text(), env_view.hour_text(), session.weather_text(), "【デバッグ固定 1/2/3, 0=解除】" if session.weather.override_type >= 0 else "", int(session.multiplier), "　【一時停止】" if session.paused else ""])
+	lines.append("論理 (%.1f, %.1f) セル (%d,%d)　ゲーム時刻 %s　時刻 %s　天気 %s%s ×%d%s" % [session.position.x, session.position.y, cell.x, cell.y, game_time_text(), env_view.hour_text(), session.weather_text(), "【デバッグ固定 1/2/3, 0=解除】" if session.weather.override_type >= 0 else "", int(session.multiplier), "　【展望中】" if is_viewing() else ("　【一時停止】" if session.paused else "")])
 	var play: PlayState = session.play
 	var status: String = "種 %d　水 %d/%d　HP %d/%d　選択 %s　緑化 %d%%（%d/%d）" % [play.seeds, roundi(play.water), roundi(play.tuning.water_max), play.hp, play.hp_max, session.selected_label(), session.greening_percent(), session.state.greened_count, session.state.target_count]
 	if session.debug_refill_enabled:
@@ -601,14 +638,19 @@ func _refresh() -> void:
 	if session.enemies != null:
 		lines.append(session.combat_status_text())
 	lines.append(session.helper_status_text())
-	lines.append("WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ　Q=設置モード　Esc=メニュー　F2=解像度　F3=倍速　F5=保存")
+	lines.append("WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ/展望　Q=設置モード　Esc=メニュー　F2=解像度　F3=倍速　F5=保存　M=音")
 	hud.text = "\n".join(lines)
+	hud.visible = not is_viewing() # the panorama shows its own panel instead of the debug-style status lines
 	ui.set_badge(session.greening_percent(), session.state.greened_count, session.state.target_count, zone_summary())
 	pause_button.text = "再開" if session.paused else "停止"
+	if is_viewing() and view_panel.label.text != viewpoint.panel_text(session):
+		view_panel.show_text(viewpoint.panel_text(session), res)
 
 # ---------------------------------------------------------------- input / picking
 
 func toggle_pause() -> void:
+	if is_viewing():
+		return
 	if menu == &"pause":
 		close_menu()
 		return
@@ -621,6 +663,17 @@ func cycle_speed() -> void:
 	_refresh()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"poc_mute", false, true):
+		audio.toggle_mute()
+		show_notice("音：" + ("消す" if audio.muted else "出す"))
+		return
+	if is_viewing():
+		# The panorama: only Esc / E (back), F2 (resolution) and M (sound) do anything; clicks and the other keys are not game input.
+		if event.is_action_pressed(&"poc_pause", false, true) or event.is_action_pressed(&"poc_interact", false, true):
+			leave_viewpoint()
+		elif event.is_action_pressed(&"poc_toggle_resolution", false, true):
+			toggle_resolution()
+		return
 	if menu != &"":
 		if event.is_action_pressed(&"poc_pause", false, true):
 			_on_escape_in_menu()
@@ -689,6 +742,8 @@ func _over_ui(content_pos: Vector2) -> bool:
 ## Content (root viewport) pixel -> ground. Rejects the letterbox margin, UI controls and points off the map.
 ## Returns {ok, reason, ground (X,Z m), logic (px)}.
 func pick_ground(content_pos: Vector2) -> Dictionary:
+	if is_viewing():
+		return {"ok": false, "reason": "view"}
 	if not Rect2(Vector2.ZERO, Vector2(render_view.size)).has_point(content_pos):
 		return {"ok": false, "reason": "margin"}
 	if _over_ui(content_pos):
@@ -715,6 +770,8 @@ func place_aim_at(content_pos: Vector2) -> bool:
 
 ## E: lifts a helper plant next to the player; otherwise describes the aimed cell (the old inspect).
 func interact() -> void:
+	if enter_viewpoint():
+		return
 	if session.helpers.is_carrying():
 		show_notice("持ち上げ中（Qで設置モード→左クリックで置き直し）")
 		return
@@ -731,6 +788,8 @@ func click_place(content_pos: Vector2) -> Dictionary:
 		return {"ok": false, "code": String(result["reason"]), "reason": "", "uid": 0}
 	session.set_aim(result["logic"])
 	var placed: Dictionary = session.place_helper(result["logic"])
+	if bool(placed["ok"]):
+		audio.play_action(&"place")
 	_update_actor()
 	_refresh()
 	return placed
@@ -743,9 +802,59 @@ func click_fire(content_pos: Vector2, water_shot: bool) -> Dictionary:
 		return {"ok": false, "reason": String(result["reason"])}
 	session.set_aim(result["logic"])
 	var fired: Dictionary = session.fire(water_shot, result["logic"])
+	if bool(fired["ok"]):
+		audio.play_action(&"water" if water_shot else &"seed")
 	fired["logic"] = result["logic"]
 	_update_actor()
 	return fired
+
+# ---------------------------------------------------------------- WTH-02 viewpoint
+
+func is_viewing() -> bool:
+	return viewpoint != null and viewpoint.active
+
+## True while the world is stopped on purpose (pause / menu / panorama): ambient sound is softened and action sounds are not played.
+func is_calm() -> bool:
+	return session.paused or menu != &"" or is_viewing()
+
+## E at the spot: the panorama (the world stops like a pause). Returns false away from the spot.
+func enter_viewpoint() -> bool:
+	if menu != &"" or not viewpoint.enter(session):
+		return false
+	_update_camera()
+	_update_actor()
+	if occlusion_view != null:
+		occlusion_view.reset()
+	_scale_cloud_shadow()
+	view_panel.show_text(viewpoint.panel_text(session), current_resolution())
+	_refresh()
+	return true
+
+func leave_viewpoint() -> bool:
+	if not viewpoint.leave(session):
+		return false
+	view_panel.hide_panel()
+	_scale_cloud_shadow()
+	_update_camera()
+	_update_actor()
+	if occlusion_view != null:
+		occlusion_view.reset()
+	_update_occlusion(0.0)
+	_refresh()
+	return true
+
+## The cloud-shadow quad (56 m) is widened for the wide view so its edge stays off screen (display only).
+func _scale_cloud_shadow() -> void:
+	if weather_view != null and weather_view.cloud_mesh != null:
+		var factor: float = viewpoint.camera_size() / Config.CAMERA_SIZE_M if is_viewing() else 1.0
+		weather_view.cloud_mesh.scale = Vector3(factor, 1.0, factor)
+
+## One notice when the player walks up to the spot.
+func _check_spot_hint() -> void:
+	var near: bool = viewpoint.has_spot and not is_viewing() and viewpoint.is_near(session.position)
+	if near and not _near_spot_prev:
+		show_notice("E：%sから街を見渡す" % viewpoint.spot_name)
+	_near_spot_prev = near
 
 # ---------------------------------------------------------------- POC-08 menus, save and load
 
@@ -759,6 +868,7 @@ func zone_summary() -> String:
 	return "　".join(parts) + ("　【全地域緑化】" if session.state.cleared else "")
 
 func _open_menu(name_: StringName) -> void:
+	leave_viewpoint()
 	if menu == &"":
 		_menu_prev_paused = session.paused
 	session.paused = true
@@ -836,6 +946,9 @@ func new_game() -> void:
 
 ## Manual save to the one slot (the previous slot becomes the backup). Shows the result; returns PocSave.save()'s result.
 func save_game() -> Dictionary:
+	if is_viewing():
+		ui.show_toast("展望中は保存できません（Esc か E で戻る）")
+		return PocSave.result_fail("viewpoint", "展望中は保存できません")
 	var result: Dictionary = PocSave.save(session, save_dir, {"resolution_index": resolution_index})
 	if bool(result["ok"]):
 		ui.show_toast("保存しました（ゲーム時間 %s）" % game_time_text())
@@ -871,6 +984,7 @@ func load_game(use_backup: bool) -> Dictionary:
 
 func snapshot() -> Dictionary:
 	return {
+		"viewing": is_viewing(),
 		"resolution": [current_resolution().x, current_resolution().y],
 		"camera_size": camera.size,
 		"session": session.snapshot(),

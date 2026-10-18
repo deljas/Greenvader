@@ -1,0 +1,79 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS data.work_values gat={ "stock_max": 12.0, "stock_start": 0.0, "receive_interval": 0.6, "min_mature_cells": 8.0, "fire_interval": 0.7, "retry_interval": 0.5, "flight_speed_px": 60.0, "pioneer_window": 2.0, "tries": 24.0 } spr={ "stock_max": 60.0, "stock_start": 30.0, "pulse_interval": 3.0, "pulse_cost": 10.0, "moisture_add": 40.0, "refill_per_second": 20.0, "refill_range_px": 24.0, "fx_seconds": 0.8 } army={ "damage": 2.0, "attack_interval": 0.8, "unit_speed_px": 24.0, "reach_px": 6.0 }
+PASS data.radii 
+PASS fixture.free_block_west_of_a_wall_with_boar_spot block=(73, 43) boar=(298.0, 210.0)
+PASS gat.placed_empty_stock { "uid": 1, "kind": "gatlinger", "x": 76, "y": 78, "hp": 8, "cooldown": 0.0, "timer": 0.7, "timer2": 0.6, "stock": 0.0, "ax": 312.0, "ay": 320.0 }
+PASS gat.mature_cells_around mature=293
+PASS gat.no_receive_without_mature_cells 
+PASS gat.receives_from_mature_cells stock=1.0 shots=7 mature_now=484 (before 484)
+PASS gat.source_not_consumed 
+PASS gat.shoots_one_per_stock_exactly shots=6 stock=0.0
+PASS gat.all_flights_landed_planted seeded=13 wasted=0
+PASS gat.no_duplicate_target_in_air distinct=6
+PASS gat.targets_within_range 
+PASS gat.zero_stock_stops 
+PASS gat.seeds_far_away_too targets=24 far(>=60% radius)=22 max=59.9px of 60.0px
+PASS gatwall.placed 
+PASS gatwall.cells_behind_wall_exist hidden=103 visible=404
+PASS gatwall.no_target_across_wall shots=68 across_wall=0
+PASS gatwall.targets_are_greenable_free_cells bad=0 nongreenable_cells_in_range=193
+PASS gatnest.never_plants_on_nest nest_cells_in_range=16 planted=0 shots=48
+PASS gatwater.never_plants_in_water water_cells_in_range=131 planted=0
+FRONT t=20 with=28 without=24
+FRONT t=40 with=95 without=62
+FRONT t=60 with=147 without=94
+FRONT t=80 with=252 without=129
+FRONT front speed (greened cells inside the Gatlinger range) over 80 s: natural only +129, with one Gatlinger +252 (x1.95); shots=114 seeded=111 wasted=1 stock_left=11.0
+PASS gat.front_faster_than_natural_spread front speed (greened cells inside the Gatlinger range) over 80 s: natural only +129, with one Gatlinger +252 (x1.95); shots=114 seeded=111 wasted=1 stock_left=11.0
+PASS spr.fixture_water_block (41, 43)
+PASS spr.placed_by_water { "uid": 1, "kind": "sprinkler", "x": 41, "y": 43, "hp": 6, "cooldown": 0.0, "timer": 3.0, "timer2": 0.0, "stock": 30.0, "ax": 172.0, "ay": 180.0 }
+PASS spr.water_edge_waters_without_supply pulses=12 stock=30.0 wet_samples=60
+PASS spr.status_text_by_water おたすけたね 8/20　おたすけ植物 1/6　スプリンクラー水辺（補給不要）
+PASS spr.dry_site_not_by_water { "uid": 1, "kind": "sprinkler", "x": 76, "y": 78, "hp": 6, "cooldown": 0.0, "timer": 3.0, "timer2": 0.0, "stock": 30.0, "ax": 312.0, "ay": 320.0 }
+PASS spr.dry_site_runs_out_and_stops pulses=1 stock=0.0
+PASS spr.no_pulse_without_water stock=0.0
+PASS spr.player_nearby_refills stock=10.0
+PASS spr.resumes_after_refill pulses=3
+PASS spr.far_player_no_refill 
+PASS spr.downed_player_no_refill 
+PASS spr.stock_capped 
+PASS spr.growth_faster_with_sprinkler growth sum with=1020552 without=600000
+PASS army.placed_unit_at_post 
+PASS army.kills_boar_inside_radius killed after 1.9 s
+PASS army.returns_to_post_after_fight distance to post 0.00 px
+PASS army.ignores_boar_outside_radius unit moved 0.00 px
+PASS army.never_beyond_radius_and_returns max 33.6 of 40.0 px, attacked=true
+PASS army.unit_stays_on_walkable_cells 
+PASS army.no_attack_across_wall steps in reach but behind the wall=394, hits=0, hits across wall=0
+PASS army.post_plant_untouched 
+PASS save.fixture_working_state flights=1 shots=7 pulses=2
+PASS save.fixture_unit_away_from_post unit offset 14.4 px
+PASS save.fixture_flight_in_air flights=1
+PASS save.roundtrip_ok 
+PASS save.working_state_identical 
+PASS save.stock_flights_unit_restored 
+PASS save.format_version_unchanged 
+PASS save.lifted_keeps_stock { "ok": true, "code": "", "reason": "", "uid": 2 } stock=13.0
+PASS save.lifted_roundtrip 
+PASS save.reject.gat_stock_over_cap invalid セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。　バックアップから読み込めます
+PASS save.reject.stock_negative invalid セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。　バックアップから読み込めます
+PASS save.reject.army_stock_nonzero invalid セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。　バックアップから読み込めます
+PASS save.reject.timer_huge invalid セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。　バックアップから読み込めます
+PASS save.reject.unit_far_from_post invalid セーブデータの値が範囲外または不整合です（helpers（占有・数の不整合））。　バックアップから読み込めます
+PASS save.reject.unit_off_map invalid セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。　バックアップから読み込めます
+PASS save.reject.work_keys_missing invalid セーブデータの値が範囲外または不整合です（helpers.plants の作業状態）。　バックアップから読み込めます
+PASS save.reject.flight_off_map invalid セーブデータの値が範囲外または不整合です（helpers.flights）。　バックアップから読み込めます
+PASS save.reject.flight_age_past_end invalid セーブデータの値が範囲外または不整合です（helpers.flights）。　バックアップから読み込めます
+PASS save.reject.flight_zero_duration invalid セーブデータの値が範囲外または不整合です（helpers.flights）。　バックアップから読み込めます
+PASS save.reject.flights_missing invalid セーブデータの値が範囲外または不整合です（helpers.flights）。　バックアップから読み込めます
+PASS save.reject.fire_serial_negative invalid セーブデータの値が範囲外または不整合です（helpers.flights）。　バックアップから読み込めます
+PASS save.reject.stats_missing invalid セーブデータの値が範囲外または不整合です（helpers.stats）。　バックアップから読み込めます
+PASS save.reject.carried_stock_over_cap invalid セーブデータの値が範囲外または不整合です（helpers.carried の在庫）。　バックアップから読み込めます
+PASS save.helpers_v1_section_loads_with_defaults 
+PASS pause.work_frozen 
+PASS pause.resume_continues 
+PASS hundred.three_kinds_placed 3
+PASS hundred.exact_100_with_working_helpers_within_bound after stable 295.0 s of bound 389.0 s, greened 9463/9463, shots=113 seeded=110 pulses=3
+PASS hundred.counters_ok_and_helpers_standing 
+RESULT passes=71 failures=0

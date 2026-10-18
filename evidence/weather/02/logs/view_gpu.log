@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti window=(1280, 720)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS marker.visible_on_the_ground_day 10.2% of the 80x80 window differ
+PASS view_day_640.viewing_and_image_size_exact true (640, 360)
+PASS view_day_640.panel_text_drawn 99.0% of the panel rect [P: (249, 30), S: (141, 73)]
+INFO view_day_640 greened=5% hour=12.0 weather=晴れ camera.size=38.0 panel=見晴らし台｜展望 / 内部緑化率 5％（484/9463） / 時刻 12:00（昼）　天気 晴れ / Esc / E で戻る
+PASS view_day_960.viewing_and_image_size_exact true (960, 540)
+PASS view_day_960.panel_text_drawn 99.2% of the panel rect [P: (376, 45), S: (207, 105)]
+INFO view_day_960 greened=5% hour=12.0 weather=晴れ camera.size=38.0 panel=見晴らし台｜展望 / 内部緑化率 5％（484/9463） / 時刻 12:00（昼）　天気 晴れ / Esc / E で戻る
+PASS view_night_640.viewing_and_image_size_exact true (640, 360)
+PASS view_night_640.panel_text_drawn 99.8% of the panel rect [P: (244, 30), S: (152, 73)]
+INFO view_night_640 greened=52% hour=0.0 weather=晴れ camera.size=38.0 panel=見晴らし台｜展望 / 内部緑化率 52％（4973/9463） / 時刻 00:00（夜）　天気 晴れ / Esc / E で戻る
+PASS view_night_960.viewing_and_image_size_exact true (960, 540)
+PASS view_night_960.panel_text_drawn 99.8% of the panel rect [P: (368, 45), S: (224, 105)]
+INFO view_night_960 greened=52% hour=0.0 weather=晴れ camera.size=38.0 panel=見晴らし台｜展望 / 内部緑化率 52％（4973/9463） / 時刻 00:00（夜）　天気 晴れ / Esc / E で戻る
+PASS camera_back_after_views 
+RESULT passes=10 failures=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

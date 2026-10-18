@@ -17,6 +17,7 @@
   {"rect": [46, 48, 16, 14], "terrain": "water"},
   {"rect": [52, 53, 4, 4], "terrain": "wasteland"}
  ],
+ "viewpoint": {"cell": [78, 76], "name": "見晴らし台"},
  "open_cells": [[54, 55]],
  "seed_sources": [[82, 80], [94, 92]],
  "zones": [
