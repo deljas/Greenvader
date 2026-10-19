@@ -1,0 +1,23 @@
+PASS s.rain_exists_in_schedule first rain at 1520s
+PASS s.is_raining t=1545.1 type=2
+PASS s.block_for_gatlinger (64, 97)
+PASS s.place_gatlinger 
+PASS s.block_for_sprinkler (64, 101)
+PASS s.place_sprinkler 
+PASS s.block_for_army (64, 105)
+PASS s.place_army 
+PASS s.lift_one 
+PASS s.gatlinger_flight_in_air flights=1 after 0.7s
+PASS s.combined_state_reached t=1545.8 type=2 boars=8 flights=1 plants=2 carried=true seeds_h=2
+PASS s.save_ok 
+PASS s.load_ok 
+PASS s.equal_at_load diff=[] flights saved=1 loaded=1 carried=true/true rain=2/2
+FAIL s.equal_after_10 diff=[world,helpers,enemies] t=1556.5 rain=2 greened=4670 boars=8 weather 2
+FAIL s.equal_after_60 diff=[world,enemies] t=1606.5 rain=2 greened=4922 boars=8 weather 2
+FAIL s.equal_after_180 diff=[world,enemies] t=1726.6 rain=0 greened=5244 boars=8 weather 0
+FAIL s.equal_after_380 diff=[world,enemies] t=1926.7 rain=0 greened=5404 boars=8 weather 0
+PASS c4.load_after_tamper_and_wait 
+PASS c4.clock_unchanged saved 123.500 loaded 123.500
+PASS c4.no_progress_without_advance after 2s real wait clock 123.500
+PASS c4.huge_real_delta_is_capped advanced 0.250 game s from a 3600 s frame (cap 0.25 x1)
+RESULT passes=18 failures=4

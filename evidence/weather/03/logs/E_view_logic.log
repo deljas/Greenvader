@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS spot.exists_in_town_data (78, 76) 見晴らし台
+PASS spot.cell_walkable_and_in_start_zone 
+PASS spot.reachable_by_walking_from_start 
+PASS spot.marker_in_world 
+PASS spot.far_e_does_not_enter 
+PASS spot.radius_edge_1p5m_inside 
+PASS freeze.shot_in_flight_before 
+PASS enter.e_at_spot_enters_and_pauses 
+PASS freeze.clock_enemies_growth_weather_shots_unchanged elapsed 0.40
+PASS freeze.player_does_not_walk 
+PASS leave.esc_returns_without_menu 
+PASS leave.no_stopped_time_added advanced 0.2500 s in one 0.25 s frame after 15 s of stop
+PASS leave.e_returns_too 
+PASS leave.restores_prior_player_pause 
+PASS leave.pause_released_normally 
+PASS view.clicks_and_keys_are_not_game_input { "ok": false, "reason": "view" } / view
+PASS view.no_save_while_viewing 
+PASS panel.values_equal_session { "percent": 5, "greened": 484, "targets": 9463, "clock": "21:12", "phase": "夜", "weather": "雨" }
+PASS panel.text_japanese_with_rate_time_weather 見晴らし台｜展望 / 内部緑化率 5％（484/9463） / 時刻 21:12（夜）　天気 雨 / Esc / E で戻る
+PASS camera.normal_size_before 
+PASS camera.view_size_wider_same_angle size 38.0 rot (-30.0, 45.0, 0.0)
+PASS camera.view_640x360_whole_town_in_frame_integer_nearest 
+PASS camera.view_960x540_whole_town_in_frame_integer_nearest 
+PASS leave.camera_size_and_follow_restored (51.80204, 25.711, 52.60147) vs (51.80204, 25.711, 52.60147)
+PASS leave.camera_follows_player_again 
+PASS audio.built_headless_no_error players playing 1
+PASS audio.seed_and_water_requested [&"seed", &"water"]
+PASS audio.failed_shot_is_silent 
+PASS audio.pickup_on_seed_gain [&"pickup"]
+PASS audio.place_requested [&"place"]
+PASS audio.enemy_hit_requested hits 1 [&"hit"]
+PASS audio.nest_break_and_zone_change_requested [&"nest", &"nest", &"zone", &"zone", &"nest"]
+PASS audio.viewpoint_drops_action_sounds_and_softens_ambient wind 0.336 -> 0.084
+PASS audio.pause_drops_action_sounds 
+PASS audio.rain_only_when_raining 0.360 vs 0.000
+PASS audio.birds_more_often_when_greener [0, 5, 16]
+PASS mute.m_toggles_and_every_category_silent playing 0
+PASS mute.saved_as_ui_setting 
+PASS mute.restored_on_next_start 
+PASS mute.m_again_unmutes 
+PASS input.m_only_poc_mute owners=1
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS signature.same_with_and_without_view_and_sound elapsed 60.00 vs 60.00
+PASS hundred.exact_100_within_bound_on_changed_town after stable 300.0 s of bound 389.0 s, greened 9463/9463
+RESULT passes=43 failures=0
+WARNING: 111 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

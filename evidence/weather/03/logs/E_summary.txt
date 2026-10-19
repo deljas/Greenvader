@@ -1,0 +1,19 @@
+assets/logic exit=0 time=1s 45 PASS 0 FAIL
+base/logic exit=0 time=1s 40 PASS 0 FAIL
+combat/logic exit=0 time=4s 48 PASS 0 FAIL
+environment/logic exit=0 time=1s 81 PASS 0 FAIL
+helpers/logic exit=0 time=6s 85 PASS 0 FAIL
+helpers/ui_logic exit=0 time=2s 10 PASS 0 FAIL
+helpers/work exit=0 time=6s 71 PASS 0 FAIL
+map/logic exit=0 time=4s 49 PASS 0 FAIL
+occlusion/logic exit=0 time=1s 37 PASS 0 FAIL
+play/logic exit=0 time=2s 69 PASS 0 FAIL
+polish/logic exit=0 time=1s 15 PASS 0 FAIL
+save/logic exit=0 time=8s 76 PASS 0 FAIL
+save/ui_logic exit=0 time=2s 28 PASS 0 FAIL
+weather/logic exit=0 time=15s 48 PASS 0 FAIL
+view/logic exit=0 time=4s 43 PASS 0 FAIL
+integration/regress exit=0 time=9s 20 PASS 0 FAIL
+integration/play_through exit=0 time=3s 15 PASS 0 FAIL
+integration/helpers_front exit=0 time=13s 19 PASS 0 FAIL
+DONE

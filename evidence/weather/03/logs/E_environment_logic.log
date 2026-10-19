@@ -1,0 +1,89 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS setup.load 
+PASS time.tuning_loaded 
+PASS time.start_is_morning hour=8.000000
+PASS time.hour_from_elapsed elapsed=100.000000 hour=12.000000
+PASS setup.load 
+PASS time.same_elapsed_same_hour 
+PASS time.pause_freezes 
+PASS time.resume_no_catch_up dh=0.010000
+PASS time.wraps_after_one_day hour=8.000000
+PASS sun.morning_is_east h=(0.866025, 0.0, -0.5)
+PASS sun.noon_is_south h=(0.707107, 0.0, 0.707107)
+PASS sun.evening_is_west h=(-0.5, 0.0, 0.866025)
+PASS sun.noon_highest noon=55.000000
+PASS sun.night_sun_below_horizon 
+PASS sun.compass_matches_screen 
+PASS setup.load 
+PASS sunlight.range min=1.000000 max=1.250000
+PASS sunlight.night_is_1 
+PASS sunlight.noon_max 
+PASS sunlight.provider_connected 
+PASS sunlight.independent_of_moisture 
+PASS sunlight.noon_faster_than_night dry 1250/1000 wet 2500/2000
+PASS sunlight.factor_applies_as_ratio wet ratio=1.250000
+PASS sunlight.moisture_factor_separate night wet=2000 dry=1000
+PASS sunlight.night_dry_still_grows growth +120000 stage=4
+PASS setup.load 
+PASS setup.load 
+PASS paved.opt_in_only plain paved=0
+PASS paved.exists_in_fixture cells=72
+PASS paved.target_and_plantable_like_soil bad=-1 stage=0 occ=0
+PASS paved.def_same_rules 
+PASS paved.greened_counts_like_soil_1 
+PASS paved.greened_counts_like_soil_2 
+PASS paved.stage_loss_like_soil 
+PASS setup.load 
+PASS cover.differential_update dirty=213 updates=213
+PASS cover.soil_covered_pavement_cracks 
+PASS cover.pavement_untouched_has_no_cover 
+PASS cover.stage_scales_grow 45 < 72 < 100
+PASS cover.density_changes_display_only visible 112 -> 34, greened=112
+PASS cover.density_restored 
+PASS setup.load 
+layout: BLD-038 paths=29 moss=33 cover=0.19 | BLD-079 paths=10 moss=15 cover=0.22 | BLD-007 paths=61 moss=26 cover=0.25 | BLD-019 paths=8 moss=17 cover=0.15 | BLD-046 paths=20 moss=28 cover=0.25
+PASS wall.assets_with_surfaces assets=5
+PASS wall.coverage_at_most_half worst=0.250
+PASS wall.door_never_covered hits=0
+PASS wall.vines_along_window_frames points near frames=1009
+PASS wall.vines_reach_part_of_a_window points over glass=198
+PASS setup.load 
+PASS wallg.entries entries=2
+PASS wallg.roots_have_ground_cells cells=29 roots=4 moss=16
+PASS wallg.no_green_no_growth 
+PASS wallg.grows_with_green progress sum=0.533333
+PASS wallg.loss_keeps_progress_and_stops before=0.533333 after=0.533333
+PASS wallg.input_follows_green full=1.000000 partial=0.500000
+PASS wallg.pause_stops 
+PASS wallg.resume_continues 
+PASS setup.load 
+PASS setup.load 
+PASS wallg.sun_independent noon=0.711111 night=0.711111
+PASS wallg.capped_at_one 
+PASS setup.load 
+PASS setup.load 
+PASS wallsave.fresh_is_zero 
+PASS wallsave.roundtrip_equal 
+PASS setup.load 
+PASS wallsave.exact_without_json 
+PASS wallsave.mismatch_rejected 
+PASS wallsave.session_dict_has_it 
+PASS main.hud_shows_time 論理 (98.0, 98.0) セル (24,24)　ゲーム時刻 00:00.1　時刻 08:00（昼）　天気 晴れ ×1
+PASS main.env_built 
+PASS main.light_hour_7 toward=(0.839434, 0.2459, -0.484648) energy=0.800000 board_dot=1.000000
+PASS main.light_hour_12 toward=(0.40558, 0.819152, 0.40558) energy=0.800000 board_dot=1.000000
+PASS main.light_hour_17 toward=(-0.484648, 0.2459, 0.839434) energy=0.800000 board_dot=1.000000
+PASS main.light_hour_1 toward=(0.300029, 0.799956, 0.519666) energy=0.096000 board_dot=1.000000
+PASS main.night_darker_ambient 0.550000 -> 0.176000
+PASS main.hud_shows_night 
+PASS water.surface_cells cells=102
+PASS water.reflection_scales_with_resolution 640->(320, 180) 960->(480, 270)
+PASS water.ground_layer_not_reflected ground layers=2
+PASS water.puddle_not_a_source 
+PASS main.pause_time_frozen 
+RESULT passes=81 failures=0
+WARNING: 73 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

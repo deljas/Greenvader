@@ -1,0 +1,14 @@
+PASS v.busy_world place=true rain=2 boars=8 flights=1
+PASS v.notice_visible_before text='E：テスト案内'
+PASS v.entered viewing=true paused=true
+PASS v.notice_cleared_on_enter text=''
+PASS v.world_frozen_in_view elapsed 1545.900 -> 1545.900
+PASS v.notice_still_empty_in_view text=''
+PASS v.panel_shown 見晴らし台｜展望 | 内部緑化率 47％（4498/9463） | 時刻 21:50（夜）　天気 雨 | Esc / E で戻る
+PASS v.save_refused_in_view viewpoint
+PASS v.left viewing=false paused=false
+PASS v.no_catchup_on_return elapsed 1545.900 vs 1545.900
+PASS v.resumes_normally advanced 1.000 for 1.0 s of ticks
+PASS v.control_world_moves 
+PASS v.prior_pause_restored enter=true leave=true paused=true
+RESULT passes=13 failures=0

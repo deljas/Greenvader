@@ -619,7 +619,7 @@ func to_dict() -> Dictionary:
 	var plant_list: Array = []
 	for plant: Dictionary in plants:
 		plant_list.append({"uid": int(plant["uid"]), "kind": String(plant["kind"]), "x": int(plant["x"]), "y": int(plant["y"]), "hp": int(plant["hp"]), "cooldown": float(plant["cooldown"]),
-			"stock": _r4(plant["stock"]), "timer": _r4(maxf(float(plant["timer"]), 0.0)), "timer2": _r4(plant["timer2"]), "ax": _r4(plant["ax"]), "ay": _r4(plant["ay"])})
+			"stock": _r4(plant["stock"]), "timer": float(plant["timer"]), "timer2": _r4(plant["timer2"]), "ax": _r4(plant["ax"]), "ay": _r4(plant["ay"])})
 	var flight_list: Array = []
 	for flight: Dictionary in flights:
 		flight_list.append({"ox": _r4(flight["ox"]), "oy": _r4(flight["oy"]), "cx": int(flight["cx"]), "cy": int(flight["cy"]), "age": _r4(flight["age"]), "dur": _r4(flight["dur"])})
@@ -633,8 +633,9 @@ func to_dict() -> Dictionary:
 		"stats": {"dropped": dropped_total, "collected": collected_total, "nest_rewards": nest_rewards_total, "lost": lost_total, "seeded": seeded_total, "wasted": wasted_total, "pulses": pulses_total, "kills": kills_total},
 	}
 
+## State values are saved exactly (the save writes full-precision floats), so a resumed run branches nowhere.
 static func _r4(value: Variant) -> float:
-	return snappedf(float(value), 0.0001)
+	return float(value)
 
 ## Restores the state. The occupied cells are part of the world's own save, so this only checks that the world agrees: every placed
 ## plant owns exactly its block of mature ground, and no other helper-band owner exists (a lifted plant owns nothing).
@@ -669,7 +670,7 @@ func load_dict(data: Dictionary) -> bool:
 			var unit: Vector2 = Vector2(float(source.get("ax", -1.0e9)), float(source.get("ay", -1.0e9)))
 			if not source.has("stock") or not source.has("timer") or not source.has("timer2") or float(source["stock"]) < 0.0 or float(source["stock"]) > stock_max_of(String(source["kind"])) + 1.0e-6:
 				return false
-			if float(source["timer"]) < 0.0 or float(source["timer"]) > _timer_max() or float(source["timer2"]) < 0.0 or float(source["timer2"]) > _timer_max():
+			if float(source["timer"]) < -WORK_STEP - 1.0e-6 or float(source["timer"]) > _timer_max() or float(source["timer2"]) < 0.0 or float(source["timer2"]) > _timer_max():
 				return false
 			if unit.distance_to(plant_center_px(plant)) > float(def["radius_px"]) + 1.0:
 				return false

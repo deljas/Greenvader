@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+renderer=NVIDIA GeForce RTX 5070 Ti display=Windows window=(1280, 720) refresh=143.981002807617 vsync(initial)=1
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS C0.front_state t=199.2 hour 16.0 weather 晴れ helpers ["gatlinger", "sprinkler"] (placed log [{ "kind": "gatlinger", "t": 145.8, "origin": [64, 72], "seeds_before": 2, "seeds_after": 0 }, { "kind": "sprinkler", "t": 183.3, "origin": [64, 76], "seeds_before": 2, "seeds_after": 0 }]) boars=8 seeded=12 pulses=0 kills=0
+INFO front_day_640: { "green": 0.1956, "dark": 0.0, "mean_luma": 0.3747, "hour": 16.0, "t": 199.9, "weather": "晴れ", "greened": "1772/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "640x360" }
+INFO front_day_960: { "green": 0.1934, "dark": 0.0, "mean_luma": 0.3738, "hour": 16.02, "t": 200.6, "weather": "晴れ", "greened": "1774/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "960x540" }
+INFO lookout_640: { "green": 0.0545, "dark": 0.0, "mean_luma": 0.2667, "hour": 16.07, "t": 201.8, "weather": "晴れ", "greened": "1780/9463", "boars": 8, "helpers": 2, "viewing": true, "size": "640x360" }
+INFO lookout_960: { "green": 0.0548, "dark": 0.0, "mean_luma": 0.2665, "hour": 16.07, "t": 201.8, "weather": "晴れ", "greened": "1780/9463", "boars": 8, "helpers": 2, "viewing": true, "size": "960x540" }
+PASS C1.lookout_world_stopped viewing=true clock 201.800 -> 201.800 notice=[]
+INFO night_640: { "green": 0.0332, "dark": 0.0031, "mean_luma": 0.1739, "hour": 22.1, "t": 352.5, "weather": "雨", "greened": "2472/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "640x360" }
+INFO night_960: { "green": 0.0334, "dark": 0.0033, "mean_luma": 0.1739, "hour": 22.13, "t": 353.2, "weather": "雨", "greened": "2476/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "960x540" }
+PASS C2.daytime_rain_found t=4313.2
+INFO rain_day_640: { "green": 0.1936, "dark": 0.0, "mean_luma": 0.2954, "hour": 12.56, "t": 4314.0, "weather": "雨", "greened": "2514/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "640x360" }
+INFO rain_day_960: { "green": 0.1944, "dark": 0.0, "mean_luma": 0.2945, "hour": 12.59, "t": 4314.7, "weather": "雨", "greened": "2512/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "960x540" }
+INFO perf state { "t": 4314.70000000002, "boars": 8, "boar_cap": 8, "helpers": 2, "weather": "雨", "nests_alive": 3, "hp": 10 }
+PERF {"avg_fps":144.1,"avg_frame_ms":6.94,"boars_max":8,"boars_min":8,"frames":1441,"frames_over_17.2ms":0,"game_seconds":10.0,"helpers_min":2,"hour":13.0,"hp":10,"label":"640 vsync(config)","min_fps_from_worst":66.4,"p99_frame_ms":7.97,"viewport_gpu_ms_avg":0.63,"vsync_mode":1,"weather":"雨","worst_frame_ms":15.05}
+PERF {"avg_fps":144.1,"avg_frame_ms":6.94,"boars_max":8,"boars_min":8,"frames":1441,"frames_over_17.2ms":1,"game_seconds":10.0,"helpers_min":2,"hour":13.4,"hp":10,"label":"960 vsync(config)","min_fps_from_worst":58.0,"p99_frame_ms":11.03,"viewport_gpu_ms_avg":0.66,"vsync_mode":1,"weather":"雨","worst_frame_ms":17.24}
+PERF {"avg_fps":357.2,"avg_frame_ms":2.8,"boars_max":8,"boars_min":8,"frames":3573,"frames_over_17.2ms":0,"game_seconds":10.0,"helpers_min":2,"hour":13.8,"hp":10,"label":"640 vsync off","min_fps_from_worst":68.4,"p99_frame_ms":6.5,"viewport_gpu_ms_avg":0.62,"vsync_mode":0,"weather":"雨","worst_frame_ms":14.62}
+PERF {"avg_fps":354.9,"avg_frame_ms":2.82,"boars_max":8,"boars_min":8,"frames":3549,"frames_over_17.2ms":0,"game_seconds":10.0,"helpers_min":2,"hour":14.2,"hp":10,"label":"960 vsync off","min_fps_from_worst":69.6,"p99_frame_ms":6.47,"viewport_gpu_ms_avg":0.65,"vsync_mode":0,"weather":"雨","worst_frame_ms":14.36}
+PASS C3.hundred_percent_reached t=430.5 hour 1.22 weather 雨
+INFO full_100_640: { "green": 0.2282, "dark": 0.0, "mean_luma": 0.272, "hour": 12.03, "t": 700.7, "weather": "曇り", "greened": "9463/9463", "boars": 0, "helpers": 0, "viewing": false, "size": "640x360" }
+INFO full_100_960: { "green": 0.2178, "dark": 0.0, "mean_luma": 0.2697, "hour": 12.06, "t": 701.4, "weather": "曇り", "greened": "9463/9463", "boars": 0, "helpers": 0, "viewing": false, "size": "960x540" }
+PASS C4.night_darker_than_day mean luma night 0.1739 front day 0.3747 (640)
+PASS C4.hundred_percent_greener_than_front green share 100% 0.2282 vs front 0.1956 (640)
+PASS C4.sizes 
+RESULT passes=7 failures=0
+WARNING: 112 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 41 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

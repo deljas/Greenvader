@@ -821,6 +821,8 @@ func is_calm() -> bool:
 func enter_viewpoint() -> bool:
 	if menu != &"" or not viewpoint.enter(session):
 		return false
+	notice.text = ""
+	notice_time = 0.0
 	_update_camera()
 	_update_actor()
 	if occlusion_view != null:

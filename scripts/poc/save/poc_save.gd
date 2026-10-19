@@ -437,7 +437,7 @@ static func _validate_helpers(s: RefCounted, helpers: Variant) -> String:
 		uids[int(plant["uid"])] = true
 		if v2:
 			var cap: float = h.stock_max_of(String(plant["kind"]))
-			if not _keys_ok(plant, ["stock", "timer", "timer2", "ax", "ay"]) or not _num_in(plant["stock"], 0.0, cap) or not _num_in(plant["timer"], 0.0, h._timer_max()) or not _num_in(plant["timer2"], 0.0, h._timer_max()) or not _num_in(plant["ax"], 0.0, px_limit) or not _num_in(plant["ay"], 0.0, px_limit):
+			if not _keys_ok(plant, ["stock", "timer", "timer2", "ax", "ay"]) or not _num_in(plant["stock"], 0.0, cap) or not _num_in(plant["timer"], -h.WORK_STEP - 1.0e-6, h._timer_max()) or not _num_in(plant["timer2"], 0.0, h._timer_max()) or not _num_in(plant["ax"], 0.0, px_limit) or not _num_in(plant["ay"], 0.0, px_limit):
 				return "helpers.plants の作業状態"
 	if v2:
 		for flight: Variant in d["flights"]:

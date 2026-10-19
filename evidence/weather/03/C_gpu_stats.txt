@@ -1,0 +1,19 @@
+front_day_640: { "green": 0.1956, "dark": 0.0, "mean_luma": 0.3747, "hour": 16.0, "t": 199.9, "weather": "晴れ", "greened": "1772/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "640x360" }
+front_day_960: { "green": 0.1934, "dark": 0.0, "mean_luma": 0.3738, "hour": 16.02, "t": 200.6, "weather": "晴れ", "greened": "1774/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "960x540" }
+lookout_640: { "green": 0.0545, "dark": 0.0, "mean_luma": 0.2667, "hour": 16.07, "t": 201.8, "weather": "晴れ", "greened": "1780/9463", "boars": 8, "helpers": 2, "viewing": true, "size": "640x360" }
+lookout_960: { "green": 0.0548, "dark": 0.0, "mean_luma": 0.2665, "hour": 16.07, "t": 201.8, "weather": "晴れ", "greened": "1780/9463", "boars": 8, "helpers": 2, "viewing": true, "size": "960x540" }
+night_640: { "green": 0.0332, "dark": 0.0031, "mean_luma": 0.1739, "hour": 22.1, "t": 352.5, "weather": "雨", "greened": "2472/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "640x360" }
+night_960: { "green": 0.0334, "dark": 0.0033, "mean_luma": 0.1739, "hour": 22.13, "t": 353.2, "weather": "雨", "greened": "2476/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "960x540" }
+rain_day_640: { "green": 0.1936, "dark": 0.0, "mean_luma": 0.2954, "hour": 12.56, "t": 4314.0, "weather": "雨", "greened": "2514/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "640x360" }
+rain_day_960: { "green": 0.1944, "dark": 0.0, "mean_luma": 0.2945, "hour": 12.59, "t": 4314.7, "weather": "雨", "greened": "2512/9463", "boars": 8, "helpers": 2, "viewing": false, "size": "960x540" }
+rain fixture: clock moved to t=4314.7 hour 12.59 weather 雨 (display fixture only, clock fields only)
+full_100_640: { "green": 0.2282, "dark": 0.0, "mean_luma": 0.272, "hour": 12.03, "t": 700.7, "weather": "曇り", "greened": "9463/9463", "boars": 0, "helpers": 0, "viewing": false, "size": "640x360" }
+full_100_960: { "green": 0.2178, "dark": 0.0, "mean_luma": 0.2697, "hour": 12.06, "t": 701.4, "weather": "曇り", "greened": "9463/9463", "boars": 0, "helpers": 0, "viewing": false, "size": "960x540" }
+
+PASS C0.front_state t=199.2 hour 16.0 weather 晴れ helpers ["gatlinger", "sprinkler"] (placed log [{ "kind": "gatlinger", "t": 145.8, "origin": [64, 72], "seeds_before": 2, "seeds_after": 0 }, { "kind": "sprinkler", "t": 183.3, "origin": [64, 76], "seeds_before": 2, "seeds_after": 0 }]) boars=8 seeded=12 pulses=0 kills=0
+PASS C1.lookout_world_stopped viewing=true clock 201.800 -> 201.800 notice=[]
+PASS C2.daytime_rain_found t=4313.2
+PASS C3.hundred_percent_reached t=430.5 hour 1.22 weather 雨
+PASS C4.night_darker_than_day mean luma night 0.1739 front day 0.3747 (640)
+PASS C4.hundred_percent_greener_than_front green share 100% 0.2282 vs front 0.1956 (640)
+PASS C4.sizes 
