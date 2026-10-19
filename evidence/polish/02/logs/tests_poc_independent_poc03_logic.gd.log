@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS default.debug_off 
+PASS default.finite_seeds seeds=20 water=100
+start cell (24, 20) seeds 20
+PASS cycle.sown fired=6 seeds=14 planted=51
+sprout at t=5.0
+mature at t=5.0
+expanded at t=10.0 cells=60 vs 51
+plant fruit on ground at t=60.0 total pickups=4
+collected: seeds 16 -> 20
+PASS cycle.germinate 
+PASS cycle.mature 
+PASS cycle.natural_expansion 
+PASS cycle.fruit_on_ground 
+PASS cycle.collect_increases_seeds 
+PASS cycle.refire_after_collect { "ok": true, "reason": "", "landing": (119.5771, 84.28076) }
+PASS recover.no_seed_refused 
+source (102.0, 94.0) player (98.0, 82.0)
+PASS recover.seed_from_source t=8 seeds=1
+PASS recover.no_water_refused 
+PASS recover.dry_seed_planted 
+PASS recover.dry_growth_progresses t=15
+sprout time dry=15.0 wet=15.0
+PASS recover.dry_is_slower_or_equal dry=15 wet=15
+PASS recover.water_refill_at_shore reached=true water 5.0 -> 55.0 at (152.4472, 35.62074)
+PASS shots.found_wall_scenario 
+scenario cell (37, 17) dir (0, 1) wall at 5
+PASS shots.wall_no_plant_beyond fire=true planted_total=30 beyond=0 blocked=1 filtered=0 msg=壁にあたった
+sweep tries=588 landings=145 sample=
+PASS shots.radial_sweep_no_plant_behind_walls tries=588 violations=0
+pond start cell solid=false terrain at pos=wasteland
+PASS nontarget.pond_centre_aim_plants_nothing planted=0
+PASS nontarget.green_same_as_untouched_control green n=108 control=108 start=30
+PASS nontarget.no_stage_on_nontarget bad=0
+PASS shots.range_clamped landing dist 70.0 cap 70.0
+PASS pause.has_things shots=1 pickups=3
+PASS pause.nothing_moves elapsed 41.600000->41.600000 fire={ "ok": false, "reason": "paused" }
+PASS pause.no_catch_up dt=0.250000 play dt=0.250000
+PASS pause.refill_frozen 
+res (640, 360) view (640.0, 360.0)
+res (960, 540) view (960.0, 540.0)
+lands [[[(69.11035, 29.85439), (69.11035, 29.85439)], [(76.37779, 153.4016), (77.71207, 148.9955)], [(83.6453, 67.6453), (83.6453, 67.6453)]], [[(68.8681, 29.61214), (68.8681, 29.61214)], [(76.13556, 153.1594), (77.44041, 148.9127)], [(83.40305, 67.40305), (83.40305, 67.40305)]]]
+PASS click.same_screen_pos_same_ground_640_960 
+PASS click.same_landing_640_960 
+ui control @Button@75 rect [P: (772.0, 2.0), S: (69.0, 30.0)] result { "ok": false, "reason": "ui" }
+PASS click.ui_rejected 
+PASS click.parse_input_event_fires seeds 14 -> 13
+PASS pause.main_tick_frozen 
+PASS pause.main_resume_small_step dt=0.100000
+FAILS=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 32 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

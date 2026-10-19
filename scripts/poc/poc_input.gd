@@ -16,6 +16,8 @@ const KEYS: Dictionary = {
 	&"poc_helper_mode": [KEY_Q],
 	# WTH-02 sound on / off.
 	&"poc_mute": [KEY_M],
+	# POL-02 screen text on / off (play screen only; menus stay readable).
+	&"poc_toggle_text": [KEY_T],
 	# WTH-01 development keys: handled only when the game is started with --debug-weather.
 	&"poc_debug_weather_clear": [KEY_1],
 	&"poc_debug_weather_cloudy": [KEY_2],

@@ -1,0 +1,42 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS 1.three_building_types ["BLD-038", "BLD-091", "BLD-079"]
+PASS 1.catalog_hashes_runtime 
+PASS 1.hash_own 
+PASS 1.chapel_old_blocked 
+PASS 1.move_away_frees targets 784 -> 1242
+PASS 1.move_back_restores 
+PASS 1.bin_follows 
+PASS 1.added_buildings_block cafe=248 gal=359
+PASS 1.rotation_changes_footprint (28, 22) vs (30, 14)
+PASS 1.remove_restores 
+PASS 1.no_external_path_in_runtime_files 
+PASS 1.catalog_paths_res_only 
+PASS 2.walls_blocked_chapel_01 points=1344 strict_open=19 (1.4%) open_without_blocked_neighbour=0
+PASS 2.walls_blocked_ruin_01 points=568 strict_open=2 (0.4%) open_without_blocked_neighbour=0
+PASS 2.walls_blocked_mill_01 points=938 strict_open=0 (0.0%) open_without_blocked_neighbour=0
+PASS 2.wall_stops_chapel_01_(-1.0, 0.0) end=(4.28, -4.3)
+PASS 2.wall_stops_chapel_01_(0.0, -1.0) end=(-2.4, -0.52)
+PASS 2.wall_stops_ruin_01_(0.0, 1.0) end=(5.9, -2.28)
+PASS 2.roof_rect_not_filled end=(-8.200001, -2.92) inside_AABB=true free_cells_in_AABB=86
+PASS 2.ruin_opening_enterable_inside_bbox end=(1.0, 1.48) (bbox z -3.3..3.3)
+PASS 2.ruin_wall_side_blocked end=(-3.48, -0.5)
+PASS 2.gap_0.8m wall extents=[-3.00,3.12] straight_end_z=1.88 best_end_z=-0.12 (lateral -0.3) pass=false
+PASS 2.gap_1.2m wall extents=[-3.00,3.12] straight_end_z=1.88 best_end_z=-5.00 (lateral -0.1) pass=true
+PASS 2.gap_1.6m wall extents=[-3.00,3.12] straight_end_z=-5.00 best_end_z=-5.00 (lateral 0.0) pass=true
+PASS 2.gap_2.4m wall extents=[-3.00,3.12] straight_end_z=-5.00 best_end_z=-5.00 (lateral 0.0) pass=true
+PASS 3.same_state_all_cells mismatch=0
+PASS 3.denominator_recount own=784 state=784
+PASS 3.no_obstacle_water_in_denominator 
+PASS 3.puddle_walkable_target_not_source 
+PASS 3.constant_water_source_distinct 
+PASS 3.projectile_blocked_by_chapel 
+PASS 3.projectile_open_clear 
+PASS 3.pole_blocks_walk_not_shot 
+PASS 3.owned_cells_block_projectile bad=0; owned obstacle cells not stopping shots (sealed interior)=0 of sealed_count=512
+PASS 3.move_updates_all 
+PASS 4.distinct_material_objects a=6 b=6 shared=0
+PASS 4.alpha_isolated a=0.25 b=1.00
+PASS 4.source_resource_unchanged [[1.0, 0], [1.0, 0], [1.0, 0], [1.0, 0], [1.0, 0], [1.0, 0]]
+PASS 4.alpha_restore 
+RESULT fails=0

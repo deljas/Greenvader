@@ -85,6 +85,8 @@ var ui: CanvasLayer
 var save_dir: String = PocSave.DEFAULT_DIR
 ## "" (playing), "title", "pause" or "help". The game clock stays paused while a menu is open.
 var menu: StringName = &""
+## POL-02: false hides the play-screen text (HUD, notice, buttons, badge, toast, panorama panel). Display setting: never saved.
+var text_visible: bool = true
 var _menu_prev_paused: bool = false
 var _help_return: StringName = &"pause"
 var _town: bool = false
@@ -640,7 +642,10 @@ func _refresh() -> void:
 	lines.append(session.helper_status_text())
 	lines.append("WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ/展望　Q=設置モード　Esc=メニュー　F2=解像度　F3=倍速　F5=保存　M=音")
 	hud.text = "\n".join(lines)
-	hud.visible = not is_viewing() # the panorama shows its own panel instead of the debug-style status lines
+	notice.visible = text_visible
+	button_box.visible = text_visible
+	ui.badge.visible = text_visible
+	hud.visible = text_visible and not is_viewing() # the panorama shows its own panel instead of the debug-style status lines
 	ui.set_badge(session.greening_percent(), session.state.greened_count, session.state.target_count, zone_summary())
 	pause_button.text = "再開" if session.paused else "停止"
 	if is_viewing() and view_panel.label.text != viewpoint.panel_text(session):
@@ -657,6 +662,13 @@ func toggle_pause() -> void:
 	session.paused = not session.paused
 	_refresh()
 
+## POL-02: T. Hidden controls are not visible in the tree, so they do not catch clicks (_over_ui).
+func set_text_visible(value: bool) -> void:
+	text_visible = value
+	ui.set_text_visible(value)
+	view_panel.suppressed = not value
+	_refresh()
+
 func cycle_speed() -> void:
 	var index: int = Config.MULTIPLIERS.find(session.multiplier)
 	session.multiplier = Config.MULTIPLIERS[(index + 1) % Config.MULTIPLIERS.size()]
@@ -666,6 +678,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"poc_mute", false, true):
 		audio.toggle_mute()
 		show_notice("音：" + ("消す" if audio.muted else "出す"))
+		return
+	if menu == &"" and event.is_action_pressed(&"poc_toggle_text", false, true):
+		set_text_visible(not text_visible)
 		return
 	if is_viewing():
 		# The panorama: only Esc / E (back), F2 (resolution) and M (sound) do anything; clicks and the other keys are not game input.

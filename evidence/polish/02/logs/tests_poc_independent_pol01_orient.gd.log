@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS yaw_changed_4_buildings changed ["bld_gallery_01=180", "bld_ruin_01=270", "bld_pump_01=180", "bld_mill_01=90"]
+PASS no_mirror_code []
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS no_negative_scale_nodes nodes 487 with det<=0: 0
+PASS holder_rotation_bld_gallery_01 rot.y 3.142 yaw 3.142 scale (1.0, 1.0, 1.0)
+PASS holder_unit_scale_bld_gallery_01 
+PASS model_unit_scale_bld_gallery_01 
+PASS holder_rotation_bld_ruin_01 rot.y 4.712 yaw 4.712 scale (1.0, 1.0, 1.0)
+PASS holder_unit_scale_bld_ruin_01 
+PASS model_unit_scale_bld_ruin_01 
+PASS holder_rotation_bld_pump_01 rot.y 3.142 yaw 3.142 scale (1.0, 1.0, 1.0)
+PASS holder_unit_scale_bld_pump_01 
+PASS model_unit_scale_bld_pump_01 
+PASS holder_rotation_bld_mill_01 rot.y 1.571 yaw 1.571 scale (1.0, 1.0, 1.0)
+PASS holder_unit_scale_bld_mill_01 
+PASS model_unit_scale_bld_mill_01 
+INFO aabb bld_gallery_01 yaw 180 mesh [-1.95,-1.15]-[10.75,5.15] cells [-2.00,-1.20]-[10.80,5.20] insets(minx,minz,maxx,maxz)=[-0.0550000667572, -0.05471217632294, -0.05499839782715, -0.05471277236938]
+PASS aabb_vs_obstacle_bld_gallery_01 max edge offset 0.06 m (cells cover 512)
+INFO aabb bld_chapel_01 yaw 0 mesh [16.52,-0.90]-[29.08,5.70] cells [16.40,-1.20]-[29.20,6.00] insets(minx,minz,maxx,maxz)=[-0.12399864196777, -0.29999995231628, -0.12400054931641, -0.30000066757202]
+PASS aabb_vs_obstacle_bld_chapel_01 max edge offset 0.30 m (cells cover 472)
+INFO aabb bld_lighthouse_01 yaw 0 mesh [11.98,5.18]-[15.22,8.42] cells [11.60,4.80]-[15.60,8.80] insets(minx,minz,maxx,maxz)=[-0.38000011444092, -0.38000011444092, -0.38000011444092, -0.3799991607666]
+PASS aabb_vs_obstacle_bld_lighthouse_01 max edge offset 0.38 m (cells cover 76)
+INFO aabb bld_cafe_01 yaw 0 mesh [-2.53,11.01]-[4.13,18.59] cells [-2.80,10.80]-[4.40,18.00] insets(minx,minz,maxx,maxz)=[-0.27197289466858, -0.20999908447266, -0.27197313308716, 0.59000015258789]
+PASS aabb_vs_obstacle_bld_cafe_01 max edge offset 0.59 m (cells cover 320)
+INFO aabb bld_ruin_01 yaw 270 mesh [19.90,11.33]-[26.50,17.47] cells [19.60,11.20]-[26.80,17.60] insets(minx,minz,maxx,maxz)=[-0.2984619140625, -0.1349983215332, -0.29846000671387, -0.13500022888184]
+PASS aabb_vs_obstacle_bld_ruin_01 max edge offset 0.30 m (cells cover 146)
+INFO aabb bld_pump_01 yaw 180 mesh [6.72,20.65]-[15.68,27.35] cells [6.40,20.40]-[15.60,27.60] insets(minx,minz,maxx,maxz)=[-0.31868457794189, -0.24719047546387, 0.08131408691406, -0.24719047546387]
+PASS aabb_vs_obstacle_bld_pump_01 max edge offset 0.32 m (cells cover 388)
+INFO aabb bld_mill_01 yaw 90 mesh [-1.74,22.48]-[3.34,28.72] cells [-2.00,22.40]-[3.60,28.80] insets(minx,minz,maxx,maxz)=[-0.26000022888184, -0.07585906982422, -0.25999927520752, -0.07586097717285]
+PASS aabb_vs_obstacle_bld_mill_01 max edge offset 0.26 m (cells cover 201)
+INFO reachable cell centres: 7991
+PASS all_nests_have_reachable_firing_cell 3/3
+PASS seed_sources_reachable 2/2
+PASS main_water_reachable [208 cells shore=(48, 46)]
+PASS real_walk_to_goals 6/6 goals walked from start with Walker
+INFO veg bld_gallery_01 yaw 180 doors 4 points 1480
+INFO veg bld_chapel_01 yaw 0 doors 3 points 544
+INFO veg bld_cafe_01 yaw 0 doors 2 points 161
+INFO veg bld_pump_01 yaw 180 doors 2 points 329
+INFO veg bld_mill_01 yaw 90 doors 1 points 152
+PASS veg_not_on_doors points 2666 near-plane door tests 3618 hits 0 (margin 0.15 m)
+PASS moss_not_on_doors moss verts 29484 hits 0
+PASS veg_points_on_rotated_building 0 of 2666 outside rotated mesh AABB+0.4
+RESULT pass=29 fail=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

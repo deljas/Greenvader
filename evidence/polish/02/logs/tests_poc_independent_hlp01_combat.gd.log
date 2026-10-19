@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS combat.patch_found patch (100, 35) nest tile (88, 38)
+PASS combat.front_placed_no_zone_limit 
+PASS combat.safe_placed 
+INFO combat: first boar after 8.0s, min boar distance to front plant 1.2 px, hp trace [8, 7, 6, 4, 3, 2], destroyed at 34.5s, boars now 8
+PASS combat.real_boars_spawned_by_nest spawned=8
+PASS combat.boar_actually_reached_front_plant min dist 1.2
+PASS combat.hp_decreased_stepwise_to_destruction [8, 7, 6, 4, 3, 2]
+PASS combat.vanished_and_occupancy_released lost=1 total=1
+PASS combat.counters_consistent 
+INFO rebuild at front after destruction: ok=true code= seeds 16->14
+PASS combat.safe_zone_never_entered samples in zone 0: 0
+PASS combat.safe_plant_untouched hp 8/8
+PASS hundred.four_helpers_placed placed 4
+PASS hundred.zones_stable [3, 2]
+INFO hundred: stable at 20.0, bound 389.0, greened 636/9463, helper cells 64
+PASS hundred.reached_within_bound reached after 286.0s (bound 389.0s)
+PASS hundred.own_recount_exact_100 targets 9463 not green 0
+PASS hundred.helpers_kept_no_dup 
+PASS hundred.no_reinvasion 
+RESULT passes=16 failures=0

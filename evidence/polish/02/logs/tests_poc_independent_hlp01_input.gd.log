@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS keys.q_only_helper_mode ["poc_helper_mode"]
+PASS keys.e_only_interact all=["ui_text_caret_line_end.macos", "poc_interact"] (ui_text_caret_line_end.macos is a Godot built-in text-edit action, not a game action)
+PASS keys.no_duplicate_poc_keys 
+PASS ui.screen_round_trip scr (308.992, 194.7578) -> (352.0, 344.0001) vs (352.0, 344.0)
+PASS input.q_cycles_modes_off [0, 1, 2, -1]
+PASS input.left_click_places plants=1 seeds 15->13 kind=gatlinger
+PASS input.left_click_no_shot_no_plain_seed_spent 
+PASS ui.control_inside_view_found (546.5, 13.0)
+PASS input.click_on_ui_does_not_place code=ui
+PASS input.right_click_ends_mode_no_water mode=-1 water 100.0/100.0 launched 0/0
+PASS input.right_click_outside_mode_still_waters launched 1 water 90.0
+PASS input.left_click_outside_mode_fires_not_places 
+PASS input.e_lifts_nearby 
+PASS input.e_again_while_carrying_does_not_duplicate 
+PASS input.q_while_carrying_enters_carried_kind 
+PASS input.click_replaces_free seeds 13->13
+PASS input.e_far_no_lift 
+PASS hud.shows_helper_seeds 1/6　ガトリンガー在庫0/12　【設置モード：スプリンクラー（2個）】
+WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ/展望　Q=設置モード　Esc=メニュー　F2=解像度　F3=倍速　F5=保存　M=音
+RESULT passes=18 failures=0

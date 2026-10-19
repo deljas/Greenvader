@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS c1 size m 112x112 cells
+PASS c1 buildings 5..8 7
+PASS c1 puddles>=2 cars>=1 props pud=7 cars=3 props=34
+PASS c1 start passable, not inside a building footprint (88, 86)
+PASS c2 zones: start >=stable, ruined unconquered [3, 0]
+PASS c2 nests 2..3 3
+PASS c2 seed sources 2
+PASS c2 every seed source reachable (pickup range) 2/2
+PASS c2 nest 1 reachable firing spots 608 spots (range 70 px)
+PASS c2 nest 2 reachable firing spots 587 spots (range 70 px)
+PASS c2 nest 3 reachable firing spots 414 spots (range 70 px)
+PASS c2 constant water: reachable waterside cells exist, deep water not walkable shore_reach=137
+PASS c2 puddles walkable, not waterside cells=76 bad=0
+PASS c2 island unreachable, is a target reach=0 targets=16/16
+PASS c2 shore refills, puddle does not shore=25.0 puddle=0.0 at (53, 18)
+PASS c4 instance id/transform identical 48 instances
+PASS c4 target set identical targets=9463 hash=87608847
+PASS c4 nests identical 
+PASS c4 ids unique 
+start: targets=9463 greened=484 bound0=389.0s seeds=20 hp=10
+FAIL bot walked to nest 3 firing spot stuck near (89, 86)
+FAIL all nests destroyed 
+FAIL all boars removed chase 903s rounds 30, boars left 8, hp 10, killed 0
+zone states: [3, 0] t=1203.1 greened=3805/9463
+FAIL zone 1 stable after clearing 0
+FAIL c5 greened==target (own recount) within bound own 4841/9463, counters 4841/9463 (initial targets 9463)
+FAIL c5 no re-invasion of stable zones 
+BOUND0=389.0s BOUND1=389.0s MEASURED_after_stable=394.0s (stable at game t=1203.1s, greened then 3805/9463) total game t=1597.1s percent=51 cleared=false zones=[3, 0]
+FAIL c5 within bound 394.0 <= 389.0
+RESULT fails=7

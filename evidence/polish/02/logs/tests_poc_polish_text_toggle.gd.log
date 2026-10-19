@@ -1,0 +1,57 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS input.action_registered 
+PASS help.has_T_line 
+PASS start.visible 
+PASS res640.shown 
+PASS res640.T_hides hud=false notice=false btn=false badge=false
+PASS res640.stays_hidden_after_tick 
+PASS res640.T_shows 
+PASS res960.shown 
+PASS res960.T_hides hud=false notice=false btn=false badge=false
+PASS res960.stays_hidden_after_tick 
+PASS res960.T_shows 
+PASS hidden.notice_toast_not_shown 
+PASS hidden.restored_current 
+PASS toast.expires 
+PASS click.visible_blocks ui
+PASS click.hidden_passes_to_ground 
+PASS click.hidden_acts_on_ground aim=(327.106, 97.92645)
+PASS click.shown_again_blocks 
+PASS menu.T_ignored 
+PASS menu.help_readable 
+PASS menu.hidden_kept_after_close 
+PASS menu.title_T_ignored 
+PASS view640.enter 
+PASS view640.panel_shown 
+PASS view640.T_hides_panel 
+PASS view640.stays_hidden 
+PASS view640.T_shows_panel 
+PASS view640.leave_keeps_hidden 
+PASS view640.enter_hidden_no_panel 
+PASS view640.restore_panel 
+PASS view640.world_unchanged 
+PASS view960.enter 
+PASS view960.panel_shown 
+PASS view960.T_hides_panel 
+PASS view960.stays_hidden 
+PASS view960.T_shows_panel 
+PASS view960.leave_keeps_hidden 
+PASS view960.enter_hidden_no_panel 
+PASS view960.restore_panel 
+PASS view960.world_unchanged 
+PASS save.ok 
+PASS save.format_v2_no_text_key files=["slot.bak.json", "slot.json"]
+PASS save.sections_unchanged ["resolution_index"]
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS load.ok 
+PASS load.hidden_kept 
+PASS load.shown_again 
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS boot.visible_default 
+RESULT passes=47 failures=0
+WARNING: 102 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

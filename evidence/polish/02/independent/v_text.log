@@ -1,0 +1,35 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS boot.menu_state 
+PASS boot.visible [true, true, true, true, false, false]
+PASS f2.res_changed 
+PASS f2.stays_hidden [false, false, false, false, false, false]
+PASS f2.back_hidden 
+PASS click.hidden_ground_pick { "ok": true, "reason": "", "ground": (23.14694, 1.99855), "logic": (327.4694, 99.9855) }
+PASS click.hidden_no_pause_toggle 
+PASS click.hidden_fired launched 0->1 aim=true
+PASS menu.open_by_esc 
+PASS menu.T_ignored 
+PASS menu.closed_still_hidden 
+PASS restore.latest_hud 
+PASS restore.notice 6マスに種をまいた
+PASS save.f5_hidden_file ["slot.json"]
+PASS save.toast_hidden 
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS load.ok_hidden [false, false, false, false, false, false]
+PASS view.enter_hidden [false, false, false, false, false, false]
+PASS view.f2_hidden 
+PASS view.T_shows_panel 
+PASS view.F3_ignored 
+PASS view.esc_leaves_hidden 
+PASS view.left_hud_back 
+PASS toast.expired_not_resurrected 
+PASS title.T_ignored 
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS newgame.stays_hidden 
+RESULT passes=25 failures=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

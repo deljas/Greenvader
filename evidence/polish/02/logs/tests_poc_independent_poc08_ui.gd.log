@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS boot.town_session targets=9463
+PASS title.menu_and_paused 
+PASS title.continue_disabled_without_save 続きから（保存なし）
+PASS title.new_game_enabled 
+PASS title.help_button 
+PASS res.set_960 
+PASS save.ok 
+PASS title.continue_enabled_with_save 続きから
+PASS help.visible_and_content 操作説明
+移動　W A S D / 矢印キー　　調べる　E
+おたすけ植物　Q 設
+PASS help.back_to_pause 
+PASS esc.opens_pause_menu menu=pause
+PASS esc.closes_pause_menu menu= paused=false
+PASS click.positive_control_fires_in_game launched +1 (pos (480.0, 270.0), res (960, 540))
+DBG menu after open=pause
+DBG menu after frames=pause
+PASS click.pause_menu_does_not_fire launched 1->1 seeds 39->39 water 100.0->100.0 menu=pause dimrect=[P: (0.0, 0.0), S: (960.0, 540.0)] panel=[P: (380.0, 116.0), S: (330.0, 230.0)]
+PASS click.help_does_not_fire 
+PASS click.title_does_not_fire 
+PASS click.hud_button_does_not_fire button at (937.0, 17.0)
+PASS badge.99x_not_shown_as_100 内部緑化率 99％（9462/9463）
+PASS badge.100_shows_complete 内部緑化率 100％（9463/9463）　★緑化完了
+PASS badge.shows_counts 
+PASS reject_in_main.version msg=読み込めません：セーブの形式が違うため読み込めません（保存 v9 / 現在 v2 nodes 598/598
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS reject_in_main.map_hash msg=読み込めません：マップの内容（地形・緑化対象）がセーブ時と違うため読み込めません nodes 598/598
+PASS reject_in_main.map_id msg=読み込めません：別のマップのセーブです（保存 other_map / 現在 to nodes 598/598
+PASS reject_in_main.corrupt msg=読み込めません：セーブデータが壊れています（読み取れません）。　バックアップから nodes 598/598
+PASS reject_in_main.missing_key msg=読み込めません：セーブデータの必須項目「world.occupant」が欠けてい nodes 598/598
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS reject_in_main.pos_out msg=読み込めません：セーブデータの値が範囲外または不整合です（プレイヤー位置）。　バ nodes 598/598
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS reject_in_main.stage_out msg=読み込めません：セーブデータの値が範囲外または不整合です（world）。　バック nodes 598/598
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS load_in_main.session_equal_and_node_count_stable nodes [598, 598, 598] (before 598)
+PASS load_in_main.resolution_restored idx=1
+PASS load_in_main.menu_closed_and_running 
+PASS time.menu_open_clock_frozen 
+PASS time.resume_no_lump_sum advanced 0.250
+PASS title.from_pause_menu 
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS newgame.fresh_session elapsed=0.00
+PASS newgame.keeps_save_file 
+RESULT passes=35 failures=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

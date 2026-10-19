@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+start: seeds=20 water=100 hp=10 greened=484/9463 nests=3 boars=0 bound0=389.0 debug_refill=false
+t=7.9 nest 3 alive=false seeds=10 downs=0
+t=18.5 restock #1 seeds=0 -> source (82, 80)
+t=308.8 restock done seeds=38 (waited 281s)
+t=320.3 nest 2 alive=false seeds=34 downs=0
+t=330.9 nest 1 alive=false seeds=20 downs=0
+RESULT stable: nests_done=330.9s stable_t=338.5s zone1=2 boars=0 bound=389.0s greened=2134/9463 pct=22
+RESULT resources: shots=51 restocks=1 min_seeds=0 min_water=100 min_hp=10 downs=0 walked_px=1732 seeds_now=17 water_now=100
+RESULT hundred: reached_after=264.5s bound=389.0s targets=9463 not_green=0 pct=100 invaded=false
+PASS b.normal_play_stable_then_exact_100
+TRACE [t,seeds,water,hp,greened,boars,nests,downs]: [[0.1,20,100.0,10,484,0,3,0],[30.0,3,100.0,10,664,5,2,0],[60.0,7,100.0,10,759,6,2,0],[90.1,10,100.0,10,862,6,2,0],[120.1,14,100.0,10,1059,6,2,0],[150.1,18,100.0,10,1274,6,2,0],[180.1,22,100.0,10,1415,6,2,0],[210.1,25,100.0,10,1565,6,2,0],[240.1,29,100.0,10,1765,6,2,0],[270.1,33,100.0,10,1903,6,2,0],[300.1,37,100.0,10,2001,6,2,0],[330.0,22,100.0,10,2122,3,1,0]]

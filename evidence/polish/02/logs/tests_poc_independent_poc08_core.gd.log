@@ -1,0 +1,95 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Unicode parsing error, some characters were replaced with � (U+FFFD): Unexpected NUL character
+Unicode parsing error, some characters were replaced with � (U+FFFD): Unexpected NUL character
+Unicode parsing error, some characters were replaced with � (U+FFFD): Unexpected NUL character
+INFO germinating sprouting_tiles=96 shots seed=0 water=0 plant=0 boars=3 nests=3 carc=0 far(job_zone=-1,active=false,ticks=10) zones=[3, 0]
+PASS germinating.save 
+PASS germinating.shots_cleared 
+PASS germinating.seed_conservation seeds 34 -> 34 (+0 plain shots, plants 0)
+PASS germinating.water_conservation water 100.00 -> 100.00 (+0 shots)
+PASS germinating.load 
+PASS germinating.obs_equal_after_load len
+PASS germinating.obs_equal_after_same_ops len
+PASS germinating.repeat_load_no_dup 
+PASS germinating.resave_identical 
+INFO combat sprouting_tiles=203 shots seed=1 water=1 plant=1 boars=8 nests=3 carc=1 far(job_zone=-1,active=false,ticks=100) zones=[3, 0]
+PASS combat.save 
+PASS combat.shots_cleared 
+PASS combat.seed_conservation seeds 39 -> 40 (+1 plain shots, plants 1)
+PASS combat.water_conservation water 90.00 -> 100.00 (+1 shots)
+PASS combat.load 
+PASS combat.obs_equal_after_load len
+PASS combat.obs_equal_after_same_ops len
+PASS combat.repeat_load_no_dup 
+PASS combat.resave_identical 
+INFO stable sprouting_tiles=938 shots seed=0 water=0 plant=0 boars=0 nests=3 carc=0 far(job_zone=-1,active=false,ticks=220) zones=[3, 2]
+PASS stable.save 
+PASS stable.shots_cleared 
+PASS stable.seed_conservation seeds 20 -> 20 (+0 plain shots, plants 0)
+PASS stable.water_conservation water 100.00 -> 100.00 (+0 shots)
+PASS stable.load 
+PASS stable.obs_equal_after_load len
+PASS stable.obs_equal_after_same_ops len
+PASS stable.repeat_load_no_dup 
+PASS stable.resave_identical 
+INFO boar keys: ["id", "nest_id", "zone", "pos", "home", "hp", "facing", "mode", "goal", "goal_tile", "think", "gnaw_cooldown", "wait", "blocked_tile", "blocked_steps", "window_steps", "window_pos", "rng", "flash"] nest keys: ["id", "zone", "x", "y", "size", "hp", "hp_max", "alive", "spawn_steps", "spawned", "flash"]
+INFO accepted.version_2 seeds=40 water=100.0 hp=10 gticks=200 maxBoarHp=3 max_plant_id=1 insane=[]
+INFO accepted.version_2 ran10s consistent=true
+INFO reject.version_2 -> ACCEPTED 
+INFO reject.version_0 -> REJECT version セーブの形式が違うため読み込めません（保存 v0 / 現在 v2）。
+INFO reject.version_str -> REJECT version セーブの形式が違うため読み込めません（保存 v? / 現在 v2）。
+INFO reject.map_id -> REJECT map 別のマップのセーブです（保存 fixture_02 / 現在 town_01）。
+INFO reject.map_hash -> REJECT hash マップの内容（地形・緑化対象）がセーブ時と違うため読み込めません。
+INFO reject.del_format_version -> REJECT missing_key セーブデータの必須項目「format_version」が欠けています。
+INFO reject.del_game_elapsed -> REJECT missing_key セーブデータの必須項目「game_elapsed」が欠けています。
+INFO reject.del_world -> REJECT missing_key セーブデータの必須項目「world」が欠けています。
+INFO reject.del_world_stage -> REJECT missing_key セーブデータの必須項目「world.stage」が欠けています。
+INFO reject.del_play_seeds -> REJECT missing_key セーブデータの必須項目「play.seeds」が欠けています。
+INFO reject.del_enemies_boars -> REJECT missing_key セーブデータの必須項目「enemies.boars」が欠けています。
+INFO reject.del_far_zone_queue -> REJECT missing_key セーブデータの必須項目「far.zone_queue」が欠けています。
+INFO reject.del_wall_entries -> REJECT missing_key セーブデータの必須項目「wall_growth.entries」が欠けています。
+INFO reject.del_clock -> REJECT missing_key セーブデータの必須項目「clock」が欠けています。
+INFO reject.del_ui_res -> REJECT missing_key セーブデータの必須項目「ui.resolution_index」が欠けています。
+INFO reject.res_index_99 -> REJECT invalid セーブデータの値が範囲外または不整合です（ui.resolution_index）。
+INFO reject.res_index_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（ui.resolution_index）。
+INFO reject.pos_far -> REJECT invalid セーブデータの値が範囲外または不整合です（プレイヤー位置）。
+INFO reject.pos_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（プレイヤー位置）。
+INFO reject.pos_string -> REJECT invalid セーブデータの値が範囲外または不整合です（session.position）。
+INFO reject.elapsed_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（clock）。
+INFO reject.elapsed_mismatch -> REJECT invalid セーブデータの値が範囲外または不整合です（ゲーム時間）。
+INFO reject.stage_200 -> REJECT invalid セーブデータの値が範囲外または不整合です（world）。
+INFO reject.terrain_99 -> REJECT invalid セーブデータの値が範囲外または不整合です（world）。
+INFO reject.plant_id_250 -> REJECT invalid セーブデータの値が範囲外または不整合です（world.plant_id）。
+INFO reject.moisture_255 -> REJECT invalid セーブデータの値が範囲外または不整合です（world.moisture）。
+INFO reject.world_width -> REJECT invalid セーブデータの値が範囲外または不整合です（world の大きさ）。
+INFO reject.seeds_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+INFO reject.seeds_huge -> REJECT invalid セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+INFO reject.water_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+INFO reject.hp_huge -> REJECT invalid セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+INFO reject.hp_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（play の種・水・HP）。
+INFO reject.growth_ticks_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（clock）。
+INFO reject.boar_hp_huge -> REJECT invalid セーブデータの値が範囲外または不整合です（敵のHP・地域）。
+INFO reject.boar_pos_far -> REJECT invalid セーブデータの値が範囲外または不整合です（enemies.boars の座標）。
+INFO reject.boar_hp_neg -> REJECT invalid セーブデータの値が範囲外または不整合です（敵のHP・地域）。
+INFO reject.nest_zone_bad -> REJECT invalid セーブデータの値が範囲外または不整合です（巣の座標・地域）。
+INFO reject.nest_tile_out -> REJECT invalid セーブデータの値が範囲外または不整合です（巣の座標・地域）。
+INFO reject.far_job_zone_bad -> REJECT invalid セーブデータの値が範囲外または不整合です（far の添字）。
+INFO reject.spread_queue_type -> REJECT invalid セーブデータの値が範囲外または不整合です（spread.queue）。
+INFO reject.section_type -> REJECT missing_key セーブデータの必須項目「play」が欠けています。
+FAIL reject.all_cases accepted=["version_2"]
+PASS reject.text_trunc セーブデータが壊れています（読み取れません）。
+PASS reject.text_empty セーブデータが壊れています（読み取れません）。
+PASS reject.text_array セーブデータが壊れています（読み取れません）。
+PASS reject.text_garbage セーブデータが壊れています（読み取れません）。
+PASS reject.text_null セーブデータが壊れています（読み取れません）。
+PASS backup.slot_corrupt_reports_backup セーブデータが壊れています（読み取れません）。　バックアップから読み込めます
+PASS backup.loads_from_bak 
+PASS backup.save_over_corrupt_keeps_good_bak 
+PASS backup.save_rotates 
+PASS reject.live_untouched 
+PASS time.no_real_time_added elapsed 100.000 vs 100.000
+PASS time.paused_after_load_default paused=false mult=1.0
+PASS time.paused_no_advance 
+PASS time.unpause_single_capped_step advanced 0.250 (cap 0.250)
+RESULT passes=41 failures=1

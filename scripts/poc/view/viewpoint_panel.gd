@@ -1,6 +1,12 @@
 extends PanelContainer
 ## WTH-02 panorama panel (greening rate, time, weather; Japanese). Display only: it shows the text it is given and never takes the mouse.
 var label: Label
+## POL-02: true (text hidden with T) keeps the panel invisible; the wanted state is kept and comes back with T.
+var suppressed: bool = false:
+	set(value):
+		suppressed = value
+		visible = _wanted and not suppressed
+var _wanted: bool = false
 
 func _init() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -24,8 +30,10 @@ func layout(res: Vector2i) -> void:
 
 func show_text(text: String, res: Vector2i) -> void:
 	label.text = text
-	visible = true
+	_wanted = true
+	visible = not suppressed
 	layout(res)
 
 func hide_panel() -> void:
+	_wanted = false
 	visible = false

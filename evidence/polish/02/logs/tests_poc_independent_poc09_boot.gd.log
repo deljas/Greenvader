@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS normal_entry_is_old_game res://scenes/main.tscn
+PASS run_game_bat_is_old_game no poc reference
+PASS run_poc_bat_launches_poc_scene @echo off | cd /d "%~dp0.." | start "" "C:\godot\Godot_v4.7.2-stable_win64.exe" --path "%~dp0.." res://scenes/poc.tscn | 
+PASS poc_scene_exists 
+PASS change_scene_to_file_ok 
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS poc_is_current_scene Poc:<Node#50583307741>
+PASS title_shown_at_start menu=title
+PASS title_session_is_town_01 112x112
+PASS game_time_frozen_on_title elapsed 0.000
+PASS new_game_button_exists 
+PASS title_closed_after_new_game 
+PASS town_01_started start cell (88, 86) nests=3 zones=2
+PASS game_runs_after_new_game 
+PASS map_identity_town_01 
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS ground_cover_present 
+PASS density0_hides_cover visible soil cells 0
+PASS start_state_same_as_reference 
+PASS greening_progressed_in_run greened 9463
+PASS greened_target_equal_with_hidden_ground greened 9463 vs 9463 (targets 9463) after 600 s; zones [3, 3] vs [3, 3]
+PASS density_changes_only_display visible soil 0 -> 5609; greened 9463
+PASS density_0.3_no_count_change 
+PASS day_night_display_cycle_no_divergence hour now 11:12（昼）
+INFO badge 99: 内部緑化率 99％（9462/9463） / 開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】 ratio=0.99989432526683
+PASS 99_point_x_shows_99 ratio 0.999894
+PASS exact_all_shows_100_and_done 内部緑化率 100％（9463/9463）　★緑化完了 / 開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】
+RESULT passes=24 failures=0
+WARNING: 102 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

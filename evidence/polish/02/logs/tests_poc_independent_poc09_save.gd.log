@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS a.zone1_stable [3, 2]
+PASS a.far_in_progress_at_save t=22.0 job_zone=1 round_active=false labelling_busy=true
+INFO a before save: far job_zone=1 round_active=false cursor=0 greened=664/9463
+PASS a.save 
+PASS a.load 
+PASS a.far_still_in_progress_after_save 
+PASS a.obs_equal_right_after_load 
+PASS a.obs_equal_after_120s greened 664 -> 3367 / 3367
+PASS a.no_rollback_and_progressed 
+PASS a.same_completion_time_and_state A=323.0 B=323.0 zones [3, 3]/[3, 3]
+INFO b walked to cell (35, 110) zone 1
+PASS b.player_is_downed hp=0
+PASS b.far_active_while_downed job_zone=1 round_active=false
+PASS b.save_while_downed 
+PASS b.load 
+PASS b.restored_not_downed_in_safe_zone downed=false zone=0 hp=10 pos_cell=(88,86) (saved at cell (35, 110))
+PASS b.world_not_rolled_back greened 664 vs 664 zones [3, 2]
+PASS b.tiles_equal_and_far_same far_active=true ticks 41/41
+PASS b.live_revived_in_safe_zone 
+PASS b.clocks_aligned diff=0.0000
+PASS b.world_equal_after_equal_time greened 1705 / 1705
+PASS c.save_load_downed_combat 
+PASS c.restored_ok boars 8/8 nests 3/3
+PASS t.clock_not_advanced_by_real_wait_or_saved_at 110.0000 vs 110.0000
+PASS t.future_saved_at_no_effect 
+PASS t.paused_real_time_no_progress 
+PASS t.unpause_not_lump_sum advanced 0.250 game s after a 5 s real gap (cap 0.25)
+PASS t.fast_forward_still_capped_per_frame advanced 4.000
+PASS cleanup_own_namespace 
+RESULT passes=27 failures=0

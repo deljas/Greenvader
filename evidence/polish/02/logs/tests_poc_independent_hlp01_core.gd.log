@@ -1,0 +1,94 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+INFO farm: 4 cultivated plants placed
+INFO farm: 4 cultivated plants placed
+PASS drop.farm_placed 
+PASS drop.none_before_maturity t=5s
+INFO drops: t=1505 mature=4 dropped=35 on_ground=6 first_drop_t=100 rolls<=300 chance=0.12
+PASS drop.mature_plants_drop_rarely dropped=35 of <=300 rolls
+PASS drop.deterministic_same_seed_same_steps 
+PASS drop.ground_cap_respected 
+PASS collect.not_from_afar dist=26.0
+PASS collect.walk_up_increases_helper_seeds helper seeds 0 -> 3, dist 2.0
+INFO farm collect: play.seeds 20->22 play.pickups 21->19 (ordinary fruit may be picked on the way)
+PASS nest.reward_items_appear items=3 (data 3)
+PASS nest.reward_near_nest 
+PASS nest.no_second_reward 
+PASS nest.reward_collectable helper seeds 3
+PASS nest.helper_seed_separate_from_ordinary_seed ordinary fruit dropped 4 -> play.seeds +4; helper seeds 3
+PASS place.free_blocks_found 
+PASS place.gatlinger_ok_cost cost 2
+PASS place.gatlinger_occupies_4x4_helper_band 
+PASS place.sprinkler_ok_cost cost 2
+PASS place.sprinkler_occupies_4x4_helper_band 
+PASS place.army_ok_cost cost 3
+PASS place.army_occupies_4x4_helper_band 
+PASS place.green_and_target_unchanged 484/9463 recount 484
+INFO reject occupied_helper -> code=occupied reason=ほかの植物がある場所には置けない
+PASS reject.occupied_helper_refused_with_reason 
+INFO reject occupied_overlap -> code=occupied reason=ほかの植物がある場所には置けない
+PASS reject.occupied_overlap_refused_with_reason 
+INFO reject immature -> code=immature reason=成熟した緑地の上にだけ置ける（未緑化・成長中のマスがある）
+PASS reject.immature_refused_with_reason 
+INFO reject building -> code=terrain reason=建物・水など緑化できない地面には置けない
+PASS reject.building_refused_with_reason 
+INFO reject water -> code=terrain reason=建物・水など緑化できない地面には置けない
+PASS reject.water_refused_with_reason 
+INFO reject nest -> code=nest reason=巣の上には置けない
+PASS reject.nest_refused_with_reason 
+INFO reject occupied_cultivated -> code=occupied reason=ほかの植物がある場所には置けない
+PASS reject.occupied_cultivated_refused_with_reason 
+INFO reject range -> code=range reason=遠すぎて置けない（射程 4.0m）
+PASS reject.range_refused_with_reason 
+INFO reject cost -> code=cost reason=おたすけたねが足りない（必要 2・所持 1）
+PASS reject.cost_refused_with_reason 
+PASS reject.all_cases_present ["occupied_helper", "occupied_overlap", "immature", "building", "water", "nest", "occupied_cultivated", "range", "cost"]
+PASS reject.state_unchanged_nest 
+PASS reject.state_unchanged_helper 
+PASS reject.state_unchanged_range 
+PASS reject.state_unchanged_cost 
+PASS limit.reaches_data_limit plants=6 limit=6
+PASS limit.refused_and_unchanged 
+PASS place.counters_consistent 
+PASS lift.ok_no_cost_no_dup 
+PASS lift.cells_free_and_still_green 
+PASS saveCarry.save_ok 
+PASS saveCarry.load_ok 
+PASS saveCarry.no_dup_no_loss 
+PASS replaceAfterLoad.free_same_uid_hp 
+PASS replace.free_same_uid 
+PASS savePlaced.roundtrip 
+PASS lift.too_far_refused 
+PASS pause.no_collect_no_age_no_roll 
+PASS pause.resumes_collect 
+PASS pause.no_damage hp 8
+PASS pause.damage_resumes hp 8 -> 7
+INFO slot top-level keys: ["format_version", "map_id", "map_hash", "game_elapsed", "saved_at", "world", "growth", "spread", "far", "clock", "play", "enemies", "helpers", "wall_growth", "weather", "session", "combat_stats", "ui"] format_version=2.0
+PASS saveReject.control_unmodified_loads 
+PASS saveReject.version_1 code=version reason=セーブの形式が違うため読み込めません（保存 v1 / 現在 v2）。
+PASS saveReject.version_1_live_untouched 
+PASS saveReject.version_3 code=version reason=セーブの形式が違うため読み込めません（保存 v3 / 現在 v2）。
+PASS saveReject.version_3_live_untouched 
+PASS saveReject.no_helpers_section code=missing_key reason=セーブデータの必須項目「helpers」が欠けています。
+PASS saveReject.no_helpers_section_live_untouched 
+PASS saveReject.seeds_over_max code=invalid reason=セーブデータの値が範囲外または不整合です（helpers の資源・時間）。
+PASS saveReject.seeds_over_max_live_untouched 
+PASS saveReject.seeds_negative code=invalid reason=セーブデータの値が範囲外または不整合です（helpers の資源・時間）。
+PASS saveReject.seeds_negative_live_untouched 
+PASS saveReject.plant_hp_over_max code=invalid reason=セーブデータの値が範囲外または不整合です（helpers.plants の値）。
+PASS saveReject.plant_hp_over_max_live_untouched 
+PASS saveReject.plant_hp_zero code=invalid reason=セーブデータの値が範囲外または不整合です（helpers.plants の値）。
+PASS saveReject.plant_hp_zero_live_untouched 
+PASS saveReject.plant_out_of_map code=invalid reason=セーブデータの値が範囲外または不整合です（helpers.plants の値）。
+PASS saveReject.plant_out_of_map_live_untouched 
+PASS saveReject.plant_unknown_kind code=invalid reason=セーブデータの値が範囲外または不整合です（helpers.plants の値）。
+PASS saveReject.plant_unknown_kind_live_untouched 
+PASS saveReject.plant_moved_off_occupancy code=invalid reason=セーブデータの値が範囲外または不整合です（helpers（占有・数の不整合））。
+PASS saveReject.plant_moved_off_occupancy_live_untouched 
+PASS saveReject.duplicate_plant code=invalid reason=セーブデータの値が範囲外または不整合です（helpers.plants の値）。
+PASS saveReject.duplicate_plant_live_untouched 
+PASS saveReject.pickup_out_of_range code=invalid reason=セーブデータの値が範囲外または不整合です（helpers.pickups）。
+PASS saveReject.pickup_out_of_range_live_untouched 
+PASS saveReject.carried_and_placed_same_uid code=invalid reason=セーブデータの値が範囲外または不整合です（helpers.carried の値）。
+PASS saveReject.carried_and_placed_same_uid_live_untouched 
+RESULT passes=77 failures=0

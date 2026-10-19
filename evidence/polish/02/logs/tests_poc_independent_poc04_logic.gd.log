@@ -1,0 +1,61 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS 2.0 found a shot-blocking wall with free ground on both sides wall at (31,25)
+PASS 2.1 line player->boar crosses a shot-blocking cell (own oracle) 
+PASS 2.2 shot through wall: boar HP intact, shot blocked hp=3 blocked=1
+PASS 2.3 control line is clear 
+PASS 2.4 control: clear line hits boar (HP 3->2) hp=2
+PASS 2.5 island cell: base terrain is not water and water lies between 
+PASS 2.6 shot flies over water and hits boar on island hp=2
+PASS 2.7 nearest enemy before the wall is hit (near 3->2, far unchanged 2) near=2 far=2
+PASS 4.0a target set == own recomputation (no building/water/sealed) state=1170 own=1170 mismatch=0
+PASS 4.0b no target cell is water/building/obstacle bad=0
+PASS 4.0c island cells are targets 
+PASS 4.0d island is isolated by water (4-connected land component == 9 cells) size=9
+PASS 1.0 every nest has a walk-reachable cell within shooting range (<=15 cells) 
+INFO bound(pre)=127.0 targets=1170 initial green=30
+PASS 1.1 spawning is active while nests live and capped (total<=8, per-nest<=3) spawned=8 max_total=8 max_per_nest=3
+PASS 1.1b boars hit the cap (cap actually binds: total==8 or per-nest==3 reached) max_total=8
+PASS 2.8 120s idle: boar feet always on walkable non-water cells; never in safe zone 0 bad=0 in_safe=0
+PASS 1.2 seed direct hit damages the nest (-1) hp 10->9
+PASS 1.2b the seed was consumed and did not scatter on the nest 
+PASS 1.3 seed direct hit damages a boar hp 3->2
+PASS 1.4 nest 1 destroyed by shots iter=9
+PASS 1.5 nest defeat reward: seed fruits dropped (owner nest) or credited directly drops=3 direct=0
+PASS 1.6 collecting the reward raises the seed count seeds=3
+PASS 3.1 downed mid-fight -> revived in safe zone; nest stays destroyed, zone state/greened not rolled back down=true zone=0 nests=2 st=0 g=31->31
+PASS 3.2 nest 1 destroyed 
+PASS 3.2 nest 2 destroyed 
+PASS 3.2 nest 3 destroyed 
+PASS 3.3 all nests destroyed -> zone 1 CLEARING (not yet stable) while boars remain (or already stable if none) state=1 boars=8
+PASS 3.4 no new boar spawned after the last nest fell spawned 8->8 hunts=23
+PASS 3.5 zone stayed CLEARING until the last boar was removed 
+PASS 3.6 last enemy removed -> zone 1 STABLE (state 2) state=2
+INFO zone_times[1]={ 0: 0.0, 1: 134.299999999997, 2: 143.599999999997 } log=["イノシシの原の巣をすべて壊した", "イノシシの原が安定した"]
+PASS 3.7 zone timeline order UNCONQUERED(0) < CLEARING(1) < STABLE(2) in game time { 0: 0.0, 1: 134.299999999997, 2: 143.599999999997 }
+PASS 3.7b exactly one clearing notice sequence; region cleared not yet (target not 100%) cleared=0
+PASS 1.7 boar kill left carcass(es) (total_carcasses>0), corpse -> bone -> gone 
+INFO carcasses now=8 total=8
+PASS 3.8 downed after stabilization -> revived; greened count & zone states not rolled back g 35->37
+INFO t_stable=143.599999999997 bound=127.0 deadline=270.599999999997 t_done=245.249999999997 elapsed_after_stable=101.65 green=1170/1170 own=(1170, 1170)
+PASS 3.9 stable zone never re-invaded and no new spawns while waiting invaded=0
+PASS 3.10 greened count never decreased after stabilization 
+PASS 4.1 greened == target_count (state) within the pre-computed bound, no input/resources elapsed_after_stable=101.7 bound=127.0
+PASS 4.2 own recount agrees: all expected targets stage>=2 (1170, 1170)
+PASS 4.3 island cells greened 
+PASS 4.4 no shots fired / seeds untouched during wait 
+PASS 4.5 percent == 100 and zones COMPLETE/cleared pct=100 st=3 cleared=true
+PASS 2.9 300s chasing plants: boar feet never on wall/building/water (0 violations) plants=165 bad=0 gnawed=1179 maxboars=8
+PASS 2.10 boars never left zone 1 into safe zone zone_bad=0
+PASS 1.8 boar killed -> carcass exists (corpse stage) killed=1 corpse=1
+PASS 1.9 corpse becomes bone after ~carcass_seconds corpse=0 bone=1
+PASS 1.10 bone disappears after ~bone_seconds 
+INFO placed ["carrot:{ \"ok\": true, \"reason\": \"\", \"landing\": (122.0, 96.0) } plants=1", "kiwi:{ \"ok\": true, \"reason\": \"\", \"landing\": (122.0, 112.0) } plants=1"]
+PASS 5.0 cultivated plants placed before stabilization (carrot>=1, kiwi>=1) carrot=1 kiwi=1
+INFO island carrot shot { "ok": true, "reason": "", "landing": (30.0, 30.0) } carrots=2
+INFO occupied target cells by plants=60
+PASS 5.1 stabilized with plants present state=2
+INFO S2 t_stable=22.6 bound=127.0 t_done=118.7 green=1170/1170 own=(1170, 1170) carrots=2 kiwis=1
+PASS 5.2 with carrot/kiwi planted before stabilization, 100% within bound elapsed_after_stable=96.1 bound=127.0
+INFO missing cells (first 10): [] count=0
+FAILS=0

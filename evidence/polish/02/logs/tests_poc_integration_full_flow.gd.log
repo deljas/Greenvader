@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS A0.new_game_defaults seeds=20 water=100 hp=10 helpers seeds=0 viewpoint=(78, 76)
+PASS A1.sow_and_water landing=8 planted tiles=47 seeds 20->12 water 100->20
+PASS A2.cultivated_plants cultivated plants placed=3 (selected via cycle_plant, shot onto mature ground)
+PASS A-LOOKOUT.stop_and_return { "reached_spot": true, "entered": true, "frozen": true, "fire_refused": true, "left": true, "resumed_exact_plus_1s": true, "panel": "見晴らし台｜展望\n内部緑化率 6％（616/9463）\n時刻 08:48（昼）　天気 晴れ\nEsc / E で戻る", "t_game": 20.2, "snap": { "percent": 6, "clock": "08:48", "weather": "晴れ" }, "calm_dropped_sounds": 1 }
+PASS A3.growth_and_first_helper mature at +65.9 s; sown stages [0, 0, 0, 0, 47]; helpers placed=1; helper seeds drops=2 collected=2
+PASS A4.three_nests_destroyed nest log=[{ "nest": 3, "result": "dead", "t_start": 149.9, "t_end": 159.5, "helper_seeds_after": 0, "helpers": 1 }, { "nest": 1, "result": "dead", "t_start": 170.2, "t_end": 182.1, "helper_seeds_after": 2, "helpers": 2 }, { "nest": 2, "result": "dead", "t_start": 209.0, "t_end": 228.1, "helper_seeds_after": 3, "helpers": 3 }] downs=0
+PASS A5.remaining_removed_then_stable hunted=0 spawned=9 (at clearing 9)
+PASS A6.helper_plants_placed_and_moved placed=["gatlinger", "sprinkler", "army"] relocations=1 alive=3 lost=0 helper seeds dropped=5 collected=10 nest rewards=9 events=["t=103.0 helper seed pickup (77, 75): 0 -> 1", "t=140.9 helper seed pickup (81, 85): 1 -> 2", "t=145.7 place gatlinger at (64, 72) -> true  (helper seeds left 0)", "t=160.5 helper seed pickup (91, 42): 0 -> 1", "t=161.5 helper seed pickup (88, 38): 1 -> 3", "t=168.3 place sprinkler at (64, 76) -> true  (helper seeds left 1)", "t=170.2 helper seed pickup (80, 76): 1 -> 2", "t=184.1 helper seed pickup (17, 96): 2 -> 4", "t=190.4 place army at (64, 80) -> true  (helper seeds left 1)", "t=235.9 gatlinger lifted (carried=true) and re-placed at (62, 66) -> true "]
+INFO stable at 228.1 s bound 389.0 limit 617.1 greened 2075/9463
+PASS A7.no_reinvasion_after_stable invaded steps=0
+PASS A8.exact_100_percent_within_bound_with_island greened 9463/9463 at 490.6 s = 262.5 s after stable; bound 389.0 s (67% used); island ok=true
+PASS A9.no_input_after_stable position kept, launched 76->76, hits 0->0
+PASS A10.zone_complete_and_notice zone_state=[3, 3] notices=1 log=["廃街区の巣をすべて壊した", "廃街区が安定した", "廃街区の緑化が完了した", "すべての地域を緑化した"]
+PASS A11.sound_requests_recorded requested(last 223)={ "seed": 68, "water": 8, "pickup": 79, "place": 4, "hit": 57, "nest": 3, "zone": 3, "clear": 1 } started=223 birds=42 dropped_calm=1
+INFO weather seen { "晴れ": 225.0, "曇り": 125.0, "雨": 140.0 } phases { "昼": 235.0, "朝夕": 15.0, "夜": 240.0 }
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS A12.completion_display badge=[内部緑化率 100％（9463/9463）　★緑化完了 / 開始安全地帯:緑化完了　廃街区:緑化完了　【全地域緑化】]
+PASS A13.lookout_notice_hidden_while_viewing hint=[E：見晴らし台から街を見渡す] viewing=true notice in view=[] after tick=[]
+RESULT passes=15 failures=0

@@ -1,0 +1,66 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS c1 scene has session+sun 
+PASS c1 start hour = tuning start h=8.000
+PASS c1 pause: hour & elapsed unchanged e=0.000000
+PASS c1 resume: no catch-up jump 
+PASS c1 0.5s advance moves exactly 0.5/600*24h dh=0.02000
+PASS c1 hour(elapsed=300)=20 h=20.000
+  morning h=8.0 e=0.77 s=0.44 w=-0.77 n=-0.44 elev=27.5 energy=0.800
+  early h=7.0 e=0.94 s=0.25 w=-0.94 n=-0.25 elev=14.2 energy=0.800
+  noon h=12.0 e=0.00 s=0.57 w=0.00 n=-0.57 elev=55.0 energy=0.800
+  evening h=16.5 e=-0.86 s=0.36 w=0.86 n=-0.36 elev=21.0 energy=0.800
+  late h=17.5 e=-0.98 s=0.13 w=0.98 n=-0.13 elev=7.2 energy=0.334
+  night h=23.0 e=0.16 s=0.58 w=-0.16 n=-0.58 elev=53.1 energy=0.096
+  dawn h=6.5 e=0.98 s=0.13 w=-0.98 n=-0.13 elev=7.2 energy=0.427
+PASS c2 morning light comes from east side, not west 
+PASS c2 noon light from south side, max elevation 
+PASS c2 noon not from north 
+PASS c2 evening light from west side 
+PASS c2 sweep monotone east->south->west 
+PASS c2 night: sun energy tiny/moon, light still above horizon (shadow caster stays) en=0.096 elev=53.1
+PASS c2 noon energy > night energy 0.800 > 0.096
+PASS c2 hard shadow enabled 
+PASS c3 provider connected 
+PASS c3 factor >=1.0 always, max>=1.2 min=1.0000 max=1.2500
+PASS c3 night factor exactly 1.0 
+PASS c3 factor independent of moisture 
+PASS c3 gain_for(night,dry)>=1 gain=1000
+PASS c3 night+dry growth increases 0 -> 1000
+PASS c3 noon gain >= night gain (wet) 2500 >= 2000
+PASS c4 paving configured 
+PASS c4 paved cells exist & are targets paved=72 target=11
+PASS c4 water/building never target 
+PASS c4 target_count matches recount 
+PASS c4 both cell kinds found 
+PASS c4 paved cell counts as greened 
+PASS c4 soil cell counts as greened equally 
+PASS c4 sprout1 greened parity 
+PASS c4 density changes display 58 -> 18
+PASS c4 greened/target unchanged by density 
+PASS c4 density 0 still same counts 
+PASS c5 wall entries exist n=2
+PASS c5 entry with roots+moss chapel_01
+PASS c5 roots have target cells around base n=96
+PASS c5 no ground greening -> no progress p=0.000000
+PASS c5 greened roots -> progress grows 0.000000 -> 12.444444
+PASS c5 pause: no wall growth 
+PASS c5 green lost -> stop & keep progress 12.444444 vs 12.444444
+PASS c5 load_dict ok 
+PASS c5 roundtrip progress equal 12.444444 vs 12.444444
+PASS c5 bad version rejected 
+PASS c5 groups per building instance ["chapel_01", "mill_01"]
+PASS c5 each group is own node named by instance 
+PASS c5 chapel_01 no vine point inside a door opening pts=544 hits=0
+PASS c5 chapel_01 moss mesh verts outside doors verts=8286 inside=0
+  chapel_01 own vine-only cover ratio(leaf r.20)=0.075  (moss excluded), layout ratio=0.191
+PASS c5 chapel_01 visible wall >=50% (own: 1-vine cover) visible=0.925
+PASS c5 mill_01 no vine point inside a door opening pts=152 hits=0
+PASS c5 mill_01 moss mesh verts outside doors verts=3858 inside=0
+  mill_01 own vine-only cover ratio(leaf r.20)=0.067  (moss excluded), layout ratio=0.227
+PASS c5 mill_01 visible wall >=50% (own: 1-vine cover) visible=0.933
+DONE fails=0
+WARNING: 53 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 32 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

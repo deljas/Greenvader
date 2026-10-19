@@ -11,6 +11,7 @@ const HELP_LINES: Array[String] = [
 	"種をまく　左クリック　　水をまく　右クリック",
 	"植物の切替　Tab / マウスホイール",
 	"Esc　メニュー（再開・保存・読込・操作説明）",
+	"T　画面の文字の表示/非表示（景色を見る・撮る時）",
 	"F2　解像度（640×360 / 960×540）　F3　倍速",
 	"保存　メニューの「保存」または F5（1枠）",
 	"読込　メニューの「読込」（保存がある時のみ）",
@@ -33,6 +34,8 @@ var help_back: StringName = &"back_pause"
 ## Controls that must stop game clicks while visible (PocMain adds them to its ui_controls).
 var blockers: Array[Control] = []
 var _toast_left: float = 0.0
+## POL-02: false keeps the badge and the toast hidden (menus are not affected).
+var text_visible: bool = true
 var _theme: Theme = Theme.new()
 
 func _ready() -> void:
@@ -177,13 +180,18 @@ func set_menu_message(text: String) -> void:
 
 func show_toast(text: String, seconds: float = 3.0) -> void:
 	toast.text = text
-	toast.visible = true
+	toast.visible = text_visible
 	_toast_left = seconds
 
 func set_badge(percent: int, greened: int, targets: int, zones: String) -> void:
 	var full: bool = targets > 0 and greened == targets
 	badge.text = "内部緑化率 %d％（%d/%d）%s\n%s" % [percent, greened, targets, "　★緑化完了" if full else "", zones]
 	badge.add_theme_color_override(&"font_color", Color("ffd34a") if full else Color("e8f5d6"))
+
+func set_text_visible(value: bool) -> void:
+	text_visible = value
+	badge.visible = value
+	toast.visible = value and _toast_left > 0.0
 
 func tick(delta: float) -> void:
 	if _toast_left > 0.0:

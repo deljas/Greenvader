@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS load_town_01 size (112, 112)
+PASS debug_refill_off 
+INFO oracle target cells=9463 state.target_count=9463 target terrain ids=[1, 2, 0, 6]
+PASS oracle_target_count_matches 
+INFO target components (8-neigh) sizes=[9447, 16]
+INFO island rect [52,53,4,4] target cells=16
+INFO start pos cell=(88, 86) seeds=20 water=100 hp=10
+PASS hand_sow_and_water_by_fire_api sowed=3 water=true
+PASS combat_zone_is_1 
+INFO t=300 stuck=65 pos=(83, 69) seeds=40 hp=10 nests=3 boars=8 downs=0
+INFO t=600 stuck=133 pos=(87, 46) seeds=31 hp=8 nests=3 boars=6 downs=0
+INFO t=900 stuck=196 pos=(74, 78) seeds=37 hp=8 nests=2 boars=6 downs=0
+INFO t=1200 stuck=264 pos=(83, 82) seeds=40 hp=8 nests=2 boars=6 downs=0
+INFO t=1500 stuck=339 pos=(89, 95) seeds=40 hp=8 nests=2 boars=6 downs=0
+INFO t=1800 stuck=414 pos=(95, 82) seeds=40 hp=8 nests=2 boars=6 downs=0
+INFO t=2100 stuck=489 pos=(81, 86) seeds=40 hp=8 nests=2 boars=6 downs=0
+INFO t=2400 stuck=564 pos=(91, 94) seeds=40 hp=8 nests=2 boars=6 downs=0
+INFO t=2700 stuck=639 pos=(91, 80) seeds=40 hp=8 nests=2 boars=6 downs=0
+FAIL zone_reached_stable_by_play t_stable=-1.0 game s (limit 3000), shots=39, downs=0, wallclock=46.4s
+RESULT passes=5 failures=1

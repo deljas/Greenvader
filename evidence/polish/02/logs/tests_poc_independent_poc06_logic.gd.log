@@ -1,0 +1,45 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS veg.grown progress=36.000000
+PASS base.open_ground_nothing_faded 
+PASS oracle.cells walkable cells=201 occluded cells=123 multi=10
+PASS oracle.no_missing missing=0 ["extra chapel_01 at 32,2", "extra tree_01 at 36,12", "extra tree_01 at 38,14", "extra tree_02 at 2,16", "extra hydrant_01 at 18,22", "extra shelter_01 at 18,28"]
+INFO extra(impl superset via lateral/fine tri)=9
+PASS targets.only_instances 
+PASS same_glb.only_one_faded tree_01=0.400000 tree_02=1.000000
+PASS same_glb.case_found 
+PASS mill.found 
+PASS veg.follows_mill veg transparency=0.600000
+PASS veg.others_untouched max other=0.000000 (veg ids ["chapel_01", "mill_01"])
+PASS ground.water.unchanged 
+PASS display_only.state_equal_during_fade 
+PASS restore.snapshot_differs_while_faded 
+PASS restore.none_faded_after []
+PASS restore.materials_identical 
+PASS restore.no_copies 
+PASS restore.veg_zero 
+PASS display_only.state_equal_after 
+PASS flicker.alternating_every_frame flips=0
+PASS flicker.hold_keeps_fade_0.2s 
+PASS restore.after_hold 
+PASS resolution.still_only_mill ["mill_01"]
+PASS resolution.copies_not_duplicated shadow=14 reflect=14
+PASS resolution.restores 
+PASS rebuild.only_mill_faded ["mill_01"]
+PASS rebuild.others_opaque 
+PASS rebuild.restores_no_orphans 
+PASS bind_while_faded.no_stale 
+PASS tuning.default_matches_file 
+PASS tuning.alt_loaded 
+PASS tuning.alpha_applied_0.2 alpha=0.200000
+PASS tuning.veg_applied veg=0.800000
+PASS tuning.hold_1.0_applied 
+PASS tuning.released_after_hold 
+PASS restore.after_alt 
+PASS rebuild.gap_frame_then_bind_clean fading=[]
+PASS display_only.no_logic_reference_to_occlusion refs=0
+RESULT fails=0
+WARNING: 53 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 32 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
