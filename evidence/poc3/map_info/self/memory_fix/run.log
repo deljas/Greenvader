@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "initial_nest_and_fossil_outside_camera", "status": "PASS" }
+{ "name": "transient_detection_records_both_immediately", "status": "PASS" }
+{ "name": "departure_before_reveal_keeps_both_memories", "status": "PASS" }
+{ "name": "terrain_reveal_cadence_unchanged", "status": "PASS" }
+{ "name": "discovery_does_not_collect_or_activate", "status": "PASS" }
+{ "name": "transient_memories_survive_save_restore", "status": "PASS" }

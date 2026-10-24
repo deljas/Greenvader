@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"name":"fixed_nest_transient_display_is_remembered","status":"PASS"}
+{"name":"exploration_fossil_transient_display_is_remembered","status":"PASS"}
+{"name":"periodic_terrain_and_collection_activation_unchanged","status":"PASS"}
+{"name":"transient_memories_save_restore_without_collection_or_activation","status":"PASS"}

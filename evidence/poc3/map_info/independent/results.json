@@ -1,0 +1,283 @@
+{
+  "checks": [
+    {
+      "name": "camera_source_and_unseen_remote",
+      "observations": {
+        "camera_point": "(680.0, 600.0)",
+        "remote_point": "(162.0, 202.0)"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "living_helper_source_only",
+      "observations": {
+        "dead_helper_detected": false,
+        "living_helper_detected": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "fixed_memory_and_mother_no_memory",
+      "observations": {
+        "dead_fixed_hidden": true,
+        "fixed_memory_paler": true,
+        "mother_no_memory": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "green_source_loss_hides_enemy_but_keeps_history",
+      "observations": {
+        "green_detected": true,
+        "known_after_loss": 1.0
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "fossil_seed_green_discovery_memory",
+      "observations": {
+        "discovered_without_unlock": true,
+        "memory_after_green_loss": true,
+        "seed_hidden": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "discovery_memory_survives_save_load",
+      "observations": {
+        "load_ok": false,
+        "remembered_without_unlock": false,
+        "save_ok": true
+      },
+      "status": "FAIL"
+    },
+    {
+      "name": "invalid_discovery_types_rejected_without_mutation",
+      "observations": {
+        "numeric_fossil_rejected": true,
+        "string_nest_rejected": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "earlier_poc3_discovery_defaults_false",
+      "observations": {
+        "restore_ok": false
+      },
+      "status": "FAIL"
+    },
+    {
+      "name": "approach_collects_unlocks_and_removes_icon",
+      "observations": {
+        "carrot_unlocked": true,
+        "found": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "nest_reward_preserved_without_ground_icon",
+      "observations": {
+        "ground_icon_hidden": true,
+        "wheat_unlocked": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "minimap_water_expected_from_authoritative_terrain",
+      "observations": {
+        "authoritative_paint": "water rect [109,1,6,222]",
+        "cell": "112,112",
+        "provided_minimap_water_pixels": 912.0,
+        "raster_center_color": "4d8eab",
+        "source_color": "4d8eab",
+        "terrain_id": 3.0
+      },
+      "status": "PASS"
+    }
+  ],
+  "context": {
+    "actual_diff": "diff --git a/scripts/poc2/poc2_session.gd b/scripts/poc2/poc2_session.gd\nindex 364ecc2..06c5247 100644\n--- a/scripts/poc2/poc2_session.gd\n+++ b/scripts/poc2/poc2_session.gd\n@@ -2,6 +2,7 @@ extends RefCounted\n ## PoC2 owns all gameplay mutations and one clock. Rendering is a read-only client.\n const Config: GDScript = preload(\"res://scripts/poc/poc_config.gd\")\n const Coords: GDScript = preload(\"res://scripts/poc/poc_coords.gd\")\n+const CameraGeometry: GDScript = preload(\"res://scripts/poc2/view/camera_geometry.gd\")\n const PlacementScript: GDScript = preload(\"res://scripts/poc/assets/placement.gd\")\n const Day: GDScript = preload(\"res://scripts/poc/environment/poc_day.gd\")\n const Walls: GDScript = preload(\"res://scripts/poc/environment/wall_growth.gd\")\n@@ -105,7 +106,7 @@ func _setup() -> void:\n  for row: Dictionary in map_data.nests:\n   combat_system.add_nest(row)\n  for row: Dictionary in map_data.fossils:\n-  fossils.append({\"id\":allocate_id(),\"kind\":\"fossil\",\"pos\":Coords.cell_center_logic(Vector2i(row.cell[0],row.cell[1])),\"unlock\":row.unlock,\"found\":false,\"nest_id\":-1})\n+  fossils.append({\"id\":allocate_id(),\"kind\":\"fossil\",\"pos\":Coords.cell_center_logic(Vector2i(row.cell[0],row.cell[1])),\"unlock\":row.unlock,\"found\":false,\"discovered\":false,\"nest_id\":-1})\n  known.resize(state.tile_count())\n  visible.resize(state.tile_count())\n  reveal()\n@@ -199,21 +200,36 @@ func _check_zone() -> void:\n \n func reveal() -> void:\n  visible.fill(0)\n- var points: Array[Vector2] = [position]\n- for h: Dictionary in helpers:\n-  points.append(h.pos)\n- for p: Vector2 in points:\n-  for i: int in Landing.tiles_in_radius(state,4,p,72.0):\n+ var camera_inverse: Transform3D = CameraGeometry.transform_for(position).affine_inverse()\n+ # Terrain history remains persistent; current detection also covers green land.\n+ for i: int in state.tile_count():\n+  var cell: Vector2i = Vector2i(i % state.width,i / state.width)\n+  if state.stage[i] >= WorldState.GREENED_MIN_STAGE or CameraGeometry.contains_ground(Coords.cell_center_logic(cell),camera_inverse):\n    visible[i] = 1\n    known[i] = 1\n- # Green land is always known; dynamic enemy visibility still needs current vision.\n- for i: int in state.tile_count():\n-  if state.stage[i] >= WorldState.GREENED_MIN_STAGE:\n+ for h: Dictionary in helpers:\n+  if float(h.get(\"hp\",1.0)) <= 0.0: continue\n+  for i: int in Landing.tiles_in_radius(state,4,h.pos,72.0):\n+   visible[i] = 1\n    known[i] = 1\n+ for nest: Dictionary in nests:\n+  if not bool(nest.mother) and float(nest.hp) > 0.0 and detected(nest.pos):\n+   nest.discovered = true\n  for fossil: Dictionary in fossils:\n+  if not fossil.found and int(fossil.nest_id) < 0 and detected(fossil.pos):\n+   fossil.discovered = true\n   if not fossil.found and int(fossil.nest_id) < 0 and position.distance_to(fossil.pos) <= 12.0:\n    unlock_fossil(fossil)\n \n+func detected(logic: Vector2) -> bool:\n+ var cell: Vector2i = Coords.logic_to_cell(logic)\n+ if not state.in_bounds(cell.x,cell.y): return false\n+ if state.stage[state.index_of(cell.x,cell.y)] >= WorldState.GREENED_MIN_STAGE: return true\n+ if CameraGeometry.contains_ground(logic,CameraGeometry.transform_for(position).affine_inverse()): return true\n+ for helper: Dictionary in helpers:\n+  if float(helper.get(\"hp\",1.0)) > 0.0 and helper.pos.distance_squared_to(logic) <= 72.0*72.0: return true\n+ return false\n+\n func unlock_fossil(fossil: Dictionary) -> void:\n  fossil.found = true\n  unlocked[String(fossil.unlock)] = true\ndiff --git a/scripts/poc2/simulation/combat.gd b/scripts/poc2/simulation/combat.gd\nindex c2ee600..0c3ef1b 100644\n--- a/scripts/poc2/simulation/combat.gd\n+++ b/scripts/poc2/simulation/combat.gd\n@@ -10,11 +10,11 @@ func add_nest(row: Dictionary) -> void:\n  var maximum: float = {\"small\":40.0,\"medium\":100.0,\"large\":240.0}[scale]\n  var pos: Vector2 = Coords.cell_center_logic(Vector2i(row.cell[0],row.cell[1]))\n  pos = free_position(pos)\n- var nest: Dictionary = {\"id\":s.allocate_id(),\"kind\":row.kind,\"pos\":pos,\"home\":pos,\"hp\":maximum,\"max_hp\":maximum,\"scale\":scale,\"mother\":row.kind==\"mother\",\"active\":false,\"last_contact\":-100.0,\"spawn_due\":0.0,\"attack_at\":0.0,\"status\":\"dormant\",\"route_at\":-1.0}\n+ var nest: Dictionary = {\"id\":s.allocate_id(),\"kind\":row.kind,\"pos\":pos,\"home\":pos,\"hp\":maximum,\"max_hp\":maximum,\"scale\":scale,\"mother\":row.kind==\"mother\",\"discovered\":false,\"active\":false,\"last_contact\":-100.0,\"spawn_due\":0.0,\"attack_at\":0.0,\"status\":\"dormant\",\"route_at\":-1.0}\n  s.nests.append(nest)\n  var unlock: String = row.get(\"unlock\",\"\")\n  if not unlock.is_empty():\n-  s.fossils.append({\"id\":s.allocate_id(),\"kind\":\"fossil\",\"pos\":pos,\"unlock\":unlock,\"found\":false,\"nest_id\":nest.id})\n+  s.fossils.append({\"id\":s.allocate_id(),\"kind\":\"fossil\",\"pos\":pos,\"unlock\":unlock,\"found\":false,\"discovered\":false,\"nest_id\":nest.id})\n  for i: int in (2 if scale==\"small\" else 3):\n   spawn(nest,true,i==0 and scale!=\"small\")\n \ndiff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd\nindex 6db0c4b..d19ae5d 100644\n--- a/scripts/poc2/simulation/persistence.gd\n+++ b/scripts/poc2/simulation/persistence.gd\n@@ -147,6 +147,8 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:\n   var typed: Array[Dictionary]=[]\n   for entity: Variant in decoded:\n    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,\"invalid_entity_\"+category)\n+   # Earlier PoC3 working saves have no discovery field; never infer a discovery.\n+   if category in [\"nests\",\"fossils\"] and not entity.has(\"discovered\"): entity.discovered=false\n    if ids.has(entity.id) or entity.id>=vals.next_id: return s.result(false,\"invalid_entity_id\")\n    ids[entity.id]=true\n    typed.append(entity)\n@@ -203,7 +205,7 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c\n   if e.has(key) and not (e[key] is int or e[key] is float): return false\n  for key: String in [\"home\",\"target_pos\",\"bank\",\"charge_dir\",\"target\",\"direction\"]:\n   if e.has(key) and not e[key] is Vector2: return false\n- for key: String in [\"mature\",\"moving\",\"initial\",\"strong\",\"hit_charge\",\"mother\",\"active\",\"found\"]:\n+ for key: String in [\"mature\",\"moving\",\"initial\",\"strong\",\"hit_charge\",\"mother\",\"active\",\"found\",\"discovered\"]:\n   if e.has(key) and not e[key] is bool: return false\n  if category in [\"plants\",\"helpers\"]:\n   if not catalog.has(e.kind) or not e.cell is Vector2i or not e.size is Vector2i or e.cost!=catalog[e.kind].cost or e.max_hp!=catalog[e.kind].hp: return false\ndiff --git a/scripts/poc2/ui/map_ui.gd b/scripts/poc2/ui/map_ui.gd\nindex d14599c..fb209fc 100644\n--- a/scripts/poc2/ui/map_ui.gd\n+++ b/scripts/poc2/ui/map_ui.gd\n@@ -147,8 +147,38 @@ func _rasterize_terrain() -> void:\n \t\tterrain_texture = ImageTexture.create_from_image(image)\n \n func disclosed(logic: Vector2) -> bool:\n-\tvar cell: Vector2i = Coords.logic_to_cell(logic)\n-\treturn session.state.in_bounds(cell.x,cell.y) and session.visible[session.state.index_of(cell.x,cell.y)] != 0\n+\treturn session.detected(logic)\n+\n+func icon_style(category: String, item: Dictionary) -> Dictionary:\n+\tif float(item.get(\"hp\",1.0)) <= 0.0: return {}\n+\tif category in [\"plants\",\"helpers\"]:\n+\t\treturn {\"shape\":\"square\" if category == \"plants\" else \"dot\",\"color\":WorldView.color_for(String(item.get(\"kind\",\"\")))}\n+\tvar live: bool = disclosed(item.pos)\n+\tif category == \"enemies\":\n+\t\treturn {\"shape\":\"dot\",\"color\":Color(\"e87e77\")} if live else {}\n+\tif category == \"nests\":\n+\t\tif bool(item.get(\"mother\",false)):\n+\t\t\treturn {\"shape\":\"mother\",\"color\":Color(\"e87e77\")} if live else {}\n+\t\tif not live and not bool(item.get(\"discovered\",false)): return {}\n+\t\treturn {\"shape\":\"square\",\"color\":Color(\"dc7d65\") if live else Color(\"82675e\")}\n+\tif category == \"fossils\":\n+\t\tif bool(item.get(\"found\",false)) or int(item.get(\"nest_id\",-1)) >= 0: return {}\n+\t\treturn {\"shape\":\"fossil\",\"color\":Color(\"efd99b\")} if live or bool(item.get(\"discovered\",false)) else {}\n+\treturn {}\n+\n+func _draw_icon(at: Vector2, radius: float, style: Dictionary) -> void:\n+\tvar color: Color = style.color\n+\tmatch String(style.shape):\n+\t\t\"square\": draw_rect(Rect2(at-Vector2.ONE*radius,Vector2.ONE*radius*2),color)\n+\t\t\"mother\":\n+\t\t\tvar size_: float = radius+1.0\n+\t\t\tdraw_colored_polygon(PackedVector2Array([at+Vector2(0,-size_),at+Vector2(size_,0),at+Vector2(0,size_),at+Vector2(-size_,0)]),color)\n+\t\t\"fossil\":\n+\t\t\t# The same tiny bone shape in both maps; it reveals no plant name.\n+\t\t\tdraw_rect(Rect2(at+Vector2(-radius,-1),Vector2(radius*2+1,2)),color)\n+\t\t\tdraw_rect(Rect2(at+Vector2(-radius,-radius),Vector2(2,radius*2+1)),color)\n+\t\t\tdraw_rect(Rect2(at+Vector2(radius-1,-radius),Vector2(2,radius*2+1)),color)\n+\t\t_: draw_circle(at,radius,color)\n \n func _draw() -> void:\n \tif session == null: return\n@@ -163,19 +193,14 @@ func _draw() -> void:\n \t_icon_points.clear()\n \tfor category: String in [\"nests\",\"enemies\",\"fossils\",\"plants\",\"helpers\"]:\n \t\tfor item: Dictionary in session.get(category):\n-\t\t\tif float(item.get(\"hp\",1.0)) <= 0.0: continue\n-\t\t\tif category in [\"enemies\",\"nests\",\"fossils\"] and not disclosed(item.pos): continue\n-\t\t\tif category == \"fossils\" and (bool(item.get(\"found\",false)) or int(item.get(\"nest_id\",-1)) >= 0): continue\n+\t\t\tvar style: Dictionary = icon_style(category,item)\n+\t\t\tif style.is_empty(): continue\n \t\t\tvar at: Vector2 = point(item.pos)\n-\t\t\tif not expanded and at.distance_to(map_rect.get_center())>50: continue\n-\t\t\tif expanded and not map_rect.grow(-3).has_point(at): continue\n \t\t\tvar radius: float = 3.0 if expanded else 2.0\n-\t\t\tvar color: Color = WorldView.color_for(String(item.get(\"kind\",\"\")))\n-\t\t\tif category == \"enemies\": color = Color(\"e87e77\")\n-\t\t\telif category == \"nests\": color = Color(\"dc7d65\")\n-\t\t\telif category == \"fossils\": color = Color(\"efd99b\")\n-\t\t\tif category in [\"plants\",\"nests\"]: draw_rect(Rect2(at-Vector2.ONE*radius,Vector2.ONE*radius*2),color)\n-\t\t\telse: draw_circle(at,radius,color)\n+\t\t\tvar margin: float = radius+1.0 if style.shape in [\"mother\",\"fossil\"] else radius\n+\t\t\tif not expanded and at.distance_to(map_rect.get_center())>50: continue\n+\t\t\tif expanded and not map_rect.grow(-margin).has_point(at): continue\n+\t\t\t_draw_icon(at,radius,style)\n \t\t\tif category in [\"plants\",\"helpers\"]:\n \t\t\t\tif expanded:\n \t\t\t\t\t_icon_points.append({\"pos\":at,\"id\":int(item.id),\"helper\":category==\"helpers\",\"item\":item})\ndiff --git a/scripts/poc2/view/world_view.gd b/scripts/poc2/view/world_view.gd\nindex a8c8911..94ee872 100644\n--- a/scripts/poc2/view/world_view.gd\n+++ b/scripts/poc2/view/world_view.gd\n@@ -2,6 +2,7 @@ extends Node3D\n ## PoC2 scene adapter: reuses adopted assets and one dirty-list consumer.\n const Config: GDScript = preload(\"res://scripts/poc/poc_config.gd\")\n const Coords: GDScript = preload(\"res://scripts/poc/poc_coords.gd\")\n+const CameraGeometry: GDScript = preload(\"res://scripts/poc2/view/camera_geometry.gd\")\n const Actor: GDScript = preload(\"res://scripts/poc/poc_actor.gd\")\n const PlacementView: GDScript = preload(\"res://scripts/poc/assets/placement_view.gd\")\n const Ground: GDScript = preload(\"res://scripts/poc/environment/ground_cover.gd\")\n@@ -39,6 +40,7 @@ func build(source: RefCounted, viewport: SubViewport) -> void:\n \tcamera.projection = Camera3D.PROJECTION_ORTHOGONAL\n \tcamera.keep_aspect = Camera3D.KEEP_HEIGHT\n \tcamera.size = Config.CAMERA_SIZE_M\n+\tcamera.near = CameraGeometry.NEAR_M\n \tcamera.far = Config.CAMERA_FAR_M\n \tadd_child(camera)\n \tcamera.current = true\n@@ -113,16 +115,7 @@ static func color_for(kind: String) -> Color:\n \n func sync(dt: float) -> void:\n \tvar foot: Vector3 = Coords.ground3(Coords.logic_to_ground(session.position))\n-\tvar offset: Vector3 = Vector3(0.6123724, 0.5, 0.6123724) * Config.CAMERA_DISTANCE_M\n-\tvar target: Vector3 = foot + Vector3.UP * Config.CAMERA_TARGET_HEIGHT_M\n-\t# Snap camera translation in both camera image axes, without changing simulation positions.\n-\tvar right: Vector3 = Vector3(0.70710678, 0, -0.70710678)\n-\tvar up: Vector3 = Vector3(-0.35355339, 0.8660254, -0.35355339)\n-\tvar pixel: float = camera.size / 360.0\n-\ttarget += right * (snappedf(target.dot(right), pixel) - target.dot(right))\n-\ttarget += up * (snappedf(target.dot(up), pixel) - target.dot(up))\n-\tcamera.position = target + offset\n-\tcamera.look_at(target, Vector3.UP)\n+\tcamera.transform = CameraGeometry.transform_for(session.position)\n \tvar game_dt: float = maxf(float(session.clock.elapsed) - _last_clock, 0.0)\n \t_last_clock = session.clock.elapsed\n \tanimation_time += game_dt",
+    "camera_geometry_source": "extends RefCounted\n## Pure geometry shared by the actual world camera and current map detection.\nconst Config: GDScript = preload(\"res://scripts/poc/poc_config.gd\")\nconst Coords: GDScript = preload(\"res://scripts/poc/poc_coords.gd\")\nconst INTERNAL: Vector2i = Vector2i(640,360)\nconst NEAR_M: float = 0.05\n\nstatic func transform_for(player_logic: Vector2) -> Transform3D:\n\tvar foot: Vector3 = Coords.ground3(Coords.logic_to_ground(player_logic))\n\tvar offset: Vector3 = Vector3(0.6123724,0.5,0.6123724) * Config.CAMERA_DISTANCE_M\n\tvar target: Vector3 = foot + Vector3.UP * Config.CAMERA_TARGET_HEIGHT_M\n\tvar right: Vector3 = Vector3(0.70710678,0,-0.70710678)\n\tvar up: Vector3 = Vector3(-0.35355339,0.8660254,-0.35355339)\n\tvar pixel: float = Config.CAMERA_SIZE_M / float(INTERNAL.y)\n\ttarget += right * (snappedf(target.dot(right),pixel)-target.dot(right))\n\ttarget += up * (snappedf(target.dot(up),pixel)-target.dot(up))\n\treturn Transform3D(Basis.looking_at(-offset,Vector3.UP),target+offset)\n\nstatic func screen_from_local(local: Vector3) -> Vector2:\n\tvar pixels_per_metre: float = float(INTERNAL.y)/Config.CAMERA_SIZE_M\n\treturn Vector2(INTERNAL)*0.5 + Vector2(local.x,-local.y)*pixels_per_metre\n\nstatic func project_ground(logic: Vector2, camera_inverse: Transform3D) -> Vector2:\n\treturn screen_from_local(camera_inverse * Coords.ground3(Coords.logic_to_ground(logic)))\n\nstatic func contains_ground(logic: Vector2, camera_inverse: Transform3D) -> bool:\n\tvar local: Vector3 = camera_inverse * Coords.ground3(Coords.logic_to_ground(logic))\n\treturn local.z <= -NEAR_M and local.z >= -Config.CAMERA_FAR_M and Rect2(Vector2.ZERO,Vector2(INTERNAL)).has_point(screen_from_local(local))\n",
+    "content_reservation": "11:- 予約中の共有資源: 第1段階はなし（Godot実行・import・Git index/commitなし）。第2段階でGodot実行・import（Codex側の実行がないことを確認してから）を予約する",
+    "hashes_before": [
+      {
+        "actual": "2DA3873B19FFFDB054BA78035829424D61D58CAAF5FB1147169BFCAC1AD8AF0A",
+        "expected": "2DA3873B19FFFDB054BA78035829424D61D58CAAF5FB1147169BFCAC1AD8AF0A",
+        "matches": true,
+        "path": "scripts/poc2/poc2_session.gd"
+      },
+      {
+        "actual": "CEF2D0FB81B0C9F2A336251705C49E537C89ED7EE27EA0E8292EE68E74241049",
+        "expected": "CEF2D0FB81B0C9F2A336251705C49E537C89ED7EE27EA0E8292EE68E74241049",
+        "matches": true,
+        "path": "scripts/poc2/simulation/combat.gd"
+      },
+      {
+        "actual": "A8568EF1D10B7E649C62D139ECC923BAA2CE42C4DBA55A44D777968BEB9F6096",
+        "expected": "A8568EF1D10B7E649C62D139ECC923BAA2CE42C4DBA55A44D777968BEB9F6096",
+        "matches": true,
+        "path": "scripts/poc2/simulation/persistence.gd"
+      },
+      {
+        "actual": "3AFE8F25DD40B128CB7E8173D4D9B871669758753AFFC672ED4BE0F419A28E63",
+        "expected": "3AFE8F25DD40B128CB7E8173D4D9B871669758753AFFC672ED4BE0F419A28E63",
+        "matches": true,
+        "path": "scripts/poc2/ui/map_ui.gd"
+      },
+      {
+        "actual": "55F2AFA10D2923662102A462B95AD807F8A1546857F061B7842E12D11CA5C44A",
+        "expected": "55F2AFA10D2923662102A462B95AD807F8A1546857F061B7842E12D11CA5C44A",
+        "matches": true,
+        "path": "scripts/poc2/view/world_view.gd"
+      },
+      {
+        "actual": "97AA6CB30F0A918B8B2CB37F66C7A9589CBC199552799F719686CA58148163F2",
+        "expected": "97AA6CB30F0A918B8B2CB37F66C7A9589CBC199552799F719686CA58148163F2",
+        "matches": true,
+        "path": "scripts/poc2/view/camera_geometry.gd"
+      },
+      {
+        "actual": "4FCE3A0D79B081E8ABD52323011D373D516BBB062D3A1D147CAD291D8E2C2F6A",
+        "expected": "4FCE3A0D79B081E8ABD52323011D373D516BBB062D3A1D147CAD291D8E2C2F6A",
+        "matches": true,
+        "path": "tests/poc3/map_info/self_logic.gd"
+      },
+      {
+        "actual": "80F335663D7DDC3BA7BD76C914771D88527CD968589098D4FE177830D4178001",
+        "expected": "80F335663D7DDC3BA7BD76C914771D88527CD968589098D4FE177830D4178001",
+        "matches": true,
+        "path": "tests/poc3/map_info/self_gpu.gd"
+      }
+    ],
+    "head": "b2420865b900c1f5e91f8fa0827bb48e17c9318c",
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "processes_before": 0.0,
+    "real_saves_before": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "hashes_after": [
+      {
+        "path": "scripts/poc2/poc2_session.gd",
+        "sha256": "2DA3873B19FFFDB054BA78035829424D61D58CAAF5FB1147169BFCAC1AD8AF0A",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/combat.gd",
+        "sha256": "CEF2D0FB81B0C9F2A336251705C49E537C89ED7EE27EA0E8292EE68E74241049",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "sha256": "A8568EF1D10B7E649C62D139ECC923BAA2CE42C4DBA55A44D777968BEB9F6096",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/ui/map_ui.gd",
+        "sha256": "3AFE8F25DD40B128CB7E8173D4D9B871669758753AFFC672ED4BE0F419A28E63",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/view/world_view.gd",
+        "sha256": "55F2AFA10D2923662102A462B95AD807F8A1546857F061B7842E12D11CA5C44A",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/view/camera_geometry.gd",
+        "sha256": "97AA6CB30F0A918B8B2CB37F66C7A9589CBC199552799F719686CA58148163F2",
+        "unchanged": true
+      },
+      {
+        "path": "tests/poc3/map_info/self_logic.gd",
+        "sha256": "4FCE3A0D79B081E8ABD52323011D373D516BBB062D3A1D147CAD291D8E2C2F6A",
+        "unchanged": true
+      },
+      {
+        "path": "tests/poc3/map_info/self_gpu.gd",
+        "sha256": "80F335663D7DDC3BA7BD76C914771D88527CD968589098D4FE177830D4178001",
+        "unchanged": true
+      }
+    ],
+    "real_saves_after": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "real_saves_unchanged": true,
+    "processes_after": 0,
+    "head_after": "b2420865b900c1f5e91f8fa0827bb48e17c9318c",
+    "provided_projection_review": {
+      "in_out_agreement": true,
+      "max_pixel_error": 0.00016434218838272792,
+      "independent_gpu_executed": false,
+      "rows": 7
+    }
+  },
+  "failures": 2.0,
+  "godot": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938.0,
+    "major": 4.0,
+    "minor": 7.0,
+    "patch": 2.0,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0.0
+  },
+  "limited_followup": {
+    "invalid_bool_rechecked_on_valid_state": true,
+    "normal_world_missing_discovery_defaults_false": true,
+    "normal_world_save_load_memory": true,
+    "original_fixture_restore_result": {
+      "ok": false,
+      "reason": "invalid_growth"
+    },
+    "transient_camera_detection": {
+      "discovered_while_displayed": false,
+      "displayed_between_reveals": true,
+      "elapsed": 0.25,
+      "entering_move": "(3.394165, -3.394165)",
+      "initially_hidden": true,
+      "leaving_move": "(-3.394165, 3.394165)",
+      "next_reveal_at": 0.55,
+      "remembered_after_leaving": false,
+      "status": "FAIL",
+      "target": "(502.2525, 268.228)"
+    }
+  },
+  "not_run": [
+    "independent_gpu_native_input",
+    "wide_regression_long_play",
+    "all_lighting_sizes_exported_build"
+  ],
+  "user_data": "C:/godot/greenvader/evidence/poc3/map_info/independent/profile/roaming/Godot/app_userdata/グリーンベーダー",
+  "final_summary": {
+    "unresolved_fail": 1,
+    "storage_followup_pass": 2,
+    "initial_pass": 9,
+    "resolved_conditions_pass": 11,
+    "initial_fail": 2,
+    "additional_transient_memory_fail": 1,
+    "not_run": 3
+  }
+}

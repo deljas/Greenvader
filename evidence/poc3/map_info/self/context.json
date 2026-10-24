@@ -1,0 +1,105 @@
+{
+  "head": "b2420865b900c1f5e91f8fa0827bb48e17c9318c",
+  "import_exit": 0,
+  "logic_exit": 0,
+  "gpu_exit": 0,
+  "real_saves_before": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_after": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_unchanged": true,
+  "override_removed": true,
+  "processes_after": [],
+  "final_head": "b2420865b900c1f5e91f8fa0827bb48e17c9318c",
+  "source_hashes": [
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "2DA3873B19FFFDB054BA78035829424D61D58CAAF5FB1147169BFCAC1AD8AF0A"
+    },
+    {
+      "path": "scripts/poc2/simulation/combat.gd",
+      "sha256": "CEF2D0FB81B0C9F2A336251705C49E537C89ED7EE27EA0E8292EE68E74241049"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "A8568EF1D10B7E649C62D139ECC923BAA2CE42C4DBA55A44D777968BEB9F6096"
+    },
+    {
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "sha256": "3AFE8F25DD40B128CB7E8173D4D9B871669758753AFFC672ED4BE0F419A28E63"
+    },
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "55F2AFA10D2923662102A462B95AD807F8A1546857F061B7842E12D11CA5C44A"
+    },
+    {
+      "path": "scripts/poc2/view/camera_geometry.gd",
+      "sha256": "97AA6CB30F0A918B8B2CB37F66C7A9589CBC199552799F719686CA58148163F2"
+    },
+    {
+      "path": "tests/poc3/map_info/self_logic.gd",
+      "sha256": "4FCE3A0D79B081E8ABD52323011D373D516BBB062D3A1D147CAD291D8E2C2F6A"
+    },
+    {
+      "path": "tests/poc3/map_info/self_gpu.gd",
+      "sha256": "80F335663D7DDC3BA7BD76C914771D88527CD968589098D4FE177830D4178001"
+    }
+  ],
+  "minimap_followup": {
+    "script": "tests/poc3/map_info/self_minimap_followup.gd",
+    "script_sha256": "93205531C495A296EA7E3EC7105DC562987ACC566854BBF7458409383ACB4B79",
+    "game_six_hashes_unchanged": true,
+    "game_hashes": [
+      {
+        "path": "scripts/poc2/poc2_session.gd",
+        "sha256": "2DA3873B19FFFDB054BA78035829424D61D58CAAF5FB1147169BFCAC1AD8AF0A"
+      },
+      {
+        "path": "scripts/poc2/simulation/combat.gd",
+        "sha256": "CEF2D0FB81B0C9F2A336251705C49E537C89ED7EE27EA0E8292EE68E74241049"
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "sha256": "A8568EF1D10B7E649C62D139ECC923BAA2CE42C4DBA55A44D777968BEB9F6096"
+      },
+      {
+        "path": "scripts/poc2/ui/map_ui.gd",
+        "sha256": "3AFE8F25DD40B128CB7E8173D4D9B871669758753AFFC672ED4BE0F419A28E63"
+      },
+      {
+        "path": "scripts/poc2/view/world_view.gd",
+        "sha256": "55F2AFA10D2923662102A462B95AD807F8A1546857F061B7842E12D11CA5C44A"
+      },
+      {
+        "path": "scripts/poc2/view/camera_geometry.gd",
+        "sha256": "97AA6CB30F0A918B8B2CB37F66C7A9589CBC199552799F719686CA58148163F2"
+      }
+    ],
+    "override_removed": true,
+    "processes_after": []
+  }
+}

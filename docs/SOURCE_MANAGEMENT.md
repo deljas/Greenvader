@@ -34,4 +34,4 @@
 - `4f1a79b`: 既存素材・試作2361ファイル。
 - `6429634`: PoC2・主人公統合・資料・証拠578ファイル。タグ `poc2-before-poc3` をこのコミットへ付与。
 
-これらは既存成果を保存した記録であり、新しい動作検証の結果ではない。通常入口はルートの `run_game.bat` に統一し、`project.godot` の `main_scene` は `scenes/poc2.tscn` を指す。旧通常入口2本と旧lab入口3本を削除したが、すべて保全タグから復元でき、シーン・素材・コードは削除していない。現在もプレイ対象はPoC2であり、PoC3機能は未実装。親は自己確認、独立確認、実差分を確認し、入口整理の範囲を限定技術受入した。NOT_RUNとprobe終了診断を含む詳細は[検証記録](VALIDATION.md)と[独立報告](../evidence/poc3/source/independent/report.md)、作業範囲は[POC3-SOURCE](../tasks/POC3_SOURCE.md)、現役lab一覧は[起動一覧](../launchers/README.md)を参照。
+これらは既存成果を保存した記録であり、新しい動作検証の結果ではない。通常入口はルートの `run_game.bat` に統一し、`project.godot` の `main_scene` は `scenes/poc2.tscn` を指しますが、これは共有コードパス上のシーン名です。ウィンドウとタイトル画面は「PoC3 作業版」を表示し、保存先・形式は `77e3463` で `user://poc3_saves` / `greenvader_poc3_1` / `greenvader-poc3` version 3へ分離しました。SOURCE (`aecdf15`) とSAVE-BASE (`77e3463`) に続き、通常画面の距離視認修正 (`b242086`) も限定技術受入済みです。これらはPoC3全体の完成を示しません。現在の操作案内は[PoC3ガイド](POC3_GUIDE.md)、最新の段階状態は[STATUS](STATUS.md)、限定検証とNOT_RUNは[検証記録](VALIDATION.md)を参照してください。旧通常入口2本と旧lab入口3本は保全タグから復元でき、シーン・素材・コードは削除していません。旧保存の引継ぎは行いません。作業範囲は[POC3-SOURCE](../tasks/POC3_SOURCE.md)、現役lab一覧は[起動一覧](../launchers/README.md)を参照してください。

@@ -147,8 +147,38 @@ func _rasterize_terrain() -> void:
 		terrain_texture = ImageTexture.create_from_image(image)
 
 func disclosed(logic: Vector2) -> bool:
-	var cell: Vector2i = Coords.logic_to_cell(logic)
-	return session.state.in_bounds(cell.x,cell.y) and session.visible[session.state.index_of(cell.x,cell.y)] != 0
+	return session.detected(logic)
+
+func icon_style(category: String, item: Dictionary) -> Dictionary:
+	if float(item.get("hp",1.0)) <= 0.0: return {}
+	if category in ["plants","helpers"]:
+		return {"shape":"square" if category == "plants" else "dot","color":WorldView.color_for(String(item.get("kind","")))}
+	var live: bool = disclosed(item.pos)
+	if category == "enemies":
+		return {"shape":"dot","color":Color("e87e77")} if live else {}
+	if category == "nests":
+		if bool(item.get("mother",false)):
+			return {"shape":"mother","color":Color("e87e77")} if live else {}
+		if not live and not bool(item.get("discovered",false)): return {}
+		return {"shape":"square","color":Color("dc7d65") if live else Color("82675e")}
+	if category == "fossils":
+		if bool(item.get("found",false)) or int(item.get("nest_id",-1)) >= 0: return {}
+		return {"shape":"fossil","color":Color("efd99b")} if live or bool(item.get("discovered",false)) else {}
+	return {}
+
+func _draw_icon(at: Vector2, radius: float, style: Dictionary) -> void:
+	var color: Color = style.color
+	match String(style.shape):
+		"square": draw_rect(Rect2(at-Vector2.ONE*radius,Vector2.ONE*radius*2),color)
+		"mother":
+			var size_: float = radius+1.0
+			draw_colored_polygon(PackedVector2Array([at+Vector2(0,-size_),at+Vector2(size_,0),at+Vector2(0,size_),at+Vector2(-size_,0)]),color)
+		"fossil":
+			# The same tiny bone shape in both maps; it reveals no plant name.
+			draw_rect(Rect2(at+Vector2(-radius,-1),Vector2(radius*2+1,2)),color)
+			draw_rect(Rect2(at+Vector2(-radius,-radius),Vector2(2,radius*2+1)),color)
+			draw_rect(Rect2(at+Vector2(radius-1,-radius),Vector2(2,radius*2+1)),color)
+		_: draw_circle(at,radius,color)
 
 func _draw() -> void:
 	if session == null: return
@@ -163,19 +193,14 @@ func _draw() -> void:
 	_icon_points.clear()
 	for category: String in ["nests","enemies","fossils","plants","helpers"]:
 		for item: Dictionary in session.get(category):
-			if float(item.get("hp",1.0)) <= 0.0: continue
-			if category in ["enemies","nests","fossils"] and not disclosed(item.pos): continue
-			if category == "fossils" and (bool(item.get("found",false)) or int(item.get("nest_id",-1)) >= 0): continue
+			var style: Dictionary = icon_style(category,item)
+			if style.is_empty(): continue
 			var at: Vector2 = point(item.pos)
-			if not expanded and at.distance_to(map_rect.get_center())>50: continue
-			if expanded and not map_rect.grow(-3).has_point(at): continue
 			var radius: float = 3.0 if expanded else 2.0
-			var color: Color = WorldView.color_for(String(item.get("kind","")))
-			if category == "enemies": color = Color("e87e77")
-			elif category == "nests": color = Color("dc7d65")
-			elif category == "fossils": color = Color("efd99b")
-			if category in ["plants","nests"]: draw_rect(Rect2(at-Vector2.ONE*radius,Vector2.ONE*radius*2),color)
-			else: draw_circle(at,radius,color)
+			var margin: float = radius+1.0 if style.shape in ["mother","fossil"] else radius
+			if not expanded and at.distance_to(map_rect.get_center())>50: continue
+			if expanded and not map_rect.grow(-margin).has_point(at): continue
+			_draw_icon(at,radius,style)
 			if category in ["plants","helpers"]:
 				if expanded:
 					_icon_points.append({"pos":at,"id":int(item.id),"helper":category=="helpers","item":item})

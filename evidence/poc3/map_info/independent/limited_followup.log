@@ -1,0 +1,3 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"invalid_bool_rechecked_on_valid_state":true,"normal_world_missing_discovery_defaults_false":true,"normal_world_save_load_memory":true,"original_fixture_restore_result":{"ok":false,"reason":"invalid_growth"},"transient_camera_detection":{"discovered_while_displayed":false,"displayed_between_reveals":true,"elapsed":0.25,"entering_move":"(3.394165, -3.394165)","initially_hidden":true,"leaving_move":"(-3.394165, 3.394165)","next_reveal_at":0.55,"remembered_after_leaving":false,"status":"FAIL","target":"(502.2525, 268.228)"}}

@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"name":"camera_source_and_unseen_remote","observations":{"camera_point":"(680.0, 600.0)","remote_point":"(162.0, 202.0)"},"status":"PASS"}
+{"name":"living_helper_source_only","observations":{"dead_helper_detected":false,"living_helper_detected":true},"status":"PASS"}
+{"name":"fixed_memory_and_mother_no_memory","observations":{"dead_fixed_hidden":true,"fixed_memory_paler":true,"mother_no_memory":true},"status":"PASS"}
+{"name":"green_source_loss_hides_enemy_but_keeps_history","observations":{"green_detected":true,"known_after_loss":1},"status":"PASS"}
+{"name":"fossil_seed_green_discovery_memory","observations":{"discovered_without_unlock":true,"memory_after_green_loss":true,"seed_hidden":true},"status":"PASS"}
+{"name":"discovery_memory_survives_save_load","observations":{"load_ok":false,"remembered_without_unlock":false,"save_ok":true},"status":"FAIL"}
+{"name":"invalid_discovery_types_rejected_without_mutation","observations":{"numeric_fossil_rejected":true,"string_nest_rejected":true},"status":"PASS"}
+{"name":"earlier_poc3_discovery_defaults_false","observations":{"restore_ok":false},"status":"FAIL"}
+{"name":"approach_collects_unlocks_and_removes_icon","observations":{"carrot_unlocked":true,"found":true},"status":"PASS"}
+{"name":"nest_reward_preserved_without_ground_icon","observations":{"ground_icon_hidden":true,"wheat_unlocked":true},"status":"PASS"}
+{"name":"minimap_water_expected_from_authoritative_terrain","observations":{"authoritative_paint":"water rect [109,1,6,222]","cell":"112,112","provided_minimap_water_pixels":912,"raster_center_color":"4d8eab","source_color":"4d8eab","terrain_id":3},"status":"PASS"}

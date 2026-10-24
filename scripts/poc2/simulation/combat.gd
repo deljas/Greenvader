@@ -10,11 +10,11 @@ func add_nest(row: Dictionary) -> void:
  var maximum: float = {"small":40.0,"medium":100.0,"large":240.0}[scale]
  var pos: Vector2 = Coords.cell_center_logic(Vector2i(row.cell[0],row.cell[1]))
  pos = free_position(pos)
- var nest: Dictionary = {"id":s.allocate_id(),"kind":row.kind,"pos":pos,"home":pos,"hp":maximum,"max_hp":maximum,"scale":scale,"mother":row.kind=="mother","active":false,"last_contact":-100.0,"spawn_due":0.0,"attack_at":0.0,"status":"dormant","route_at":-1.0}
+ var nest: Dictionary = {"id":s.allocate_id(),"kind":row.kind,"pos":pos,"home":pos,"hp":maximum,"max_hp":maximum,"scale":scale,"mother":row.kind=="mother","discovered":false,"active":false,"last_contact":-100.0,"spawn_due":0.0,"attack_at":0.0,"status":"dormant","route_at":-1.0}
  s.nests.append(nest)
  var unlock: String = row.get("unlock","")
  if not unlock.is_empty():
-  s.fossils.append({"id":s.allocate_id(),"kind":"fossil","pos":pos,"unlock":unlock,"found":false,"nest_id":nest.id})
+  s.fossils.append({"id":s.allocate_id(),"kind":"fossil","pos":pos,"unlock":unlock,"found":false,"discovered":false,"nest_id":nest.id})
  for i: int in (2 if scale=="small" else 3):
   spawn(nest,true,i==0 and scale!="small")
 

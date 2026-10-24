@@ -2,6 +2,7 @@ extends RefCounted
 ## PoC2 owns all gameplay mutations and one clock. Rendering is a read-only client.
 const Config: GDScript = preload("res://scripts/poc/poc_config.gd")
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
+const CameraGeometry: GDScript = preload("res://scripts/poc2/view/camera_geometry.gd")
 const PlacementScript: GDScript = preload("res://scripts/poc/assets/placement.gd")
 const Day: GDScript = preload("res://scripts/poc/environment/poc_day.gd")
 const Walls: GDScript = preload("res://scripts/poc/environment/wall_growth.gd")
@@ -105,7 +106,7 @@ func _setup() -> void:
  for row: Dictionary in map_data.nests:
   combat_system.add_nest(row)
  for row: Dictionary in map_data.fossils:
-  fossils.append({"id":allocate_id(),"kind":"fossil","pos":Coords.cell_center_logic(Vector2i(row.cell[0],row.cell[1])),"unlock":row.unlock,"found":false,"nest_id":-1})
+  fossils.append({"id":allocate_id(),"kind":"fossil","pos":Coords.cell_center_logic(Vector2i(row.cell[0],row.cell[1])),"unlock":row.unlock,"found":false,"discovered":false,"nest_id":-1})
  known.resize(state.tile_count())
  visible.resize(state.tile_count())
  reveal()
@@ -186,6 +187,8 @@ func advance_game(seconds: float) -> void:
    _check_zone()
    zone_check_at = clock.elapsed+1.0
   left -= dt
+ # Record every state that can be presented, even between periodic terrain reveals.
+ _remember_discoveries()
 
 func _check_zone() -> void:
  if nests.is_empty() and enemies.is_empty() and state.zone_state[1] < 2:
@@ -199,20 +202,39 @@ func _check_zone() -> void:
 
 func reveal() -> void:
  visible.fill(0)
- var points: Array[Vector2] = [position]
- for h: Dictionary in helpers:
-  points.append(h.pos)
- for p: Vector2 in points:
-  for i: int in Landing.tiles_in_radius(state,4,p,72.0):
+ var camera_inverse: Transform3D = CameraGeometry.transform_for(position).affine_inverse()
+ # Terrain history remains persistent; current detection also covers green land.
+ for i: int in state.tile_count():
+  var cell: Vector2i = Vector2i(i % state.width,i / state.width)
+  if state.stage[i] >= WorldState.GREENED_MIN_STAGE or CameraGeometry.contains_ground(Coords.cell_center_logic(cell),camera_inverse):
    visible[i] = 1
    known[i] = 1
- # Green land is always known; dynamic enemy visibility still needs current vision.
- for i: int in state.tile_count():
-  if state.stage[i] >= WorldState.GREENED_MIN_STAGE:
+ for h: Dictionary in helpers:
+  if float(h.get("hp",1.0)) <= 0.0: continue
+  for i: int in Landing.tiles_in_radius(state,4,h.pos,72.0):
+   visible[i] = 1
    known[i] = 1
+ _remember_discoveries()
  for fossil: Dictionary in fossils:
   if not fossil.found and int(fossil.nest_id) < 0 and position.distance_to(fossil.pos) <= 12.0:
    unlock_fossil(fossil)
+
+func _remember_discoveries() -> void:
+ for nest: Dictionary in nests:
+  if not bool(nest.mother) and float(nest.hp) > 0.0 and detected(nest.pos):
+   nest.discovered = true
+ for fossil: Dictionary in fossils:
+  if not fossil.found and int(fossil.nest_id) < 0 and detected(fossil.pos):
+   fossil.discovered = true
+
+func detected(logic: Vector2) -> bool:
+ var cell: Vector2i = Coords.logic_to_cell(logic)
+ if not state.in_bounds(cell.x,cell.y): return false
+ if state.stage[state.index_of(cell.x,cell.y)] >= WorldState.GREENED_MIN_STAGE: return true
+ if CameraGeometry.contains_ground(logic,CameraGeometry.transform_for(position).affine_inverse()): return true
+ for helper: Dictionary in helpers:
+  if float(helper.get("hp",1.0)) > 0.0 and helper.pos.distance_squared_to(logic) <= 72.0*72.0: return true
+ return false
 
 func unlock_fossil(fossil: Dictionary) -> void:
  fossil.found = true

@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "status": "FAIL", "capture_640": true, "cache_refreshed_after_fixture": true, "known_ground_source_matches": false, "minimap_terrain_visible": true, "root_unfocusable": true, "root_mode": 1, "not_run": ["full_gpu_regression", "logic_regression", "native_window_visual", "physical_input"] }

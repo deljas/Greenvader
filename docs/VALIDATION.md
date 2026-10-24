@@ -564,3 +564,11 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - 自己試験はbefore 8 PASSで旧非表示を再現し、after 11 PASS / 0 FAIL。独立は9 PASS / 0 FAIL / 3 NOT_RUNでhash一致、主要headless条件と提供GPU画像を確認。独立GPU再実行はありません（[自己報告](../evidence/poc3/visibility/self/report.md)、[独立報告](../evidence/poc3/visibility/independent/report.md)）。
 - 描画確認は起動前 `override.cfg` の `no_focus=true` / `mode=1`、最小化状態を保ったSubViewport撮影、起動時・終了時flag確認で実施。override除去とGodot終了0件を確認しました。前回SAVE-BASEで未確認となった起動瞬間の非前面化保証を遡ってPASSにはしません。
 - beforeの空mesh診断は建物を全除去したfixtureに由来する記録として保持。afterと独立ログに該当エラーなし。NOT_RUN: 建物遮蔽、マップ情報、広い回帰、物理入力、独立GPU再撮影、全体受入。
+
+## POC3-MAP-INFO マップの検知・記憶・化石（2026-10-24）
+
+親は実差分・画像・独立結果を照合し、マップ上の敵/巣/化石情報を限定技術受入しました。主人公カメラ・生存中のおたすけ植物・緑化済み土地を検知源とし、固定巣は検知外で淡色記憶、動く親玉は検知中のみ菱形表示、探索化石は回収まで骨型で記憶して接近時に回収します。巣報酬の化石取得・解放は維持しています。
+
+- 初回自己確認はlogic 17 PASS / 0 FAIL、GPU 9 PASS / 0 FAIL。独立の正常world追試後の主要確認は11 PASS / 1 FAIL / 3 NOT_RUNで、残るFAILは検知直後に離脱すると巣記憶が残らない問題でした。初回の保存fixture由来FAIL 2件は元記録に保持し、正常world追試で解消しています。自己mini追試の固定色assertは水セルを荒地色と誤期待したFAILを保持し、独立確認では水色の地形描画を確認しました。
+- 保存fixtureは正常worldでの限定追試により解消。記憶修正後は自己影響試験6 PASS / 0 FAIL、独立影響追試4 PASS / 0 FAILで一時検知後の巣・化石記憶を確認しました。元のlogic/GPU結果や独立主要結果と加算して新しい全回帰結果にはしていません。詳細は[自己報告](../evidence/poc3/map_info/self/report.md)、[記憶修正の自己報告](../evidence/poc3/map_info/self/memory_fix/report.md)、[独立報告](../evidence/poc3/map_info/independent/report.md)、[記憶修正の独立追試](../evidence/poc3/map_info/independent/memory_fix_report.md)を参照。
+- 独立3 NOT_RUNを維持します。独立GPU再実行/native外観/物理入力、広い回帰・長時間プレイ・楽しさ評価、全照明/全サイズ/書出し後の確認は未実施です。初回fixture不整合・mini誤assert・修正前の記憶FAILを含む各証拠を保持し、PoC3全体の受入とは区別します。

@@ -1,0 +1,163 @@
+{
+  "checks": [
+    {
+      "name": "startup_no_focus_minimized",
+      "status": "PASS"
+    },
+    {
+      "name": "shared_geometry_matches_real_camera_projection",
+      "status": "PASS"
+    },
+    {
+      "name": "pixel_snap_shared_after_fractional_movement",
+      "status": "PASS"
+    },
+    {
+      "name": "remembered_icons_outside_current_detection",
+      "status": "PASS"
+    },
+    {
+      "name": "minimap_640_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "map_zoom_does_not_change_detection",
+      "status": "PASS"
+    },
+    {
+      "name": "fullmap_640_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "pixel_display_and_shared_shapes",
+      "status": "PASS"
+    },
+    {
+      "name": "stayed_minimized_no_focus",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "native_window_visual",
+    "physical_input",
+    "all_lighting",
+    "wide_regression"
+  ],
+  "projection_rows": [
+    {
+      "engine_inside": true,
+      "engine_pixel": [
+        320.0,
+        180.000030517578
+      ],
+      "helper_inside": true,
+      "helper_pixel": [
+        319.999969482422,
+        180.000030517578
+      ],
+      "requested_pixel": [
+        320.0,
+        180.0
+      ]
+    },
+    {
+      "engine_inside": true,
+      "engine_pixel": [
+        1.99991226196289,
+        2.00002670288086
+      ],
+      "helper_inside": true,
+      "helper_pixel": [
+        1.99990844726563,
+        2.00003051757813
+      ],
+      "requested_pixel": [
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "engine_inside": true,
+      "engine_pixel": [
+        638.000061035156,
+        357.999969482422
+      ],
+      "helper_inside": true,
+      "helper_pixel": [
+        638.0,
+        358.0
+      ],
+      "requested_pixel": [
+        638.0,
+        358.0
+      ]
+    },
+    {
+      "engine_inside": false,
+      "engine_pixel": [
+        -2.00016021728516,
+        179.999984741211
+      ],
+      "helper_inside": false,
+      "helper_pixel": [
+        -2.00006103515625,
+        179.999969482422
+      ],
+      "requested_pixel": [
+        -2.0,
+        180.0
+      ]
+    },
+    {
+      "engine_inside": false,
+      "engine_pixel": [
+        642.0,
+        180.000061035156
+      ],
+      "helper_inside": false,
+      "helper_pixel": [
+        642.0,
+        180.000030517578
+      ],
+      "requested_pixel": [
+        642.0,
+        180.0
+      ]
+    },
+    {
+      "engine_inside": false,
+      "engine_pixel": [
+        320.0,
+        -2.00002670288086
+      ],
+      "helper_inside": false,
+      "helper_pixel": [
+        319.999969482422,
+        -2.00003051757813
+      ],
+      "requested_pixel": [
+        320.0,
+        -2.0
+      ]
+    },
+    {
+      "engine_inside": false,
+      "engine_pixel": [
+        320.0,
+        361.999908447266
+      ],
+      "helper_inside": false,
+      "helper_pixel": [
+        319.999847412109,
+        361.999847412109
+      ],
+      "requested_pixel": [
+        320.0,
+        362.0
+      ]
+    }
+  ],
+  "root_mode": 1,
+  "root_unfocusable": true
+}

@@ -2,6 +2,7 @@ extends Node3D
 ## PoC2 scene adapter: reuses adopted assets and one dirty-list consumer.
 const Config: GDScript = preload("res://scripts/poc/poc_config.gd")
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
+const CameraGeometry: GDScript = preload("res://scripts/poc2/view/camera_geometry.gd")
 const Actor: GDScript = preload("res://scripts/poc/poc_actor.gd")
 const PlacementView: GDScript = preload("res://scripts/poc/assets/placement_view.gd")
 const Ground: GDScript = preload("res://scripts/poc/environment/ground_cover.gd")
@@ -39,6 +40,7 @@ func build(source: RefCounted, viewport: SubViewport) -> void:
 	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
 	camera.keep_aspect = Camera3D.KEEP_HEIGHT
 	camera.size = Config.CAMERA_SIZE_M
+	camera.near = CameraGeometry.NEAR_M
 	camera.far = Config.CAMERA_FAR_M
 	add_child(camera)
 	camera.current = true
@@ -113,16 +115,7 @@ static func color_for(kind: String) -> Color:
 
 func sync(dt: float) -> void:
 	var foot: Vector3 = Coords.ground3(Coords.logic_to_ground(session.position))
-	var offset: Vector3 = Vector3(0.6123724, 0.5, 0.6123724) * Config.CAMERA_DISTANCE_M
-	var target: Vector3 = foot + Vector3.UP * Config.CAMERA_TARGET_HEIGHT_M
-	# Snap camera translation in both camera image axes, without changing simulation positions.
-	var right: Vector3 = Vector3(0.70710678, 0, -0.70710678)
-	var up: Vector3 = Vector3(-0.35355339, 0.8660254, -0.35355339)
-	var pixel: float = camera.size / 360.0
-	target += right * (snappedf(target.dot(right), pixel) - target.dot(right))
-	target += up * (snappedf(target.dot(up), pixel) - target.dot(up))
-	camera.position = target + offset
-	camera.look_at(target, Vector3.UP)
+	camera.transform = CameraGeometry.transform_for(session.position)
 	var game_dt: float = maxf(float(session.clock.elapsed) - _last_clock, 0.0)
 	_last_clock = session.clock.elapsed
 	animation_time += game_dt

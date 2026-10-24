@@ -1,0 +1,28 @@
+{
+  "cache_refreshed_after_fixture": true,
+  "capture_640": true,
+  "known_ground_source_matches": false,
+  "minimap_terrain_visible": true,
+  "not_run": [
+    "full_gpu_regression",
+    "logic_regression",
+    "native_window_visual",
+    "physical_input"
+  ],
+  "root_mode": 1,
+  "root_unfocusable": true,
+  "status": "FAIL",
+  "exit_code": 1,
+  "override_removed": true,
+  "processes_after": [],
+  "script_sha256": "93205531C495A296EA7E3EC7105DC562987ACC566854BBF7458409383ACB4B79",
+  "review": {
+    "automated_failure_preserved": true,
+    "assertion_error": "Probe expected wasteland at cell(112,112), but map paint makes it water",
+    "terrain_id": 3,
+    "expected_source_color": "4d8eab",
+    "support": "data/poc2/maps/town_02.json paint water rect [109,1,6,222] and session terrain ordering",
+    "visual_review": "Known terrain, waterway and buildings are visible; enemy dot, mother diamond, fixed/memory squares and fossil bones are readable",
+    "game_six_hashes_unchanged": true
+  }
+}
