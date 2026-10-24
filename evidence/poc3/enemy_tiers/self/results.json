@@ -1,0 +1,287 @@
+{
+  "checks": [
+    {
+      "name": "boundary_179.99px",
+      "status": "PASS",
+      "detail": 0,
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "boundary_180.0px",
+      "status": "PASS",
+      "detail": 1,
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "boundary_319.99px",
+      "status": "PASS",
+      "detail": 1,
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "boundary_320.0px",
+      "status": "PASS",
+      "detail": 2,
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "distance_is_euclidean",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "valid_tier_range",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "hp_base_20.0",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "hp_base_40.0",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "hp_base_100.0",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "hp_base_240.0",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "attack_base_5.0",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "attack_base_12.0",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "attack_base_10.0",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "initial_reward_and_spawned_zero_base_6",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "initial_reward_and_spawned_zero_base_15",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "initial_reward_and_spawned_zero_base_30",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "initial_reward_and_spawned_zero_base_80",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "initial_reward_and_spawned_zero_base_200",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "pure_results.json"
+    },
+    {
+      "name": "world_nests_fixed_start_tiers_hp",
+      "status": "PASS",
+      "detail": [
+        [
+          0,
+          40.0
+        ],
+        [
+          1,
+          52.0
+        ],
+        [
+          1,
+          130.0
+        ],
+        [
+          1,
+          130.0
+        ],
+        [
+          2,
+          408.0
+        ]
+      ],
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "all_initial_offspring_inherit_parent_tier",
+      "status": "PASS",
+      "detail": {
+        "initial_enemies": 13
+      },
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "middle_strong_initial_reward_floor_22",
+      "status": "PASS",
+      "detail": 22,
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "moved_mother_and_player_keep_outer_child_tier",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "produced_outer_child_reward_zero",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "outer_large_mother_reward_400",
+      "status": "PASS",
+      "detail": 400,
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "tier_uses_post_correction_position",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "middle_normal_attack_crop_6",
+      "status": "PASS",
+      "detail": 24.0,
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "middle_normal_attack_helper_6",
+      "status": "PASS",
+      "detail": 24.0,
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "outer_normal_attack_player_7",
+      "status": "PASS",
+      "detail": 93.0,
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "outer_boar_charge_player_16_8",
+      "status": "PASS",
+      "detail": 83.2,
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "outer_mother_contact_player_14",
+      "status": "PASS",
+      "detail": 86.0,
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "actual_json_missing_parent_fixed_tier_roundtrip",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "save_followup_results.json"
+    },
+    {
+      "name": "live_mother_restore_not_recomputed_from_current_pos",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "missing_tier_defaults_zero_preserves_old_abilities",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "integration_initial_results.json"
+    },
+    {
+      "name": "invalid_tier_enemies_1.5",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_enemies"
+      },
+      "evidence": "validation_followup_results.json"
+    },
+    {
+      "name": "invalid_tier_enemies_3",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_enemies"
+      },
+      "evidence": "validation_followup_results.json"
+    },
+    {
+      "name": "invalid_tier_nests_-1",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_nests"
+      },
+      "evidence": "validation_followup_results.json"
+    },
+    {
+      "name": "invalid_tier_nests_2",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_nests"
+      },
+      "evidence": "validation_followup_results.json"
+    },
+    {
+      "name": "invalid_tier_nests_true",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_nests"
+      },
+      "evidence": "validation_followup_results.json"
+    },
+    {
+      "name": "reject_tier_hp_mismatch_atomically",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "validation_followup_results.json"
+    }
+  ],
+  "pass": 39,
+  "fail": 0,
+  "head": "e7d86a5adedf3a221fe90b88be099a4b530bfb98",
+  "not_run": [
+    "GPU / appearance unchanged",
+    "native physical input",
+    "full regression",
+    "difficulty balance"
+  ],
+  "own_godot_processes_remaining": 0,
+  "override_exists": false
+}

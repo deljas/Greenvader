@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+save wrapper results: { "ok": true, "reason": "保存しました" } / 保存データが不正です。現在のゲームは保持しています
+direct JSON restore diagnosis: { "ok": false, "reason": "invalid_entity_enemies" }
+{"detail":"","name":"actual_json_missing_parent_fixed_tier_roundtrip","status":"FAIL"}

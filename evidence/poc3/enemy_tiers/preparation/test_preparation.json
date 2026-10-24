@@ -1,0 +1,19 @@
+{
+  "head": "a72c39f71324367eccd00518725dc8dc4c640e64",
+  "state": "tests_prepared_unconnected_stopped",
+  "godot_and_tests": "NOT_RUN",
+  "files": [
+    {
+      "path": "scripts/poc2/simulation/enemy_tiers.gd",
+      "sha256": "DEA76D1B80B432972BB1DA4CF79C66B864728353B01CE8077556A155C6750E4E"
+    },
+    {
+      "path": "tests/poc3/enemy_tiers/self_pure.gd",
+      "sha256": "0CFB7E03102A6D093109CA338E5CAAACBEC0C043EFD71A285F35F875FAD21AC9"
+    },
+    {
+      "path": "evidence/poc3/enemy_tiers/preparation/connection_plan.md",
+      "sha256": "B4F32E7FE3E2764CCEC7BC4A74D03076FEFAF23687AE522ED7F63DCCD310AC62"
+    }
+  ]
+}

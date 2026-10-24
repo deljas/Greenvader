@@ -1,4 +1,5 @@
 extends RefCounted
+const Tiers: GDScript = preload("res://scripts/poc2/simulation/enemy_tiers.gd")
 ## JSON-safe complete snapshots. Validate on a disposable candidate, adopt only after every check succeeds.
 const SCALARS: Array[String] = ["position","aim","has_aim","seeds","hp","max_hp","water","max_water","next_id","income_fraction","last_damage","respawn_at","shot_ready","skill_ready","reveal_at","zone_check_at","skills","unlocked","favorites","sow_width"]
 const ROWS: Array[String] = ["plants","helpers","enemies","nests","fossils","shots"]
@@ -162,6 +163,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
   var typed: Array[Dictionary]=[]
   for entity: Variant in decoded:
    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,"invalid_entity_"+category)
+   # Old working PoC3 entities retain their original tier-0 abilities. Placement
+   # distance is never revisited on restore, including for moving mothers.
+   if category in ["enemies","nests"]: entity.tier=int(entity.get("tier",0))
    # Earlier PoC3 working saves have no discovery field; never infer a discovery.
    if category in ["nests","fossils"] and not entity.has("discovered"): entity.discovered=false
    # Working PoC3 saves used a temporary wet_until before permanent watering.
@@ -248,6 +252,13 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
   if e.has("water_task") and (not e.water_task is String or e.water_task not in ["","resupplying","refilling","returning_water"]): return false
  if category=="enemies" and (e.kind not in ["boar","spider"] or e.hp<=0 or e.hp>e.max_hp): return false
  if category=="nests" and (e.scale not in ["small","medium","large"] or e.kind not in ["boar","spider","mother"] or e.hp<=0 or e.hp>e.max_hp): return false
+ if category in ["enemies","nests"]:
+  var tier: Variant=e.get("tier",0)
+  # Validate before converting/calling the pure multiplier API: invalid save
+  # data must not truncate to an accepted tier or reach its assertions.
+  if not (tier is int or tier is float) or float(tier) not in [0.0,1.0,2.0]: return false
+  var base_hp: float=(40.0 if e.strong else 20.0) if category=="enemies" else {"small":40.0,"medium":100.0,"large":240.0}[e.scale]
+  if float(e.max_hp)!=Tiers.hp(base_hp,int(tier)): return false
  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
  if category=="shots" and (e.kind not in ["seed","bazooka"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false
  if category=="shots" and e.kind=="seed":

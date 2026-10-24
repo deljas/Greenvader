@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "17_95m": 0,
+        "18m": 1,
+        "32m": 2
+      },
+      "id": "EXACT_18_32_METRE_BOUNDARIES",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "INITIAL_OFFSPRING_PARENT_TIER",
+      "status": "PASS"
+    },
+    {
+      "detail": 22,
+      "id": "MIDDLE_STRONG_REWARD_FLOOR",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "MOVED_MOTHER_PRODUCES_FIXED_OUTER_TIER",
+      "status": "PASS"
+    },
+    {
+      "detail": 400,
+      "id": "MOVED_MOTHER_REWARD_STAYS_400",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "full_state_equal": true,
+        "loaded": true,
+        "saved": true
+      },
+      "id": "JSON_FULL_STATE_WITH_MISSING_PARENT",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "RESTORED_ORPHAN_FIXED_TIER_ZERO_REWARD",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_enemies"
+      },
+      "id": "FRACTIONAL_TIER_ATOMIC_REJECT",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_nests"
+      },
+      "id": "BOOL_ZERO_TIER_ATOMIC_REJECT",
+      "status": "PASS"
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": 0,
+  "user_dir": "C:/godot/greenvader/evidence/poc3/enemy_tiers/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

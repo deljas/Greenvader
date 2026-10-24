@@ -5,8 +5,8 @@
 - PoC3の目的・機能範囲・優先順・全体受入条件はユーザー合意済みです。仕様は[POC3_SPEC.md](POC3_SPEC.md)、作業票の依存と実行計画は[03_DEVELOPMENT_PLAN.md](03_DEVELOPMENT_PLAN.md)、決定の集約は[DECISIONS.md](DECISIONS.md)を参照してください。
 - 履歴保全と通常起動入口の整理（POC3-SOURCE）は `aecdf15` で限定技術受入済みです。`4f1a79b` に既存素材・試作2361ファイル、`6429634` にPoC2・主人公統合・資料・証拠578ファイルを保存し、`poc2-before-poc3` を後者へ付与しました。これは既存成果の保全であり、新規検証ではありません。
 - `run_game.bat` はPoC2共有コードパスの `scenes/poc2.tscn` を起動し、ウィンドウとタイトル画面は「PoC3 作業版」を表示します。保存先/形式の先行分離（POC3-SAVE-BASE）は限定技術受入済みで、旧PoC・PoC2保存は読み込まず移行せず、旧領域へ書き込みません。旧ランチャー5本は削除されましたがタグから復元可能で、シーン・素材・コードの削除はありません。現役lab 7件は[起動一覧](../launchers/README.md)を参照してください。
-- PoC3ゲーム機能は開発中です。SOURCE、SAVE-BASE、VISIBILITY、MAP-INFO、PLANT-UI、INPUT、AREA-SEED、WATER-GROWTH、SPRITE-VIEW、CROP-PRICINGに続き、WORLD-LAYOUTは中央開始配置・水辺到達・休眠からの接近/緑化起動・新map保存の範囲を限定技術受入しました。自己初回17 PASS / 1 FAIL、別経路追試4 PASS、GPU5 PASSと独立10 PASSは分けて記録し、合算していません。元の斜め経路FAILは未解消としてINTEGRATIONへ移管し、実AI停止は未確定です。全マップ緑化や楽しさも未確認です。詳細は[検証記録](VALIDATION.md)を参照してください。PoC3全体の完成を示しません。
-- 仮値の最終バランスと楽しさはユーザー試遊待ちです。主要な失敗・未確認が残ればPoC3完了とは扱いません。現在はENEMY-TIERSの接続自己検証中です。LOCUSTとREFLECTIONは準備中です。旧セーブの進行移行は対象外です。
+- PoC3ゲーム機能は開発中です。SOURCE、SAVE-BASE、VISIBILITY、MAP-INFO、PLANT-UI、INPUT、AREA-SEED、WATER-GROWTH、SPRITE-VIEW、CROP-PRICING、WORLD-LAYOUTに続き、ENEMY-TIERSは距離階級、能力/報酬倍率、配下継承、JSON保存と不正値拒否の範囲を限定技術受入しました。初回統合20 PASS / 1 FAIL、保存1条件、validator6条件の限定追試、独立9 PASSは別々に記録し、合算していません。難易度/楽しさ、GPU、物理入力、全回帰は未確認です。詳細は[検証記録](VALIDATION.md)を参照してください。元の保存試験FAILと診断ハーネスエラーは履歴として保持しています。これはPoC3全体の完成を示しません。
+- 仮値の最終バランスと楽しさはユーザー試遊待ちです。主要な未確認が残ればPoC3完了とは扱いません。現在はLOCUSTの接続自己検証中です。HELPERSは未接続準備、REFLECTIONは比較試験の準備です。旧セーブの進行移行は対象外です。
 
 更新日: 2026-10-24
 

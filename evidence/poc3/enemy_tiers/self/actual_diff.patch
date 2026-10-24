@@ -1,0 +1,121 @@
+diff --git a/scripts/poc2/simulation/combat.gd b/scripts/poc2/simulation/combat.gd
+index 1ffcf81..f2732c8 100644
+--- a/scripts/poc2/simulation/combat.gd
++++ b/scripts/poc2/simulation/combat.gd
+@@ -2,16 +2,18 @@ extends RefCounted
+ ## Proximity-activated production and readable boar/spider combat.
+ const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
+ const SeedArea: GDScript = preload("res://scripts/poc2/simulation/seed_area.gd")
++const Tiers: GDScript = preload("res://scripts/poc2/simulation/enemy_tiers.gd")
+ var s: RefCounted
+ func _init(session: RefCounted) -> void:
+  s = session
+ 
+ func add_nest(row: Dictionary) -> void:
+  var scale: String = row.scale
+- var maximum: float = {"small":40.0,"medium":100.0,"large":240.0}[scale]
+  var pos: Vector2 = Coords.cell_center_logic(Vector2i(row.cell[0],row.cell[1]))
+  pos = free_position(pos)
+- var nest: Dictionary = {"id":s.allocate_id(),"kind":row.kind,"pos":pos,"home":pos,"hp":maximum,"max_hp":maximum,"scale":scale,"mother":row.kind=="mother","discovered":false,"active":false,"last_contact":-100.0,"spawn_due":0.0,"attack_at":0.0,"status":"dormant","route_at":-1.0}
++ var tier: int = Tiers.tier_for(s.start_position(),pos)
++ var maximum: float = Tiers.hp({"small":40.0,"medium":100.0,"large":240.0}[scale],tier)
++ var nest: Dictionary = {"id":s.allocate_id(),"kind":row.kind,"pos":pos,"home":pos,"hp":maximum,"max_hp":maximum,"tier":tier,"scale":scale,"mother":row.kind=="mother","discovered":false,"active":false,"last_contact":-100.0,"spawn_due":0.0,"attack_at":0.0,"status":"dormant","route_at":-1.0}
+  s.nests.append(nest)
+  var unlock: String = row.get("unlock","")
+  if not unlock.is_empty():
+@@ -30,9 +32,10 @@ func free_position(pos: Vector2) -> Vector2:
+ 
+ func spawn(nest: Dictionary,initial: bool,strong: bool = false) -> void:
+  var pos: Vector2 = free_position(nest.pos+Vector2(s.rng.randf_range(-10,10),s.rng.randf_range(-10,10)))
+- var maximum: float = 40.0 if strong else 20.0
++ var tier: int = int(nest.get("tier",0))
++ var maximum: float = Tiers.hp(40.0 if strong else 20.0,tier)
+  var kind: String = "spider" if nest.kind in ["spider","mother"] else "boar"
+- s.enemies.append({"id":s.allocate_id(),"kind":kind,"pos":pos,"home":nest.home,"hp":maximum,"max_hp":maximum,"initial":initial,"strong":strong,"source":nest.id,"phase":"idle","phase_until":0.0,"attack_at":0.0,"stun_until":0.0,"route_at":-1.0,"charge_dir":Vector2.ZERO,"hit_charge":false})
++ s.enemies.append({"id":s.allocate_id(),"kind":kind,"pos":pos,"home":nest.home,"hp":maximum,"max_hp":maximum,"tier":tier,"initial":initial,"strong":strong,"source":nest.id,"phase":"idle","phase_until":0.0,"attack_at":0.0,"stun_until":0.0,"route_at":-1.0,"charge_dir":Vector2.ZERO,"hit_charge":false})
+ 
+ func player_in_combat() -> bool:
+  for e: Dictionary in s.enemies:
+@@ -157,7 +160,7 @@ func advance(dt: float) -> void:
+    var target: Vector2=_bounded_goal(nest,s.position,65.0)
+    s.nav.move(nest,target,8.0,dt,s.clock.elapsed,true)
+    if nest.pos.distance_to(s.position)<15.0 and s.clock.elapsed>=float(nest.attack_at):
+-    hurt_player(10.0)
++    hurt_player(Tiers.attack(10.0,int(nest.get("tier",0))))
+     nest.attack_at=s.clock.elapsed+1.5
+  for enemy: Dictionary in s.enemies.duplicate():
+   _enemy(enemy,dt)
+@@ -219,8 +222,7 @@ func damage_enemy(e: Dictionary,amount: float,stun: float = 0.0) -> void:
+  e.hp=float(e.hp)-amount
+  e.stun_until=s.clock.elapsed+stun
+  if e.hp<=0.0:
+-  if e.initial:
+-   s.seeds+=15 if e.strong else 6
++  s.seeds+=Tiers.reward(15 if e.strong else 6,int(e.get("tier",0)),bool(e.initial))
+   # A defeated animal accelerates local growth without creating repeatable seed income.
+   for index: int in Landing.tiles_in_radius(s.state,4,e.pos,12.0):
+    if s.state.target[index]==1:
+@@ -230,7 +232,7 @@ func damage_enemy(e: Dictionary,amount: float,stun: float = 0.0) -> void:
+ func damage_nest(n: Dictionary,amount: float) -> void:
+  n.hp=float(n.hp)-amount
+  if n.hp<=0.0:
+-  s.seeds+={"small":30,"medium":80,"large":200}[n.scale]
++  s.seeds+=Tiers.reward({"small":30,"medium":80,"large":200}[n.scale],int(n.get("tier",0)),true)
+   for fossil: Dictionary in s.fossils:
+    if int(fossil.nest_id)==int(n.id):
+     s.unlock_fossil(fossil)
+@@ -301,7 +303,7 @@ func _enemy(e: Dictionary,dt: float) -> void:
+    if s.state.in_bounds(c.x,c.y) and s.state.is_walkable(c.x,c.y) and s.state.zone_state[s.state.zone_at(s.state.index_of(c.x,c.y))]<2:
+     e.pos=Walker.move(s.state,4,e.pos,e.charge_dir*65.0*dt,Vector2(1.5,1.5))
+    if e.pos.distance_to(s.position)<9.0 and not e.hit_charge:
+-    hurt_player(12.0); e.hit_charge=true
++    hurt_player(Tiers.attack(12.0,int(e.get("tier",0)))); e.hit_charge=true
+    if s.clock.elapsed>=float(e.phase_until):
+     e.phase="recover"; e.phase_until=s.clock.elapsed+1.5; e.attack_at=s.clock.elapsed+2.0
+   elif phase=="recover" and s.clock.elapsed>=float(e.phase_until):
+@@ -312,9 +314,9 @@ func _enemy(e: Dictionary,dt: float) -> void:
+   e.phase="attack"
+   if s.clock.elapsed>=float(e.attack_at):
+    if target_player:
+-    hurt_player(5.0)
++    hurt_player(Tiers.attack(5.0,int(e.get("tier",0))))
+    else:
+-    victim.hp=maxf(0.0,float(victim.hp)-5.0)
++    victim.hp=maxf(0.0,float(victim.hp)-Tiers.attack(5.0,int(e.get("tier",0))))
+     victim.last_combat=s.clock.elapsed
+    e.attack_at=s.clock.elapsed+1.0
+  else:
+diff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd
+index cbd4ebd..fff1889 100644
+--- a/scripts/poc2/simulation/persistence.gd
++++ b/scripts/poc2/simulation/persistence.gd
+@@ -1,4 +1,5 @@
+ extends RefCounted
++const Tiers: GDScript = preload("res://scripts/poc2/simulation/enemy_tiers.gd")
+ ## JSON-safe complete snapshots. Validate on a disposable candidate, adopt only after every check succeeds.
+ const SCALARS: Array[String] = ["position","aim","has_aim","seeds","hp","max_hp","water","max_water","next_id","income_fraction","last_damage","respawn_at","shot_ready","skill_ready","reveal_at","zone_check_at","skills","unlocked","favorites","sow_width"]
+ const ROWS: Array[String] = ["plants","helpers","enemies","nests","fossils","shots"]
+@@ -162,6 +163,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
+   var typed: Array[Dictionary]=[]
+   for entity: Variant in decoded:
+    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,"invalid_entity_"+category)
++   # Old working PoC3 entities retain their original tier-0 abilities. Placement
++   # distance is never revisited on restore, including for moving mothers.
++   if category in ["enemies","nests"]: entity.tier=int(entity.get("tier",0))
+    # Earlier PoC3 working saves have no discovery field; never infer a discovery.
+    if category in ["nests","fossils"] and not entity.has("discovered"): entity.discovered=false
+    # Working PoC3 saves used a temporary wet_until before permanent watering.
+@@ -248,6 +252,13 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
+   if e.has("water_task") and (not e.water_task is String or e.water_task not in ["","resupplying","refilling","returning_water"]): return false
+  if category=="enemies" and (e.kind not in ["boar","spider"] or e.hp<=0 or e.hp>e.max_hp): return false
+  if category=="nests" and (e.scale not in ["small","medium","large"] or e.kind not in ["boar","spider","mother"] or e.hp<=0 or e.hp>e.max_hp): return false
++ if category in ["enemies","nests"]:
++  var tier: Variant=e.get("tier",0)
++  # Validate before converting/calling the pure multiplier API: invalid save
++  # data must not truncate to an accepted tier or reach its assertions.
++  if not (tier is int or tier is float) or float(tier) not in [0.0,1.0,2.0]: return false
++  var base_hp: float=(40.0 if e.strong else 20.0) if category=="enemies" else {"small":40.0,"medium":100.0,"large":240.0}[e.scale]
++  if float(e.max_hp)!=Tiers.hp(base_hp,int(tier)): return false
+  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
+  if category=="shots" and (e.kind not in ["seed","bazooka"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false
+  if category=="shots" and e.kind=="seed":

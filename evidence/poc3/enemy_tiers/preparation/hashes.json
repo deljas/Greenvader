@@ -1,0 +1,15 @@
+{
+  "head": "9d54a6d1795065e6e642fe01543b2c8d2a1f27ee",
+  "state": "unconnected_preparation_stopped",
+  "hashes": [
+    {
+      "path": "scripts/poc2/simulation/enemy_tiers.gd",
+      "sha256": "DEA76D1B80B432972BB1DA4CF79C66B864728353B01CE8077556A155C6750E4E"
+    },
+    {
+      "path": "evidence/poc3/enemy_tiers/preparation/report.md",
+      "sha256": "B25867D13F826305B17008376FCE896D756CFE6816F6CE065A6D419975C8F476"
+    }
+  ],
+  "godot_and_tests": "NOT_RUN"
+}

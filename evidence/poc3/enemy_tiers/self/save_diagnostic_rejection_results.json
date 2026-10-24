@@ -1,0 +1,16 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "actual_json_missing_parent_fixed_tier_roundtrip",
+      "status": "FAIL"
+    }
+  ],
+  "failures": 1,
+  "not_run": [
+    "GPU rendering unchanged",
+    "physical input",
+    "full regression",
+    "difficulty balance"
+  ]
+}

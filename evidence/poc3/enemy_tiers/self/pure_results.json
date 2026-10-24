@@ -1,0 +1,95 @@
+{
+  "checks": [
+    {
+      "detail": 0,
+      "name": "boundary_179.99px",
+      "status": "PASS"
+    },
+    {
+      "detail": 1,
+      "name": "boundary_180.0px",
+      "status": "PASS"
+    },
+    {
+      "detail": 1,
+      "name": "boundary_319.99px",
+      "status": "PASS"
+    },
+    {
+      "detail": 2,
+      "name": "boundary_320.0px",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "distance_is_euclidean",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "valid_tier_range",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "hp_base_20.0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "hp_base_40.0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "hp_base_100.0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "hp_base_240.0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "attack_base_5.0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "attack_base_12.0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "attack_base_10.0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "initial_reward_and_spawned_zero_base_6",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "initial_reward_and_spawned_zero_base_15",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "initial_reward_and_spawned_zero_base_30",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "initial_reward_and_spawned_zero_base_80",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "initial_reward_and_spawned_zero_base_200",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}
