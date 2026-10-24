@@ -1,0 +1,85 @@
+{
+  "head": "f8fd0035e566e241c0abf48b3b2165d48f76e1fd",
+  "scopes": [
+    {
+      "scope": "INPUT_LATCH",
+      "accepted_commit": "5f7ac13",
+      "paths": [
+        "scripts/poc2/input_latch.gd"
+      ],
+      "unchanged_committed_scope": true
+    },
+    {
+      "scope": "AREA_KERNEL",
+      "accepted_commit": "119efb5",
+      "paths": [
+        "scripts/poc2/simulation/seed_area.gd"
+      ],
+      "unchanged_committed_scope": true
+    },
+    {
+      "scope": "WATER_GROWTH_COMPLETION",
+      "accepted_commit": "a63487d",
+      "paths": [
+        "scripts/world/growth_sim.gd",
+        "scripts/world/world_state.gd",
+        "scripts/world/spread_sim.gd",
+        "scripts/world/far_seed_sim.gd"
+      ],
+      "unchanged_committed_scope": true
+    },
+    {
+      "scope": "MAP_CAMERA",
+      "accepted_commit": "b5e68bf",
+      "paths": [
+        "scripts/poc2/view/camera_geometry.gd"
+      ],
+      "unchanged_committed_scope": true
+    },
+    {
+      "scope": "PLANT_WIDGETS",
+      "accepted_commit": "9d54a6d",
+      "paths": [
+        "scripts/poc2/ui/plant_list.gd",
+        "scripts/poc2/ui/favorite_slot.gd",
+        "scripts/poc2/ui/plant_list_row.gd"
+      ],
+      "unchanged_committed_scope": true
+    },
+    {
+      "scope": "TIERS_KERNEL",
+      "accepted_commit": "dc2033b",
+      "paths": [
+        "scripts/poc2/simulation/enemy_tiers.gd"
+      ],
+      "unchanged_committed_scope": true
+    },
+    {
+      "scope": "LOCUST_KERNEL",
+      "accepted_commit": "a97fbcd",
+      "paths": [
+        "scripts/poc2/simulation/locust_ai.gd"
+      ],
+      "unchanged_committed_scope": true
+    },
+    {
+      "scope": "HELPERS_GAMEPLAY",
+      "accepted_commit": "4550123",
+      "paths": [
+        "scripts/poc2/simulation/helper_work.gd",
+        "scripts/poc2/simulation/plants.gd",
+        "scripts/poc2/simulation/combat.gd",
+        "scripts/poc2/simulation/persistence.gd",
+        "scripts/poc2/view/entity_sprite_state.gd",
+        "scripts/poc2/view/helper_effects.gd",
+        "scripts/poc2/ui/map_ui.gd"
+      ],
+      "unchanged_committed_scope": true
+    }
+  ],
+  "uncommitted_game_files": [
+    "scripts/play/walker.gd",
+    "scripts/poc2/poc2_main.gd"
+  ],
+  "meaning": "Exact unchanged module checks plus reviewed later shared-file changes; final_after verifies integration freeze"
+}

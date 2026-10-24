@@ -1,0 +1,377 @@
+{
+  "utc": "2026-10-24T10:00:04.838205Z",
+  "head": "f8fd0035e566e241c0abf48b3b2165d48f76e1fd",
+  "state": "PREPARATION_ONLY_NOT_FROZEN",
+  "godot_executed": false,
+  "runtime_owner": "INTEGRATION implementer",
+  "files": [
+    {
+      "feature": "INPUT",
+      "path": "scripts/poc2/input_latch.gd",
+      "feature_sha256": "729A03E6CDEE350041B273955E5A040480864582ADF5FC8E2061CC4BE91C54B0",
+      "current_sha256": "729A03E6CDEE350041B273955E5A040480864582ADF5FC8E2061CC4BE91C54B0",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "INPUT",
+      "path": "scripts/poc2/poc2_main.gd",
+      "feature_sha256": "BAFBF7C715D2282A0363A44903EDC80A926C0FB089058BB4DF96AB9818AC1C36",
+      "current_sha256": "0F0EC8D5326F0C67A386669853121B9D5316C72ABDB8B18442475B2E64F907E2",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "INPUT",
+      "path": "scripts/poc2/poc2_session.gd",
+      "feature_sha256": "C5F42622209D529A03D3C0E8B833DD35BDCC74174B166FEFB8A3011ACA1F322D",
+      "current_sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "INPUT",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "9D39B2856786C8815626C77D413D8732369A758E7FF001E4F3D61C8409989648",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "INPUT",
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "feature_sha256": "F3E2A49D9E9017F35B2FE09FBEFC3A3D1269486768721A22E6EECDAD0B7501B6",
+      "current_sha256": "519067DE904F1E615E6E98237DA858EB26B1332F7AA49B848913960F6132506E",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "INPUT",
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "feature_sha256": "08720B8B332B8465DC82BEFAF8C74B74B372AA288A1AB64FDEECE1B25C76F6D2",
+      "current_sha256": "196FBFA9C20C4BFE97BDA460F852D8B425F2012EFAE16BB5B5069FCC9CBE7C8D",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "AREA",
+      "path": "scripts/poc2/poc2_main.gd",
+      "feature_sha256": "945ffd3c4dfb559aa414fe13bb0feed3bf75cfcad2c3b768a8df7abbe964d99a",
+      "current_sha256": "0F0EC8D5326F0C67A386669853121B9D5316C72ABDB8B18442475B2E64F907E2",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "AREA",
+      "path": "scripts/poc2/poc2_session.gd",
+      "feature_sha256": "c4aa53a533e84486c93ca74515f86460cd524ffef56e1b80941b28acda589ce1",
+      "current_sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "AREA",
+      "path": "scripts/poc2/simulation/seed_area.gd",
+      "feature_sha256": "c899bd112da152a9f50ff3eda8157403c8bfeff021647f2e311e7d9132711d85",
+      "current_sha256": "C899BD112DA152A9F50FF3EDA8157403C8BFEFF021647F2E311E7D9132711D85",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "AREA",
+      "path": "scripts/poc2/simulation/combat.gd",
+      "feature_sha256": "68311360b725d77c1ddc14843d0b037d0c3a106a712cab59c0a1da0aab231891",
+      "current_sha256": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "AREA",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "1c2742ea14e8f0586c77a1960d4f6513f0324afd89999328c4e13786e841442b",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "AREA",
+      "path": "scripts/poc2/view/world_view.gd",
+      "feature_sha256": "1263b27802ff6d89f5bc14ad17e10d165109e7000a8b6798dcb5117c186cdc4f",
+      "current_sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "AREA",
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "feature_sha256": "519067de904f1e615e6e98237da858eb26b1332f7aa49b848913960f6132506e",
+      "current_sha256": "519067DE904F1E615E6E98237DA858EB26B1332F7AA49B848913960F6132506E",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WATER",
+      "path": "scripts/world/growth_sim.gd",
+      "feature_sha256": "9ACFB73AE571A535955B9BF8AF69A2BBA2964D9FE674E43BB3CDFB59943D342E",
+      "current_sha256": "9ACFB73AE571A535955B9BF8AF69A2BBA2964D9FE674E43BB3CDFB59943D342E",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WATER",
+      "path": "scripts/world/world_state.gd",
+      "feature_sha256": "9CE7B1833E8367BDB4CBA1A1D42C1312AD1C2052FCD445BCBD8DE0D50F16CABA",
+      "current_sha256": "9CE7B1833E8367BDB4CBA1A1D42C1312AD1C2052FCD445BCBD8DE0D50F16CABA",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WATER",
+      "path": "scripts/poc2/poc2_session.gd",
+      "feature_sha256": "AA9109C4EF7E30B95FC72ECB689F6D22175E381B3859BE9D6B2E446EBFE0886B",
+      "current_sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WATER",
+      "path": "scripts/poc2/simulation/plants.gd",
+      "feature_sha256": "BF7EFED61388BC2D7DB0D9D6E387D2337D2F8262EEEE76390A8FB4C634941B4A",
+      "current_sha256": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WATER",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "BFD8392E451B5690B100156790BADD67491ACB20B4BFA1F5E80F91FB26B88F8E",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "SPRITE",
+      "path": "scripts/poc2/view/world_view.gd",
+      "feature_sha256": "B710A047F2BEB61C47C2E088186415880E43AA1C4B4A3C8D8711046ADF51FB92",
+      "current_sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "SPRITE",
+      "path": "scripts/poc2/view/entity_sprite.gd",
+      "feature_sha256": "56CB68EAE85EC0D87231A2448AAC7EFC90E1B35E9ACA22D19F560EB177072ACA",
+      "current_sha256": "56CB68EAE85EC0D87231A2448AAC7EFC90E1B35E9ACA22D19F560EB177072ACA",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "SPRITE",
+      "path": "scripts/poc2/view/entity_sprite_catalog.gd",
+      "feature_sha256": "37EB2B2700836333A509BAB72B9D965860C8433D490D9A41C97A3D35157F3B48",
+      "current_sha256": "37EB2B2700836333A509BAB72B9D965860C8433D490D9A41C97A3D35157F3B48",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "SPRITE",
+      "path": "scripts/poc2/view/entity_sprite_state.gd",
+      "feature_sha256": "60F7FA2743128073BBAE793546FEEFEB058757057EF7F32BF6A92D702CF5CA46",
+      "current_sha256": "21B8357612D82F6A898303E83CCEAF6FD37DE5255C106D107B73BC4A261A1676",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "PRICE",
+      "path": "scripts/poc2/poc2_session.gd",
+      "feature_sha256": "55AD62B7F79691E51761D1A8A835474143A95733C3A7FB39984FF7D6F1963057",
+      "current_sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "PRICE",
+      "path": "scripts/poc2/simulation/plants.gd",
+      "feature_sha256": "EAF7D02C1B527CBCC6FEE800FDBDFBF66B982FCFFD3C9C731BC2FB1631C82259",
+      "current_sha256": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "PRICE",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "DE76491FB59BB56806CFD204035F9C33CA09ADF1602F8639BD0C6DBB8C774735",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WORLD",
+      "path": "scripts/poc2/poc2_session.gd",
+      "feature_sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B",
+      "current_sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WORLD",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "41DC78D7F8D8B49FA54699F73A17A420EEFB9C18EB6960EE1B01829C0A9BF7FB",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "WORLD",
+      "path": "data/poc3/maps/town_03.json",
+      "feature_sha256": "A1E4F6109E03BB201538EBBD6A90AC2CB4F8C27056C10F0B92EC1D85E5CB7515",
+      "current_sha256": "E5E659C4DC28E6AC5D612014883C98DB2B37414BA2CBC5151CC418336081B8B7",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "TIERS",
+      "path": "scripts/poc2/simulation/combat.gd",
+      "feature_sha256": "DC225F5369D63C518200C97689C97F0B546F80C3D60C591C84F4A5F5806FF772",
+      "current_sha256": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "TIERS",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "65AAB9A2C3169AFA9BD4919E7B396262E36CC84EEE8E6B3E88FA2C3FC8BD53FE",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "TIERS",
+      "path": "scripts/poc2/simulation/enemy_tiers.gd",
+      "feature_sha256": "DEA76D1B80B432972BB1DA4CF79C66B864728353B01CE8077556A155C6750E4E",
+      "current_sha256": "DEA76D1B80B432972BB1DA4CF79C66B864728353B01CE8077556A155C6750E4E",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "LOCUST",
+      "path": "scripts/poc2/simulation/locust_ai.gd",
+      "feature_sha256": "7B9799EA7BC1DB008711081A8DB061548640F1ECC0242B3242CBCE0BA27EF799",
+      "current_sha256": "7B9799EA7BC1DB008711081A8DB061548640F1ECC0242B3242CBCE0BA27EF799",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "LOCUST",
+      "path": "scripts/poc2/simulation/combat.gd",
+      "feature_sha256": "810C7B06BE3CB6A3897840267BA199305E19AB72A15708F2DF94C02F1E328142",
+      "current_sha256": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "LOCUST",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "E171FD32BB3333F61771C4CC27B9AF0E7F6B0620D1763D2CC1C41AE707E9252B",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "LOCUST",
+      "path": "scripts/poc2/view/world_view.gd",
+      "feature_sha256": "4A4817BADFB88B15B8758EBAEF01C0C01EA82510FE02209C3BAE52DBE3FCDDB8",
+      "current_sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "LOCUST",
+      "path": "data/poc3/maps/town_03.json",
+      "feature_sha256": "E5E659C4DC28E6AC5D612014883C98DB2B37414BA2CBC5151CC418336081B8B7",
+      "current_sha256": "E5E659C4DC28E6AC5D612014883C98DB2B37414BA2CBC5151CC418336081B8B7",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/simulation/helper_work.gd",
+      "feature_sha256": "7A6E50F895B7EC30B4CDC7BC2472D62B740179ED423551DB99682F8A2C8B49BE",
+      "current_sha256": "7A6E50F895B7EC30B4CDC7BC2472D62B740179ED423551DB99682F8A2C8B49BE",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/simulation/plants.gd",
+      "feature_sha256": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371",
+      "current_sha256": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/simulation/combat.gd",
+      "feature_sha256": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043",
+      "current_sha256": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "feature_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "current_sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/poc2_main.gd",
+      "feature_sha256": "993C1AD228B6E712997899EC2C08F06AD8418569BB819E06636D3ED94F4DBD28",
+      "current_sha256": "0F0EC8D5326F0C67A386669853121B9D5316C72ABDB8B18442475B2E64F907E2",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/view/world_view.gd",
+      "feature_sha256": "6BC2BC1B2A9344442248EA70EFAA6A624203AC2289511536B6E11633D897434B",
+      "current_sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "identical": false,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/view/entity_sprite_state.gd",
+      "feature_sha256": "21B8357612D82F6A898303E83CCEAF6FD37DE5255C106D107B73BC4A261A1676",
+      "current_sha256": "21B8357612D82F6A898303E83CCEAF6FD37DE5255C106D107B73BC4A261A1676",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/view/helper_effects.gd",
+      "feature_sha256": "24A584052EAD7168225FD3EC4EDA54EA49F4C8A896C8A50AB556F5E091759DA6",
+      "current_sha256": "24A584052EAD7168225FD3EC4EDA54EA49F4C8A896C8A50AB556F5E091759DA6",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "HELPERS",
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "feature_sha256": "196FBFA9C20C4BFE97BDA460F852D8B425F2012EFAE16BB5B5069FCC9CBE7C8D",
+      "current_sha256": "196FBFA9C20C4BFE97BDA460F852D8B425F2012EFAE16BB5B5069FCC9CBE7C8D",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    },
+    {
+      "feature": "REFLECTION",
+      "path": "scripts/poc2/view/world_view.gd",
+      "feature_sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "current_sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "identical": true,
+      "meaning": "Provisional source comparison only; changed shared files need semantic delta audit after final freeze"
+    }
+  ]
+}

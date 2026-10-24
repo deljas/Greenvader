@@ -1,0 +1,156 @@
+{
+  "checks": [
+    {
+      "detail": [
+        {
+          "collected": "carrot",
+          "elapsed": 0.72140430410703,
+          "position": "(478.0, 466.0001)"
+        },
+        {
+          "collected": "gatlinger",
+          "elapsed": 4.81066327293714,
+          "position": "(517.9995, 433.9998)"
+        },
+        {
+          "collected": "sprinkler",
+          "elapsed": 7.91769268115362,
+          "position": "(402.0001, 513.9999)"
+        }
+      ],
+      "id": "JOURNEY_WALK_REVEAL_UNLOCKS_CARROT",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "active": true,
+        "hp": 100.0,
+        "staging": "(538.0, 466.0)"
+      },
+      "id": "JOURNEY_APPROACH_ACTIVATES_NEAR_FRONT",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "bazooka": 1,
+        "elapsed": 3.97140430410703,
+        "fire": 3,
+        "hp": 100.0,
+        "seed": 96,
+        "tackle": 0
+      },
+      "id": "JOURNEY_REAL_FIRE_SKILL_CONQUER_NEAR_NEST",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "JOURNEY_NEST_FOSSIL_UNLOCKS_ARMY",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        {
+          "collected": "carrot",
+          "elapsed": 0.72140430410703,
+          "position": "(478.0, 466.0001)"
+        },
+        {
+          "collected": "gatlinger",
+          "elapsed": 4.81066327293714,
+          "position": "(517.9995, 433.9998)"
+        },
+        {
+          "collected": "sprinkler",
+          "elapsed": 7.91769268115362,
+          "position": "(402.0001, 513.9999)"
+        }
+      ],
+      "id": "JOURNEY_EXPLORATION_UNLOCKS_WORKERS",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "active": true,
+        "home": "(486.0, 230.0)",
+        "kind": "spider",
+        "position": "(474.0, 306.0)"
+      },
+      "id": "JOURNEY_ANOTHER_DIRECTION_FRONT_ACTIVATES",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "JOURNEY_RETURNS_TO_CENTRAL_SUPPLY",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "income_wait_game_seconds": 0.0,
+        "results": {
+          "army": {
+            "id": 39,
+            "ok": true,
+            "reason": ""
+          },
+          "carrot": {
+            "id": 38,
+            "ok": true,
+            "reason": ""
+          },
+          "gatlinger": {
+            "id": 40,
+            "ok": true,
+            "reason": ""
+          },
+          "sprinkler": {
+            "id": 41,
+            "ok": true,
+            "reason": ""
+          }
+        },
+        "seeds": 1
+      },
+      "id": "JOURNEY_PLACES_CROP_AND_THREE_HELPERS",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "loaded": true,
+        "saved": true
+      },
+      "id": "JOURNEY_HELPERS_CROP_DISCOVERY_JSON_FULL_EQUAL",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "JOURNEY_RESTORED_SYSTEMS_CONTINUE",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "GPU rendering",
+    "physical input",
+    "gameplay enjoyment",
+    "unassisted player conquest"
+  ],
+  "observations": {
+    "trace": [
+      {
+        "collected": "carrot",
+        "elapsed": 0.72140430410703,
+        "position": "(478.0, 466.0001)"
+      },
+      {
+        "collected": "gatlinger",
+        "elapsed": 4.81066327293714,
+        "position": "(517.9995, 433.9998)"
+      },
+      {
+        "collected": "sprinkler",
+        "elapsed": 7.91769268115362,
+        "position": "(402.0001, 513.9999)"
+      }
+    ]
+  }
+}

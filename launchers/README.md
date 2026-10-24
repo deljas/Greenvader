@@ -1,6 +1,6 @@
 # 起動方法
 
-通常ゲームはリポジトリ直下の [`run_game.bat`](../run_game.bat) から起動します。`project.godot` の `main_scene` はPoC2共有コードの `scenes/poc2.tscn` を指し、画面表示は「PoC3 作業版」です。保存先は `user://poc3_saves` に分離済みです。ゲーム機能は開発中で、詳細は[暫定ガイド](../docs/POC3_GUIDE.md)を参照してください。専用labは比較・確認時に一覧から起動してください。
+通常ゲームはリポジトリ直下の [`run_game.bat`](../run_game.bat) から起動し、新規ゲームを始めてください。`project.godot` の `main_scene` はPoC2共有コードの `scenes/poc2.tscn` を指し、画面表示は「PoC3 作業版」です。保存先は `user://poc3_saves` に分離済みです。PoC3は技術受入済みで、操作と遊び方は[ガイド](../docs/POC3_GUIDE.md)を参照してください。遊びやすさ・最終バランスの評価はユーザー試遊に残ります。専用labは比較・確認時に一覧から起動してください。
 
 | 起動ファイル | 用途 |
 |---|---|

@@ -1,6 +1,6 @@
 # グリーンベーダー
 
-Godot製のWindows向け一人用ゲームです。通常起動はリポジトリ直下の [`run_game.bat`](run_game.bat) から行い、現在の画面表示は「PoC3 作業版」です。ゲーム機能は引き続き開発中で、試遊版の完成を意味しません。
+Godot製のWindows向け一人用ゲームです。通常起動はリポジトリ直下の [`run_game.bat`](run_game.bat) から行い、現在の画面表示は「PoC3 作業版」です。PoC3は技術受入済みで、[操作ガイド](docs/POC3_GUIDE.md)に沿ってユーザー試遊できます。楽しさ、最終バランス、物理操作感、美術の評価は試遊で確認します。
 
 ## Codex / Claude Code から再開する
 
@@ -15,7 +15,7 @@ Claudeはこのフォルダで `claude --model opus` を起動できます。ロ
 
 ## 開発状況
 
-- 現在の作業版：PoC3作業版。保存先・形式は旧PoCセーブから分離済みですが、PoC3ゲーム機能の実装・統合・独立検証は進行中です。
+- 現在の作業版：技術受入済みPoC3作業版。通常起動後に新規開始してください。旧PoC/PoC2の保存データは移行しません。
 - 開発環境：Godot `4.7.2.stable.official.ed1daf0bf`。実行ファイルは `C:/godot/Godot_v4.7.2-stable_win64_console.exe`。
 - 通常起動はPoC2共有コード上の [`scenes/poc2.tscn`](scenes/poc2.tscn) を使い、画面タイトルは「PoC3 作業版」です。現役lab 7件と用途は[起動一覧](launchers/README.md)を参照してください。
 - PoC2以前の試作・検証資料は当時の履歴として保持しています。既存履歴の保全は新しい動作検証を意味しません。

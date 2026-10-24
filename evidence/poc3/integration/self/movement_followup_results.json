@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "detail": {},
+      "id": "PLAYER_WALK_DIAGONAL_AXIS_(121, 57)",
+      "status": "PASS"
+    },
+    {
+      "detail": {},
+      "id": "PLAYER_WALK_DIAGONAL_AXIS_(118, 178)",
+      "status": "PASS"
+    },
+    {
+      "detail": "(450.0, 418.0)",
+      "id": "WATER_EDGE_FEET_DO_NOT_TUNNEL",
+      "status": "PASS"
+    },
+    {
+      "detail": "(456.0, 450.0)",
+      "id": "OPEN_SPACE_MOVE_PRESERVES_DISTANCE",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "GPU rendering",
+    "physical input",
+    "gameplay enjoyment",
+    "unassisted player conquest"
+  ],
+  "observations": {}
+}

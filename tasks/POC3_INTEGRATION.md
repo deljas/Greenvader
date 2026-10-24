@@ -3,13 +3,13 @@
 ## 管理欄
 
 - ID: POC3-INTEGRATION
-- 状態: 未着手
+- 状態: 完了
 - 担当ツール: なし
 - 担当セッション: なし
 - 更新日: 2026-10-24
 - 予約中の編集範囲: なし
 - 予約中の共有資源: なし
-- 最終担当: なし
+- 最終担当: codex / codex-20261024-poc3-implementation
 
 ## 実施時に具体化する範囲
 
@@ -32,3 +32,18 @@
 ## 引き継ぎ
 
 - 2026-10-24: 全体範囲と完了条件をユーザー承認。計画のみ、実装・検証・ガイド作成は未着手。
+- 統合時の確認追加: SOURCE/SAVE-BASE以来、通常起動を終了するとObjectDB 37件・resource 20件の残存が報告されている。WATERのheadless起動でも同数（evidence/poc3/water_growth/self/startup.log）。poc2_session.close()は存在するがmainの終了処理は未接続に見えるため、終了・新規開始・読込置換の所有関係を確認する。原因未確定のまま今回機能の回帰と断定せず、統合で既存closeの適切な呼出しと正常終了を代表1回確認する。旧ログを削除して解決扱いにしない。
+
+- 終了処理の追加読取: poc2_main.replace_sessionは旧session.close済み、Persistenceはbuild後失敗candidate.closeと成功時callback移譲/候補system切離しがある。通常mainには_exit_treeがなく、combat/plants→sessionとWorldState.tile_listenerの参照を終了時に解放していない可能性が高い。統合時に通常終了1回で原因を確認し、必要ならmain終了でcloseを呼ぶ限定修正を行う。現時点は読取仮説であり原因確定/修正済みとしない。
+
+- WORLD到達性試験の留保: AStar斜め経路を半幅2のWalkerで各cell中心へ再生すると、北(115,104)→(115,103)と南(115,120)→(115,121)でx=461.9998（中心462より約0.0002pxずれ）が残り次軸へ進まない。self/routes_followup.json参照。実衝突を通した別の四近傍経路4本は到達PASSで配置の通行不能ではない。nav.moveはWalkerを使わず直接補間なのでAI停止は未確認。統合の代表手動相当移動で支障がある場合だけ境界精度を限定修正し、原FAILを消さない。
+
+- 準備取得: dc2033b+LOCUST作業差分を読む。後続HELPERS/REFLECTIONの未接続仕様を前提に、限定統合試験・回帰一式1回の計画だけを準備する。既存機能試験は有効な証拠を再利用し、実行と既存ゲーム修正は全依存の凍結後に親が別途許可する。
+
+- 準備完了: tests/poc3/integration/self_core.gd・self_run.ps1とevidence/poc3/integration/preparation.mdを作成し担当停止。PS構文のみPASS、Godot/import・GDScript・動作はNOT_RUN。100%条件のみ全敵排除/安定後に通常clock→growth/spread/far接続を保った120秒固定刻みを許可し、成長値/播種予算は変えない。短い体験経路は通常Session.advance_game。化石・複数前線・fire/skill攻略・helper複合保存・GPU・正常終了は依存凍結後に接続する。
+
+- 統合開始: HELPERSは4550123で受入済み、REFLECTIONは独立画像/保護監査完了し実行権返却。反射world_view差分をindex固定。全依存のゲーム版を固定し、自己統合一式1回を許可。既知終了/Walker問題は実再現後に限定修正し原ログと影響追試を保持する。
+
+- 自己完了/独立移譲: f8fd003+main終了close/Walker EPS5e-4の2差分。自己core14P1Fの移動原FAILを保持、北南/壁抜け/自由移動4P追試で解消。全38330/38330・島16/16を無入力2401game秒で確認。公開API通し10P、GPU12構造条件、西岸の実歩行反転時系列5撮影条件+親目視。原無効撮影2fixtureとnative exit取得留保を報告に保存。終了残存39/21→警告なし/最後native exit0。旧保存3不変、Godot0/overrideなし。実差分/生結果/画像を親確認、freeze_after.json版を最終独立へ。
+
+- 最終技術受入: f8fd003+INTEGRATION freeze_after.jsonの2ゲーム差分を親が確認。最終独立8PASS/0FAIL/native exit0、18対象hash/旧save3不変、Godot0/overrideなし。機能別独立と統合生証拠を再利用して主要16条件に未解決FAIL/NOT_RUNなし。全38330/38330・孤立16/16自動緑化、公開API通し、保存・入力・正常終了、最終草mask/反射短時系列を限定確認。原失敗と追試は保持。evidence/poc3/independent/report.md参照。物理入力・楽しさ/最終バランス・全描画/他GPU性能・書出しは未評価のまま試遊へ引渡す。P6/追加機能へ進まず停止、pushはユーザー。

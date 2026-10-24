@@ -1,0 +1,34 @@
+diff --git a/scripts/play/walker.gd b/scripts/play/walker.gd
+index b10ce35..c03d1ba 100644
+--- a/scripts/play/walker.gd
++++ b/scripts/play/walker.gd
+@@ -8,7 +8,10 @@ extends RefCounted
+ ## depend on the step length), and long moves are cut into short parts (MAX_SUBSTEP), so the path does not depend on the
+ ## frame rate. Free movement is just position + motion: a diagonal keeps its speed.
+ 
+-const EPS: float = 1.0e-4
++# Repeated Vector2 float32 substeps can leave about 0.0002 px of cross-axis
++# drift at town coordinates. Keep boundary contact tolerant of that rounding,
++# without changing feet size or allowing meaningful overlap (0.00005 metres).
++const EPS: float = 5.0e-4
+ 
+ ## A move longer than this is split into equal parts of at most this length (px), so the path along walls and through
+ ## openings differs by less than this between frame rates (a long frame cannot cut a corner a short frame would hit).
+diff --git a/scripts/poc2/poc2_main.gd b/scripts/poc2/poc2_main.gd
+index 9d73a09..95c6f7d 100644
+--- a/scripts/poc2/poc2_main.gd
++++ b/scripts/poc2/poc2_main.gd
+@@ -371,6 +371,13 @@ func _audio_changed(is_muted: bool, volume: float) -> void:
+ 	muted=is_muted
+ 	audio_volume=clampf(volume,0.0,1.0)
+ 
++func _exit_tree() -> void:
++	# The session owns systems/callbacks that refer back to it. Replacement already
++	# closes the old session; leaving the normal scene must end that ownership too.
++	if session!=null:
++		session.close()
++		session=null
++
+ func _notification(what: int) -> void:
+ 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
+ 		_keys.clear()

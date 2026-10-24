@@ -1,0 +1,146 @@
+{
+  "utc": "2026-10-24T10:09:49.0842231Z",
+  "head": "f8fd0035e566e241c0abf48b3b2165d48f76e1fd",
+  "files": [
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\poc2_session.gd",
+      "sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\poc2_main.gd",
+      "sha256": "0F0EC8D5326F0C67A386669853121B9D5316C72ABDB8B18442475B2E64F907E2",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\play\\walker.gd",
+      "sha256": "7F6C4F1A80DDD1F6C28B01E1298BD6093CB78925E39E6C0AEF9CBEE339436CCF",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\combat.gd",
+      "sha256": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\plants.gd",
+      "sha256": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\helper_work.gd",
+      "sha256": "7A6E50F895B7EC30B4CDC7BC2472D62B740179ED423551DB99682F8A2C8B49BE",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\locust_ai.gd",
+      "sha256": "7B9799EA7BC1DB008711081A8DB061548640F1ECC0242B3242CBCE0BA27EF799",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\persistence.gd",
+      "sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\scripts\\poc2\\view\\world_view.gd",
+      "sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\data\\poc3\\maps\\town_03.json",
+      "sha256": "E5E659C4DC28E6AC5D612014883C98DB2B37414BA2CBC5151CC418336081B8B7",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\project.godot",
+      "sha256": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_core.gd",
+      "sha256": "1B3F58D271B1D78E58C4814CC8B1340C230589BCE29FA87DA694F79F98C6E1FA",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_core.gd.uid",
+      "sha256": "6E2ECDF99888F745C783659693D5EB1AA5B7BDF7D23691BFBAB7A9F7E8718A68",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_gpu.gd",
+      "sha256": "D03A4591E4787A03A91CD0B1078837CF0F08088D54442EEDA87D39DB17722730",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_gpu.gd.uid",
+      "sha256": "B156E12F35EE3BF48314656F1EA05AAABAF11624E610A945D13736AA1C681161",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_journey.gd",
+      "sha256": "65BB811CC95E2BBFCCBB28688BF667B1C278D59DAB702BB68FAF709FB1971FD2",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_journey.gd.uid",
+      "sha256": "88BAE96DA6C7BB76132B76733818EA6B5C37CEA1D4318D24424AF9BCA9DA9B85",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_run.ps1",
+      "sha256": "92D970DA6326D87C57D4A01A928926CB7502FEED7D406BC2F0F74DE944BE7289",
+      "unchanged": true
+    }
+  ],
+  "old_saves": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0",
+      "unchanged": true
+    }
+  ],
+  "override_absent": true,
+  "processes": [],
+  "stderr_bytes": 0,
+  "images": [
+    {
+      "path": "evidence/poc3/integration/self/new_start.png",
+      "sha256": "A1FE6B3FD3C9A1F3C98F121316B4ACD3E7C58C05AEB6847EA14A09775B309DC3"
+    },
+    {
+      "path": "evidence/poc3/integration/self/map_helpers.png",
+      "sha256": "5D8822B49F4047F95BE8AEDB213720BBA2C6066AF6B9EB402CBFA48FDA7FFC61"
+    },
+    {
+      "path": "evidence/poc3/integration/self/plant_list.png",
+      "sha256": "11CE2578110A02423A94DED533917C09A52DB9FF731A7AF7E1DFC1767F48E4D3"
+    },
+    {
+      "path": "evidence/poc3/integration/self/water_followup_0.png",
+      "sha256": "568AB2BB16927CACF400BC9624326B0584BE22AE528E6EDF2A1D22794FF11979"
+    },
+    {
+      "path": "evidence/poc3/integration/self/water_followup_2.png",
+      "sha256": "2A34B824F7B77A2567E155018CCFC18F3C46CCEDB0E2C6BDC5D532C7EDFC1363"
+    },
+    {
+      "path": "evidence/poc3/integration/self/water_followup_3.png",
+      "sha256": "93CADB1B4570F3F02AB62C5EC34F260A8BC627A0D79ED4D0C8CD218261894A15"
+    },
+    {
+      "path": "evidence/poc3/integration/self/water_followup_5.png",
+      "sha256": "B3DF453CBC152B04BFA162E1455C0437FE6F6C8B8400DD677D2254D8DDFB81F9"
+    }
+  ]
+}

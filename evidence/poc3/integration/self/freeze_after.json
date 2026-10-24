@@ -1,0 +1,74 @@
+[
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\poc2_session.gd",
+    "Hash": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\poc2_main.gd",
+    "Hash": "0F0EC8D5326F0C67A386669853121B9D5316C72ABDB8B18442475B2E64F907E2"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\play\\walker.gd",
+    "Hash": "7F6C4F1A80DDD1F6C28B01E1298BD6093CB78925E39E6C0AEF9CBEE339436CCF"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\combat.gd",
+    "Hash": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\plants.gd",
+    "Hash": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\helper_work.gd",
+    "Hash": "7A6E50F895B7EC30B4CDC7BC2472D62B740179ED423551DB99682F8A2C8B49BE"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\locust_ai.gd",
+    "Hash": "7B9799EA7BC1DB008711081A8DB061548640F1ECC0242B3242CBCE0BA27EF799"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\persistence.gd",
+    "Hash": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\view\\world_view.gd",
+    "Hash": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\data\\poc3\\maps\\town_03.json",
+    "Hash": "E5E659C4DC28E6AC5D612014883C98DB2B37414BA2CBC5151CC418336081B8B7"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\project.godot",
+    "Hash": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_core.gd",
+    "Hash": "1B3F58D271B1D78E58C4814CC8B1340C230589BCE29FA87DA694F79F98C6E1FA"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_core.gd.uid",
+    "Hash": "6E2ECDF99888F745C783659693D5EB1AA5B7BDF7D23691BFBAB7A9F7E8718A68"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_gpu.gd",
+    "Hash": "D03A4591E4787A03A91CD0B1078837CF0F08088D54442EEDA87D39DB17722730"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_gpu.gd.uid",
+    "Hash": "B156E12F35EE3BF48314656F1EA05AAABAF11624E610A945D13736AA1C681161"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_journey.gd",
+    "Hash": "65BB811CC95E2BBFCCBB28688BF667B1C278D59DAB702BB68FAF709FB1971FD2"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_journey.gd.uid",
+    "Hash": "88BAE96DA6C7BB76132B76733818EA6B5C37CEA1D4318D24424AF9BCA9DA9B85"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\tests\\poc3\\integration\\self_run.ps1",
+    "Hash": "92D970DA6326D87C57D4A01A928926CB7502FEED7D406BC2F0F74DE944BE7289"
+  }
+]

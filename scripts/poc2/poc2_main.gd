@@ -371,6 +371,13 @@ func _audio_changed(is_muted: bool, volume: float) -> void:
 	muted=is_muted
 	audio_volume=clampf(volume,0.0,1.0)
 
+func _exit_tree() -> void:
+	# The session owns systems/callbacks that refer back to it. Replacement already
+	# closes the old session; leaving the normal scene must end that ownership too.
+	if session!=null:
+		session.close()
+		session=null
+
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
 		_keys.clear()

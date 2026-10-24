@@ -1,0 +1,57 @@
+{
+  "checks": [
+    {
+      "detail": "(461.9998, 413.9998)",
+      "id": "FORMER_NORTH_STEP9_NOW_PASSES",
+      "status": "PASS"
+    },
+    {
+      "detail": "(450.0, 418.0)",
+      "id": "WATER_CONTACT_REMAINS_BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "FINAL_COMPOSITE_JSON_FULL_EQUAL",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "HISTORICAL_PAID_WATER_FAVORITE_WIDTH_NO_OFFLINE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "SAME_TICKS_AFTER_FINAL_RESTORE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "NORMAL_ENTRY_LIST_STOPS_TIME",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "FINAL_UI_HELD_PRESS_DOES_NOT_FIRE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "NORMAL_EXIT_RELEASES_SYSTEM_OWNERSHIP",
+      "status": "PASS"
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": 0,
+  "user_dir": "C:/godot/greenvader/evidence/poc3/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

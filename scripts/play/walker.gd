@@ -8,7 +8,10 @@ extends RefCounted
 ## depend on the step length), and long moves are cut into short parts (MAX_SUBSTEP), so the path does not depend on the
 ## frame rate. Free movement is just position + motion: a diagonal keeps its speed.
 
-const EPS: float = 1.0e-4
+# Repeated Vector2 float32 substeps can leave about 0.0002 px of cross-axis
+# drift at town coordinates. Keep boundary contact tolerant of that rounding,
+# without changing feet size or allowing meaningful overlap (0.00005 metres).
+const EPS: float = 5.0e-4
 
 ## A move longer than this is split into equal parts of at most this length (px), so the path along walls and through
 ## openings differs by less than this between frame rates (a long frame cannot cut a corner a short frame would hit).

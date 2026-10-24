@@ -3,12 +3,12 @@
 ## 管理欄
 
 - ID: POC3-REFLECTION
-- 状態: 検証待ち
-- 担当ツール: codex
-- 担当セッション: codex-20261024-poc3-implementation
+- 状態: 完了
+- 担当ツール: なし
+- 担当セッション: なし
 - 更新日: 2026-10-24
-- 予約中の編集範囲: なし（静止比較・実差分受入済み。短い時系列確認はINTEGRATIONへ移管）
-- 予約中の共有資源: なし（Godot/importはINTEGRATIONへ返却）
+- 予約中の編集範囲: なし
+- 予約中の共有資源: なし
 - 最終担当: codex / codex-20261024-poc3-implementation
 
 ## 実施時に具体化する範囲
@@ -37,3 +37,5 @@
 - 独立移譲: a97fbcd+HELPERS index固定差分+world_view追加7行。PoC3専用tuning deep-copyでreflection_divisor1、共通env/Water/Actor/shader/Card変更なし。自己比較19PASS/通常接続6PASSを別記、7場面画像を親も目視し葉/顔/植物輪郭の改善、極端な潰れなしを確認。CPU同期呼出中央値はdivisor2/1とも0.358ms、drawcall15/primitive3934（GPU専用時間/通常fps保証ではない）。通常画像は接続確認、形状評価は固定fixture。最終world_view hash AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544、旧保存3一致/Godot0/overrideなし、実装者停止。独立は専用evidence/poc3/reflection/independent/とtests/poc3/reflection/independent*のみ。
 
 - 親確認: 独立監査8PASS/0FAIL、9対象hashと旧save3不変。限定7姿勢の反射改善とPoC3専用設定差分を受入、機能コミットする。ただし歩行4コマはpose指定静止画で連続時間のちらつきはNOT_RUNのため、本票の最終完了はINTEGRATIONの短い実歩行/方向転換時系列確認後とする。GPU専用時間/他GPU性能は未測定の限界を保持。
+
+- 最終技術受入: f8fd003+INTEGRATION freeze_after.jsonの2ゲーム差分を親が確認。最終独立8PASS/0FAIL/native exit0、18対象hash/旧save3不変、Godot0/overrideなし。機能別独立と統合生証拠を再利用して主要16条件に未解決FAIL/NOT_RUNなし。全38330/38330・孤立16/16自動緑化、公開API通し、保存・入力・正常終了、最終草mask/反射短時系列を限定確認。原失敗と追試は保持。evidence/poc3/independent/report.md参照。物理入力・楽しさ/最終バランス・全描画/他GPU性能・書出しは未評価のまま試遊へ引渡す。P6/追加機能へ進まず停止、pushはユーザー。

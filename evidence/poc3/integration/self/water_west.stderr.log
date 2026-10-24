@@ -1,0 +1,5 @@
+WARNING: The Viewport was previously notified that the mouse is in its area. There is no need to notify it at this time.
+   at: notify_mouse_entered (scene/main/viewport.cpp:3653)
+   GDScript backtrace (most recent call first):
+       [0] visual_route (res://tests/poc3/integration/self_gpu.gd:32)
+       [1] frames (res://tests/poc3/integration/self_gpu.gd:6)

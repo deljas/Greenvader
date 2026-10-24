@@ -2,7 +2,7 @@
 
 ## PoC3の実行計画（2026-10-24）
 
-全16論点の設計合意を完了し、仕様は[PoC3仕様正本](../docs/POC3_SPEC.md)、順序と受入は[開発計画](../docs/03_DEVELOPMENT_PLAN.md)へ集約しました。PoC3は開発中で、この索引はゲーム機能全体の完成を示しません。状態・担当・編集予約は各票の管理欄を、全体の現在地は[STATUS](../docs/STATUS.md)を参照してください。下記より後のPoC2・旧版の記述は過去の履歴として参照します。
+全16論点の設計合意を完了し、仕様は[PoC3仕様正本](../docs/POC3_SPEC.md)、順序と受入は[開発計画](../docs/03_DEVELOPMENT_PLAN.md)へ集約しました。PoC3の合意済み機能実装・統合・独立確認を完了し、親が技術受入しました。楽しさ・最終バランス・物理入力はユーザー試遊で確認します。状態・担当・編集予約は各票の管理欄を、全体の現在地は[STATUS](../docs/STATUS.md)を参照してください。下記より後のPoC2・旧版の記述は過去の履歴として参照します。
 
 | 段階 | 作業票 | 主な依存・接続 |
 |---|---|---|
@@ -172,9 +172,9 @@ Codexなら状態を `作業中(codex)`、担当ツールを `codex` にしま�
 
 ## 新規票と起動入口
 
-- 通常ゲームはリポジトリ直下の[`run_game.bat`](../run_game.bat)から起動し、現在の画面表示は「PoC3 作業版」です。現役lab 7件の用途は[起動一覧](../launchers/README.md)を参照。操作は[暫定ガイド](../docs/POC3_GUIDE.md)、現状と検証範囲は[STATUS](../docs/STATUS.md)・[検証記録](../docs/VALIDATION.md)を参照してください。
+- 通常ゲームはリポジトリ直下の[`run_game.bat`](../run_game.bat)から起動し、現在の画面表示は「PoC3 作業版」です。現役lab 7件の用途は[起動一覧](../launchers/README.md)を参照。操作は[PoC3ガイド](../docs/POC3_GUIDE.md)、現状と検証範囲は[STATUS](../docs/STATUS.md)・[検証記録](../docs/VALIDATION.md)を参照してください。
 
 - テンプレート: [TASK_TEMPLATE.md](../TASK_TEMPLATE.md)。管理欄、目的、編集可能範囲、合格条件、証拠、依存、終了条件を埋める。
 - Codex: [AGENTS.md](../AGENTS.md) と [START_PROMPT.md](../START_PROMPT.md)。
 - Claude Code: [CLAUDE.md](../CLAUDE.md) と [.claude/README.md](../.claude/README.md)。
-- 完了したlabは参照資産として保持します。SAVE-BASEは保存先/形式の分離に限定した技術受入であり、PoC3のゲーム機能は開発中です。ClaudeのAPI呼出しやゲーム実装を自動開始する設定は追加していません。
+- 完了したlabは参照資産として保持します。SAVE-BASE単体は保存先/形式の分離に限定した技術受入であり、後続のPoC3全体の受入は[最終独立検証](POC3_VERIFY.md)を参照してください。ClaudeのAPI呼出しやゲーム実装を自動開始する設定は追加していません。

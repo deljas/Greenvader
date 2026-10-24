@@ -1,0 +1,436 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "id": "GPU_START_SAFE_ISOLATED",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "NORMAL_NEW_GAME_GPU",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "NATIVE_NEAREST_INTEGER_VIEW",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "MAP_STOPS_TIME_WITH_FINAL_HELPER_STATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "FINAL_MAP_GPU",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "E_PLANT_LIST_PAUSES_FINAL_SESSION",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "FINAL_LIST_GPU",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "MAP_CLOSE_DOES_NOT_LEAK_HELD_SHOT",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "FINAL_WATER_BANK_GPU",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "FINAL_REFLECTION_NATIVE_VIEW",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        {
+          "actor": {
+            "anchor": [
+              12,
+              34
+            ],
+            "direction": "down",
+            "fire_kind": "",
+            "foot_screen": "(320.0, 200.0)",
+            "formation_visible": false,
+            "frame": 0,
+            "height_m": 1.74722222222222,
+            "matching_feet": true,
+            "matching_flip": true,
+            "matching_texture": true,
+            "pixel_size": 0.0513888888888889,
+            "shaded": true,
+            "texels": [
+              24,
+              36
+            ],
+            "walk_mode": "normal",
+            "walking": true
+          },
+          "direction": "(1.0, 0.0)",
+          "game_time": 0.58,
+          "position": "(453.8398, 418.0)",
+          "reflection_size": "(640, 360)",
+          "walking": true
+        },
+        {
+          "actor": {
+            "anchor": [
+              12,
+              34
+            ],
+            "direction": "down",
+            "fire_kind": "",
+            "foot_screen": "(320.0, 200.0)",
+            "formation_visible": false,
+            "frame": 0,
+            "height_m": 1.74722222222222,
+            "matching_feet": true,
+            "matching_flip": true,
+            "matching_texture": true,
+            "pixel_size": 0.0513888888888889,
+            "shaded": true,
+            "texels": [
+              24,
+              36
+            ],
+            "walk_mode": "normal",
+            "walking": true
+          },
+          "direction": "(1.0, 0.0)",
+          "game_time": 0.66,
+          "position": "(457.6797, 418.0)",
+          "reflection_size": "(640, 360)",
+          "walking": true
+        },
+        {
+          "actor": {
+            "anchor": [
+              12,
+              34
+            ],
+            "direction": "down",
+            "fire_kind": "",
+            "foot_screen": "(320.0, 200.0)",
+            "formation_visible": false,
+            "frame": 1,
+            "height_m": 1.74722222222222,
+            "matching_feet": true,
+            "matching_flip": true,
+            "matching_texture": true,
+            "pixel_size": 0.0513888888888889,
+            "shaded": true,
+            "texels": [
+              24,
+              36
+            ],
+            "walk_mode": "normal",
+            "walking": true
+          },
+          "direction": "(1.0, 0.0)",
+          "game_time": 0.74,
+          "position": "(461.5195, 418.0)",
+          "reflection_size": "(640, 360)",
+          "walking": true
+        },
+        {
+          "actor": {
+            "anchor": [
+              12,
+              34
+            ],
+            "direction": "up",
+            "fire_kind": "",
+            "foot_screen": "(320.0, 200.0)",
+            "formation_visible": false,
+            "frame": 1,
+            "height_m": 1.74722222222222,
+            "matching_feet": true,
+            "matching_flip": true,
+            "matching_texture": true,
+            "pixel_size": 0.0513888888888889,
+            "shaded": true,
+            "texels": [
+              24,
+              36
+            ],
+            "walk_mode": "normal",
+            "walking": true
+          },
+          "direction": "(-1.0, 0.0)",
+          "game_time": 0.82,
+          "position": "(457.6797, 418.0)",
+          "reflection_size": "(640, 360)",
+          "walking": true
+        },
+        {
+          "actor": {
+            "anchor": [
+              12,
+              34
+            ],
+            "direction": "up",
+            "fire_kind": "",
+            "foot_screen": "(320.0, 200.0)",
+            "formation_visible": false,
+            "frame": 2,
+            "height_m": 1.74722222222222,
+            "matching_feet": true,
+            "matching_flip": true,
+            "matching_texture": true,
+            "pixel_size": 0.0513888888888889,
+            "shaded": true,
+            "texels": [
+              24,
+              36
+            ],
+            "walk_mode": "normal",
+            "walking": true
+          },
+          "direction": "(-1.0, 0.0)",
+          "game_time": 0.9,
+          "position": "(453.8398, 418.0)",
+          "reflection_size": "(640, 360)",
+          "walking": true
+        },
+        {
+          "actor": {
+            "anchor": [
+              12,
+              34
+            ],
+            "direction": "up",
+            "fire_kind": "",
+            "foot_screen": "(320.0, 200.0)",
+            "formation_visible": false,
+            "frame": 2,
+            "height_m": 1.74722222222222,
+            "matching_feet": true,
+            "matching_flip": true,
+            "matching_texture": true,
+            "pixel_size": 0.0513888888888889,
+            "shaded": true,
+            "texels": [
+              24,
+              36
+            ],
+            "walk_mode": "normal",
+            "walking": true
+          },
+          "direction": "(-1.0, 0.0)",
+          "game_time": 0.98,
+          "position": "(450.0, 418.0)",
+          "reflection_size": "(640, 360)",
+          "walking": true
+        }
+      ],
+      "id": "CONTINUOUS_WALK_TURN_SEQUENCE_CAPTURED",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "GPU_END_STILL_UNFOCUSED_MINIMIZED",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "GPU rendering",
+    "physical input",
+    "gameplay enjoyment",
+    "unassisted player conquest"
+  ],
+  "observations": {
+    "water_walk_sequence": [
+      {
+        "actor": {
+          "anchor": [
+            12,
+            34
+          ],
+          "direction": "down",
+          "fire_kind": "",
+          "foot_screen": "(320.0, 200.0)",
+          "formation_visible": false,
+          "frame": 0,
+          "height_m": 1.74722222222222,
+          "matching_feet": true,
+          "matching_flip": true,
+          "matching_texture": true,
+          "pixel_size": 0.0513888888888889,
+          "shaded": true,
+          "texels": [
+            24,
+            36
+          ],
+          "walk_mode": "normal",
+          "walking": true
+        },
+        "direction": "(1.0, 0.0)",
+        "game_time": 0.58,
+        "position": "(453.8398, 418.0)",
+        "reflection_size": "(640, 360)",
+        "walking": true
+      },
+      {
+        "actor": {
+          "anchor": [
+            12,
+            34
+          ],
+          "direction": "down",
+          "fire_kind": "",
+          "foot_screen": "(320.0, 200.0)",
+          "formation_visible": false,
+          "frame": 0,
+          "height_m": 1.74722222222222,
+          "matching_feet": true,
+          "matching_flip": true,
+          "matching_texture": true,
+          "pixel_size": 0.0513888888888889,
+          "shaded": true,
+          "texels": [
+            24,
+            36
+          ],
+          "walk_mode": "normal",
+          "walking": true
+        },
+        "direction": "(1.0, 0.0)",
+        "game_time": 0.66,
+        "position": "(457.6797, 418.0)",
+        "reflection_size": "(640, 360)",
+        "walking": true
+      },
+      {
+        "actor": {
+          "anchor": [
+            12,
+            34
+          ],
+          "direction": "down",
+          "fire_kind": "",
+          "foot_screen": "(320.0, 200.0)",
+          "formation_visible": false,
+          "frame": 1,
+          "height_m": 1.74722222222222,
+          "matching_feet": true,
+          "matching_flip": true,
+          "matching_texture": true,
+          "pixel_size": 0.0513888888888889,
+          "shaded": true,
+          "texels": [
+            24,
+            36
+          ],
+          "walk_mode": "normal",
+          "walking": true
+        },
+        "direction": "(1.0, 0.0)",
+        "game_time": 0.74,
+        "position": "(461.5195, 418.0)",
+        "reflection_size": "(640, 360)",
+        "walking": true
+      },
+      {
+        "actor": {
+          "anchor": [
+            12,
+            34
+          ],
+          "direction": "up",
+          "fire_kind": "",
+          "foot_screen": "(320.0, 200.0)",
+          "formation_visible": false,
+          "frame": 1,
+          "height_m": 1.74722222222222,
+          "matching_feet": true,
+          "matching_flip": true,
+          "matching_texture": true,
+          "pixel_size": 0.0513888888888889,
+          "shaded": true,
+          "texels": [
+            24,
+            36
+          ],
+          "walk_mode": "normal",
+          "walking": true
+        },
+        "direction": "(-1.0, 0.0)",
+        "game_time": 0.82,
+        "position": "(457.6797, 418.0)",
+        "reflection_size": "(640, 360)",
+        "walking": true
+      },
+      {
+        "actor": {
+          "anchor": [
+            12,
+            34
+          ],
+          "direction": "up",
+          "fire_kind": "",
+          "foot_screen": "(320.0, 200.0)",
+          "formation_visible": false,
+          "frame": 2,
+          "height_m": 1.74722222222222,
+          "matching_feet": true,
+          "matching_flip": true,
+          "matching_texture": true,
+          "pixel_size": 0.0513888888888889,
+          "shaded": true,
+          "texels": [
+            24,
+            36
+          ],
+          "walk_mode": "normal",
+          "walking": true
+        },
+        "direction": "(-1.0, 0.0)",
+        "game_time": 0.9,
+        "position": "(453.8398, 418.0)",
+        "reflection_size": "(640, 360)",
+        "walking": true
+      },
+      {
+        "actor": {
+          "anchor": [
+            12,
+            34
+          ],
+          "direction": "up",
+          "fire_kind": "",
+          "foot_screen": "(320.0, 200.0)",
+          "formation_visible": false,
+          "frame": 2,
+          "height_m": 1.74722222222222,
+          "matching_feet": true,
+          "matching_flip": true,
+          "matching_texture": true,
+          "pixel_size": 0.0513888888888889,
+          "shaded": true,
+          "texels": [
+            24,
+            36
+          ],
+          "walk_mode": "normal",
+          "walking": true
+        },
+        "direction": "(-1.0, 0.0)",
+        "game_time": 0.98,
+        "position": "(450.0, 418.0)",
+        "reflection_size": "(640, 360)",
+        "walking": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\poc2_session.gd",
+    "Hash": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\poc2_main.gd",
+    "Hash": "993C1AD228B6E712997899EC2C08F06AD8418569BB819E06636D3ED94F4DBD28"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\play\\walker.gd",
+    "Hash": "0856EC7CFAD824B8CBAD22936FB1DD409F07DD8CAF196D2A24561B6B34D23BC7"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\combat.gd",
+    "Hash": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\plants.gd",
+    "Hash": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\helper_work.gd",
+    "Hash": "7A6E50F895B7EC30B4CDC7BC2472D62B740179ED423551DB99682F8A2C8B49BE"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\locust_ai.gd",
+    "Hash": "7B9799EA7BC1DB008711081A8DB061548640F1ECC0242B3242CBCE0BA27EF799"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\simulation\\persistence.gd",
+    "Hash": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\scripts\\poc2\\view\\world_view.gd",
+    "Hash": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\data\\poc3\\maps\\town_03.json",
+    "Hash": "E5E659C4DC28E6AC5D612014883C98DB2B37414BA2CBC5151CC418336081B8B7"
+  },
+  {
+    "Path": "C:\\godot\\greenvader\\project.godot",
+    "Hash": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8"
+  }
+]
