@@ -111,6 +111,21 @@ func _hit_along(from: Vector2,to: Vector2) -> Dictionary:
    closest=along
  return found
 
+func helper_seed(helper: Dictionary,target: Vector2) -> bool:
+ var cell: Vector2i=Coords.logic_to_cell(target)
+ if int(helper.ammo)<=0 or helper.home.distance_to(target)>60.0 or not s.state.in_bounds(cell.x,cell.y): return false
+ var tile: int=s.state.index_of(cell.x,cell.y)
+ if not s.state.can_plant(tile): return false
+ for other: Dictionary in s.helpers:
+  if Coords.logic_to_cell(other.pos)==cell: return false
+ for shot: Dictionary in s.shots:
+  if shot.get("source_type","player")=="helper" and int(shot.target_tile)==tile: return false
+ if s.placement.blocks_projectile(helper.pos,target): return false
+ helper.ammo=int(helper.ammo)-1
+ var distance: float=helper.pos.distance_to(target)
+ s.shots.append({"id":s.allocate_id(),"kind":"seed","source_type":"helper","source_id":int(helper.id),"target_tile":tile,"sow_width":1,"reserved_seed":0,"pos":helper.pos,"target":target,"direction":(target-helper.pos).normalized(),"remaining":distance,"speed":160.0,"damage":5.0})
+ return true
+
 func skill(slot: int) -> Dictionary:
  if s.paused or s.hp<=0.0 or s.clock.elapsed<float(s.skill_ready[slot]):
   return s.result(false,"cooldown_or_paused")
@@ -208,11 +223,19 @@ func _shots(dt: float) -> void:
    s.shots.erase(shot)
 
 func _refund_seed(shot: Dictionary) -> void:
+ if shot.get("source_type","player")=="helper": return
  var reserved: int=int(shot.get("reserved_seed",1))
  shot.reserved_seed=0
  s.seeds+=reserved
 
 func _sow_ground(shot: Dictionary) -> void:
+ if shot.get("source_type","player")=="helper":
+  var tile: int=int(shot.target_tile)
+  for helper: Dictionary in s.helpers:
+   var cell: Vector2i=Coords.logic_to_cell(helper.pos)
+   if s.state.in_bounds(cell.x,cell.y) and s.state.index_of(cell.x,cell.y)==tile: return
+  if s.state.can_plant(tile): s.state.set_stage(tile,WorldState.STAGE_SEED)
+  return
  var reserved: int=int(shot.get("reserved_seed",1))
  if reserved<=0: return
  # A preview is never a reservation. Re-read terrain, occupants, moving helpers
@@ -264,12 +287,14 @@ func _bounded_goal(e: Dictionary,goal: Vector2,radius: float) -> Vector2:
  return goal
 
 func _enemy(e: Dictionary,dt: float) -> void:
+ e.attack_target_type="none"; e.attack_target_id=-1
  if s.clock.elapsed<float(e.stun_until):
   e.phase="stunned"
   return
  var target: Vector2=e.home
  var victim: Dictionary={}
  var target_player: bool=false
+ var victim_type: String="none"
  var dist: float=80.0
  if s.hp>0.0 and e.pos.distance_to(s.position)<dist:
   target=s.position
@@ -278,7 +303,7 @@ func _enemy(e: Dictionary,dt: float) -> void:
  for h: Dictionary in s.helpers:
   var d: float=e.pos.distance_to(h.pos)
   if d<dist:
-   dist=d; target=h.pos; victim=h; target_player=false
+   dist=d; target=h.pos; victim=h; target_player=false; victim_type="helpers"
  for p: Dictionary in s.plants:
   var d: float=e.pos.distance_to(p.pos)
   var preference: float=1.0
@@ -286,7 +311,7 @@ func _enemy(e: Dictionary,dt: float) -> void:
   if p.mature and p.kind=="rafflesia":
    preference=0.45 if e.kind=="spider" else 4.0
   if d*preference<dist and d<85.0:
-   dist=d*preference; target=p.pos; victim=p; target_player=false
+   dist=d*preference; target=p.pos; victim=p; target_player=false; victim_type="plants"
  target=_bounded_goal(e,target,100.0)
  if target==e.home:
   victim={}; target_player=false
@@ -299,6 +324,10 @@ func _enemy(e: Dictionary,dt: float) -> void:
     target_player=false; victim={}
     break
  var actual: float=e.pos.distance_to(target)
+ if target_player:
+  e.attack_target_type="player"
+ elif not victim.is_empty():
+  e.attack_target_type=victim_type; e.attack_target_id=int(victim.id)
  var phase: String=e.phase
  if e.kind=="boar" and target_player and actual<65.0:
   if phase in ["idle","chase","stunned"] and s.clock.elapsed>=float(e.attack_at):

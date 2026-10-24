@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "real_home_idle_sleep_after3",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "new_work_clears_sleep_immediately",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "common_empty_return_rejects_unsafe_home",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

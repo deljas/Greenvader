@@ -214,7 +214,10 @@ func _draw() -> void:
 						_ring(at,7,Color("ffffff"))
 						if selected_helper:
 							_map_line(at,point(item.home),Color("cadbbd"))
-							var activity: float = 60.0 if String(item.kind)=="gatlinger" else 40.0
+							var activity: float = 60.0
+							if item.target_pos.x>=0.0 and (not String(item.get("job_kind","")).is_empty() or not String(item.get("water_task","")).is_empty()): _map_line(at,point(item.target_pos),Color("e3d18c"))
+							if String(item.get("status","")) in ["fleeing","resupplying","refilling","returning_water"]:
+								draw_string(ThemeDB.fallback_font,at+Vector2(5,-6),"↶" if item.status=="fleeing" else "水↻",HORIZONTAL_ALIGNMENT_LEFT,-1,10,Color("9edbe2"))
 							for segment: int in 32:
 								var start: Vector2 = item.home+Vector2.from_angle(float(segment)/32.0*TAU)*activity
 								var finish: Vector2 = item.home+Vector2.from_angle(float(segment+1)/32.0*TAU)*activity
@@ -227,6 +230,8 @@ func _draw() -> void:
 						_gauge(at,gauge_y,float(item.water),float(item.capacity),Color("75c8dc"))
 					if String(item.get("status","")) in ["empty","no_water","blocked","stranded","waiting_water","no_water_route","unreachable"]:
 						if map_rect.grow(-2).has_point(at+Vector2(5,-5)): draw_circle(at+Vector2(5,-5),2,Color("f4bb5e"))
+				if category=="helpers" and item.kind!="army" and bool(item.get("sleeping",false)):
+					draw_string(ThemeDB.fallback_font,at+Vector2(4,-4),"Zzz",HORIZONTAL_ALIGNMENT_LEFT,-1,9,Color("e8ecd5"))
 	var player: Vector2 = point(session.position)
 	if map_rect.grow(-3).has_point(player): draw_circle(player,3 if expanded else 2,Color("fff9dd"))
 

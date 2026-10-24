@@ -158,6 +158,7 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
   if not kind is String: return s.result(false,"invalid_favorites")
   if not kind.is_empty() and (not s.CATALOG.has(kind) or not vals.unlocked.get(kind,false)): return s.result(false,"invalid_favorites")
  var ids: Dictionary={}
+ var helper_targets: Dictionary={}
  for category: String in ROWS:
   if not data.entities.has(category) or not data.entities[category] is Array or data.entities[category].size()>1000: return s.result(false,"invalid_entities")
   var decoded: Array=decode(data.entities[category])
@@ -179,6 +180,10 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
    if category=="shots" and entity.kind=="seed":
     entity.sow_width=int(entity.get("sow_width",1))
     entity.reserved_seed=int(entity.get("reserved_seed",1))
+    if entity.get("source_type","player")=="helper":
+     entity.source_id=int(entity.source_id); entity.target_tile=int(entity.target_tile)
+     if helper_targets.has(entity.target_tile): return s.result(false,"duplicate_helper_target")
+     helper_targets[entity.target_tile]=true
    if ids.has(entity.id) or entity.id>=vals.next_id: return s.result(false,"invalid_entity_id")
    ids[entity.id]=true
    typed.append(entity)
@@ -257,6 +262,16 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
  if category=="helpers":
   if e.has("blocked_order") and not e.blocked_order is bool: return false
   if e.has("water_task") and (not e.water_task is String or e.water_task not in ["","resupplying","refilling","returning_water"]): return false
+  for key: String in ["job_id","target_id"]:
+   if e.has(key) and not _integer(e[key],-1,89999): return false
+  if e.has("sleeping") and not e.sleeping is bool: return false
+  for key: String in ["idle_since","action_until"]:
+   if e.has(key) and not (e[key] is int or e[key] is float): return false
+  if e.has("job_kind") and e.job_kind not in ["","enemy","crop","grass"]: return false
+  if e.has("action_kind") and e.action_kind not in ["","attack","sow","water"]: return false
+ if category=="enemies":
+  if e.has("attack_target_type") and e.attack_target_type not in ["none","player","plants","helpers"]: return false
+  if e.has("attack_target_id") and not _integer(e.attack_target_id,-1,89999): return false
  if category=="enemies" and (e.kind not in ["boar","spider","locust"] or e.hp<=0 or e.hp>e.max_hp): return false
  if category=="enemies" and e.kind=="locust":
   for key: String in ["eat_tile","eat_elapsed","eat_search_at"]:
@@ -277,9 +292,17 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
   if float(e.max_hp)!=Tiers.hp(base_hp,int(tier)): return false
  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
  if category=="shots" and (e.kind not in ["seed","bazooka"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false
+ if category=="shots" and e.kind!="seed" and e.has("source_type"): return false
  if category=="shots" and e.kind=="seed":
   var width: Variant=e.get("sow_width",1)
   var reserved: Variant=e.get("reserved_seed",1)
   if not (width is int or width is float) or float(width) not in [1.0,3.0,5.0,7.0]: return false
-  if not (reserved is int or reserved is float) or reserved!=1: return false
+  if e.get("source_type","player")=="helper":
+   if float(width)!=1.0 or not _integer(reserved,0,0) or not _integer(e.get("source_id",0),1,89999) or not _integer(e.get("target_tile",-1),0,candidate.state.tile_count()-1): return false
+   var tile: int=int(e.target_tile)
+   var center: Vector2=Vector2(tile%candidate.state.width,tile/candidate.state.width)*4.0+Vector2(2,2)
+   if e.target!=center or e.damage!=5.0: return false
+  elif e.get("source_type","player")=="player":
+   if not (reserved is int or reserved is float) or reserved!=1: return false
+  else: return false
  return true

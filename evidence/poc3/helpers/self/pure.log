@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"name":"army_protect_ally_before_eater_before_intruder","status":"PASS"}
+{"name":"army_eater_before_nearer_intruder","status":"PASS"}
+{"name":"army_same_priority_target_stable","status":"PASS"}
+{"name":"army_chase_cutoff_returns_home_before_retarget","status":"PASS"}
+{"name":"army_no_nest_or_outside_work_acquisition","status":"PASS"}
+{"name":"gat_clusters_near_green_inside_6m","status":"PASS"}
+{"name":"gat_skips_flying_shot_reservation","status":"PASS"}
+{"name":"gat_empty_has_no_job","status":"PASS"}
+{"name":"sprinkler_dry_crop_before_near_grass_skip_wet","status":"PASS"}
+{"name":"sprinkler_finishes_existing_valid_task","status":"PASS"}
+{"name":"sprinkler_reselects_after_first_water","status":"PASS"}
+{"name":"danger_enter_threshold","status":"PASS"}
+{"name":"danger_exit_hysteresis","status":"PASS"}
+{"name":"retreat_behind_near_army","status":"PASS"}
+{"name":"retreat_rejects_unsafe_home","status":"PASS"}
+{"name":"retreat_safe_home_preferred_without_army","status":"PASS"}
+{"name":"zzz_only_after_home_idle_3_seconds","status":"PASS"}
+{"name":"new_work_wakes_immediately","status":"PASS"}
+{"name":"zzz_suppressed_for_resources_danger_army","status":"PASS"}

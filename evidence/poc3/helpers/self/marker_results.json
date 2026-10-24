@@ -1,0 +1,10 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "refill_job_marker_tracks_bank_and_home",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

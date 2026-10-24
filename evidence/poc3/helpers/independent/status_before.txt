@@ -1,0 +1,38 @@
+ M scripts/poc2/poc2_main.gd
+ M scripts/poc2/simulation/combat.gd
+ M scripts/poc2/simulation/persistence.gd
+ M scripts/poc2/simulation/plants.gd
+ M scripts/poc2/ui/map_ui.gd
+ M scripts/poc2/view/entity_sprite_state.gd
+ M scripts/poc2/view/world_view.gd
+ M tasks/POC3_HELPERS.md
+ M tasks/POC3_INTEGRATION.md
+ M tasks/POC3_REFLECTION.md
+?? .codex-remote-attachments/
+?? assets/content_pack/
+?? data/content_pack/
+?? docs/CONTENT_CATALOG.md
+?? docs/CONTENT_INTEGRATION.md
+?? evidence/content_pack/
+?? evidence/poc3/helpers/
+?? evidence/poc3/integration/
+?? evidence/poc3/reflection/
+?? launchers/labs/run_content_lab.bat
+?? scenes/content_pack/
+?? scripts/content_pack/
+?? scripts/poc2/simulation/helper_work.gd
+?? scripts/poc2/simulation/helper_work.gd.uid
+?? scripts/poc2/view/helper_effects.gd
+?? scripts/poc2/view/helper_effects.gd.uid
+?? tasks/CONTENT_01.md
+?? tests/content_pack/
+?? tests/poc3/crop_pricing/independent_logic.gd.uid
+?? tests/poc3/helpers/
+?? tests/poc3/integration/
+?? tests/poc3/locust/independent_logic.gd.uid
+?? tests/poc3/locust/self_gpu.gd.uid
+?? tests/poc3/locust/self_integration.gd.uid
+?? tests/poc3/locust/self_regrowth.gd.uid
+?? tests/poc3/reflection/
+?? tests/poc3/world_layout/independent_logic.gd.uid
+?? tests/poc3/world_layout/self_routes_followup.gd.uid

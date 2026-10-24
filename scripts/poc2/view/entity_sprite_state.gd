@@ -3,7 +3,7 @@ extends RefCounted
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
 const STATES: Dictionary = {
 	"enemies":["idle","move","windup","attack","hit","eat"],
-	"helpers":["idle","move","attack","sow","water","flee"],
+	"helpers":["idle","move","attack","hit","sow","water","flee"],
 	"plants":["planted","growing","mature"],
 	"nests":["idle","move","windup","attack","hit","eat"]}
 var last_position: Vector2 = Vector2.ZERO
@@ -39,10 +39,14 @@ func _state(category: String, item: Dictionary, elapsed: float, moving: bool) ->
 	if category=="helpers":
 		var status: String = String(item.get("status",""))
 		if status in ["flee","fleeing","retreating"]: return "flee"
+		if hit_until>elapsed: return "hit"
+		if float(item.get("action_until",-1.0))>elapsed:
+			var action: String=String(item.get("action_kind",""))
+			if action in ["attack","sow","water"]: return action
 		if moving: return "move"
 		if status in ["watering","water"]: return "water"
 		if status in ["fighting","attack"]: return "attack"
-		if status=="sowing" or (item.get("kind","")=="gatlinger" and float(item.get("work_at",0.0))>elapsed): return "sow"
+		if status=="sowing": return "sow"
 		return "idle"
 	if hit_until>elapsed or float(item.get("stun_until",0.0))>elapsed: return "hit"
 	var phase: String = String(item.get("phase",item.get("status","")))

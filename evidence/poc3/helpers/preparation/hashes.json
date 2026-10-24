@@ -1,0 +1,20 @@
+{
+  "head": "e7d86a5adedf3a221fe90b88be099a4b530bfb98",
+  "utc": "2026-10-24T09:03:23.9864762Z",
+  "state": "unconnected_preparation_stopped",
+  "godot_and_tests": "NOT_RUN",
+  "files": [
+    {
+      "sha256": "7A6E50F895B7EC30B4CDC7BC2472D62B740179ED423551DB99682F8A2C8B49BE",
+      "path": "scripts/poc2/simulation/helper_work.gd"
+    },
+    {
+      "sha256": "4A73980F029988E381435C2E61633946CB43F579A80FAB5068EEF520CFB34D7E",
+      "path": "tests/poc3/helpers/self_pure.gd"
+    },
+    {
+      "sha256": "C65D79C771E622DA4E5DACA8C9F61B62891D84A1C46AFA40F21F11CBE2826253",
+      "path": "evidence/poc3/helpers/preparation/connection_plan.md"
+    }
+  ]
+}

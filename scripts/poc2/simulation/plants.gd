@@ -1,5 +1,6 @@
 extends RefCounted
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
+const Work: GDScript = preload("res://scripts/poc2/simulation/helper_work.gd")
 var s: RefCounted
 func _init(session: RefCounted) -> void:
  s=session
@@ -44,6 +45,7 @@ func place(kind: String,cell: Vector2i,ammo: int,helper: bool) -> Dictionary:
   if s.state.stage[underlying]==WorldState.STAGE_EMPTY:
    s.state.set_stage(underlying,WorldState.STAGE_SEED)
   p.merge({"home":pos,"status":"working","ammo":ammo,"water":100.0 if kind=="sprinkler" else 0.0,"capacity":100,"attack_at":0.0,"work_at":0.0,"search_at":0.0,"target_pos":pos,"route_at":-1.0,"moving":false,"blocked_order":false,"water_task":"","bank":Vector2(-1,-1),"refill_until":-1.0})
+  p.merge({"job_kind":"","job_id":-1,"target_id":-1,"idle_since":-1.0,"sleeping":false,"action_until":-1.0,"action_kind":""})
   s.helpers.append(p)
  else:
   p.merge({"age":0.0,"maturity":float(def.maturity),"mature":false,"wet_until":0.0,"watered":false})
@@ -75,6 +77,7 @@ func move_helper(id: int,dest: Vector2) -> Dictionary:
    h.moving=true
    h.blocked_order=false
    h.water_task=""
+   h.job_kind=""; h.job_id=-1; h.target_id=-1; h.sleeping=false; h.idle_since=-1.0
    h.status="moving"
    h.route_at=-1.0
    h.search_at=0.0
@@ -150,6 +153,8 @@ func advance(dt: float) -> void:
   if s.clock.elapsed-float(h.last_combat)>=8.0:
    h.hp=minf(float(h.max_hp),float(h.hp)+dt)
   _helper(h,dt)
+  var idle: Dictionary=Work.idle_state(h,s.clock.elapsed,not String(h.get("job_kind","")).is_empty())
+  h.idle_since=idle.idle_since; h.sleeping=idle.sleeping
  # Player refills by standing at a water edge, without consuming the shared seed account.
  if s.water<s.max_water:
   var c: Vector2i=Coords.logic_to_cell(s.position)
@@ -176,18 +181,23 @@ func _helper(h: Dictionary,dt: float) -> void:
    return
   _army(h,dt)
   return
- var danger: Dictionary=_nearest_enemy(pos,35.0)
+ var threats: Array[Dictionary]=s.enemies.duplicate()
+ for nest: Dictionary in s.nests:
+  if nest.mother: threats.append(nest)
+ var danger: Dictionary=Work.danger(h,threats)
+ if danger.is_empty() and h.get("water_task","")=="returning_water": danger=Work.danger({"pos":h.home,"status":"working"},threats)
  if not danger.is_empty():
   # Presentation status may change while the underlying order must survive.
   if h.kind=="sprinkler" and h.status in ["refilling","resupplying","returning_water"]:
    h.water_task=h.status
   if h.status=="unreachable": h.blocked_order=true
   h.status="fleeing"
-  var retreat: Vector2=pos+(pos-danger.pos).normalized()*30.0
-  if s.is_walkable_logic(retreat):
+  var retreat: Vector2=Work.retreat_goal(h,danger.pos,s.helpers,func(at: Vector2) -> bool: return _reachable(h.pos,at))
+  var path: Array=s.nav.route(h.pos,retreat)
+  # An obstacle detour must not begin by approaching the nearest threat.
+  if path.size()>1 and Coords.cell_center_logic(path[1]).distance_to(danger.pos)>=h.pos.distance_to(danger.pos)-0.01:
+   h.target_pos=retreat
    s.nav.move(h,retreat,24.0,dt,s.clock.elapsed)
-  else:
-   s.nav.move(h,h.home,24.0,dt,s.clock.elapsed)
   h.search_at=0.0
   return
  if h.get("blocked_order",h.status=="unreachable"):
@@ -219,71 +229,127 @@ func _army(h: Dictionary,dt: float) -> void:
  if h.moving:
   _move_home(h,dt)
   return
- var enemy: Dictionary={}
- var best: float=INF
- for e: Dictionary in s.enemies:
-  if int(e.id)==int(h.get("target_id",-1)) and e.pos.distance_to(h.home)<=60.0:
-   enemy=e; best=e.pos.distance_to(h.pos)
-   break
- for e: Dictionary in s.enemies:
-  if enemy.is_empty() and e.pos.distance_to(h.home)<=40.0 and e.pos.distance_to(h.pos)<best:
-   enemy=e; best=e.pos.distance_to(h.pos)
- if enemy.is_empty() or h.pos.distance_to(h.home)>60.0:
-  h.status="returning" if h.pos.distance_to(h.home)>3.0 else "guarding"
-  s.nav.move(h,h.home,30.0,dt,s.clock.elapsed)
+ if h.status=="returning":
+  _return_home(h,dt,"guarding")
   return
+ var allies: Array[Dictionary]=s.plants.duplicate()
+ allies.append_array(s.helpers)
+ var target_id: int=Work.army_target(h,s.enemies,allies)
+ var enemy: Dictionary={}
+ for e: Dictionary in s.enemies:
+  if int(e.id)==target_id: enemy=e; break
+ if enemy.is_empty():
+  _return_home(h,dt,"guarding")
+  return
+ var best: float=enemy.pos.distance_to(h.pos)
  h.target_id=enemy.id
+ h.job_kind="enemy"; h.job_id=enemy.id; h.target_pos=enemy.pos
  h.status="fighting"
  h.last_combat=s.clock.elapsed
  if best<=10.0 and not s.placement.blocks_projectile(h.pos,enemy.pos):
   if s.clock.elapsed>=float(h.attack_at):
    s.combat_system.damage_enemy(enemy,8.0,0.12)
    h.attack_at=s.clock.elapsed+1.0
+   h.action_kind="attack"; h.action_until=s.clock.elapsed+0.22
  else:
+  var old: Vector2=h.pos
   s.nav.move(h,enemy.pos,30.0,dt,s.clock.elapsed)
+  if h.pos.distance_to(h.home)>Work.CHASE_RADIUS:
+   h.pos=old; _return_home(h,dt,"guarding")
+
+func _reachable(from: Vector2,to: Vector2) -> bool:
+ var a: Vector2i=Coords.logic_to_cell(from)
+ var b: Vector2i=Coords.logic_to_cell(to)
+ if not s.state.in_bounds(a.x,a.y) or not s.state.in_bounds(b.x,b.y): return false
+ var component: int=s.nav.components[s.state.index_of(a.x,a.y)]
+ return component>0 and s.nav.components[s.state.index_of(b.x,b.y)]==component
+
+func _return_home(h: Dictionary,dt: float,arrived: String="idle") -> void:
+ h.job_kind=""; h.job_id=-1
+ if h.kind!="army":
+  var threats: Array[Dictionary]=s.enemies.duplicate()
+  for nest: Dictionary in s.nests:
+   if nest.mother: threats.append(nest)
+  var threat: Dictionary=Work.danger({"pos":h.home,"status":"working"},threats)
+  if not threat.is_empty():
+   h.status="fleeing"
+   var retreat: Vector2=Work.retreat_goal(h,threat.pos,s.helpers,func(at: Vector2) -> bool: return _reachable(h.pos,at))
+   var route: Array=s.nav.route(h.pos,retreat)
+   if route.size()>1 and Coords.cell_center_logic(route[1]).distance_to(threat.pos)>=h.pos.distance_to(threat.pos)-0.01:
+    h.target_pos=retreat; s.nav.move(h,retreat,24.0,dt,s.clock.elapsed)
+   return
+ h.target_pos=h.home
+ if h.pos.distance_to(h.home)<=Work.HOME_EPSILON or s.nav.move(h,h.home,30.0 if h.kind=="army" else 20.0,dt,s.clock.elapsed):
+  h.status=arrived; h.target_id=-1
+ else:
+  h.status="returning" if _reachable(h.pos,h.home) else "unreachable"
+
+func _job_target(h: Dictionary,growing: bool) -> Dictionary:
+ var tiles: PackedInt32Array=Landing.tiles_in_radius(s.state,4,h.home,Work.WORK_RADIUS)
+ var grass: Array[Dictionary]=[]
+ var candidates: Array[Dictionary]=[]
+ var frontier: Array[int]=[]
+ var distances: Dictionary={}
+ var local: Dictionary={}
+ for index: int in tiles:
+  local[index]=true
+  if s.state.stage[index]>0: distances[index]=0; frontier.append(index)
+  if growing and s.state.stage[index]>0 and s.state.stage[index]<4:
+   grass.append({"tile":index,"pos":Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width)),"growing":true,"watered":s.state.moisture[index]>0})
+ if growing:
+  return Work.sprinkler_target(h,s.plants,grass,func(at: Vector2) -> bool: return _reachable(h.pos,at))
+ var head: int=0
+ while head<frontier.size():
+  var index: int=frontier[head]; head+=1
+  var cell: Vector2i=Vector2i(index%s.state.width,index/s.state.width)
+  for d: Vector2i in [Vector2i.LEFT,Vector2i.RIGHT,Vector2i.UP,Vector2i.DOWN]:
+   var next: Vector2i=cell+d
+   if not s.state.in_bounds(next.x,next.y): continue
+   var ni: int=s.state.index_of(next.x,next.y)
+   if local.has(ni) and not distances.has(ni) and s.state.is_walkable(next.x,next.y):
+    distances[ni]=int(distances[index])+1; frontier.append(ni)
+ var reserved: PackedInt32Array=PackedInt32Array()
+ for shot: Dictionary in s.shots:
+  if shot.get("source_type","player")=="helper": reserved.append(int(shot.target_tile))
+ for index: int in tiles:
+  if not s.state.can_plant(index): continue
+  var blocked: bool=false
+  for helper: Dictionary in s.helpers:
+   var cell: Vector2i=Coords.logic_to_cell(helper.pos)
+   if s.state.in_bounds(cell.x,cell.y) and s.state.index_of(cell.x,cell.y)==index: blocked=true; break
+  if blocked: continue
+  candidates.append({"tile":index,"pos":Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width)),"plantable":true,"green_distance":float(distances.get(index,INF))})
+ return Work.sow_target(h,candidates,reserved,func(at: Vector2) -> bool: return _reachable(h.pos,at))
 
 func _work_target(h: Dictionary,growing: bool) -> Vector2:
- var radius: float=40.0 if growing else 60.0
- var best: float=INF
- var answer: Vector2=Vector2(-1,-1)
- if growing:
-  for p: Dictionary in s.plants:
-   if not p.mature and (not s.state.permanent_water or not p.get("watered",false)) and p.pos.distance_to(h.home)<=radius and p.pos.distance_squared_to(h.pos)<best:
-    var route: Array=s.nav.route(h.pos,p.pos)
-    if not route.is_empty():
-     best=p.pos.distance_squared_to(h.pos); answer=p.pos
-  if s.state.permanent_water and answer.x>=0.0:
-   return answer
- for index: int in Landing.tiles_in_radius(s.state,4,h.home,radius):
-  var valid: bool=s.state.stage[index]>0 and s.state.stage[index]<4 if growing else s.state.can_plant(index)
-  if not valid: continue
-  if growing and s.state.permanent_water and s.state.moisture[index]>0: continue
-  var p: Vector2=Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width))
-  var distance: float=h.pos.distance_squared_to(p)
-  if distance<best:
-   if not s.nav.route(h.pos,p).is_empty():
-    best=distance; answer=p
- return answer
+ var target: Dictionary=_job_target(h,growing)
+ return target.get("pos",Vector2(-1,-1))
 
 func _gatlinger(h: Dictionary,dt: float) -> void:
  if int(h.ammo)<=0:
-  h.status="empty"
+  _return_home(h,dt,"empty")
   return
  if s.clock.elapsed>=float(h.search_at):
-  h.target_pos=_work_target(h,false)
+  var job: Dictionary=_job_target(h,false)
+  h.target_pos=job.get("pos",Vector2(-1,-1))
+  h.job_kind="grass" if not job.is_empty() else ""; h.job_id=int(job.get("tile",-1))
   h.search_at=s.clock.elapsed+2.0
+ if h.get("job_kind","")!="grass":
+  _return_home(h,dt); return
  var target: Vector2=h.target_pos
  if target.x<0.0:
-  h.status="idle"; return
+  _return_home(h,dt); return
+ h.status="working"
  if h.pos.distance_to(target)>18.0:
   h.status="working"; s.nav.move(h,target,18.0,dt,s.clock.elapsed)
  elif s.clock.elapsed>=float(h.work_at):
   if not s.placement.blocks_projectile(h.pos,target):
    var c: Vector2i=Coords.logic_to_cell(target)
    if s.state.can_plant(s.state.index_of(c.x,c.y)):
-    s.state.set_stage(s.state.index_of(c.x,c.y),WorldState.STAGE_SEED)
-    h.ammo=int(h.ammo)-1
-    h.work_at=s.clock.elapsed+3.0
+    if s.combat_system.helper_seed(h,target):
+     h.work_at=s.clock.elapsed+3.0
+     h.action_kind="sow"; h.action_until=s.clock.elapsed+0.22
+     h.status="sowing"
   h.search_at=0.0
 
 func _sprinkler(h: Dictionary,dt: float) -> void:
@@ -298,11 +364,13 @@ func _sprinkler(h: Dictionary,dt: float) -> void:
  if not task.is_empty():
   if task=="returning_water":
    h.status="returning_water"
+   h.target_pos=h.home
    if s.nav.move(h,h.home,20.0,dt,s.clock.elapsed):
     h.water_task=""; h.status="working"; h.search_at=0.0
    return
   if task=="refilling" and h.pos.distance_to(h.bank)<=1.0:
    h.status="refilling"
+   h.target_pos=h.bank
    h.water=minf(100.0,float(h.water)+20.0*dt)
    if float(h.water)>=100.0:
     h.water_task="returning_water"; h.status="returning_water"
@@ -318,22 +386,29 @@ func _sprinkler(h: Dictionary,dt: float) -> void:
     h.status="no_water_route"
     return
   h.status="resupplying"
+  h.target_pos=h.bank
   if s.nav.move(h,h.bank,20.0,dt,s.clock.elapsed):
    h.water_task="refilling"; h.status="refilling"
   return
  if s.clock.elapsed>=float(h.search_at):
-  h.target_pos=_work_target(h,true)
+  var job: Dictionary=_job_target(h,true)
+  h.target_pos=job.get("pos",Vector2(-1,-1))
+  h.job_kind=String(job.get("kind","")); h.job_id=int(job.get("id",-1))
   h.search_at=s.clock.elapsed+2.0
+ if h.get("job_kind","") not in ["crop","grass"]:
+  _return_home(h,dt); return
  var target: Vector2=h.target_pos
  if target.x<0.0:
-  h.status="idle"; return
+  _return_home(h,dt); return
  if h.pos.distance_to(target)>14.0:
   h.status="working"; s.nav.move(h,target,20.0,dt,s.clock.elapsed)
  else:
   h.status="watering"
   var changed: int=_wet(h.pos,20.0,1.0)
   if s.state.permanent_water:
-   if changed>0: h.water=maxf(0.0,float(h.water)-1.0)
+   if changed>0:
+    h.water=maxf(0.0,float(h.water)-1.0)
+    h.action_kind="water"; h.action_until=s.clock.elapsed+0.3
    h.search_at=0.0
    h.target_pos=Vector2(-1,-1)
   else:

@@ -1,0 +1,537 @@
+diff --git a/scripts/poc2/poc2_main.gd b/scripts/poc2/poc2_main.gd
+index dc7ac1d..9d73a09 100644
+--- a/scripts/poc2/poc2_main.gd
++++ b/scripts/poc2/poc2_main.gd
+@@ -131,8 +131,10 @@ func tick(delta: float) -> void:
+ 		var check: Dictionary=session.can_place(_placement_kind,cell)
+ 		var footprint: Array=session.CATALOG[_placement_kind].get("size",[1,1])
+ 		world.set_preview(_placement_kind,cell,bool(check.get("ok",false)),Vector2i(int(footprint[0]),int(footprint[1])))
++		world.helper_effects.preview((Vector2(cell)+Vector2(footprint[0],footprint[1])*0.5)*4.0,_placement_kind in ["army","gatlinger","sprinkler"])
+ 	else:
+ 		world.marker.visible=false
++		world.helper_effects.preview(Vector2.ZERO,false)
+ 	var sow_plan: Dictionary={}
+ 	if cursor_known and _placement_kind=="" and not is_paused() and not ui.blocks(cursor):
+ 		sow_plan=session.sow_preview()
+diff --git a/scripts/poc2/simulation/combat.gd b/scripts/poc2/simulation/combat.gd
+index 6814e41..0484043 100644
+--- a/scripts/poc2/simulation/combat.gd
++++ b/scripts/poc2/simulation/combat.gd
+@@ -111,6 +111,21 @@ func _hit_along(from: Vector2,to: Vector2) -> Dictionary:
+    closest=along
+  return found
+ 
++func helper_seed(helper: Dictionary,target: Vector2) -> bool:
++ var cell: Vector2i=Coords.logic_to_cell(target)
++ if int(helper.ammo)<=0 or helper.home.distance_to(target)>60.0 or not s.state.in_bounds(cell.x,cell.y): return false
++ var tile: int=s.state.index_of(cell.x,cell.y)
++ if not s.state.can_plant(tile): return false
++ for other: Dictionary in s.helpers:
++  if Coords.logic_to_cell(other.pos)==cell: return false
++ for shot: Dictionary in s.shots:
++  if shot.get("source_type","player")=="helper" and int(shot.target_tile)==tile: return false
++ if s.placement.blocks_projectile(helper.pos,target): return false
++ helper.ammo=int(helper.ammo)-1
++ var distance: float=helper.pos.distance_to(target)
++ s.shots.append({"id":s.allocate_id(),"kind":"seed","source_type":"helper","source_id":int(helper.id),"target_tile":tile,"sow_width":1,"reserved_seed":0,"pos":helper.pos,"target":target,"direction":(target-helper.pos).normalized(),"remaining":distance,"speed":160.0,"damage":5.0})
++ return true
++
+ func skill(slot: int) -> Dictionary:
+  if s.paused or s.hp<=0.0 or s.clock.elapsed<float(s.skill_ready[slot]):
+   return s.result(false,"cooldown_or_paused")
+@@ -208,11 +223,19 @@ func _shots(dt: float) -> void:
+    s.shots.erase(shot)
+ 
+ func _refund_seed(shot: Dictionary) -> void:
++ if shot.get("source_type","player")=="helper": return
+  var reserved: int=int(shot.get("reserved_seed",1))
+  shot.reserved_seed=0
+  s.seeds+=reserved
+ 
+ func _sow_ground(shot: Dictionary) -> void:
++ if shot.get("source_type","player")=="helper":
++  var tile: int=int(shot.target_tile)
++  for helper: Dictionary in s.helpers:
++   var cell: Vector2i=Coords.logic_to_cell(helper.pos)
++   if s.state.in_bounds(cell.x,cell.y) and s.state.index_of(cell.x,cell.y)==tile: return
++  if s.state.can_plant(tile): s.state.set_stage(tile,WorldState.STAGE_SEED)
++  return
+  var reserved: int=int(shot.get("reserved_seed",1))
+  if reserved<=0: return
+  # A preview is never a reservation. Re-read terrain, occupants, moving helpers
+@@ -264,12 +287,14 @@ func _bounded_goal(e: Dictionary,goal: Vector2,radius: float) -> Vector2:
+  return goal
+ 
+ func _enemy(e: Dictionary,dt: float) -> void:
++ e.attack_target_type="none"; e.attack_target_id=-1
+  if s.clock.elapsed<float(e.stun_until):
+   e.phase="stunned"
+   return
+  var target: Vector2=e.home
+  var victim: Dictionary={}
+  var target_player: bool=false
++ var victim_type: String="none"
+  var dist: float=80.0
+  if s.hp>0.0 and e.pos.distance_to(s.position)<dist:
+   target=s.position
+@@ -278,7 +303,7 @@ func _enemy(e: Dictionary,dt: float) -> void:
+  for h: Dictionary in s.helpers:
+   var d: float=e.pos.distance_to(h.pos)
+   if d<dist:
+-   dist=d; target=h.pos; victim=h; target_player=false
++   dist=d; target=h.pos; victim=h; target_player=false; victim_type="helpers"
+  for p: Dictionary in s.plants:
+   var d: float=e.pos.distance_to(p.pos)
+   var preference: float=1.0
+@@ -286,7 +311,7 @@ func _enemy(e: Dictionary,dt: float) -> void:
+   if p.mature and p.kind=="rafflesia":
+    preference=0.45 if e.kind=="spider" else 4.0
+   if d*preference<dist and d<85.0:
+-   dist=d*preference; target=p.pos; victim=p; target_player=false
++   dist=d*preference; target=p.pos; victim=p; target_player=false; victim_type="plants"
+  target=_bounded_goal(e,target,100.0)
+  if target==e.home:
+   victim={}; target_player=false
+@@ -299,6 +324,10 @@ func _enemy(e: Dictionary,dt: float) -> void:
+     target_player=false; victim={}
+     break
+  var actual: float=e.pos.distance_to(target)
++ if target_player:
++  e.attack_target_type="player"
++ elif not victim.is_empty():
++  e.attack_target_type=victim_type; e.attack_target_id=int(victim.id)
+  var phase: String=e.phase
+  if e.kind=="boar" and target_player and actual<65.0:
+   if phase in ["idle","chase","stunned"] and s.clock.elapsed>=float(e.attack_at):
+diff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd
+index 013ecb8..460f97a 100644
+--- a/scripts/poc2/simulation/persistence.gd
++++ b/scripts/poc2/simulation/persistence.gd
+@@ -158,6 +158,7 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
+   if not kind is String: return s.result(false,"invalid_favorites")
+   if not kind.is_empty() and (not s.CATALOG.has(kind) or not vals.unlocked.get(kind,false)): return s.result(false,"invalid_favorites")
+  var ids: Dictionary={}
++ var helper_targets: Dictionary={}
+  for category: String in ROWS:
+   if not data.entities.has(category) or not data.entities[category] is Array or data.entities[category].size()>1000: return s.result(false,"invalid_entities")
+   var decoded: Array=decode(data.entities[category])
+@@ -179,6 +180,10 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
+    if category=="shots" and entity.kind=="seed":
+     entity.sow_width=int(entity.get("sow_width",1))
+     entity.reserved_seed=int(entity.get("reserved_seed",1))
++    if entity.get("source_type","player")=="helper":
++     entity.source_id=int(entity.source_id); entity.target_tile=int(entity.target_tile)
++     if helper_targets.has(entity.target_tile): return s.result(false,"duplicate_helper_target")
++     helper_targets[entity.target_tile]=true
+    if ids.has(entity.id) or entity.id>=vals.next_id: return s.result(false,"invalid_entity_id")
+    ids[entity.id]=true
+    typed.append(entity)
+@@ -257,6 +262,16 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
+  if category=="helpers":
+   if e.has("blocked_order") and not e.blocked_order is bool: return false
+   if e.has("water_task") and (not e.water_task is String or e.water_task not in ["","resupplying","refilling","returning_water"]): return false
++  for key: String in ["job_id","target_id"]:
++   if e.has(key) and not _integer(e[key],-1,89999): return false
++  if e.has("sleeping") and not e.sleeping is bool: return false
++  for key: String in ["idle_since","action_until"]:
++   if e.has(key) and not (e[key] is int or e[key] is float): return false
++  if e.has("job_kind") and e.job_kind not in ["","enemy","crop","grass"]: return false
++  if e.has("action_kind") and e.action_kind not in ["","attack","sow","water"]: return false
++ if category=="enemies":
++  if e.has("attack_target_type") and e.attack_target_type not in ["none","player","plants","helpers"]: return false
++  if e.has("attack_target_id") and not _integer(e.attack_target_id,-1,89999): return false
+  if category=="enemies" and (e.kind not in ["boar","spider","locust"] or e.hp<=0 or e.hp>e.max_hp): return false
+  if category=="enemies" and e.kind=="locust":
+   for key: String in ["eat_tile","eat_elapsed","eat_search_at"]:
+@@ -277,9 +292,17 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
+   if float(e.max_hp)!=Tiers.hp(base_hp,int(tier)): return false
+  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
+  if category=="shots" and (e.kind not in ["seed","bazooka"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false
++ if category=="shots" and e.kind!="seed" and e.has("source_type"): return false
+  if category=="shots" and e.kind=="seed":
+   var width: Variant=e.get("sow_width",1)
+   var reserved: Variant=e.get("reserved_seed",1)
+   if not (width is int or width is float) or float(width) not in [1.0,3.0,5.0,7.0]: return false
+-  if not (reserved is int or reserved is float) or reserved!=1: return false
++  if e.get("source_type","player")=="helper":
++   if float(width)!=1.0 or not _integer(reserved,0,0) or not _integer(e.get("source_id",0),1,89999) or not _integer(e.get("target_tile",-1),0,candidate.state.tile_count()-1): return false
++   var tile: int=int(e.target_tile)
++   var center: Vector2=Vector2(tile%candidate.state.width,tile/candidate.state.width)*4.0+Vector2(2,2)
++   if e.target!=center or e.damage!=5.0: return false
++  elif e.get("source_type","player")=="player":
++   if not (reserved is int or reserved is float) or reserved!=1: return false
++  else: return false
+  return true
+diff --git a/scripts/poc2/simulation/plants.gd b/scripts/poc2/simulation/plants.gd
+index 307cd3b..ea7b8f9 100644
+--- a/scripts/poc2/simulation/plants.gd
++++ b/scripts/poc2/simulation/plants.gd
+@@ -1,5 +1,6 @@
+ extends RefCounted
+ const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
++const Work: GDScript = preload("res://scripts/poc2/simulation/helper_work.gd")
+ var s: RefCounted
+ func _init(session: RefCounted) -> void:
+  s=session
+@@ -44,6 +45,7 @@ func place(kind: String,cell: Vector2i,ammo: int,helper: bool) -> Dictionary:
+   if s.state.stage[underlying]==WorldState.STAGE_EMPTY:
+    s.state.set_stage(underlying,WorldState.STAGE_SEED)
+   p.merge({"home":pos,"status":"working","ammo":ammo,"water":100.0 if kind=="sprinkler" else 0.0,"capacity":100,"attack_at":0.0,"work_at":0.0,"search_at":0.0,"target_pos":pos,"route_at":-1.0,"moving":false,"blocked_order":false,"water_task":"","bank":Vector2(-1,-1),"refill_until":-1.0})
++  p.merge({"job_kind":"","job_id":-1,"target_id":-1,"idle_since":-1.0,"sleeping":false,"action_until":-1.0,"action_kind":""})
+   s.helpers.append(p)
+  else:
+   p.merge({"age":0.0,"maturity":float(def.maturity),"mature":false,"wet_until":0.0,"watered":false})
+@@ -75,6 +77,7 @@ func move_helper(id: int,dest: Vector2) -> Dictionary:
+    h.moving=true
+    h.blocked_order=false
+    h.water_task=""
++   h.job_kind=""; h.job_id=-1; h.target_id=-1; h.sleeping=false; h.idle_since=-1.0
+    h.status="moving"
+    h.route_at=-1.0
+    h.search_at=0.0
+@@ -150,6 +153,8 @@ func advance(dt: float) -> void:
+   if s.clock.elapsed-float(h.last_combat)>=8.0:
+    h.hp=minf(float(h.max_hp),float(h.hp)+dt)
+   _helper(h,dt)
++  var idle: Dictionary=Work.idle_state(h,s.clock.elapsed,not String(h.get("job_kind","")).is_empty())
++  h.idle_since=idle.idle_since; h.sleeping=idle.sleeping
+  # Player refills by standing at a water edge, without consuming the shared seed account.
+  if s.water<s.max_water:
+   var c: Vector2i=Coords.logic_to_cell(s.position)
+@@ -176,18 +181,23 @@ func _helper(h: Dictionary,dt: float) -> void:
+    return
+   _army(h,dt)
+   return
+- var danger: Dictionary=_nearest_enemy(pos,35.0)
++ var threats: Array[Dictionary]=s.enemies.duplicate()
++ for nest: Dictionary in s.nests:
++  if nest.mother: threats.append(nest)
++ var danger: Dictionary=Work.danger(h,threats)
++ if danger.is_empty() and h.get("water_task","")=="returning_water": danger=Work.danger({"pos":h.home,"status":"working"},threats)
+  if not danger.is_empty():
+   # Presentation status may change while the underlying order must survive.
+   if h.kind=="sprinkler" and h.status in ["refilling","resupplying","returning_water"]:
+    h.water_task=h.status
+   if h.status=="unreachable": h.blocked_order=true
+   h.status="fleeing"
+-  var retreat: Vector2=pos+(pos-danger.pos).normalized()*30.0
+-  if s.is_walkable_logic(retreat):
++  var retreat: Vector2=Work.retreat_goal(h,danger.pos,s.helpers,func(at: Vector2) -> bool: return _reachable(h.pos,at))
++  var path: Array=s.nav.route(h.pos,retreat)
++  # An obstacle detour must not begin by approaching the nearest threat.
++  if path.size()>1 and Coords.cell_center_logic(path[1]).distance_to(danger.pos)>=h.pos.distance_to(danger.pos)-0.01:
++   h.target_pos=retreat
+    s.nav.move(h,retreat,24.0,dt,s.clock.elapsed)
+-  else:
+-   s.nav.move(h,h.home,24.0,dt,s.clock.elapsed)
+   h.search_at=0.0
+   return
+  if h.get("blocked_order",h.status=="unreachable"):
+@@ -219,71 +229,127 @@ func _army(h: Dictionary,dt: float) -> void:
+  if h.moving:
+   _move_home(h,dt)
+   return
++ if h.status=="returning":
++  _return_home(h,dt,"guarding")
++  return
++ var allies: Array[Dictionary]=s.plants.duplicate()
++ allies.append_array(s.helpers)
++ var target_id: int=Work.army_target(h,s.enemies,allies)
+  var enemy: Dictionary={}
+- var best: float=INF
+- for e: Dictionary in s.enemies:
+-  if int(e.id)==int(h.get("target_id",-1)) and e.pos.distance_to(h.home)<=60.0:
+-   enemy=e; best=e.pos.distance_to(h.pos)
+-   break
+  for e: Dictionary in s.enemies:
+-  if enemy.is_empty() and e.pos.distance_to(h.home)<=40.0 and e.pos.distance_to(h.pos)<best:
+-   enemy=e; best=e.pos.distance_to(h.pos)
+- if enemy.is_empty() or h.pos.distance_to(h.home)>60.0:
+-  h.status="returning" if h.pos.distance_to(h.home)>3.0 else "guarding"
+-  s.nav.move(h,h.home,30.0,dt,s.clock.elapsed)
++  if int(e.id)==target_id: enemy=e; break
++ if enemy.is_empty():
++  _return_home(h,dt,"guarding")
+   return
++ var best: float=enemy.pos.distance_to(h.pos)
+  h.target_id=enemy.id
++ h.job_kind="enemy"; h.job_id=enemy.id; h.target_pos=enemy.pos
+  h.status="fighting"
+  h.last_combat=s.clock.elapsed
+  if best<=10.0 and not s.placement.blocks_projectile(h.pos,enemy.pos):
+   if s.clock.elapsed>=float(h.attack_at):
+    s.combat_system.damage_enemy(enemy,8.0,0.12)
+    h.attack_at=s.clock.elapsed+1.0
++   h.action_kind="attack"; h.action_until=s.clock.elapsed+0.22
+  else:
++  var old: Vector2=h.pos
+   s.nav.move(h,enemy.pos,30.0,dt,s.clock.elapsed)
++  if h.pos.distance_to(h.home)>Work.CHASE_RADIUS:
++   h.pos=old; _return_home(h,dt,"guarding")
+ 
+-func _work_target(h: Dictionary,growing: bool) -> Vector2:
+- var radius: float=40.0 if growing else 60.0
+- var best: float=INF
+- var answer: Vector2=Vector2(-1,-1)
++func _reachable(from: Vector2,to: Vector2) -> bool:
++ var a: Vector2i=Coords.logic_to_cell(from)
++ var b: Vector2i=Coords.logic_to_cell(to)
++ if not s.state.in_bounds(a.x,a.y) or not s.state.in_bounds(b.x,b.y): return false
++ var component: int=s.nav.components[s.state.index_of(a.x,a.y)]
++ return component>0 and s.nav.components[s.state.index_of(b.x,b.y)]==component
++
++func _return_home(h: Dictionary,dt: float,arrived: String="idle") -> void:
++ h.job_kind=""; h.job_id=-1
++ if h.kind!="army":
++  var threats: Array[Dictionary]=s.enemies.duplicate()
++  for nest: Dictionary in s.nests:
++   if nest.mother: threats.append(nest)
++  var threat: Dictionary=Work.danger({"pos":h.home,"status":"working"},threats)
++  if not threat.is_empty():
++   h.status="fleeing"
++   var retreat: Vector2=Work.retreat_goal(h,threat.pos,s.helpers,func(at: Vector2) -> bool: return _reachable(h.pos,at))
++   var route: Array=s.nav.route(h.pos,retreat)
++   if route.size()>1 and Coords.cell_center_logic(route[1]).distance_to(threat.pos)>=h.pos.distance_to(threat.pos)-0.01:
++    h.target_pos=retreat; s.nav.move(h,retreat,24.0,dt,s.clock.elapsed)
++   return
++ h.target_pos=h.home
++ if h.pos.distance_to(h.home)<=Work.HOME_EPSILON or s.nav.move(h,h.home,30.0 if h.kind=="army" else 20.0,dt,s.clock.elapsed):
++  h.status=arrived; h.target_id=-1
++ else:
++  h.status="returning" if _reachable(h.pos,h.home) else "unreachable"
++
++func _job_target(h: Dictionary,growing: bool) -> Dictionary:
++ var tiles: PackedInt32Array=Landing.tiles_in_radius(s.state,4,h.home,Work.WORK_RADIUS)
++ var grass: Array[Dictionary]=[]
++ var candidates: Array[Dictionary]=[]
++ var frontier: Array[int]=[]
++ var distances: Dictionary={}
++ var local: Dictionary={}
++ for index: int in tiles:
++  local[index]=true
++  if s.state.stage[index]>0: distances[index]=0; frontier.append(index)
++  if growing and s.state.stage[index]>0 and s.state.stage[index]<4:
++   grass.append({"tile":index,"pos":Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width)),"growing":true,"watered":s.state.moisture[index]>0})
+  if growing:
+-  for p: Dictionary in s.plants:
+-   if not p.mature and (not s.state.permanent_water or not p.get("watered",false)) and p.pos.distance_to(h.home)<=radius and p.pos.distance_squared_to(h.pos)<best:
+-    var route: Array=s.nav.route(h.pos,p.pos)
+-    if not route.is_empty():
+-     best=p.pos.distance_squared_to(h.pos); answer=p.pos
+-  if s.state.permanent_water and answer.x>=0.0:
+-   return answer
+- for index: int in Landing.tiles_in_radius(s.state,4,h.home,radius):
+-  var valid: bool=s.state.stage[index]>0 and s.state.stage[index]<4 if growing else s.state.can_plant(index)
+-  if not valid: continue
+-  if growing and s.state.permanent_water and s.state.moisture[index]>0: continue
+-  var p: Vector2=Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width))
+-  var distance: float=h.pos.distance_squared_to(p)
+-  if distance<best:
+-   if not s.nav.route(h.pos,p).is_empty():
+-    best=distance; answer=p
+- return answer
++  return Work.sprinkler_target(h,s.plants,grass,func(at: Vector2) -> bool: return _reachable(h.pos,at))
++ var head: int=0
++ while head<frontier.size():
++  var index: int=frontier[head]; head+=1
++  var cell: Vector2i=Vector2i(index%s.state.width,index/s.state.width)
++  for d: Vector2i in [Vector2i.LEFT,Vector2i.RIGHT,Vector2i.UP,Vector2i.DOWN]:
++   var next: Vector2i=cell+d
++   if not s.state.in_bounds(next.x,next.y): continue
++   var ni: int=s.state.index_of(next.x,next.y)
++   if local.has(ni) and not distances.has(ni) and s.state.is_walkable(next.x,next.y):
++    distances[ni]=int(distances[index])+1; frontier.append(ni)
++ var reserved: PackedInt32Array=PackedInt32Array()
++ for shot: Dictionary in s.shots:
++  if shot.get("source_type","player")=="helper": reserved.append(int(shot.target_tile))
++ for index: int in tiles:
++  if not s.state.can_plant(index): continue
++  var blocked: bool=false
++  for helper: Dictionary in s.helpers:
++   var cell: Vector2i=Coords.logic_to_cell(helper.pos)
++   if s.state.in_bounds(cell.x,cell.y) and s.state.index_of(cell.x,cell.y)==index: blocked=true; break
++  if blocked: continue
++  candidates.append({"tile":index,"pos":Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width)),"plantable":true,"green_distance":float(distances.get(index,INF))})
++ return Work.sow_target(h,candidates,reserved,func(at: Vector2) -> bool: return _reachable(h.pos,at))
++
++func _work_target(h: Dictionary,growing: bool) -> Vector2:
++ var target: Dictionary=_job_target(h,growing)
++ return target.get("pos",Vector2(-1,-1))
+ 
+ func _gatlinger(h: Dictionary,dt: float) -> void:
+  if int(h.ammo)<=0:
+-  h.status="empty"
++  _return_home(h,dt,"empty")
+   return
+  if s.clock.elapsed>=float(h.search_at):
+-  h.target_pos=_work_target(h,false)
++  var job: Dictionary=_job_target(h,false)
++  h.target_pos=job.get("pos",Vector2(-1,-1))
++  h.job_kind="grass" if not job.is_empty() else ""; h.job_id=int(job.get("tile",-1))
+   h.search_at=s.clock.elapsed+2.0
++ if h.get("job_kind","")!="grass":
++  _return_home(h,dt); return
+  var target: Vector2=h.target_pos
+  if target.x<0.0:
+-  h.status="idle"; return
++  _return_home(h,dt); return
++ h.status="working"
+  if h.pos.distance_to(target)>18.0:
+   h.status="working"; s.nav.move(h,target,18.0,dt,s.clock.elapsed)
+  elif s.clock.elapsed>=float(h.work_at):
+   if not s.placement.blocks_projectile(h.pos,target):
+    var c: Vector2i=Coords.logic_to_cell(target)
+    if s.state.can_plant(s.state.index_of(c.x,c.y)):
+-    s.state.set_stage(s.state.index_of(c.x,c.y),WorldState.STAGE_SEED)
+-    h.ammo=int(h.ammo)-1
+-    h.work_at=s.clock.elapsed+3.0
++    if s.combat_system.helper_seed(h,target):
++     h.work_at=s.clock.elapsed+3.0
++     h.action_kind="sow"; h.action_until=s.clock.elapsed+0.22
++     h.status="sowing"
+   h.search_at=0.0
+ 
+ func _sprinkler(h: Dictionary,dt: float) -> void:
+@@ -298,11 +364,13 @@ func _sprinkler(h: Dictionary,dt: float) -> void:
+  if not task.is_empty():
+   if task=="returning_water":
+    h.status="returning_water"
++   h.target_pos=h.home
+    if s.nav.move(h,h.home,20.0,dt,s.clock.elapsed):
+     h.water_task=""; h.status="working"; h.search_at=0.0
+    return
+   if task=="refilling" and h.pos.distance_to(h.bank)<=1.0:
+    h.status="refilling"
++   h.target_pos=h.bank
+    h.water=minf(100.0,float(h.water)+20.0*dt)
+    if float(h.water)>=100.0:
+     h.water_task="returning_water"; h.status="returning_water"
+@@ -318,22 +386,29 @@ func _sprinkler(h: Dictionary,dt: float) -> void:
+     h.status="no_water_route"
+     return
+   h.status="resupplying"
++  h.target_pos=h.bank
+   if s.nav.move(h,h.bank,20.0,dt,s.clock.elapsed):
+    h.water_task="refilling"; h.status="refilling"
+   return
+  if s.clock.elapsed>=float(h.search_at):
+-  h.target_pos=_work_target(h,true)
++  var job: Dictionary=_job_target(h,true)
++  h.target_pos=job.get("pos",Vector2(-1,-1))
++  h.job_kind=String(job.get("kind","")); h.job_id=int(job.get("id",-1))
+   h.search_at=s.clock.elapsed+2.0
++ if h.get("job_kind","") not in ["crop","grass"]:
++  _return_home(h,dt); return
+  var target: Vector2=h.target_pos
+  if target.x<0.0:
+-  h.status="idle"; return
++  _return_home(h,dt); return
+  if h.pos.distance_to(target)>14.0:
+   h.status="working"; s.nav.move(h,target,20.0,dt,s.clock.elapsed)
+  else:
+   h.status="watering"
+   var changed: int=_wet(h.pos,20.0,1.0)
+   if s.state.permanent_water:
+-   if changed>0: h.water=maxf(0.0,float(h.water)-1.0)
++   if changed>0:
++    h.water=maxf(0.0,float(h.water)-1.0)
++    h.action_kind="water"; h.action_until=s.clock.elapsed+0.3
+    h.search_at=0.0
+    h.target_pos=Vector2(-1,-1)
+   else:
+diff --git a/scripts/poc2/ui/map_ui.gd b/scripts/poc2/ui/map_ui.gd
+index 2e27231..9be3b96 100644
+--- a/scripts/poc2/ui/map_ui.gd
++++ b/scripts/poc2/ui/map_ui.gd
+@@ -214,7 +214,10 @@ func _draw() -> void:
+ 						_ring(at,7,Color("ffffff"))
+ 						if selected_helper:
+ 							_map_line(at,point(item.home),Color("cadbbd"))
+-							var activity: float = 60.0 if String(item.kind)=="gatlinger" else 40.0
++							var activity: float = 60.0
++							if item.target_pos.x>=0.0 and (not String(item.get("job_kind","")).is_empty() or not String(item.get("water_task","")).is_empty()): _map_line(at,point(item.target_pos),Color("e3d18c"))
++							if String(item.get("status","")) in ["fleeing","resupplying","refilling","returning_water"]:
++								draw_string(ThemeDB.fallback_font,at+Vector2(5,-6),"↶" if item.status=="fleeing" else "水↻",HORIZONTAL_ALIGNMENT_LEFT,-1,10,Color("9edbe2"))
+ 							for segment: int in 32:
+ 								var start: Vector2 = item.home+Vector2.from_angle(float(segment)/32.0*TAU)*activity
+ 								var finish: Vector2 = item.home+Vector2.from_angle(float(segment+1)/32.0*TAU)*activity
+@@ -227,6 +230,8 @@ func _draw() -> void:
+ 						_gauge(at,gauge_y,float(item.water),float(item.capacity),Color("75c8dc"))
+ 					if String(item.get("status","")) in ["empty","no_water","blocked","stranded","waiting_water","no_water_route","unreachable"]:
+ 						if map_rect.grow(-2).has_point(at+Vector2(5,-5)): draw_circle(at+Vector2(5,-5),2,Color("f4bb5e"))
++				if category=="helpers" and item.kind!="army" and bool(item.get("sleeping",false)):
++					draw_string(ThemeDB.fallback_font,at+Vector2(4,-4),"Zzz",HORIZONTAL_ALIGNMENT_LEFT,-1,9,Color("e8ecd5"))
+ 	var player: Vector2 = point(session.position)
+ 	if map_rect.grow(-3).has_point(player): draw_circle(player,3 if expanded else 2,Color("fff9dd"))
+ 
+diff --git a/scripts/poc2/view/entity_sprite_state.gd b/scripts/poc2/view/entity_sprite_state.gd
+index fe310f0..b8d90e3 100644
+--- a/scripts/poc2/view/entity_sprite_state.gd
++++ b/scripts/poc2/view/entity_sprite_state.gd
+@@ -3,7 +3,7 @@ extends RefCounted
+ const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
+ const STATES: Dictionary = {
+ 	"enemies":["idle","move","windup","attack","hit","eat"],
+-	"helpers":["idle","move","attack","sow","water","flee"],
++	"helpers":["idle","move","attack","hit","sow","water","flee"],
+ 	"plants":["planted","growing","mature"],
+ 	"nests":["idle","move","windup","attack","hit","eat"]}
+ var last_position: Vector2 = Vector2.ZERO
+@@ -39,10 +39,14 @@ func _state(category: String, item: Dictionary, elapsed: float, moving: bool) ->
+ 	if category=="helpers":
+ 		var status: String = String(item.get("status",""))
+ 		if status in ["flee","fleeing","retreating"]: return "flee"
++		if hit_until>elapsed: return "hit"
++		if float(item.get("action_until",-1.0))>elapsed:
++			var action: String=String(item.get("action_kind",""))
++			if action in ["attack","sow","water"]: return action
+ 		if moving: return "move"
+ 		if status in ["watering","water"]: return "water"
+ 		if status in ["fighting","attack"]: return "attack"
+-		if status=="sowing" or (item.get("kind","")=="gatlinger" and float(item.get("work_at",0.0))>elapsed): return "sow"
++		if status=="sowing": return "sow"
+ 		return "idle"
+ 	if hit_until>elapsed or float(item.get("stun_until",0.0))>elapsed: return "hit"
+ 	var phase: String = String(item.get("phase",item.get("status","")))
+diff --git a/scripts/poc2/view/world_view.gd b/scripts/poc2/view/world_view.gd
+index cf24e58..a09afcd 100644
+--- a/scripts/poc2/view/world_view.gd
++++ b/scripts/poc2/view/world_view.gd
+@@ -13,6 +13,8 @@ const Cutaway: GDScript = preload("res://scripts/poc2/view/cutaway_view.gd")
+ const EntitySprite: GDScript = preload("res://scripts/poc2/view/entity_sprite.gd")
+ const EntityCatalog: GDScript = preload("res://scripts/poc2/view/entity_sprite_catalog.gd")
+ const EntityState: GDScript = preload("res://scripts/poc2/view/entity_sprite_state.gd")
++const HelperEffects: GDScript = preload("res://scripts/poc2/view/helper_effects.gd")
++var helper_effects: Node3D
+ var session: RefCounted
+ var camera: Camera3D
+ var sun: DirectionalLight3D
+@@ -95,6 +97,8 @@ func build(source: RefCounted, viewport: SubViewport) -> void:
+ 	marker = _mesh("marker", Color("bdeaa2"), false)
+ 	marker.visible = false
+ 	_build_sow_preview()
++	helper_effects=HelperEffects.new()
++	add_child(helper_effects)
+ 	if placement_view != null:
+ 		occlusion = Cutaway.new()
+ 		add_child(occlusion)
+@@ -243,9 +247,9 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
+ 			var at: Vector2 = Coords.logic_to_ground(item.pos)
+ 			node.position = Vector3(at.x, height * 0.5, at.y)
+ 			node.visible = true
+-			if category == "enemies":
++			if category in ["enemies","helpers"]:
+ 				var material_: StandardMaterial3D = (node as MeshInstance3D).material_override as StandardMaterial3D
+-				material_.albedo_color = Color("f2c372") if String(item.get("phase", "")) in ["windup", "tell"] else color_for(kind)
++				material_.albedo_color = Color("eef4c5") if presentation.state=="hit" else (Color("f2c372") if String(item.get("phase", "")) in ["windup", "tell"] else color_for(kind))
+ 	for key: Variant in entities.keys():
+ 		if not alive.has(key):
+ 			(entities[key] as Node3D).queue_free()
+@@ -254,6 +258,7 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
+ 		elif not seen.has(key):
+ 			(entities[key] as Node3D).visible = false
+ 	_apply_crop_cover(desired_cover,ground_dirty)
++	helper_effects.sync(session,animation_time)
+ 
+ func _mark_crop_cover(item: Dictionary, desired: Dictionary) -> void:
+ 	var cell: Vector2i = item.cell

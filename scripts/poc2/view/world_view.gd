@@ -13,6 +13,8 @@ const Cutaway: GDScript = preload("res://scripts/poc2/view/cutaway_view.gd")
 const EntitySprite: GDScript = preload("res://scripts/poc2/view/entity_sprite.gd")
 const EntityCatalog: GDScript = preload("res://scripts/poc2/view/entity_sprite_catalog.gd")
 const EntityState: GDScript = preload("res://scripts/poc2/view/entity_sprite_state.gd")
+const HelperEffects: GDScript = preload("res://scripts/poc2/view/helper_effects.gd")
+var helper_effects: Node3D
 var session: RefCounted
 var camera: Camera3D
 var sun: DirectionalLight3D
@@ -95,6 +97,8 @@ func build(source: RefCounted, viewport: SubViewport) -> void:
 	marker = _mesh("marker", Color("bdeaa2"), false)
 	marker.visible = false
 	_build_sow_preview()
+	helper_effects=HelperEffects.new()
+	add_child(helper_effects)
 	if placement_view != null:
 		occlusion = Cutaway.new()
 		add_child(occlusion)
@@ -243,9 +247,9 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
 			var at: Vector2 = Coords.logic_to_ground(item.pos)
 			node.position = Vector3(at.x, height * 0.5, at.y)
 			node.visible = true
-			if category == "enemies":
+			if category in ["enemies","helpers"]:
 				var material_: StandardMaterial3D = (node as MeshInstance3D).material_override as StandardMaterial3D
-				material_.albedo_color = Color("f2c372") if String(item.get("phase", "")) in ["windup", "tell"] else color_for(kind)
+				material_.albedo_color = Color("eef4c5") if presentation.state=="hit" else (Color("f2c372") if String(item.get("phase", "")) in ["windup", "tell"] else color_for(kind))
 	for key: Variant in entities.keys():
 		if not alive.has(key):
 			(entities[key] as Node3D).queue_free()
@@ -254,6 +258,7 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
 		elif not seen.has(key):
 			(entities[key] as Node3D).visible = false
 	_apply_crop_cover(desired_cover,ground_dirty)
+	helper_effects.sync(session,animation_time)
 
 func _mark_crop_cover(item: Dictionary, desired: Dictionary) -> void:
 	var cell: Vector2i = item.cell

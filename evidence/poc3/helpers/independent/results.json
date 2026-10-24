@@ -1,0 +1,70 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "id": "ARMY_PRIORITY_AND_8M_RELEASE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "RETREAT_TO_ARMY_REAR_AWAY_FROM_UNSAFE_HOME",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "PERSONAL_AMMO_WIDTH1_RESERVE0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "SECOND_GAT_CANNOT_SHARE_FLIGHT_TARGET",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "SOURCE_GONE_FLIGHT_JSON_FULL_STATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "RESTORED_RESERVATION_THEN_SOURCELESS_LANDING",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "duplicate_helper_target"
+      },
+      "id": "DUPLICATE_FLIGHT_TARGET_ATOMIC_REJECT",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "REAL_EMPTY_JOB_RETURNS_AND_SLEEPS",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "NEW_GRASS_JOB_WAKES_AND_WATERS_ONCE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "FIVE_SECOND_REFILL_PRESERVES_HOME",
+      "status": "PASS"
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": 0,
+  "user_dir": "C:/godot/greenvader/evidence/poc3/helpers/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

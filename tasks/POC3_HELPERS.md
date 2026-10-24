@@ -3,13 +3,13 @@
 ## 管理欄
 
 - ID: POC3-HELPERS
-- 状態: 未着手
+- 状態: 完了
 - 担当ツール: なし
 - 担当セッション: なし
 - 更新日: 2026-10-24
 - 予約中の編集範囲: なし
 - 予約中の共有資源: なし
-- 最終担当: なし
+- 最終担当: codex / codex-20261024-poc3-implementation
 
 ## 実施時に具体化する範囲
 
@@ -30,3 +30,13 @@
 ## 引き継ぎ
 
 - 2026-10-24: ユーザーが基本案、薄円とZzzの改良、アーミー後方優先の退避を承認。資料記録のみで実装・検証未着手。方針全体確定まで資料をコミットしない。
+
+- 準備時の接続判断: 敵の攻撃先type/idをcombatで明示してArmyの優先度へ渡す。行動判断部品はSession強参照を持たないstatic方式を優先。Gatの飛ぶ種は1発で個体ammo1を消費する既存仕様に合わせ、発射済み分は使用済み扱い。共有備蓄から消費/返還しない。壁/無効着弾でも共有種へ返還せず、手動撤去は残る未使用ammoだけ返す。発射元消失後も飛翔弾は着弾可。helper弾は幅1/共有予約0で通常seedの予約1と保存検証を分け、飛行中targetも予約して複数Gatの重複播種を防ぐ。偶発的敵命中は通常種と同じ5ダメージ、敵を自主選択しない。
+
+- 準備完了: helper_work.gdのSession非保持static判断部品・専用pure試験・接続計画を作成、既存coreへ未接続、Godot/import未実行。全機能検証はNOT_RUN。LOCUSTの凍結/独立検証後に接続を許可するまで実装担当停止。
+
+- 接続開始: dc2033b+LOCUST限定合格コードを親がindex固定。LOCUST独立9PASS/0FAIL、ゲーム5/自己5hash不変・旧保存3件不変・Godot0/overrideなしで実行権返却済み。準備案を既存へ接続し自己比較/GPUへ進む。LOCUSTのphase=eat、eat_tile/eat_elapsedを使用し、任せる範囲と優先/退避/表示/個体弾薬を保持。スプライト作り込みなし。
+
+- 独立移譲: a97fbcd+9ゲーム差分凍結（self/freeze.json）、実装/Godot停止・overrideなし・旧保存3件一致。pure19PASS、初回接続12PASS/1FAIL（帰還先を空jobと誤認し待機が保てない）、空jobガード後idle/wake/unsafehome/補給帰還の限定5PASS、補給仕事先marker1PASS。Gat有無0/2播種、Sprinkler年齢3/5.875・給水0/1、Army食害stage0/4。初回GPU機械7PASSでも薄円が草に隠れた目視不備を保持、円の深度非依存表示とfixture間隔/zoomの限定追試画像を親確認。主人公HUDを維持、個体は数値羅列なし小バー/状態マークのみ。独立編集はtests/poc3/helpers/independent*とevidence/poc3/helpers/independent/のみ。全回帰/全map100%は統合へ。
+
+- 親受入: 独立10PASS/0FAIL/exit0。Army優先と8m解除/後方退避、個体ammo・重複target拒否・発射元消失後実JSON完全一致/予約保持/着弾/共有非消費、重複予約の原子的拒否、実Sprinkler待機/即復帰/初回水1/5秒補給を確認。9ゲーム+自己6hash/旧保存3件不変。自己有無比較・限定追試は監査、原FAILとGPU目視不備を保持。親と独立が最新3画像を開き薄円・小バー・選択map確認。HUD不変、実装/検証停止後コードindex固定しREFLECTIONへ編集/Godot移譲。全map100%/全体回帰・楽しさ/連続時間評価は統合/ユーザーへ。

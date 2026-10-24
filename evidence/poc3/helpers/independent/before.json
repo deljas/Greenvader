@@ -1,0 +1,99 @@
+{
+  "utc": "2026-10-24T09:42:56.9255461Z",
+  "head": "a97fbcdb996ba90a74c9cf5cf66cdb8206d19786",
+  "files": [
+    {
+      "path": "scripts/poc2/simulation/helper_work.gd",
+      "sha256": "7A6E50F895B7EC30B4CDC7BC2472D62B740179ED423551DB99682F8A2C8B49BE",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "sha256": "D320C73D7E1462E93D9A8224E551026CC778650BA4B4A49AB0817AB2EDD35371",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/simulation/combat.gd",
+      "sha256": "4A020858DA70EAB09959AC330858A46745A8A3F19AD8E9F23D85B054CC636043",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "D236B25BAF62AD4A62424C5EDB2CC95DDE871A27E5C1AE73A98C9646C3C58DEA",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "sha256": "993C1AD228B6E712997899EC2C08F06AD8418569BB819E06636D3ED94F4DBD28",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "6BC2BC1B2A9344442248EA70EFAA6A624203AC2289511536B6E11633D897434B",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite_state.gd",
+      "sha256": "21B8357612D82F6A898303E83CCEAF6FD37DE5255C106D107B73BC4A261A1676",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/view/helper_effects.gd",
+      "sha256": "24A584052EAD7168225FD3EC4EDA54EA49F4C8A896C8A50AB556F5E091759DA6",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "sha256": "196FBFA9C20C4BFE97BDA460F852D8B425F2012EFAE16BB5B5069FCC9CBE7C8D",
+      "match": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\helpers\\self_gpu.gd",
+      "sha256": "82C78B824FDF93788F46740DFBF07B69F2A51CB12A9FD1811AD185655F347EA7",
+      "match": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\helpers\\self_logic.gd",
+      "sha256": "77E4B95820E3D444604512AFC9B32321EFDAB4712CD96B4EF9763B458E846884",
+      "match": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\helpers\\self_markers.gd",
+      "sha256": "8028815D35B9BBCF5E20E9C116D147AD8DA3826EAB7E33082CA00341E4D47230",
+      "match": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\helpers\\self_pure.gd",
+      "sha256": "4A73980F029988E381435C2E61633946CB43F579A80FAB5068EEF520CFB34D7E",
+      "match": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\helpers\\self_pure.gd.uid",
+      "sha256": "676ECA329C97E22E87406D0E23A3C8E3CFF6455DECEA23D2355C396E6522046D",
+      "match": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\helpers\\self_run.ps1",
+      "sha256": "A00B4D251EDFDF86298D176E7E2BB0410A64CBC14F856EE55B05A04210066D47",
+      "match": true
+    }
+  ],
+  "old_saves": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "project_sha256": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8",
+  "hud_sha256": "519067DE904F1E615E6E98237DA858EB26B1332F7AA49B848913960F6132506E",
+  "override_absent": true,
+  "processes": []
+}

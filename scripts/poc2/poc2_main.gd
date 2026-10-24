@@ -131,8 +131,10 @@ func tick(delta: float) -> void:
 		var check: Dictionary=session.can_place(_placement_kind,cell)
 		var footprint: Array=session.CATALOG[_placement_kind].get("size",[1,1])
 		world.set_preview(_placement_kind,cell,bool(check.get("ok",false)),Vector2i(int(footprint[0]),int(footprint[1])))
+		world.helper_effects.preview((Vector2(cell)+Vector2(footprint[0],footprint[1])*0.5)*4.0,_placement_kind in ["army","gatlinger","sprinkler"])
 	else:
 		world.marker.visible=false
+		world.helper_effects.preview(Vector2.ZERO,false)
 	var sow_plan: Dictionary={}
 	if cursor_known and _placement_kind=="" and not is_paused() and not ui.blocks(cursor):
 		sow_plan=session.sow_preview()

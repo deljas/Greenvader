@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":"","id":"ARMY_PRIORITY_AND_8M_RELEASE","status":"PASS"}
+{"detail":"","id":"RETREAT_TO_ARMY_REAR_AWAY_FROM_UNSAFE_HOME","status":"PASS"}
+{"detail":"","id":"PERSONAL_AMMO_WIDTH1_RESERVE0","status":"PASS"}
+{"detail":"","id":"SECOND_GAT_CANNOT_SHARE_FLIGHT_TARGET","status":"PASS"}
+{"detail":"","id":"SOURCE_GONE_FLIGHT_JSON_FULL_STATE","status":"PASS"}
+{"detail":"","id":"RESTORED_RESERVATION_THEN_SOURCELESS_LANDING","status":"PASS"}
+{"detail":{"ok":false,"reason":"duplicate_helper_target"},"id":"DUPLICATE_FLIGHT_TARGET_ATOMIC_REJECT","status":"PASS"}
+{"detail":"","id":"REAL_EMPTY_JOB_RETURNS_AND_SLEEPS","status":"PASS"}
+{"detail":"","id":"NEW_GRASS_JOB_WAKES_AND_WATERS_ONCE","status":"PASS"}
+{"detail":"","id":"FIVE_SECOND_REFILL_PRESERVES_HOME","status":"PASS"}
