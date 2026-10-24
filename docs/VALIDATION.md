@@ -656,6 +656,17 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - 独立は10 PASS / 0 FAIL。独立者は凍結9ゲームhashと旧保存3件の不変を確認し、アーミー優先/退避、個体ammoと飛行予約、発射元消失後の実JSON往復/着弾、実スプリンクラーの待機・復帰・給水・補給を代表条件で確認しました。独立実行は自己結果へ足し合わせていません。
 - 最新GPU画像3枚は親・独立が目視しました。これは静止画像であり、連続動作の読みやすさや完成美術ではありません。NOT_RUN: 全map100%と広い回帰（INTEGRATIONへ）、物理入力、長時間の性能/経済/楽しさ、連続動画、完成美術。旧保存3件と対象15 hashは前後一致、終了時Godot0件、overrideなしです。自己[報告](../evidence/poc3/helpers/self/report.md)、[freeze](../evidence/poc3/helpers/self/freeze.json)、独立[報告](../evidence/poc3/helpers/independent/report.md)を参照してください。
 
+## POC3-REFLECTION 水面スプライト反射（2026-10-24）
+
+親は対象HEAD `4550123` のHELPERS受入版に `world_view` のPoC3専用変更を加えた差分を確認し、反射解像度と限定静止比較を受入しました。共通設定の変更や、水面shader・Actor・カード・素材の変更はありません。
+
+- PoC3の環境設定はdeep-copyし、そのコピーだけで `reflection_divisor=1` として水面反射を本画面と同じ640×360にします。共通設定のdivisor2（320×180）を維持し、元のtuning辞書も変更しません。
+- 自己比較は19 PASS / 0 FAIL、通常Session/World接続は6 PASS / 0 FAILで、別の実行として記録します。静止、歩行4コマ、左右方向転換の7姿勢を各1回撮影し、主人公の葉・顔、クローバーの輪郭、仮イノシシの細部で画素塊が軽減し、静止画像上で極端な潰れ・大きな足位置ずれがないことを目視しました。通常接続画像は木の遮蔽があるため、細部形状の評価には使っていません。
+- 限定12フレームの `force_draw(false)` 同期CPU待ち中央値はdivisor2/1とも0.358ms、drawcall15/primitive3934でした。GPU専用時間、通常fps、他GPUや全mapの性能を示しません。反射画素数は4倍で、負荷比較はこの短い区間に限ります。
+- 独立は8監査項目PASS / 0 FAIL。独立者は既存GPU証拠のPNG寸法・hash・画像を確認し、Godot/GPUの再実行はしていません。独立の監査件数は自己の19比較/6接続へ合算しません。対象9hashと旧保存3件は前後不変です。
+- NOT_RUN: 連続時間の歩行/転向ちらつき、GPU専用時間、他GPU・全map性能、全水面/照明/雨/角度、物理入力、広い回帰、完成美術・楽しさ。歩行4コマはposeを個別に指定した静止抜粋で、時系列評価ではありません。短い実歩行・方向転換の時系列確認をINTEGRATIONに残し、REFLECTION票の最終完了前に行います。
+- 詳細は自己[報告](../evidence/poc3/reflection/self/report.md)、独立[監査](../evidence/poc3/reflection/independent/report.md)を参照してください。CPU同期値をGPU性能保証へ読み替えず、静止画の所見をちらつき未確認の解消にしません。
+
 ## POC3-WORLD-LAYOUT 中央開始と前線配置（2026-10-24）
 
 親はWORLD受入対象 `a72c39f` + session/persistence/town03差分、自己/独立報告と通常画面・マップのGPU画像2枚を確認し、中央配置・到達性・保存の範囲を限定技術受入しました。現在の共有ツリーには後続ENEMY変更が加わるため、この記録は凍結対象版の結果です。

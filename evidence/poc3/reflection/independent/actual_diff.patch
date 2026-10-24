@@ -1,0 +1,19 @@
+diff --git a/scripts/poc2/view/world_view.gd b/scripts/poc2/view/world_view.gd
+index a09afcd..7e960ab 100644
+--- a/scripts/poc2/view/world_view.gd
++++ b/scripts/poc2/view/world_view.gd
+@@ -90,7 +90,13 @@ func build(source: RefCounted, viewport: SubViewport) -> void:
+ 	source.state.clear_dirty()
+ 	water = Water.new()
+ 	add_child(water)
+-	water.setup(viewport, camera, source, source.env_tuning, placement_view)
++	# PoC3 keeps the reflection on the same pixel grid as the main view.
++	# Copy the shared legacy tuning so previous PoCs/labs retain their own divisor.
++	var reflection_tuning: Dictionary = source.env_tuning.duplicate(true)
++	var water_tuning: Dictionary = reflection_tuning.get("water", {})
++	water_tuning["reflection_divisor"] = 1
++	reflection_tuning["water"] = water_tuning
++	water.setup(viewport, camera, source, reflection_tuning, placement_view)
+ 	actor = Actor.new()
+ 	add_child(actor)
+ 	actor.setup(camera)

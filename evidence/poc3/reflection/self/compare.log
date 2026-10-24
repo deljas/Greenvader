@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{"detail":"","name":"startup_minimized_unfocusable_isolated","status":"PASS"}
+{"detail":"","name":"fixture_native_nearest_no_aa","status":"PASS"}
+{"detail":"","name":"capture_d2_still","status":"PASS"}
+{"detail":"","name":"capture_d2_walk0","status":"PASS"}
+{"detail":"","name":"capture_d2_walk1","status":"PASS"}
+{"detail":"","name":"capture_d2_walk2","status":"PASS"}
+{"detail":"","name":"capture_d2_walk3","status":"PASS"}
+{"detail":"","name":"capture_d2_turn_left","status":"PASS"}
+{"detail":"","name":"capture_d2_turn_right","status":"PASS"}
+{"detail":"","name":"reflection_size_d2","status":"PASS"}
+{"detail":"","name":"capture_d1_still","status":"PASS"}
+{"detail":"","name":"capture_d1_walk0","status":"PASS"}
+{"detail":"","name":"capture_d1_walk1","status":"PASS"}
+{"detail":"","name":"capture_d1_walk2","status":"PASS"}
+{"detail":"","name":"capture_d1_walk3","status":"PASS"}
+{"detail":"","name":"capture_d1_turn_left","status":"PASS"}
+{"detail":"","name":"capture_d1_turn_right","status":"PASS"}
+{"detail":"","name":"reflection_size_d1","status":"PASS"}
+{"detail":"","name":"finished_minimized_unfocusable","status":"PASS"}

@@ -1,0 +1,21 @@
+{
+  "method": "Independent source/evidence audit and image inspection; no Godot re-execution",
+  "checks": [
+    {"id":"POC3_DEEP_COPY_ONLY_DIFF","status":"PASS"},
+    {"id":"PNG_NATIVE_AND_REFLECTION_DIMENSIONS","status":"PASS"},
+    {"id":"NEAREST_NO_BLUR_SHARED_PATH_PRESERVED","status":"PASS"},
+    {"id":"STILL_REFLECTION_READABILITY","status":"PASS"},
+    {"id":"SEVEN_SAMPLED_POSES_WITHOUT_EXTREME_COLLAPSE","status":"PASS"},
+    {"id":"NORMAL_CONNECTION_SOURCE_TUNING_IMMUTABLE","status":"PASS"},
+    {"id":"LIMITED_CPU_SYNCHRONIZATION_COST_RECORDED","status":"PASS"},
+    {"id":"TARGET_PROTECTED_AND_OLD_SAVES_UNCHANGED","status":"PASS"}
+  ],
+  "pass": 8,
+  "fail": 0,
+  "not_run": [
+    "Independent Godot/GPU re-execution",
+    "Continuous motion and flicker assessment",
+    "GPU-specific or full-map performance measurements",
+    "All lighting, weather, surfaces, angles, assets and broad regression"
+  ]
+}

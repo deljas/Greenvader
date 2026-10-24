@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-24T09:53:15.0392421Z",
+  "head": "45501239102cc0f3590d3b6f13ce6b7864d71e99",
+  "files": [
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544",
+      "match": true
+    },
+    {
+      "path": "tests/poc3/reflection/self_compare.gd",
+      "sha256": "6D14441B2B70D1DCA6D4658FD33594BA0650D080A7FFD1A69A8E6DFE1350648E",
+      "match": true
+    },
+    {
+      "path": "tests/poc3/reflection/self_run.ps1",
+      "sha256": "2DAE4C9D7BC65AFF8386A67C2816D75BA6A9E755D799A20A69D2EEC0A85D6A72",
+      "match": true
+    },
+    {
+      "path": "scripts/poc/environment/water_view.gd",
+      "sha256": "DE933C5777DFB0AEF6D86D5B66A852A368B0AD9648195C6BD1D8BEA0E9E32C12",
+      "match": true
+    },
+    {
+      "path": "scripts/poc/environment/water_surface.gdshader",
+      "sha256": "17CCC059C3C531E3BF0A02963E61A17695D6E044CAAA2076A275CCE3F079F1A6",
+      "match": true
+    },
+    {
+      "path": "scripts/poc/poc_actor.gd",
+      "sha256": "5AE9E90EF77B823E9ABFB7370D6501FCBB43F3EBD99B4C4EEB74931B23391BD3",
+      "match": true
+    },
+    {
+      "path": "data/poc/environment.json",
+      "sha256": "FA748FA4696D50DD18B12F8E1E78A57E8A079D98A0255B2EA001F0353DE0B704",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite.gd",
+      "sha256": "56CB68EAE85EC0D87231A2448AAC7EFC90E1B35E9ACA22D19F560EB177072ACA",
+      "match": true
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite_catalog.gd",
+      "sha256": "37EB2B2700836333A509BAB72B9D965860C8433D490D9A41C97A3D35157F3B48",
+      "match": true
+    }
+  ],
+  "old_saves": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "project_sha256": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8",
+  "override_absent": true,
+  "processes": []
+}

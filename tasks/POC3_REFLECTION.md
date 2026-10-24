@@ -3,13 +3,13 @@
 ## 管理欄
 
 - ID: POC3-REFLECTION
-- 状態: 未着手
-- 担当ツール: なし
-- 担当セッション: なし
+- 状態: 検証待ち
+- 担当ツール: codex
+- 担当セッション: codex-20261024-poc3-implementation
 - 更新日: 2026-10-24
-- 予約中の編集範囲: なし
-- 予約中の共有資源: なし
-- 最終担当: なし
+- 予約中の編集範囲: なし（静止比較・実差分受入済み。短い時系列確認はINTEGRATIONへ移管）
+- 予約中の共有資源: なし（Godot/importはINTEGRATIONへ返却）
+- 最終担当: codex / codex-20261024-poc3-implementation
 
 ## 実施時に具体化する範囲
 
@@ -28,4 +28,12 @@
 
 ## 引き継ぎ
 
+- 実装前の読取調査（5f7ac13、実行なし）: `data/poc/environment.json` のreflection_divisor=2により反射は320×180、本画面は640×360。反射shaderと主人公はnearest、AA/TAAと主人公mipmapは無効。反射はworld座標→鏡映camera VPのUV/Y反転で、UV歪みはない。反射cull_maskは1|64、主人公表示/formationは64、影専用8と地面2/水4は除外。主人公は本画面カメラ基準の垂直カードと足スナップを用いる。半解像度と画素格子差は粗さ/量子化の候補で、GPU未再現のため原因確定ではない。SPRITE-VIEW後に同じ場面でdivisor1との比較を最初に行い、形の問題が残る場合に足/向き/投影を切り分ける。反射用カード複製や投影補正を先行しない。昼夜bucket更新時の受光同期も代表確認候補。
+
 - 2026-10-24: ユーザーが反射を残した限定修正と低優先度を承認。記録のみ、実装・描画検証未着手。資料コミットは全方針確定時にまとめる。
+
+- 比較開始: a97fbcd+HELPERS9ゲーム差分は独立10PASS/0FAIL・親差分/GPU確認後index固定。HELPERS実行権返却/Godot0/overrideなし。既存比較準備を現HEADへ合わせ、まずdivisor2/1比較で原因/負荷を確認する。PoC3だけのworld_view設定overrideを候補とし、他版共通設定は維持。追加投影修正は残る問題の実画像根拠を親へ返す。
+
+- 独立移譲: a97fbcd+HELPERS index固定差分+world_view追加7行。PoC3専用tuning deep-copyでreflection_divisor1、共通env/Water/Actor/shader/Card変更なし。自己比較19PASS/通常接続6PASSを別記、7場面画像を親も目視し葉/顔/植物輪郭の改善、極端な潰れなしを確認。CPU同期呼出中央値はdivisor2/1とも0.358ms、drawcall15/primitive3934（GPU専用時間/通常fps保証ではない）。通常画像は接続確認、形状評価は固定fixture。最終world_view hash AB63C95E19285A30167EF259B662442D66916A8009E495ACE910C47152E84544、旧保存3一致/Godot0/overrideなし、実装者停止。独立は専用evidence/poc3/reflection/independent/とtests/poc3/reflection/independent*のみ。
+
+- 親確認: 独立監査8PASS/0FAIL、9対象hashと旧save3不変。限定7姿勢の反射改善とPoC3専用設定差分を受入、機能コミットする。ただし歩行4コマはpose指定静止画で連続時間のちらつきはNOT_RUNのため、本票の最終完了はINTEGRATIONの短い実歩行/方向転換時系列確認後とする。GPU専用時間/他GPU性能は未測定の限界を保持。

@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "startup_minimized_unfocusable_isolated",
+      "status": "PASS"
+    },
+    {
+      "detail": "(111, 55)",
+      "name": "normal_real_bank_found",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "source_environment_tuning_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "normal_world_capture",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "normal_world_full_resolution_connected",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "finished_minimized_unfocusable",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "physical input",
+    "all lighting/weather/geometry",
+    "full-map GPU timing",
+    "final art approval"
+  ],
+  "observations": {
+    "normal_connection": {
+      "main_size": "(640, 360)",
+      "player_cell": "(111, 55)",
+      "reflection_size": "(640, 360)",
+      "water_divisor": 1
+    }
+  }
+}

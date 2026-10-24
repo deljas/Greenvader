@@ -1,0 +1,1036 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "startup_minimized_unfocusable_isolated",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "fixture_native_nearest_no_aa",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d2_still",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d2_walk0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d2_walk1",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d2_walk2",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d2_walk3",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d2_turn_left",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d2_turn_right",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "reflection_size_d2",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d1_still",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d1_walk0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d1_walk1",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d1_walk2",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d1_walk3",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d1_turn_left",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "capture_d1_turn_right",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "reflection_size_d1",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "finished_minimized_unfocusable",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "physical input",
+    "all lighting/weather/geometry",
+    "full-map GPU timing",
+    "final art approval"
+  ],
+  "observations": {
+    "d1": {
+      "global_draw_calls": 15.0,
+      "global_primitives": 3934.0,
+      "label": "synchronous_force_draw_CPU_wait_ms_not_GPU_timer",
+      "maximum_ms": 0.812,
+      "median_ms": 0.358,
+      "minimum_ms": 0.284,
+      "sample_count": 12
+    },
+    "d1_still": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(265.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": false
+      },
+      "actor_reflection_foot": "(265.0, 160.2022)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.37794, 0.0, 3.052349)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.37794, 0.0, 3.052349)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.37794, 0.0, 3.052349)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "idle"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d1_turn_left": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "left",
+        "fire_kind": "",
+        "foot_screen": "(265.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": false
+      },
+      "actor_reflection_foot": "(265.0, 160.2022)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.37794, 0.0, 3.052349)",
+        "clip_state": "idle",
+        "direction": "left",
+        "foot": "(5.37794, 0.0, 3.052349)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.37794, 0.0, 3.052349)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "idle"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d1_turn_right": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "right",
+        "fire_kind": "",
+        "foot_screen": "(265.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": false
+      },
+      "actor_reflection_foot": "(265.0, 160.2022)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.37794, 0.0, 3.052349)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.37794, 0.0, 3.052349)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.37794, 0.0, 3.052349)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "idle"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d1_walk0": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(268.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(268.0, 160.2022)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.486951, 0.0, 2.943335)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.486951, 0.0, 2.943335)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.486951, 0.0, 2.943335)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d1_walk1": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(270.0, 200.0)",
+        "formation_visible": false,
+        "frame": 1,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(270.0, 160.2022)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.559627, 0.0, 2.87066)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.559627, 0.0, 2.87066)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.559627, 0.0, 2.87066)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d1_walk2": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(273.0, 200.0)",
+        "formation_visible": false,
+        "frame": 2,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(273.0, 160.2022)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.632303, 0.0, 2.797986)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.632303, 0.0, 2.797986)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.632303, 0.0, 2.797986)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d1_walk3": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(275.0, 200.0)",
+        "formation_visible": false,
+        "frame": 3,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(275.0, 160.2022)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.741313, 0.0, 2.688971)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.741313, 0.0, 2.688971)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.741313, 0.0, 2.688971)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d2": {
+      "global_draw_calls": 15.0,
+      "global_primitives": 3934.0,
+      "label": "synchronous_force_draw_CPU_wait_ms_not_GPU_timer",
+      "maximum_ms": 2.427,
+      "median_ms": 0.358,
+      "minimum_ms": 0.247,
+      "sample_count": 12
+    },
+    "d2_still": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(265.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": false
+      },
+      "actor_reflection_foot": "(132.5, 80.1011)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.37794, 0.0, 3.052349)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.37794, 0.0, 3.052349)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.37794, 0.0, 3.052349)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "idle"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d2_turn_left": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "left",
+        "fire_kind": "",
+        "foot_screen": "(265.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": false
+      },
+      "actor_reflection_foot": "(132.5, 80.1011)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.37794, 0.0, 3.052349)",
+        "clip_state": "idle",
+        "direction": "left",
+        "foot": "(5.37794, 0.0, 3.052349)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.37794, 0.0, 3.052349)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "idle"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d2_turn_right": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "right",
+        "fire_kind": "",
+        "foot_screen": "(265.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": false
+      },
+      "actor_reflection_foot": "(132.5, 80.1011)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.37794, 0.0, 3.052349)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.37794, 0.0, 3.052349)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.37794, 0.0, 3.052349)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "idle"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d2_walk0": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(268.0, 200.0)",
+        "formation_visible": false,
+        "frame": 0,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(134.0, 80.1011)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.486951, 0.0, 2.943335)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.486951, 0.0, 2.943335)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.486951, 0.0, 2.943335)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d2_walk1": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(270.0, 200.0)",
+        "formation_visible": false,
+        "frame": 1,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(135.0, 80.1011)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.559627, 0.0, 2.87066)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.559627, 0.0, 2.87066)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.559627, 0.0, 2.87066)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d2_walk2": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(273.0, 200.0)",
+        "formation_visible": false,
+        "frame": 2,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(136.5, 80.1011)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.632303, 0.0, 2.797986)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.632303, 0.0, 2.797986)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.632303, 0.0, 2.797986)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    },
+    "d2_walk3": {
+      "actor": {
+        "anchor": [
+          12,
+          34
+        ],
+        "direction": "down",
+        "fire_kind": "",
+        "foot_screen": "(275.0, 200.0)",
+        "formation_visible": false,
+        "frame": 3,
+        "height_m": 1.74722222222222,
+        "matching_feet": true,
+        "matching_flip": true,
+        "matching_texture": true,
+        "pixel_size": 0.0513888888888889,
+        "shaded": true,
+        "texels": [
+          24,
+          36
+        ],
+        "walk_mode": "normal",
+        "walking": true
+      },
+      "actor_reflection_foot": "(137.5, 80.1011)",
+      "boar": {
+        "anchor": "(16.0, 16.0)",
+        "body_foot": "(5.741313, 0.0, 2.688971)",
+        "clip_state": "idle",
+        "direction": "right",
+        "foot": "(5.741313, 0.0, 2.688971)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(5.741313, 0.0, 2.688971)",
+        "shadow_matches": true,
+        "source_pixels": "(32, 18)",
+        "state": "move"
+      },
+      "carrot": {
+        "anchor": "(4.0, 8.0)",
+        "body_foot": "(3.997119, 0.0, 4.43317)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(3.997119, 0.0, 4.43317)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(3.997119, 0.0, 4.43317)",
+        "shadow_matches": true,
+        "source_pixels": "(8, 8)",
+        "state": "mature"
+      },
+      "clover": {
+        "anchor": "(8.0, 15.0)",
+        "body_foot": "(2.83432, 0.0, 5.595967)",
+        "clip_state": "mature",
+        "direction": "down",
+        "foot": "(2.83432, 0.0, 5.595967)",
+        "frame": 0,
+        "pixel_size": 0.0513888888888889,
+        "shadow_foot": "(2.83432, 0.0, 5.595967)",
+        "shadow_matches": true,
+        "source_pixels": "(16, 16)",
+        "state": "mature"
+      }
+    }
+  }
+}
