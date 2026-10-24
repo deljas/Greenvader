@@ -1,0 +1,72 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"checks": [
+		{
+			"detail": "adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows",
+			"name": "gpu_available",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "window_unfocusable",
+			"status": "PASS"
+		},
+		{
+			"detail": "crops=12 enemies=20",
+			"name": "scene_built_via_injected_input",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_lab_overview_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0 of 230400",
+			"name": "shot_lab_overview_nearest_integer_scaling_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_lab_night_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0 of 230400",
+			"name": "shot_lab_night_nearest_integer_scaling_blocks_uniform",
+			"status": "PASS"
+		}
+	],
+	"display_server": "Windows",
+	"driver": "vulkan",
+	"failed": 0,
+	"not_run": 0,
+	"shots": [
+		{
+			"file": "evidence/content_pack/independent/gpu/lab_overview.png",
+			"name": "lab_overview",
+			"note": "操作で組み立てた全体(状態記号つき)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 321
+		},
+		{
+			"file": "evidence/content_pack/independent/gpu/lab_night.png",
+			"name": "lab_night",
+			"note": "夜(ヒカリゴケの範囲で擬態を表示)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 325
+		}
+	],
+	"suite": "gpu_v",
+	"total": 7,
+	"window_size": [
+		1280,
+		720
+	]
+}

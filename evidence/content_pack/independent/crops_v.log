@@ -1,0 +1,195 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS wasabi_ok_dist2 
+PASS wasabi_fail_dist3 { "ok": false, "reason": "needs_clean_water" }
+PASS wasabi_fail_near_plain_shallow_only 
+PASS wasabi_cheb_diag_corner (8,20): clean(6,18)へ dx2 dy2
+PASS wasabi_cheb_diag_corner_far dx3
+PASS watermelon_ok_36cells 
+PASS watermelon_placed_paid_450 450
+PASS watermelon_occupies_exactly_36 
+PASS watermelon_second_price_473 473
+PASS overlap_one_cell_blocks_clover 
+PASS overlap_one_cell_blocks_watermelon 
+PASS watermelon_building_one_col_fails x28は建物
+PASS watermelon_waste_two_cols_fails x44,45は荒地
+PASS watermelon_edge_outside 
+PASS watermelon_one_nongreen_cell_fails 
+PASS watermelon_one_blocked_cell_fails 
+PASS watermelon_origin_shift_ok 
+PASS cactus_on_wasteland_ok_with_seed_event 
+PASS clover_on_wasteland_fails 
+PASS cactus_on_water_fails 
+PASS cactus_on_building_fails 
+PASS cactus_on_junk_fails 
+PASS cactus_on_green_ok 
+PASS lotus_shore_ok 
+PASS lotus_south_shore_ok 
+PASS lotus_mid_water_no_shore_fails 
+PASS lotus_one_land_cell_fails 
+PASS lotus_on_land_fails 
+PASS lotus_placed_occupies_4 
+PASS lotus_overlap_fails 
+PASS lotus_does_not_make_green 
+PASS rice_dist2_water_ok 
+PASS rice_dist3_fails 
+PASS rice_near_clean_water_ok 
+PASS four_leaf_not_placeable 
+PASS golden_four_not_placeable 
+PASS mimic_cell_blocks_planting { "ok": false, "reason": "occupied", "by": "mimic_cabbage" }
+PASS mimic_neighbor_cell_ok 
+PASS hive_cell_blocks_planting { "ok": false, "reason": "occupied", "by": "honeybee_hive" }
+PASS anthill_2x2_blocks { "id": 4, "kind": "ant_hill", "rect": [P: (39, 19), S: (2, 2)] }
+PASS anthill_found_in_structures [{ "id": 2, "kind": "honeybee_hive", "rect": [P: (20, 20), S: (1, 1)] }, { "id": 4, "kind": "ant_hill", "rect": [P: (39, 19), S: (2, 2)] }]
+PASS poison_two_ticks_by_14.5 2
+PASS poison_dies_at_15s 
+PASS poison_removal_reason_refund0 [{ "type": "crop_removed", "crop_id": 2, "kind": "clover", "reason": "poison", "refund": 0, "cell": (24, 20), "size": (1, 1), "paid": 0 }]
+PASS poison_releases_occupancy 
+PASS poison_out_of_range_unaffected 
+PASS oleander_not_poisoned_by_oleander 
+PASS poison_helper_and_grass_unchanged 
+PASS giant_watermelon_poisoned_by_rect_distance 
+PASS two_sources_still_plus1_per_tick 2
+PASS two_sources_dies_at_15_not_earlier 
+PASS garlic_protects_self 
+PASS garlic_protects_in_range 
+PASS garlic_range_edge_unprotected_dies 
+PASS immature_garlic_no_protection 2
+PASS immature_oleander_no_poison 
+PASS oleander_after_mature_poisons_then_kills 
+PASS poison_resets_after_source_removed 2
+PASS poison_death_reduces_family_count 1
+PASS no_roll_before_maturity 
+PASS each_clover_rolled_exactly_once_on_maturity 600
+PASS four_leaf_rate_about_1_in_50 hits=12 expect~12
+PASS variant_events_not_debug 
+PASS variant_keeps_id_paid_watered_occupancy_progress 
+PASS four_leaf_rate_7x 0.23333333333333
+PASS four_leaf_rate_is_14_per_min 
+PASS price_family_four_leaf_counts_as_clover 600
+PASS no_reroll_after_maturity 
+PASS four_leaf_count_stable 12 vs 12
+PASS restore_ok 
+PASS no_reroll_after_restore 
+PASS restore_keeps_four_leaf_ids 
+PASS roll_sequence_identical_after_restore [223, 228, 271] vs [223, 228, 271]
+PASS golden_four_rate_about_1_in_77 hits=11 expect~13
+PASS golden_four_keeps_paid_and_family golden_four_leaf
+PASS golden_four_rate_777x 2315.46
+PASS debug_roll_flagged_and_once [{ "type": "variant_roll", "crop_id": 1, "kind": "clover", "hit": true, "debug": true }, { "type": "variant", "crop_id": 1, "from": "clover", "to": "four_leaf_clover", "debug": true }]
+PASS gold_dist7_inclusive_plus7pct 0.03566666666667
+PASS gold_dist8_none 
+PASS gold_chebyshev_diagonal_7_in 
+PASS gold_chebyshev_diagonal_8_out 
+PASS gold_self_excluded 0.03333333333333
+PASS two_golds_add_to_target_1.14 0.038
+PASS golds_affect_each_other_1.07 
+PASS gold_k_capped_at_7_gives_1.49 1.49
+PASS immature_gold_no_effect 
+PASS gold_to_large_rect_dist7_in 1.07
+PASS gold_to_large_rect_dist8_out 
+PASS golden_four_aura_same 1554.0
+PASS golden_four_1554_per_min 
+PASS bee_dist8_plus10pct 1.1
+PASS bee_flower_plus20pct_sunflower 0.09
+PASS bee_flower_plus20pct_lavender 
+PASS two_hives_do_not_stack 1.1
+PASS gold_and_bee_add_1.24 1.24
+PASS real_hive_pollinates_clover 1.1
+PASS destroyed_hive_loses_pollination 1.0
+PASS additive_not_multiplicative 
+PASS edamame_1_plus5pct_growth 10.5
+PASS edamame_cap_5_gives_plus25pct 12.5
+PASS unwatered_half_speed_with_edamame 
+PASS edamame_no_self_or_mutual_boost 
+PASS edamame_dist2_no_effect 
+PASS immature_edamame_no_effect 
+PASS dokudami_shade_growth_1.5 
+PASS dokudami_shade_production_x2 
+PASS sunflower_day_4.5_per_min 
+PASS sunflower_night_0.9_per_min 
+PASS tomato_wall_adjacent_7_per_min 7.0
+PASS tomato_not_adjacent_4_per_min 
+PASS grape_line4_x1.45 1.45
+PASS grape_vertical_pair_x1.15 1.15
+PASS grape_cap_L8_x2.05 2.05
+PASS grape_diagonal_not_counted 
+PASS rice_rect_2x3_x1.2 1.2
+PASS rice_tail_not_rect_x1.12 1.12
+PASS rice_6x6_cap_A25_x1.96 1.96
+PASS corn_alone_x1 
+PASS corn_edamame_x1.3 
+PASS corn_two_edamame_still_x1.3 1.3
+PASS corn_both_x1.8 1.8
+PASS corn_pumpkin_only_x1.3 
+PASS corn_immature_edamame_x1 
+PASS tea_after_650s_x1.2 1.2
+PASS tea_cap_x2 2.0
+PASS sakura_bloom_x4_early 
+PASS sakura_off_at_100s 
+PASS sakura_bloom_again_at_250s 
+PASS flytrap_captures_small_30dmg 
+PASS flytrap_digesting_blocks_second 
+PASS flytrap_digest_rate_x3 
+PASS flytrap_ready_after_20s_rate_normal 
+PASS flytrap_ignores_non_small 
+PASS potato_stores_8_per_min 13.3333333333333
+PASS potato_no_continuous_seeds 
+PASS potato_cap_10x_paid 300.0
+PASS potato_remove_refund_6_plus_300 306
+PASS potato_killed_by_enemy_loses_storage_refund0 
+PASS potato_refund_floors_storage 
+PASS manual_refund_20pct_floor 
+PASS refund_floor_14_is_2 
+PASS enemy_kill_refund0 
+PASS mint_spreads_one_per_30s 4
+PASS mint_colony_caps_at_9_each 9 9
+PASS mint_spread_paid_0 
+PASS mint_family_count_includes_spread 
+PASS mint_spread_remove_refund0 
+PASS mint_original_refund_3 
+PASS mint_count_decreases_on_remove 16
+PASS mint_spread_is_orthogonally_adjacent 9
+PASS strawberry_max_3_pickups_6_each 3
+PASS strawberry_pickups_on_adjacent_cells 
+PASS strawberry_pickups_persist_after_removal 
+PASS strawberry_pickups_survive_save 
+PASS pickup_collected_when_hero_within_0.8m 
+PASS aloe_heals_lowest_ratio_in_range_30 [{ "type": "heal", "crop_id": 1, "target": "helper", "target_id": 5, "amount": 30.0 }]
+PASS aloe_cooldown_60s_blocks 
+PASS aloe_heals_again_after_cooldown 
+PASS aloe_dist5_out_of_range 
+PASS aloe_exactly_50pct_no_heal 
+PASS aloe_dist4_below50_heals_hero 
+PASS pumpkin_x0.7_adjacent 
+PASS pumpkin_no_effect_dist2 
+PASS pumpkin_not_self 
+PASS two_pumpkins_do_not_stack 23.0
+PASS pepper_counter_on_attack 
+PASS pepper_same_enemy_5s_cooldown 
+PASS pepper_other_enemy_ok 
+PASS pepper_collateral_no_counter 
+PASS pepper_cooldown_expires 
+PASS cactus_thorn_adjacent_cell_3dmg 
+PASS cactus_thorn_1s_cooldown_same_enemy 
+PASS cactus_thorn_diagonal_not_adjacent 
+PASS cactus_attacked_thorn 
+PASS bamboo_blocks_only_when_mature 
+PASS bamboo_matures_8s_and_blocks 
+PASS lavender_removes_bug_targeting_radius4 
+PASS garlic_hides_crops_radius3_all_enemy_types 
+PASS glow_moss_day_no_reveal 
+PASS glow_moss_night_radius5 
+PASS immature_zero_production {  }
+PASS clover_2_per_min_after_maturity { "clover": 2.0 }
+PASS corrupt_unknown_kind_rejected 
+PASS corrupt_leaves_state_unchanged 
+PASS corrupt_field_type_rejected_unchanged 
+PASS corrupt_overlap_rejected_unchanged 
+PASS corrupt_missing_rng_rejected_unchanged 
+PASS corrupt_enemies_rejects_whole_unchanged r5=false err=enemies: missing time
+PASS good_roundtrip_ok 
+PASS no_advance_no_progress 
+PASS advance_zero_is_noop 
+PASS advance_negative_is_noop 
+crops_v total=192 failed=0

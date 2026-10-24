@@ -1,0 +1,869 @@
+{
+ "version": 1,
+ "note": "CONTENT_CATALOG 3.1の定義値(仮値)。rate_per_minは変種倍率を掛ける前の定義値。clover(P00)は既存の親種で変種抽選のために含む。",
+ "crops": {
+  "clover": {
+   "id": "P00",
+   "name": "クローバー(既存・親)",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    10
+   ],
+   "cost": 10,
+   "rate_per_min": 2,
+   "maturity": 20,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "clover",
+   "external": true,
+   "variant": {
+    "to": "four_leaf_clover",
+    "denominator": 50
+   },
+   "place": "normal"
+  },
+  "wasabi": {
+   "id": "P01",
+   "name": "ワサビ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    14
+   ],
+   "cost": 30,
+   "rate_per_min": 7,
+   "maturity": 50,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "wasabi",
+   "place": "normal",
+   "near_clean_water": 2
+  },
+  "giant_watermelon": {
+   "id": "P02",
+   "name": "ジャイアントスイカ",
+   "size": [
+    6,
+    6
+   ],
+   "image": [
+    56,
+    40
+   ],
+   "cost": 450,
+   "rate_per_min": 160,
+   "maturity": 300,
+   "hp": 200,
+   "placeable": true,
+   "price_family": "giant_watermelon",
+   "place": "normal"
+  },
+  "oleander": {
+   "id": "P03",
+   "name": "キョウチクトウ",
+   "size": [
+    2,
+    2
+   ],
+   "image": [
+    24,
+    32
+   ],
+   "cost": 45,
+   "rate_per_min": 16,
+   "maturity": 15,
+   "hp": 60,
+   "placeable": true,
+   "price_family": "oleander",
+   "flower": true,
+   "poison_source": true,
+   "params": {
+    "interval": 5.0,
+    "radius": 3,
+    "limit": 3
+   },
+   "place": "normal"
+  },
+  "four_leaf_clover": {
+   "id": "P04",
+   "name": "四葉のクローバー",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    10
+   ],
+   "cost": 0,
+   "rate_per_min": 2,
+   "maturity": 0,
+   "hp": 30,
+   "placeable": false,
+   "price_family": "clover",
+   "variant_mult": 7.0,
+   "variant_from": "clover",
+   "place": "normal"
+  },
+  "golden_clover": {
+   "id": "P05",
+   "name": "黄金のクローバー",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    10
+   ],
+   "cost": 777,
+   "rate_per_min": 2,
+   "maturity": 777,
+   "hp": 40,
+   "placeable": true,
+   "price_family": "golden_clover",
+   "gold_aura": true,
+   "variant": {
+    "to": "golden_four_leaf",
+    "denominator": 77
+   },
+   "place": "normal"
+  },
+  "golden_four_leaf": {
+   "id": "P06",
+   "name": "黄金の四葉クローバー",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    12
+   ],
+   "cost": 0,
+   "rate_per_min": 2,
+   "maturity": 0,
+   "hp": 40,
+   "placeable": false,
+   "price_family": "golden_clover",
+   "variant_mult": 777.0,
+   "variant_from": "golden_clover",
+   "gold_aura": true,
+   "place": "normal"
+  },
+  "edamame": {
+   "id": "P07",
+   "name": "エダマメ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    14,
+    14
+   ],
+   "cost": 20,
+   "rate_per_min": 1.5,
+   "maturity": 25,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "edamame",
+   "growth_aura": {
+    "radius": 1,
+    "step": 0.05,
+    "max_count": 5
+   },
+   "place": "normal"
+  },
+  "sunflower": {
+   "id": "P08",
+   "name": "ヒマワリ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    14,
+    24
+   ],
+   "cost": 25,
+   "rate_per_min": 3,
+   "maturity": 30,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "sunflower",
+   "flower": true,
+   "params": {
+    "day_mult": 1.5,
+    "night_mult": 0.3
+   },
+   "place": "normal"
+  },
+  "tomato": {
+   "id": "P09",
+   "name": "トマト",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    18
+   ],
+   "cost": 25,
+   "rate_per_min": 4,
+   "maturity": 35,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "tomato",
+   "params": {
+    "wall_mult": 1.75
+   },
+   "place": "normal"
+  },
+  "lotus": {
+   "id": "P10",
+   "name": "ハス",
+   "size": [
+    2,
+    2
+   ],
+   "image": [
+    22,
+    12
+   ],
+   "cost": 30,
+   "rate_per_min": 3,
+   "maturity": 40,
+   "hp": 40,
+   "placeable": true,
+   "price_family": "lotus",
+   "place": "surface"
+  },
+  "corn": {
+   "id": "P11",
+   "name": "トウモロコシ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    26
+   ],
+   "cost": 20,
+   "rate_per_min": 3,
+   "maturity": 40,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "corn",
+   "params": {
+    "one_mult": 1.3,
+    "both_mult": 1.8,
+    "radius": 1
+   },
+   "place": "normal"
+  },
+  "pumpkin": {
+   "id": "P12",
+   "name": "カボチャ",
+   "size": [
+    2,
+    2
+   ],
+   "image": [
+    22,
+    16
+   ],
+   "cost": 35,
+   "rate_per_min": 5,
+   "maturity": 50,
+   "hp": 70,
+   "placeable": true,
+   "price_family": "pumpkin",
+   "guard_aura": {
+    "radius": 1,
+    "mult": 0.7
+   },
+   "place": "normal"
+  },
+  "mint": {
+   "id": "P13",
+   "name": "ミント",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    10
+   ],
+   "cost": 15,
+   "rate_per_min": 1,
+   "maturity": 20,
+   "hp": 20,
+   "placeable": true,
+   "price_family": "mint",
+   "params": {
+    "interval": 30.0,
+    "colony_max": 9
+   },
+   "place": "normal"
+  },
+  "cactus": {
+   "id": "P14",
+   "name": "サボテン",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    18
+   ],
+   "cost": 15,
+   "rate_per_min": 1,
+   "maturity": 30,
+   "hp": 60,
+   "placeable": true,
+   "price_family": "cactus",
+   "place": "wasteland",
+   "params": {
+    "thorn": 3.0,
+    "cooldown": 1.0
+   }
+  },
+  "grape": {
+   "id": "P15",
+   "name": "ブドウ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    20
+   ],
+   "cost": 20,
+   "rate_per_min": 2,
+   "maturity": 40,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "grape",
+   "params": {
+    "step": 0.15,
+    "max_len": 8
+   },
+   "place": "normal"
+  },
+  "strawberry": {
+   "id": "P16",
+   "name": "イチゴ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    8
+   ],
+   "cost": 20,
+   "rate_per_min": 0.5,
+   "maturity": 25,
+   "hp": 20,
+   "placeable": true,
+   "price_family": "strawberry",
+   "flower": true,
+   "params": {
+    "interval": 20.0,
+    "amount": 6,
+    "max_pickups": 3
+   },
+   "place": "normal"
+  },
+  "lavender": {
+   "id": "P17",
+   "name": "ラベンダー",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    14
+   ],
+   "cost": 25,
+   "rate_per_min": 1.5,
+   "maturity": 30,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "lavender",
+   "flower": true,
+   "repel": {
+    "tag": "bug",
+    "radius": 4
+   },
+   "place": "normal"
+  },
+  "garlic": {
+   "id": "P18",
+   "name": "ニンニク",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    12
+   ],
+   "cost": 20,
+   "rate_per_min": 1,
+   "maturity": 25,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "garlic",
+   "garlic_aura": {
+    "radius": 3
+   },
+   "place": "normal"
+  },
+  "bamboo": {
+   "id": "P19",
+   "name": "タケ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    32
+   ],
+   "cost": 10,
+   "rate_per_min": 0.3,
+   "maturity": 8,
+   "hp": 80,
+   "placeable": true,
+   "price_family": "bamboo",
+   "blocks_enemy": true,
+   "place": "normal"
+  },
+  "flytrap": {
+   "id": "P20",
+   "name": "ハエトリソウ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    14,
+    12
+   ],
+   "cost": 30,
+   "rate_per_min": 0.5,
+   "maturity": 30,
+   "hp": 40,
+   "placeable": true,
+   "price_family": "flytrap",
+   "params": {
+    "damage": 30.0,
+    "digest": 20.0,
+    "digest_mult": 3.0
+   },
+   "place": "normal"
+  },
+  "potato": {
+   "id": "P21",
+   "name": "ジャガイモ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    10
+   ],
+   "cost": 30,
+   "rate_per_min": 8,
+   "maturity": 40,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "potato",
+   "params": {
+    "cap_mult": 10.0
+   },
+   "place": "normal"
+  },
+  "rice": {
+   "id": "P22",
+   "name": "イネ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    8,
+    14
+   ],
+   "cost": 15,
+   "rate_per_min": 1.5,
+   "maturity": 35,
+   "hp": 20,
+   "placeable": true,
+   "price_family": "rice",
+   "near_water": 2,
+   "params": {
+    "step": 0.04,
+    "max_area": 25
+   },
+   "place": "normal"
+  },
+  "tea": {
+   "id": "P23",
+   "name": "チャノキ",
+   "size": [
+    2,
+    2
+   ],
+   "image": [
+    20,
+    18
+   ],
+   "cost": 40,
+   "rate_per_min": 3,
+   "maturity": 60,
+   "hp": 50,
+   "placeable": true,
+   "price_family": "tea",
+   "params": {
+    "period": 60.0,
+    "step": 0.02,
+    "max_bonus": 1.0
+   },
+   "place": "normal"
+  },
+  "sakura": {
+   "id": "P24",
+   "name": "サクラ",
+   "size": [
+    3,
+    3
+   ],
+   "image": [
+    40,
+    48
+   ],
+   "cost": 150,
+   "rate_per_min": 6,
+   "maturity": 120,
+   "hp": 120,
+   "placeable": true,
+   "price_family": "sakura",
+   "flower_when_bloom": true,
+   "params": {
+    "cycle": 240.0,
+    "bloom": 40.0,
+    "bloom_mult": 4.0
+   },
+   "place": "normal"
+  },
+  "dokudami": {
+   "id": "P25",
+   "name": "ドクダミ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    10
+   ],
+   "cost": 15,
+   "rate_per_min": 2,
+   "maturity": 30,
+   "hp": 20,
+   "placeable": true,
+   "price_family": "dokudami",
+   "params": {
+    "shade_growth": 1.5,
+    "shade_prod": 2.0
+   },
+   "place": "normal"
+  },
+  "aloe": {
+   "id": "P26",
+   "name": "アロエ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    14
+   ],
+   "cost": 25,
+   "rate_per_min": 0.5,
+   "maturity": 30,
+   "hp": 40,
+   "placeable": true,
+   "price_family": "aloe",
+   "params": {
+    "heal": 30.0,
+    "cooldown": 60.0,
+    "radius": 4,
+    "threshold": 0.5
+   },
+   "place": "normal"
+  },
+  "pepper": {
+   "id": "P27",
+   "name": "トウガラシ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    14
+   ],
+   "cost": 20,
+   "rate_per_min": 1.5,
+   "maturity": 25,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "pepper",
+   "params": {
+    "damage": 2.0,
+    "flee": 3.0,
+    "cooldown": 5.0
+   },
+   "place": "normal"
+  },
+  "glow_moss": {
+   "id": "P28",
+   "name": "ヒカリゴケ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    6
+   ],
+   "cost": 15,
+   "rate_per_min": 0.5,
+   "maturity": 20,
+   "hp": 20,
+   "placeable": true,
+   "price_family": "glow_moss",
+   "params": {
+    "radius": 5
+   },
+   "place": "normal"
+  },
+  "evening_primrose": {
+   "id": "P29",
+   "name": "ツキミソウ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    20
+   ],
+   "cost": 25,
+   "rate_per_min": 3,
+   "maturity": 30,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "evening_primrose",
+   "flower_at_night": true,
+   "params": {
+    "day_mult": 0.3,
+    "night_mult": 1.5
+   },
+   "place": "normal"
+  },
+  "dandelion": {
+   "id": "P30",
+   "name": "タンポポ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    12
+   ],
+   "cost": 20,
+   "rate_per_min": 1,
+   "maturity": 25,
+   "hp": 20,
+   "placeable": true,
+   "price_family": "dandelion",
+   "params": {
+    "interval": 40.0,
+    "min_range": 3,
+    "max_range": 6
+   },
+   "place": "normal"
+  },
+  "mimosa": {
+   "id": "P31",
+   "name": "オジギソウ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    10
+   ],
+   "cost": 25,
+   "rate_per_min": 3,
+   "maturity": 30,
+   "hp": 40,
+   "placeable": true,
+   "price_family": "mimosa",
+   "params": {
+    "radius_m": 2.0,
+    "closed_dmg_mult": 0.2,
+    "reopen_s": 4.0
+   },
+   "place": "normal"
+  },
+  "kudzu": {
+   "id": "P32",
+   "name": "クズ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    14,
+    14
+   ],
+   "cost": 20,
+   "rate_per_min": 1,
+   "maturity": 30,
+   "hp": 40,
+   "placeable": true,
+   "price_family": "kudzu",
+   "params": {
+    "interval": 15.0,
+    "reach": 4,
+    "max_roots": 24,
+    "per_root": 0.15,
+    "neighbor_mult": 0.8,
+    "enemy_speed_mult": 0.6
+   },
+   "place": "normal"
+  },
+  "loofah": {
+   "id": "P33",
+   "name": "ヘチマ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    12,
+    24
+   ],
+   "cost": 25,
+   "rate_per_min": 1.5,
+   "maturity": 35,
+   "hp": 30,
+   "placeable": true,
+   "price_family": "loofah",
+   "params": {
+    "capacity": 10,
+    "interval": 10.0,
+    "radius": 3
+   },
+   "place": "normal"
+  },
+  "hinoki": {
+   "id": "P34",
+   "name": "ヒノキ",
+   "size": [
+    3,
+    3
+   ],
+   "image": [
+    36,
+    56
+   ],
+   "cost": 120,
+   "rate_per_min": 4,
+   "maturity": 150,
+   "hp": 150,
+   "placeable": true,
+   "price_family": "hinoki",
+   "dynamic_shade": true,
+   "params": {
+    "shade_depth": 2,
+    "shade_width": 3
+   },
+   "place": "normal"
+  },
+  "apple": {
+   "id": "P35",
+   "name": "リンゴ",
+   "size": [
+    2,
+    2
+   ],
+   "image": [
+    28,
+    36
+   ],
+   "cost": 60,
+   "rate_per_min": 2,
+   "maturity": 90,
+   "hp": 80,
+   "placeable": true,
+   "price_family": "apple",
+   "params": {
+    "interval": 30.0,
+    "max_fruits": 3
+   },
+   "place": "normal"
+  },
+  "balsam": {
+   "id": "P36",
+   "name": "ホウセンカ",
+   "size": [
+    1,
+    1
+   ],
+   "image": [
+    10,
+    14
+   ],
+   "cost": 20,
+   "rate_per_min": 1.5,
+   "maturity": 25,
+   "hp": 25,
+   "placeable": true,
+   "price_family": "balsam",
+   "params": {
+    "interval": 20.0,
+    "trigger_m": 1.5,
+    "trigger_cd": 8.0,
+    "radius_m": 2.0,
+    "damage": 4.0,
+    "seed_radius": 2,
+    "seed_count": 3
+   },
+   "place": "normal"
+  }
+ }
+}

@@ -1,0 +1,282 @@
+{
+	"checks": [
+		{
+			"detail": "keys=29 adopted= changed=",
+			"name": "shadow_brian_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shadow_brian_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=28 adopted= changed=",
+			"name": "tarachunade_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "tarachunade_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=31 adopted= changed=",
+			"name": "mushling_parent_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mushling_parent_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=31 adopted= changed=",
+			"name": "mushling_child_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mushling_child_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=28 adopted= changed=",
+			"name": "quill_hedgehog_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "quill_hedgehog_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=28 adopted= changed=",
+			"name": "grass_snake_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "grass_snake_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=33 adopted= changed=",
+			"name": "seed_bird_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "seed_bird_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=33 adopted= changed=",
+			"name": "junk_crab_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "junk_crab_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=30 adopted= changed=",
+			"name": "stray_wolf_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stray_wolf_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=29 adopted= changed=",
+			"name": "moss_turtle_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "moss_turtle_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=31 adopted= changed=",
+			"name": "paint_chameleon_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "paint_chameleon_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=25 adopted= changed=",
+			"name": "slime_slug_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "slime_slug_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=30 adopted= changed=",
+			"name": "pouch_rabbit_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pouch_rabbit_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=27 adopted= changed=",
+			"name": "tongue_frog_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "tongue_frog_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=30 adopted= changed=",
+			"name": "honeybee_hive_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "honeybee_hive_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=29 adopted= changed=",
+			"name": "armadillo_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "armadillo_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=26 adopted= changed=",
+			"name": "sludge_carp_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sludge_carp_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=26 adopted= changed=",
+			"name": "ant_hill_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ant_hill_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=27 adopted= changed=",
+			"name": "mimic_cabbage_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimic_cabbage_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=31 adopted= changed=",
+			"name": "black_kite_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "black_kite_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=28 adopted= changed=",
+			"name": "deer_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "deer_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=27 adopted= changed=",
+			"name": "iron_jaw_beetle_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "iron_jaw_beetle_valid_adopted_and_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mushling_family_valid",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wolf_pack_valid",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=7 adopted= changed=",
+			"name": "projectile_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "projectile_valid_adopted",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=6 adopted= changed=",
+			"name": "gas_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gas_valid_adopted",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=5 adopted= changed=",
+			"name": "pile_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pile_valid_adopted",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "crops_planted",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=22 adopted= changed=",
+			"name": "crop_broken_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "crop_valid_adopted",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "save_robust",
+	"total": 55
+}

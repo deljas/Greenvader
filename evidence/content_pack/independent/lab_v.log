@@ -1,0 +1,82 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Parse JSON failed. Error at line 0: Expected key
+PASS input_scale_known scale=1.00
+PASS tab_key_toggles_to_crop crop
+PASS button_exists_pick_enemy:tarachunade 
+PASS enemy_button_selects_tool_enemy 
+PASS click_spawns_enemy_initial 1
+PASS button_exists_origin:produced 
+PASS origin_toggle_spawns_produced 
+PASS button_exists_origin:initial 
+PASS button_exists_pick_enemy:mushling_parent 
+PASS mushling_family_spawns_1_parent_2_children { "tarachunade": 2, "mushling_parent": 1, "mushling_child": 2 }
+PASS button_exists_pick_enemy:stray_wolf 
+PASS wolf_pack_spawns_3 3
+PASS button_exists_pick_enemy:sludge_carp 
+PASS carp_only_spawns_in_water 0 1
+PASS button_exists_clear_enemies 
+PASS clear_enemies_button 
+PASS button_exists_tool:combat 
+PASS button_exists_pick_enemy:deer 
+PASS button_exists_tool:combat 
+PASS left_click_shoots_costs_seed 299 1
+PASS shot_reaches_and_damages_deer 25.0
+PASS right_click_waters_costs_water 90.0
+PASS shift_right_bazooka_costs_5_seeds 
+PASS bazooka_damaged 
+PASS shift_left_tackle_moves_hero_forward 
+PASS button_exists_clear_enemies 
+PASS button_exists_pick_crop:clover 
+PASS crop_button_selects_crop_tool 
+PASS click_places_clover_pays_price 1 990
+PASS occupied_cell_rejected CANT: OCCUPIED
+PASS button_exists_pick_crop:clover 
+PASS second_clover_price_11 979
+PASS button_exists_pick_crop:wasabi 
+PASS wasabi_far_from_clean_water_rejected CANT: NEEDS_CLEAN_WATER
+PASS wasabi_near_clean_water_accepted 
+PASS button_exists_pick_crop:cactus 
+PASS cactus_on_wasteland_accepted 
+PASS button_exists_pick_crop:lotus 
+PASS lotus_partly_on_land_rejected CANT: NOT_WATER
+PASS lotus_on_shallow_with_shore_accepted 
+PASS button_exists_tool:remove 
+PASS remove_refunds_20pct 2
+PASS button_exists_tool:combat 
+PASS watering_sets_watered 
+PASS x60_matures_clover_and_produces t=61.0 mature=true
+PASS space_pauses 
+PASS paused_nothing_advances 61.000 vs 61.000
+PASS speed0_nothing_advances 
+PASS button_exists_speed:10 
+PASS speed_10_button 
+PASS x10_advances_10s 10.00
+PASS button_exists_speed:1 
+PASS button_exists_pause 
+PASS pause_button 
+PASS button_exists_pause 
+PASS n_key_toggles_day_night 
+PASS button_exists_day 
+PASS day_button_toggles_back 
+PASS button_exists_tool:combat 
+PASS button_exists_pick_crop:clover 
+PASS placed_clover_selected 
+PASS button_exists_dbg_mature 
+PASS debug_mature_matures_selected_without_roll 
+PASS button_exists_dbg_seeds 
+PASS debug_seeds_plus100 
+PASS button_exists_dbg_roll_hit 
+PASS forced_roll_hit_turns_four_leaf_and_debug_labelled DEBUG ROLL HIT CLOVER | DEBUG VARIANT CLOVER>FOUR_LEAF_CLOVER
+PASS debug_flash_active 
+PASS button_exists_dbg_roll_miss 
+PASS second_forced_roll_not_rollable 
+PASS preview_four_leaf_not_placeable { "kind": "four_leaf_clover", "cell": (20, 20), "size": (1, 1), "ok": false, "reason": "", "price": 0, "afford": true }
+PASS button_exists_pick_crop:golden_clover 
+PASS button_exists_pick_enemy:slime_slug 
+PASS f5_saves user://content_lab/save.json
+PASS f9_restores_pack_state 
+PASS broken_save_rejected_state_unchanged LOAD FAILED: crops: unknown kind
+PASS garbage_save_rejected_state_unchanged BAD SAVE
+PASS no_reroll_after_load_and_fast_forward 
+lab_v total=78 failed=0

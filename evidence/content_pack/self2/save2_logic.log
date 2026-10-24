@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS save2_state_has_content roots=5 fruits=2
+PASS save2_adopts_valid 
+PASS save2_roundtrip_identical 
+PASS save2_roots_and_occupancy_restored 
+PASS save2_fruits_restored 
+PASS save2_wet_and_stun_restored 
+PASS save2_loofah_water_restored 
+PASS save2_mimosa_state_restored closed=true
+PASS save2_continues_identically_90s events={"balsam_burst":5,"fruit_dropped":1,"kudzu_root_added":6,"mimosa_opened":1,"seed_sow":3,"seeds":717}
+PASS save2_pause_unchanged 
+PASS reject_baseline_valid_adopted 
+PASS reject_ext_key_missing keys=10 adopted=[]
+PASS reject_ext_key_wrong_type []
+PASS reject_ext_state_unchanged []
+PASS reject_ext_absent_or_not_dict 
+PASS reject_kudzu_roots_invalid []
+PASS reject_loofah_water_out_of_range []
+PASS reject_fruits_invalid []
+PASS reject_common_invalid []
+save2_logic total=19 failed=0

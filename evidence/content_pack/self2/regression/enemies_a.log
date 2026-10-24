@@ -1,0 +1,75 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS reward_once_on_final_kill [{ "type": "reward", "enemy_id": 1, "kind": "shadow_brian", "amount": 15, "tier": "mid", "pos": (60.0, 100.0) }]
+PASS no_second_reward_after_death 
+PASS produced_enemy_reward_is_zero 
+PASS stability_counts_hidden_flying_charred_not_neutral 4
+PASS stability_count_drops_on_kill 
+PASS hidden_snake_not_detectable_but_hittable 0
+PASS seed_within_1m_reveals_snake_detectable 
+PASS glow_moss_reveals_hidden_only_at_night night=1 day=0
+PASS flying_not_hittable 
+PASS landing_is_hittable 
+PASS fleeing_enemy_stays_within_territory_and_not_faster_than_3_5mps maxd=60.00 moved0.5=17.50
+PASS stable_cells_are_not_entered_charge_stops_at_edge x=46.0 st=stuck
+PASS restore_direct_dict_continues_identically 11:grass_snake:hidden:15.000:60.00,120.00|1:stray_wolf:recover:18.000:137.00,110.00|2:stray_wolf:lun
+PASS restore_via_json_continues_same_state 11:grass_snake:hidden:15.000:60.00,120.00|1:stray_wolf:recover:18.000:137.00,110.00|2:stray_wolf:lun
+PASS save_contains_gas_slime_piles_projectiles_packs gas=true slime=true piles=1
+PASS no_advance_no_change 
+PASS from_dict_rejects_invalid_enemies_keeps_state 
+PASS e01_charge_hits_hero_once_20_and_sticks_in_wall n=1 x=110.0 st=stuck
+PASS e01_stuck_takes_x1_5_even_from_front hp=45.00
+PASS e01_front_120deg_shot_x0_25_others_full 57.5 47.5 37.5 29.5 4.5
+PASS e01_missed_charge_2_5s_then_1_5s_recover st1=recover st2=idle x=220.0
+PASS e02_explosion_after_1_5s_fuse_hero_18_crop_10 t=1.70
+PASS e02_explosion_hp_unchanged_no_reward_other_enemy_unhurt_still_counts 
+PASS e02_revives_after_15s_with_same_hp_no_explosion_during_charred st=recover
+PASS e02_no_reexplosion_for_4s_then_second_explosion_no_reward_ever 
+PASS e02_charred_x2_final_kill_pays_6_once hp1=10.0
+PASS e02_water_cancels_fuse_wet_20s_bites_4_per_s bites=3 st=chase
+PASS e03_child_calls_parent_rushes_call_every_15s_only calls=1/0/1 st=rush
+PASS e03_gas_ticks_3_per_s_4_times_then_gone_after_4s n=4 gas=0
+PASS e03_child_kill_reward_3_and_parent_enrages_25s rage=25.00
+PASS e03_rage_speed_x1_6_and_bite_12_every_0_8s moved=22.40 bites=3
+PASS e03_second_child_kill_resets_rage_to_25s 
+PASS e03_parent_dead_child_still_gases_no_rage gas=1 st=harass
+PASS e04_throws_one_needle_6_damage_per_2_5s_keeping_4_to_6m n=1
+PASS e04_needle_blocked_by_building 
+PASS e04_curl_x0_1_tackle_breaks_curl_then_flipped_x1_5 curl 24.0 16.0 flipped 1.0
+PASS e05_hidden_until_bite_10_then_visible_6s_relocates_3plus_cells n=1 det1=1
+PASS e05_rehides_after_reveal_and_2s_still_on_grass det6=1 st=hidden
+PASS e05_hit_reveals_6s_then_2s_still_rehides a=1 b=0
+PASS e05_cannot_hide_on_wasteland 
+PASS e06_flying_not_hittable_landing_hittable flying landing
+PASS e06_eats_only_seed_cell_after_2s_sets_wasteland (52, 12)
+PASS e06_eats_10_then_goes_home_and_rests_20s eaten=10 st=perch
+PASS e06_landing_is_small_flytrap_captures_30_kills_reward_4 cap=1
+PASS e06_hero_within_4m_makes_it_take_off takeoff
+PASS e07_shell_absorbs_bazooka_x2_breaks_naked_x2_no_reward_until_final 10.0 15.0 15.0 5.0
+PASS e07_naked_wears_new_shell_at_pile_stock_empties_pile_removed shell=true piles=0
+PASS e07_pile_destroyed_by_shot_no_reward 
+PASS e07_naked_without_piles_fights_with_scratch_4 n=2
+PASS e08_howl_calls_whole_pack_to_hunt howl=1
+PASS e08_only_wolves_outside_aim_60deg_lunge_bite_7 front=false other=true bites=4
+PASS e08_last_wolf_bites_7_every_1_2s_no_circling n=4 st=circle
+PASS e09_hidden_then_walks_and_eats_8_per_2s_until_crop_dies dmg=4
+PASS e09_shot_x0_3_bazooka_flips_flipped_x3 77.0 52.0 22.0
+PASS e09_flip_4s_then_rehide_after_10s_still revealed/hidden
+PASS e09_blocks_hero_body_and_fertile_on_death_reward_15 
+PASS e10_ambush_12_from_hidden_then_moves_unseen_with_ripple_only n=1 marks=1 det=0
+PASS e10_rehides_after_retreat_4m_and_1s_still st=hidden d=38.5
+PASS e10_hit_visible_4s_then_hides_again 1 1 0
+PASS e10_water_removes_paint_always_visible_bites_8 n=1
+PASS e11_hero_on_slime_slowed_50pct n=120
+PASS e11_seed_cell_under_slime_pauses_growth_20s n=8
+PASS e11_mature_grass_returns_to_wasteland_after_10s_once n=1
+PASS e11_crop_on_slime_takes_2_per_second n=8
+PASS e11_water_washes_slime_away left=0
+PASS e11_slime_lasts_20s_then_expires_after_slug_dies n2=2 mid=2
+PASS plants_brian_charge_damages_crop_10_once 
+PASS plants_pepper_counter_2_damage_and_flee_cancels_charge hp=58.0
+PASS plants_cactus_thorn_3_damage_to_enemy hp=57.0
+PASS plants_flytrap_captures_small_enemy_30_damage cap=1
+PASS plants_lavender_keeps_bug_out_of_repel_range x=103.8
+PASS plants_garlic_covered_crop_not_targeted idle vs crawl
+enemies_a total=72 failed=0

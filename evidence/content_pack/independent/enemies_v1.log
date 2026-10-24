@@ -1,0 +1,146 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS e01_front_shot_x0.25 [{ "type": "enemy_damaged", "enemy_id": 1, "amount": 2.5, "raw": 10.0, "kind": "shot", "hp": 57.5 }]
+PASS e01_back_shot_x1 
+PASS e01_front_tackle_bazooka_not_reduced 
+PASS e01_side_shot_x1 
+PASS e01_windup_1.1s_no_move_before windup
+PASS e01_charge_hits_hero_20_once [20.0]
+PASS e01_after_miss_recover_idle_or_stuck_at_map_edge stuck
+PASS e01_stuck_on_building stuck
+PASS e01_crop_hit_exactly_once_10 [10.0]
+PASS e01_stuck_x1.5_all_directions [{ "type": "enemy_damaged", "enemy_id": 1, "amount": 15.0, "raw": 10.0, "kind": "shot", "hp": 45.0 }]
+PASS e01_stuck_ends_after_3s idle
+PASS e02_explodes_once_with_windup 1
+PASS e02_fuse_1.5s 1.50
+PASS e02_blast_hero18_helper18 
+PASS e02_blast_crop10_only_in_radius 
+PASS e02_self_blast_no_hp_loss 30.0
+PASS e02_blast_does_not_hurt_other_enemies 
+PASS e02_charred_counts_for_stability 
+PASS e02_charred_no_move_no_attack 
+PASS e02_charred_x2_damage 
+PASS e02_revive_after_15s_keeps_hp_state recover
+PASS e02_no_reexplode_for_4s_after_revive 
+PASS e02_reexplodes_later 1
+PASS e02_no_reward_from_blasts 0
+PASS e02_final_kill_in_charred_one_reward_6 3
+PASS e02_no_second_reward 
+PASS e02_water_setup_in_fuse fuse
+PASS e02_wet_prevents_ignition_19s chase
+PASS e02_wet_bites_4_per_sec 19
+PASS e02_wet_counts_for_stability 
+PASS e02_after_wet_can_ignite_again 1
+PASS e02_idle_stays_put_when_far 
+PASS e02_no_trigger_outside_2m 
+PASS e03_family_group_and_parent_links 
+PASS e03_no_production 3
+PASS e03_no_call_when_hero_beyond_5m chase
+PASS e03_child_calls_when_hero_within_5m 2
+PASS e03_parent_rushes_4.5mps moved=45.0 state=rush
+PASS e03_call_at_most_once_per_15s_each { 2: 3, 3: 3 }
+PASS e03_gas_deals_3_per_sec_to_hero 8
+PASS e03_gas_does_not_hurt_crops 0
+PASS e03_gas_cloud_radius_and_duration 2
+PASS e03_child_reward_3 
+PASS e03_rage_fx_and_25s 
+PASS e03_rage_resets_to_25s 
+PASS e03_rage_melee_12_every_0.8s [10.4, 11.2, 12.0, 12.8, 13.6]
+PASS e03_rage_interval_0.8 0.80
+PASS e03_rage_ends_parent_returns_to_normal 
+PASS e03_children_keep_calling_gassing_without_parent 
+PASS e03_parent_death_no_rage 
+PASS e03_parent_alone_no_calls_chases_normally 1
+PASS e04_needles_6_dmg_every_2.5s [1.2, 4.3, 7.39999999999999]
+PASS e04_keeps_4_to_6m d=55.0
+PASS e04_no_attack_without_line_of_sight 
+PASS e04_curls_when_hero_within_2.5m curl
+PASS e04_curl_shot_x0.1 
+PASS e04_tackle_flips flipped
+PASS e04_flipped_x1.5 
+PASS e04_flipped_ends_2s curl
+PASS e04_targets_helper_when_hero_far 2
+PASS e05_hidden_on_grass_not_detectable_but_hittable 
+PASS e05_does_not_chase 
+PASS e05_windup_0.4s_then_bite strike
+PASS e05_bite_10 
+PASS e05_after_bite_visible_and_relocating moving
+PASS e05_relocated_3plus_cells dist=22.7
+PASS e05_rehides_in_grass hidden
+PASS e05_wasteland_snake_always_visible revealed
+PASS e05_sprout_cell_no_hide 
+PASS e05_seed_within_1m_reveals 
+PASS e05_still_visible_before_6s 
+PASS e05_hides_again_after_6s_plus_2s hidden
+PASS e05_seed_beyond_1m_no_reveal 
+PASS e05_hit_reveals 
+PASS e05_glow_moss_day_no_reveal 
+PASS e05_glow_moss_night_reveals 
+PASS e06_flies_to_seed_and_is_untouchable flying
+PASS e06_landing_is_hittable landing
+PASS e06_landing_small_tag_for_flytrap 
+PASS e06_eats_one_cell_per_2s 3
+PASS e06_never_hurts_hero_or_crop 
+PASS e06_hero_within_4m_takeoff_hittable takeoff
+PASS e06_then_airborne_untouchable flying
+PASS e06_eats_exactly_10_then_goes_home 10
+PASS e06_rests_at_perch perch (101.48, 100.2442)
+PASS e06_no_eating_for_20s_after_10th 0
+PASS e06_resumes_after_rest first resume 24.9s after 10th
+PASS e06_ignores_grown_grass 
+PASS e07_shell_absorbs_shot 10.0
+PASS e07_bazooka_x2_on_shell_and_breaks false
+PASS e07_shell_break_no_reward 
+PASS e07_naked_goes_to_pile_and_wears_shell_3s 1
+PASS e07_pile_stock_decrements { "id": 1, "pos": (100.0, 120.0), "stock": 1, "hp": 20.0, "max_hp": 20.0 }
+PASS e07_naked_x2_damage [{ "type": "enemy_damaged", "enemy_id": 3, "amount": 16.0, "raw": 8.0, "kind": "shot", "hp": -1.0 }, { "type": "enemy_defeated", "enemy_id": 3, "kind": "junk_crab", "pos": (80.05234, 120.0615), "origin": "initial" }, { "type": "reward", "enemy_id": 3, "kind": "junk_crab", "amount": 8, "tier": "near", "pos": (80.05234, 120.0615) }]
+PASS e07_final_kill_reward_8_once 
+PASS e07_pile_ignores_water 
+PASS e07_pile_hp20_survives_12 
+PASS e07_pile_destroyed_no_reward [{ "type": "junk_pile_destroyed", "pile_id": 1, "pos": (100.0, 120.0), "cell": (25, 30) }]
+PASS e07_skips_pile_when_hero_within_2m naked_run
+PASS e07_no_piles_stays_naked_and_scratches_4 4
+PASS e07_shelled_claw_6 4
+PASS e08_pack_of_3_same_pack_id 
+PASS e08_howl_alerts_whole_pack ["howl", "howl", "howl"]
+PASS e08_howl_1s_then_circle 
+PASS e08_lunges_only_from_outside_front_arc lunges=12
+PASS e08_bites_7 15
+PASS e08_last_wolf_closes_in_and_bites_every_1.2s d=10.1 bites=6
+PASS e08_reward_each_wolf_once 3
+PASS e08_wall_at_back_reduces_bites wall=13 open=15
+PASS e09_hidden_not_detectable_but_hittable 
+PASS e09_moves_and_reveals_when_crop_within_6m eat
+PASS e09_eats_crop_8_per_2s 2
+PASS e09_bites_hero_within_2m_8 
+PASS e09_shell_shot_x0.3 
+PASS e09_bazooka_flips_4s 
+PASS e09_flipped_x3 
+PASS e09_flip_ends_4s eat
+PASS e09_blocks_hero_body 
+PASS e09_revealed_after_losing_crop revealed
+PASS e09_still_visible_before_10s revealed
+PASS e09_disguises_again_after_10s hidden
+PASS e09_death_fertile_1.2m_and_reward_15 4
+PASS e09_blocker_gone_after_death 
+PASS e10_hidden_not_detectable 
+PASS e10_ambush_12_from_hiding [12.0]
+PASS e10_moving_after_bite_with_hint_only moving hint=1
+PASS e10_retreated_about_4m 
+PASS e10_hit_reveals 
+PASS e10_visible_for_4s_after_hit 
+PASS e10_hides_again_after_hit_reveal hidden
+PASS e10_water_removes_paint_visible 
+PASS e10_visible_forever_after_water revealed
+PASS e10_visible_bite_8 [8.0, 8.0]
+PASS e10_glow_moss_night_reveals 
+PASS e11_never_attacks_hero 
+PASS e11_crawls_toward_crop_leaving_slime 10
+PASS e11_slime_damages_crop_2_per_sec 14
+PASS e11_grass_returns_to_wasteland_after_10s 16
+PASS e11_hero_slowed_50pct_on_slime 5
+PASS e11_water_washes_slime_in_radius 
+PASS e11_slime_expires_after_20s 1 -> 0
+PASS e11_seed_cell_growth_blocked_while_slime 
+PASS e11_reward_6 
+enemies_v1 total=143 failed=0

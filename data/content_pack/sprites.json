@@ -1,0 +1,699 @@
+{
+ "version": 1,
+ "note": "仮スプライトのメタ情報。size=画像px、foot=足元基準(画像内px)。占有・当たり判定とは別データ。",
+ "sprites": {
+  "shadow_brian": {
+   "file": "shadow_brian.png",
+   "size": [
+    32,
+    24
+   ],
+   "foot": [
+    16,
+    24
+   ]
+  },
+  "tarachunade": {
+   "file": "tarachunade.png",
+   "size": [
+    16,
+    12
+   ],
+   "foot": [
+    8,
+    12
+   ]
+  },
+  "mushling_parent": {
+   "file": "mushling_parent.png",
+   "size": [
+    24,
+    28
+   ],
+   "foot": [
+    12,
+    28
+   ]
+  },
+  "mushling_child": {
+   "file": "mushling_child.png",
+   "size": [
+    12,
+    14
+   ],
+   "foot": [
+    6,
+    14
+   ]
+  },
+  "quill_hedgehog": {
+   "file": "quill_hedgehog.png",
+   "size": [
+    16,
+    14
+   ],
+   "foot": [
+    8,
+    14
+   ]
+  },
+  "grass_snake": {
+   "file": "grass_snake.png",
+   "size": [
+    20,
+    8
+   ],
+   "foot": [
+    10,
+    8
+   ]
+  },
+  "seed_bird": {
+   "file": "seed_bird.png",
+   "size": [
+    14,
+    10
+   ],
+   "foot": [
+    7,
+    10
+   ]
+  },
+  "junk_crab": {
+   "file": "junk_crab.png",
+   "size": [
+    20,
+    18
+   ],
+   "foot": [
+    10,
+    18
+   ]
+  },
+  "stray_wolf": {
+   "file": "stray_wolf.png",
+   "size": [
+    22,
+    14
+   ],
+   "foot": [
+    11,
+    14
+   ]
+  },
+  "moss_turtle": {
+   "file": "moss_turtle.png",
+   "size": [
+    28,
+    20
+   ],
+   "foot": [
+    14,
+    20
+   ]
+  },
+  "paint_chameleon": {
+   "file": "paint_chameleon.png",
+   "size": [
+    18,
+    12
+   ],
+   "foot": [
+    9,
+    12
+   ]
+  },
+  "slime_slug": {
+   "file": "slime_slug.png",
+   "size": [
+    18,
+    10
+   ],
+   "foot": [
+    9,
+    10
+   ]
+  },
+  "pouch_rabbit": {
+   "file": "pouch_rabbit.png",
+   "size": [
+    14,
+    14
+   ],
+   "foot": [
+    7,
+    14
+   ]
+  },
+  "tongue_frog": {
+   "file": "tongue_frog.png",
+   "size": [
+    16,
+    14
+   ],
+   "foot": [
+    8,
+    14
+   ]
+  },
+  "honeybee_hive": {
+   "file": "honeybee_hive.png",
+   "size": [
+    14,
+    16
+   ],
+   "foot": [
+    7,
+    16
+   ]
+  },
+  "honeybee_swarm": {
+   "file": "honeybee_swarm.png",
+   "size": [
+    12,
+    10
+   ],
+   "foot": [
+    6,
+    10
+   ]
+  },
+  "armadillo": {
+   "file": "armadillo.png",
+   "size": [
+    18,
+    14
+   ],
+   "foot": [
+    9,
+    14
+   ]
+  },
+  "sludge_carp": {
+   "file": "sludge_carp.png",
+   "size": [
+    20,
+    10
+   ],
+   "foot": [
+    10,
+    10
+   ]
+  },
+  "leafcutter_ant": {
+   "file": "leafcutter_ant.png",
+   "size": [
+    6,
+    6
+   ],
+   "foot": [
+    3,
+    6
+   ]
+  },
+  "ant_hill": {
+   "file": "ant_hill.png",
+   "size": [
+    24,
+    14
+   ],
+   "foot": [
+    12,
+    14
+   ]
+  },
+  "mimic_cabbage": {
+   "file": "mimic_cabbage.png",
+   "size": [
+    14,
+    12
+   ],
+   "foot": [
+    7,
+    12
+   ]
+  },
+  "black_kite": {
+   "file": "black_kite.png",
+   "size": [
+    24,
+    12
+   ],
+   "foot": [
+    12,
+    12
+   ]
+  },
+  "deer": {
+   "file": "deer.png",
+   "size": [
+    22,
+    22
+   ],
+   "foot": [
+    11,
+    22
+   ]
+  },
+  "iron_jaw_beetle": {
+   "file": "iron_jaw_beetle.png",
+   "size": [
+    18,
+    16
+   ],
+   "foot": [
+    9,
+    16
+   ]
+  },
+  "clover": {
+   "file": "clover.png",
+   "size": [
+    10,
+    10
+   ],
+   "foot": [
+    5,
+    10
+   ]
+  },
+  "wasabi": {
+   "file": "wasabi.png",
+   "size": [
+    12,
+    14
+   ],
+   "foot": [
+    6,
+    14
+   ]
+  },
+  "giant_watermelon": {
+   "file": "giant_watermelon.png",
+   "size": [
+    56,
+    40
+   ],
+   "foot": [
+    28,
+    40
+   ]
+  },
+  "oleander": {
+   "file": "oleander.png",
+   "size": [
+    24,
+    32
+   ],
+   "foot": [
+    12,
+    32
+   ]
+  },
+  "four_leaf_clover": {
+   "file": "four_leaf_clover.png",
+   "size": [
+    10,
+    10
+   ],
+   "foot": [
+    5,
+    10
+   ]
+  },
+  "golden_clover": {
+   "file": "golden_clover.png",
+   "size": [
+    10,
+    10
+   ],
+   "foot": [
+    5,
+    10
+   ]
+  },
+  "golden_four_leaf": {
+   "file": "golden_four_leaf.png",
+   "size": [
+    12,
+    12
+   ],
+   "foot": [
+    6,
+    12
+   ]
+  },
+  "edamame": {
+   "file": "edamame.png",
+   "size": [
+    14,
+    14
+   ],
+   "foot": [
+    7,
+    14
+   ]
+  },
+  "sunflower": {
+   "file": "sunflower.png",
+   "size": [
+    14,
+    24
+   ],
+   "foot": [
+    7,
+    24
+   ]
+  },
+  "tomato": {
+   "file": "tomato.png",
+   "size": [
+    12,
+    18
+   ],
+   "foot": [
+    6,
+    18
+   ]
+  },
+  "lotus": {
+   "file": "lotus.png",
+   "size": [
+    22,
+    12
+   ],
+   "foot": [
+    11,
+    12
+   ]
+  },
+  "corn": {
+   "file": "corn.png",
+   "size": [
+    12,
+    26
+   ],
+   "foot": [
+    6,
+    26
+   ]
+  },
+  "pumpkin": {
+   "file": "pumpkin.png",
+   "size": [
+    22,
+    16
+   ],
+   "foot": [
+    11,
+    16
+   ]
+  },
+  "mint": {
+   "file": "mint.png",
+   "size": [
+    10,
+    10
+   ],
+   "foot": [
+    5,
+    10
+   ]
+  },
+  "cactus": {
+   "file": "cactus.png",
+   "size": [
+    12,
+    18
+   ],
+   "foot": [
+    6,
+    18
+   ]
+  },
+  "grape": {
+   "file": "grape.png",
+   "size": [
+    12,
+    20
+   ],
+   "foot": [
+    6,
+    20
+   ]
+  },
+  "strawberry": {
+   "file": "strawberry.png",
+   "size": [
+    10,
+    8
+   ],
+   "foot": [
+    5,
+    8
+   ]
+  },
+  "lavender": {
+   "file": "lavender.png",
+   "size": [
+    10,
+    14
+   ],
+   "foot": [
+    5,
+    14
+   ]
+  },
+  "garlic": {
+   "file": "garlic.png",
+   "size": [
+    10,
+    12
+   ],
+   "foot": [
+    5,
+    12
+   ]
+  },
+  "bamboo": {
+   "file": "bamboo.png",
+   "size": [
+    10,
+    32
+   ],
+   "foot": [
+    5,
+    32
+   ]
+  },
+  "flytrap": {
+   "file": "flytrap.png",
+   "size": [
+    14,
+    12
+   ],
+   "foot": [
+    7,
+    12
+   ]
+  },
+  "potato": {
+   "file": "potato.png",
+   "size": [
+    12,
+    10
+   ],
+   "foot": [
+    6,
+    10
+   ]
+  },
+  "rice": {
+   "file": "rice.png",
+   "size": [
+    8,
+    14
+   ],
+   "foot": [
+    4,
+    14
+   ]
+  },
+  "tea": {
+   "file": "tea.png",
+   "size": [
+    20,
+    18
+   ],
+   "foot": [
+    10,
+    18
+   ]
+  },
+  "sakura": {
+   "file": "sakura.png",
+   "size": [
+    40,
+    48
+   ],
+   "foot": [
+    20,
+    48
+   ]
+  },
+  "dokudami": {
+   "file": "dokudami.png",
+   "size": [
+    10,
+    10
+   ],
+   "foot": [
+    5,
+    10
+   ]
+  },
+  "aloe": {
+   "file": "aloe.png",
+   "size": [
+    12,
+    14
+   ],
+   "foot": [
+    6,
+    14
+   ]
+  },
+  "pepper": {
+   "file": "pepper.png",
+   "size": [
+    10,
+    14
+   ],
+   "foot": [
+    5,
+    14
+   ]
+  },
+  "glow_moss": {
+   "file": "glow_moss.png",
+   "size": [
+    10,
+    6
+   ],
+   "foot": [
+    5,
+    6
+   ]
+  },
+  "junk_crab_shell": {
+   "file": "junk_crab_shell.png",
+   "size": [
+    16,
+    12
+   ],
+   "foot": [
+    8,
+    12
+   ]
+  },
+  "junk_pile": {
+   "file": "junk_pile.png",
+   "size": [
+    16,
+    12
+   ],
+   "foot": [
+    8,
+    12
+   ]
+  },
+  "moss_turtle_bush": {
+   "file": "moss_turtle_bush.png",
+   "size": [
+    28,
+    20
+   ],
+   "foot": [
+    14,
+    20
+   ]
+  },
+  "grass_snake_grass": {
+   "file": "grass_snake_grass.png",
+   "size": [
+    20,
+    8
+   ],
+   "foot": [
+    10,
+    8
+   ]
+  },
+  "mimic_cabbage_disguise": {
+   "file": "mimic_cabbage_disguise.png",
+   "size": [
+    14,
+    12
+   ],
+   "foot": [
+    7,
+    12
+   ]
+  },
+  "hero": {
+   "file": "hero.png",
+   "size": [
+    10,
+    14
+   ],
+   "foot": [
+    5,
+    14
+   ]
+  },
+  "needle": {
+   "file": "needle.png",
+   "size": [
+    6,
+    3
+   ],
+   "foot": [
+    3,
+    1
+   ]
+  },
+  "mud_ball": {
+   "file": "mud_ball.png",
+   "size": [
+    6,
+    6
+   ],
+   "foot": [
+    3,
+    3
+   ]
+  },
+  "seed_bag": {
+   "file": "seed_bag.png",
+   "size": [
+    8,
+    8
+   ],
+   "foot": [
+    4,
+    4
+   ]
+  },
+  "strawberry_pickup": {
+   "file": "strawberry_pickup.png",
+   "size": [
+    8,
+    8
+   ],
+   "foot": [
+    4,
+    4
+   ]
+  }
+ }
+}

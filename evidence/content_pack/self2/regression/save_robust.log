@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS shadow_brian_broken_rejected_state_unchanged keys=29 adopted= changed=
+PASS shadow_brian_valid_adopted_and_advances 
+PASS tarachunade_broken_rejected_state_unchanged keys=28 adopted= changed=
+PASS tarachunade_valid_adopted_and_advances 
+PASS mushling_parent_broken_rejected_state_unchanged keys=31 adopted= changed=
+PASS mushling_parent_valid_adopted_and_advances 
+PASS mushling_child_broken_rejected_state_unchanged keys=31 adopted= changed=
+PASS mushling_child_valid_adopted_and_advances 
+PASS quill_hedgehog_broken_rejected_state_unchanged keys=28 adopted= changed=
+PASS quill_hedgehog_valid_adopted_and_advances 
+PASS grass_snake_broken_rejected_state_unchanged keys=28 adopted= changed=
+PASS grass_snake_valid_adopted_and_advances 
+PASS seed_bird_broken_rejected_state_unchanged keys=33 adopted= changed=
+PASS seed_bird_valid_adopted_and_advances 
+PASS junk_crab_broken_rejected_state_unchanged keys=33 adopted= changed=
+PASS junk_crab_valid_adopted_and_advances 
+PASS stray_wolf_broken_rejected_state_unchanged keys=30 adopted= changed=
+PASS stray_wolf_valid_adopted_and_advances 
+PASS moss_turtle_broken_rejected_state_unchanged keys=29 adopted= changed=
+PASS moss_turtle_valid_adopted_and_advances 
+PASS paint_chameleon_broken_rejected_state_unchanged keys=31 adopted= changed=
+PASS paint_chameleon_valid_adopted_and_advances 
+PASS slime_slug_broken_rejected_state_unchanged keys=25 adopted= changed=
+PASS slime_slug_valid_adopted_and_advances 
+PASS pouch_rabbit_broken_rejected_state_unchanged keys=30 adopted= changed=
+PASS pouch_rabbit_valid_adopted_and_advances 
+PASS tongue_frog_broken_rejected_state_unchanged keys=27 adopted= changed=
+PASS tongue_frog_valid_adopted_and_advances 
+PASS honeybee_hive_broken_rejected_state_unchanged keys=30 adopted= changed=
+PASS honeybee_hive_valid_adopted_and_advances 
+PASS armadillo_broken_rejected_state_unchanged keys=29 adopted= changed=
+PASS armadillo_valid_adopted_and_advances 
+PASS sludge_carp_broken_rejected_state_unchanged keys=26 adopted= changed=
+PASS sludge_carp_valid_adopted_and_advances 
+PASS ant_hill_broken_rejected_state_unchanged keys=26 adopted= changed=
+PASS ant_hill_valid_adopted_and_advances 
+PASS mimic_cabbage_broken_rejected_state_unchanged keys=27 adopted= changed=
+PASS mimic_cabbage_valid_adopted_and_advances 
+PASS black_kite_broken_rejected_state_unchanged keys=31 adopted= changed=
+PASS black_kite_valid_adopted_and_advances 
+PASS deer_broken_rejected_state_unchanged keys=28 adopted= changed=
+PASS deer_valid_adopted_and_advances 
+PASS iron_jaw_beetle_broken_rejected_state_unchanged keys=27 adopted= changed=
+PASS iron_jaw_beetle_valid_adopted_and_advances 
+PASS mushling_family_valid 
+PASS wolf_pack_valid 
+PASS projectile_broken_rejected_state_unchanged keys=7 adopted= changed=
+PASS projectile_valid_adopted 
+PASS gas_broken_rejected_state_unchanged keys=6 adopted= changed=
+PASS gas_valid_adopted 
+PASS pile_broken_rejected_state_unchanged keys=5 adopted= changed=
+PASS pile_valid_adopted 
+PASS crops_planted 1
+PASS crop_broken_rejected_state_unchanged keys=22 adopted= changed=
+PASS crop_valid_adopted 
+save_robust total=55 failed=0

@@ -1,0 +1,732 @@
+{
+	"checks": [
+		{
+			"detail": "found=28 missing=[]",
+			"name": "defs_28_kinds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "defs_values",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "place_normal_ok",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "place_occupied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "place_wasteland_denied_for_normal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "place_water_denied_for_normal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "place_outside_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "place_junk_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "place_variant_not_placeable",
+			"status": "PASS"
+		},
+		{
+			"detail": "(8,20) is 2 from clean water",
+			"name": "wasabi_near_clean_ok",
+			"status": "PASS"
+		},
+		{
+			"detail": "shallow near but clean 4 away",
+			"name": "wasabi_shallow_only_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wasabi_far_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lotus_surface_ok",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lotus_overlap_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lotus_no_shore_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lotus_on_land_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "cactus_wasteland_ok_with_ground_seed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "cactus_on_water_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rice_near_water_ok",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rice_far_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rice_on_water_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "watermelon_6x6_occupancy",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "watermelon_overlap_denied",
+			"status": "PASS"
+		},
+		{
+			"detail": "x44,45 are wasteland",
+			"name": "watermelon_needs_all_36_green",
+			"status": "PASS"
+		},
+		{
+			"detail": "refund=90",
+			"name": "watermelon_remove_frees_and_refund_20pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "growth_watered_not_yet_at_7_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "T=8 watered=8s, unwatered half speed",
+			"name": "growth_watered_mature_at_T",
+			"status": "PASS"
+		},
+		{
+			"detail": "16s",
+			"name": "growth_unwatered_mature_at_2T",
+			"status": "PASS"
+		},
+		{
+			"detail": "1.1",
+			"name": "edamame_2_gives_plus_10pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "7 around, k capped: 1.250000",
+			"name": "edamame_cap_5_plus_25pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "edamame_does_not_affect_edamame_or_self",
+			"status": "PASS"
+		},
+		{
+			"detail": "bamboo T=8 at x1.25: not at 7.5, yes at 8.75",
+			"name": "edamame_speeds_maturity",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dokudami_shade_growth_x1_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_none_baseline",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_1_plus7pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "2.28",
+			"name": "gold_2_clover_rate_2per_min_x1_14",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_self_excluded_goldens_affect_each_other",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_cap_k7_plus49pct_with_9_sources",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_range_8_excluded",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_range_7_included",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_immature_source_ignored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bee_range_8_plus10pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bee_range_9_excluded",
+			"status": "PASS"
+		},
+		{
+			"detail": "sunflower day",
+			"name": "bee_flower_plus20pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bee_not_stacking",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bee_inactive_ignored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gold_and_bee_additive_1_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pumpkin_reduces_damage_x0_7",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pumpkin_not_stacking",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pumpkin_self_excluded",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pumpkin_immature_no_effect",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pumpkin_id_valid",
+			"status": "PASS"
+		},
+		{
+			"detail": "range 3: dist2 in, dist4 out",
+			"name": "poison_tick_5s_adds_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_2_after_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_alive_before_15s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_death_at_15s_refund0_reason",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_same_kind_excluded_and_far_unaffected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_frees_cells_and_family_count",
+			"status": "PASS"
+		},
+		{
+			"detail": "events only target crops",
+			"name": "poison_does_not_touch_helpers",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_two_sources_still_plus_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "garlic_protects_in_range_incl_self",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_resets_to_0_when_out_of_range",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "poison_immature_oleander_inert",
+			"status": "PASS"
+		},
+		{
+			"detail": "seed=60",
+			"name": "variant_hit_converts_at_maturity",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "variant_keeps_id_paid_cell_water_progress",
+			"status": "PASS"
+		},
+		{
+			"detail": "14/min",
+			"name": "variant_x7_rate_and_family",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "variant_no_reroll_after_save_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "seed=1",
+			"name": "variant_miss_stays_and_no_reroll",
+			"status": "PASS"
+		},
+		{
+			"detail": "25.9/s",
+			"name": "golden_variant_x777_and_family",
+			"status": "PASS"
+		},
+		{
+			"detail": "816",
+			"name": "golden_variant_price_family_quote",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "debug_force_roll_once_and_marked",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mint_spread_30s_adjacent_paid0_same_colony",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mint_spread_counts_in_family",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mint_spread_refund_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "peak=9",
+			"name": "mint_colony_cap_9_total",
+			"status": "PASS"
+		},
+		{
+			"detail": "quote=24 paid_sum=15",
+			"name": "mint_next_price_counts_spread",
+			"status": "PASS"
+		},
+		{
+			"detail": "(21, 22)",
+			"name": "strawberry_drops_adjacent_6_seeds",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "strawberry_max_3_pickups",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "strawberry_pickup_collected_by_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "strawberry_pickups_persist_after_remove_and_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "storage=13.333333",
+			"name": "potato_stores_instead_of_producing",
+			"status": "PASS"
+		},
+		{
+			"detail": "refund=19",
+			"name": "potato_remove_refund_floor20pct_plus_floor_storage",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "potato_cap_is_paid_x10",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "potato_full_refund_306",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "potato_destroyed_by_enemy_refund_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "tomato_wall_adjacent_x1_75",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "grape_line_4_x1_45",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "grape_uses_longer_of_row_col",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "grape_cap_L8_x2_05",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rice_max_rect_area6_x1_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "extra cell: 1x4=4",
+			"name": "rice_L_shape_uses_own_max_rect",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "corn_immature_partner_ignored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "corn_edamame_x1_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "corn_three_sisters_x1_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "corn_pumpkin_only_x1_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "tea_aging_plus4pct_at_120s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "tea_cap_x2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "tea_stays_capped",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sakura_bloom_x4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sakura_bloom_is_flower_bee_plus20",
+			"status": "PASS"
+		},
+		{
+			"detail": "since=50",
+			"name": "sakura_off_bloom_x1_not_flower",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sakura_next_cycle_blooms_at_240",
+			"status": "PASS"
+		},
+		{
+			"detail": "4.50000000000001",
+			"name": "sunflower_day_60s_yields_4_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sunflower_night_x0_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dokudami_shade_production_x2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "flytrap_beast_not_captured",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "flytrap_2_away_not_captured",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "flytrap_small_adjacent_captured_30dmg",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "flytrap_digesting_cannot_capture_and_x3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "flytrap_digest_ends_after_20s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "aloe_heals_30_below_50pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "aloe_cooldown_60s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "aloe_heals_again_after_cooldown",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "aloe_no_heal_at_60pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "aloe_picks_lowest_ratio_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "aloe_out_of_range_no_heal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pepper_counter_2dmg_flee3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pepper_same_enemy_5s_cooldown",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pepper_other_enemy_triggers",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pepper_collateral_does_not_trigger",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pepper_triggers_again_after_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "cactus_thorn_on_adjacent_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "cactus_thorn_1s_cooldown",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "cactus_diagonal_not_adjacent",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "cactus_thorn_on_attack_3dmg",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lavender_zone_bug_radius4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lavender_is_repelled_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lavender_untargets_crops_for_bugs_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lavender_immature_inactive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "garlic_untargetable_for_all_tags_in_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bamboo_blocks_only_when_mature",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bamboo_destroyed_by_enemy_refund0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glow_moss_reveals_at_night_within_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glow_moss_inactive_by_day",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gnawed_production_goes_to_seeds_stolen",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "gnawed_cleared_returns_to_player",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manual_refund_20pct_floor_clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manual_refund_golden_155",
+			"status": "PASS"
+		},
+		{
+			"detail": "ceil(10*1.05^2)",
+			"name": "family_clover_counts_four_leaf_price_12",
+			"status": "PASS"
+		},
+		{
+			"detail": "ceil(777*1.05^2)",
+			"name": "family_golden_counts_golden_four_price_857",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "enemy_loss_refund_0_and_count_drops",
+			"status": "PASS"
+		},
+		{
+			"detail": "11:tea:50,22:true:0:false|12:potato:50,20:true:0:false|13:mint:30,31:true:0:false|14:mint:29,30:true:0:false|15:mint:31,",
+			"name": "restore_then_same_result_incl_rng_pickups",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "restore_potato_storage_close",
+			"status": "PASS"
+		},
+		{
+			"detail": "[false, false, false, false, false]",
+			"name": "from_dict_rejects_invalid_and_keeps_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "advance not called/0 => unchanged",
+			"name": "paused_no_advance_no_change",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "crops_logic",
+	"total": 145
+}

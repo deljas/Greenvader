@@ -1,0 +1,587 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"name": "rhino_shot_half",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rhino_helper_bullet_half",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rhino_bazooka_full",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rhino_tackle_full",
+			"status": "PASS"
+		},
+		{
+			"detail": "rust=5",
+			"name": "rhino_rust_max_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rhino_rust_never_decreases",
+			"status": "PASS"
+		},
+		{
+			"detail": "w=1.200000",
+			"name": "rhino_windup_1_2s_no_rust",
+			"status": "PASS"
+		},
+		{
+			"detail": "w=2.200000",
+			"name": "rhino_windup_plus_0_2_per_rust",
+			"status": "PASS"
+		},
+		{
+			"detail": "v=90.000153",
+			"name": "rhino_charge_speed_9mps",
+			"status": "PASS"
+		},
+		{
+			"detail": "v=36.000061",
+			"name": "rhino_charge_speed_minus_12pct_per_rust",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "rhino_charge_crushes_crop_15",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "rhino_charge_hits_hero_30",
+			"status": "PASS"
+		},
+		{
+			"detail": "wait=8.000000",
+			"name": "rhino_interval_plus_1s_per_rust",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rhino_tramples_crop_underfoot_15",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rhino_herbivore_eats_fruit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_always_hittable_x0_75",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1 t=1.1",
+			"name": "eel_discharge_10_after_windup_1s",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=2",
+			"name": "eel_discharge_every_6s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_tired_x1_5_after_discharge",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_no_trigger_when_far_from_shore",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_stays_in_water_cells",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "eel_wet_conduction_reaches_hero_beyond_3m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_wet_conduction_misses_unconnected_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_without_wet_no_damage_beyond_3m",
+			"status": "PASS"
+		},
+		{
+			"detail": "hero=0 helper=1",
+			"name": "eel_conduction_limited_to_10m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_wet_cells_expire_6s_conduction_gone",
+			"status": "PASS"
+		},
+		{
+			"detail": "decoys=1",
+			"name": "newt_hit_cuts_tail_into_decoy",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "decoy_not_counted_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "decoy_not_detected_but_newt_is",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "decoy_is_hittable_target",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "newt_no_second_decoy_while_tail_missing",
+			"status": "PASS"
+		},
+		{
+			"detail": "dist=44.999928",
+			"name": "decoy_runs_about_2_5mps",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "decoy_never_attacks",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "newt_tail_regrows_after_8s",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=2",
+			"name": "newt_new_decoy_after_regrow",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "decoy_vanishes_at_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "decoy_shot_pops_no_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "decoy_water_pops",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "newt_bazooka_catches_body_and_decoy",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=4",
+			"name": "newt_bites_6_per_second",
+			"status": "PASS"
+		},
+		{
+			"detail": "proj=1",
+			"name": "lizard_front_shot_no_damage_reflected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_reflect_goes_back_toward_shooter_full_power",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "lizard_reflected_shot_hits_hero_10",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "lizard_reflected_helper_bullet_hits_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_side_hit_damages",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_back_hit_damages",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_61deg_damages",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_59deg_reflects",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_bazooka_front_half",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_bazooka_side_full",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_tackle_front_always_effective",
+			"status": "PASS"
+		},
+		{
+			"detail": "angle=60.000002",
+			"name": "lizard_turn_120dps",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_turn_done_in_1_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "lizard_bite_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "angle=0.000000",
+			"name": "lizard_locked_0_8s_after_bite_no_turn",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lizard_turns_again_after_lock",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_no_wave_before_1_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_wave_stuns_hero_1_5s_5dmg",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_wave_stops_helper_in_range_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_wave_ignores_crops",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_stun_ends_after_1_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_interval_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_wave_blocked_by_building",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shrimp_no_windup_beyond_4m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_flock_of_3_hp6",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_ground_kill_no_acid",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=inflate",
+			"name": "frog_inflating_in_1s",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=float",
+			"name": "frog_floats_after_1s",
+			"status": "PASS"
+		},
+		{
+			"detail": "d0=53.642624 d1=37.642483",
+			"name": "frog_drifts_toward_hero_0_8mps",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_all_floating_untouched_by_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_helper_bullet_pops_with_one_hit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_pop_leaves_acid_1_6m_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "hero=11 helper=11",
+			"name": "frog_acid_3dps_hero_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_acid_damages_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_acid_gone_after_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "defeated=3",
+			"name": "frog_touching_hero_pops_with_acid",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "frog_bazooka_pops_all_floating",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "frog_floating_counts_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "placed=256 regions_with=256",
+			"name": "glass_roll_at_most_one_per_region",
+			"status": "PASS"
+		},
+		{
+			"detail": "region_rate=0.426667 (expect ~0.40 for 10 candidates)",
+			"name": "glass_roll_rate_5pct_per_candidate",
+			"status": "PASS"
+		},
+		{
+			"detail": "rate=0.047000",
+			"name": "glass_roll_single_candidate_5pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_roll_uses_dedicated_rng_not_pack_rng",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_roll_deterministic_per_world_seed_region",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_roll_cached_no_reroll",
+			"status": "PASS"
+		},
+		{
+			"detail": "max=86.869545",
+			"name": "glass_deer_stays_within_10m_of_home",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_never_attacks_or_flees",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_shot_one_hit_shatter_instant_120",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_shot_no_second_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_bazooka_one_hit_shatter_instant_120",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_bazooka_no_second_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_tackle_one_hit_shatter_instant_120",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_tackle_no_second_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_unaffected_by_helper_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_in_player_targets_but_not_helper_targets",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_not_counted_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_detect_as_bonus_neutral_category",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "other_enemy_category_is_enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_not_targeted_by_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_deer_not_a_threat_for_plants",
+			"status": "PASS"
+		},
+		{
+			"detail": "roots=2",
+			"name": "kudzu_has_roots_for_slow_test",
+			"status": "PASS"
+		},
+		{
+			"detail": "root=1.200000 free=2.000000",
+			"name": "enemy_slowed_0_6_on_kudzu_root",
+			"status": "PASS"
+		},
+		{
+			"detail": "[\"deer\", \"hippo\", \"honey_bear\", \"iron_rhino\", \"leafcutter_ant\", \"mimic_cabbage\", \"moss_turtle\", \"pouch_rabbit\", \"slime_slug\"]",
+			"name": "herbivore_tag_set_first6_plus_hippo_bear_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit@3.100000 crop@-1.000000",
+			"name": "herbivore_deer_fruit_first",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit@3.300000 crop@-1.000000",
+			"name": "herbivore_pouch_rabbit_fruit_first",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit@3.100000 crop@-1.000000",
+			"name": "herbivore_moss_turtle_fruit_first",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit@3.600000 crop@-1.000000",
+			"name": "herbivore_slime_slug_fruit_first",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit@3.600000 crop@-1.000000",
+			"name": "herbivore_leafcutter_ant_fruit_first",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit@3.300000 crop@-1.000000",
+			"name": "herbivore_mimic_cabbage_fruit_first",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "non_herbivore_ignores_fruit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_ignores_fruit_in_stable_region",
+			"status": "PASS"
+		},
+		{
+			"detail": "far_none=true near_some=true",
+			"name": "herbivore_fruit_range_trigger_or_territory_plus_10m",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "stability_counts_new_kinds_incl_underground_water_flying",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stability_does_not_count_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stability_counts_sleeping_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "absent=23 sprites=63",
+			"name": "updated_sprite_coverage_only_stage3_kinds_pending",
+			"status": "PASS"
+		},
+		{
+			"detail": "with_sprite=24 defs=39",
+			"name": "updated_first_batch_enemy_defs_all_have_sprites",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "enemies2_b",
+	"total": 116
+}

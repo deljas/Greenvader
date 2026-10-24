@@ -1,0 +1,398 @@
+{
+	"checks": [
+		{
+			"detail": "scale=1.00",
+			"name": "input_scale_known",
+			"status": "PASS"
+		},
+		{
+			"detail": "crop",
+			"name": "tab_key_toggles_to_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_enemy:tarachunade",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "enemy_button_selects_tool_enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "click_spawns_enemy_initial",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_origin:produced",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "origin_toggle_spawns_produced",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_origin:initial",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_enemy:mushling_parent",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"tarachunade\": 2, \"mushling_parent\": 1, \"mushling_child\": 2 }",
+			"name": "mushling_family_spawns_1_parent_2_children",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_enemy:stray_wolf",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "wolf_pack_spawns_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_enemy:sludge_carp",
+			"status": "PASS"
+		},
+		{
+			"detail": "0 1",
+			"name": "carp_only_spawns_in_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_clear_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "clear_enemies_button",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_tool:combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_enemy:deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_tool:combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "299 1",
+			"name": "left_click_shoots_costs_seed",
+			"status": "PASS"
+		},
+		{
+			"detail": "25.0",
+			"name": "shot_reaches_and_damages_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "90.0",
+			"name": "right_click_waters_costs_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shift_right_bazooka_costs_5_seeds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bazooka_damaged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shift_left_tackle_moves_hero_forward",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_clear_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_crop:clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "crop_button_selects_crop_tool",
+			"status": "PASS"
+		},
+		{
+			"detail": "1 990",
+			"name": "click_places_clover_pays_price",
+			"status": "PASS"
+		},
+		{
+			"detail": "CANT: OCCUPIED",
+			"name": "occupied_cell_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_crop:clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "979",
+			"name": "second_clover_price_11",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_crop:wasabi",
+			"status": "PASS"
+		},
+		{
+			"detail": "CANT: NEEDS_CLEAN_WATER",
+			"name": "wasabi_far_from_clean_water_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wasabi_near_clean_water_accepted",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_crop:cactus",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "cactus_on_wasteland_accepted",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_crop:lotus",
+			"status": "PASS"
+		},
+		{
+			"detail": "CANT: NOT_WATER",
+			"name": "lotus_partly_on_land_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "lotus_on_shallow_with_shore_accepted",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_tool:remove",
+			"status": "PASS"
+		},
+		{
+			"detail": "2",
+			"name": "remove_refunds_20pct",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_tool:combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "watering_sets_watered",
+			"status": "PASS"
+		},
+		{
+			"detail": "t=61.0 mature=true",
+			"name": "x60_matures_clover_and_produces",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "space_pauses",
+			"status": "PASS"
+		},
+		{
+			"detail": "61.000 vs 61.000",
+			"name": "paused_nothing_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "speed0_nothing_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_speed:10",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "speed_10_button",
+			"status": "PASS"
+		},
+		{
+			"detail": "10.00",
+			"name": "x10_advances_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_speed:1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pause_button",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "n_key_toggles_day_night",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_day",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "day_button_toggles_back",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_tool:combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_crop:clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "placed_clover_selected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_dbg_mature",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "debug_mature_matures_selected_without_roll",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_dbg_seeds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "debug_seeds_plus100",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_dbg_roll_hit",
+			"status": "PASS"
+		},
+		{
+			"detail": "DEBUG ROLL HIT CLOVER | DEBUG VARIANT CLOVER>FOUR_LEAF_CLOVER",
+			"name": "forced_roll_hit_turns_four_leaf_and_debug_labelled",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "debug_flash_active",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_dbg_roll_miss",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "second_forced_roll_not_rollable",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"kind\": \"four_leaf_clover\", \"cell\": (20, 20), \"size\": (1, 1), \"ok\": false, \"reason\": \"\", \"price\": 0, \"afford\": true }",
+			"name": "preview_four_leaf_not_placeable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_crop:golden_clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "button_exists_pick_enemy:slime_slug",
+			"status": "PASS"
+		},
+		{
+			"detail": "user://content_lab/save.json",
+			"name": "f5_saves",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "f9_restores_pack_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "LOAD FAILED: crops: unknown kind",
+			"name": "broken_save_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "BAD SAVE",
+			"name": "garbage_save_rejected_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "no_reroll_after_load_and_fast_forward",
+			"status": "PASS"
+		}
+	],
+	"display": "headless",
+	"failed": 0,
+	"suite": "lab_v",
+	"total": 78
+}

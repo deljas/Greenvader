@@ -1,0 +1,76 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS defs_8_new_kinds_match_table []
+PASS defs_total_37_with_clover_parent 37
+PASS hinoki_3x3_occupancy 
+PASS apple_2x2_occupancy 
+PASS hinoki_needs_9_green 
+PASS primrose_night_4_5_day_0_9_per_min night=4.500 day=0.900
+PASS primrose_flower_tag_only_at_night 
+PASS primrose_bee_bonus_20pct_night_10pct_day 
+PASS primrose_production_events_at_night sum=0.9000
+PASS dandelion_not_before_40s 
+PASS dandelion_no_candidate_no_fluff_no_rng all cells are grass
+PASS dandelion_sows_only_valid_cell_3_to_6_away [{ "type": "seed_sow", "cell": (26, 24), "source": "dandelion", "crop_id": 1, "consume_stock": false }]
+PASS dandelion_no_stock_consumed_and_no_new_plant 
+PASS dandelion_interval_40s 
+PASS dandelion_building_cell_not_valid 
+PASS dandelion_water_cell_not_valid 
+PASS mimosa_open_produces_3_per_min 
+PASS mimosa_neutral_does_not_close 
+PASS mimosa_closes_when_enemy_within_2m 
+PASS mimosa_closed_production_zero 
+PASS mimosa_closed_damage_x0_2 
+PASS mimosa_reopens_4s_after_enemy_leaves 
+PASS mimosa_open_production_restored 
+PASS mimosa_hit_closes_first_hit_full 
+PASS mimosa_closed_times_pumpkin_0_7 
+PASS mimosa_closes_for_real_enemy_from_enemy_system 
+PASS kudzu_base_production_1_per_min 
+PASS kudzu_no_root_before_15s 
+PASS kudzu_first_root_adjacent_to_stock_at_15s [{ "type": "kudzu_root_added", "crop_id": 1, "cell": (21, 24) }]
+PASS kudzu_one_root_production_1_15 1.1500
+PASS kudzu_max_24_roots 24
+PASS kudzu_roots_within_chebyshev_4 
+PASS kudzu_max_production_4_6_per_min 4.6000
+PASS kudzu_root_cell_occupied_for_other_plants 
+PASS kudzu_root_walkable_enemy_slowed_0_6 
+PASS kudzu_roots_not_counted_in_family quote=21
+PASS kudzu_adjacent_other_kind_x0_8 
+PASS kudzu_multiple_adjacent_roots_not_stacked 
+PASS kudzu_stock_itself_not_penalised 
+PASS kudzu_remove_single_root_refund_0 
+PASS kudzu_eat_root_event_for_mole 
+PASS kudzu_stock_lost_removes_all_roots left=22
+PASS kudzu_manual_remove_clears_roots_refund_stock_only n=4 refund=4
+PASS kudzu_roots_only_on_plantable_cells n=24
+PASS loofah_empty_before_water 
+PASS loofah_gets_10_when_watered 
+PASS loofah_no_water_before_10s 
+PASS loofah_waters_unwatered_crop_within_3 [{ "type": "water_crop", "crop_id": 2, "source": "loofah", "source_id": 1, "water_left": 9 }]
+PASS loofah_waters_growing_grass_cell_when_no_crop [{ "type": "water_cell", "cell": (23, 26), "source": "loofah", "source_id": 1, "water_left": 8 }]
+PASS loofah_no_target_no_consumption 
+PASS loofah_refill_to_10_on_water_hit 
+PASS loofah_no_refill_event_when_full 
+PASS loofah_drains_to_0 water=0
+PASS loofah_empty_listed_for_sprinkler_like_unwatered [1, 3]
+PASS loofah_removed_from_targets_after_refill 
+PASS apple_no_fruit_before_30s 
+PASS apple_drops_one_adjacent_fruit_at_30s [{ "type": "fruit_dropped", "crop_id": 1, "fruit_id": 1, "cell": (23, 23) }]
+PASS apple_max_3_fruits_distinct_cells 3
+PASS apple_fruit_is_decoy_not_pickup 
+PASS apple_attracts_herbivore_not_others 
+PASS apple_stable_region_fruit_excluded_only_that_one 
+PASS apple_consume_fruit_removes_it 
+PASS apple_refills_after_consumption 
+PASS apple_planting_on_fruit_removes_fruit 
+PASS apple_id_valid 
+PASS balsam_bursts_when_enemy_within_1_5m [{ "type": "balsam_burst", "crop_id": 1, "center": (90.0, 98.0), "radius_px": 20.0, "damage": 4.0, "cause": "enemy" }]
+PASS balsam_burst_4_damage_in_radius_2m_only_non_neutral 
+PASS balsam_sows_max_3_distinct_valid_cells_no_stock 3
+PASS balsam_enemy_trigger_cooldown_8s 
+PASS balsam_repeats_every_8s_while_enemy_near [1, 9, 17]
+PASS balsam_periodic_every_20s 
+PASS balsam_sows_only_as_many_as_valid 
+PASS balsam_ids 
+crops2_logic total=73 failed=0

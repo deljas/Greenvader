@@ -1,0 +1,137 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS e12_gnawing_diverts_production_to_cheek stolen=20.72 cheek=20.00
+PASS e12_cheek_capped_at_20 20.0
+PASS e12_chew_damage_1_per_sec 10
+PASS e12_stolen_equals_cheek_and_player_gets_none_while_gnawed stolen=0.780 cheek=0.780 player=0.000
+PASS e12_kill_ungnaws_crop_resumes_player_production 
+PASS e12_full_returns_home_and_stops rest
+PASS e12_death_drops_pickup_floor_cheek cheek=20.00 pickups=1
+PASS e12_pickup_collected_by_hero 
+PASS e12_flee_speed_at_most_3mps top=30.0
+PASS e12_never_leaves_territory_15m max=150.0
+PASS e12_flee_then_tired_then_flee 
+PASS e12_tired_stops_in_place 20
+PASS e12_slower_than_hero 
+PASS e13_aim_0.8s_shows_line 
+PASS e13_hit_6dmg_pull_3m [{ "type": "hero_pull", "to": (130.0, 120.0), "source": 1, "kind": "tongue_frog", "distance": 30.0 }]
+PASS e13_cooldown_3s 
+PASS e13_dodge_sideways_during_aim 
+PASS e13_building_blocks_no_aim 
+PASS e13_no_trigger_beyond_7m 
+PASS e13_helper_on_line_takes_4_no_pull 3
+PASS e14_neutral_not_counted_for_stability 
+PASS e14_swarm_exists_neutral 
+PASS e14_calm_never_attacks 
+PASS e14_hive_blocks_its_cell_not_walkable_structure 
+PASS e14_near_2.5s_still_calm calm
+PASS e14_near_3s_angers angry
+PASS e14_angry_sting_3_per_sec 5
+PASS e14_anger_ends_and_calm calm
+PASS e14_blast_angers_hive angry
+PASS e14_helper_shot_makes_bees_sting_helper 3
+PASS e14_no_chase_beyond_10m_from_hive 
+PASS e14_swarm_death_no_reward 
+PASS e14_swarm_respawns_after_30s_produced 0 1
+PASS e14_produced_swarm_reward_0 
+PASS e14_pollination_while_alive 
+PASS e14_hive_destroyed_no_reward_no_pollination 
+PASS e14_swarm_gone_with_hive 0
+PASS e14_no_second_hive_spawns 
+PASS e14_stable_area_hive_not_counted 
+PASS e15_curl_windup_0.6s curl
+PASS e15_rolls_after_windup roll
+PASS e15_roll_shot_x0.2 
+PASS e15_hit_hero_10_once_per_roll 1
+PASS e15_bounces_at_most_4 1
+PASS e15_ends_dizzy_x1.5 dizzy
+PASS e15_bounces_off_building 3
+PASS e15_roll_stops_within_3s dizzy
+PASS e15_dizzy_x1.5 
+PASS e15_crop_damage_8_once 1
+PASS e15_bamboo_reflects 1
+PASS e16_stays_in_water_cells 
+PASS e16_hittable_only_when_surfaced 
+PASS e16_surfaces_periodically_every_about_8s first=4.8 gaps=[7.29999999999997, 14.6]
+PASS e16_surface_window_2.5s 57
+PASS e16_dive_shot_misses 
+PASS e16_mud_mark_then_land_0.8s 1 1
+PASS e16_mark_precedes_land_by_0.8s 0.80
+PASS e16_mud_hit_6_and_slow_50pct_2s 
+PASS e16_moving_away_avoids_mud 0
+PASS e16_mud_does_not_hurt_crops 
+PASS e16_surface_kill_reward_8 {  }
+PASS e17_hill_2x2_blocks_cells [{ "id": 1, "kind": "ant_hill", "rect": [P: (49, 19), S: (2, 2)] }]
+PASS e17_spawns_1_ant_per_8s_when_active 1
+PASS e17_max_6_active_produced_ants 6
+PASS e17_produced_ant_reward_0 0
+PASS e17_replenishes_after_kill 1
+PASS e17_hill_reward_30_small_nest [{ "type": "enemy_damaged", "enemy_id": 1, "amount": 100.0, "raw": 100.0, "kind": "shot", "hp": -40.0 }, { "type": "enemy_defeated", "enemy_id": 1, "kind": "ant_hill", "pos": (202.0, 82.0), "origin": "initial" }, { "type": "reward", "enemy_id": 1, "kind": "ant_hill", "amount": 30, "tier": "mid", "pos": (202.0, 82.0), "nest": "small" }]
+PASS e17_no_spawn_after_hill_destroyed 
+PASS e17_dormant_hill_produces_nothing 1
+PASS e17_ant_cuts_crop_2_and_ignores_hero 
+PASS e17_initial_ant_reward_2 
+PASS e17_ants_march_to_crop ["walk", "walk", "walk", "walk"]
+PASS e17_followers_behind_lost_leader_ahead_continues ["lost", "lost", "dead", "walk"]
+PASS e17_lost_for_3s_then_resume 
+PASS e18_hidden_not_detectable_cell_occupied 
+PASS e18_hittable_when_shot 
+PASS e18_windup_0.3s_no_bite_yet strike
+PASS e18_bite_12 
+PASS e18_after_bite_detectable_and_cell_free 
+PASS e18_chases_6s_then_returns return
+PASS e18_rehides_after_3s_at_home hidden (102.0, 122.0)
+PASS e18_seed_reveals 
+PASS e18_water_reveals 
+PASS e18_hit_reveals 
+PASS e18_reward_8_once 
+PASS e19_circles_untouchable_when_no_target circle
+PASS e19_shadow_marks_target mark
+PASS e19_mark_1.5s_then_lock_0.5s lock after 1.50
+PASS e19_hittable_only_ground_and_climb 
+PASS e19_dive_damage_12_radius_1m_once 1
+PASS e19_ground_1s_climb_1s 1.00
+PASS e19_dodge_after_lock_no_damage 
+PASS e19_outside_territory_ignored 
+PASS e19_targets_helper_when_no_hero 1
+PASS e19_flying_counts_for_stability 
+PASS e20_eats_mature_crop_3_per_sec 10
+PASS e20_shot_triggers_flee flee
+PASS e20_flee_speed_at_most_3.5mps top=35.0
+PASS e20_never_leaves_15m_territory max=149.6
+PASS e20_flee_4s_tired_3s_pattern 
+PASS e20_tired_lasts_3s 30
+PASS e20_tired_shot_does_not_restart_flee tired
+PASS e20_kill_reward_8 
+PASS e20_never_attacks_hero 
+PASS e20_garlic_hides_crops_from_deer 
+PASS e21_prioritizes_helper_over_hero 3
+PASS e21_windup_0.5s 0.50
+PASS e21_ignores_hero_beyond_3m 
+PASS e21_hero_within_3m_gets_8_with_1.5s_recovery 2
+PASS e21_snip_interval_ge_2s 2.10
+PASS e21_ignores_helper_beyond_12m 
+PASS stability_counts_8_special_states 8
+PASS stability_excludes_hive_and_swarm 
+PASS stability_decrements_on_final_kill 
+PASS detect_excludes_disguised_four ["tarachunade", "seed_bird", "sludge_carp", "black_kite", "honeybee_hive", "honeybee_swarm"]
+PASS detect_includes_flying_and_underwater ["tarachunade", "seed_bird", "sludge_carp", "black_kite", "honeybee_hive", "honeybee_swarm"]
+PASS hittable_excludes_flying_diving_includes_disguised ["tarachunade", "moss_turtle", "paint_chameleon", "mimic_cabbage", "honeybee_hive", "honeybee_swarm"]
+PASS enemy_never_enters_stable_cell (38.60471, 100.1324)
+PASS pepper_counter_2dmg_and_flee 58.0
+PASS cactus_spine_3dmg 57.0
+PASS flytrap_captures_small_enemy_30dmg 4
+PASS flytrap_kill_pays_initial_reward_once 
+PASS lavender_zone_covers_radius4 
+PASS bug_cannot_walk_into_lavender_zone (143.6507, 101.1293)
+PASS save_restore_ok 
+PASS save_has_gas_slime_pickups_pack_rolled slime=15 gas=0 pick=0
+PASS save_roundtrip_exact 
+PASS restore_then_identical_progress_20s enemies [enemies] e8.until a=30.8000000000001 b=30.8000000000002[gas]
+PASS corrupt_enemy_kind_rejected_unchanged 
+PASS corrupt_crop_part_rejects_whole_unchanged 
+PASS corrupt_slime_container_rejected_unchanged 
+PASS corrupt_rng_rejected_unchanged 
+PASS partial_corruption_adopts_nothing 
+PASS pause_no_advance_no_change 
+enemies_v2 total=134 failed=0

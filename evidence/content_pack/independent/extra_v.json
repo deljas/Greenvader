@@ -1,0 +1,42 @@
+{
+	"checks": [
+		{
+			"detail": "12.6",
+			"name": "mushling_normal_speed_1.4mps",
+			"status": "PASS"
+		},
+		{
+			"detail": "22.4",
+			"name": "mushling_rage_speed_x1.6",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "tarachunade_explosion_keeps_hp_30",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=20.0",
+			"name": "tarachunade_charred_damage_x2_persists_after_revive_info",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kite_never_flies_over_stable_cells",
+			"status": "PASS"
+		},
+		{
+			"detail": "5",
+			"name": "brian_melee_8_every_1.2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bees_never_pay_reward",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "extra_v",
+	"total": 7
+}

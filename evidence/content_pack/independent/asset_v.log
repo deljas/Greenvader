@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS sprite_meta_and_files_exist_for_all_listed []
+PASS sprite_pixel_sizes_match_catalog []
+PASS sprite_foot_reference_data_present_inside_image []
+PASS sprites_hard_alpha_only_no_antialias_translucency []
+PASS sprite_no_dark_outline_heuristic_edge_pixels_not_mostly_near_black []
+PASS occupancy_independent_of_image_size 
+PASS png_count_63 63
+asset_v total=7 failed=0

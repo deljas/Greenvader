@@ -1,0 +1,102 @@
+{
+	"checks": [
+		{
+			"detail": "roots=5 fruits=2",
+			"name": "save2_state_has_content",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2_adopts_valid",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2_roundtrip_identical",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2_roots_and_occupancy_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2_fruits_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2_wet_and_stun_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2_loofah_water_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "closed=true",
+			"name": "save2_mimosa_state_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "events={\"balsam_burst\":5,\"fruit_dropped\":1,\"kudzu_root_added\":6,\"mimosa_opened\":1,\"seed_sow\":3,\"seeds\":717}",
+			"name": "save2_continues_identically_90s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2_pause_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "reject_baseline_valid_adopted",
+			"status": "PASS"
+		},
+		{
+			"detail": "keys=10 adopted=[]",
+			"name": "reject_ext_key_missing",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "reject_ext_key_wrong_type",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "reject_ext_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "reject_ext_absent_or_not_dict",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "reject_kudzu_roots_invalid",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "reject_loofah_water_out_of_range",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "reject_fruits_invalid",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "reject_common_invalid",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "save2_logic",
+	"total": 19
+}

@@ -1,0 +1,633 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/hero.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _hero (res://scripts/content_pack/lab/lab_view.gd:318)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:239)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:158)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/shadow_brian.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tarachunade.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mushling_parent.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mushling_child.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/quill_hedgehog.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/grass_snake.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/seed_bird.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/junk_crab.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/stray_wolf.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/moss_turtle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/paint_chameleon.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/slime_slug.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/pouch_rabbit.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tongue_frog.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/honeybee_hive.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/honeybee_swarm.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/armadillo.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/sludge_carp.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/leafcutter_ant.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/ant_hill.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mimic_cabbage.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/black_kite.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/deer.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/iron_jaw_beetle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/clover.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/wasabi.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/giant_watermelon.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/oleander.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/four_leaf_clover.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/golden_clover.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/golden_four_leaf.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/edamame.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/sunflower.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tomato.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/lotus.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/corn.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/pumpkin.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mint.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/cactus.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/grape.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/strawberry.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/lavender.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/garlic.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/bamboo.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/flytrap.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/potato.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/rice.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tea.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/sakura.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/dokudami.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/aloe.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/pepper.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/glow_moss.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/junk_crab_shell.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/junk_pile.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/moss_turtle_bush.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/grass_snake_grass.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mimic_cabbage_disguise.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/needle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mud_ball.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/seed_bag.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/strawberry_pickup.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] t_assets (res://tests/content_pack/self/lab_logic.gd:118)
+       [3] _initialize (res://tests/content_pack/self/lab_logic.gd:89)
+       [4] frame (res://tests/content_pack/self/lab_logic.gd:16)
+PASS assets_63_sprites_load_at_runtime_without_import n=63 miss=[] badsize=[]
+FAIL sprites_cover_all_enemies_crops_and_extras ["evening_primrose", "dandelion", "mimosa", "kudzu", "loofah", "hinoki", "apple", "balsam"]
+PASS bank_image_sizes_match_catalog_px 
+PASS save_path_is_lab_only user://content_lab/save.json
+PASS wasd_moves_hero_and_stops_on_release up=24.00 back=0.00
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:slime_slug (544.5, 73.0)
+PASS click_spawn_enemy_from_panel_initial [1]
+PASS lmb_seed_shot_hits_and_defeats_enemy alive=false hit_logged=true
+PASS defeat_reward_once_and_seed_cost seeds 300->301 reward=1
+PASS button_exists_origin:produced (607.5, 157.0)
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:slime_slug (544.5, 73.0)
+PASS shift_rmb_bazooka_kills_produced_enemy_no_reward seeds 301->296
+PASS button_exists_origin:initial (544.5, 157.0)
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:deer (544.5, 118.0)
+PASS shift_lmb_tackle_deals_8 hp 30.0->22.0
+PASS button_exists_clear_enemies (607.5, 251.0)
+PASS clear_enemies_button 
+PASS seed_shot_to_ground_lands_and_costs_1 landed=1 seeds 296->295
+PASS host_applies_hero_damage_pull_slow hp=90.0 move=12.00
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:tarachunade (607.5, 28.0)
+PASS rmb_water_makes_tarachunade_wet_and_costs_water wet_until=24.0 water 100->90
+PASS button_exists_clear_enemies (607.5, 251.0)
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:mushling_parent (544.5, 37.0)
+PASS mushling_family_spawns_together 1/2
+PASS mushling_child_calls_parent_event_reaches_lab calls=2
+PASS button_exists_clear_enemies (607.5, 251.0)
+PASS button_exists_tab:crop (607.5, 17.0)
+PASS button_exists_pick_crop:clover (544.5, 28.0)
+PASS crop_tool_selected_from_panel 
+PASS placement_on_water_refused_with_reason CANT: BLOCKED_GROUND
+PASS preview_shows_ok_and_price_10 { "kind": "clover", "cell": (40, 27), "size": (1, 1), "ok": true, "reason": "", "price": 10, "afford": true }
+PASS click_places_crop_and_pays_price seeds 295->285
+PASS info_bar_shows_current_price_for_next_clover PLACE CLOVER PRICE 11 OK
+PASS second_clover_paid_11_same_family_price_rises seeds=274
+PASS preview_occupied_cell_not_ok { "kind": "clover", "cell": (40, 27), "size": (1, 1), "ok": false, "reason": "occupied", "price": 12, "afford": true }
+PASS preview_giant_watermelon_6x6_footprint { "kind": "giant_watermelon", "cell": (36, 25), "size": (6, 6), "ok": false, "reason": "occupied", "price": 450, "afford": false }
+PASS button_exists_tool:remove (607.5, 169.0)
+PASS remove_mode_removes_and_refunds_20_percent seeds 274->276
+PASS rmb_returns_to_combat combat
+PASS button_exists_tab:crop (607.5, 17.0)
+PASS button_exists_pick_crop:clover (544.5, 28.0)
+PASS button_exists_tool:combat (544.5, 169.0)
+PASS three_clovers_planted 3
+PASS button_exists_dbg_water (544.5, 251.0)
+PASS button_exists_speed:60 (618.0, 193.0)
+PASS speed_x60_advances_600_game_seconds elapsed 600.0 pack 600.0
+PASS fast_forward_matures_crops_and_produces_seeds seeds +57 total=6.00/min
+PASS info_bar_shows_total_and_selected_rates TOTAL 6.0 SEEDS/MIN  PLANTS 3  STABLE-COUNT ENEMIES 0
+PASS button_exists_speed:1 (534.0, 193.0)
+PASS button_exists_tab:crop (607.5, 17.0)
+PASS button_exists_pick_crop:clover (544.5, 28.0)
+PASS button_exists_tool:combat (544.5, 169.0)
+PASS button_exists_dbg_mature (607.5, 239.0)
+PASS debug_mature_makes_selected_crop_mature_without_roll clover
+PASS button_exists_dbg_roll_hit (544.5, 227.0)
+PASS debug_forced_roll_hit_becomes_four_leaf_with_debug_event four_leaf_clover
+PASS debug_labels_visible_on_screen 
+PASS button_exists_dbg_roll_miss (607.5, 227.0)
+PASS debug_roll_cannot_repeat_after_roll 
+PASS button_exists_dbg_seeds (544.5, 239.0)
+PASS debug_seeds_plus_100 
+PASS button_exists_save (544.5, 205.0)
+PASS save_writes_lab_file user://content_lab/save.json
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:deer (544.5, 118.0)
+PASS button_exists_tab:crop (607.5, 17.0)
+PASS button_exists_pick_crop:mint (607.5, 73.0)
+PASS button_exists_tool:combat (544.5, 169.0)
+PASS state_mutated_before_load 
+PASS button_exists_load (607.5, 205.0)
+PASS load_restores_pack_state_exactly len 1949/1949
+PASS load_restores_host_side_seeds_hero_crops seeds=398 crops=4
+PASS button_exists_clear_enemies (607.5, 251.0)
+PASS button_exists_pause (607.5, 181.0)
+PASS paused_does_not_advance_time 
+PASS space_resumes_and_time_advances 
+PASS speed_zero_does_not_advance_time 
+PASS key_2_sets_x10 
+PASS key_1_sets_x1 
+PASS button_exists_day (544.5, 181.0)
+PASS day_night_button_toggles 
+PASS n_key_toggles_back_to_day 
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:junk_pile (544.5, 127.0)
+PASS add_junk_pile_button_adds_pile 1
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:sludge_carp (607.5, 91.0)
+PASS carp_needs_water_cell 0/1
+PASS button_exists_clear_enemies (607.5, 251.0)
+PASS tab_key_switches_list crop
+PASS r_key_toggles_remove_tool remove
+PASS esc_returns_to_combat combat
+PASS button_exists_tab:enemy (544.5, 17.0)
+PASS button_exists_pick_enemy:shadow_brian (544.5, 28.0)
+PASS button_exists_pick_enemy:tarachunade (607.5, 28.0)
+PASS button_exists_pick_enemy:mushling_parent (544.5, 37.0)
+PASS button_exists_pick_enemy:quill_hedgehog (607.5, 37.0)
+PASS button_exists_pick_enemy:grass_snake (544.5, 46.0)
+PASS button_exists_pick_enemy:seed_bird (607.5, 46.0)
+PASS button_exists_pick_enemy:junk_crab (544.5, 55.0)
+PASS button_exists_pick_enemy:stray_wolf (607.5, 55.0)
+PASS button_exists_pick_enemy:moss_turtle (544.5, 64.0)
+PASS button_exists_pick_enemy:paint_chameleon (607.5, 64.0)
+PASS button_exists_pick_enemy:slime_slug (544.5, 73.0)
+PASS button_exists_pick_enemy:pouch_rabbit (607.5, 73.0)
+PASS button_exists_pick_enemy:tongue_frog (544.5, 82.0)
+PASS button_exists_pick_enemy:honeybee_hive (607.5, 82.0)
+PASS button_exists_pick_enemy:armadillo (544.5, 91.0)
+PASS button_exists_pick_enemy:sludge_carp (607.5, 91.0)
+PASS button_exists_pick_enemy:leafcutter_ant (544.5, 100.0)
+PASS button_exists_pick_enemy:ant_hill (607.5, 100.0)
+PASS button_exists_pick_enemy:mimic_cabbage (544.5, 109.0)
+PASS button_exists_pick_enemy:black_kite (607.5, 109.0)
+PASS button_exists_pick_enemy:deer (544.5, 118.0)
+PASS button_exists_pick_enemy:iron_jaw_beetle (607.5, 118.0)
+PASS button_exists_pick_enemy:junk_pile (544.5, 127.0)
+PASS every_enemy_kind_spawns_from_panel []
+PASS all_enemy_kinds_run_3_seconds_and_draw n0=27 n=27
+PASS neutral_bees_not_counted_in_stability_number stab=25 total=27
+lab_logic total=124 failed=1

@@ -1,0 +1,722 @@
+{
+	"checks": [
+		{
+			"detail": "[{ \"type\": \"enemy_damaged\", \"enemy_id\": 1, \"amount\": 2.5, \"raw\": 10.0, \"kind\": \"shot\", \"hp\": 57.5 }]",
+			"name": "e01_front_shot_x0.25",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e01_back_shot_x1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e01_front_tackle_bazooka_not_reduced",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e01_side_shot_x1",
+			"status": "PASS"
+		},
+		{
+			"detail": "windup",
+			"name": "e01_windup_1.1s_no_move_before",
+			"status": "PASS"
+		},
+		{
+			"detail": "[20.0]",
+			"name": "e01_charge_hits_hero_20_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "stuck",
+			"name": "e01_after_miss_recover_idle_or_stuck_at_map_edge",
+			"status": "PASS"
+		},
+		{
+			"detail": "stuck",
+			"name": "e01_stuck_on_building",
+			"status": "PASS"
+		},
+		{
+			"detail": "[10.0]",
+			"name": "e01_crop_hit_exactly_once_10",
+			"status": "PASS"
+		},
+		{
+			"detail": "[{ \"type\": \"enemy_damaged\", \"enemy_id\": 1, \"amount\": 15.0, \"raw\": 10.0, \"kind\": \"shot\", \"hp\": 45.0 }]",
+			"name": "e01_stuck_x1.5_all_directions",
+			"status": "PASS"
+		},
+		{
+			"detail": "idle",
+			"name": "e01_stuck_ends_after_3s",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "e02_explodes_once_with_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "1.50",
+			"name": "e02_fuse_1.5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_blast_hero18_helper18",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_blast_crop10_only_in_radius",
+			"status": "PASS"
+		},
+		{
+			"detail": "30.0",
+			"name": "e02_self_blast_no_hp_loss",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_blast_does_not_hurt_other_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_charred_counts_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_charred_no_move_no_attack",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_charred_x2_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "recover",
+			"name": "e02_revive_after_15s_keeps_hp_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_no_reexplode_for_4s_after_revive",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "e02_reexplodes_later",
+			"status": "PASS"
+		},
+		{
+			"detail": "0",
+			"name": "e02_no_reward_from_blasts",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "e02_final_kill_in_charred_one_reward_6",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_no_second_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "fuse",
+			"name": "e02_water_setup_in_fuse",
+			"status": "PASS"
+		},
+		{
+			"detail": "chase",
+			"name": "e02_wet_prevents_ignition_19s",
+			"status": "PASS"
+		},
+		{
+			"detail": "19",
+			"name": "e02_wet_bites_4_per_sec",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_wet_counts_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "e02_after_wet_can_ignite_again",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_idle_stays_put_when_far",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e02_no_trigger_outside_2m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e03_family_group_and_parent_links",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "e03_no_production",
+			"status": "PASS"
+		},
+		{
+			"detail": "chase",
+			"name": "e03_no_call_when_hero_beyond_5m",
+			"status": "PASS"
+		},
+		{
+			"detail": "2",
+			"name": "e03_child_calls_when_hero_within_5m",
+			"status": "PASS"
+		},
+		{
+			"detail": "moved=45.0 state=rush",
+			"name": "e03_parent_rushes_4.5mps",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ 2: 3, 3: 3 }",
+			"name": "e03_call_at_most_once_per_15s_each",
+			"status": "PASS"
+		},
+		{
+			"detail": "8",
+			"name": "e03_gas_deals_3_per_sec_to_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "0",
+			"name": "e03_gas_does_not_hurt_crops",
+			"status": "PASS"
+		},
+		{
+			"detail": "2",
+			"name": "e03_gas_cloud_radius_and_duration",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e03_child_reward_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e03_rage_fx_and_25s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e03_rage_resets_to_25s",
+			"status": "PASS"
+		},
+		{
+			"detail": "[10.4, 11.2, 12.0, 12.8, 13.6]",
+			"name": "e03_rage_melee_12_every_0.8s",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.80",
+			"name": "e03_rage_interval_0.8",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e03_rage_ends_parent_returns_to_normal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e03_children_keep_calling_gassing_without_parent",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e03_parent_death_no_rage",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "e03_parent_alone_no_calls_chases_normally",
+			"status": "PASS"
+		},
+		{
+			"detail": "[1.2, 4.3, 7.39999999999999]",
+			"name": "e04_needles_6_dmg_every_2.5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "d=55.0",
+			"name": "e04_keeps_4_to_6m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e04_no_attack_without_line_of_sight",
+			"status": "PASS"
+		},
+		{
+			"detail": "curl",
+			"name": "e04_curls_when_hero_within_2.5m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e04_curl_shot_x0.1",
+			"status": "PASS"
+		},
+		{
+			"detail": "flipped",
+			"name": "e04_tackle_flips",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e04_flipped_x1.5",
+			"status": "PASS"
+		},
+		{
+			"detail": "curl",
+			"name": "e04_flipped_ends_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "2",
+			"name": "e04_targets_helper_when_hero_far",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_hidden_on_grass_not_detectable_but_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_does_not_chase",
+			"status": "PASS"
+		},
+		{
+			"detail": "strike",
+			"name": "e05_windup_0.4s_then_bite",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_bite_10",
+			"status": "PASS"
+		},
+		{
+			"detail": "moving",
+			"name": "e05_after_bite_visible_and_relocating",
+			"status": "PASS"
+		},
+		{
+			"detail": "dist=22.7",
+			"name": "e05_relocated_3plus_cells",
+			"status": "PASS"
+		},
+		{
+			"detail": "hidden",
+			"name": "e05_rehides_in_grass",
+			"status": "PASS"
+		},
+		{
+			"detail": "revealed",
+			"name": "e05_wasteland_snake_always_visible",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_sprout_cell_no_hide",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_seed_within_1m_reveals",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_still_visible_before_6s",
+			"status": "PASS"
+		},
+		{
+			"detail": "hidden",
+			"name": "e05_hides_again_after_6s_plus_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_seed_beyond_1m_no_reveal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_hit_reveals",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_glow_moss_day_no_reveal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e05_glow_moss_night_reveals",
+			"status": "PASS"
+		},
+		{
+			"detail": "flying",
+			"name": "e06_flies_to_seed_and_is_untouchable",
+			"status": "PASS"
+		},
+		{
+			"detail": "landing",
+			"name": "e06_landing_is_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e06_landing_small_tag_for_flytrap",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "e06_eats_one_cell_per_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e06_never_hurts_hero_or_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "takeoff",
+			"name": "e06_hero_within_4m_takeoff_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "flying",
+			"name": "e06_then_airborne_untouchable",
+			"status": "PASS"
+		},
+		{
+			"detail": "10",
+			"name": "e06_eats_exactly_10_then_goes_home",
+			"status": "PASS"
+		},
+		{
+			"detail": "perch (101.48, 100.2442)",
+			"name": "e06_rests_at_perch",
+			"status": "PASS"
+		},
+		{
+			"detail": "0",
+			"name": "e06_no_eating_for_20s_after_10th",
+			"status": "PASS"
+		},
+		{
+			"detail": "first resume 24.9s after 10th",
+			"name": "e06_resumes_after_rest",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e06_ignores_grown_grass",
+			"status": "PASS"
+		},
+		{
+			"detail": "10.0",
+			"name": "e07_shell_absorbs_shot",
+			"status": "PASS"
+		},
+		{
+			"detail": "false",
+			"name": "e07_bazooka_x2_on_shell_and_breaks",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e07_shell_break_no_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "e07_naked_goes_to_pile_and_wears_shell_3s",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"id\": 1, \"pos\": (100.0, 120.0), \"stock\": 1, \"hp\": 20.0, \"max_hp\": 20.0 }",
+			"name": "e07_pile_stock_decrements",
+			"status": "PASS"
+		},
+		{
+			"detail": "[{ \"type\": \"enemy_damaged\", \"enemy_id\": 3, \"amount\": 16.0, \"raw\": 8.0, \"kind\": \"shot\", \"hp\": -1.0 }, { \"type\": \"enemy_defeated\", \"enemy_id\": 3, \"kind\": \"junk_crab\", \"pos\": (80.05234, 120.0615), \"origin\": \"initial\" }, { \"type\": \"reward\", \"enemy_id\": 3, \"kind\": \"junk_crab\", \"amount\": 8, \"tier\": \"near\", \"pos\": (80.05234, 120.0615) }]",
+			"name": "e07_naked_x2_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e07_final_kill_reward_8_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e07_pile_ignores_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e07_pile_hp20_survives_12",
+			"status": "PASS"
+		},
+		{
+			"detail": "[{ \"type\": \"junk_pile_destroyed\", \"pile_id\": 1, \"pos\": (100.0, 120.0), \"cell\": (25, 30) }]",
+			"name": "e07_pile_destroyed_no_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "naked_run",
+			"name": "e07_skips_pile_when_hero_within_2m",
+			"status": "PASS"
+		},
+		{
+			"detail": "4",
+			"name": "e07_no_piles_stays_naked_and_scratches_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "4",
+			"name": "e07_shelled_claw_6",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e08_pack_of_3_same_pack_id",
+			"status": "PASS"
+		},
+		{
+			"detail": "[\"howl\", \"howl\", \"howl\"]",
+			"name": "e08_howl_alerts_whole_pack",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e08_howl_1s_then_circle",
+			"status": "PASS"
+		},
+		{
+			"detail": "lunges=12",
+			"name": "e08_lunges_only_from_outside_front_arc",
+			"status": "PASS"
+		},
+		{
+			"detail": "15",
+			"name": "e08_bites_7",
+			"status": "PASS"
+		},
+		{
+			"detail": "d=10.1 bites=6",
+			"name": "e08_last_wolf_closes_in_and_bites_every_1.2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "e08_reward_each_wolf_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "wall=13 open=15",
+			"name": "e08_wall_at_back_reduces_bites",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e09_hidden_not_detectable_but_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "eat",
+			"name": "e09_moves_and_reveals_when_crop_within_6m",
+			"status": "PASS"
+		},
+		{
+			"detail": "2",
+			"name": "e09_eats_crop_8_per_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e09_bites_hero_within_2m_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e09_shell_shot_x0.3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e09_bazooka_flips_4s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e09_flipped_x3",
+			"status": "PASS"
+		},
+		{
+			"detail": "eat",
+			"name": "e09_flip_ends_4s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e09_blocks_hero_body",
+			"status": "PASS"
+		},
+		{
+			"detail": "revealed",
+			"name": "e09_revealed_after_losing_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "revealed",
+			"name": "e09_still_visible_before_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "hidden",
+			"name": "e09_disguises_again_after_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "4",
+			"name": "e09_death_fertile_1.2m_and_reward_15",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e09_blocker_gone_after_death",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e10_hidden_not_detectable",
+			"status": "PASS"
+		},
+		{
+			"detail": "[12.0]",
+			"name": "e10_ambush_12_from_hiding",
+			"status": "PASS"
+		},
+		{
+			"detail": "moving hint=1",
+			"name": "e10_moving_after_bite_with_hint_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e10_retreated_about_4m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e10_hit_reveals",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e10_visible_for_4s_after_hit",
+			"status": "PASS"
+		},
+		{
+			"detail": "hidden",
+			"name": "e10_hides_again_after_hit_reveal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e10_water_removes_paint_visible",
+			"status": "PASS"
+		},
+		{
+			"detail": "revealed",
+			"name": "e10_visible_forever_after_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "[8.0, 8.0]",
+			"name": "e10_visible_bite_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e10_glow_moss_night_reveals",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e11_never_attacks_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "10",
+			"name": "e11_crawls_toward_crop_leaving_slime",
+			"status": "PASS"
+		},
+		{
+			"detail": "14",
+			"name": "e11_slime_damages_crop_2_per_sec",
+			"status": "PASS"
+		},
+		{
+			"detail": "16",
+			"name": "e11_grass_returns_to_wasteland_after_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "5",
+			"name": "e11_hero_slowed_50pct_on_slime",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e11_water_washes_slime_in_radius",
+			"status": "PASS"
+		},
+		{
+			"detail": "1 -> 0",
+			"name": "e11_slime_expires_after_20s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e11_seed_cell_growth_blocked_while_slime",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e11_reward_6",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "enemies_v1",
+	"total": 143
+}

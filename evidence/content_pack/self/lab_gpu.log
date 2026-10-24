@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+PASS gpu_available adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows
+PASS window_unfocusable_flag_set unfocusable=true (ウィンドウ生成時の初回フォーカスはスクリプトでは防げない)
+PASS injected_input_maps_to_viewport_coords scale=2.00 got=(100.0, 100.0)
+PASS shot_enemies_spawned_all_kinds enemies=27 piles=2
+PASS shot_enemies_all_size_multiple_of_640x360 640x360
+PASS shot_enemies_all_limited_palette_no_blur unique_colors=284
+PASS sprite_pixels_match_png_exactly_nearest_no_blur deer opaque px=227 exact=227 (100.0%)
+PASS sprite_bottom_row_is_at_foot_line bottom=252 foot=253
+PASS shot_states_ground_size_multiple_of_640x360 640x360
+PASS shot_states_ground_limited_palette_no_blur unique_colors=275
+PASS shot_states_special_size_multiple_of_640x360 640x360
+PASS shot_states_special_limited_palette_no_blur unique_colors=267
+PASS hidden_enemies_not_in_detectable_list []
+PASS shot_crops_all_size_multiple_of_640x360 640x360
+PASS shot_crops_all_limited_palette_no_blur unique_colors=261
+PASS shot_crops_placed_all_kinds crops=53
+PASS hover_via_injected_input_updates_preview_cell (41, 14)
+PASS shot_ui_preview_debug_size_multiple_of_640x360 640x360
+PASS shot_ui_preview_debug_limited_palette_no_blur unique_colors=80
+PASS shot_night_size_multiple_of_640x360 640x360
+PASS shot_night_limited_palette_no_blur unique_colors=87
+PASS sprites_have_no_black_outline_pixels_on_edges 63 sprites: near-black edge pixels <=10% each
+PASS project_uses_nearest_and_integer_viewport_scaling filter=0 mode=viewport scale=integer
+PASS lab_canvas_nearest 1
+lab_gpu total=24 failed=0 not_run=0 adapter=NVIDIA GeForce RTX 5070 Ti

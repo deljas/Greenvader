@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+INFO tarachunade hp: before_hit=30.0 after_hit_in_charred=20.0 after_revive=20.0
+PASS mushling_normal_speed_1.4mps 12.6
+PASS mushling_rage_speed_x1.6 22.4
+PASS tarachunade_explosion_keeps_hp_30 
+PASS tarachunade_charred_damage_x2_persists_after_revive_info hp=20.0
+PASS kite_never_flies_over_stable_cells 
+PASS brian_melee_8_every_1.2s 5
+PASS bees_never_pay_reward 
+extra_v total=7 failed=0

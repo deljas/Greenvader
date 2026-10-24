@@ -1,0 +1,162 @@
+[
+	{
+		"detail": "enemies=27 proj=0 gas=0 piles=1 slime=13",
+		"name": "adopt_seed5_t8",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=27 proj=0 gas=2 piles=1 slime=21",
+		"name": "adopt_seed5_t16",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=0 piles=1 slime=25",
+		"name": "adopt_seed5_t24",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "roundtrip_exact_seed5_t24",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "progress_identical_seed5_t24",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=0 piles=1 slime=23",
+		"name": "adopt_seed5_t32",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=1 piles=1 slime=24",
+		"name": "adopt_seed5_t40",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=0 piles=1 slime=27",
+		"name": "adopt_seed5_t48",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "roundtrip_exact_seed5_t48",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "progress_identical_seed5_t48",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=25 proj=0 gas=0 piles=1 slime=34",
+		"name": "adopt_seed5_t56",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=23 proj=0 gas=0 piles=1 slime=34",
+		"name": "adopt_seed5_t64",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "roundtrip_exact_seed5_t64",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "progress_identical_seed5_t64",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=27 proj=0 gas=0 piles=1 slime=14",
+		"name": "adopt_seed21_t8",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=27 proj=0 gas=2 piles=1 slime=27",
+		"name": "adopt_seed21_t16",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=0 piles=1 slime=32",
+		"name": "adopt_seed21_t24",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "roundtrip_exact_seed21_t24",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "progress_identical_seed21_t24",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=0 piles=1 slime=26",
+		"name": "adopt_seed21_t32",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=1 piles=1 slime=12",
+		"name": "adopt_seed21_t40",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=26 proj=0 gas=0 piles=1 slime=3",
+		"name": "adopt_seed21_t48",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "roundtrip_exact_seed21_t48",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "progress_identical_seed21_t48",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=25 proj=0 gas=0 piles=1 slime=3",
+		"name": "adopt_seed21_t56",
+		"status": "PASS"
+	},
+	{
+		"detail": "enemies=23 proj=0 gas=0 piles=1 slime=5",
+		"name": "adopt_seed21_t64",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "roundtrip_exact_seed21_t64",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "progress_identical_seed21_t64",
+		"status": "PASS"
+	},
+	{
+		"detail": "16/16 ",
+		"name": "all_snapshots_adopted",
+		"status": "PASS"
+	},
+	{
+		"detail": "cases=78 rejected=78 accepted_bad=",
+		"name": "type_mismatch_rejected",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"name": "rejection_leaves_state_unchanged",
+		"status": "PASS"
+	},
+	{
+		"detail": "piles:true",
+		"name": "attachment_type_mismatch_rejected_if_present",
+		"status": "PASS"
+	}
+]

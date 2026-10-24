@@ -1,0 +1,148 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS defs_28_kinds found=28 missing=[]
+PASS defs_values 
+PASS place_normal_ok 
+PASS place_occupied 
+PASS place_wasteland_denied_for_normal 
+PASS place_water_denied_for_normal 
+PASS place_outside_denied 
+PASS place_junk_denied 
+PASS place_variant_not_placeable 
+PASS wasabi_near_clean_ok (8,20) is 2 from clean water
+PASS wasabi_shallow_only_denied shallow near but clean 4 away
+PASS wasabi_far_denied 
+PASS lotus_surface_ok 
+PASS lotus_overlap_denied 
+PASS lotus_no_shore_denied 
+PASS lotus_on_land_denied 
+PASS cactus_wasteland_ok_with_ground_seed 
+PASS cactus_on_water_denied 
+PASS rice_near_water_ok 
+PASS rice_far_denied 
+PASS rice_on_water_denied 
+PASS watermelon_6x6_occupancy 
+PASS watermelon_overlap_denied 
+PASS watermelon_needs_all_36_green x44,45 are wasteland
+PASS watermelon_remove_frees_and_refund_20pct refund=90
+PASS growth_watered_not_yet_at_7_5 
+PASS growth_watered_mature_at_T T=8 watered=8s, unwatered half speed
+PASS growth_unwatered_mature_at_2T 16s
+PASS edamame_2_gives_plus_10pct 1.1
+PASS edamame_cap_5_plus_25pct 7 around, k capped: 1.250000
+PASS edamame_does_not_affect_edamame_or_self 
+PASS edamame_speeds_maturity bamboo T=8 at x1.25: not at 7.5, yes at 8.75
+PASS dokudami_shade_growth_x1_5 
+PASS gold_none_baseline 
+PASS gold_1_plus7pct 
+PASS gold_2_clover_rate_2per_min_x1_14 2.28
+PASS gold_self_excluded_goldens_affect_each_other 
+PASS gold_cap_k7_plus49pct_with_9_sources 
+PASS gold_range_8_excluded 
+PASS gold_range_7_included 
+PASS gold_immature_source_ignored 
+PASS bee_range_8_plus10pct 
+PASS bee_range_9_excluded 
+PASS bee_flower_plus20pct sunflower day
+PASS bee_not_stacking 
+PASS bee_inactive_ignored 
+PASS gold_and_bee_additive_1_24 
+PASS pumpkin_reduces_damage_x0_7 
+PASS pumpkin_not_stacking 
+PASS pumpkin_self_excluded 
+PASS pumpkin_immature_no_effect 
+PASS pumpkin_id_valid 
+PASS poison_tick_5s_adds_1 range 3: dist2 in, dist4 out
+PASS poison_2_after_10s 
+PASS poison_alive_before_15s 
+PASS poison_death_at_15s_refund0_reason 
+PASS poison_same_kind_excluded_and_far_unaffected 
+PASS poison_frees_cells_and_family_count 
+PASS poison_does_not_touch_helpers events only target crops
+PASS poison_two_sources_still_plus_1 
+PASS garlic_protects_in_range_incl_self 
+PASS poison_resets_to_0_when_out_of_range 
+PASS poison_immature_oleander_inert 
+PASS variant_hit_converts_at_maturity seed=60
+PASS variant_keeps_id_paid_cell_water_progress 
+PASS variant_x7_rate_and_family 14/min
+PASS variant_no_reroll_after_save_restore 
+PASS variant_miss_stays_and_no_reroll seed=1
+PASS golden_variant_x777_and_family 25.9/s
+PASS golden_variant_price_family_quote 816
+PASS debug_force_roll_once_and_marked 
+PASS mint_spread_30s_adjacent_paid0_same_colony 
+PASS mint_spread_counts_in_family 
+PASS mint_spread_refund_0 
+PASS mint_colony_cap_9_total peak=9
+PASS mint_next_price_counts_spread quote=24 paid_sum=15
+PASS strawberry_drops_adjacent_6_seeds (21, 22)
+PASS strawberry_max_3_pickups 3
+PASS strawberry_pickup_collected_by_hero 
+PASS strawberry_pickups_persist_after_remove_and_restore 
+PASS potato_stores_instead_of_producing storage=13.333333
+PASS potato_remove_refund_floor20pct_plus_floor_storage refund=19
+PASS potato_cap_is_paid_x10 
+PASS potato_full_refund_306 
+PASS potato_destroyed_by_enemy_refund_0 
+PASS tomato_wall_adjacent_x1_75 
+PASS grape_line_4_x1_45 
+PASS grape_uses_longer_of_row_col 
+PASS grape_cap_L8_x2_05 
+PASS rice_max_rect_area6_x1_2 
+PASS rice_L_shape_uses_own_max_rect extra cell: 1x4=4
+PASS corn_immature_partner_ignored 
+PASS corn_edamame_x1_3 
+PASS corn_three_sisters_x1_8 
+PASS corn_pumpkin_only_x1_3 
+PASS tea_aging_plus4pct_at_120s 
+PASS tea_cap_x2 
+PASS tea_stays_capped 
+PASS sakura_bloom_x4 
+PASS sakura_bloom_is_flower_bee_plus20 
+PASS sakura_off_bloom_x1_not_flower since=50
+PASS sakura_next_cycle_blooms_at_240 
+PASS sunflower_day_60s_yields_4_5 4.50000000000001
+PASS sunflower_night_x0_3 
+PASS dokudami_shade_production_x2 
+PASS flytrap_beast_not_captured 
+PASS flytrap_2_away_not_captured 
+PASS flytrap_small_adjacent_captured_30dmg 
+PASS flytrap_digesting_cannot_capture_and_x3 
+PASS flytrap_digest_ends_after_20s 
+PASS aloe_heals_30_below_50pct 
+PASS aloe_cooldown_60s 
+PASS aloe_heals_again_after_cooldown 
+PASS aloe_no_heal_at_60pct 
+PASS aloe_picks_lowest_ratio_helper 
+PASS aloe_out_of_range_no_heal 
+PASS pepper_counter_2dmg_flee3 
+PASS pepper_same_enemy_5s_cooldown 
+PASS pepper_other_enemy_triggers 
+PASS pepper_collateral_does_not_trigger 
+PASS pepper_triggers_again_after_5s 
+PASS cactus_thorn_on_adjacent_cell 
+PASS cactus_thorn_1s_cooldown 
+PASS cactus_diagonal_not_adjacent 
+PASS cactus_thorn_on_attack_3dmg 
+PASS lavender_zone_bug_radius4 
+PASS lavender_is_repelled_cell 
+PASS lavender_untargets_crops_for_bugs_only 
+PASS lavender_immature_inactive 
+PASS garlic_untargetable_for_all_tags_in_3 
+PASS bamboo_blocks_only_when_mature 
+PASS bamboo_destroyed_by_enemy_refund0 
+PASS glow_moss_reveals_at_night_within_5 
+PASS glow_moss_inactive_by_day 
+PASS gnawed_production_goes_to_seeds_stolen 
+PASS gnawed_cleared_returns_to_player 
+PASS manual_refund_20pct_floor_clover 
+PASS manual_refund_golden_155 
+PASS family_clover_counts_four_leaf_price_12 ceil(10*1.05^2)
+PASS family_golden_counts_golden_four_price_857 ceil(777*1.05^2)
+PASS enemy_loss_refund_0_and_count_drops 
+PASS restore_then_same_result_incl_rng_pickups 11:tea:50,22:true:0:false|12:potato:50,20:true:0:false|13:mint:30,31:true:0:false|14:mint:29,30:true:0:false|15:mint:31,
+PASS restore_potato_storage_close 
+PASS from_dict_rejects_invalid_and_keeps_state [false, false, false, false, false]
+PASS paused_no_advance_no_change advance not called/0 => unchanged
+crops_logic total=145 failed=0

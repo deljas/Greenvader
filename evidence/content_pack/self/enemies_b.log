@@ -1,0 +1,72 @@
+PASS e12_gnaw_stolen_seeds_go_to_cheek_not_player sum=0.3900 cheek=0.3900 seeds_after=0
+PASS e12_chew_1_damage_per_second n=11
+PASS e12_full_cheek_20_goes_home_and_rests cheek=20.000 st=rest pos=(73.0, 26.0)
+PASS e12_flees_at_3mps_and_never_attacks_hero moved=33.00 flee
+PASS e12_runs_4s_then_tired_2s_then_rests tired tired rest held=true
+PASS e12_flee_stays_inside_territory_15m maxd=150.00
+PASS e12_defeat_drops_cheek_seeds_pickup_and_reward_4 [{ "id": 1, "pos": (100.0, 100.0), "amount": 7, "source_id": 1, "kind": "seeds" }]
+PASS e12_pickup_collected_by_hero_nearby 
+PASS e13_aim_0_8s_then_6_damage_and_pull_3m dmg=2 t0=0.9
+PASS e13_no_tongue_for_3s_after_firing gap=3.90
+PASS e13_tongue_line_is_7m (170.0, 100.0)
+PASS e13_sidestep_during_aim_avoids_tongue 
+PASS e13_building_blocks_tongue_and_trigger idle
+PASS e13_tongue_hits_helper_first_4_damage_no_pull n=1
+PASS e14_neutral_not_counted_for_stability_but_alive 0 1
+PASS e14_hive_pollinates_8_cells_and_blocks_planting 0.100 { "ok": false, "reason": "occupied", "by": "honeybee_hive" }
+PASS e14_destroying_hive_gives_nothing_and_ends_pollination after=0.000
+PASS e14_destroyed_hive_never_returns 
+PASS e14_angry_swarm_stings_3_per_second_hero_only stings=4
+PASS e14_anger_ends_after_20s_and_swarm_returns 
+PASS e14_chase_limited_to_10m_from_hive maxd=100.00
+PASS e14_staying_within_1_5m_for_3s_angers_hive 
+PASS e14_blast_angers_water_does_not 
+PASS e14_swarm_respawns_after_30s_as_produced_no_reward ns=1
+PASS e15_roll_hits_hero_10_and_crop_8_once_each hero=1 crop=1
+PASS e15_roll_stops_after_3s_then_dizzy roll dizzy
+PASS e15_bounces_off_walls_max_4_times_then_stops b=4 x=[61.5,87.8] dz=2.6
+PASS e15_dizzy_2_5s_and_damage_multipliers hp_roll=28.00 dizzy=2.50
+PASS e15_dizzy_takes_x1_5_damage dizzy hp=15.00
+PASS e16_surfaces_every_7_3s_at_most_8s_apart_and_stays_in_water starts=[4.8, 12.1, 19.4] water=true
+PASS e16_mud_lands_0_8s_after_spit_6_damage_and_50pct_slow_2s n=2 t=5.6
+PASS e16_mud_does_not_affect_plants_or_grass 
+PASS e16_landing_marked_from_spit_time 
+PASS e16_dive_not_hittable_surface_hittable rise surface
+PASS e16_leaving_marked_spot_avoids_mud 
+PASS e17_hill_produces_every_8s_up_to_6_at_once 1 2 6 6 5 6
+PASS e17_produced_ant_reward_0_initial_ant_reward_2 
+PASS e17_hill_idle_without_activity_condition_then_active_when_hero_near inactive=0 after=2
+PASS e17_hill_is_fixed_2x2_nest_with_small_nest_reward_base [{ "type": "reward", "enemy_id": 1, "kind": "ant_hill", "amount": 30, "tier": "near", "pos": (100.0, 60.0), "nest": "small" }]
+PASS e17_ant_cuts_2_damage_per_2s_then_carries_leaf_home n=4 first=3.7
+PASS e17_killing_mid_column_ant_makes_followers_wander_3s lost walk lost walk
+PASS e18_hidden_not_detectable_but_counts_and_blocks_planting { "ok": false, "reason": "occupied", "by": "mimic_cabbage" }
+PASS e18_hit_reveals_then_detectable_and_cell_free revealed
+PASS e18_seed_within_1m_and_water_reveal 
+PASS e18_strike_0_3s_bite_12_then_chase_6s bites=4 t0=0.4
+PASS e18_returns_home_waits_3s_and_hides_again hidden (150.0, 112.0)
+PASS e18_targets_helper_within_2m 
+PASS e19_shadow_1_5s_lock_0_5s_dive_hits_12 n=2 t=2.2
+PASS e19_hittable_only_on_ground_and_climb_2s samples=20 mismatch=0
+PASS e19_dive_radius_1m_fx 
+PASS e19_shadow_follows_then_locks_and_dodge_works (160.0, 100.0) (160.0, 100.0)
+PASS e19_targets_helper_when_no_hero 
+PASS e19_never_enters_or_targets_stable_airspace stable=false rev=true ang=2.33
+PASS e20_eats_mature_crop_3_per_second_and_ignores_hero n=5
+PASS e20_flee_3_5mps_4s_run_3s_tired moved=38.50 flee tired graze
+PASS e20_flee_stays_inside_territory_15m maxd=149.50
+PASS e20_hit_makes_it_flee_tired_deer_can_be_shot_reward_8 flee tired tired
+PASS e21_prefers_helper_windup_0_5s_snip_20 n=3 t=3.6
+PASS e21_recovers_1_5s_after_snip gap=2.10
+PASS e21_hero_within_3m_takes_8 
+PASS e21_hero_at_4m_is_ignored idle
+PASS e21_helper_beyond_12m_ignored 
+PASS save_all_new_kinds_direct_dict_restore_is_exact len=9237 diff@9237: format":1,"rng":{"seed":"11","state":"7888850449676107793"}} | format":1,"rng":{"seed":"11","state":"7888850449676107793"}}
+PASS save_all_new_kinds_json_roundtrip_continues_identically 10:leafcutter_ant:cut:3.000:87.06,52.81|11:mimic_cabbage:chase:30.000:206.16,67.39|12:black_kite:mark:18.000:144.04,44.9
+PASS save_all_scene_covers_10_new_kinds_midflight kinds=12 n=14
+PASS atomic_bad_enemies_kind_changes_nothing enemies: bad enemy
+PASS atomic_enemies_not_a_dictionary_changes_nothing enemies: not a dictionary
+PASS atomic_bad_enemy_field_changes_nothing enemies: bad enemy
+PASS atomic_bad_crops_changes_nothing crops: unknown kind
+PASS atomic_bad_rng_changes_nothing 
+PASS atomic_valid_data_adopts_everything 
+enemies_b total=71 failed=0

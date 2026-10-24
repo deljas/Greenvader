@@ -1,0 +1,552 @@
+{
+	"checks": [
+		{
+			"detail": "state=move target=1 potato=1 pumpkin=2",
+			"name": "mole_priority_potato_over_nearer_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mole_underground_not_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mole_tackle_no_effect",
+			"status": "PASS"
+		},
+		{
+			"detail": "detect=1 mounds=6",
+			"name": "mole_detect_at_mound_position",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6",
+			"name": "mole_mound_every_0_4m",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "mole_gnaw_5dmg_every_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=15.000000 state=gnaw",
+			"name": "mole_gnaw_reduces_hp_in_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mole_felling_crop_removes_it",
+			"status": "PASS"
+		},
+		{
+			"detail": "peek=2.200000 left=3.200000",
+			"name": "mole_peek_one_second_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=gnaw",
+			"name": "mole_water_far_no_effect",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=stunned",
+			"name": "mole_water_pops_after_1s",
+			"status": "PASS"
+		},
+		{
+			"detail": "dealt=15.000000",
+			"name": "mole_stunned_damage_x1_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=gnaw",
+			"name": "mole_dives_again_after_3s",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=stunned",
+			"name": "mole_water_splash_also_pops",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mole_counts_for_stability_underground",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mole_tags_only_when_surfaced",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mole_beast_tag_when_surfaced",
+			"status": "PASS"
+		},
+		{
+			"detail": "early=6 now=0",
+			"name": "mole_mounds_expire_after_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "kind=root cell=(50, 13) far=(50, 13)",
+			"name": "mole_prefers_root_cell_target",
+			"status": "PASS"
+		},
+		{
+			"detail": "events=1 roots=2->1",
+			"name": "mole_eats_root_cell_in_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=idle",
+			"name": "skunk_side_hit_no_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_back_hit_no_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_61deg_no_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_tackle_front_no_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_no_cloud_before_frontal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_front_59deg_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_no_cloud_during_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "skunk_cloud_after_0_6s",
+			"status": "PASS"
+		},
+		{
+			"detail": "dir=(0.515038, 0.857167) until-t0=8.600000",
+			"name": "skunk_cloud_toward_shooter",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=10",
+			"name": "skunk_cloud_hero_slow_0_6",
+			"status": "PASS"
+		},
+		{
+			"detail": "ids=[7, 7]",
+			"name": "skunk_cloud_helper_stop_odor",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_cloud_no_effect_on_crop_enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_interval_blocks_second_spray",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_sprays_again_after_6s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_cloud_gone_after_8s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_bazooka_front_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_helper_bullet_front_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "skunk_garlic_cancels_cloud",
+			"status": "PASS"
+		},
+		{
+			"detail": "angle=45.000001",
+			"name": "skunk_turn_90dps_half_second",
+			"status": "PASS"
+		},
+		{
+			"detail": "face=(-0.987688, -0.156435) pos=(195.4158, 108.3935)",
+			"name": "skunk_turn_completes_in_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3 amount=3.0",
+			"name": "skunk_gnaws_crop_3dmg",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_front_boundary_60",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_origin_by_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_turn_limit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hippo_habitat_water_start",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hippo_in_water_hittable_half",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6 state=eat land=true",
+			"name": "hippo_lands_and_eats_crop_8dmg",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hippo_far_crop_untouched",
+			"status": "PASS"
+		},
+		{
+			"detail": "dealt=10.000000",
+			"name": "hippo_on_land_full_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=eat",
+			"name": "hippo_not_yet_retreat_at_10",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=retreat",
+			"name": "hippo_retreat_at_15_cumulative",
+			"status": "PASS"
+		},
+		{
+			"detail": "rest@0.400000 float@10.400000",
+			"name": "hippo_rests_10s_then_returns",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6",
+			"name": "hippo_eats_grass_stage_back",
+			"status": "PASS"
+		},
+		{
+			"detail": "max=63.972351",
+			"name": "hippo_land_within_8m_of_shore",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=windup",
+			"name": "hippo_windup_when_hero_within_4m_on_land",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "hippo_charge_hits_25",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hippo_herbivore_tag",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hippo_eats_fallen_fruit",
+			"status": "PASS"
+		},
+		{
+			"detail": "kind=fruit",
+			"name": "bear_priority_fruit_first",
+			"status": "PASS"
+		},
+		{
+			"detail": "order=[\"fruit\", \"hive\"]",
+			"name": "bear_order_fruit_hive_then_sleep",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bear_hive_destroyed_swarm_gone",
+			"status": "PASS"
+		},
+		{
+			"detail": "angry_at_bear=true stung=24.000000",
+			"name": "bear_bees_sting_bear_while_gnawing",
+			"status": "PASS"
+		},
+		{
+			"detail": "sat=4",
+			"name": "bear_sleeps_at_satiety_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bear_fruit_consumed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bear_sleep_damage_x1_5_no_wake",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=50.000000",
+			"name": "bear_sleep_still_asleep_above_half",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=enraged",
+			"name": "bear_wakes_enraged_below_half",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=2",
+			"name": "bear_claw_15_after_windup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bear_claw_interval_1_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=approach",
+			"name": "bear_calms_when_hero_beyond_18m",
+			"status": "PASS"
+		},
+		{
+			"detail": "sat=3",
+			"name": "bear_three_fruits_sleep_two_do_not",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=2 sat=2",
+			"name": "bear_eats_fruit_plant_6dmg_satiety_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bear_awake_hit_enrages",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manhole_net_of_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manhole_not_hittable_not_shootable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manhole_detectable_as_nest",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sewer_none_before_15s",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "sewer_first_rat_at_15s",
+			"status": "PASS"
+		},
+		{
+			"detail": "max=6",
+			"name": "sewer_alive_capped_at_6",
+			"status": "PASS"
+		},
+		{
+			"detail": "exits=3",
+			"name": "sewer_underground_move_3s_to_other_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sewer_produced_reward_zero",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sewer_rat_tags_small_beast",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sewer_rat_initial_reward_2_instant",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"ok\": true, \"reason\": \"\" }",
+			"name": "manhole_cell_placement_exception",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "normal_waste_cell_still_requires_green",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"ok\": false, \"reason\": \"needs_clean_water\" }",
+			"name": "manhole_other_conditions_still_apply",
+			"status": "PASS"
+		},
+		{
+			"detail": "[1, 2, 3]",
+			"name": "manhole_plugs_placed_via_normal_check",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "manhole_all_closed_suppresses_nest_reward_30_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manhole_closed_not_counted_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manhole_no_rat_production_when_closed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manhole_reopens_when_plug_lost",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "manhole_second_close_no_second_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=ug",
+			"name": "rat_entered_underground_toward_other_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=stuck",
+			"name": "rat_stuck_when_exit_plugged",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=2",
+			"name": "rat_gnaws_plug_from_below_3dmg_per_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "state=idle",
+			"name": "rat_emerges_when_plug_lost",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bat_flock_of_6_roosting_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bat_one_shot_one_kill_reward_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bat_hit_wakes_flock_flying_untargetable",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6",
+			"name": "bat_bazooka_hits_all_roosting",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bat_hero_beyond_3m_stays_roosting",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bat_hero_within_3m_wakes",
+			"status": "PASS"
+		},
+		{
+			"detail": "bites=5 times=[1.9, 4.0, 5.99999999999999, 7.89999999999999, 9.89999999999998]",
+			"name": "bat_dive_3dmg_every_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "dive=true low=true",
+			"name": "bat_dive_and_low_are_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "back@13.500000",
+			"name": "bat_day_flight_about_12s_then_roost",
+			"status": "PASS"
+		},
+		{
+			"detail": "night_left=23.800000",
+			"name": "bat_night_flight_24s_vs_day_12s",
+			"status": "PASS"
+		},
+		{
+			"detail": "bites=0",
+			"name": "bat_no_dive_in_glow_moss_range",
+			"status": "PASS"
+		},
+		{
+			"detail": "alive=2",
+			"name": "bat_last_two_do_not_swarm_return_fast",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bat_counts_for_stability_while_flying",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "enemies2_a",
+	"total": 109
+}
