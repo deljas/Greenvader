@@ -1,0 +1,82 @@
+PASS world_has_all_enemy_kinds_in_save []
+PASS world_has_odor_or_windup_state projectiles=1 odor=0
+PASS world_has_reflected_projectile 
+PASS world_has_wet_cells 
+PASS world_has_all_crop_kinds 
+PASS world_kudzu_has_roots_loofah_water_mimosa_closed roots=1 water=10.0 closed=true fruits=1
+PASS world_glass_rolls_recorded 
+PASS restore_accepts_full_world 
+PASS restore_state_identical_after_roundtrip 
+PASS restored_world_continues_identically_30s 
+PASS restored_final_state_identical 
+PASS rng_state_restored 
+PASS common_state_restored 
+PASS old_format_without_common_loads_with_empty_common 
+PASS glass_roll_record_wins_after_restore 
+PASS base_snapshot_valid 
+PASS reject_format ok=false err=bad format unchanged=true
+PASS reject_rng_seed_not_int_string ok=false err=bad rng unchanged=true
+PASS reject_enemies_not_dict ok=false err=enemies: not a dictionary unchanged=true
+PASS reject_common_not_dict ok=false err=common: not a dictionary unchanged=true
+PASS reject_common_missing_time ok=false err=common: missing time unchanged=true
+PASS reject_common_wet_bad_entry ok=false err=common: bad wet unchanged=true
+PASS reject_common_helper_stop_bad ok=false err=common: bad helper_stop unchanged=true
+PASS reject_crop_missing_ext_key_dandelion ok=false err=crops: ext mismatch dandelion.next_fluff_at unchanged=true
+PASS reject_crop_ext_wrong_type_mimosa ok=false err=crops: ext mismatch mimosa.closed unchanged=true
+PASS reject_crop_ext_missing_loofah_water ok=false err=crops: ext mismatch loofah.water unchanged=true
+PASS reject_crop_loofah_water_over_capacity ok=false err=crops: loofah water range unchanged=true
+PASS reject_crop_loofah_water_negative ok=false err=crops: loofah water range unchanged=true
+PASS reject_crop_kudzu_roots_not_array ok=false err=crops: ext mismatch kudzu.roots unchanged=true
+PASS reject_crop_kudzu_roots_over_24 ok=false err=crops: kudzu roots unchanged=true
+PASS reject_crop_kudzu_root_too_far ok=false err=crops: root too far unchanged=true
+PASS reject_crop_kudzu_root_overlaps_crop ok=false err=crops: root overlap unchanged=true
+PASS reject_crop_kudzu_root_duplicate ok=false err=crops: root overlap unchanged=true
+PASS reject_crop_kudzu_root_bad_cell ok=false err=crops: bad root cell unchanged=true
+PASS reject_crop_unknown_kind ok=false err=crops: unknown kind unchanged=true
+PASS reject_crop_overlap ok=false err=crops: overlap unchanged=true
+PASS reject_fruit_bad_cell ok=false err=crops: bad fruit unchanged=true
+PASS reject_fruit_duplicate_id ok=false err=crops: duplicate fruit id unchanged=true
+PASS reject_crops_fruits_not_array ok=false err=crops: bad containers unchanged=true
+PASS reject_crops_missing_next_fruit_id ok=false err=crops: missing next_fruit_id unchanged=true
+PASS reject_skunk_bad_state ok=false err=enemies: enemy nested state invalid skunk unchanged=true
+PASS reject_skunk_missing_spray_dir ok=false err=enemies: enemy keys/types mismatch skunk unchanged=true
+PASS reject_skunk_spray_dir_wrong_type ok=false err=enemies: enemy keys/types mismatch skunk unchanged=true
+PASS reject_mole_mound_bad_entry ok=false err=enemies: enemy nested state invalid root_mole unchanged=true
+PASS reject_mole_bad_state ok=false err=enemies: enemy nested state invalid root_mole unchanged=true
+PASS reject_mole_t_cell_wrong_type ok=false err=enemies: enemy keys/types mismatch root_mole unchanged=true
+PASS reject_hippo_bad_t_kind ok=false err=enemies: enemy nested state invalid hippo unchanged=true
+PASS reject_hippo_missing_land_dmg ok=false err=enemies: enemy keys/types mismatch hippo unchanged=true
+PASS reject_bear_bad_state ok=false err=enemies: enemy nested state invalid honey_bear unchanged=true
+PASS reject_bear_bad_t_kind ok=false err=enemies: enemy nested state invalid honey_bear unchanged=true
+PASS reject_manhole_bad_state ok=false err=enemies: enemy nested state invalid manhole unchanged=true
+PASS reject_bat_bad_state ok=false err=enemies: enemy nested state invalid bat_flock unchanged=true
+PASS reject_rhino_rust_over_5 ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true
+PASS reject_rhino_rust_negative ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true
+PASS reject_rhino_trample_bad_value ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true
+PASS reject_rhino_bad_state ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true
+PASS reject_eel_chain_bad_entry ok=false err=enemies: enemy nested state invalid thunder_eel unchanged=true
+PASS reject_eel_bad_state ok=false err=enemies: enemy nested state invalid thunder_eel unchanged=true
+PASS reject_decoy_tail_missing_run_dir ok=false err=enemies: enemy keys/types mismatch decoy_tail unchanged=true
+PASS reject_decoy_bad_state ok=false err=enemies: enemy nested state invalid decoy_newt unchanged=true
+PASS reject_lizard_bad_state ok=false err=enemies: enemy nested state invalid mirror_lizard unchanged=true
+PASS reject_shrimp_bad_state ok=false err=enemies: enemy nested state invalid pistol_shrimp unchanged=true
+PASS reject_frog_bad_state ok=false err=enemies: enemy nested state invalid balloon_frog unchanged=true
+PASS reject_enemy_hp_wrong_type ok=false err=enemies: bad enemy field hp unchanged=true
+PASS reject_enemy_unknown_kind ok=false err=enemies: bad enemy unchanged=true
+PASS reject_enemy_duplicate_id ok=false err=enemies: duplicate id unchanged=true
+PASS reject_enemy_missing_template_key ok=false err=enemies: enemy keys/types mismatch skunk unchanged=true
+PASS reject_enemy_pos_wrong_type ok=false err=enemies: bad enemy unchanged=true
+PASS reject_odor_missing_key ok=false err=enemies: bad odor unchanged=true
+PASS reject_acid_wrong_type ok=false err=enemies: bad acid unchanged=true
+PASS reject_projectile_missing_key ok=false err=enemies: bad projectile unchanged=true
+PASS reject_glass_rolls_bad_value ok=false err=enemies: bad glass roll unchanged=true
+PASS reject_glass_seed_not_int_string ok=false err=enemies: bad glass state unchanged=true
+PASS reject_glass_seed_not_string ok=false err=enemies: bad glass state unchanged=true
+PASS pause_pack_state_unchanged_25s 
+PASS pause_time_unchanged 
+PASS pause_wet_not_expiring 
+PASS speed0_state_unchanged 
+PASS resume_advances 
+PASS advance_nonpositive_no_change 
+PASS restore_does_not_advance_time 
+save_v2 total=81 failed=0

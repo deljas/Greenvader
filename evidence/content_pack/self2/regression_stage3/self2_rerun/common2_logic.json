@@ -1,0 +1,252 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"name": "facing_front_ahead",
+			"status": "PASS"
+		},
+		{
+			"detail": "60 deg is front",
+			"name": "facing_boundary_60deg_inclusive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_61deg_is_not_front",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_behind_and_side_not_front",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_non_vector_origin_is_false",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_attack_origin_by_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "deg=45.000",
+			"name": "facing_turn_limited_to_rate",
+			"status": "PASS"
+		},
+		{
+			"detail": "(0.0, 1.0)",
+			"name": "facing_turn_reaches_target_when_enough",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_turn_180_takes_limited_step",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "facing_after_short_turn_target_behind_not_front",
+			"status": "PASS"
+		},
+		{
+			"detail": "[\"deer\", \"pouch_rabbit\", \"moss_turtle\", \"slime_slug\", \"leafcutter_ant\", \"mimic_cabbage\"]",
+			"name": "herbivore_tag_on_6_first_series_kinds",
+			"status": "PASS"
+		},
+		{
+			"detail": "[\"hippo\", \"honey_bear\", \"iron_rhino\"]",
+			"name": "herbivore_tag_not_on_other_kinds",
+			"status": "FAIL"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_tag_in_tags_of",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_apple_dropped",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_host_side_enemy_attracted",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_non_tag_not_attracted",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_out_of_range_not_attracted",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_fruit_in_stable_region_excluded",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_apple_still_alive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_event_per_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_immediately_true",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_still_wet_at_5_9s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_dry_after_6s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_extended_by_second_hit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_pause_no_progress",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_does_not_change_growth_rule",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_save_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wet_restored_expires_on_schedule",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_hinoki_3x3_placed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_immature_hinoki_makes_none",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_static_attribute_still_works",
+			"status": "PASS"
+		},
+		{
+			"detail": "6",
+			"name": "shade_mature_hinoki_north_2x3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_dokudami_in_dynamic_shade_x2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_dokudami_beside_or_far_not_shaded",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_dokudami_growth_x1_5_under_dynamic_shade",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_static_or_dynamic_not_stacked",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_removed_with_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "shade_dokudami_loses_multiplier",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.06667",
+			"name": "shade_rate_follows_in_production",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "reward_instant_event_no_pickup",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stun_hero_initially_false",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stun_event_relayed_through_window",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stun_hero_still_at_1_4s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stun_hero_ends_after_1_5s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stop_helper_flags",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stop_helper_expire_independently",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pause_no_advance_no_change",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stun_save_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stun_restored_expires",
+			"status": "PASS"
+		}
+	],
+	"failed": 1,
+	"suite": "common2_logic",
+	"total": 49
+}

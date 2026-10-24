@@ -1,0 +1,942 @@
+{
+	"checks": [
+		{
+			"detail": "n=86 miss=[] badsize=[]",
+			"name": "assets_86_sprites_load_at_runtime_without_import",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "sprites_cover_all_enemies_crops_and_extras_incl_wave2",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "wave2_sprite_sizes_match_definition_image_px",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "wave2_sprite_foot_is_bottom_center",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "wave2_sprites_have_no_dark_outline_pixels",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "wave2_sprites_touch_the_bottom_edge_where_they_stand",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wave1_sprites_still_present_with_same_sizes",
+			"status": "PASS"
+		},
+		{
+			"detail": "16/8",
+			"name": "wave2_lists_defined",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "enemy2",
+			"name": "tab_enemy2_selected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_lab_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "crop2",
+			"name": "tab_crop2_selected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pick_button_exists_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "enemy2",
+			"name": "key_g_switches_page_enemy_to_enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "crop2",
+			"name": "key_tab_switches_enemy2_to_crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "crop",
+			"name": "key_g_switches_page_crop2_to_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "enemy",
+			"name": "key_tab_switches_crop_to_enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_enemy:root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_enemy:skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_enemy:honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_enemy:sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_enemy:bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_enemy:iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 64.0)",
+			"name": "button_exists_pick_enemy:thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 64.0)",
+			"name": "button_exists_pick_enemy:decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 73.0)",
+			"name": "button_exists_pick_enemy:pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 82.0)",
+			"name": "button_exists_pick_enemy:balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 82.0)",
+			"name": "button_exists_pick_enemy:glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_enemy:manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 91.0)",
+			"name": "button_exists_pick_enemy:lab_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "panel_spawns_all_wave2_kinds_with_expected_counts",
+			"status": "PASS"
+		},
+		{
+			"detail": "[21]",
+			"name": "manhole_net_has_one_net_id",
+			"status": "PASS"
+		},
+		{
+			"detail": "[6]",
+			"name": "bat_flock_is_one_group",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "helper_placed_from_panel",
+			"status": "PASS"
+		},
+		{
+			"detail": "[17]",
+			"name": "frog_flock_is_one_group",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 64.0)",
+			"name": "button_exists_pick_enemy:thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=23",
+			"name": "water_kinds_refuse_dry_land",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "rolls=40 hits=28",
+			"name": "glass_lottery_pressed_40_times_records_each_region",
+			"status": "PASS"
+		},
+		{
+			"detail": "28",
+			"name": "glass_lottery_has_both_hit_and_miss_regions",
+			"status": "PASS"
+		},
+		{
+			"detail": "-1 -1",
+			"name": "glass_lottery_same_region_is_stable",
+			"status": "PASS"
+		},
+		{
+			"detail": "t=60.0 n=52",
+			"name": "wave2_all_kinds_run_60_seconds_and_draw",
+			"status": "PASS"
+		},
+		{
+			"detail": "[\"root_mole\", \"skunk\", \"hippo\", \"honey_bear\", \"sewer_rat\", \"bat_flock\", \"iron_rhino\", \"thunder_eel\", \"decoy_newt\", \"mirror_lizard\", \"pistol_shrimp\", \"glass_deer\", \"manhole\"]",
+			"name": "wave2_kinds_survive_without_errors_in_state_values",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_enemy:root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "move",
+			"name": "mole_underground_not_hittable_and_not_in_targets",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=20.0",
+			"name": "shot_through_underground_mole_does_no_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "(118.0, 100.0)",
+			"name": "mole_detected_at_mound_not_body",
+			"status": "PASS"
+		},
+		{
+			"detail": "46",
+			"name": "water_click_marks_wet_cells",
+			"status": "PASS"
+		},
+		{
+			"detail": "stunned",
+			"name": "water_forces_mole_up_and_stunned",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=12.5",
+			"name": "mole_hit_when_up",
+			"status": "PASS"
+		},
+		{
+			"detail": "0",
+			"name": "wet_cells_expire_after_6_seconds",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_enemy:bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "6",
+			"name": "bats_roost_and_are_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "alive=5 fly=5 states=[\"swarm\"]",
+			"name": "one_hit_wakes_flock_and_flying_bats_are_not_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 82.0)",
+			"name": "button_exists_pick_enemy:balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "frogs_inflate_when_hero_near",
+			"status": "PASS"
+		},
+		{
+			"detail": "[63]",
+			"name": "frog_floats_and_is_still_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "acid=3 alive=0",
+			"name": "floating_frog_pops_on_one_hit_and_leaves_acid",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 82.0)",
+			"name": "button_exists_pick_enemy:glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "0",
+			"name": "glass_deer_not_counted_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "bonus",
+			"name": "glass_deer_detected_with_bonus_category",
+			"status": "PASS"
+		},
+		{
+			"detail": "0",
+			"name": "glass_deer_is_excluded_from_helper_targets",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds=+119 rewards=1",
+			"name": "glass_deer_shatters_in_one_shot_and_pays_120_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "relay_events_sets_hero_stun_and_helper_stop",
+			"status": "PASS"
+		},
+		{
+			"detail": "(120.0, 100.0)",
+			"name": "stunned_hero_cannot_move_by_wasd",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds=0 water=100 msg=STUNNED",
+			"name": "stunned_hero_cannot_shoot_or_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stun_ends_after_1_5_seconds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "helper_stop_ends_after_its_seconds",
+			"status": "PASS"
+		},
+		{
+			"detail": "(144.0, 100.0)",
+			"name": "hero_moves_again_after_stun",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 73.0)",
+			"name": "button_exists_pick_enemy:pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "stun=1 stop=1",
+			"name": "shrimp_wave_stuns_hero_and_stops_helper_via_events",
+			"status": "PASS"
+		},
+		{
+			"detail": "slow=10 stop=2",
+			"name": "odor_slows_hero_and_stops_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "14.4",
+			"name": "slowed_hero_moves_about_60_percent",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "refl=1 hp=30.0 dmg=0",
+			"name": "front_shot_is_reflected_and_does_no_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=95.0",
+			"name": "reflected_shot_hurts_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=25.0",
+			"name": "rear_shot_hits_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_enemy:skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "front_shot_makes_skunk_spray_odor_cloud",
+			"status": "PASS"
+		},
+		{
+			"detail": "odor=0 hp=8.0",
+			"name": "rear_shot_does_not_make_skunk_spray",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 64.0)",
+			"name": "button_exists_pick_enemy:thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "eel_always_hittable_in_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "dmg=3.75",
+			"name": "eel_takes_75_percent_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "wet=85 dmg=1 hp=90",
+			"name": "wet_cells_chain_carries_discharge_to_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "dmg=2.50",
+			"name": "hippo_in_water_takes_half_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_enemy:manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "manhole_net_spawned_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "(560.0, 17.0)",
+			"name": "button_exists_tab:crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "placed=3",
+			"name": "crops_can_be_planted_on_manholes_from_panel",
+			"status": "PASS"
+		},
+		{
+			"detail": "closed=3",
+			"name": "plugged_manholes_close",
+			"status": "PASS"
+		},
+		{
+			"detail": "supp=1 reward=1",
+			"name": "closing_all_manholes_suppresses_nest_and_pays_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "0",
+			"name": "closed_manholes_not_counted_for_stability",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_crop:dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_crop:mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_crop:kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_crop:loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_crop:hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_crop:apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_crop:balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=8",
+			"name": "eight_wave2_crops_placed_by_panel_clicks",
+			"status": "PASS"
+		},
+		{
+			"detail": "spent=315",
+			"name": "placement_spends_seeds",
+			"status": "PASS"
+		},
+		{
+			"detail": "day=0.0150 night=0.0750",
+			"name": "evening_primrose_night_rate_above_day_rate",
+			"status": "PASS"
+		},
+		{
+			"detail": "events=1 sown=1",
+			"name": "dandelion_fluff_sows_seed_stage_without_spending_stock",
+			"status": "PASS"
+		},
+		{
+			"detail": "burst=1 sow=3",
+			"name": "balsam_bursts_sows_and_hurts_nearby_enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_closes_when_enemy_near",
+			"status": "PASS"
+		},
+		{
+			"detail": "roots=6",
+			"name": "kudzu_grows_roots_within_distance_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "roots=5",
+			"name": "remove_tool_removes_one_root_with_no_refund",
+			"status": "PASS"
+		},
+		{
+			"detail": "water=10",
+			"name": "water_click_refills_loofah_storage_to_10",
+			"status": "PASS"
+		},
+		{
+			"detail": "storage=9",
+			"name": "loofah_waters_nearby_unwatered_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hinoki_has_no_shade_before_maturity",
+			"status": "PASS"
+		},
+		{
+			"detail": "6",
+			"name": "hinoki_mature_makes_dynamic_shade",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit=1",
+			"name": "apple_drops_fruit",
+			"status": "PASS"
+		},
+		{
+			"detail": "fruit=0 eaten=1",
+			"name": "herbivore_deer_goes_for_the_fallen_fruit_and_eats_it",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_enemy:root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_enemy:manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_enemy:bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"enemies\": 10, \"roots\": 20, \"fruit\": 1, \"wet\": 45, \"odor\": 1, \"acid\": 1, \"bats\": 6, \"manholes\": 3 }",
+			"name": "save_state_has_wave2_content_before_saving",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "f5_saves",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "state_cleared_before_loading",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"enemies\": 10, \"roots\": 20, \"fruit\": 1, \"wet\": 45, \"odor\": 1, \"acid\": 1, \"bats\": 6, \"manholes\": 3 } vs { \"enemies\": 10, \"roots\": 20, \"fruit\": 1, \"wet\": 45, \"odor\": 1, \"acid\": 1, \"bats\": 6, \"manholes\": 3 }",
+			"name": "f9_restores_wave2_state_exactly",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "paused_lab_does_not_advance_pack",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "resume_advances_pack",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "key_m_toggles_detect_display",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "key_h_toggles_hidden_display",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "key_n_toggles_night",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "lab2_logic",
+	"total": 187
+}

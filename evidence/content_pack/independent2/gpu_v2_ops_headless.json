@@ -1,0 +1,506 @@
+{
+	"adapter": "",
+	"checks": [
+		{
+			"detail": "display=headless adapter='' (描画の確認は NOT_RUN。操作の確認だけ行う)",
+			"name": "gpu_available",
+			"status": "NOT_RUN"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_enemy:root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_enemy:skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_enemy:honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_enemy:sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_enemy:bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_enemy:iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 64.0)",
+			"name": "button_exists_pick_enemy:thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 64.0)",
+			"name": "button_exists_pick_enemy:decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 73.0)",
+			"name": "button_exists_pick_enemy:pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 82.0)",
+			"name": "button_exists_pick_enemy:balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 82.0)",
+			"name": "button_exists_pick_enemy:glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_enemy:manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 91.0)",
+			"name": "button_exists_pick_enemy:lab_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6",
+			"name": "ops_enemy_placed_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "ops_enemy_placed_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "ops_manhole_net_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6",
+			"name": "ops_bat_flock_6",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "ops_frog_flock_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_helper_placed",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "lots=6 hits=3",
+			"name": "ops_glass_lottery_runs",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_crop:dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_crop:mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_crop:kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_crop:loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_crop:hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_crop:apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_crop:balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 251.0)",
+			"name": "button_exists_dbg_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 239.0)",
+			"name": "button_exists_dbg_mature",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_debug_mature_all",
+			"status": "PASS"
+		},
+		{
+			"detail": "bullets=1 seeds 9684->9683",
+			"name": "ops_lmb_shoot",
+			"status": "PASS"
+		},
+		{
+			"detail": "water 100->90 wet_cell events=44",
+			"name": "ops_rmb_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "moved 14.0",
+			"name": "ops_shift_lmb_tackle",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds 9683->9690 rewards+12",
+			"name": "ops_shift_rmb_bazooka",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_key_space_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_paused_no_time_advance",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_key_space_resume",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_key_n_day_night",
+			"status": "PASS"
+		},
+		{
+			"detail": "time 0.00 vs 0.00",
+			"name": "ops_f5_f9_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "実GPUがないため描画未検証",
+			"name": "render_checks_all",
+			"status": "NOT_RUN"
+		}
+	],
+	"display_server": "headless",
+	"driver": "vulkan",
+	"failed": 0,
+	"not_run": 2,
+	"shots": [],
+	"suite": "gpu_v2",
+	"total": 98,
+	"window_size": [
+		64,
+		64
+	]
+}

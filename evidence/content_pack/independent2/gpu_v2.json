@@ -1,0 +1,1097 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"checks": [
+		{
+			"detail": "adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows",
+			"name": "gpu_available",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "window_unfocusable_flag",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_enemy:root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_enemy:skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_enemy:honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_enemy:sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_enemy:bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_enemy:iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 64.0)",
+			"name": "button_exists_pick_enemy:thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 64.0)",
+			"name": "button_exists_pick_enemy:decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 73.0)",
+			"name": "button_exists_pick_enemy:pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 82.0)",
+			"name": "button_exists_pick_enemy:balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 82.0)",
+			"name": "button_exists_pick_enemy:glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_enemy:manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 91.0)",
+			"name": "button_exists_pick_enemy:lab_helper",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6",
+			"name": "ops_enemy_placed_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "ops_enemy_placed_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_enemy_placed_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "ops_manhole_net_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=6",
+			"name": "ops_bat_flock_6",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "ops_frog_flock_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_helper_placed",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:glass_lot",
+			"status": "PASS"
+		},
+		{
+			"detail": "lots=6 hits=3",
+			"name": "ops_glass_lottery_runs",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_crop:dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_crop:mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_crop:kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_crop:loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_crop:hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_crop:apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_crop:balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "ops_crop_placed_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 251.0)",
+			"name": "button_exists_dbg_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 239.0)",
+			"name": "button_exists_dbg_mature",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_debug_mature_all",
+			"status": "PASS"
+		},
+		{
+			"detail": "bullets=1 seeds 9684->9683",
+			"name": "ops_lmb_shoot",
+			"status": "PASS"
+		},
+		{
+			"detail": "water 100->90 wet_cell events=44",
+			"name": "ops_rmb_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "moved 14.0",
+			"name": "ops_shift_lmb_tackle",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds 9683->9690 rewards+12",
+			"name": "ops_shift_rmb_bazooka",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_key_space_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_paused_no_time_advance",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_key_space_resume",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ops_key_n_day_night",
+			"status": "PASS"
+		},
+		{
+			"detail": "time 0.00 vs 0.00",
+			"name": "ops_f5_f9_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_enemy:root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_enemy:skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_enemy:honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_enemy:sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_enemy:iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 64.0)",
+			"name": "button_exists_pick_enemy:thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 64.0)",
+			"name": "button_exists_pick_enemy:decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 73.0)",
+			"name": "button_exists_pick_enemy:pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 82.0)",
+			"name": "button_exists_pick_enemy:glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_enemy:bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 82.0)",
+			"name": "button_exists_pick_enemy:balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "(591.0, 17.0)",
+			"name": "button_exists_tab:enemy2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_enemy:manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_animals_lineup_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_animals_lineup_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=0.98 offset=(0, 0) flip=false",
+			"name": "sprite_foot_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=0.40 offset=(0, 0) flip=false",
+			"name": "sprite_foot_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=0.98 offset=(0, 0) flip=false",
+			"name": "sprite_foot_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-terrain pixels=390",
+			"name": "glass_deer_drawn_translucent_visible",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_crop:dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_crop:mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_crop:kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_crop:loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_crop:hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_crop:apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "(622.0, 17.0)",
+			"name": "button_exists_tab:crop2",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_crop:balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 251.0)",
+			"name": "button_exists_dbg_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 239.0)",
+			"name": "button_exists_dbg_mature",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_crops_lineup_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_crops_lineup_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=1.00 offset=(0, 0) flip=false",
+			"name": "sprite_foot_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 181.0)",
+			"name": "button_exists_day",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_crops_night_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_crops_night_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "day=7807.0 night=5078.1",
+			"name": "night_frame_darker_than_day_frame",
+			"status": "PASS"
+		},
+		{
+			"detail": "changed=240",
+			"name": "primrose_region_changes_between_day_and_night",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_state_skunk_odor_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_state_skunk_odor_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "state_skunk_cloud_exists",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_state_eel_wet_discharge_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_state_eel_wet_discharge_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_state_mole_mounds_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_state_mole_mounds_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "state_mole_mounds_listed",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_state_mole_stunned_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_state_mole_stunned_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "state_mole_stunned",
+			"status": "PASS"
+		},
+		{
+			"detail": "match=0.95 offset=(0, 0) flip=false",
+			"name": "sprite_foot_root_mole_surfaced",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_state_bats_frogs_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_state_bats_frogs_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_state_lizard_reflect_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_state_lizard_reflect_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_state_bear_sleep_rhino_rust_manholes_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_state_bear_sleep_rhino_rust_manholes_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_panel_enemy2_page_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_panel_enemy2_page_nearest_blocks_uniform",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_panel_crop2_page_size_integer_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "non-uniform blocks=0",
+			"name": "shot_panel_crop2_page_nearest_blocks_uniform",
+			"status": "PASS"
+		}
+	],
+	"display_server": "Windows",
+	"driver": "vulkan",
+	"failed": 0,
+	"not_run": 0,
+	"shots": [
+		{
+			"file": "evidence/content_pack/independent2/gpu/animals_lineup.png",
+			"name": "animals_lineup",
+			"note": "第2弾の動物13種(中立1を含む)を確認画面の入力で並べた静止画",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 283
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/crops_lineup.png",
+			"name": "crops_lineup",
+			"note": "第2弾の栽培植物8種(成熟後)を確認画面の入力で並べた静止画",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 145
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/crops_night.png",
+			"name": "crops_night",
+			"note": "夜(ツキミソウが開く)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 150
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/state_skunk_odor.png",
+			"name": "state_skunk_odor",
+			"note": "スカンクの臭気の雲と予兆",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 80
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/state_eel_wet_discharge.png",
+			"name": "state_eel_wet_discharge",
+			"note": "ウナギの予兆/放電と濡れたマス",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 82
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/state_mole_mounds.png",
+			"name": "state_mole_mounds",
+			"note": "ネッコモグラの盛り土(地中)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 61
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/state_mole_stunned.png",
+			"name": "state_mole_stunned",
+			"note": "水で追い出されて目を回すネッコモグラ",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 78
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/state_bats_frogs.png",
+			"name": "state_bats_frogs",
+			"note": "夜に乱れ飛ぶコウモリと、膨らむ/浮かぶフウセンガエル",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 72
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/state_lizard_reflect.png",
+			"name": "state_lizard_reflect",
+			"note": "カガミトカゲの反射(来た方向へ跳ね返る弾)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 75
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/state_bear_sleep_rhino_rust_manholes.png",
+			"name": "state_bear_sleep_rhino_rust_manholes",
+			"note": "眠るクマ(Zz)、錆のサイ、マンホール網",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 98
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/panel_enemy2_page.png",
+			"name": "panel_enemy2_page",
+			"note": "ENM2ページ",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 98
+		},
+		{
+			"file": "evidence/content_pack/independent2/gpu/panel_crop2_page.png",
+			"name": "panel_crop2_page",
+			"note": "CRP2ページ",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 98
+		}
+	],
+	"suite": "gpu_v2",
+	"total": 192,
+	"window_size": [
+		1280,
+		720
+	]
+}

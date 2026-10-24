@@ -1,0 +1,197 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"checks": [
+		{
+			"detail": "adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows",
+			"name": "gpu_available",
+			"status": "PASS"
+		},
+		{
+			"detail": "unfocusable=true (ウィンドウ生成時の初回フォーカスはスクリプトでは防げない)",
+			"name": "window_unfocusable_flag_set",
+			"status": "PASS"
+		},
+		{
+			"detail": "scale=2.00 got=(100.0, 100.0)",
+			"name": "injected_input_maps_to_viewport_coords",
+			"status": "PASS"
+		},
+		{
+			"detail": "enemies=27 piles=2",
+			"name": "shot_enemies_spawned_all_kinds",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_enemies_all_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=284",
+			"name": "shot_enemies_all_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "deer opaque px=227 exact=227 (100.0%)",
+			"name": "sprite_pixels_match_png_exactly_nearest_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "bottom=252 foot=253",
+			"name": "sprite_bottom_row_is_at_foot_line",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_states_ground_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=275",
+			"name": "shot_states_ground_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_states_special_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=267",
+			"name": "shot_states_special_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "hidden_enemies_not_in_detectable_list",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_crops_all_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=261",
+			"name": "shot_crops_all_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "crops=53",
+			"name": "shot_crops_placed_all_kinds",
+			"status": "PASS"
+		},
+		{
+			"detail": "(41, 14)",
+			"name": "hover_via_injected_input_updates_preview_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_ui_preview_debug_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=80",
+			"name": "shot_ui_preview_debug_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_night_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=87",
+			"name": "shot_night_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "63 sprites: near-black edge pixels <=10% each",
+			"name": "sprites_have_no_black_outline_pixels_on_edges",
+			"status": "PASS"
+		},
+		{
+			"detail": "filter=0 mode=viewport scale=integer",
+			"name": "project_uses_nearest_and_integer_viewport_scaling",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "lab_canvas_nearest",
+			"status": "PASS"
+		}
+	],
+	"display_server": "Windows",
+	"driver": "vulkan",
+	"failed": 0,
+	"not_run": 0,
+	"shots": [
+		{
+			"file": "evidence/content_pack/self/gpu/enemies_all.png",
+			"name": "enemies_all",
+			"note": "全敵(静止)。擬態3種(クサヘビ・コケガメ・ミミック)は擬態中の見た目",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 284
+		},
+		{
+			"file": "evidence/content_pack/self/gpu/states_ground.png",
+			"name": "states_ground",
+			"note": "状態記号: 予兆!・線・★・湿り・黒焦げ煙・怒り・音符・丸まり(回転灰色)・ひっくり返り・HPバー・粘液・ガス・爆発",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 275
+		},
+		{
+			"file": "evidence/content_pack/self/gpu/states_special.png",
+			"name": "states_special",
+			"note": "擬態中(茂み・キャベツ・草)・揺らぎ記号・飛行(影)・トンビの影と予兆・水中/浮上・巣(怒り・休止ZZ)・殻付け替え・置き場の在庫",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 267
+		},
+		{
+			"file": "evidence/content_pack/self/gpu/crops_all.png",
+			"name": "crops_all",
+			"note": "28種(親クローバー含む)。上段=成熟(等倍)、下段=未成熟(縮小)。毒・開花・消化・貯蔵・低HPと金の範囲プレビュー",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 261
+		},
+		{
+			"file": "evidence/content_pack/self/gpu/ui_preview_debug.png",
+			"name": "ui_preview_debug",
+			"note": "配置プレビュー(緑=可)と範囲の点(ラベンダー)・価格・パネル・DEBUG表示",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 80
+		},
+		{
+			"file": "evidence/content_pack/self/gpu/night.png",
+			"name": "night",
+			"note": "夜の画面(暗転)。ヒカリゴケの光",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 87
+		}
+	],
+	"suite": "lab_gpu",
+	"total": 24,
+	"window_size": [
+		1280,
+		720
+	]
+}

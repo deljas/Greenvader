@@ -1,0 +1,627 @@
+{
+	"checks": [
+		{
+			"detail": "n=86 miss=[] badsize=[]",
+			"name": "assets_63_sprites_load_at_runtime_without_import",
+			"status": "FAIL"
+		},
+		{
+			"detail": "[]",
+			"name": "sprites_cover_all_enemies_crops_and_extras",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "bank_image_sizes_match_catalog_px",
+			"status": "PASS"
+		},
+		{
+			"detail": "user://content_lab/save.json",
+			"name": "save_path_is_lab_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "up=24.00 back=0.00",
+			"name": "wasd_moves_hero_and_stops_on_release",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:slime_slug",
+			"status": "PASS"
+		},
+		{
+			"detail": "[1]",
+			"name": "click_spawn_enemy_from_panel_initial",
+			"status": "PASS"
+		},
+		{
+			"detail": "alive=false hit_logged=true",
+			"name": "lmb_seed_shot_hits_and_defeats_enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds 300->301 reward=1",
+			"name": "defeat_reward_once_and_seed_cost",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 157.0)",
+			"name": "button_exists_origin:produced",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:slime_slug",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds 301->296",
+			"name": "shift_rmb_bazooka_kills_produced_enemy_no_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 157.0)",
+			"name": "button_exists_origin:initial",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 118.0)",
+			"name": "button_exists_pick_enemy:deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp 30.0->22.0",
+			"name": "shift_lmb_tackle_deals_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 251.0)",
+			"name": "button_exists_clear_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "clear_enemies_button",
+			"status": "PASS"
+		},
+		{
+			"detail": "landed=1 seeds 296->295",
+			"name": "seed_shot_to_ground_lands_and_costs_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp=90.0 move=12.00",
+			"name": "host_applies_hero_damage_pull_slow",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_enemy:tarachunade",
+			"status": "PASS"
+		},
+		{
+			"detail": "wet_until=24.0 water 100->90",
+			"name": "rmb_water_makes_tarachunade_wet_and_costs_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 251.0)",
+			"name": "button_exists_clear_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:mushling_parent",
+			"status": "PASS"
+		},
+		{
+			"detail": "1/2",
+			"name": "mushling_family_spawns_together",
+			"status": "PASS"
+		},
+		{
+			"detail": "calls=2",
+			"name": "mushling_child_calls_parent_event_reaches_lab",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 251.0)",
+			"name": "button_exists_clear_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "(560.0, 17.0)",
+			"name": "button_exists_tab:crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "crop_tool_selected_from_panel",
+			"status": "PASS"
+		},
+		{
+			"detail": "CANT: BLOCKED_GROUND",
+			"name": "placement_on_water_refused_with_reason",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"kind\": \"clover\", \"cell\": (40, 27), \"size\": (1, 1), \"ok\": true, \"reason\": \"\", \"price\": 10, \"afford\": true }",
+			"name": "preview_shows_ok_and_price_10",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds 295->285",
+			"name": "click_places_crop_and_pays_price",
+			"status": "PASS"
+		},
+		{
+			"detail": "PLACE CLOVER PRICE 11 OK",
+			"name": "info_bar_shows_current_price_for_next_clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds=274",
+			"name": "second_clover_paid_11_same_family_price_rises",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"kind\": \"clover\", \"cell\": (40, 27), \"size\": (1, 1), \"ok\": false, \"reason\": \"occupied\", \"price\": 12, \"afford\": true }",
+			"name": "preview_occupied_cell_not_ok",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"kind\": \"giant_watermelon\", \"cell\": (36, 25), \"size\": (6, 6), \"ok\": false, \"reason\": \"occupied\", \"price\": 450, \"afford\": false }",
+			"name": "preview_giant_watermelon_6x6_footprint",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 169.0)",
+			"name": "button_exists_tool:remove",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds 274->276",
+			"name": "remove_mode_removes_and_refunds_20_percent",
+			"status": "PASS"
+		},
+		{
+			"detail": "combat",
+			"name": "rmb_returns_to_combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "(560.0, 17.0)",
+			"name": "button_exists_tab:crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 169.0)",
+			"name": "button_exists_tool:combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"name": "three_clovers_planted",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 251.0)",
+			"name": "button_exists_dbg_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "(618.0, 193.0)",
+			"name": "button_exists_speed:60",
+			"status": "PASS"
+		},
+		{
+			"detail": "elapsed 600.0 pack 600.0",
+			"name": "speed_x60_advances_600_game_seconds",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds +57 total=6.00/min",
+			"name": "fast_forward_matures_crops_and_produces_seeds",
+			"status": "PASS"
+		},
+		{
+			"detail": "TOTAL 6.0 SEEDS/MIN  PLANTS 3  STABLE-COUNT ENEMIES 0",
+			"name": "info_bar_shows_total_and_selected_rates",
+			"status": "PASS"
+		},
+		{
+			"detail": "(534.0, 193.0)",
+			"name": "button_exists_speed:1",
+			"status": "PASS"
+		},
+		{
+			"detail": "(560.0, 17.0)",
+			"name": "button_exists_tab:crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_crop:clover",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 169.0)",
+			"name": "button_exists_tool:combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 239.0)",
+			"name": "button_exists_dbg_mature",
+			"status": "PASS"
+		},
+		{
+			"detail": "clover",
+			"name": "debug_mature_makes_selected_crop_mature_without_roll",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 227.0)",
+			"name": "button_exists_dbg_roll_hit",
+			"status": "PASS"
+		},
+		{
+			"detail": "four_leaf_clover",
+			"name": "debug_forced_roll_hit_becomes_four_leaf_with_debug_event",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "debug_labels_visible_on_screen",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 227.0)",
+			"name": "button_exists_dbg_roll_miss",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "debug_roll_cannot_repeat_after_roll",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 239.0)",
+			"name": "button_exists_dbg_seeds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "debug_seeds_plus_100",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 205.0)",
+			"name": "button_exists_save",
+			"status": "PASS"
+		},
+		{
+			"detail": "user://content_lab/save.json",
+			"name": "save_writes_lab_file",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 118.0)",
+			"name": "button_exists_pick_enemy:deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "(560.0, 17.0)",
+			"name": "button_exists_tab:crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 73.0)",
+			"name": "button_exists_pick_crop:mint",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 169.0)",
+			"name": "button_exists_tool:combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "state_mutated_before_load",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 205.0)",
+			"name": "button_exists_load",
+			"status": "PASS"
+		},
+		{
+			"detail": "len 2003/2003",
+			"name": "load_restores_pack_state_exactly",
+			"status": "PASS"
+		},
+		{
+			"detail": "seeds=398 crops=4",
+			"name": "load_restores_host_side_seeds_hero_crops",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 251.0)",
+			"name": "button_exists_clear_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 181.0)",
+			"name": "button_exists_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "paused_does_not_advance_time",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "space_resumes_and_time_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "speed_zero_does_not_advance_time",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "key_2_sets_x10",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "key_1_sets_x1",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 181.0)",
+			"name": "button_exists_day",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "day_night_button_toggles",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "n_key_toggles_back_to_day",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 127.0)",
+			"name": "button_exists_pick_enemy:junk_pile",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "add_junk_pile_button_adds_pile",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 91.0)",
+			"name": "button_exists_pick_enemy:sludge_carp",
+			"status": "PASS"
+		},
+		{
+			"detail": "0/1",
+			"name": "carp_needs_water_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 251.0)",
+			"name": "button_exists_clear_enemies",
+			"status": "PASS"
+		},
+		{
+			"detail": "crop",
+			"name": "tab_key_switches_list",
+			"status": "PASS"
+		},
+		{
+			"detail": "remove",
+			"name": "r_key_toggles_remove_tool",
+			"status": "PASS"
+		},
+		{
+			"detail": "combat",
+			"name": "esc_returns_to_combat",
+			"status": "PASS"
+		},
+		{
+			"detail": "(529.0, 17.0)",
+			"name": "button_exists_tab:enemy",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 28.0)",
+			"name": "button_exists_pick_enemy:shadow_brian",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 28.0)",
+			"name": "button_exists_pick_enemy:tarachunade",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 37.0)",
+			"name": "button_exists_pick_enemy:mushling_parent",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 37.0)",
+			"name": "button_exists_pick_enemy:quill_hedgehog",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 46.0)",
+			"name": "button_exists_pick_enemy:grass_snake",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 46.0)",
+			"name": "button_exists_pick_enemy:seed_bird",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 55.0)",
+			"name": "button_exists_pick_enemy:junk_crab",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 55.0)",
+			"name": "button_exists_pick_enemy:stray_wolf",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 64.0)",
+			"name": "button_exists_pick_enemy:moss_turtle",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 64.0)",
+			"name": "button_exists_pick_enemy:paint_chameleon",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 73.0)",
+			"name": "button_exists_pick_enemy:slime_slug",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 73.0)",
+			"name": "button_exists_pick_enemy:pouch_rabbit",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 82.0)",
+			"name": "button_exists_pick_enemy:tongue_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 82.0)",
+			"name": "button_exists_pick_enemy:honeybee_hive",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 91.0)",
+			"name": "button_exists_pick_enemy:armadillo",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 91.0)",
+			"name": "button_exists_pick_enemy:sludge_carp",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 100.0)",
+			"name": "button_exists_pick_enemy:leafcutter_ant",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 100.0)",
+			"name": "button_exists_pick_enemy:ant_hill",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 109.0)",
+			"name": "button_exists_pick_enemy:mimic_cabbage",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 109.0)",
+			"name": "button_exists_pick_enemy:black_kite",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 118.0)",
+			"name": "button_exists_pick_enemy:deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "(607.5, 118.0)",
+			"name": "button_exists_pick_enemy:iron_jaw_beetle",
+			"status": "PASS"
+		},
+		{
+			"detail": "(544.5, 127.0)",
+			"name": "button_exists_pick_enemy:junk_pile",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "every_enemy_kind_spawns_from_panel",
+			"status": "PASS"
+		},
+		{
+			"detail": "n0=27 n=27",
+			"name": "all_enemy_kinds_run_3_seconds_and_draw",
+			"status": "PASS"
+		},
+		{
+			"detail": "stab=25 total=27",
+			"name": "neutral_bees_not_counted_in_stability_number",
+			"status": "PASS"
+		}
+	],
+	"failed": 1,
+	"suite": "lab_logic",
+	"total": 124
+}

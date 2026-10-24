@@ -1,0 +1,707 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"name": "sprite_loads_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "16x12 want [16.0, 12.0]",
+			"name": "sprite_size_matches_def_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "[8.0, 12.0]",
+			"name": "sprite_foot_bottom_center_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=103 opaque=103 colors=13",
+			"name": "sprite_has_content_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=37 dominant_share=0.27 dark=false",
+			"name": "sprite_no_dark_outline_root_mole",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "16x12 want [16.0, 12.0]",
+			"name": "sprite_size_matches_def_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "[8.0, 12.0]",
+			"name": "sprite_foot_bottom_center_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=114 opaque=114 colors=10",
+			"name": "sprite_has_content_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=47 dominant_share=0.28 dark=true",
+			"name": "sprite_no_dark_outline_skunk",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "40x24 want [40.0, 24.0]",
+			"name": "sprite_size_matches_def_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "[20.0, 24.0]",
+			"name": "sprite_foot_bottom_center_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=544 opaque=544 colors=13",
+			"name": "sprite_has_content_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=110 dominant_share=0.30 dark=false",
+			"name": "sprite_no_dark_outline_hippo",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "32x28 want [32.0, 28.0]",
+			"name": "sprite_size_matches_def_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "[16.0, 28.0]",
+			"name": "sprite_foot_bottom_center_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=528 opaque=528 colors=17",
+			"name": "sprite_has_content_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=120 dominant_share=0.28 dark=false",
+			"name": "sprite_no_dark_outline_honey_bear",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "10x8 want [10.0, 8.0]",
+			"name": "sprite_size_matches_def_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "[5.0, 8.0]",
+			"name": "sprite_foot_bottom_center_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=38 opaque=38 colors=11",
+			"name": "sprite_has_content_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=22 dominant_share=0.23 dark=false",
+			"name": "sprite_no_dark_outline_sewer_rat",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "8x8 want [8.0, 8.0]",
+			"name": "sprite_size_matches_def_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "[4.0, 8.0]",
+			"name": "sprite_foot_bottom_center_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=44 opaque=44 colors=6",
+			"name": "sprite_has_content_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=20 dominant_share=0.35 dark=false",
+			"name": "sprite_no_dark_outline_manhole",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "8x6 want [8.0, 6.0]",
+			"name": "sprite_size_matches_def_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "[4.0, 6.0]",
+			"name": "sprite_foot_bottom_center_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=22 opaque=22 colors=6",
+			"name": "sprite_has_content_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=18 dominant_share=0.33 dark=false",
+			"name": "sprite_no_dark_outline_bat_flock",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "40x28 want [40.0, 28.0]",
+			"name": "sprite_size_matches_def_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "[20.0, 28.0]",
+			"name": "sprite_foot_bottom_center_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=627 opaque=627 colors=14",
+			"name": "sprite_has_content_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=134 dominant_share=0.24 dark=false",
+			"name": "sprite_no_dark_outline_iron_rhino",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "22x8 want [22.0, 8.0]",
+			"name": "sprite_size_matches_def_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "[11.0, 8.0]",
+			"name": "sprite_foot_bottom_center_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=87 opaque=87 colors=8",
+			"name": "sprite_has_content_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=48 dominant_share=0.44 dark=false",
+			"name": "sprite_no_dark_outline_thunder_eel",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "14x8 want [14.0, 8.0]",
+			"name": "sprite_size_matches_def_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "[7.0, 8.0]",
+			"name": "sprite_foot_bottom_center_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=55 opaque=55 colors=10",
+			"name": "sprite_has_content_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=29 dominant_share=0.24 dark=false",
+			"name": "sprite_no_dark_outline_decoy_newt",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_decoy_tail",
+			"status": "PASS"
+		},
+		{
+			"detail": "14x8 want [14.0, 8.0]",
+			"name": "sprite_size_matches_def_decoy_tail",
+			"status": "PASS"
+		},
+		{
+			"detail": "[7.0, 8.0]",
+			"name": "sprite_foot_bottom_center_decoy_tail",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=55 opaque=55 colors=10",
+			"name": "sprite_has_content_decoy_tail",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_decoy_tail",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=29 dominant_share=0.24 dark=false",
+			"name": "sprite_no_dark_outline_decoy_tail",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "18x10 want [18.0, 10.0]",
+			"name": "sprite_size_matches_def_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "[9.0, 10.0]",
+			"name": "sprite_foot_bottom_center_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=84 opaque=84 colors=14",
+			"name": "sprite_has_content_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=39 dominant_share=0.21 dark=false",
+			"name": "sprite_no_dark_outline_mirror_lizard",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "20x14 want [20.0, 14.0]",
+			"name": "sprite_size_matches_def_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "[10.0, 14.0]",
+			"name": "sprite_foot_bottom_center_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=119 opaque=119 colors=16",
+			"name": "sprite_has_content_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=60 dominant_share=0.18 dark=false",
+			"name": "sprite_no_dark_outline_pistol_shrimp",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "12x12 want [12.0, 12.0]",
+			"name": "sprite_size_matches_def_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "[6.0, 12.0]",
+			"name": "sprite_foot_bottom_center_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=78 opaque=78 colors=12",
+			"name": "sprite_has_content_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=30 dominant_share=0.20 dark=false",
+			"name": "sprite_no_dark_outline_balloon_frog",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "22x24 want [22.0, 24.0]",
+			"name": "sprite_size_matches_def_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "[11.0, 24.0]",
+			"name": "sprite_foot_bottom_center_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=239 opaque=1 colors=1",
+			"name": "sprite_has_content_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "alpha_levels=[0.85, 0.62, 1.0, 0.8]",
+			"name": "sprite_glass_deer_few_alpha_levels",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=0 dominant_share=0.00 dark=false",
+			"name": "sprite_no_dark_outline_glass_deer",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "12x20 want [12.0, 20.0]",
+			"name": "sprite_size_matches_def_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "[6.0, 20.0]",
+			"name": "sprite_foot_bottom_center_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=77 opaque=77 colors=11",
+			"name": "sprite_has_content_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=54 dominant_share=0.31 dark=false",
+			"name": "sprite_no_dark_outline_evening_primrose",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "10x12 want [10.0, 12.0]",
+			"name": "sprite_size_matches_def_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "[5.0, 12.0]",
+			"name": "sprite_foot_bottom_center_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=59 opaque=59 colors=11",
+			"name": "sprite_has_content_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=37 dominant_share=0.19 dark=false",
+			"name": "sprite_no_dark_outline_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "12x10 want [12.0, 10.0]",
+			"name": "sprite_size_matches_def_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "[6.0, 10.0]",
+			"name": "sprite_foot_bottom_center_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=54 opaque=54 colors=6",
+			"name": "sprite_has_content_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=43 dominant_share=0.44 dark=false",
+			"name": "sprite_no_dark_outline_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "14x14 want [14.0, 14.0]",
+			"name": "sprite_size_matches_def_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "[7.0, 14.0]",
+			"name": "sprite_foot_bottom_center_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=136 opaque=136 colors=14",
+			"name": "sprite_has_content_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=50 dominant_share=0.20 dark=false",
+			"name": "sprite_no_dark_outline_kudzu",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "12x24 want [12.0, 24.0]",
+			"name": "sprite_size_matches_def_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "[6.0, 24.0]",
+			"name": "sprite_foot_bottom_center_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=121 opaque=121 colors=10",
+			"name": "sprite_has_content_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=86 dominant_share=0.35 dark=false",
+			"name": "sprite_no_dark_outline_loofah",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "36x56 want [36.0, 56.0]",
+			"name": "sprite_size_matches_def_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "[18.0, 56.0]",
+			"name": "sprite_foot_bottom_center_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=746 opaque=746 colors=7",
+			"name": "sprite_has_content_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=152 dominant_share=0.30 dark=false",
+			"name": "sprite_no_dark_outline_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "28x36 want [28.0, 36.0]",
+			"name": "sprite_size_matches_def_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "[14.0, 36.0]",
+			"name": "sprite_foot_bottom_center_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=528 opaque=528 colors=16",
+			"name": "sprite_has_content_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=110 dominant_share=0.18 dark=false",
+			"name": "sprite_no_dark_outline_apple",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sprite_loads_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "10x14 want [10.0, 14.0]",
+			"name": "sprite_size_matches_def_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "[5.0, 14.0]",
+			"name": "sprite_foot_bottom_center_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=72 opaque=72 colors=16",
+			"name": "sprite_has_content_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "partial=0",
+			"name": "sprite_no_antialias_alpha_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "edge=53 dominant_share=0.13 dark=false",
+			"name": "sprite_no_dark_outline_balsam",
+			"status": "PASS"
+		},
+		{
+			"detail": "[\"bat_flock\", \"thunder_eel\", \"balloon_frog\", \"glass_deer\"]",
+			"name": "sprite_bottom_row_empty_only_for_air_water_glass",
+			"status": "PASS"
+		},
+		{
+			"detail": "diff_pixels=0",
+			"name": "decoy_tail_sprite_same_as_newt_body",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "sprite_v",
+	"total": 140
+}

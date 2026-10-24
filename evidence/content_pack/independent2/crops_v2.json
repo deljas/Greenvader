@@ -1,0 +1,532 @@
+{
+	"checks": [
+		{
+			"detail": "cond=0.3 rate=0.9",
+			"name": "primrose_day_x0_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "rate=4.5",
+			"name": "primrose_night_x1_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sunflower_opposite_night_low",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "sunflower_day_high",
+			"status": "PASS"
+		},
+		{
+			"detail": "day=0.1 night=0.2",
+			"name": "primrose_flower_tag_only_at_night",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "primrose_immature_zero",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "primrose_matures_at_30s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dandelion_no_sow_before_40s",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1 t=40.0000000000003",
+			"name": "dandelion_sows_one_at_40s",
+			"status": "PASS"
+		},
+		{
+			"detail": "dist=5",
+			"name": "dandelion_range_3_to_6",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dandelion_no_stock_consumption",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dandelion_does_not_multiply",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(49, 30), (52, 27)]",
+			"name": "dandelion_only_valid_cells",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dandelion_no_candidates_no_sow_no_rng",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(44, 26), (44, 26), (53, 28)]",
+			"name": "dandelion_rng_deterministic_by_pack_seed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dandelion_immature_no_sow",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_open_production",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_open_when_enemy_beyond_2m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_closes_when_enemy_within_2m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_closed_production_zero",
+			"status": "PASS"
+		},
+		{
+			"detail": "dealt=2.0",
+			"name": "mimosa_closed_damage_x0_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_still_closed_3s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_reopens_after_4s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_first_hit_full_then_closes",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_ignores_neutral",
+			"status": "PASS"
+		},
+		{
+			"detail": "dealt=1.4",
+			"name": "mimosa_pumpkin_stack_1_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "mimosa_stays_closed_while_enemy_near",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_no_root_before_15s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_first_root_at_15s",
+			"status": "PASS"
+		},
+		{
+			"detail": "(30, 23)",
+			"name": "kudzu_first_root_adjacent_to_stock",
+			"status": "PASS"
+		},
+		{
+			"detail": "cond=1.15",
+			"name": "kudzu_production_with_root",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"ok\": false, \"reason\": \"occupied\", \"by\": \"kudzu_root\" }",
+			"name": "kudzu_root_occupied",
+			"status": "PASS"
+		},
+		{
+			"detail": "cond=0.8",
+			"name": "kudzu_neighbor_other_kind_x0_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_nonadjacent_unaffected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_enemy_speed_x0_6_on_root",
+			"status": "PASS"
+		},
+		{
+			"detail": "root=6.00 plain=10.00",
+			"name": "kudzu_root_slows_enemy_actual_move",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=24",
+			"name": "kudzu_roots_max_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "maxd=4",
+			"name": "kudzu_roots_within_chebyshev_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_roots_unique_and_free",
+			"status": "PASS"
+		},
+		{
+			"detail": "rate=4.6",
+			"name": "kudzu_max_production",
+			"status": "PASS"
+		},
+		{
+			"detail": "fam=1",
+			"name": "kudzu_roots_not_counted_in_family",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_only_stock_produces",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_remove_single_root_refund0",
+			"status": "PASS"
+		},
+		{
+			"detail": "roots=0",
+			"name": "kudzu_roots_only_on_valid_cells",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_roots_avoid_building_and_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "roots=4 ev=4",
+			"name": "kudzu_stock_removed_all_roots_gone",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_root_cells_free_after_loss",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_destroyed_by_enemy_removes_roots",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "kudzu_immature_no_roots",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_starts_empty",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_empty_waters_nothing",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_filled_to_10_when_watered",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "loofah_waters_one_per_10s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_target_becomes_watered",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_next_target_nearest_unwatered",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_never_waters_out_of_range_or_self",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(32, 24)]",
+			"name": "loofah_waters_growing_grass_when_no_crops",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_grass_other_cell_next",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_needs_water_when_empty_for_sprinkler",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_refilled_by_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_no_refill_event_when_full",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_not_refilled_by_adjacent_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_empty_but_watered_still_priority",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "loofah_full_watered_not_priority",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hinoki_immature_no_shade",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dokudami_not_shaded_before_hinoki_matures",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(30, 22), (31, 22), (32, 22), (30, 23), (31, 23), (32, 23)]",
+			"name": "hinoki_shade_2x3_north",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hinoki_shade_not_south_or_sides",
+			"status": "PASS"
+		},
+		{
+			"detail": "cond=2.0",
+			"name": "dokudami_gets_shade_multiplier_dynamically",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "dokudami_outside_shade_normal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hinoki_removed_shade_gone",
+			"status": "PASS"
+		},
+		{
+			"detail": "cond=1.0",
+			"name": "dokudami_multiplier_gone_with_hinoki",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "static_shade_still_works",
+			"status": "PASS"
+		},
+		{
+			"detail": "1.5 / 1.0",
+			"name": "dokudami_growth_x1_5_in_hinoki_shade",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hinoki_occupies_3x3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "hinoki_def_size_hp_cost",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "apple_no_drop_before_30s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "apple_drops_at_30s",
+			"status": "PASS"
+		},
+		{
+			"detail": "(19, 20)",
+			"name": "apple_fruit_on_adjacent_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "apple_max_3_fruits",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "apple_fruit_not_a_pickup",
+			"status": "PASS"
+		},
+		{
+			"detail": "[{ \"id\": 1, \"cell\": (21, 22), \"source_id\": 1 }]",
+			"name": "apple_fruit_only_on_open_adjacent_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "herbivore_tag_catalog_set",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "non_herbivores_not_tagged",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "herbivore_deer_eats_fruit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "herbivore_fruit_seek_fx",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "wolf_ignores_fruit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "stable_region_fruit_not_attractive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "fruit_out_of_range_not_attractive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "planting_on_fruit_removes_fruit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_no_burst_before_20s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_bursts_at_20s_periodic",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3",
+			"name": "balsam_sows_max_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_sow_cells_within_2_tiles_no_stock",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_does_not_multiply",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "balsam_enemy_trigger_burst",
+			"status": "PASS"
+		},
+		{
+			"detail": "e1=4.0 far=0.0",
+			"name": "balsam_damage_4_to_hostile_in_2m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_neutral_unharmed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_enemy_trigger_cooldown_8s",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "balsam_enemy_trigger_again_after_8s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_neutral_does_not_trigger",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "balsam_no_valid_cells_no_sow_but_burst",
+			"status": "PASS"
+		},
+		{
+			"detail": "ev=8",
+			"name": "balsam_kills_hp4_enemy_with_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "crop_defs_match_catalog_table",
+			"status": "PASS"
+		},
+		{
+			"detail": "20 21 21",
+			"name": "kudzu_price_rises_per_stock_not_per_root",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "crops_v2",
+	"total": 105
+}

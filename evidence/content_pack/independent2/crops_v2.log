@@ -1,0 +1,106 @@
+PASS primrose_day_x0_3 cond=0.3 rate=0.9
+PASS primrose_night_x1_5 rate=4.5
+PASS sunflower_opposite_night_low 
+PASS sunflower_day_high 
+PASS primrose_flower_tag_only_at_night day=0.1 night=0.2
+PASS primrose_immature_zero 
+PASS primrose_matures_at_30s 
+PASS dandelion_no_sow_before_40s 
+PASS dandelion_sows_one_at_40s n=1 t=40.0000000000003
+PASS dandelion_range_3_to_6 dist=5
+PASS dandelion_no_stock_consumption 
+PASS dandelion_does_not_multiply 
+PASS dandelion_only_valid_cells [(49, 30), (52, 27)]
+PASS dandelion_no_candidates_no_sow_no_rng 
+PASS dandelion_rng_deterministic_by_pack_seed [(44, 26), (44, 26), (53, 28)]
+PASS dandelion_immature_no_sow 
+PASS mimosa_open_production 
+PASS mimosa_open_when_enemy_beyond_2m 
+PASS mimosa_closes_when_enemy_within_2m 
+PASS mimosa_closed_production_zero 
+PASS mimosa_closed_damage_x0_2 dealt=2.0
+PASS mimosa_still_closed_3s 
+PASS mimosa_reopens_after_4s 
+PASS mimosa_first_hit_full_then_closes 
+PASS mimosa_ignores_neutral 
+PASS mimosa_pumpkin_stack_1_4 dealt=1.4
+PASS mimosa_stays_closed_while_enemy_near 
+PASS kudzu_no_root_before_15s 
+PASS kudzu_first_root_at_15s 
+PASS kudzu_first_root_adjacent_to_stock (30, 23)
+PASS kudzu_production_with_root cond=1.15
+PASS kudzu_root_occupied { "ok": false, "reason": "occupied", "by": "kudzu_root" }
+PASS kudzu_neighbor_other_kind_x0_8 cond=0.8
+PASS kudzu_nonadjacent_unaffected 
+PASS kudzu_enemy_speed_x0_6_on_root 
+PASS kudzu_root_slows_enemy_actual_move root=6.00 plain=10.00
+PASS kudzu_roots_max_24 n=24
+PASS kudzu_roots_within_chebyshev_4 maxd=4
+PASS kudzu_roots_unique_and_free 
+PASS kudzu_max_production rate=4.6
+PASS kudzu_roots_not_counted_in_family fam=1
+PASS kudzu_only_stock_produces 
+PASS kudzu_remove_single_root_refund0 
+PASS kudzu_roots_only_on_valid_cells roots=0
+PASS kudzu_roots_avoid_building_and_water 
+PASS kudzu_stock_removed_all_roots_gone roots=4 ev=4
+PASS kudzu_root_cells_free_after_loss 
+PASS kudzu_destroyed_by_enemy_removes_roots 
+PASS kudzu_immature_no_roots 
+PASS loofah_starts_empty 
+PASS loofah_empty_waters_nothing 
+PASS loofah_filled_to_10_when_watered 
+PASS loofah_waters_one_per_10s n=1
+PASS loofah_target_becomes_watered 
+PASS loofah_next_target_nearest_unwatered 
+PASS loofah_never_waters_out_of_range_or_self 
+PASS loofah_waters_growing_grass_when_no_crops [(32, 24)]
+PASS loofah_grass_other_cell_next 
+PASS loofah_needs_water_when_empty_for_sprinkler 
+PASS loofah_refilled_by_water 
+PASS loofah_no_refill_event_when_full 
+PASS loofah_not_refilled_by_adjacent_water 
+PASS loofah_empty_but_watered_still_priority 
+PASS loofah_full_watered_not_priority 
+PASS hinoki_immature_no_shade 
+PASS dokudami_not_shaded_before_hinoki_matures 
+PASS hinoki_shade_2x3_north [(30, 22), (31, 22), (32, 22), (30, 23), (31, 23), (32, 23)]
+PASS hinoki_shade_not_south_or_sides 
+PASS dokudami_gets_shade_multiplier_dynamically cond=2.0
+PASS dokudami_outside_shade_normal 
+PASS hinoki_removed_shade_gone 
+PASS dokudami_multiplier_gone_with_hinoki cond=1.0
+PASS static_shade_still_works 
+PASS dokudami_growth_x1_5_in_hinoki_shade 1.5 / 1.0
+PASS hinoki_occupies_3x3 
+PASS hinoki_def_size_hp_cost 
+PASS apple_no_drop_before_30s 
+PASS apple_drops_at_30s 
+PASS apple_fruit_on_adjacent_cell (19, 20)
+PASS apple_max_3_fruits n=3
+PASS apple_fruit_not_a_pickup 
+PASS apple_fruit_only_on_open_adjacent_cell [{ "id": 1, "cell": (21, 22), "source_id": 1 }]
+PASS herbivore_tag_catalog_set []
+PASS non_herbivores_not_tagged []
+PASS herbivore_deer_eats_fruit n=1
+PASS herbivore_fruit_seek_fx 
+PASS wolf_ignores_fruit 
+PASS stable_region_fruit_not_attractive 
+PASS fruit_out_of_range_not_attractive 
+PASS planting_on_fruit_removes_fruit 
+PASS balsam_no_burst_before_20s 
+PASS balsam_bursts_at_20s_periodic 
+PASS balsam_sows_max_3 n=3
+PASS balsam_sow_cells_within_2_tiles_no_stock 
+PASS balsam_does_not_multiply 
+PASS balsam_enemy_trigger_burst n=1
+PASS balsam_damage_4_to_hostile_in_2m e1=4.0 far=0.0
+PASS balsam_neutral_unharmed 
+PASS balsam_enemy_trigger_cooldown_8s 
+PASS balsam_enemy_trigger_again_after_8s n=1
+PASS balsam_neutral_does_not_trigger 
+PASS balsam_no_valid_cells_no_sow_but_burst 
+PASS balsam_kills_hp4_enemy_with_reward ev=8
+PASS crop_defs_match_catalog_table []
+PASS kudzu_price_rises_per_stock_not_per_root 20 21 21
+crops_v2 total=105 failed=0

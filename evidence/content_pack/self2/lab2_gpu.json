@@ -1,0 +1,332 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"checks": [
+		{
+			"detail": "adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows",
+			"name": "gpu_available",
+			"status": "PASS"
+		},
+		{
+			"detail": "unfocusable=true (ウィンドウ生成時の初回フォーカスはスクリプトでは防げない)",
+			"name": "window_unfocusable_flag_set",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_baseline_empty_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=46",
+			"name": "shot_wave2_baseline_empty_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_enemies_lineup_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=257",
+			"name": "shot_wave2_enemies_lineup_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "root_mole:118/0,skunk:141/5,sewer_rat:48/1,decoy_newt:69/1,mirror_lizard:114/4,pistol_shrimp:145/1,balloon_frog:88/1,bat_flock:141/5,manhole:44/3,thunder_eel:166/5,glass_deer:283/2,honey_bear:570/1,iron_rhino:677/1,hippo:590/1",
+			"name": "wave2_enemy_sprites_drawn_and_grounded_at_foot_row",
+			"status": "PASS"
+		},
+		{
+			"detail": "honey_bear opaque px=528 exact=528 (100.0%)",
+			"name": "wave2_sprite_pixels_match_png_exactly_nearest_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_baseline_empty2_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=46",
+			"name": "shot_wave2_baseline_empty2_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_crops_lineup_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=152",
+			"name": "shot_wave2_crops_lineup_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "wave2_crop_sprites_drawn_and_grounded_at_foot",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_mole_mounds_wet_detect_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=80",
+			"name": "shot_wave2_mole_mounds_wet_detect_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_water_hippo_eel_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=153",
+			"name": "shot_wave2_water_hippo_eel_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_air_bats_frogs_acid_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=118",
+			"name": "shot_wave2_air_bats_frogs_acid_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_directions_odor_shock_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=149",
+			"name": "shot_wave2_directions_odor_shock_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_manhole_net_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=89",
+			"name": "shot_wave2_manhole_net_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_crops_states_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=172",
+			"name": "shot_wave2_crops_states_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_bear_rhino_glass_newt_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=266",
+			"name": "shot_wave2_bear_rhino_glass_newt_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_panel_enemy2_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=44",
+			"name": "shot_wave2_panel_enemy2_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_panel_crop2_preview_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=78",
+			"name": "shot_wave2_panel_crop2_preview_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "640x360",
+			"name": "shot_wave2_night_size_multiple_of_640x360",
+			"status": "PASS"
+		},
+		{
+			"detail": "unique_colors=73",
+			"name": "shot_wave2_night_limited_palette_no_blur",
+			"status": "PASS"
+		},
+		{
+			"detail": "filter=0 mode=viewport scale=integer",
+			"name": "project_uses_nearest_and_integer_viewport_scaling",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"name": "lab_canvas_nearest",
+			"status": "PASS"
+		}
+	],
+	"display_server": "Windows",
+	"driver": "vulkan",
+	"failed": 0,
+	"not_run": 0,
+	"shots": [
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_baseline_empty.png",
+			"name": "wave2_baseline_empty",
+			"note": "基準(何も置かない)。以降の撮影との差分で、各スプライトが実際に描かれて足元基準で接地していることを機械確認する",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 46
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_enemies_lineup.png",
+			"name": "wave2_enemies_lineup",
+			"note": "第2弾の動物13種+付属(マンホール)を静止で並べた画像。コウモリは群れ(ねぐら)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 257
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_baseline_empty2.png",
+			"name": "wave2_baseline_empty2",
+			"note": "基準(何も置かない、2枚目)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 46
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_crops_lineup.png",
+			"name": "wave2_crops_lineup",
+			"note": "第2弾の植物8種。上段=成熟(等倍)、下段=未成熟(縮小)。昼はツキミソウがしぼんだ色",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 152
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_mole_mounds_wet_detect.png",
+			"name": "wave2_mole_mounds_wet_detect",
+			"note": "ネッコモグラ: 地中(薄い影と盛り土の列)、飛び出し予兆、目を回して地上。濡れたマス(青)。Mの検知印はモグラの盛り土の先に出る",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 80
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_water_hippo_eel.png",
+			"name": "wave2_water_hippo_eel",
+			"note": "カバ(水中=背中だけ水面、休み=ZZ、上陸して突進の予兆と線)・カミナリウナギ(予兆=光る輪、放電後=疲れと伝導した濡れたマス)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 153
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_air_bats_frogs_acid.png",
+			"name": "wave2_air_bats_frogs_acid",
+			"note": "コウモリ(吊り下がり=逆さ、乱れ飛び・急降下=影つき、低空)・フウセンガエル(地上=跳ね、膨らむ、浮上=影が地面に残る)・酸の水たまり",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 118
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_directions_odor_shock.png",
+			"name": "wave2_directions_odor_shock",
+			"note": "スカンク(尾を立てて予兆・正面120度の点線・臭気の扇形)・カガミトカゲ(正面の点線と反射弾)・タイホウエビ(予兆=光る輪、半径4m)・気絶した主人公(星)と仕事停止のおたすけ植物(星)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 149
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_manhole_net.png",
+			"name": "wave2_manhole_net",
+			"note": "マンホール網(同じ網は点線でつなぐ)。閉じたマンホール(緑がかった色、上に植物)・ドブネズミ(地下の個体は描かない)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 89
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_crops_states.png",
+			"name": "wave2_crops_states",
+			"note": "クズ(株+這う根のマスとR数)・オジギソウ(開/閉)・ヘチマ(貯水の青い点)・ヒノキ(北側の動的な日陰)・リンゴ(落果の赤い点)・ホウセンカのはじけ",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 172
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_bear_rhino_glass_newt.png",
+			"name": "wave2_bear_rhino_glass_newt",
+			"note": "ハチミツグマ(眠り=ZZと満腹の黄点、怒り)・テツヨロイサイ(錆3と5、突進の予兆)・ガラスジカ(虹色の光とキラキラ、砕ける破片)・ブンシンイモリ(尾が再生中=短い、満タン、分身=H表示でDC)・Mの検知印(ガラスジカは虹色)",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 266
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_panel_enemy2.png",
+			"name": "wave2_panel_enemy2",
+			"note": "パネルの第2ページ(ENM2): 動物13種+付属+抽選+試験用おたすけ植物",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 44
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_panel_crop2_preview.png",
+			"name": "wave2_panel_crop2_preview",
+			"note": "パネルの第2ページ(CRP2): ヒノキの配置プレビュー(緑=可)と価格",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 78
+		},
+		{
+			"file": "evidence/content_pack/self2/gpu/wave2_night.png",
+			"name": "wave2_night",
+			"note": "夜: ツキミソウは明るく開く、コウモリの乱れ飛び、ヒカリゴケの光",
+			"size": [
+				640,
+				360
+			],
+			"unique_colors": 73
+		}
+	],
+	"suite": "lab2_gpu",
+	"total": 35,
+	"window_size": [
+		1280,
+		720
+	]
+}

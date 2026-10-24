@@ -1,0 +1,52 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS facing_front_ahead 
+PASS facing_boundary_60deg_inclusive 60 deg is front
+PASS facing_61deg_is_not_front 
+PASS facing_behind_and_side_not_front 
+PASS facing_non_vector_origin_is_false 
+PASS facing_attack_origin_by_kind 
+PASS facing_turn_limited_to_rate deg=45.000
+PASS facing_turn_reaches_target_when_enough (0.0, 1.0)
+PASS facing_turn_180_takes_limited_step 
+PASS facing_after_short_turn_target_behind_not_front 
+PASS herbivore_tag_on_6_first_series_kinds ["deer", "pouch_rabbit", "moss_turtle", "slime_slug", "leafcutter_ant", "mimic_cabbage"]
+FAIL herbivore_tag_not_on_other_kinds ["hippo", "honey_bear", "iron_rhino"]
+PASS herbivore_tag_in_tags_of 
+PASS herbivore_apple_dropped 
+PASS herbivore_host_side_enemy_attracted 
+PASS herbivore_non_tag_not_attracted 
+PASS herbivore_out_of_range_not_attracted 
+PASS herbivore_fruit_in_stable_region_excluded 
+PASS herbivore_apple_still_alive 
+PASS wet_event_per_cell 
+PASS wet_immediately_true 
+PASS wet_still_wet_at_5_9s 
+PASS wet_dry_after_6s 
+PASS wet_extended_by_second_hit 
+PASS wet_pause_no_progress 
+PASS wet_does_not_change_growth_rule 
+PASS wet_save_restore 
+PASS wet_restored_expires_on_schedule 
+PASS shade_hinoki_3x3_placed 
+PASS shade_immature_hinoki_makes_none 
+PASS shade_static_attribute_still_works 
+PASS shade_mature_hinoki_north_2x3 6
+PASS shade_dokudami_in_dynamic_shade_x2 
+PASS shade_dokudami_beside_or_far_not_shaded 
+PASS shade_dokudami_growth_x1_5_under_dynamic_shade 
+PASS shade_static_or_dynamic_not_stacked 
+PASS shade_removed_with_hinoki 
+PASS shade_dokudami_loses_multiplier 
+PASS shade_rate_follows_in_production 0.06667
+PASS reward_instant_event_no_pickup 
+PASS stun_hero_initially_false 
+PASS stun_event_relayed_through_window 
+PASS stun_hero_still_at_1_4s 
+PASS stun_hero_ends_after_1_5s 
+PASS stop_helper_flags 
+PASS stop_helper_expire_independently 
+PASS pause_no_advance_no_change 
+PASS stun_save_restore 
+PASS stun_restored_expires 
+common2_logic total=49 failed=1

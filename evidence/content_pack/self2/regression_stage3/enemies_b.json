@@ -1,0 +1,362 @@
+{
+	"checks": [
+		{
+			"detail": "sum=0.3900 cheek=0.3900 seeds_after=0",
+			"name": "e12_gnaw_stolen_seeds_go_to_cheek_not_player",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=11",
+			"name": "e12_chew_1_damage_per_second",
+			"status": "PASS"
+		},
+		{
+			"detail": "cheek=20.000 st=rest pos=(73.0, 26.0)",
+			"name": "e12_full_cheek_20_goes_home_and_rests",
+			"status": "PASS"
+		},
+		{
+			"detail": "moved=33.00 flee",
+			"name": "e12_flees_at_3mps_and_never_attacks_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "tired tired rest held=true",
+			"name": "e12_runs_4s_then_tired_2s_then_rests",
+			"status": "PASS"
+		},
+		{
+			"detail": "maxd=150.00",
+			"name": "e12_flee_stays_inside_territory_15m",
+			"status": "PASS"
+		},
+		{
+			"detail": "[{ \"id\": 1, \"pos\": (100.0, 100.0), \"amount\": 7, \"source_id\": 1, \"kind\": \"seeds\" }]",
+			"name": "e12_defeat_drops_cheek_seeds_pickup_and_reward_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e12_pickup_collected_by_hero_nearby",
+			"status": "PASS"
+		},
+		{
+			"detail": "dmg=2 t0=0.9",
+			"name": "e13_aim_0_8s_then_6_damage_and_pull_3m",
+			"status": "PASS"
+		},
+		{
+			"detail": "gap=3.90",
+			"name": "e13_no_tongue_for_3s_after_firing",
+			"status": "PASS"
+		},
+		{
+			"detail": "(170.0, 100.0)",
+			"name": "e13_tongue_line_is_7m",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e13_sidestep_during_aim_avoids_tongue",
+			"status": "PASS"
+		},
+		{
+			"detail": "idle",
+			"name": "e13_building_blocks_tongue_and_trigger",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "e13_tongue_hits_helper_first_4_damage_no_pull",
+			"status": "PASS"
+		},
+		{
+			"detail": "0 1",
+			"name": "e14_neutral_not_counted_for_stability_but_alive",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.100 { \"ok\": false, \"reason\": \"occupied\", \"by\": \"honeybee_hive\" }",
+			"name": "e14_hive_pollinates_8_cells_and_blocks_planting",
+			"status": "PASS"
+		},
+		{
+			"detail": "after=0.000",
+			"name": "e14_destroying_hive_gives_nothing_and_ends_pollination",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e14_destroyed_hive_never_returns",
+			"status": "PASS"
+		},
+		{
+			"detail": "stings=4",
+			"name": "e14_angry_swarm_stings_3_per_second_hero_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e14_anger_ends_after_20s_and_swarm_returns",
+			"status": "PASS"
+		},
+		{
+			"detail": "maxd=100.00",
+			"name": "e14_chase_limited_to_10m_from_hive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e14_staying_within_1_5m_for_3s_angers_hive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e14_blast_angers_water_does_not",
+			"status": "PASS"
+		},
+		{
+			"detail": "ns=1",
+			"name": "e14_swarm_respawns_after_30s_as_produced_no_reward",
+			"status": "PASS"
+		},
+		{
+			"detail": "hero=1 crop=1",
+			"name": "e15_roll_hits_hero_10_and_crop_8_once_each",
+			"status": "PASS"
+		},
+		{
+			"detail": "roll dizzy",
+			"name": "e15_roll_stops_after_3s_then_dizzy",
+			"status": "PASS"
+		},
+		{
+			"detail": "b=4 x=[61.5,87.8] dz=2.6",
+			"name": "e15_bounces_off_walls_max_4_times_then_stops",
+			"status": "PASS"
+		},
+		{
+			"detail": "hp_roll=28.00 dizzy=2.50",
+			"name": "e15_dizzy_2_5s_and_damage_multipliers",
+			"status": "PASS"
+		},
+		{
+			"detail": "dizzy hp=15.00",
+			"name": "e15_dizzy_takes_x1_5_damage",
+			"status": "PASS"
+		},
+		{
+			"detail": "starts=[4.8, 12.1, 19.4] water=true",
+			"name": "e16_surfaces_every_7_3s_at_most_8s_apart_and_stays_in_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=2 t=5.6",
+			"name": "e16_mud_lands_0_8s_after_spit_6_damage_and_50pct_slow_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e16_mud_does_not_affect_plants_or_grass",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e16_landing_marked_from_spit_time",
+			"status": "PASS"
+		},
+		{
+			"detail": "rise surface",
+			"name": "e16_dive_not_hittable_surface_hittable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e16_leaving_marked_spot_avoids_mud",
+			"status": "PASS"
+		},
+		{
+			"detail": "1 2 6 6 5 6",
+			"name": "e17_hill_produces_every_8s_up_to_6_at_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e17_produced_ant_reward_0_initial_ant_reward_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "inactive=0 after=2",
+			"name": "e17_hill_idle_without_activity_condition_then_active_when_hero_near",
+			"status": "PASS"
+		},
+		{
+			"detail": "[{ \"type\": \"reward\", \"enemy_id\": 1, \"kind\": \"ant_hill\", \"amount\": 30, \"tier\": \"near\", \"pos\": (100.0, 60.0), \"nest\": \"small\" }]",
+			"name": "e17_hill_is_fixed_2x2_nest_with_small_nest_reward_base",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=4 first=3.7",
+			"name": "e17_ant_cuts_2_damage_per_2s_then_carries_leaf_home",
+			"status": "PASS"
+		},
+		{
+			"detail": "lost walk lost walk",
+			"name": "e17_killing_mid_column_ant_makes_followers_wander_3s",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"ok\": false, \"reason\": \"occupied\", \"by\": \"mimic_cabbage\" }",
+			"name": "e18_hidden_not_detectable_but_counts_and_blocks_planting",
+			"status": "PASS"
+		},
+		{
+			"detail": "revealed",
+			"name": "e18_hit_reveals_then_detectable_and_cell_free",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e18_seed_within_1m_and_water_reveal",
+			"status": "PASS"
+		},
+		{
+			"detail": "bites=4 t0=0.4",
+			"name": "e18_strike_0_3s_bite_12_then_chase_6s",
+			"status": "PASS"
+		},
+		{
+			"detail": "hidden (150.0, 112.0)",
+			"name": "e18_returns_home_waits_3s_and_hides_again",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e18_targets_helper_within_2m",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=2 t=2.2",
+			"name": "e19_shadow_1_5s_lock_0_5s_dive_hits_12",
+			"status": "PASS"
+		},
+		{
+			"detail": "samples=20 mismatch=0",
+			"name": "e19_hittable_only_on_ground_and_climb_2s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e19_dive_radius_1m_fx",
+			"status": "PASS"
+		},
+		{
+			"detail": "(160.0, 100.0) (160.0, 100.0)",
+			"name": "e19_shadow_follows_then_locks_and_dodge_works",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e19_targets_helper_when_no_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "stable=false rev=true ang=2.33",
+			"name": "e19_never_enters_or_targets_stable_airspace",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=5",
+			"name": "e20_eats_mature_crop_3_per_second_and_ignores_hero",
+			"status": "PASS"
+		},
+		{
+			"detail": "moved=38.50 flee tired graze",
+			"name": "e20_flee_3_5mps_4s_run_3s_tired",
+			"status": "PASS"
+		},
+		{
+			"detail": "maxd=149.50",
+			"name": "e20_flee_stays_inside_territory_15m",
+			"status": "PASS"
+		},
+		{
+			"detail": "flee tired tired",
+			"name": "e20_hit_makes_it_flee_tired_deer_can_be_shot_reward_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=3 t=3.6",
+			"name": "e21_prefers_helper_windup_0_5s_snip_20",
+			"status": "PASS"
+		},
+		{
+			"detail": "gap=2.10",
+			"name": "e21_recovers_1_5s_after_snip",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e21_hero_within_3m_takes_8",
+			"status": "PASS"
+		},
+		{
+			"detail": "idle",
+			"name": "e21_hero_at_4m_is_ignored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "e21_helper_beyond_12m_ignored",
+			"status": "PASS"
+		},
+		{
+			"detail": "len=10085 diff@10085: format\":1,\"rng\":{\"seed\":\"11\",\"state\":\"7888850449676107793\"}} | format\":1,\"rng\":{\"seed\":\"11\",\"state\":\"7888850449676107793\"}}",
+			"name": "save_all_new_kinds_direct_dict_restore_is_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "10:leafcutter_ant:cut:3.000:87.06,52.81|11:mimic_cabbage:chase:30.000:206.16,67.39|12:black_kite:mark:18.000:144.04,44.9",
+			"name": "save_all_new_kinds_json_roundtrip_continues_identically",
+			"status": "PASS"
+		},
+		{
+			"detail": "kinds=12 n=14",
+			"name": "save_all_scene_covers_10_new_kinds_midflight",
+			"status": "PASS"
+		},
+		{
+			"detail": "enemies: bad enemy",
+			"name": "atomic_bad_enemies_kind_changes_nothing",
+			"status": "PASS"
+		},
+		{
+			"detail": "enemies: not a dictionary",
+			"name": "atomic_enemies_not_a_dictionary_changes_nothing",
+			"status": "PASS"
+		},
+		{
+			"detail": "enemies: bad enemy",
+			"name": "atomic_bad_enemy_field_changes_nothing",
+			"status": "PASS"
+		},
+		{
+			"detail": "crops: unknown kind",
+			"name": "atomic_bad_crops_changes_nothing",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "atomic_bad_rng_changes_nothing",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "atomic_valid_data_adopts_everything",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "enemies_b",
+	"total": 71
+}

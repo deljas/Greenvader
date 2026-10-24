@@ -51,7 +51,9 @@ func _key(k: InputEventKey) -> void:
 		KEY_3: game.set_speed(60)
 		KEY_R: game.tool = "remove" if game.tool != "remove" else "combat"
 		KEY_ESCAPE: game.tool = "combat"
-		KEY_TAB: game.tab = "crop" if game.tab == "enemy" else "enemy"
+		KEY_TAB: game.toggle_tab()
+		KEY_G: game.toggle_page()
+		KEY_M: game.show_detect = not game.show_detect
 		KEY_F5: game.save()
 		KEY_F9: game.load_save()
 		KEY_H: game.show_hidden = not game.show_hidden

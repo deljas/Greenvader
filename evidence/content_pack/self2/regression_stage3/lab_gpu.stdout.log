@@ -1,0 +1,655 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/hero.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _hero (res://scripts/content_pack/lab/lab_view.gd:448)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:329)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/shadow_brian.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tarachunade.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/grass_snake_grass.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/quill_hedgehog.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mushling_parent.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/sludge_carp.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mushling_child.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/stray_wolf.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/junk_pile.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _pile (res://scripts/content_pack/lab/lab_view.gd:421)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:327)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/junk_crab.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:733)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/junk_crab_shell.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:735)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/moss_turtle_bush.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/slime_slug.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mimic_cabbage_disguise.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tongue_frog.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/leafcutter_ant.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/armadillo.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/pouch_rabbit.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/honeybee_hive.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/ant_hill.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/deer.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/iron_jaw_beetle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/seed_bird.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/honeybee_swarm.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/black_kite.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/moss_turtle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] gray_tex (res://scripts/content_pack/lab/sprite_bank.gd:68)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/paint_chameleon.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mimic_cabbage.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _enemy (res://scripts/content_pack/lab/lab_view.gd:738)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:326)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/glow_moss.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/pepper.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/aloe.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/dokudami.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/rice.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/potato.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/flytrap.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/bamboo.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/garlic.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/lavender.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/strawberry.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/grape.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/cactus.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mint.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/corn.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/golden_four_leaf.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/golden_clover.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/wasabi.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/edamame.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/four_leaf_clover.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/sunflower.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/clover.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tomato.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/lotus.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/pumpkin.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/tea.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/oleander.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/sakura.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/giant_watermelon.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/strawberry_pickup.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _pickup (res://scripts/content_pack/lab/lab_view.gd:430)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:328)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/seed_bag.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _pickup (res://scripts/content_pack/lab/lab_view.gd:430)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:328)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/grass_snake.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] check_assets_no_outline (res://tests/content_pack/self/lab_gpu.gd:335)
+       [2] _initialize (res://tests/content_pack/self/lab_gpu.gd:76)
+       [3] shot_night (res://tests/content_pack/self/lab_gpu.gd:327)
+       [4] capture (res://tests/content_pack/self/lab_gpu.gd:108)
+       [5] draw_frames (res://tests/content_pack/self/lab_gpu.gd:25)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/needle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] check_assets_no_outline (res://tests/content_pack/self/lab_gpu.gd:335)
+       [2] _initialize (res://tests/content_pack/self/lab_gpu.gd:76)
+       [3] shot_night (res://tests/content_pack/self/lab_gpu.gd:327)
+       [4] capture (res://tests/content_pack/self/lab_gpu.gd:108)
+       [5] draw_frames (res://tests/content_pack/self/lab_gpu.gd:25)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/mud_ball.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] check_assets_no_outline (res://tests/content_pack/self/lab_gpu.gd:335)
+       [2] _initialize (res://tests/content_pack/self/lab_gpu.gd:76)
+       [3] shot_night (res://tests/content_pack/self/lab_gpu.gd:327)
+       [4] capture (res://tests/content_pack/self/lab_gpu.gd:108)
+       [5] draw_frames (res://tests/content_pack/self/lab_gpu.gd:25)
+PASS gpu_available adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows
+PASS window_unfocusable_flag_set unfocusable=true (ウィンドウ生成時の初回フォーカスはスクリプトでは防げない)
+PASS injected_input_maps_to_viewport_coords scale=2.00 got=(100.0, 100.0)
+PASS shot_enemies_spawned_all_kinds enemies=27 piles=2
+PASS shot_enemies_all_size_multiple_of_640x360 640x360
+PASS shot_enemies_all_limited_palette_no_blur unique_colors=284
+PASS sprite_pixels_match_png_exactly_nearest_no_blur deer opaque px=227 exact=227 (100.0%)
+PASS sprite_bottom_row_is_at_foot_line bottom=252 foot=253
+PASS shot_states_ground_size_multiple_of_640x360 640x360
+PASS shot_states_ground_limited_palette_no_blur unique_colors=275
+PASS shot_states_special_size_multiple_of_640x360 640x360
+PASS shot_states_special_limited_palette_no_blur unique_colors=267
+PASS hidden_enemies_not_in_detectable_list []
+PASS shot_crops_all_size_multiple_of_640x360 640x360
+PASS shot_crops_all_limited_palette_no_blur unique_colors=261
+PASS shot_crops_placed_all_kinds crops=53
+PASS hover_via_injected_input_updates_preview_cell (41, 14)
+PASS shot_ui_preview_debug_size_multiple_of_640x360 640x360
+PASS shot_ui_preview_debug_limited_palette_no_blur unique_colors=80
+PASS shot_night_size_multiple_of_640x360 640x360
+PASS shot_night_limited_palette_no_blur unique_colors=87
+PASS sprites_have_no_black_outline_pixels_on_edges 63 sprites: near-black edge pixels <=10% each
+PASS project_uses_nearest_and_integer_viewport_scaling filter=0 mode=viewport scale=integer
+PASS lab_canvas_nearest 1
+lab_gpu total=24 failed=0 not_run=0 adapter=NVIDIA GeForce RTX 5070 Ti

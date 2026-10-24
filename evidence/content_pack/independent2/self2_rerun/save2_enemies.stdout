@@ -1,0 +1,35 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS save2e_state_has_all_new_kinds []
+PASS save2e_state_has_mounds 
+PASS save2e_state_has_odor_cloud n=1
+PASS save2e_state_has_reflected_shot_in_flight n=1
+PASS save2e_state_has_decoy_and_regrow_timer 
+PASS save2e_state_has_acid n=1
+PASS save2e_state_has_rust_and_satiety sat=3
+PASS save2e_state_has_manhole_net_and_plug 
+PASS save2e_state_has_bats_in_flight 
+PASS save2e_state_has_glass_rolls 
+PASS save2e_adopts_valid 
+PASS save2e_roundtrip_identical 
+PASS save2e_odor_acid_projectiles_restored 
+PASS save2e_mounds_restored_as_vectors 
+PASS save2e_glass_state_restored 
+PASS save2e_cell_and_ids_are_int_vectori 
+PASS save2e_continues_identically_25s  {"crop_damaged":22,"crop_removed":1,"enemy_damaged":2,"enemy_defeated":2,"fx":24,"ground_stage":5,"helper_damage":12,"hero_damage":45,"reward":2,"seeds":133}{"crop_damaged":22,"crop_removed":1,"enemy_damaged":2,"enemy_defeated":2,"fx":24,"ground_stage":5,"helper_damage":12,"hero_damage":45,"reward":2,"seeds":133}
+PASS save2e_pause_unchanged_with_all_new_state 
+PASS save2e_reject_baseline_valid 
+PASS save2e_reject_missing_key_every_new_kind []
+PASS save2e_reject_wrong_type_every_new_kind checked=484 bad=[]
+PASS save2e_reject_nested_and_state_names n=21 bad=[]
+PASS save2e_reject_new_containers n=34 bad=[]
+PASS save2e_atomic_when_other_part_invalid 
+PASS save2e_atomic_crops_untouched_when_enemy_invalid 
+PASS save2e_nest_reward_first_time_once 
+PASS save2e_helper_load_ok 
+PASS save2e_nest_reward_not_repaid_after_restore 
+PASS save2e_bat_reward_once_after_restore 
+PASS save2e_reward_paid_flag_prevents_repay 
+PASS save2e_helper_load_ok 
+PASS save2e_no_advance_no_change 
+save2_enemies total=32 failed=0

@@ -15,6 +15,7 @@
 | 表示基盤と反射 | [SPRITE-VIEW](POC3_SPRITE_VIEW.md)、[REFLECTION](POC3_REFLECTION.md) | 表示基盤は必要に応じ先行、反射は基盤後 |
 | 統合と自己確認 | [INTEGRATION](POC3_INTEGRATION.md) | 上記全機能、保存方式は早期調整 |
 | 独立検証と引渡し | [VERIFY](POC3_VERIFY.md) | INTEGRATIONの凍結版 |
+| 試遊後の改善 | [PLAYTEST-01](POC3_PLAYTEST_01.md) | 未着手。CONTENT-02の後にClaudeが自律着手（2026-10-24 ユーザー指示） |
 
 共有するsession/world_view等を複数担当が同時編集しません。各機能の独立証拠は有効な対象版なら再利用し、主要条件が未確認のまま完了扱いにしません。PoC3引渡し後は停止し、追加の新規機能やP6へ自動着手しません。
 

@@ -36,11 +36,26 @@ const CROP_LIST: Array = [
 	["flytrap", "FLYTRAP"], ["potato", "POTATO"], ["rice", "RICE"], ["tea", "TEA"], ["sakura", "SAKURA"],
 	["dokudami", "DOKUDAMI"], ["aloe", "ALOE"], ["pepper", "PEPPER"], ["glow_moss", "GLOWMOSS"],
 ]
+## 第2弾の敵(ページ2)。lab_* は確認画面専用の出現処理(manhole=網3個、bat_flock=6匹、balloon_frog=3匹、glass_lot=初期配置の抽選、lab_helper=試験用のおたすけ植物)
+const ENEMY2_LIST: Array = [
+	["root_mole", "MOLE"], ["skunk", "SKUNK"], ["hippo", "HIPPO"], ["honey_bear", "HONEYBEAR"],
+	["sewer_rat", "RAT"], ["manhole", "MANHOLEx3"], ["bat_flock", "BATSx6"], ["iron_rhino", "RHINO"],
+	["thunder_eel", "EEL"], ["decoy_newt", "NEWT"], ["mirror_lizard", "MIRROR"], ["pistol_shrimp", "SHRIMP"],
+	["balloon_frog", "BALLOONx3"], ["glass_deer", "GLASSDEER"], ["glass_lot", "GLASS LOT"], ["lab_helper", "+HELPER"],
+]
+const CROP2_LIST: Array = [
+	["evening_primrose", "PRIMROSE"], ["dandelion", "DANDELION"], ["mimosa", "MIMOSA"], ["kudzu", "KUDZU"],
+	["loofah", "LOOFAH"], ["hinoki", "HINOKI"], ["apple", "APPLE"], ["balsam", "BALSAM"],
+]
+const ENEMY_PAGES: Array = ["enemy", "enemy2"]
+const CROP_PAGES: Array = ["crop", "crop2"]
+
 ## 範囲効果のプレビュー(半径マス, 色)。金=黄金、黄=ミツバチ、緑=エダマメ、紫=キョウチクトウ等
 const RANGE_PREVIEW: Dictionary = {
 	"golden_clover": [7, Color(1.0, 0.85, 0.2)], "golden_four_leaf": [7, Color(1.0, 0.85, 0.2)],
 	"edamame": [1, Color(0.3, 0.9, 0.3)], "oleander": [3, Color(0.7, 0.3, 0.9)], "lavender": [4, Color(0.6, 0.5, 1.0)],
-	"garlic": [3, Color(0.95, 0.95, 0.85)], "pumpkin": [1, Color(1.0, 0.55, 0.15)], "aloe": [4, Color(1.0, 0.5, 0.7)],
+	"garlic": [3, Color(0.95, 0.95, 0.85)],
+	"balsam": [2, Color(1.0, 0.5, 0.8)], "loofah": [3, Color(0.4, 0.7, 1.0)], "kudzu": [4, Color(0.4, 0.8, 0.3)], "dandelion": [6, Color(1.0, 1.0, 1.0)], "pumpkin": [1, Color(1.0, 0.55, 0.15)], "aloe": [4, Color(1.0, 0.5, 0.7)],
 	"glow_moss": [5, Color(0.4, 1.0, 0.9)], "corn": [1, Color(0.8, 0.9, 0.3)], "honeybee_hive": [8, Color(1.0, 0.9, 0.2)],
 }
 
@@ -75,6 +90,10 @@ var rewards_total: int = 0
 var landed: int = 0
 var msg: String = ""
 var show_hidden: bool = false
+var show_detect: bool = false      # M: 検知表示(detectable_enemies の位置と区分)
+var glass_lot_n: int = 0
+var glass_hits: int = 0
+var helper_seq: int = 0
 var terrain_dirty: bool = true
 var debug_flash_until: float = -1.0
 var move_keys: Vector2 = Vector2.ZERO   # 注入・テスト用の移動入力(キー入力と合算)
@@ -92,6 +111,34 @@ func _sync_hero() -> void:
 
 func is_day() -> bool:
 	return host.day
+
+func is_enemy_tab() -> bool:
+	return tab in ENEMY_PAGES
+
+func current_list() -> Array:
+	match tab:
+		"enemy2": return ENEMY2_LIST
+		"crop": return CROP_LIST
+		"crop2": return CROP2_LIST
+	return ENEMY_LIST
+
+## 1ページ目と2ページ目の切替(Gキー)。敵と植物の切替は Tab。
+func toggle_page() -> void:
+	match tab:
+		"enemy": tab = "enemy2"
+		"enemy2": tab = "enemy"
+		"crop": tab = "crop2"
+		"crop2": tab = "crop"
+
+func toggle_tab() -> void:
+	match tab:
+		"enemy": tab = "crop"
+		"crop": tab = "enemy"
+		"enemy2": tab = "crop2"
+		"crop2": tab = "enemy2"
+
+func hero_stunned() -> bool:
+	return pack.common.hero_stunned()
 
 func toggle_day() -> void:
 	host.day = not host.day
@@ -148,6 +195,8 @@ func _tick(gdt: float, hero_dt: float) -> void:
 
 func _move_hero(dt: float) -> void:
 	var v: Vector2 = move_keys
+	if pack.common.hero_stunned():
+		return
 	if use_keys:
 		if Input.is_physical_key_pressed(KEY_W): v.y -= 1.0
 		if Input.is_physical_key_pressed(KEY_S): v.y += 1.0
@@ -169,6 +218,9 @@ func set_aim_to(world: Vector2) -> void:
 
 # ---------------------------------------------------------------- 主人公の攻撃
 func shoot(target: Vector2) -> bool:
+	if hero_stunned():
+		msg = "STUNNED"
+		return false
 	if seeds <= 0:
 		msg = "NO SEEDS"
 		return false
@@ -192,7 +244,7 @@ func _update_bullets(dt: float) -> void:
 				break
 			for t: Dictionary in pack.enemies.hittable_targets():
 				if Vector2(t.pos).distance_to(b.pos) <= float(t.radius) + 1.5:
-					apply_events(pack.hit_enemy(int(t.id), 5.0, "shot", hero_pos))
+					apply_events(pack.relay_events(pack.hit_enemy(int(t.id), 5.0, "shot", hero_pos)))
 					fx_add("hit", b.pos, 0.25)
 					done = true
 					break
@@ -206,12 +258,25 @@ func _update_bullets(dt: float) -> void:
 			bullets.erase(b)
 
 func do_water(target: Vector2) -> bool:
+	if hero_stunned():
+		msg = "STUNNED"
+		return false
 	if water < WATER_COST:
 		msg = "NO WATER"
 		return false
 	set_aim_to(target)
 	water -= WATER_COST
-	apply_events(pack.splash(target, WATER_RADIUS, 0.0, "water"))
+	apply_events(pack.relay_events(pack.splash(target, WATER_RADIUS, 0.0, "water")))
+	# 水の着弾マス(濡れたマス・ヘチマの補充・モグラの追い出し)をウィンドウ経由で渡す
+	var wcells: Array = []
+	var c0: Vector2i = Grid.cell_of_pos(target)
+	for dy: int in range(-5, 6):
+		for dx: int in range(-5, 6):
+			var wc: Vector2i = c0 + Vector2i(dx, dy)
+			if host.in_bounds(wc) and not host.is_water(wc) and Grid.center_of_cell(wc).distance_to(target) <= WATER_RADIUS:
+				wcells.append(wc)
+	if not wcells.is_empty():
+		apply_events(pack.water_landed(wcells))
 	for c: Dictionary in pack.crops.crops:
 		var r: Rect2 = Rect2(Vector2(c.cell) * Grid.CELL_PX, Vector2(c.size) * Grid.CELL_PX)
 		var q: Vector2 = Vector2(clampf(target.x, r.position.x, r.end.x), clampf(target.y, r.position.y, r.end.y))
@@ -221,16 +286,22 @@ func do_water(target: Vector2) -> bool:
 	return true
 
 func tackle(target: Vector2) -> bool:
+	if hero_stunned():
+		msg = "STUNNED"
+		return false
 	set_aim_to(target)
 	var front: Vector2 = hero_pos + aim * 14.0
 	if hero_walkable(front):
 		hero_pos = front
 	fx_add("tackle", hero_pos, 0.25)
-	apply_events(pack.splash(hero_pos + aim * 6.0, 10.0, 8.0, "tackle"))
+	apply_events(pack.relay_events(pack.splash(hero_pos + aim * 6.0, 10.0, 8.0, "tackle")))
 	_sync_hero()
 	return true
 
 func bazooka(target: Vector2) -> bool:
+	if hero_stunned():
+		msg = "STUNNED"
+		return false
 	if seeds < BAZOOKA_COST:
 		msg = "NO SEEDS"
 		return false
@@ -243,7 +314,7 @@ func bazooka(target: Vector2) -> bool:
 		return false
 	seeds -= BAZOOKA_COST
 	fx_add("explosion", t, 0.5, {"radius_px": BAZOOKA_RADIUS})
-	apply_events(pack.splash(t, BAZOOKA_RADIUS, 25.0, "bazooka"))
+	apply_events(pack.relay_events(pack.splash(t, BAZOOKA_RADIUS, 25.0, "bazooka")))
 	return true
 
 func fx_add(kind: String, pos: Vector2, life: float, extra: Dictionary = {}) -> void:
@@ -267,6 +338,41 @@ func apply_events(evs: Array) -> void:
 					note("HERO DOWN: RESPAWN", "damage")
 			"helper_damage":
 				note("HELPER -%d" % int(round(float(e.amount))), "damage")
+				for hp_i: int in range(host.helper_list.size() - 1, -1, -1):
+					var hh: Dictionary = host.helper_list[hp_i]
+					if int(hh.id) == int(e.helper_id):
+						hh.hp = float(hh.hp) - float(e.amount)
+						if float(hh.hp) <= 0.0:
+							host.helper_list.remove_at(hp_i)
+							note("HELPER DOWN", "damage")
+			"hero_stun":
+				note("STUN %.1fS" % float(e.seconds), "damage")
+				fx_add("stun", hero_pos, float(e.seconds))
+			"helper_stop":
+				note("HELPER STOP %.1fS %s" % [float(e.seconds), str(e.get("cause", "")).to_upper()], "fx")
+			"seed_sow":
+				var sc: Vector2i = Vector2i(e.cell)
+				if host.in_bounds(sc) and host.grass_stage(sc) == "wasteland":
+					host.set_stage(sc, "seed")
+					terrain_dirty = true
+				fx_add("seed_land", Grid.center_of_cell(sc), 0.6)
+				note("SOW %s" % str(e.get("source", "")).to_upper(), "crop")
+			"water_cell":
+				host.watered_cells[Vector2i(e.cell)] = true
+			"water_crop":
+				note("LOOFAH WATER", "crop")
+			"loofah_refill":
+				note("LOOFAH REFILL", "crop")
+			"nest_suppressed":
+				note("NEST SUPPRESSED", "defeat")
+			"balsam_burst":
+				fx_add("burst", Vector2(e.center), 0.5, {"radius_px": float(e.radius_px)})
+			"mimosa_closed":
+				note("MIMOSA CLOSED", "crop")
+			"fruit_dropped":
+				note("APPLE DROP", "crop")
+			"fruit_eaten":
+				note("APPLE EATEN", "crop")
 			"hero_pull":
 				var to: Vector2 = Vector2(e.to)
 				if hero_walkable(to):
@@ -297,6 +403,8 @@ func apply_events(evs: Array) -> void:
 				note("HIT %s -%d (%s)" % [tname, int(round(float(e.amount))), str(e.get("kind", "")).to_upper()], "hit")
 			"enemy_defeated":
 				note("DEFEAT %s" % str(e.get("kind", "")).to_upper(), "defeat")
+				if str(e.get("kind", "")) == "glass_deer":
+					fx_add("glass_break", Vector2(e.pos), 0.9)
 			"crop_matured":
 				note("MATURE %s" % str(e.get("kind", "")).to_upper(), "crop")
 			"crop_removed":
@@ -313,7 +421,7 @@ func apply_events(evs: Array) -> void:
 			"fx":
 				var k: String = str(e.get("kind", ""))
 				fx_add(k, Vector2(e.pos), 0.6, e)
-				if k in ["wet", "explosion", "revive", "howl", "stuck", "rage", "shell_break", "carp_warn", "mushling_call"]:
+				if k in ["wet", "explosion", "revive", "howl", "stuck", "rage", "shell_break", "carp_warn", "mushling_call", "discharge", "shrimp_wave", "frog_pop", "bat_wake", "reflect", "mole_water", "odor_cancel", "decoy_pop", "manhole_closed", "bear_rage"]:
 					note("FX " + k.to_upper(), "fx")
 			"mushling_call":
 				note("MUSH CALL", "fx")
@@ -333,12 +441,19 @@ func spawn_enemy(kind: String, world: Vector2) -> Dictionary:
 		if not host.is_walkable(cell):
 			return {"ok": false, "reason": "not_walkable"}
 		return {"ok": true, "id": es.add_junk_pile(Grid.center_of_cell(cell), 2)}
+	if kind == "lab_helper":
+		helper_seq += 1
+		host.helper_list.append({"id": 9000 + helper_seq, "pos": world, "hp": 50.0, "max_hp": 50.0})
+		note("HELPER #%d PLACED" % (9000 + helper_seq), "ui")
+		return {"ok": true, "id": 9000 + helper_seq}
+	if kind == "glass_lot":
+		return _glass_lottery(world)
 	var hab: String = str(es.defs.get(kind, {}).get("habitat", "land"))
-	if kind == "sludge_carp":
+	if kind == "sludge_carp" or hab == "water":
 		if not host.is_water(cell):
-			note("CARP NEEDS WATER", "ui")
+			note("%s NEEDS WATER" % kind.to_upper(), "ui")
 			return {"ok": false, "reason": "needs_water"}
-	elif hab == "land" and (not host.is_walkable(cell) or host.is_blocked(cell) or es.structure_at(cell) != ""):
+	elif (hab == "land" or hab == "burrow") and (not host.is_walkable(cell) or host.is_blocked(cell) or es.structure_at(cell) != ""):
 		note("NOT WALKABLE", "ui")
 		return {"ok": false, "reason": "not_walkable"}
 	var pos: Vector2 = world
@@ -354,6 +469,25 @@ func spawn_enemy(kind: String, world: Vector2) -> Dictionary:
 		"ant_hill":
 			pos = Vector2(cell + Vector2i(1, 1)) * Grid.CELL_PX
 			id = es.spawn(kind, pos, origin)
+		"bat_flock":
+			var bids: Array = es.spawn_bat_flock(pos, origin)
+			id = int(bids[0]) if not bids.is_empty() else -1
+		"balloon_frog":
+			var fids: Array = es.spawn_frog_flock(pos, origin)
+			id = int(fids[0]) if not fids.is_empty() else -1
+		"manhole":
+			# 網は3個(2〜4個で一つの巣)。クリックしたマスを中心に歩ける空きマスへ置く
+			var offs: Array = [Vector2i(0, 0), Vector2i(6, 1), Vector2i(3, 5)]
+			var mpos: Array = []
+			for o: Vector2i in offs:
+				var mc: Vector2i = cell + o
+				if host.in_bounds(mc) and host.is_walkable(mc) and not host.is_blocked(mc) and es.structure_at(mc) == "" and not es.is_open_manhole_cell(mc):
+					mpos.append(Grid.center_of_cell(mc))
+			if mpos.size() < 2:
+				note("MANHOLE NEEDS 2+ CELLS", "ui")
+				return {"ok": false, "reason": "no_room"}
+			var net: Dictionary = es.spawn_manhole_net(mpos, origin)
+			id = int((net.manholes as Array)[0])
 		"junk_crab":
 			var opts: Dictionary = {}
 			if es.piles.is_empty():
@@ -362,6 +496,23 @@ func spawn_enemy(kind: String, world: Vector2) -> Dictionary:
 		_:
 			id = es.spawn(kind, pos, origin)
 	return {"ok": id >= 0, "id": id}
+
+## ガラスジカの初期配置の抽選(専用乱数)。押すたびに新しい地域キーで、マップ内の候補20点を抽選する。
+func _glass_lottery(world: Vector2) -> Dictionary:
+	glass_lot_n += 1
+	var cands: Array = []
+	for i: int in range(20):
+		var p: Vector2 = Vector2(20.0 + float((i % 5) * 54), 70.0 + float((i / 5) * 18))
+		if host.is_walkable(cell_of(p)) and not host.is_blocked(cell_of(p)):
+			cands.append(p)
+	var key: String = "lab%d" % glass_lot_n
+	var ids: Array = pack.place_glass_deer(7, {key: cands})
+	if ids.is_empty():
+		note("GLASS LOT %s: NONE (%d CANDS)" % [key.to_upper(), cands.size()], "ui")
+	else:
+		glass_hits += 1
+		note("GLASS LOT %s: HIT" % key.to_upper(), "reward")
+	return {"ok": not ids.is_empty(), "id": (int(ids[0]) if not ids.is_empty() else -1), "lottery": true}
 
 func crop_cell_for(kind: String, hover: Vector2i) -> Vector2i:
 	var s: Vector2i = pack.crops.size_of(kind)
@@ -392,6 +543,12 @@ func place(kind: String, hover: Vector2i) -> Dictionary:
 
 func remove_at(cell: Vector2i) -> Dictionary:
 	var id: int = pack.crops.crop_id_at(cell)
+	if id <= 0 and pack.crops.root_owner(cell) > 0:
+		var rr: Dictionary = pack.crops.remove_root(cell, "manual")
+		if bool(rr.ok):
+			note("REMOVE ROOT", "crop")
+			apply_events(rr.events)
+		return rr
 	if id <= 0:
 		msg = "NOTHING HERE"
 		return {"ok": false}
@@ -418,6 +575,8 @@ func clear_enemies() -> void:
 	es.projectiles.clear()
 	es.gas.clear()
 	es.slime.clear()
+	es.odor.clear()
+	es.acid.clear()
 	note("CLEAR ENEMIES", "ui")
 
 # ---------------------------------------------------------------- デバッグ(通常の仕様とは区別する)
@@ -532,7 +691,7 @@ func selected_info() -> String:
 
 func info_lines() -> Array[String]:
 	var out: Array[String] = []
-	out.append("SEEDS %d  HP %d/%d  WATER %d  T %.0fS  X%d%s  %s  TOOL %s" % [seeds, int(hp), int(max_hp), int(water), elapsed, speed, " PAUSED" if paused else "", "DAY" if host.day else "NIGHT", tool.to_upper()])
+	out.append("SEEDS %d  HP %d/%d  WATER %d  T %.0fS  X%d%s  %s  TOOL %s%s" % [seeds, int(hp), int(max_hp), int(water), elapsed, speed, " PAUSED" if paused else "", "DAY" if host.day else "NIGHT", tool.to_upper(), " STUN" if hero_stunned() else ""])
 	out.append(selected_info())
 	out.append("TOTAL %.1f SEEDS/MIN  PLANTS %d  STABLE-COUNT ENEMIES %d" % [total_rate_per_min(), pack.crops.crops.size(), pack.enemies.living_count_for_stability()])
 	if tool == "crop":

@@ -1,0 +1,167 @@
+{
+	"checks": [
+		{
+			"detail": "[]",
+			"name": "save2e_state_has_all_new_kinds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_state_has_mounds",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "save2e_state_has_odor_cloud",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "save2e_state_has_reflected_shot_in_flight",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_state_has_decoy_and_regrow_timer",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=1",
+			"name": "save2e_state_has_acid",
+			"status": "PASS"
+		},
+		{
+			"detail": "sat=3",
+			"name": "save2e_state_has_rust_and_satiety",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_state_has_manhole_net_and_plug",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_state_has_bats_in_flight",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_state_has_glass_rolls",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_adopts_valid",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_roundtrip_identical",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_odor_acid_projectiles_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_mounds_restored_as_vectors",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_glass_state_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_cell_and_ids_are_int_vectori",
+			"status": "PASS"
+		},
+		{
+			"detail": " {\"crop_damaged\":22,\"crop_removed\":1,\"enemy_damaged\":2,\"enemy_defeated\":2,\"fx\":24,\"ground_stage\":5,\"helper_damage\":12,\"hero_damage\":45,\"reward\":2,\"seeds\":133}{\"crop_damaged\":22,\"crop_removed\":1,\"enemy_damaged\":2,\"enemy_defeated\":2,\"fx\":24,\"ground_stage\":5,\"helper_damage\":12,\"hero_damage\":45,\"reward\":2,\"seeds\":133}",
+			"name": "save2e_continues_identically_25s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_pause_unchanged_with_all_new_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_reject_baseline_valid",
+			"status": "PASS"
+		},
+		{
+			"detail": "[]",
+			"name": "save2e_reject_missing_key_every_new_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "checked=484 bad=[]",
+			"name": "save2e_reject_wrong_type_every_new_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=21 bad=[]",
+			"name": "save2e_reject_nested_and_state_names",
+			"status": "PASS"
+		},
+		{
+			"detail": "n=34 bad=[]",
+			"name": "save2e_reject_new_containers",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_atomic_when_other_part_invalid",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_atomic_crops_untouched_when_enemy_invalid",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_nest_reward_first_time_once",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_helper_load_ok",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_nest_reward_not_repaid_after_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_bat_reward_once_after_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_reward_paid_flag_prevents_repay",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_helper_load_ok",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "save2e_no_advance_no_change",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "save2_enemies",
+	"total": 32
+}

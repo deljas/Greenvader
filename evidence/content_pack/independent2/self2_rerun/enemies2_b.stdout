@@ -1,0 +1,119 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS rhino_shot_half 
+PASS rhino_helper_bullet_half 
+PASS rhino_bazooka_full 
+PASS rhino_tackle_full 
+PASS rhino_rust_max_5 rust=5
+PASS rhino_rust_never_decreases 
+PASS rhino_windup_1_2s_no_rust w=1.200000
+PASS rhino_windup_plus_0_2_per_rust w=2.200000
+PASS rhino_charge_speed_9mps v=90.000153
+PASS rhino_charge_speed_minus_12pct_per_rust v=36.000061
+PASS rhino_charge_crushes_crop_15 n=1
+PASS rhino_charge_hits_hero_30 n=1
+PASS rhino_interval_plus_1s_per_rust wait=8.000000
+PASS rhino_tramples_crop_underfoot_15 
+PASS rhino_herbivore_eats_fruit 
+PASS eel_always_hittable_x0_75 
+PASS eel_discharge_10_after_windup_1s n=1 t=1.1
+PASS eel_discharge_every_6s n=2
+PASS eel_tired_x1_5_after_discharge 
+PASS eel_no_trigger_when_far_from_shore 
+PASS eel_stays_in_water_cells 
+PASS eel_wet_conduction_reaches_hero_beyond_3m n=1
+PASS eel_wet_conduction_misses_unconnected_helper 
+PASS eel_without_wet_no_damage_beyond_3m 
+PASS eel_conduction_limited_to_10m hero=0 helper=1
+PASS eel_wet_cells_expire_6s_conduction_gone 
+PASS newt_hit_cuts_tail_into_decoy decoys=1
+PASS decoy_not_counted_for_stability 
+PASS decoy_not_detected_but_newt_is 
+PASS decoy_is_hittable_target 
+PASS newt_no_second_decoy_while_tail_missing 
+PASS decoy_runs_about_2_5mps dist=44.999928
+PASS decoy_never_attacks 
+PASS newt_tail_regrows_after_8s 
+PASS newt_new_decoy_after_regrow n=2
+PASS decoy_vanishes_at_10s 
+PASS decoy_shot_pops_no_reward 
+PASS decoy_water_pops 
+PASS newt_bazooka_catches_body_and_decoy 
+PASS newt_bites_6_per_second n=4
+PASS lizard_front_shot_no_damage_reflected proj=1
+PASS lizard_reflect_goes_back_toward_shooter_full_power 
+PASS lizard_reflected_shot_hits_hero_10 n=1
+PASS lizard_reflected_helper_bullet_hits_helper n=1
+PASS lizard_side_hit_damages 
+PASS lizard_back_hit_damages 
+PASS lizard_61deg_damages 
+PASS lizard_59deg_reflects 
+PASS lizard_bazooka_front_half 
+PASS lizard_bazooka_side_full 
+PASS lizard_tackle_front_always_effective 
+PASS lizard_turn_120dps angle=60.000002
+PASS lizard_turn_done_in_1_5s 
+PASS lizard_bite_8 n=1
+PASS lizard_locked_0_8s_after_bite_no_turn angle=0.000000
+PASS lizard_turns_again_after_lock 
+PASS shrimp_no_wave_before_1_2s 
+PASS shrimp_wave_stuns_hero_1_5s_5dmg 
+PASS shrimp_wave_stops_helper_in_range_only 
+PASS shrimp_wave_ignores_crops 
+PASS shrimp_stun_ends_after_1_5s 
+PASS shrimp_interval_5s 
+PASS shrimp_wave_blocked_by_building 
+PASS shrimp_no_windup_beyond_4m 
+PASS frog_flock_of_3_hp6 
+PASS frog_ground_kill_no_acid 
+PASS frog_inflating_in_1s state=inflate
+PASS frog_floats_after_1s state=float
+PASS frog_drifts_toward_hero_0_8mps d0=53.642624 d1=37.642483
+PASS frog_all_floating_untouched_by_water 
+PASS frog_helper_bullet_pops_with_one_hit 
+PASS frog_pop_leaves_acid_1_6m_5s 
+PASS frog_acid_3dps_hero_helper hero=11 helper=11
+PASS frog_acid_damages_crop 
+PASS frog_acid_gone_after_5s 
+PASS frog_touching_hero_pops_with_acid defeated=3
+PASS frog_bazooka_pops_all_floating n=3
+PASS frog_floating_counts_for_stability 
+PASS glass_roll_at_most_one_per_region placed=256 regions_with=256
+PASS glass_roll_rate_5pct_per_candidate region_rate=0.426667 (expect ~0.40 for 10 candidates)
+PASS glass_roll_single_candidate_5pct rate=0.047000
+PASS glass_roll_uses_dedicated_rng_not_pack_rng 
+PASS glass_roll_deterministic_per_world_seed_region 
+PASS glass_roll_cached_no_reroll 
+PASS glass_deer_stays_within_10m_of_home max=86.869545
+PASS glass_deer_never_attacks_or_flees 
+PASS glass_deer_shot_one_hit_shatter_instant_120 
+PASS glass_deer_shot_no_second_reward 
+PASS glass_deer_bazooka_one_hit_shatter_instant_120 
+PASS glass_deer_bazooka_no_second_reward 
+PASS glass_deer_tackle_one_hit_shatter_instant_120 
+PASS glass_deer_tackle_no_second_reward 
+PASS glass_deer_unaffected_by_helper_water 
+PASS glass_deer_in_player_targets_but_not_helper_targets 
+PASS glass_deer_not_counted_for_stability 
+PASS glass_deer_detect_as_bonus_neutral_category 
+PASS other_enemy_category_is_enemy 
+PASS glass_deer_not_targeted_by_enemies 
+PASS glass_deer_not_a_threat_for_plants 
+PASS kudzu_has_roots_for_slow_test roots=2
+PASS enemy_slowed_0_6_on_kudzu_root root=1.200000 free=2.000000
+PASS herbivore_tag_set_first6_plus_hippo_bear_rhino ["deer", "hippo", "honey_bear", "iron_rhino", "leafcutter_ant", "mimic_cabbage", "moss_turtle", "pouch_rabbit", "slime_slug"]
+PASS herbivore_deer_fruit_first fruit@3.100000 crop@-1.000000
+PASS herbivore_pouch_rabbit_fruit_first fruit@3.300000 crop@-1.000000
+PASS herbivore_moss_turtle_fruit_first fruit@3.100000 crop@-1.000000
+PASS herbivore_slime_slug_fruit_first fruit@3.600000 crop@-1.000000
+PASS herbivore_leafcutter_ant_fruit_first fruit@3.600000 crop@-1.000000
+PASS herbivore_mimic_cabbage_fruit_first fruit@3.300000 crop@-1.000000
+PASS non_herbivore_ignores_fruit 
+PASS herbivore_ignores_fruit_in_stable_region 
+PASS herbivore_fruit_range_trigger_or_territory_plus_10m far_none=true near_some=true
+PASS stability_counts_new_kinds_incl_underground_water_flying []
+PASS stability_does_not_count_glass_deer 
+PASS stability_counts_sleeping_bear 
+FAIL updated_sprite_coverage_only_stage3_kinds_pending absent=0 sprites=86
+FAIL updated_first_batch_enemy_defs_all_have_sprites with_sprite=39 defs=39
+enemies2_b total=116 failed=2

@@ -1,0 +1,69 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/hero.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _hero (res://scripts/content_pack/lab/lab_view.gd:448)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:329)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/bamboo.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/glow_moss.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+PASS gpu_available adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows
+PASS window_unfocusable_flag_set unfocusable=true (ウィンドウ生成時の初回フォーカスはスクリプトでは防げない)
+PASS shot_wave2_baseline_empty_size_multiple_of_640x360 640x360
+PASS shot_wave2_baseline_empty_limited_palette_no_blur unique_colors=46
+PASS shot_wave2_enemies_lineup_size_multiple_of_640x360 640x360
+PASS shot_wave2_enemies_lineup_limited_palette_no_blur unique_colors=257
+PASS wave2_enemy_sprites_drawn_and_grounded_at_foot_row root_mole:118/0,skunk:141/5,sewer_rat:48/1,decoy_newt:69/1,mirror_lizard:114/4,pistol_shrimp:145/1,balloon_frog:88/1,bat_flock:141/5,manhole:44/3,thunder_eel:166/5,glass_deer:283/2,honey_bear:570/1,iron_rhino:677/1,hippo:590/1
+PASS wave2_sprite_pixels_match_png_exactly_nearest_no_blur honey_bear opaque px=528 exact=528 (100.0%)
+PASS shot_wave2_baseline_empty2_size_multiple_of_640x360 640x360
+PASS shot_wave2_baseline_empty2_limited_palette_no_blur unique_colors=46
+PASS shot_wave2_crops_lineup_size_multiple_of_640x360 640x360
+PASS shot_wave2_crops_lineup_limited_palette_no_blur unique_colors=152
+PASS wave2_crop_sprites_drawn_and_grounded_at_foot []
+PASS shot_wave2_mole_mounds_wet_detect_size_multiple_of_640x360 640x360
+PASS shot_wave2_mole_mounds_wet_detect_limited_palette_no_blur unique_colors=80
+PASS shot_wave2_water_hippo_eel_size_multiple_of_640x360 640x360
+PASS shot_wave2_water_hippo_eel_limited_palette_no_blur unique_colors=153
+PASS shot_wave2_air_bats_frogs_acid_size_multiple_of_640x360 640x360
+PASS shot_wave2_air_bats_frogs_acid_limited_palette_no_blur unique_colors=118
+PASS shot_wave2_directions_odor_shock_size_multiple_of_640x360 640x360
+PASS shot_wave2_directions_odor_shock_limited_palette_no_blur unique_colors=149
+PASS shot_wave2_manhole_net_size_multiple_of_640x360 640x360
+PASS shot_wave2_manhole_net_limited_palette_no_blur unique_colors=89
+PASS shot_wave2_crops_states_size_multiple_of_640x360 640x360
+PASS shot_wave2_crops_states_limited_palette_no_blur unique_colors=172
+PASS shot_wave2_bear_rhino_glass_newt_size_multiple_of_640x360 640x360
+PASS shot_wave2_bear_rhino_glass_newt_limited_palette_no_blur unique_colors=266
+PASS shot_wave2_panel_enemy2_size_multiple_of_640x360 640x360
+PASS shot_wave2_panel_enemy2_limited_palette_no_blur unique_colors=44
+PASS shot_wave2_panel_crop2_preview_size_multiple_of_640x360 640x360
+PASS shot_wave2_panel_crop2_preview_limited_palette_no_blur unique_colors=78
+PASS shot_wave2_night_size_multiple_of_640x360 640x360
+PASS shot_wave2_night_limited_palette_no_blur unique_colors=73
+PASS project_uses_nearest_and_integer_viewport_scaling filter=0 mode=viewport scale=integer
+PASS lab_canvas_nearest 1
+lab2_gpu total=35 failed=0 not_run=0 adapter=NVIDIA GeForce RTX 5070 Ti

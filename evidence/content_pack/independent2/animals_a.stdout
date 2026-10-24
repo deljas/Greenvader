@@ -1,0 +1,123 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS facing_59_front 
+PASS facing_61_not_front 
+PASS facing_neg59_front 
+PASS facing_back_not_front 
+PASS facing_null_origin_not_front 
+PASS turn_toward_limit_45deg got 45.000
+PASS turn_toward_reaches_when_within_limit 
+PASS skunk_front_shot_windup 
+PASS skunk_cloud_after_windup 
+PASS skunk_cloud_dir_toward_shooter (1.0, 0.0)
+PASS skunk_cloud_len50_half30 50.0 30.0
+PASS skunk_cloud_duration_8s remaining 7.90
+PASS skunk_no_spray_side 
+PASS skunk_no_spray_back 
+PASS skunk_no_spray_tackle_front 
+PASS skunk_no_spray_water_front 
+PASS skunk_no_spray_spine_front 
+PASS skunk_no_spray_deg61 
+PASS skunk_spray_deg59 
+PASS skunk_spray_helper_front 
+PASS skunk_bazooka_front_windup 
+PASS skunk_bazooka_back_no_windup 
+PASS skunk_interval_blocks_before_6s t_since=4.60
+PASS skunk_interval_allows_after_6s t_since=6.30
+PASS skunk_cloud_hero_slow_event 
+PASS skunk_cloud_hero_move_mult_0_6 
+PASS skunk_cloud_helper_stop_odor 
+PASS skunk_cloud_no_effect_on_crop_enemy 
+PASS skunk_hero_outside_cone_mult_1 
+PASS skunk_cloud_gone_after_8s clouds=0
+PASS skunk_garlic_cancels_cloud 
+PASS skunk_cloud_slows_hero_without_garlic 
+PASS skunk_garlic_protects_hero_from_cloud mult=1.0
+PASS skunk_turn_limit_90dps 0.5s=45.0 1.0s=90.0 resid@2.5s=3.0
+PASS skunk_gnaws_crop_3dmg n=5
+PASS skunk_gnaw_interval_2s 2.00
+PASS skunk_never_hurts_hero 
+PASS skunk_hp18_reward5_instant 
+PASS liz_front_shot_no_damage 
+PASS liz_front_shot_reflect_fx_and_projectile 
+PASS liz_reflect_dir_back_to_shooter dir=(1.0, 0.0) dmg=5.0
+PASS liz_reflected_hits_hero_full_power n=1
+PASS liz_side_hits_normally 
+PASS liz_back_hits_normally 
+PASS liz_deg61_hits_normally 
+PASS liz_deg59_reflects 
+PASS liz_helper_shot_reflected_to_helper n=1
+PASS liz_bazooka_front_half hp=17.5
+PASS liz_bazooka_back_full hp=5.0
+PASS liz_tackle_front_full 
+PASS liz_turn_limit_120dps 0.5s=60.0 1.0s=120.0 1.6s=180.0
+PASS liz_bites_8 n=1
+PASS liz_lock_keeps_facing state=bite
+PASS liz_turns_after_lock 
+PASS wet_events 
+PASS wet_initially 
+PASS wet_still_at_5_9s 
+PASS wet_gone_after_6s 
+PASS wet_extended_by_rewater 
+PASS wet_expires_6s_after_rewater 
+PASS eel_discharges_near_hero 
+PASS eel_damage_10 
+PASS eel_windup_1s 1.00
+PASS eel_interval_6s 6.00
+PASS eel_dry_no_conduction 
+PASS eel_wet_chain_hits_hero_4m n=1
+PASS eel_wet_broken_chain_no_hit 
+PASS eel_wet_expired_no_hit 
+PASS eel_far_hero_untouched 
+PASS eel_wet_chain_hits_helper 
+PASS eel_idle_when_no_one_near_shore 
+PASS eel_damage_x0_75 hp=27.5
+PASS eel_always_hittable 
+PASS eel_tired_after_discharge 
+PASS eel_tired_x1_5_x0_75 dealt=11.250
+PASS eel_tired_ends_2s 
+PASS mole_tags_empty_underground 
+PASS mole_not_detectable_without_mounds 
+PASS mole_moving_underground state=move mounds=5
+PASS mole_mounds_every_0_4m 
+PASS mole_detect_at_last_mound 
+PASS mole_not_in_hittable_targets 
+PASS mole_immune_shot_bazooka_tackle 
+PASS mole_gnaw_5dmg n=3
+PASS mole_gnaw_interval_2s 
+PASS mole_mounds_expire_10s left=0
+PASS mole_far_water_no_effect 
+PASS mole_near_water_pop_pending 
+PASS mole_still_untargetable_during_pop_delay 
+PASS mole_stunned_after_1s_hittable 
+PASS mole_up_has_beast_tag 
+PASS mole_stunned_damage_x1_5 dealt=15.00
+PASS mole_detect_at_body_when_up 
+PASS mole_stunned_lasts_about_3s 
+PASS mole_dives_again 
+PASS mole_splash_water_pops 
+PASS mole_reward_6_instant_once n=1
+PASS mole_peeks_after_killing_crop 
+PASS mole_peek_is_hittable 
+PASS mole_peek_ends_after_1s 
+PASS mole_prefers_potato_over_nearer_tomato first=2 potato=2 tomato=1
+PASS mole_ignores_crop_outside_territory 
+PASS kudzu_grew_roots_for_mole_test roots=2
+PASS mole_eats_kudzu_roots ["eaten", "stock_lost", "stock_lost"]
+PASS mole_root_eat_takes_2s 2.20
+PASS hippo_water_x0_5 hp=85.0
+PASS hippo_in_water_hittable 
+PASS hippo_lands_and_eats_crop_8dmg n=10
+PASS hippo_eat_interval_2s 
+PASS hippo_ignores_far_crop n=0
+PASS hippo_stays_within_8m_of_shore maxd=2.4
+PASS hippo_reaches_eat_state 
+PASS hippo_no_retreat_at_8 
+PASS hippo_retreat_after_cumulative_15 state=retreat land=16.0
+PASS hippo_returns_to_water_and_rests 
+PASS hippo_rest_10s rest=10.00
+PASS hippo_charge_windup_and_25 wu=1 hd=1
+PASS hippo_windup_ge_0_8s_before_hit 0.90
+PASS hippo_eats_grass_within_8m_of_shore n=17 worst=12.0
+PASS hippo_hp90_reward20_instant 
+animals_a total=120 failed=0

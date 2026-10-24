@@ -1,0 +1,216 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/hero.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _hero (res://scripts/content_pack/lab/lab_view.gd:448)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:329)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/content_pack/potato.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] image (res://scripts/content_pack/lab/sprite_bank.gd:45)
+       [1] tex (res://scripts/content_pack/lab/sprite_bank.gd:57)
+       [2] spr (res://scripts/content_pack/lab/lab_view.gd:75)
+       [3] _crop (res://scripts/content_pack/lab/lab_view.gd:381)
+       [4] _sprites (res://scripts/content_pack/lab/lab_view.gd:325)
+       [5] draw (res://scripts/content_pack/lab/lab_view.gd:170)
+       [6] _draw (res://scripts/content_pack/lab/content_lab.gd:28)
+PASS gpu_available adapter=NVIDIA GeForce RTX 5070 Ti driver=vulkan display=Windows
+PASS window_unfocusable_flag 
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:root_mole (544.5, 28.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:skunk (607.5, 28.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:hippo (544.5, 37.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:honey_bear (607.5, 37.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:sewer_rat (544.5, 46.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:bat_flock (544.5, 55.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:iron_rhino (607.5, 55.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:thunder_eel (544.5, 64.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:decoy_newt (607.5, 64.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:mirror_lizard (544.5, 73.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:pistol_shrimp (607.5, 73.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:balloon_frog (544.5, 82.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_deer (607.5, 82.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:manhole (607.5, 46.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:lab_helper (607.5, 91.0)
+PASS ops_enemy_placed_root_mole n=1
+PASS ops_enemy_placed_skunk n=1
+PASS ops_enemy_placed_hippo n=1
+PASS ops_enemy_placed_honey_bear n=1
+PASS ops_enemy_placed_sewer_rat n=1
+PASS ops_enemy_placed_bat_flock n=6
+PASS ops_enemy_placed_iron_rhino n=1
+PASS ops_enemy_placed_thunder_eel n=1
+PASS ops_enemy_placed_decoy_newt n=1
+PASS ops_enemy_placed_mirror_lizard n=1
+PASS ops_enemy_placed_pistol_shrimp n=1
+PASS ops_enemy_placed_balloon_frog n=3
+PASS ops_enemy_placed_glass_deer n=1
+PASS ops_manhole_net_3 n=3
+PASS ops_bat_flock_6 n=6
+PASS ops_frog_flock_3 n=3
+PASS ops_helper_placed 
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_lot (544.5, 91.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_lot (544.5, 91.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_lot (544.5, 91.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_lot (544.5, 91.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_lot (544.5, 91.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_lot (544.5, 91.0)
+PASS ops_glass_lottery_runs lots=6 hits=3
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:evening_primrose (544.5, 28.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:dandelion (607.5, 28.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:mimosa (544.5, 37.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:kudzu (607.5, 37.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:loofah (544.5, 46.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:hinoki (607.5, 46.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:apple (544.5, 55.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:balsam (607.5, 55.0)
+PASS ops_crop_placed_evening_primrose n=1
+PASS ops_crop_placed_dandelion n=1
+PASS ops_crop_placed_mimosa n=1
+PASS ops_crop_placed_kudzu n=1
+PASS ops_crop_placed_loofah n=1
+PASS ops_crop_placed_hinoki n=1
+PASS ops_crop_placed_apple n=1
+PASS ops_crop_placed_balsam n=1
+PASS button_exists_dbg_water (544.5, 251.0)
+PASS button_exists_dbg_mature (607.5, 239.0)
+PASS ops_debug_mature_all 
+PASS ops_lmb_shoot bullets=1 seeds 9684->9683
+PASS ops_rmb_water water 100->90 wet_cell events=44
+PASS ops_shift_lmb_tackle moved 14.0
+PASS ops_shift_rmb_bazooka seeds 9683->9690 rewards+12
+PASS ops_key_space_pause 
+PASS ops_paused_no_time_advance 
+PASS ops_key_space_resume 
+PASS ops_key_n_day_night 
+PASS ops_f5_f9_restore time 0.00 vs 0.00
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:root_mole (544.5, 28.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:skunk (607.5, 28.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:hippo (544.5, 37.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:honey_bear (607.5, 37.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:sewer_rat (544.5, 46.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:iron_rhino (607.5, 55.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:thunder_eel (544.5, 64.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:decoy_newt (607.5, 64.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:mirror_lizard (544.5, 73.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:pistol_shrimp (607.5, 73.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:glass_deer (607.5, 82.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:bat_flock (544.5, 55.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:balloon_frog (544.5, 82.0)
+PASS button_exists_tab:enemy2 (591.0, 17.0)
+PASS button_exists_pick_enemy:manhole (607.5, 46.0)
+PASS shot_animals_lineup_size_integer_multiple_of_640x360 640x360
+PASS shot_animals_lineup_nearest_blocks_uniform non-uniform blocks=0
+PASS sprite_foot_skunk match=0.98 offset=(0, 0) flip=false
+PASS sprite_foot_hippo match=0.40 offset=(0, 0) flip=false
+PASS sprite_foot_honey_bear match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_sewer_rat match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_iron_rhino match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_decoy_newt match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_mirror_lizard match=0.98 offset=(0, 0) flip=false
+PASS sprite_foot_pistol_shrimp match=1.00 offset=(0, 0) flip=false
+PASS glass_deer_drawn_translucent_visible non-terrain pixels=390
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:evening_primrose (544.5, 28.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:dandelion (607.5, 28.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:mimosa (544.5, 37.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:kudzu (607.5, 37.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:loofah (544.5, 46.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:hinoki (607.5, 46.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:apple (544.5, 55.0)
+PASS button_exists_tab:crop2 (622.0, 17.0)
+PASS button_exists_pick_crop:balsam (607.5, 55.0)
+PASS button_exists_dbg_water (544.5, 251.0)
+PASS button_exists_dbg_mature (607.5, 239.0)
+PASS shot_crops_lineup_size_integer_multiple_of_640x360 640x360
+PASS shot_crops_lineup_nearest_blocks_uniform non-uniform blocks=0
+PASS sprite_foot_evening_primrose match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_dandelion match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_mimosa match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_kudzu match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_loofah match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_hinoki match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_apple match=1.00 offset=(0, 0) flip=false
+PASS sprite_foot_balsam match=1.00 offset=(0, 0) flip=false
+PASS button_exists_day (544.5, 181.0)
+PASS shot_crops_night_size_integer_multiple_of_640x360 640x360
+PASS shot_crops_night_nearest_blocks_uniform non-uniform blocks=0
+PASS night_frame_darker_than_day_frame day=7807.0 night=5078.1
+PASS primrose_region_changes_between_day_and_night changed=240
+PASS shot_state_skunk_odor_size_integer_multiple_of_640x360 640x360
+PASS shot_state_skunk_odor_nearest_blocks_uniform non-uniform blocks=0
+PASS state_skunk_cloud_exists 
+PASS shot_state_eel_wet_discharge_size_integer_multiple_of_640x360 640x360
+PASS shot_state_eel_wet_discharge_nearest_blocks_uniform non-uniform blocks=0
+PASS shot_state_mole_mounds_size_integer_multiple_of_640x360 640x360
+PASS shot_state_mole_mounds_nearest_blocks_uniform non-uniform blocks=0
+PASS state_mole_mounds_listed 
+PASS shot_state_mole_stunned_size_integer_multiple_of_640x360 640x360
+PASS shot_state_mole_stunned_nearest_blocks_uniform non-uniform blocks=0
+PASS state_mole_stunned 
+PASS sprite_foot_root_mole_surfaced match=0.95 offset=(0, 0) flip=false
+PASS shot_state_bats_frogs_size_integer_multiple_of_640x360 640x360
+PASS shot_state_bats_frogs_nearest_blocks_uniform non-uniform blocks=0
+PASS shot_state_lizard_reflect_size_integer_multiple_of_640x360 640x360
+PASS shot_state_lizard_reflect_nearest_blocks_uniform non-uniform blocks=0
+PASS shot_state_bear_sleep_rhino_rust_manholes_size_integer_multiple_of_640x360 640x360
+PASS shot_state_bear_sleep_rhino_rust_manholes_nearest_blocks_uniform non-uniform blocks=0
+PASS shot_panel_enemy2_page_size_integer_multiple_of_640x360 640x360
+PASS shot_panel_enemy2_page_nearest_blocks_uniform non-uniform blocks=0
+PASS shot_panel_crop2_page_size_integer_multiple_of_640x360 640x360
+PASS shot_panel_crop2_page_nearest_blocks_uniform non-uniform blocks=0
+gpu_v2 total=192 failed=0 not_run=0 adapter=NVIDIA GeForce RTX 5070 Ti display=Windows

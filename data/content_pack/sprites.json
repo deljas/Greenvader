@@ -266,6 +266,171 @@
     16
    ]
   },
+  "root_mole": {
+   "file": "root_mole.png",
+   "size": [
+    16,
+    12
+   ],
+   "foot": [
+    8,
+    12
+   ]
+  },
+  "skunk": {
+   "file": "skunk.png",
+   "size": [
+    16,
+    12
+   ],
+   "foot": [
+    8,
+    12
+   ]
+  },
+  "hippo": {
+   "file": "hippo.png",
+   "size": [
+    40,
+    24
+   ],
+   "foot": [
+    20,
+    24
+   ]
+  },
+  "honey_bear": {
+   "file": "honey_bear.png",
+   "size": [
+    32,
+    28
+   ],
+   "foot": [
+    16,
+    28
+   ]
+  },
+  "sewer_rat": {
+   "file": "sewer_rat.png",
+   "size": [
+    10,
+    8
+   ],
+   "foot": [
+    5,
+    8
+   ]
+  },
+  "manhole": {
+   "file": "manhole.png",
+   "size": [
+    8,
+    8
+   ],
+   "foot": [
+    4,
+    8
+   ]
+  },
+  "bat_flock": {
+   "file": "bat_flock.png",
+   "size": [
+    8,
+    6
+   ],
+   "foot": [
+    4,
+    6
+   ]
+  },
+  "iron_rhino": {
+   "file": "iron_rhino.png",
+   "size": [
+    40,
+    28
+   ],
+   "foot": [
+    20,
+    28
+   ]
+  },
+  "thunder_eel": {
+   "file": "thunder_eel.png",
+   "size": [
+    22,
+    8
+   ],
+   "foot": [
+    11,
+    8
+   ]
+  },
+  "decoy_newt": {
+   "file": "decoy_newt.png",
+   "size": [
+    14,
+    8
+   ],
+   "foot": [
+    7,
+    8
+   ]
+  },
+  "decoy_tail": {
+   "file": "decoy_tail.png",
+   "size": [
+    14,
+    8
+   ],
+   "foot": [
+    7,
+    8
+   ]
+  },
+  "mirror_lizard": {
+   "file": "mirror_lizard.png",
+   "size": [
+    18,
+    10
+   ],
+   "foot": [
+    9,
+    10
+   ]
+  },
+  "pistol_shrimp": {
+   "file": "pistol_shrimp.png",
+   "size": [
+    20,
+    14
+   ],
+   "foot": [
+    10,
+    14
+   ]
+  },
+  "balloon_frog": {
+   "file": "balloon_frog.png",
+   "size": [
+    12,
+    12
+   ],
+   "foot": [
+    6,
+    12
+   ]
+  },
+  "glass_deer": {
+   "file": "glass_deer.png",
+   "size": [
+    22,
+    24
+   ],
+   "foot": [
+    11,
+    24
+   ]
+  },
   "clover": {
    "file": "clover.png",
    "size": [
@@ -583,6 +748,94 @@
    "foot": [
     5,
     6
+   ]
+  },
+  "evening_primrose": {
+   "file": "evening_primrose.png",
+   "size": [
+    12,
+    20
+   ],
+   "foot": [
+    6,
+    20
+   ]
+  },
+  "dandelion": {
+   "file": "dandelion.png",
+   "size": [
+    10,
+    12
+   ],
+   "foot": [
+    5,
+    12
+   ]
+  },
+  "mimosa": {
+   "file": "mimosa.png",
+   "size": [
+    12,
+    10
+   ],
+   "foot": [
+    6,
+    10
+   ]
+  },
+  "kudzu": {
+   "file": "kudzu.png",
+   "size": [
+    14,
+    14
+   ],
+   "foot": [
+    7,
+    14
+   ]
+  },
+  "loofah": {
+   "file": "loofah.png",
+   "size": [
+    12,
+    24
+   ],
+   "foot": [
+    6,
+    24
+   ]
+  },
+  "hinoki": {
+   "file": "hinoki.png",
+   "size": [
+    36,
+    56
+   ],
+   "foot": [
+    18,
+    56
+   ]
+  },
+  "apple": {
+   "file": "apple.png",
+   "size": [
+    28,
+    36
+   ],
+   "foot": [
+    14,
+    36
+   ]
+  },
+  "balsam": {
+   "file": "balsam.png",
+   "size": [
+    10,
+    14
+   ],
+   "foot": [
+    5,
+    14
    ]
   },
   "junk_crab_shell": {

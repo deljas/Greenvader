@@ -1,0 +1,112 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS mole_priority_potato_over_nearer_crop state=move target=1 potato=1 pumpkin=2
+PASS mole_underground_not_hittable 
+PASS mole_tackle_no_effect 
+PASS mole_detect_at_mound_position detect=1 mounds=6
+PASS mole_mound_every_0_4m n=6
+PASS mole_gnaw_5dmg_every_2s n=3
+PASS mole_gnaw_reduces_hp_in_5s hp=15.000000 state=gnaw
+PASS mole_felling_crop_removes_it 
+PASS mole_peek_one_second_hittable peek=2.200000 left=3.200000
+PASS mole_water_far_no_effect state=gnaw
+PASS mole_water_pops_after_1s state=stunned
+PASS mole_stunned_damage_x1_5 dealt=15.000000
+PASS mole_dives_again_after_3s state=gnaw
+PASS mole_water_splash_also_pops state=stunned
+PASS mole_counts_for_stability_underground 
+PASS mole_tags_only_when_surfaced 
+PASS mole_beast_tag_when_surfaced 
+PASS mole_mounds_expire_after_10s early=6 now=0
+PASS mole_prefers_root_cell_target kind=root cell=(50, 13) far=(50, 13)
+PASS mole_eats_root_cell_in_2s events=1 roots=2->1
+PASS skunk_side_hit_no_windup state=idle
+PASS skunk_back_hit_no_windup 
+PASS skunk_61deg_no_windup 
+PASS skunk_tackle_front_no_windup 
+PASS skunk_no_cloud_before_frontal 
+PASS skunk_front_59deg_windup 
+PASS skunk_no_cloud_during_windup 
+PASS skunk_cloud_after_0_6s n=1
+PASS skunk_cloud_toward_shooter dir=(0.515038, 0.857167) until-t0=8.600000
+PASS skunk_cloud_hero_slow_0_6 n=10
+PASS skunk_cloud_helper_stop_odor ids=[7, 7]
+PASS skunk_cloud_no_effect_on_crop_enemy 
+PASS skunk_interval_blocks_second_spray 
+PASS skunk_sprays_again_after_6s 
+PASS skunk_cloud_gone_after_8s 
+PASS skunk_bazooka_front_windup 
+PASS skunk_helper_bullet_front_windup 
+PASS skunk_garlic_cancels_cloud 
+PASS skunk_turn_90dps_half_second angle=45.000001
+PASS skunk_turn_completes_in_2s face=(-0.987688, -0.156435) pos=(195.4158, 108.3935)
+PASS skunk_gnaws_crop_3dmg n=3 amount=3.0
+PASS facing_front_boundary_60 
+PASS facing_origin_by_kind 
+PASS facing_turn_limit 
+PASS hippo_habitat_water_start 
+PASS hippo_in_water_hittable_half 
+PASS hippo_lands_and_eats_crop_8dmg n=6 state=eat land=true
+PASS hippo_far_crop_untouched 
+PASS hippo_on_land_full_damage dealt=10.000000
+PASS hippo_not_yet_retreat_at_10 state=eat
+PASS hippo_retreat_at_15_cumulative state=retreat
+PASS hippo_rests_10s_then_returns rest@0.400000 float@10.400000
+PASS hippo_eats_grass_stage_back n=6
+PASS hippo_land_within_8m_of_shore max=63.972351
+PASS hippo_windup_when_hero_within_4m_on_land state=windup
+PASS hippo_charge_hits_25 n=1
+PASS hippo_herbivore_tag 
+PASS hippo_eats_fallen_fruit 
+PASS bear_priority_fruit_first kind=fruit
+PASS bear_order_fruit_hive_then_sleep order=["fruit", "hive"]
+PASS bear_hive_destroyed_swarm_gone 
+PASS bear_bees_sting_bear_while_gnawing angry_at_bear=true stung=24.000000
+PASS bear_sleeps_at_satiety_3 sat=4
+PASS bear_fruit_consumed 
+PASS bear_sleep_damage_x1_5_no_wake 
+PASS bear_sleep_still_asleep_above_half hp=50.000000
+PASS bear_wakes_enraged_below_half state=enraged
+PASS bear_claw_15_after_windup n=2
+PASS bear_claw_interval_1_2s 
+PASS bear_calms_when_hero_beyond_18m state=approach
+PASS bear_three_fruits_sleep_two_do_not sat=3
+PASS bear_eats_fruit_plant_6dmg_satiety_2 n=2 sat=2
+PASS bear_awake_hit_enrages 
+PASS manhole_net_of_3 
+PASS manhole_not_hittable_not_shootable 
+PASS manhole_detectable_as_nest 
+PASS sewer_none_before_15s 
+PASS sewer_first_rat_at_15s n=1
+PASS sewer_alive_capped_at_6 max=6
+PASS sewer_underground_move_3s_to_other_manhole exits=3
+PASS sewer_produced_reward_zero 
+PASS sewer_rat_tags_small_beast 
+PASS sewer_rat_initial_reward_2_instant 
+PASS manhole_cell_placement_exception { "ok": true, "reason": "" }
+PASS normal_waste_cell_still_requires_green 
+PASS manhole_other_conditions_still_apply { "ok": false, "reason": "needs_clean_water" }
+PASS manhole_plugs_placed_via_normal_check [1, 2, 3]
+PASS manhole_all_closed_suppresses_nest_reward_30_once n=1
+PASS manhole_closed_not_counted_for_stability 
+PASS manhole_no_rat_production_when_closed 
+PASS manhole_reopens_when_plug_lost 
+PASS manhole_second_close_no_second_reward 
+PASS rat_entered_underground_toward_other_manhole state=ug
+PASS rat_stuck_when_exit_plugged state=stuck
+PASS rat_gnaws_plug_from_below_3dmg_per_2s n=2
+PASS rat_emerges_when_plug_lost state=idle
+PASS bat_flock_of_6_roosting_hittable 
+PASS bat_one_shot_one_kill_reward_2 
+PASS bat_hit_wakes_flock_flying_untargetable 
+PASS bat_bazooka_hits_all_roosting n=6
+PASS bat_hero_beyond_3m_stays_roosting 
+PASS bat_hero_within_3m_wakes 
+PASS bat_dive_3dmg_every_2s bites=5 times=[1.9, 4.0, 5.99999999999999, 7.89999999999999, 9.89999999999998]
+PASS bat_dive_and_low_are_hittable dive=true low=true
+PASS bat_day_flight_about_12s_then_roost back@13.500000
+PASS bat_night_flight_24s_vs_day_12s night_left=23.800000
+PASS bat_no_dive_in_glow_moss_range bites=0
+PASS bat_last_two_do_not_swarm_return_fast alive=2
+PASS bat_counts_for_stability_while_flying 
+enemies2_a total=109 failed=0

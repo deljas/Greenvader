@@ -1,0 +1,412 @@
+{
+	"checks": [
+		{
+			"detail": "[]",
+			"name": "world_has_all_enemy_kinds_in_save",
+			"status": "PASS"
+		},
+		{
+			"detail": "projectiles=1 odor=0",
+			"name": "world_has_odor_or_windup_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "world_has_reflected_projectile",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "world_has_wet_cells",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "world_has_all_crop_kinds",
+			"status": "PASS"
+		},
+		{
+			"detail": "roots=1 water=10.0 closed=true fruits=1",
+			"name": "world_kudzu_has_roots_loofah_water_mimosa_closed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "world_glass_rolls_recorded",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "restore_accepts_full_world",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "restore_state_identical_after_roundtrip",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "restored_world_continues_identically_30s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "restored_final_state_identical",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "rng_state_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "common_state_restored",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "old_format_without_common_loads_with_empty_common",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "glass_roll_record_wins_after_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "base_snapshot_valid",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=bad format unchanged=true",
+			"name": "reject_format",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=bad rng unchanged=true",
+			"name": "reject_rng_seed_not_int_string",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: not a dictionary unchanged=true",
+			"name": "reject_enemies_not_dict",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=common: not a dictionary unchanged=true",
+			"name": "reject_common_not_dict",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=common: missing time unchanged=true",
+			"name": "reject_common_missing_time",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=common: bad wet unchanged=true",
+			"name": "reject_common_wet_bad_entry",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=common: bad helper_stop unchanged=true",
+			"name": "reject_common_helper_stop_bad",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: ext mismatch dandelion.next_fluff_at unchanged=true",
+			"name": "reject_crop_missing_ext_key_dandelion",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: ext mismatch mimosa.closed unchanged=true",
+			"name": "reject_crop_ext_wrong_type_mimosa",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: ext mismatch loofah.water unchanged=true",
+			"name": "reject_crop_ext_missing_loofah_water",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: loofah water range unchanged=true",
+			"name": "reject_crop_loofah_water_over_capacity",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: loofah water range unchanged=true",
+			"name": "reject_crop_loofah_water_negative",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: ext mismatch kudzu.roots unchanged=true",
+			"name": "reject_crop_kudzu_roots_not_array",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: kudzu roots unchanged=true",
+			"name": "reject_crop_kudzu_roots_over_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: root too far unchanged=true",
+			"name": "reject_crop_kudzu_root_too_far",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: root overlap unchanged=true",
+			"name": "reject_crop_kudzu_root_overlaps_crop",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: root overlap unchanged=true",
+			"name": "reject_crop_kudzu_root_duplicate",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: bad root cell unchanged=true",
+			"name": "reject_crop_kudzu_root_bad_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: unknown kind unchanged=true",
+			"name": "reject_crop_unknown_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: overlap unchanged=true",
+			"name": "reject_crop_overlap",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: bad fruit unchanged=true",
+			"name": "reject_fruit_bad_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: duplicate fruit id unchanged=true",
+			"name": "reject_fruit_duplicate_id",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: bad containers unchanged=true",
+			"name": "reject_crops_fruits_not_array",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=crops: missing next_fruit_id unchanged=true",
+			"name": "reject_crops_missing_next_fruit_id",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid skunk unchanged=true",
+			"name": "reject_skunk_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy keys/types mismatch skunk unchanged=true",
+			"name": "reject_skunk_missing_spray_dir",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy keys/types mismatch skunk unchanged=true",
+			"name": "reject_skunk_spray_dir_wrong_type",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid root_mole unchanged=true",
+			"name": "reject_mole_mound_bad_entry",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid root_mole unchanged=true",
+			"name": "reject_mole_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy keys/types mismatch root_mole unchanged=true",
+			"name": "reject_mole_t_cell_wrong_type",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid hippo unchanged=true",
+			"name": "reject_hippo_bad_t_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy keys/types mismatch hippo unchanged=true",
+			"name": "reject_hippo_missing_land_dmg",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid honey_bear unchanged=true",
+			"name": "reject_bear_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid honey_bear unchanged=true",
+			"name": "reject_bear_bad_t_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid manhole unchanged=true",
+			"name": "reject_manhole_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid bat_flock unchanged=true",
+			"name": "reject_bat_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true",
+			"name": "reject_rhino_rust_over_5",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true",
+			"name": "reject_rhino_rust_negative",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true",
+			"name": "reject_rhino_trample_bad_value",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid iron_rhino unchanged=true",
+			"name": "reject_rhino_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid thunder_eel unchanged=true",
+			"name": "reject_eel_chain_bad_entry",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid thunder_eel unchanged=true",
+			"name": "reject_eel_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy keys/types mismatch decoy_tail unchanged=true",
+			"name": "reject_decoy_tail_missing_run_dir",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid decoy_newt unchanged=true",
+			"name": "reject_decoy_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid mirror_lizard unchanged=true",
+			"name": "reject_lizard_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid pistol_shrimp unchanged=true",
+			"name": "reject_shrimp_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy nested state invalid balloon_frog unchanged=true",
+			"name": "reject_frog_bad_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad enemy field hp unchanged=true",
+			"name": "reject_enemy_hp_wrong_type",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad enemy unchanged=true",
+			"name": "reject_enemy_unknown_kind",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: duplicate id unchanged=true",
+			"name": "reject_enemy_duplicate_id",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: enemy keys/types mismatch skunk unchanged=true",
+			"name": "reject_enemy_missing_template_key",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad enemy unchanged=true",
+			"name": "reject_enemy_pos_wrong_type",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad odor unchanged=true",
+			"name": "reject_odor_missing_key",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad acid unchanged=true",
+			"name": "reject_acid_wrong_type",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad projectile unchanged=true",
+			"name": "reject_projectile_missing_key",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad glass roll unchanged=true",
+			"name": "reject_glass_rolls_bad_value",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad glass state unchanged=true",
+			"name": "reject_glass_seed_not_int_string",
+			"status": "PASS"
+		},
+		{
+			"detail": "ok=false err=enemies: bad glass state unchanged=true",
+			"name": "reject_glass_seed_not_string",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pause_pack_state_unchanged_25s",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pause_time_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "pause_wet_not_expiring",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "speed0_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "resume_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "advance_nonpositive_no_change",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "restore_does_not_advance_time",
+			"status": "PASS"
+		}
+	],
+	"failed": 0,
+	"suite": "save_v2",
+	"total": 81
+}
