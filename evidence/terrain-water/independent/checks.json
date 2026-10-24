@@ -1,0 +1,62 @@
+{
+  "task": "TECH-3D-09",
+  "date": "2026-10-16",
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "source_manifest_sha256": "9ba09266b55c830b8def6b308fc9fb4a1aaafec1b794efbed231d6f11ca9ad3a",
+  "environment": "Windows / submitted Godot4.7.2 Vulkan Forward+ RTX5070Ti GPU; independent read-only Python/Pillow offline",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "checks": [
+    {
+      "id": "terrain_display",
+      "status": "PASS",
+      "method": "実before/afterとGPU目視",
+      "evidence": "舗装id6は共有ひび経路上の小さな1房、土は従来3房。種/芽/成熟PNGを確認し成熟でも舗装面が広く残る。固定seedの土サンプル生成順と非舗装transformを維持。refreshに乱数再配置なし。"
+    },
+    {
+      "id": "state_rate_preservation",
+      "status": "PASS",
+      "method": "実コード・raw独立集計/自己証拠レビュー",
+      "evidence": "raw14件の対象1422・緑化/成熟counterをterrain/stageから再集計し一致。30セルずつの土/舗装が同stage/growth、反射ON/OFF・fixture・太陽135前後のsnapshotの全ゲーム値も一致。表示コードはstateを読むのみ。自己refresh不変/logic13PASSは証拠レビューであり独立再実行ではない。"
+    },
+    {
+      "id": "real_reflection",
+      "status": "PASS",
+      "method": "実コード・提出GPU目視/offline",
+      "evidence": "共有World3Dの320×180鏡像camera、cull_mask1、床/基壇layer2・水layer4除外を確認。通常水たまりにAの扉/壁が映り太陽変更へ追随。影なし赤箱の池内部ROI(153,172)-(181,190)で251pxが赤系に変化。自己投影式を再利用せず画像の内部矩形から比較。"
+    },
+    {
+      "id": "pixel_nearest",
+      "status": "PASS",
+      "method": "GPU PNG独立比較・実コード",
+      "evidence": "normal_reflection_ON_world640/1920は640×360/1920×1080、全RGBA画素nearest3一致。反射textureはfilter_nearest、AA/TAAなし。"
+    },
+    {
+      "id": "freeze_and_preservation",
+      "status": "PASS",
+      "method": "独立SHA256と実ログ",
+      "evidence": "指定manifest digest・source8件一致。before110件のうち許可済み編集2件を分け、保全108件すべて一致。今回証拠101件と旧TECH08証拠39件も一致。最終reflection/final exit0・stderr空、実ログにエラーなし。初回反射FAILの証拠は保持。"
+    },
+    {
+      "id": "independent_engine_run",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "表示変更は実ソース・raw・提出GPUで足りるためGodot/再描画/新テストなし。RNGやMultiMeshの独立runtime再計測なし。"
+    },
+    {
+      "id": "native_physical_input",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "native起動/フォーカス/物理入力。OS入力送信・前面化・カーソル操作なし。"
+    },
+    {
+      "id": "broad_performance_regression",
+      "status": "NOT_RUN",
+      "method": "範囲外",
+      "evidence": "追加反射の性能コスト、長時間/全方位/全地形形状/全game回帰、全世代の旧PNG網羅照合、美術最終評価。"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "shared_uncommitted_tree": true,
+  "files": [
+    {
+      "path": "run_vegetation_lab.bat",
+      "sha256": "70565d70412bfad985c69f6671ebbf30855d2413cc86143cc930ca524bb13fa9",
+      "bytes": 123
+    },
+    {
+      "path": "scenes/vegetation_lab.tscn",
+      "sha256": "17ca277ee747171dbe3257dbd62c96444770e9cf943c5eeee3524f1aeae3acc9",
+      "bytes": 180
+    },
+    {
+      "path": "scripts/vegetation_lab/brick.gdshader",
+      "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1",
+      "bytes": 521
+    },
+    {
+      "path": "scripts/vegetation_lab/building_defs.gd",
+      "sha256": "02777ae4bfc5c6bc193cf4354e510f3c0531a60471fe6a4c26279ad371379805",
+      "bytes": 1761
+    },
+    {
+      "path": "scripts/vegetation_lab/building_geometry.gd",
+      "sha256": "f887bc8e9d23315e7ac6279a9742e5432f2587ebde0c451642fa7da0f576a753",
+      "bytes": 6221
+    },
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "3185b54ad0ddb8b9dacbd256cec26d5ec7f0c984588fa1b8e4d3db35850b556c",
+      "bytes": 4419
+    },
+    {
+      "path": "scripts/vegetation_lab/lab.gd",
+      "sha256": "0b44d93fc4bc6c09099bc4d9054d9a963c3584c9e9d34840cf27d832e330d9be",
+      "bytes": 5969
+    },
+    {
+      "path": "scripts/vegetation_lab/plant_parts.gd",
+      "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c",
+      "bytes": 1927
+    },
+    {
+      "path": "tests/vegetation_lab/self_capture.gd",
+      "sha256": "b3e54f03db6ad345b3ba1afbda2e6e6d44ba02f4ee52271c355431a2a018fca6",
+      "bytes": 3980
+    }
+  ]
+}

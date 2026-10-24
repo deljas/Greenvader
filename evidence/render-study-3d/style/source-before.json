@@ -1,0 +1,22 @@
+[
+  {
+    "path": "scripts/render_study_3d/study.gd",
+    "sha256": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460"
+  },
+  {
+    "path": "scripts/render_study_3d/ruin_geometry.gd",
+    "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4"
+  },
+  {
+    "path": "assets/render_study_3d/concrete.gdshader",
+    "sha256": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a"
+  },
+  {
+    "path": "scenes/render_study_3d.tscn",
+    "sha256": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce"
+  },
+  {
+    "path": "project.godot",
+    "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f"
+  }
+]

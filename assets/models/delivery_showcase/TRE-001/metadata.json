@@ -1,0 +1,150 @@
+{
+  "asset_id": "TRE-001",
+  "category": "TRE",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) Blender -> (x,z,-y) GLB",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "aabb": {
+    "min": [
+      -2.2284719944000244,
+      -0.0413711778819561,
+      -1.5725972652435303
+    ],
+    "max": [
+      2.0015950202941895,
+      5.437097072601318,
+      1.7341394424438477
+    ]
+  },
+  "dimensions": [
+    4.230067014694214,
+    5.4784682504832745,
+    3.306736707687378
+  ],
+  "placement_size_xz": [
+    4.230067014694214,
+    3.306736707687378
+  ],
+  "contact_bounds_xz": [
+    -2.2284719944000244,
+    -1.5725972652435303,
+    2.0015950202941895,
+    1.7341394424438477
+  ],
+  "geometry_stats": {
+    "triangles": 1290,
+    "vertices": 861,
+    "objects": 4,
+    "material_count": 4,
+    "blender_material_count": 4,
+    "glb_material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "TRE_Trunk",
+      "layer": "trunk",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-001_roots",
+      "layer": "roots",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-001_branches",
+      "layer": "branches",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-001_crown",
+      "layer": "crown",
+      "materials": [
+        "Leaf_deep",
+        "Leaf_mid",
+        "Leaf_young"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "texture_note": "No image textures required; simple opaque Principled materials, no baked illumination.",
+  "connections": {
+    "trunk_layer": "trunk",
+    "crown_layer": "crown",
+    "contact_radius_m": 0.8,
+    "canopy_game_occlusion": "NOT_RUN",
+    "asymmetric_cluster_centers": [
+      [
+        -1.1,
+        3.25,
+        -0.0
+      ],
+      [
+        0.95,
+        3.8,
+        -0.35
+      ],
+      [
+        -0.67,
+        4.32,
+        -0.65
+      ],
+      [
+        0.2,
+        4.67,
+        0.65
+      ],
+      [
+        0.65,
+        5.02,
+        -0.48
+      ],
+      [
+        -1.25,
+        4.02,
+        0.35
+      ]
+    ]
+  },
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 1290,
+      "triangles_after": 1290,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN",
+    "visual_notes": "Native-scale individual/reimport views and shared wall/ground composition reviewed. Small membrane and grass assessed in composite. Not Godot verification."
+  },
+  "integration_status": "NOT_RUN",
+  "material_behavior": {
+    "opaque": true,
+    "double_sided": true,
+    "external_textures_required": false
+  }
+}

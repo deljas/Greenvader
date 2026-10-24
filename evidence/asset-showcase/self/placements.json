@@ -1,0 +1,242 @@
+[
+	{
+		"bounds_min": "(-6.345, 0.0, -3.145287)",
+		"bounds_size": "(12.69, 9.074411, 6.290574)",
+		"contact": "ground_contact",
+		"id": "BLD-007",
+		"mesh_count": 14,
+		"position": "(-18.03122, 0.0, 18.03122)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-6.276, 0.0, -3.3)",
+		"bounds_size": "(12.552, 7.92, 6.6)",
+		"contact": "ground_contact",
+		"id": "BLD-038",
+		"mesh_count": 17,
+		"position": "(-6.010407, 0.0, 6.010407)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-2.523282, -0.022353, -2.54)",
+		"bounds_size": "(6.248281, 5.053955, 5.08)",
+		"contact": "ground_contact",
+		"id": "BLD-079",
+		"mesh_count": 14,
+		"position": "(5.409548, 0.022353, -6.010407)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.62, 0.0, -1.62)",
+		"bounds_size": "(3.24, 9.25, 3.24)",
+		"contact": "ground_contact",
+		"id": "BLD-123",
+		"mesh_count": 7,
+		"position": "(18.03122, 0.0, -18.03122)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.275, -0.008352, -0.043872)",
+		"bounds_size": "(1.78, 2.531305, 0.170872)",
+		"contact": "wall attachment, not ground footprint",
+		"id": "VIN-007",
+		"mesh_count": 7,
+		"position": "(105.7574, 0.012, 4.24264)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.21972, -0.012808, 0.022653)",
+		"bounds_size": "(2.460714, 2.869552, 0.180544)",
+		"contact": "wall_attachment",
+		"id": "VIN-032",
+		"mesh_count": 9,
+		"position": "(108.5858, 0.012, 1.414214)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.004876, 0.006791, -0.724815)",
+		"bounds_size": "(2.19232, 0.129158, 1.636829)",
+		"contact": "ground_attachment",
+		"id": "VIN-047",
+		"mesh_count": 4,
+		"position": "(111.4142, 0.012, -1.414214)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.404127, -0.003825, -0.001985)",
+		"bounds_size": "(2.700126, 1.960046, 0.741991)",
+		"contact": "wall_to_horizontal_attachment",
+		"id": "VIN-060",
+		"mesh_count": 9,
+		"position": "(114.2426, 0.012, -4.24264)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.38, 0.012, -0.2)",
+		"bounds_size": "(0.72, 0.00001, 0.39)",
+		"contact": "horizontal_surface_attachment",
+		"id": "MOS-003",
+		"mesh_count": 1,
+		"position": "(217.7726, 0.012, 2.227386)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(0.0, 0.02, 0.0)",
+		"bounds_size": "(0.4, 0.76, 0.4)",
+		"contact": "wall_attachment",
+		"id": "MOS-012",
+		"mesh_count": 3,
+		"position": "(219.2575, 0.012, 0.742462)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.856749, 0.002, -0.682053)",
+		"bounds_size": "(1.630829, 0.00799, 1.252747)",
+		"contact": "horizontal_surface_attachment",
+		"id": "MOS-024",
+		"mesh_count": 1,
+		"position": "(220.7425, 0.012, -0.742462)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.448028, 0.0, 0.155401)",
+		"bounds_size": "(0.825548, 0.5075, 0.472826)",
+		"contact": "curved_surface_attachment",
+		"id": "MOS-035",
+		"mesh_count": 1,
+		"position": "(222.2274, 0.012, -2.227386)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-2.228472, -0.041371, -1.572597)",
+		"bounds_size": "(4.230067, 5.478468, 3.306737)",
+		"contact": "ground_contact",
+		"id": "TRE-001",
+		"mesh_count": 4,
+		"position": "(321.6281, 0.041371, 8.40451)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.250609, -0.004285, -1.258236)",
+		"bounds_size": "(2.758688, 4.937132, 2.656299)",
+		"contact": "ground_contact",
+		"id": "TRE-027",
+		"mesh_count": 4,
+		"position": "(327.0428, 0.004285, 2.758514)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-2.963233, -0.026629, -2.646793)",
+		"bounds_size": "(5.776302, 7.204917, 5.152139)",
+		"contact": "ground_contact",
+		"id": "TRE-054",
+		"mesh_count": 11,
+		"position": "(332.9035, 0.026629, -2.757704)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.472105, -0.027466, -1.596096)",
+		"bounds_size": "(2.997912, 7.227764, 3.166456)",
+		"contact": "ground_contact",
+		"id": "TRE-074",
+		"mesh_count": 6,
+		"position": "(338.4584, 0.027466, -8.472413)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.4, -0.08, -0.4)",
+		"bounds_size": "(0.8, 0.353294, 0.8)",
+		"contact": "ground_contact",
+		"id": "GND-009",
+		"mesh_count": 5,
+		"position": "(433.636, 0.08, 6.363961)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.39775, 0.0025, -0.3225)",
+		"bounds_size": "(0.78475, 0.047656, 0.688)",
+		"contact": "ground_contact",
+		"id": "GND-036",
+		"mesh_count": 4,
+		"position": "(437.8841, -0.0025, 2.09982)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-2.4, -0.2, -1.6)",
+		"bounds_size": "(4.8, 0.225, 3.2)",
+		"contact": "ground_contact",
+		"id": "GND-059",
+		"mesh_count": 3,
+		"position": "(442.1213, 0.2, -2.12132)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.6, -0.2, -1.2)",
+		"bounds_size": "(3.2, 0.478933, 2.4)",
+		"contact": "ground_contact",
+		"id": "GND-077",
+		"mesh_count": 3,
+		"position": "(446.364, 0.2, -6.363961)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-0.2, 0.0, -0.18)",
+		"bounds_size": "(0.92, 3.2, 0.36)",
+		"contact": "ground_contact",
+		"id": "PRP-001",
+		"mesh_count": 6,
+		"position": "(544.4367, 0.0, 5.303301)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.0, 0.0, -1.925)",
+		"bounds_size": "(2.0, 1.55, 3.875)",
+		"contact": "ground_contact",
+		"id": "PRP-041",
+		"mesh_count": 7,
+		"position": "(548.2322, 0.0, 1.755267)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.583723, -0.009368, -0.373287)",
+		"bounds_size": "(3.085907, 2.10821, 0.746574)",
+		"contact": "ground_contact",
+		"id": "PRP-075",
+		"mesh_count": 7,
+		"position": "(551.8085, 0.009368, -1.767767)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-1.115, 0.005, -0.35)",
+		"bounds_size": "(3.0, 2.3775, 0.7)",
+		"contact": "ground_contact",
+		"id": "PRP-121",
+		"mesh_count": 7,
+		"position": "(554.9183, -0.005, -5.303301)",
+		"rotation": "(0.0, 0.0, 0.0)",
+		"scale": "(1.0, 1.0, 1.0)"
+	}
+]

@@ -1,0 +1,226 @@
+{
+  "raw_recounts": [
+    {
+      "file": "raw.json",
+      "label": "pond_normal_reflection_ON",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "raw.json",
+      "label": "pond_normal_reflection_OFF",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "raw.json",
+      "label": "pond_test_fixture_ON",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "raw.json",
+      "label": "pond_test_fixture_OFF",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "raw.json",
+      "label": "soil_pavement_stage_1",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "raw.json",
+      "label": "soil_pavement_stage_2",
+      "recount": {
+        "targets": 1422,
+        "green": 72,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "raw.json",
+      "label": "soil_pavement_stage_4",
+      "recount": {
+        "targets": 1422,
+        "green": 72,
+        "mature": 72
+      },
+      "pass": true
+    },
+    {
+      "file": "raw.json",
+      "label": "terrain_sun135",
+      "recount": {
+        "targets": 1422,
+        "green": 72,
+        "mature": 72
+      },
+      "pass": true
+    },
+    {
+      "file": "reflection-raw.json",
+      "label": "normal_reflection_ON",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "reflection-raw.json",
+      "label": "normal_reflection_OFF",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "reflection-raw.json",
+      "label": "pond_test_fixture_ON",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "reflection-raw.json",
+      "label": "pond_test_fixture_OFF",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "reflection-raw.json",
+      "label": "normal_sun135",
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "pass": true
+    },
+    {
+      "file": "final-raw.json",
+      "label": "final_comparison",
+      "recount": {
+        "targets": 1422,
+        "green": 72,
+        "mature": 72
+      },
+      "pass": true
+    }
+  ],
+  "reflection_snapshots_gameplay_equal": true,
+  "soil_pavement_same_logic": [
+    {
+      "label": "soil_pavement_stage_1",
+      "cells_per_strip": 30,
+      "pavement_terrain": [
+        6
+      ],
+      "soil_terrain": [
+        0
+      ],
+      "same_stage_growth": true,
+      "unique_stage_growth": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "label": "soil_pavement_stage_2",
+      "cells_per_strip": 30,
+      "pavement_terrain": [
+        6
+      ],
+      "soil_terrain": [
+        0
+      ],
+      "same_stage_growth": true,
+      "unique_stage_growth": [
+        [
+          2,
+          45000
+        ]
+      ]
+    },
+    {
+      "label": "soil_pavement_stage_4",
+      "cells_per_strip": 30,
+      "pavement_terrain": [
+        6
+      ],
+      "soil_terrain": [
+        0
+      ],
+      "same_stage_growth": true,
+      "unique_stage_growth": [
+        [
+          4,
+          120000
+        ]
+      ]
+    }
+  ],
+  "nearest_pair": {
+    "a": [
+      640,
+      360
+    ],
+    "b": [
+      1920,
+      1080
+    ],
+    "nearest3": true
+  },
+  "reflection_fixture_roi": {
+    "roi_640": [
+      153,
+      172,
+      181,
+      190
+    ],
+    "method": "Visually selected interior rectangle of the existing pond, below the direct test box. No product camera/projection code reused. Test box has shadows disabled in submitted test source.",
+    "changed_pixels": 251,
+    "red_changed_pixels": 251
+  },
+  "soil_source": {
+    "same_rng_seed": true,
+    "same_original_sample_statement": true,
+    "method": "Actual before/after diff review also shows no extra RNG call in sample loop; nonpavement branch preserves original transforms."
+  },
+  "method": "Read-only offline review; no Godot rerun."
+}

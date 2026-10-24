@@ -1,0 +1,92 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"id": "projection_basis",
+			"status": "PASS"
+		},
+		{
+			"detail": "35496",
+			"id": "grid_footprints",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(302.0, 340.0), (450.0, 340.0), (376.0, 270.0), (376.0, 418.0)]",
+			"id": "wall_contact_four_faces",
+			"status": "PASS"
+		},
+		{
+			"detail": "(300.0, 268.0)",
+			"id": "close_clear_circuit",
+			"status": "PASS"
+		},
+		{
+			"detail": "(478.0, 330.0)",
+			"id": "low_foot_contact",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(0.0, -25.00427), (17.67773, 17.67773)]",
+			"id": "engine_input_direction_equal_speed",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(1241.5, 286.5), (310, 71)]",
+			"id": "mouse_camera_inverse",
+			"status": "FAIL"
+		},
+		{
+			"detail": "visible=82 expected=82",
+			"id": "front_960_full_flower",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=82 expected=82",
+			"id": "left_side_front_960_full_flower",
+			"status": "PASS"
+		},
+		{
+			"detail": "visible=82 expected=82",
+			"id": "right_side_front_960_full_flower",
+			"status": "PASS"
+		},
+		{
+			"detail": "opaque visible=0/82 faded=true",
+			"id": "behind_depth_and_fade",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(41.0, 581.0), (41.0, 521.0), [X: (1.0, 0.0), Y: (0.0, 1.0), O: (439.0, -251.0)]]",
+			"id": "integer_camera_and_pixels",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(1920, 1080), (960, 540)]",
+			"id": "native_dimensions",
+			"status": "PASS"
+		},
+		{
+			"detail": "518400 blocks: original mismatches=0 nonuniform pixels=0",
+			"id": "native_2x",
+			"status": "PASS"
+		},
+		{
+			"detail": "User manual check; no OS input or cursor movement",
+			"id": "physical_OS_input",
+			"status": "NOT_RUN"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 1,
+	"renderer": "forward_plus"
+}

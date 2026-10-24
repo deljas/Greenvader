@@ -1,0 +1,218 @@
+{
+  "before_visibility_review": [
+    {
+      "label": "A_right",
+      "visibility": {
+        "opaque_fixture_pixels": 168,
+        "visible": 72
+      }
+    },
+    {
+      "label": "B_right",
+      "visibility": {
+        "opaque_fixture_pixels": 168,
+        "visible": 70
+      }
+    }
+  ],
+  "fixed_boundary_positions": [
+    {
+      "label": "A_front",
+      "ground_xz": [
+        -3.199999237060549,
+        1.0800003051757798
+      ],
+      "boundary_error_m": 3.0517577975786025e-07,
+      "pass": true,
+      "visible_self_raw": {
+        "opaque_fixture_pixels": 168,
+        "visible": 168
+      }
+    },
+    {
+      "label": "A_right",
+      "ground_xz": [
+        0.2800003051757809,
+        -2.0
+      ],
+      "boundary_error_m": 3.051757808680833e-07,
+      "pass": true,
+      "visible_self_raw": {
+        "opaque_fixture_pixels": 168,
+        "visible": 168
+      }
+    },
+    {
+      "label": "B_right",
+      "ground_xz": [
+        5.880000305175802,
+        -3.8
+      ],
+      "boundary_error_m": 3.0517580196232075e-07,
+      "pass": true,
+      "visible_self_raw": {
+        "opaque_fixture_pixels": 168,
+        "visible": 168
+      }
+    },
+    {
+      "label": "B_front",
+      "ground_xz": [
+        4.0,
+        -1.7200000762939505
+      ],
+      "boundary_error_m": 7.629395049058019e-08,
+      "pass": true,
+      "visible_self_raw": {
+        "opaque_fixture_pixels": 168,
+        "visible": 168
+      }
+    },
+    {
+      "label": "A_corner",
+      "ground_xz": [
+        0.2800003051757809,
+        1.0800003051757798
+      ],
+      "boundary_error_m": 3.051757808680833e-07,
+      "pass": true,
+      "visible_self_raw": {
+        "opaque_fixture_pixels": 168,
+        "visible": 168
+      }
+    }
+  ],
+  "all_frames_flips": [
+    {
+      "label": "frame_0_flip_false",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    },
+    {
+      "label": "frame_1_flip_false",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    },
+    {
+      "label": "frame_2_flip_false",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    },
+    {
+      "label": "frame_3_flip_false",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    },
+    {
+      "label": "frame_0_flip_true",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    },
+    {
+      "label": "frame_1_flip_true",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    },
+    {
+      "label": "frame_2_flip_true",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    },
+    {
+      "label": "frame_3_flip_true",
+      "projected_size_from_corners": [
+        16.00000151228682,
+        24.00000124337666
+      ],
+      "vertical_xz_drift_m": 0.0,
+      "foot_pixel_distance": 0.0,
+      "sync_review": true,
+      "pass": true
+    }
+  ],
+  "frame_flip_combinations": 8,
+  "behind_visibility_review": {
+    "opaque_fixture_pixels": 168,
+    "visible": 0
+  },
+  "nearest3": {
+    "sizes": [
+      [
+        640,
+        360
+      ],
+      [
+        1920,
+        1080
+      ]
+    ],
+    "full_rgba_equal": true
+  },
+  "reflection_on_off_changed_pixels": 42,
+  "session_only_half_and_comment_changed": true,
+  "process_review": {
+    "before": {
+      "exited": true,
+      "pid": 18180,
+      "exit_code": 0
+    },
+    "after": {
+      "exit_code": 0,
+      "exited": true,
+      "pid": 42060
+    },
+    "corner": {
+      "exit_code": 0,
+      "pid": 57104,
+      "exited": true
+    }
+  },
+  "stderr_sizes": {
+    "before": 0,
+    "after": 0,
+    "corner": 0
+  },
+  "method": "Submitted GPU images/raw independently reviewed; geometry recalculated offline from raw corners and footprint boundaries. No Godot run; raw visibility/sync are evidence review, not new GPU measurements. Collection encoding error was corrected to UTF-8; previously saved hashes were not rerun."
+}

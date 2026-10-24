@@ -1,0 +1,22 @@
+{
+  "source_manifest_digest": {
+    "actual": "5a26c4bb1f73c28bcfeaffaa8890151b81c66bc3415511db0d8cb5c17e8b4f7e",
+    "expected": "5a26c4bb1f73c28bcfeaffaa8890151b81c66bc3415511db0d8cb5c17e8b4f7e",
+    "pass": true
+  },
+  "source": {
+    "count": 8,
+    "mismatches": [],
+    "pass": true
+  },
+  "protected": {
+    "count": 103,
+    "mismatches": [],
+    "pass": true
+  },
+  "evidence": {
+    "count": 39,
+    "mismatches": [],
+    "pass": true
+  }
+}

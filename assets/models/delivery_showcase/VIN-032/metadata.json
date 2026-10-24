@@ -1,0 +1,260 @@
+{
+  "asset_id": "VIN-032",
+  "name": "木質の横広がりツタ",
+  "category": "VIN",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      1.4219677532091737,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.219719648361206,
+      -0.012808306142687798,
+      0.022653263062238693
+    ],
+    "max": [
+      1.2409942150115967,
+      2.856743812561035,
+      0.20319724082946777
+    ]
+  },
+  "dimensions": [
+    2.4607138633728027,
+    2.869552118703723,
+    0.18054397776722908
+  ],
+  "placement_size_xz": [
+    2.4607138633728027,
+    0.18054397776722908
+  ],
+  "contact_type": "wall_attachment",
+  "contact_bounds_xz": null,
+  "geometry_stats": {
+    "triangles": 1302,
+    "vertices": 738,
+    "objects": 9,
+    "material_count": 5
+  },
+  "meshes": [
+    {
+      "name": "VIN-032_parent_stem",
+      "layer": "parent_stem",
+      "materials": [
+        "Vine_woody"
+      ]
+    },
+    {
+      "name": "VIN-032_petioles_parent_stem",
+      "layer": "petioles_parent_stem",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-032_laminae_0",
+      "layer": "leaves_parent_stem",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_olive",
+        "Leaf_deep"
+      ]
+    },
+    {
+      "name": "VIN-032_branch_1",
+      "layer": "branch_1",
+      "materials": [
+        "Vine_woody"
+      ]
+    },
+    {
+      "name": "VIN-032_petioles_branch_1",
+      "layer": "petioles_branch_1",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-032_laminae_1",
+      "layer": "leaves_branch_1",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_olive"
+      ]
+    },
+    {
+      "name": "VIN-032_branch_2",
+      "layer": "branch_2",
+      "materials": [
+        "Vine_woody"
+      ]
+    },
+    {
+      "name": "VIN-032_petioles_branch_2",
+      "layer": "petioles_branch_2",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-032_laminae_2",
+      "layer": "leaves_branch_2",
+      "materials": [
+        "Leaf_mid"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "root": [
+      0,
+      0,
+      0
+    ],
+    "receiver_normal": [
+      0,
+      0,
+      1
+    ],
+    "stem_centre_wall_offset_m": 0.065,
+    "receiver_plane_blender_y": 0,
+    "growth_order": "root, connected parent stem, connected branches, petioles, leaves",
+    "branches": [
+      {
+        "layer": "parent_stem",
+        "parent": null,
+        "root_blender": [
+          0.0,
+          -0.06499999761581421,
+          0.0
+        ],
+        "root_glb": [
+          0.0,
+          0.0,
+          0.06499999761581421
+        ],
+        "petiole_layer": "petioles_parent_stem",
+        "leaf_layer": "leaves_parent_stem",
+        "leaf_count": 5
+      },
+      {
+        "layer": "branch_1",
+        "parent": {
+          "parent": "parent_stem",
+          "parent_sample": 10,
+          "point_blender": [
+            0.04185185581445694,
+            -0.06499999761581421,
+            0.9759259819984436
+          ]
+        },
+        "root_blender": [
+          0.04185185581445694,
+          -0.06499999761581421,
+          0.9759259819984436
+        ],
+        "root_glb": [
+          0.04185185581445694,
+          0.9759259819984436,
+          0.06499999761581421
+        ],
+        "petiole_layer": "petioles_branch_1",
+        "leaf_layer": "leaves_branch_1",
+        "leaf_count": 2
+      },
+      {
+        "layer": "branch_2",
+        "parent": {
+          "parent": "parent_stem",
+          "parent_sample": 17,
+          "point_blender": [
+            -0.04722219333052635,
+            -0.06499999761581421,
+            1.7885417938232422
+          ]
+        },
+        "root_blender": [
+          -0.04722219333052635,
+          -0.06499999761581421,
+          1.7885417938232422
+        ],
+        "root_glb": [
+          -0.04722219333052635,
+          1.7885417938232422,
+          0.06499999761581421
+        ],
+        "petiole_layer": "petioles_branch_2",
+        "leaf_layer": "leaves_branch_2",
+        "leaf_count": 2
+      }
+    ],
+    "design_family": "woody",
+    "opening_clearance": "fit to wall openings at placement; do not cross door passage",
+    "max_greening_wall_visibility": "retain at least50 percent wall; game placement NOT_RUN",
+    "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; historical ID mapping inferred from ordered preview batches",
+    "reference_images": [
+      "03_vines_and_moss_1920_nearest.png",
+      "03_vines_moss_ground_1920_nearest.png",
+      "05_heart_and_succulent_vines_1920_nearest(1).png"
+    ],
+    "leaf_method": "separate connected curved blades, no canopy panel",
+    "game_wind": "NOT_RUN"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 1302,
+      "triangles_after": 1302,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "032_woody_spreading_wall_vine.blend",
+    "glb": "032_woody_spreading_wall_vine.glb"
+  },
+  "geometry_budget_review": {
+    "provisional_guideline_triangles": 800,
+    "actual_triangles": 1302,
+    "reason": "Connected curved stems, petioles and individual leaf geometry instead of a flat foliage panel; provisional vegetation guideline exceeded. Godot performance NOT_RUN.",
+    "game_performance": "NOT_RUN"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

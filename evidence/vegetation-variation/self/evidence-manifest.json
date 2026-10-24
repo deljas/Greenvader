@@ -1,0 +1,190 @@
+[
+  {
+    "path": "A_closeup_ui_1920.png",
+    "sha256": "742c69558c0a9cb663fb73a83fc687151b44dbc03269fe575204b104db0e760b"
+  },
+  {
+    "path": "A_closeup_ui_640.png",
+    "sha256": "9544935921eab7f2298a2c75fab94602dc1d21cca65d4914d8356dfd7b6436ba"
+  },
+  {
+    "path": "A_closeup_world_640.png",
+    "sha256": "d9a2e3cab67c63bdf9ac27823fa9c73a8128c3e23afaab55e2b777049acb97f0"
+  },
+  {
+    "path": "before/project.godot",
+    "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f"
+  },
+  {
+    "path": "before/run_vegetation_lab.bat",
+    "sha256": "70565d70412bfad985c69f6671ebbf30855d2413cc86143cc930ca524bb13fa9"
+  },
+  {
+    "path": "before/scenes/vegetation_lab.tscn",
+    "sha256": "17ca277ee747171dbe3257dbd62c96444770e9cf943c5eeee3524f1aeae3acc9"
+  },
+  {
+    "path": "before/scripts/render_study_3d/ruin_geometry.gd",
+    "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/brick.gdshader",
+    "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/building_defs.gd",
+    "sha256": "ad1e464294cbc169f2a00b24102ea1f150491ff210405ecd02c5a02999be9946"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/building_geometry.gd",
+    "sha256": "a23ed72c8f250e2997e456cdaa324ec8d1cfa9c9cd25e7139fd19cb7c48d9b2a"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/cracks.gdshader",
+    "sha256": "d95599aa1cf271bb8125fcb46015c65c0f3d3fc35a73d80b54dc0e231264ede8"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/growth_patch.gd",
+    "sha256": "1db84b90e24915d855b0dcd5956bb6601929ab7edbd5e9547b59ed61c4d89146"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/lab.gd",
+    "sha256": "6999c087f879e634b77d4d1457bbdb238aaf876c294e38c7c8a778cc82e79a6b"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/moss.gdshader",
+    "sha256": "5a9be850ac0b95e738818ee29a389df3c591d408e2568a340c010ac31e54a26a"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/plant_parts.gd",
+    "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/surface_layers.gd",
+    "sha256": "02e073437dd24ae532cafdd74068de182a453528c80cb54a40f1174e476a1d06"
+  },
+  {
+    "path": "before-manifest.json",
+    "sha256": "3b8f9923e11561face0c022fbfdb8948e4d9d98efc3b77080761972bd3c9cad8"
+  },
+  {
+    "path": "C_closeup_ui_1920.png",
+    "sha256": "d9e58efae07194d89a35cf7945da91513b34a5e766b370f41a432cb8a82a79eb"
+  },
+  {
+    "path": "C_closeup_ui_640.png",
+    "sha256": "19ae227e2bfcbfdec39c3244b7e28c91abaa1cf425697ee31b4c1a8f18b8faac"
+  },
+  {
+    "path": "C_closeup_world_640.png",
+    "sha256": "70a843d1ab19e294261c43b15f9a27fc92bf4f4b071ad9b18da8a2f4ade4a9e6"
+  },
+  {
+    "path": "gpu.log",
+    "sha256": "14ad417c295c6d6860d8ebea33896c84c96002bb933bf49db2960cc9e22a61dd"
+  },
+  {
+    "path": "growth_000_ui_1920.png",
+    "sha256": "46091e4e27f2f5929724c121ae689aa47c100e9caa354bc9e6854b17d3f37535"
+  },
+  {
+    "path": "growth_000_ui_640.png",
+    "sha256": "930d3e8e8f01660c97ca7f99331ec6171c442e9f058b237bfe8af8d08e167c1c"
+  },
+  {
+    "path": "growth_000_world_640.png",
+    "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c"
+  },
+  {
+    "path": "growth_050_ui_1920.png",
+    "sha256": "15cc64d235e26821e6925196a72ab265bf756efa2c00f47ede2e1c849b8d9966"
+  },
+  {
+    "path": "growth_050_ui_640.png",
+    "sha256": "e15888a118628d53a50ab05c0d54ba8ed57b2253312f434f55435fe6a4a03bda"
+  },
+  {
+    "path": "growth_050_world_640.png",
+    "sha256": "86ec56c540518d042e912a2f2588e874345a90f1a3473f2d38ea8a96312252af"
+  },
+  {
+    "path": "growth_100_ui_1920.png",
+    "sha256": "cb2a78216327593cbb21639a80c9d9cb7a4406c9d2f7a074c8481c28861a7806"
+  },
+  {
+    "path": "growth_100_ui_640.png",
+    "sha256": "1875b004e732b799e6628cdf27684572d20580b469778b3602045f816d44f207"
+  },
+  {
+    "path": "growth_100_world_1920.png",
+    "sha256": "68c1c0ec6fcf69ae41788ec0e23880e21925c8baa38e5f5f5f07fa532658c4da"
+  },
+  {
+    "path": "growth_100_world_640.png",
+    "sha256": "778a429e3908290ebd01d533239f35ff010a65b1f507e31a4fff98d24db61d07"
+  },
+  {
+    "path": "implementation.patch",
+    "sha256": "74d9bae6486936a5360692d13980c1b7acffdc8612a96964af6195263f1ef8de"
+  },
+  {
+    "path": "integrity.json",
+    "sha256": "5b504e82dfd568b72eb3252ac913fd625c88fae34f2a16c1279eca142632f4bb"
+  },
+  {
+    "path": "moss_OFF_ui_1920.png",
+    "sha256": "c9e0d3b435380fd80770d7ff88ae14d49dcc41828d11f62b98041cde0f6f2876"
+  },
+  {
+    "path": "moss_OFF_ui_640.png",
+    "sha256": "23d716151b07bc7849831ecc9b08355640f6a660d2bdeef68f9451d307f70ad4"
+  },
+  {
+    "path": "moss_OFF_world_640.png",
+    "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c"
+  },
+  {
+    "path": "moss_only_100_ui_1920.png",
+    "sha256": "821a42fe96ebc42a2eb56cee88ecfee8e6e4f65a5d9cec0783f9b1761e799564"
+  },
+  {
+    "path": "moss_only_100_ui_640.png",
+    "sha256": "a68a12edf94bc03fda89c0d125e95b3d3bad54f3e3708b3782d6cdaa458d4015"
+  },
+  {
+    "path": "moss_only_100_world_640.png",
+    "sha256": "41dd656292d282e8c2847a1c708e839eed54ac4dffc4657896c0eb2464a46eba"
+  },
+  {
+    "path": "parse.log",
+    "sha256": "a2f34ae79c104064a698032ebbd7b7422ba5d99d43d32c9c9f4fabfa46ede5ac"
+  },
+  {
+    "path": "process.json",
+    "sha256": "9cb6e618b3450267beb599b88676f001507075871a5229788bfae03d97290554"
+  },
+  {
+    "path": "raw.json",
+    "sha256": "d3400ee1864cce8e1e5a031bd6e8522db82a4ce8f07403827eb3e6fbc386d6a7"
+  },
+  {
+    "path": "report.md",
+    "sha256": "7c63a21463847ac08bc5472582f3b8530f6ce2b85fbeac7afacb4769e62c22c3"
+  },
+  {
+    "path": "results.json",
+    "sha256": "a8ddb6911a09f7830b32be468dd7cab92fa00b8db87aa4b36f6a5b3e390eb766"
+  },
+  {
+    "path": "source-manifest.json",
+    "sha256": "42cf5c756ba0620574b676a6dc616962cb46aecd26cda226b1f0f0f0ef0de670"
+  },
+  {
+    "path": "stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "stdout.log",
+    "sha256": "8ea7ddd8f4d5282fa48c79372e07db05d566b9c5085be8b73a0fddf4b4e4adad"
+  }
+]

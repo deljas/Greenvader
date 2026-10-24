@@ -1,0 +1,583 @@
+--- before/scripts/greening_map/map.gd
++++ after/scripts/greening_map/map.gd
+@@ -7,6 +7,8 @@
+ const Geometry: GDScript = preload("res://scripts/render_study_3d/ruin_geometry.gd")
+ const Water: GDScript = preload("res://scripts/greening_map/water_surface.gd")
+ var water_surface: Node
++const WallGrowth: GDScript = preload("res://scripts/greening_map/wall_growth_controller.gd")
++var wall_growth: Node
+ var session: RefCounted = Session.new()
+ var render_view: SubViewport
+ var doubled_view: SubViewport
+@@ -66,6 +68,7 @@
+ 	world.add_child(ground_view)
+ 	ground_view.setup(session.state)
+ 	var definitions: Array[Dictionary] = Definitions.all()
++	var wall_buildings: Array[Dictionary] = []
+ 	for item: Dictionary in Session.BUILDINGS:
+ 		var definition: Dictionary = definitions[item["definition"]].duplicate(true)
+ 		var building: Node3D = Node3D.new()
+@@ -81,6 +84,10 @@
+ 		var foundation: MeshInstance3D = Geometry.box(world,"VisibleBlockedFoundation",Vector3(base.x+size_.x/2,0.04,base.y+size_.y/2),Vector3(size_.x,0.16,size_.y),Geometry.material(Color("747a70")))
+ 		foundation.layers = 2
+ 		blockers.append(AABB(Vector3(base.x,0,base.y),Vector3(size_.x,float(definition["size"].y)+1.1,size_.y)))
++		wall_buildings.append({"node":building,"definition":definition,"footprint":rect})
++	wall_growth = WallGrowth.new()
++	add_child(wall_growth)
++	wall_growth.setup(session,wall_buildings,ground_view.library)
+ 	actor = Actor.new()
+ 	world.add_child(actor)
+ 	actor.setup(camera,sun)
+--- before/scripts/greening_map/water_surface.gdshader
++++ after/scripts/greening_map/water_surface.gdshader
+@@ -1,9 +1,11 @@
+ shader_type spatial;
+-render_mode unshaded, cull_disabled;
++render_mode cull_disabled, ambient_light_disabled;
+ uniform sampler2D reflection_texture : source_color, filter_nearest, repeat_disable;
+ uniform mat4 reflection_view_projection;
+ uniform float reflection_strength : hint_range(0,1) = 0.76;
+ uniform vec4 tint : source_color = vec4(0.25,0.43,0.47,1.0);
++uniform bool receive_shadow = true;
++uniform float shadow_floor : hint_range(0,1) = 0.42;
+ varying vec3 world_position;
+ void vertex() { world_position=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz; }
+ void fragment() {
+@@ -11,4 +13,14 @@
+ 	vec2 uv=projected.xy/projected.w*vec2(0.5,-0.5)+0.5;
+ 	vec3 reflection=texture(reflection_texture,uv).rgb;
+ 	ALBEDO=mix(tint.rgb,reflection*vec3(0.88,0.97,1.0),reflection_strength);
++	ROUGHNESS=1.0;
++	SPECULAR=0.0;
+ }
++void light() {
++	// One directional sun: preserve the already-lit reflection's color, only
++	// attenuate its brightness by the real shadow map. No second light/color gain.
++	if (LIGHT_IS_DIRECTIONAL) {
++		float factor=receive_shadow ? mix(shadow_floor,1.0,ATTENUATION) : 1.0;
++		DIFFUSE_LIGHT+=vec3(factor);
++	}
++}
+--- before/scripts/vegetation_lab/growth_patch.gd
++++ after/scripts/vegetation_lab/growth_patch.gd
+@@ -10,8 +10,10 @@
+ var duration: float = 0.0
+ var pose_signature: String = ""
+ var growth_events: Array[Dictionary] = []
++var root_progress: Dictionary = {}
++var root_durations: Dictionary = {}
+ 
+-func setup(def: Dictionary, library: RefCounted) -> void:
++func setup(def: Dictionary, library: RefCounted, options: Dictionary = {}) -> void:
+ 	definition = def
+ 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+ 	rng.seed = int(def["seed"])
+@@ -21,7 +23,7 @@
+ 			var p: Vector2 = Vector2(x*0.36+rng.randf_range(-0.10,0.10),z*0.36+rng.randf_range(-0.10,0.10))
+ 			if Geometry.ground_allowed(def,p):
+ 				grass_candidates.append({"position":Vector3(p.x,0.02,p.y),"angle":rng.randf()*TAU,"threshold":rng.randf()*0.65,"variant":rng.randi_range(0,1)})
+-	for variant: int in 2:
++	for variant: int in (2 if options.get("include_ground",true) else 0):
+ 		grass_nodes.append(_instances(library.grasses[variant],library.foliage_material,grass_candidates.size()))
+ 	# Separate RNG preserves the existing grass candidates bit-for-bit.
+ 	var vine_rng: RandomNumberGenerator = RandomNumberGenerator.new()
+@@ -41,6 +43,8 @@
+ 				var uv: float = clampf(u+amplitude*(sin(d*frequency+phase)-sin(phase)),0.20,float(surface["width"])-0.20)
+ 				# Moving stems are checked at their actual UV, not their original lane.
+ 				if d<=float(surface["height"]) and Geometry.blocked_surface(surface,uv,d,0.34):
++					break
++				if options.get("walls_only",false) and d>float(surface["height"])-0.34:
+ 					break
+ 				var hit: Dictionary = Geometry.path_sample(def,surface,uv,d)
+ 				if hit.is_empty():
+@@ -66,7 +70,7 @@
+ 							var t: float = float(n)/count
+ 							var bu: float = float(origin["u"])+direction*(n*0.075+sin(t*PI)*bend)
+ 							var bv: float = float(origin["v"])+n*slope+sin(t*TAU)*bend
+-							if bu<0.18 or bu>float(surface["width"])-0.18 or bv<0.08 or bv>float(surface["height"])-0.20 or Geometry.blocked_surface(surface,bu,bv,0.34):
++							if bu<0.18 or bu>float(surface["width"])-0.18 or bv<0.08 or bv>float(surface["height"])-(0.34 if options.get("walls_only",false) else 0.20) or Geometry.blocked_surface(surface,bu,bv,0.34):
+ 								break
+ 							_register_point(branch,Geometry.sample(surface,bu,bv),Vector2(bu,bv))
+ 						if branch.size()>3:
+@@ -77,6 +81,10 @@
+ 	var point_count: int = 0
+ 	for path: Dictionary in paths:
+ 		point_count += path["points"].size()
++	for index: int in paths.size():
++		var path: Dictionary = paths[index]
++		var root: int = index if path["parent"]<0 else int(path["parent"])
++		root_durations[root] = maxf(float(root_durations.get(root,0)),float(path["start"])+float(path["length"])+0.24)
+ 	leaf_node = _instances(library.leaves,library.foliage_material,point_count)
+ 	stem_node = _instances(library.stem,library.stem_material,point_count)
+ 	set_growth(0)
+@@ -95,7 +103,7 @@
+ func set_growth(value: float) -> void:
+ 	progress = clampf(value/100.0,0,1)
+ 	var hidden: Transform3D = Transform3D(Basis.IDENTITY.scaled(Vector3.ONE*0.00001),Vector3.ZERO)
+-	for variant: int in 2:
++	for variant: int in grass_nodes.size():
+ 		for i: int in grass_candidates.size():
+ 			var candidate: Dictionary = grass_candidates[i]
+ 			var scale_: float = clampf((progress-float(candidate["threshold"]))/0.35,0.00001,1.0)
+@@ -104,9 +112,14 @@
+ 	growth_events.clear()
+ 	var cursor: int = 0
+ 	var pose_rows: Array[Transform3D] = []
+-	for path: Dictionary in paths:
++	for path_index: int in paths.size():
++		var path: Dictionary = paths[path_index]
+ 		var points: Array = path["points"]
+-		var grown: float = clampf((progress-0.08)/0.92,0,1)*duration-float(path["start"])
++		var travelled: float = clampf((progress-0.08)/0.92,0,1)*duration
++		if not root_progress.is_empty():
++			var root: int = path_index if path["parent"]<0 else int(path["parent"])
++			travelled = float(root_progress.get(root,0))*float(root_durations[root])
++		var grown: float = travelled-float(path["start"])
+ 		growth_events.append({"parent":path["parent"],"start":path["start"],"grown":grown,"junction":path["junction"]})
+ 		for j: int in points.size():
+ 			var hit: Dictionary = points[j]
+@@ -148,3 +161,7 @@
+ 	var length_: float = points[-1]["distance"]
+ 	paths.append({"points":points,"surface":surface,"length":length_,"start":start,"parent":parent_index,"junction":junction})
+ 	duration = maxf(duration,start+length_+0.24)
++
++func set_root_progress(values: Dictionary) -> void:
++	root_progress = values.duplicate()
++	set_growth(progress*100.0)
+--- before/scripts/vegetation_lab/surface_layers.gd
++++ after/scripts/vegetation_lab/surface_layers.gd
+@@ -9,9 +9,12 @@
+ var crack_material: ShaderMaterial
+ var definition: Dictionary
+ var patch_records: Array[Dictionary] = []
++var moss_entries: Array[Dictionary] = []
++var individual_moss: bool = false
+ 
+-func setup(def: Dictionary, shared_moss: ShaderMaterial, shared_cracks: ShaderMaterial) -> void:
++func setup(def: Dictionary, shared_moss: ShaderMaterial, shared_cracks: ShaderMaterial, options: Dictionary = {}) -> void:
+ 	definition = def
++	individual_moss = options.get("individual_moss",false)
+ 	moss_material = shared_moss
+ 	crack_material = shared_cracks
+ 	moss = Node3D.new()
+@@ -33,11 +36,14 @@
+ 			var phase: Vector2 = Vector2(rng.randf()*31.0,rng.randf()*31.0)
+ 			_patch(moss,surface,center,span,false,moss_material,phase)
+ 			var roof_span: Vector2 = Vector2(size_*rng.randf_range(0.82,1.08),size_*rng.randf_range(0.70,0.90))
+-			_patch(moss,surface,Vector2(u+rng.randf_range(-0.17,0.17),float(surface["height"])+1.30+rng.randf_range(-0.12,0.12)),roof_span,true,moss_material,phase+Vector2(5,9))
++			var roof_center: Vector2 = Vector2(u+rng.randf_range(-0.17,0.17),float(surface["height"])+1.30+rng.randf_range(-0.12,0.12))
++			if not options.get("walls_only",false):
++				_patch(moss,surface,roof_center,roof_span,true,moss_material,phase+Vector2(5,9))
+ 			u += rng.randf_range(0.90,1.38)
+ 			patch_index += 1
+-		_patch(cracks,surface,Vector2(float(surface["width"])*0.43,float(surface["height"])*0.75),Vector2(0.72,0.85),false,crack_material)
+-		_patch(cracks,surface,Vector2(float(surface["width"])*0.82,float(surface["height"])*0.45),Vector2(0.62,0.90),false,crack_material)
++		if options.get("include_cracks",true):
++			_patch(cracks,surface,Vector2(float(surface["width"])*0.43,float(surface["height"])*0.75),Vector2(0.72,0.85),false,crack_material)
++			_patch(cracks,surface,Vector2(float(surface["width"])*0.82,float(surface["height"])*0.45),Vector2(0.62,0.90),false,crack_material)
+ 
+ func _patch(parent: Node3D, surface: Dictionary, center: Vector2, span: Vector2, roof: bool, material_: Material, phase: Vector2 = Vector2.ZERO) -> void:
+ 	var st: SurfaceTool = SurfaceTool.new()
+@@ -76,6 +82,17 @@
+ 	if added>0:
+ 		var mesh: MeshInstance3D = MeshInstance3D.new()
+ 		mesh.mesh = st.commit()
+-		mesh.material_override = material_
++		if parent==moss and individual_moss:
++			mesh.material_override = material_.duplicate()
++			mesh.material_override.set_shader_parameter("coverage",0.0)
++		else:
++			mesh.material_override = material_
+ 		mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+ 		parent.add_child(mesh)
++		if parent==moss:
++			moss_entries.append({"mesh":mesh,"surface":surface,"center":center,"roof":roof})
++
++func set_patch_progress(index: int, value: float) -> void:
++	if individual_moss:
++		var material_: ShaderMaterial = moss_entries[index]["mesh"].material_override
++		material_.set_shader_parameter("coverage",clampf(value,0,1))
+--- /dev/null
++++ after/scripts/greening_map/wall_growth_controller.gd
+@@ -0,0 +1,107 @@
++extends Node
++## Visual-only delayed wall growth from fixed local target-cell neighborhoods.
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const Patch: GDScript = preload("res://scripts/vegetation_lab/growth_patch.gd")
++const Layers: GDScript = preload("res://scripts/vegetation_lab/surface_layers.gd")
++const Geometry: GDScript = preload("res://scripts/vegetation_lab/building_geometry.gd")
++const RADIUS: float = 0.65
++const VINE_SECONDS: float = 90.0
++const MOSS_SECONDS: float = 135.0
++var session: RefCounted
++var entries: Array[Dictionary] = []
++var tick_count: int = 0
++
++func setup(model: RefCounted, buildings: Array[Dictionary], library: RefCounted) -> void:
++	session = model
++	var moss_material: ShaderMaterial = ShaderMaterial.new()
++	moss_material.shader = Layers.Moss
++	moss_material.set_shader_parameter("coverage",0.0)
++	var crack_material: ShaderMaterial = ShaderMaterial.new()
++	crack_material.shader = Layers.Cracks
++	for building: Dictionary in buildings:
++		var node: Node3D = building["node"]
++		var def: Dictionary = building["definition"]
++		var tile_rect: Rect2i = building["footprint"]
++		var footprint: Rect2 = Rect2(Session.ORIGIN+Vector2(tile_rect.position)*Session.CELL,Vector2(tile_rect.size)*Session.CELL)
++		var patch: Node3D = Patch.new()
++		node.add_child(patch)
++		patch.setup(def,library,{"include_ground":false,"walls_only":true})
++		var layer: Node3D = Layers.new()
++		node.add_child(layer)
++		layer.setup(def,moss_material,crack_material,{"walls_only":true,"individual_moss":true,"include_cracks":false})
++		var roots: Array[Dictionary] = []
++		var values: Dictionary = {}
++		for path_index: int in patch.paths.size():
++			var path: Dictionary = patch.paths[path_index]
++			if path["parent"]>=0:
++				continue
++			var hit: Dictionary = path["points"][0]
++			var anchor: Vector2 = outside_anchor(node.global_position+hit["position"],hit["normal"],footprint)
++			roots.append({"path":path_index,"anchor":anchor,"cells":nearby_cells(anchor,footprint),"progress":0.0,"input":0.0})
++			values[path_index] = 0.0
++		patch.set_root_progress(values)
++		var moss: Array[Dictionary] = []
++		for index: int in layer.moss_entries.size():
++			var item: Dictionary = layer.moss_entries[index]
++			var hit: Dictionary = Geometry.sample(item["surface"],item["center"].x,0)
++			var anchor: Vector2 = outside_anchor(node.global_position+hit["position"],hit["normal"],footprint)
++			moss.append({"patch":index,"anchor":anchor,"cells":nearby_cells(anchor,footprint),"progress":0.0,"input":0.0})
++		entries.append({"id":def["id"],"patch":patch,"layer":layer,"roots":roots,"moss":moss})
++	session.clock.growth_ticked.connect(_growth_tick)
++
++func outside_anchor(point: Vector3, normal: Vector3, footprint: Rect2) -> Vector2:
++	var p: Vector2 = Vector2(point.x,point.z)
++	if normal.x>0.5:
++		p.x = footprint.end.x+0.20
++	elif normal.x< -0.5:
++		p.x = footprint.position.x-0.20
++	if normal.z>0.5:
++		p.y = footprint.end.y+0.20
++	elif normal.z< -0.5:
++		p.y = footprint.position.y-0.20
++	return p
++
++func nearby_cells(anchor: Vector2, footprint: Rect2) -> PackedInt32Array:
++	var cells: PackedInt32Array = PackedInt32Array()
++	for index: int in session.state.tile_count():
++		var p: Vector2 = Session.cell_center(index)
++		if session.state.target[index]==1 and not footprint.has_point(p) and p.distance_squared_to(anchor)<=RADIUS*RADIUS:
++			cells.append(index)
++	return cells
++
++func local_input(cells: PackedInt32Array) -> float:
++	if cells.is_empty():
++		return 0
++	var total: float = 0
++	for index: int in cells:
++		var stage: int = session.state.stage[index]
++		if stage==WorldState.STAGE_MATURE:
++			total += 1.0
++		elif stage>=WorldState.STAGE_SPROUT1:
++			total += clampf(float(session.state.growth[index])/float(session.sim_tuning.mature_growth),0,1)
++	return total/float(cells.size()) # Empty target cells stay in this denominator.
++
++func _growth_tick(_index: int) -> void:
++	tick_count += 1
++	var dt: float = session.sim_tuning.growth_tick_seconds
++	for entry: Dictionary in entries:
++		var values: Dictionary = {}
++		for root: Dictionary in entry["roots"]:
++			root["input"] = local_input(root["cells"])
++			root["progress"] = minf(1.0,float(root["progress"])+dt*float(root["input"])/VINE_SECONDS)
++			values[root["path"]] = root["progress"]
++		entry["patch"].set_root_progress(values)
++		for moss: Dictionary in entry["moss"]:
++			moss["input"] = local_input(moss["cells"])
++			moss["progress"] = minf(1.0,float(moss["progress"])+dt*float(moss["input"])/MOSS_SECONDS)
++			entry["layer"].set_patch_progress(moss["patch"],moss["progress"])
++
++func snapshot() -> Dictionary:
++	var rows: Array[Dictionary] = []
++	for entry: Dictionary in entries:
++		rows.append({"building":entry["id"],"roots":entry["roots"].duplicate(true),"moss":entry["moss"].duplicate(true)})
++	return {"growth_ticks":tick_count,"radius":RADIUS,"vine_seconds":VINE_SECONDS,"moss_seconds":MOSS_SECONDS,"entries":rows}
++
++func _exit_tree() -> void:
++	if session!=null and session.clock.growth_ticked.is_connected(_growth_tick):
++		session.clock.growth_ticked.disconnect(_growth_tick)
+--- /dev/null
++++ after/tests/greening_map/wall_growth_self_logic.gd
+@@ -0,0 +1,144 @@
++extends SceneTree
++const Scene: PackedScene = preload("res://scenes/greening_map.tscn")
++const Definitions: GDScript = preload("res://scripts/vegetation_lab/building_defs.gd")
++const Geometry: GDScript = preload("res://scripts/vegetation_lab/building_geometry.gd")
++const Patch: GDScript = preload("res://scripts/vegetation_lab/growth_patch.gd")
++const Layers: GDScript = preload("res://scripts/vegetation_lab/surface_layers.gd")
++const Parts: GDScript = preload("res://scripts/vegetation_lab/plant_parts.gd")
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const OUT: String = "res://evidence/wall-growth/self/"
++var checks: Array[Dictionary] = []
++var failures: int = 0
++var snapshots: Array[Dictionary] = []
++
++func _initialize() -> void:
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	checks.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(checks[-1])
++
++func run() -> void:
++	# Saved original scripts vs extended defaults, once at 50% for each building.
++	var old_patch: GDScript = load(OUT+"before/scripts/vegetation_lab/growth_patch.gd")
++	var old_layer: GDScript = load(OUT+"before/scripts/vegetation_lab/surface_layers.gd")
++	var library: RefCounted = Parts.new()
++	var moss: ShaderMaterial = ShaderMaterial.new()
++	moss.shader = Layers.Moss
++	var cracks: ShaderMaterial = ShaderMaterial.new()
++	cracks.shader = Layers.Cracks
++	var signatures: Array[Dictionary] = []
++	for def: Dictionary in Definitions.all():
++		var holder: Node3D = Node3D.new()
++		Geometry.build(holder,def)
++		var before_patch: Node3D = old_patch.new()
++		var after_patch: Node3D = Patch.new()
++		holder.add_child(before_patch)
++		holder.add_child(after_patch)
++		before_patch.setup(def,library)
++		after_patch.setup(def,library)
++		before_patch.set_growth(50)
++		after_patch.set_growth(50)
++		var before_layer: Node3D = old_layer.new()
++		var after_layer: Node3D = Layers.new()
++		holder.add_child(before_layer)
++		holder.add_child(after_layer)
++		before_layer.setup(def,moss,cracks)
++		after_layer.setup(def,moss,cracks)
++		var same: bool = before_patch.layout_signature()==after_patch.layout_signature() and before_patch.pose_signature==after_patch.pose_signature and before_layer.patch_records==after_layer.patch_records and before_layer.moss.get_child_count()==after_layer.moss.get_child_count() and before_layer.cracks.get_child_count()==after_layer.cracks.get_child_count()
++		check(same,"default_compatibility_"+str(def["id"]))
++		signatures.append({"id":def["id"],"old_layout":before_patch.layout_signature(),"new_layout":after_patch.layout_signature(),"old_pose50":before_patch.pose_signature,"new_pose50":after_patch.pose_signature,"old_moss_records":str(before_layer.patch_records).sha256_text(),"new_moss_records":str(after_layer.patch_records).sha256_text()})
++		holder.free()
++	var lab: Node = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	var controller: Node = lab.wall_growth
++	var model: RefCounted = lab.session
++	model.spread.allow_hook = func(_index: int) -> bool: return false # isolate the local fixture
++	var entry: Dictionary = controller.entries[0]
++	var chosen: Dictionary
++	for item: Dictionary in entry["roots"]:
++		if absf(item["anchor"].y-1.0)<0.01 and item["anchor"].x> -4.0 and item["anchor"].x< -2.0:
++			chosen = item
++			break
++	check(not chosen.is_empty(),"fixture_front_root")
++	if chosen.is_empty():
++		lab.free()
++		quit(1)
++		return
++	var init_zero: bool = true
++	var no_extras: bool = true
++	for item: Dictionary in controller.entries:
++		no_extras = no_extras and item["patch"].grass_nodes.is_empty() and item["layer"].cracks.get_child_count()==0
++		for path: Dictionary in item["patch"].paths:
++			for hit: Dictionary in path["points"]:
++				no_extras = no_extras and float(hit["v"])<=float(path["surface"]["height"])-0.30
++		for value: Dictionary in item["roots"]:
++			init_zero = init_zero and value["progress"]==0
++			for index: int in value["cells"]:
++				no_extras = no_extras and model.state.target[index]==1
++		for value: Dictionary in item["moss"]:
++			init_zero = init_zero and value["progress"]==0
++		for value: Dictionary in item["layer"].moss_entries:
++			no_extras = no_extras and not value["roof"]
++	check(init_zero and no_extras,"initial_zero_wall_only_no_ground_roof_cracks")
++	model.position = Session.to_logic(chosen["anchor"]+Vector2(0,1.0))
++	check(model.scatter(chosen["anchor"],false),"actual_session_seed_landing")
++	model.advance_game(10)
++	check(chosen["progress"]==0,"seed_stage_no_wall_input")
++	model.advance_game(25)
++	check(chosen["progress"]>0 and controller.tick_count==model.clock.growth_ticks,"sprout_and_real_clock_connection")
++	snapshots.append(controller.snapshot())
++	for index: int in chosen["cells"]:
++		model.state.set_stage(index,WorldState.STAGE_MATURE)
++		model.state.growth[index] = 120000
++	var counters: Vector2i = Vector2i(model.state.greened_count,model.state.target_count)
++	model.advance_game(45)
++	check(chosen["progress"]>0.49 and chosen["progress"]<1,"mature_ground_has_delayed_wall_growth")
++	check(Vector2i(model.state.greened_count,model.state.target_count)==counters,"wall_progress_no_greening_counter_gain")
++	var other_zero: bool = true
++	for item: Dictionary in controller.entries[1]["roots"]:
++		other_zero = other_zero and item["progress"]==0
++	check(other_zero,"other_building_unaffected")
++	var materials: Dictionary = {}
++	for item: Dictionary in controller.entries:
++		for value: Dictionary in item["layer"].moss_entries:
++			var id: int = value["mesh"].material_override.get_instance_id()
++			materials[id] = true
++	check(materials.size()==controller.entries[0]["layer"].moss_entries.size()+controller.entries[1]["layer"].moss_entries.size(),"individual_patch_materials")
++	var moss_growing: bool = false
++	for item: Dictionary in entry["moss"]:
++		moss_growing = moss_growing or (item["progress"]>0 and item["progress"]<chosen["progress"])
++	check(moss_growing,"moss_separate_slower_progress")
++	var held: float = chosen["progress"]
++	for index: int in chosen["cells"]:
++		model.state.set_stage(index,WorldState.STAGE_EMPTY)
++	model.advance_game(5)
++	check(chosen["progress"]==held,"green_loss_holds_not_reverses")
++	model.paused = true
++	var saved: String = str(controller.snapshot())
++	model.advance_game(100)
++	lab.azimuth_slider.value = 135
++	lab.ground_view.refresh(model.state)
++	check(str(controller.snapshot())==saved,"pause_sun_refresh_no_progress")
++	model.paused = false
++	for index: int in chosen["cells"]:
++		model.state.set_stage(index,WorldState.STAGE_MATURE)
++		model.state.growth[index] = 120000
++	model.advance_game(45)
++	check(chosen["progress"]==1.0,"resume_reaches_full_without_input_cap")
++	var soil: int = model.state.index_of(26,32)
++	var pavement: int = model.state.index_of(26,24)
++	for index: int in [soil,pavement]:
++		model.state.set_stage(index,WorldState.STAGE_SPROUT1)
++		model.state.growth[index] = 50000
++	check(controller.local_input(PackedInt32Array([soil]))==controller.local_input(PackedInt32Array([pavement])),"soil_pavement_equal_internal_input")
++	snapshots.append(controller.snapshot())
++	var f: FileAccess = FileAccess.open(OUT+"logic-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"results":checks,"failures":failures,"default_signatures":signatures},"\t"))
++	f = FileAccess.open(OUT+"logic-raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify(snapshots,"\t"))
++	lab.free()
++	quit(0 if failures==0 else 1)
+--- /dev/null
++++ after/tests/greening_map/wall_growth_self_capture.gd
+@@ -0,0 +1,124 @@
++extends SceneTree
++const Scene: PackedScene = preload("res://scenes/greening_map.tscn")
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const OUT: String = "res://evidence/wall-growth/self/"
++var lab: Node
++var checks: Array[Dictionary] = []
++var raw: Array[Dictionary] = []
++var failures: int = 0
++
++func _initialize() -> void:
++	root.unfocusable = true
++	create_timer(75).timeout.connect(func() -> void: quit(99))
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	checks.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(checks[-1])
++
++func capture(label_: String, representative: bool = false) -> Image:
++	await lab.wait_render()
++	var image_: Image = lab.render_view.get_texture().get_image()
++	image_.save_png(OUT+label_+"_world_640.png")
++	var ui: Image = root.get_texture().get_image()
++	ui.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++	ui.save_png(OUT+label_+"_ui_1920.png")
++	if representative:
++		var output: Image = lab.doubled_view.get_texture().get_image()
++		output.save_png(OUT+label_+"_world_1920.png")
++		var expected: Image = image_.duplicate()
++		expected.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++		check(expected.get_data()==output.get_data(),"nearest3_exact")
++	var snapshot: Dictionary = lab.wall_growth.snapshot()
++	snapshot["label"] = label_
++	snapshot["clock"] = lab.session.clock.elapsed
++	snapshot["green"] = lab.session.state.greened_count
++	snapshot["target"] = lab.session.state.target_count
++	raw.append(snapshot)
++	print("IMAGE "+ProjectSettings.globalize_path(OUT+label_+"_ui_1920.png"))
++	return image_
++
++func pond_delta(a: Image, b: Image) -> Dictionary:
++	var rect: Rect2 = lab.water_surface.pond_bounds
++	var polygon: PackedVector2Array = PackedVector2Array()
++	for p: Vector2 in [rect.position,rect.position+Vector2(rect.size.x,0),rect.end,rect.position+Vector2(0,rect.size.y)]:
++		polygon.append(lab.camera.unproject_position(Vector3(p.x,0.006,p.y)))
++	var count: int = 0
++	var sum_a: float = 0
++	var sum_b: float = 0
++	for y: int in a.get_height():
++		for x: int in a.get_width():
++			if Geometry2D.is_point_in_polygon(Vector2(x+0.5,y+0.5),polygon):
++				var ca: Color = a.get_pixel(x,y)
++				var cb: Color = b.get_pixel(x,y)
++				if ca!=cb:
++					count += 1
++					sum_a += ca.r+ca.g+ca.b
++					sum_b += cb.r+cb.g+cb.b
++	return {"pixels":count,"first_rgb_sum":sum_a,"second_rgb_sum":sum_b}
++
++func run() -> void:
++	lab = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	if DisplayServer.get_name()=="headless" or RenderingServer.get_video_adapter_name().is_empty():
++		print("GPU NOT_RUN")
++		quit(2)
++		return
++	lab.session.spread.allow_hook = func(_index: int) -> bool: return false # isolate one front only
++	await capture("initial_wall_zero",true)
++	# Explicit mature-ground fixture only in front of A, not its right wall or B.
++	for index: int in lab.session.state.tile_count():
++		var p: Vector2 = Session.cell_center(index)
++		if lab.session.state.target[index]==1 and p.x> -6.3 and p.x< -0.1 and p.y>0.8 and p.y<1.8:
++			lab.session.state.set_stage(index,WorldState.STAGE_MATURE)
++			lab.session.state.growth[index] = 120000
++	lab.ground_view.refresh(lab.session.state)
++	lab.update_hud()
++	var counter: Vector2i = Vector2i(lab.session.state.greened_count,lab.session.state.target_count)
++	lab.session.advance_game(45)
++	lab.update_hud()
++	await capture("front_wall_after45")
++	lab.session.advance_game(90)
++	lab.update_hud()
++	await capture("front_wall_after135")
++	var local_only: bool = true
++	var front_full: bool = false
++	for entry: Dictionary in lab.wall_growth.entries:
++		for root: Dictionary in entry["roots"]:
++			if entry["id"]=="A" and root["anchor"].y>0.8:
++				front_full = front_full or root["progress"]==1
++			else:
++				local_only = local_only and root["progress"]==0
++	check(front_full and local_only,"GPU_fixture_front_local_only")
++	check(Vector2i(lab.session.state.greened_count,lab.session.state.target_count)==counter,"wall_no_counter_gain")
++	# Existing character stands on valid shore; its real shadow crosses the edge.
++	lab.session.paused = true
++	lab.session.position = Session.to_logic(Vector2(-7.9,3.5))
++	lab.azimuth_slider.value = 225
++	lab.update_actor(Vector2.ZERO)
++	var both_on: Image = await capture("water_reflection_shadow_ON")
++	lab.water_surface.set_reflection(false)
++	var shadow_only: Image = await capture("water_shadow_only")
++	lab.actor.shadow_board.hide()
++	var neither: Image = await capture("water_reflection_shadow_OFF")
++	lab.water_surface.set_reflection(true)
++	var reflection_only: Image = await capture("water_reflection_only")
++	var shadow: Dictionary = pond_delta(shadow_only,neither)
++	var reflected: Dictionary = pond_delta(reflection_only,neither)
++	check(shadow["pixels"]>15 and shadow["first_rgb_sum"]<shadow["second_rgb_sum"],"water_real_cast_shadow_without_reflection",str(shadow))
++	check(reflected["pixels"]>15,"water_reflection_without_caster_shadow",str(reflected))
++	lab.actor.shadow_board.show()
++	lab.azimuth_slider.value = 270
++	var moved: Image = await capture("water_sun270")
++	lab.water_surface.set_reflection(false)
++	var shadow_270: Image = await capture("water_shadow_only_sun270")
++	check(pond_delta(shadow_only,shadow_270)["pixels"]>15,"water_shadow_follows_sun")
++	lab.water_surface.set_reflection(true)
++	var f: FileAccess = FileAccess.open(OUT+"gpu-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"adapter":RenderingServer.get_video_adapter_name(),"results":checks,"failures":failures},"\t"))
++	f = FileAccess.open(OUT+"gpu-raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify(raw,"\t"))
++	quit(0 if failures==0 else 1)

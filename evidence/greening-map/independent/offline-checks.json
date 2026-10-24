@@ -1,0 +1,103 @@
+{
+  "raw_recounts": [
+    {
+      "label": "walk_seed_water",
+      "clock": 0.8,
+      "recount": {
+        "targets": 1422,
+        "green": 12,
+        "mature": 12
+      },
+      "all_stage_counts": [
+        1903,
+        5,
+        0,
+        0,
+        12
+      ],
+      "pass": true
+    },
+    {
+      "label": "sprout_24_game_seconds",
+      "clock": 24.8,
+      "recount": {
+        "targets": 1422,
+        "green": 31,
+        "mature": 12
+      },
+      "all_stage_counts": [
+        1871,
+        18,
+        19,
+        0,
+        12
+      ],
+      "pass": true
+    },
+    {
+      "label": "grown_74_game_seconds",
+      "clock": 74.8,
+      "recount": {
+        "targets": 1422,
+        "green": 95,
+        "mature": 49
+      },
+      "all_stage_counts": [
+        1814,
+        11,
+        32,
+        14,
+        49
+      ],
+      "pass": true
+    },
+    {
+      "label": "sun_135",
+      "clock": 74.8,
+      "recount": {
+        "targets": 1422,
+        "green": 95,
+        "mature": 49
+      },
+      "all_stage_counts": [
+        1814,
+        11,
+        32,
+        14,
+        49
+      ],
+      "pass": true
+    },
+    {
+      "label": "behind_building_occlusion",
+      "clock": 74.8,
+      "recount": {
+        "targets": 1422,
+        "green": 95,
+        "mature": 49
+      },
+      "all_stage_counts": [
+        1814,
+        11,
+        32,
+        14,
+        49
+      ],
+      "pass": true
+    }
+  ],
+  "nearest_pair": {
+    "a": [
+      640,
+      360
+    ],
+    "b": [
+      1920,
+      1080
+    ],
+    "exact_nearest3": true,
+    "pass": true
+  },
+  "sun_state_unchanged": true,
+  "method": "Offline independent recount from raw arrays, submitted GPU PNG comparison, no additional Godot run."
+}

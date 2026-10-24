@@ -1,0 +1,460 @@
+{
+  "asset_id": "BLD-046",
+  "name": "水処理ポンプ棟",
+  "category": "BLD",
+  "version": "0.2.0",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      2.9742960929870605,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -4.162630081176758,
+      0.0,
+      -3.3528099060058594
+    ],
+    "max": [
+      4.800000190734863,
+      5.948592185974121,
+      3.352809190750122
+    ]
+  },
+  "dimensions": [
+    8.962630271911621,
+    5.948592185974121,
+    6.7056190967559814
+  ],
+  "placement_size_xz": [
+    8.962630271911621,
+    6.7056190967559814
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -4.162630081176758,
+    -3.3528099060058594,
+    4.800000190734863,
+    3.352809190750122
+  ],
+  "geometry_stats": {
+    "triangles": 4260,
+    "vertices": 2678,
+    "objects": 11,
+    "material_count": 7,
+    "blender_material_count": 7,
+    "glb_material_count": 7
+  },
+  "meshes": [
+    {
+      "name": "Pump_roof_step",
+      "layer": "Pump_roof_step",
+      "materials": [
+        "BLD-046_surface"
+      ]
+    },
+    {
+      "name": "pump_low_front",
+      "layer": "pump_low_front",
+      "materials": [
+        "BLD-046_surface"
+      ]
+    },
+    {
+      "name": "pump_low_back",
+      "layer": "pump_low_back",
+      "materials": [
+        "BLD-046_surface"
+      ]
+    },
+    {
+      "name": "pump_left",
+      "layer": "pump_left",
+      "materials": [
+        "BLD-046_surface"
+      ]
+    },
+    {
+      "name": "Pump_large_pipe_connector",
+      "layer": "pipe_connector",
+      "materials": [
+        "Oxidized_steel.002"
+      ]
+    },
+    {
+      "name": "pump_high_back",
+      "layer": "pump_high_back",
+      "materials": [
+        "BLD-046_surface"
+      ]
+    },
+    {
+      "name": "Pump_foundation",
+      "layer": "foundation",
+      "materials": [
+        "Concrete_broken.004"
+      ]
+    },
+    {
+      "name": "BLD-046_pump_right",
+      "layer": "pump_right",
+      "materials": [
+        "BLD-046_surface"
+      ]
+    },
+    {
+      "name": "BLD-046_pump_high_front",
+      "layer": "pump_high_front",
+      "materials": [
+        "BLD-046_surface"
+      ]
+    },
+    {
+      "name": "BLD-046_pitched_roof_covering",
+      "layer": "pitched_roof_covering",
+      "materials": [
+        "Roof_copper_1",
+        "Roof_copper_0",
+        "Roof_copper_2"
+      ]
+    },
+    {
+      "name": "BLD-046_pitched_roof_structure",
+      "layer": "pitched_roof_structure",
+      "materials": [
+        "Roof_old_timber"
+      ]
+    }
+  ],
+  "external_textures": [
+    "textures/BLD-046_roof_albedo.png",
+    "textures/BLD-046_surface_albedo.png",
+    "textures/concrete_surface_color.png"
+  ],
+  "connections": {
+    "pipe_connector_center_y_up": [
+      4.8,
+      1.45,
+      0
+    ],
+    "pipe_radius_m": 1.02,
+    "connector_axis_y_up": [
+      1,
+      0,
+      0
+    ],
+    "pipe_connection_game": "NOT_RUN",
+    "entry_center": [
+      -1.0,
+      0,
+      3.2
+    ],
+    "design_family": "sage painted pump house with stepped roof and large pipe ports",
+    "construction_revision": "Original unique structure retained; dedicated visible facade construction added, not a new color-variant ID",
+    "vegetation": "Independent reusable layers; no plants joined to building",
+    "old_source": "lots/lot_018/BLD-046_water_treatment_pump_house",
+    "revision_of": "BLD-046",
+    "not_additional_asset": true,
+    "game_adapter": "NOT_RUN; facade offsets require connector clearance review",
+    "intrinsic_albedo": "Low-amplitude aged-pigment grain only; no baked lighting, AO or reflections.",
+    "frame_palette_note": "No pale painted door/window frame mesh in this model; existing structural metal/wood retained.",
+    "legacy_roof_data_not_current": {
+      "roof_step_m": 1.15
+    },
+    "roof_revision": "Actual roof form changed after user flat-roof feedback, not a color-only change",
+    "roof_systems": [
+      {
+        "kind": "hip",
+        "material_family": "copper",
+        "eave_height_y_up": 4.800000190734863,
+        "rise_m": 1.15,
+        "bounds_xz": [
+          -4.099999904632568,
+          -3.299999952316284,
+          0.800000011920929,
+          3.299999952316284
+        ],
+        "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+        "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+      },
+      {
+        "kind": "hip",
+        "material_family": "copper",
+        "eave_height_y_up": 3.6500000953674316,
+        "rise_m": 1.1222499680519105,
+        "bounds_xz": [
+          0.75,
+          -3.299999952316284,
+          4.099999904632568,
+          3.299999952316284
+        ],
+        "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+        "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+      }
+    ],
+    "old_flat_roof_receivers": "SUPERSEDED: do not reuse old roof planes; new roof slopes/frame/holes need game adapter",
+    "vegetation_roof_integration": "NOT_RUN",
+    "source_version_before_roof_revision": "revisions/architecture_diversity_05/BLD-046_sage_pump_building"
+  },
+  "generated_receiver_surfaces": [
+    {
+      "id": "pump_high_front_00",
+      "origin": [
+        -4.0,
+        0.18,
+        3.19
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        4.8,
+        4.32
+      ],
+      "openings_uv": [
+        [
+          2.4,
+          0.06,
+          3.5999999999999996,
+          3.2199999999999998
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "pump_low_front_01",
+      "origin": [
+        0.7999999999999998,
+        0.18,
+        3.19
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        3.2,
+        3.2199999999999998
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "pump_high_back_02",
+      "origin": [
+        0.7999999999999998,
+        0.18,
+        -3.19
+      ],
+      "tangent_u": [
+        -1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        4.8,
+        4.32
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "pump_low_back_03",
+      "origin": [
+        4.0,
+        0.18,
+        -3.19
+      ],
+      "tangent_u": [
+        -1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        3.2,
+        3.2199999999999998
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "pump_left_04",
+      "origin": [
+        -3.9899999999999998,
+        0.18,
+        -3.08
+      ],
+      "tangent_u": [
+        0,
+        0,
+        1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        6.16,
+        4.32
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "pump_right_05",
+      "origin": [
+        3.9899999999999998,
+        0.18,
+        3.08
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        6.16,
+        3.2199999999999998
+      ],
+      "openings_uv": [
+        [
+          1.78,
+          0.22000000000000003,
+          4.38,
+          2.42
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "Pump_roof_step_06",
+      "origin": [
+        0.86,
+        3.45,
+        3.08
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        6.16,
+        1.13
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    }
+  ],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 4260,
+      "triangles_after": 4260,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN",
+    "roof_design_review": "Actual pitched/hipped/gambrel/mansard/asymmetric/double-ridge roof geometry reviewed at 640x360; remaining functional flat roofs elsewhere are intentional."
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true
+}

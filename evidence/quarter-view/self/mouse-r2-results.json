@@ -1,0 +1,28 @@
+{
+	"GPU_r2": "NOT_RUN - independent limited recheck follows",
+	"checks": [
+		{
+			"cell": "(137, 116)",
+			"logical": "(550.0, 466.0)",
+			"name": "engine_mouse_event_known_ground",
+			"status": "PASS",
+			"stored_screen": "(494.0, 413.0)"
+		},
+		{
+			"cell": "(128, 115)",
+			"logical": "(514.0, 460.0)",
+			"name": "stationary_mouse_camera_reprojection",
+			"status": "PASS",
+			"stored_screen": "(494.0, 413.0)"
+		},
+		{
+			"cell": "(137, 110)",
+			"logical": "(550.0, 440.0)",
+			"name": "viewport_local_mouse_event",
+			"status": "PASS",
+			"stored_screen": "(520.0, 400.0)"
+		}
+	],
+	"failures": 0,
+	"physical_OS_input": "NOT_RUN"
+}

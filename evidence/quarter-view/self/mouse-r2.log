@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS engine_mouse_event_known_ground logical=(550.0, 466.0) cell=(137, 116) screen=(494.0, 413.0)
+PASS stationary_mouse_camera_reprojection logical=(514.0, 460.0) cell=(128, 115) screen=(494.0, 413.0)
+WARNING: The Viewport was previously notified that the mouse is in its area. There is no need to notify it at this time.
+   at: notify_mouse_entered (scene/main/viewport.cpp:3653)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/quarter_view/self_mouse_r2.gd:43)
+PASS viewport_local_mouse_event logical=(550.0, 440.0) cell=(137, 110) screen=(520.0, 400.0)
+SELF_MOUSE_R2_DONE failures=0

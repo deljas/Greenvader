@@ -1,0 +1,158 @@
+[
+  {
+    "path": "before-manifest.json",
+    "sha256": "c64174d1c0d2b6b766269621441d6a4a1e1e5eac46e1643bd0b3d9a5386c74d2"
+  },
+  {
+    "path": "behind_building_occlusion_ui_1920.png",
+    "sha256": "7a005df80235c5d5c1124b5b0d54b874ad58fbd523874c3017fdba21a13d4a92"
+  },
+  {
+    "path": "behind_building_occlusion_ui_640.png",
+    "sha256": "9845b87c4dd757290a7c999884df1b4cc0bb6e573d1beae2180e179ee42fb317"
+  },
+  {
+    "path": "behind_building_occlusion_world_640.png",
+    "sha256": "76be6058e825228e6609bd27d4340e418dad532af3107bc4241a7286e5d1f246"
+  },
+  {
+    "path": "gpu-combined-results.json",
+    "sha256": "b1f7a2b20d0bd820407150296660d06852719e397e7ee79e8e29fd785eb52d7d"
+  },
+  {
+    "path": "gpu-results.json",
+    "sha256": "5f64f246035ce8bf62b0db8e5a8155f6a5fa2cf09df10006c511cd8b2238b8f3"
+  },
+  {
+    "path": "gpu.log",
+    "sha256": "ed4f2d0e0ff68e12fdd774c753341b0defbbddc4f8df4de7eeeb1ce7d1ed8020"
+  },
+  {
+    "path": "grown_74_game_seconds_ui_1920.png",
+    "sha256": "77d6cc34457ce09b30a6c463d802f47bf5c8ae752d88febcdac8c13db40c2ff1"
+  },
+  {
+    "path": "grown_74_game_seconds_ui_640.png",
+    "sha256": "a0e27a883d9596f6eab9753a238972b3f741bd0873132c6766feea76a890a97f"
+  },
+  {
+    "path": "grown_74_game_seconds_world_640.png",
+    "sha256": "68ae20d173890dfa5a42ce57df0cffdafbd8cab5f750d713dfe9adb90d71a7b9"
+  },
+  {
+    "path": "initial-gpu/gpu.log",
+    "sha256": "66e6782148990607d170cc737112bbfd6dec15121a2f453b3aed82871bb48ede"
+  },
+  {
+    "path": "initial-gpu/process.json",
+    "sha256": "4abe7f03a2c39d42af322c734a2be5e3940b8d632d1dee9b45649da8f87a7de5"
+  },
+  {
+    "path": "initial-gpu/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "initial-gpu/stdout.log",
+    "sha256": "8dd03c158ee7b582f42a7b81c4940045468edfb29ed8988cbf7f17d5bb914206"
+  },
+  {
+    "path": "initial_ui_1920.png",
+    "sha256": "4df35b211c0b6d3fd4155e9954fa16d97d686ee4a1a19293fac424fa5771e53c"
+  },
+  {
+    "path": "initial_ui_640.png",
+    "sha256": "4581a2520ba870b1fc01be3e2a0f16899f6633b9b3a35a4b8b7211b763099fda"
+  },
+  {
+    "path": "initial_world_1920.png",
+    "sha256": "0205459e9f40b7abf9ff17343e068b45f29fbbfc8f503dde83a2410921c2701f"
+  },
+  {
+    "path": "initial_world_640.png",
+    "sha256": "c6f7d3ff8de3354be3e2f296cb9ebabb07612894aa2f983b0630bb23be8bcdd0"
+  },
+  {
+    "path": "integrity.json",
+    "sha256": "b60b6342b547b8ddd536990727f38aef3b6c426e03ae36fe4ecc1669ccad13e0"
+  },
+  {
+    "path": "logic-initial-results.json",
+    "sha256": "feab0c6f8d0f2ae482669680391bc56265636bd7086bcd392c191358765f27e0"
+  },
+  {
+    "path": "logic-initial.log",
+    "sha256": "cbecf33a11864824d0f8f2c7177e8c913dee8695fcefe779f02c38e501a7252b"
+  },
+  {
+    "path": "logic-results.json",
+    "sha256": "4e3fa8c5e8c08b32142cee45e301180b31a10b28f83bc8807c4413cb78c7c0aa"
+  },
+  {
+    "path": "logic.log",
+    "sha256": "247a6e2421e7633f2d1d67a1049ca37f6081736f38d77a070320997a31f03e22"
+  },
+  {
+    "path": "parse.log",
+    "sha256": "a2f34ae79c104064a698032ebbd7b7422ba5d99d43d32c9c9f4fabfa46ede5ac"
+  },
+  {
+    "path": "process.json",
+    "sha256": "4f753ea017b50232ffe4ac3d5c27b5ab3be6a8301639bfe8690cf378d3159413"
+  },
+  {
+    "path": "raw.json",
+    "sha256": "2601a73fc4a3e8f377c7f5e332de00be217a6e79b3e5f26b63829a5a37fbe9dc"
+  },
+  {
+    "path": "report.md",
+    "sha256": "bf06583af8b98d904cf6810715347f2c2b3e088f20cfdbb59fbe36750d52ddf6"
+  },
+  {
+    "path": "source-manifest.json",
+    "sha256": "5a26c4bb1f73c28bcfeaffaa8890151b81c66bc3415511db0d8cb5c17e8b4f7e"
+  },
+  {
+    "path": "sprout_24_game_seconds_ui_1920.png",
+    "sha256": "bade479912cb2f7df54426ddfaa77bd28f46f57569046e7d94fc63c9ec4ba927"
+  },
+  {
+    "path": "sprout_24_game_seconds_ui_640.png",
+    "sha256": "557d0c5177f1be488c88117e0de49be28108ee8066de3932268fd8059fdd212a"
+  },
+  {
+    "path": "sprout_24_game_seconds_world_640.png",
+    "sha256": "97844d75bcd4d291ca7dbbbedd30908d8523c633a00546ab0f24fab482996b7a"
+  },
+  {
+    "path": "stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "stdout.log",
+    "sha256": "528a2d0fc0ae308828ba15ef5d8cfe3b65c1275344ed86d4550ffe6e35ae3b37"
+  },
+  {
+    "path": "sun_135_ui_1920.png",
+    "sha256": "f5808d0891258a5062ceca74a7c47c43a2c561adb1561a5129dba67639a5d819"
+  },
+  {
+    "path": "sun_135_ui_640.png",
+    "sha256": "6a6550c11287deb014e8d5b3e73e5019dbfe26b092aada8968d0fd0498646d6e"
+  },
+  {
+    "path": "sun_135_world_640.png",
+    "sha256": "2cd37c283911d54dcc371ea4ec9e05dd443d7b16ac94d76835d19a6f231422cc"
+  },
+  {
+    "path": "walk_seed_water_ui_1920.png",
+    "sha256": "dec8770fda7c076e6a8dba417d4218a97804f845c64fef8b9e3976f24de941b4"
+  },
+  {
+    "path": "walk_seed_water_ui_640.png",
+    "sha256": "5c0c8882fee76e2cfdba501f0a14668e4d794793c8f602761f1b59662ad40995"
+  },
+  {
+    "path": "walk_seed_water_world_640.png",
+    "sha256": "06c2d3c8c7ea6ff362e0d10b9938bf9eeda78de6983298cb2d84df6bdc7fc0bc"
+  }
+]

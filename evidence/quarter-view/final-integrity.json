@@ -1,0 +1,17 @@
+{
+  "revision": "r2",
+  "frozen_sources": 9,
+  "frozen_mismatches": 0,
+  "normal_files": 127,
+  "protected_uncommitted_non_document_files": 63,
+  "protected_mismatches": 0,
+  "removed_new_import_uids": [
+    "tests/p2/independent/p2_05_v_logic.gd.uid",
+    "tests/p2/p2_05_checks.gd.uid",
+    "tests/p2/p2_05_gpu.gd.uid",
+    "tests/p2/p2_06_bot.gd.uid",
+    "tests/p2/p2_06_front.gd.uid",
+    "tests/p2/p2_06_tempo.gd.uid"
+  ],
+  "notes": "Existing six documents intentionally updated by documenter; prior art/source content preserved. No commits."
+}

@@ -1,0 +1,192 @@
+{
+  "asset_id": "BLD-091",
+  "name": "直交コンテナ建屋の廃墟",
+  "category": "BLD",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      2.58629709482193,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -3.065000057220459,
+      0.017593979835510254,
+      -3.065000057220459
+    ],
+    "max": [
+      3.065000057220459,
+      5.15500020980835,
+      3.538076877593994
+    ]
+  },
+  "dimensions": [
+    6.130000114440918,
+    5.137406229972839,
+    6.603076934814453
+  ],
+  "placement_size_xz": [
+    6.130000114440918,
+    6.603076934814453
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -3.065000057220459,
+    -3.065000057220459,
+    3.065000057220459,
+    3.538076877593994
+  ],
+  "geometry_stats": {
+    "triangles": 4572,
+    "vertices": 3048,
+    "objects": 8,
+    "material_count": 3
+  },
+  "meshes": [
+    {
+      "name": "BLD-091_floor",
+      "layer": "floor",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "BLD-091_exterior_Container_side",
+      "layer": "exterior_Container_side",
+      "materials": [
+        "Container_blue",
+        "Container_ochre"
+      ]
+    },
+    {
+      "name": "BLD-091_corrugation",
+      "layer": "corrugation",
+      "materials": [
+        "Container_blue",
+        "Container_ochre"
+      ]
+    },
+    {
+      "name": "BLD-091_exterior_Container_end",
+      "layer": "exterior_Container_end",
+      "materials": [
+        "Container_blue",
+        "Container_ochre"
+      ]
+    },
+    {
+      "name": "BLD-091_frame",
+      "layer": "frame",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "BLD-091_roof",
+      "layer": "roof",
+      "materials": [
+        "Container_blue",
+        "Container_ochre"
+      ]
+    },
+    {
+      "name": "BLD-091_supports",
+      "layer": "supports",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "BLD-091_stair",
+      "layer": "stair",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "design_family": "perpendicular stacked shipping containers",
+    "damage_description": "broad upper roof collapse with exposed ribs",
+    "roof_system": "corrugated flat industrial module roof",
+    "vegetation": "NOT included; reusable separate plant assets; leave >=50% wall surface exposed at maturity",
+    "entry_clearance": "Keep recorded door opening and approach unobstructed",
+    "collision_navigation": "NOT_RUN; use individual walls, not the open building volume",
+    "revision_of": "BLD-091",
+    "not_additional_asset": true,
+    "origin_convention": "building footprint centre at ground plane",
+    "receiver_data": "generated_receiver_surfaces contains explicit opening exclusions and irregular top profiles; game adapter NOT_RUN",
+    "module_frames": [
+      {
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "rotation_z_degrees": 0
+      },
+      {
+        "translation": [
+          0.9,
+          0,
+          2.55
+        ],
+        "rotation_z_degrees": 90
+      }
+    ],
+    "receiver_kind": "module-local panels; adapter NOT_RUN",
+    "upper_floor_z": 2.67,
+    "interior": "empty structural shells",
+    "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; old ID mapping inferred from ordered preview batches, not recovered source manifest"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 4572,
+      "triangles_after": 4572,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "091_crossed_container_ruin.blend",
+    "glb": "091_crossed_container_ruin.glb"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

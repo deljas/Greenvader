@@ -1,0 +1,726 @@
+--- before/scripts/greening_map/map.gd
++++ after/scripts/greening_map/map.gd
+@@ -8,6 +8,7 @@
+ const Water: GDScript = preload("res://scripts/greening_map/water_surface.gd")
+ var water_surface: Node
+ const WallGrowth: GDScript = preload("res://scripts/greening_map/wall_growth_controller.gd")
++const ModelAttachments: GDScript = preload("res://assets/models/ruin_house/attachments.gd")
+ var wall_growth: Node
+ var session: RefCounted = Session.new()
+ var render_view: SubViewport
+@@ -25,6 +26,10 @@
+ var blockers: Array[AABB] = []
+ var azimuth_slider: HSlider
+ var azimuth_number: SpinBox
++var elevation_slider: HSlider
++var elevation_number: SpinBox
++var sun_azimuth: float = 320.0
++var sun_elevation: float = 52.0
+ var multiplier_select: OptionButton
+ var pause_check: CheckBox
+ var refill_button: Button
+@@ -71,13 +76,19 @@
+ 	var wall_buildings: Array[Dictionary] = []
+ 	for item: Dictionary in Session.BUILDINGS:
+ 		var definition: Dictionary = definitions[item["definition"]].duplicate(true)
++		if item["definition"]==0:
++			definition = ModelAttachments.definition()
+ 		var building: Node3D = Node3D.new()
+ 		var p: Vector2 = item["center"]
+ 		building.position = Vector3(p.x,0.12,p.y)
+ 		world.add_child(building)
+-		Buildings.build(building,definition)
+-		# Old lab paving is not the ground of this map.
+-		building.get_node("Paving").free()
++		if definition.has("model_asset"):
++			var model: PackedScene = load(definition["model_asset"])
++			building.add_child(model.instantiate())
++		else:
++			Buildings.build(building,definition)
++			# Old lab paving is not the ground of this map.
++			building.get_node("Paving").free()
+ 		var rect: Rect2i = item["footprint"]
+ 		var size_: Vector2 = Vector2(rect.size)*Session.CELL
+ 		var base: Vector2 = Session.ORIGIN+Vector2(rect.position)*Session.CELL
+@@ -183,7 +194,7 @@
+ 	row2.add_child(label_)
+ 	azimuth_slider = HSlider.new()
+ 	azimuth_slider.max_value = 360
+-	azimuth_slider.custom_minimum_size.x = 210
++	azimuth_slider.custom_minimum_size.x = 120
+ 	azimuth_slider.value_changed.connect(set_azimuth)
+ 	row2.add_child(azimuth_slider)
+ 	azimuth_number = SpinBox.new()
+@@ -191,10 +202,26 @@
+ 	azimuth_number.suffix = "°"
+ 	azimuth_number.value_changed.connect(set_azimuth)
+ 	row2.add_child(azimuth_number)
++	var elevation_label: Label = Label.new()
++	elevation_label.text = "仰角"
++	row2.add_child(elevation_label)
++	elevation_slider = HSlider.new()
++	elevation_slider.min_value = 5
++	elevation_slider.max_value = 85
++	elevation_slider.custom_minimum_size.x = 110
++	elevation_slider.value_changed.connect(set_elevation)
++	row2.add_child(elevation_slider)
++	elevation_number = SpinBox.new()
++	elevation_number.min_value = 5
++	elevation_number.max_value = 85
++	elevation_number.suffix = "°"
++	elevation_number.value_changed.connect(set_elevation)
++	row2.add_child(elevation_number)
+ 	var note: Label = Label.new()
+-	note.text = "固定仰角52°・見た目のみ"
++	note.text = "見た目のみ"
+ 	row2.add_child(note)
+ 	set_azimuth(320)
++	set_elevation(52)
+ 	feedback = Label.new()
+ 	feedback.theme = theme_
+ 	feedback.position = Vector2(10,318)
+@@ -206,13 +233,24 @@
+ 	add_child(instructions)
+ 
+ func set_azimuth(value: float) -> void:
+-	var azimuth: float = deg_to_rad(value)
+-	var elevation: float = deg_to_rad(52.0)
+-	sun.position = Vector3(sin(azimuth)*cos(elevation),sin(elevation),cos(azimuth)*cos(elevation))*15
+-	sun.look_at(Vector3.ZERO)
++	sun_azimuth = value
++	update_sun()
+ 	if azimuth_slider!=null:
+ 		azimuth_slider.set_value_no_signal(value)
+ 		azimuth_number.set_value_no_signal(value)
++
++func set_elevation(value: float) -> void:
++	sun_elevation = clampf(value,5,85)
++	update_sun()
++	if elevation_slider!=null:
++		elevation_slider.set_value_no_signal(sun_elevation)
++		elevation_number.set_value_no_signal(sun_elevation)
++
++func update_sun() -> void:
++	var azimuth: float = deg_to_rad(sun_azimuth)
++	var elevation: float = deg_to_rad(sun_elevation)
++	sun.position = Vector3(sin(azimuth)*cos(elevation),sin(elevation),cos(azimuth)*cos(elevation))*15
++	sun.look_at(Vector3.ZERO)
+ 	if actor!=null:
+ 		update_actor(Vector2.ZERO)
+ 
+--- before/scripts/greening_map/wall_growth_controller.gd
++++ after/scripts/greening_map/wall_growth_controller.gd
+@@ -4,6 +4,7 @@
+ const Patch: GDScript = preload("res://scripts/vegetation_lab/growth_patch.gd")
+ const Layers: GDScript = preload("res://scripts/vegetation_lab/surface_layers.gd")
+ const Geometry: GDScript = preload("res://scripts/vegetation_lab/building_geometry.gd")
++const WallCracks: GDScript = preload("res://scripts/greening_map/wall_cracks.gd")
+ const RADIUS: float = 0.65
+ const VINE_SECONDS: float = 90.0
+ const MOSS_SECONDS: float = 135.0
+@@ -25,10 +26,13 @@
+ 		var footprint: Rect2 = Rect2(Session.ORIGIN+Vector2(tile_rect.position)*Session.CELL,Vector2(tile_rect.size)*Session.CELL)
+ 		var patch: Node3D = Patch.new()
+ 		node.add_child(patch)
+-		patch.setup(def,library,{"include_ground":false,"walls_only":true})
++		patch.setup(def,library,{"include_ground":false,"walls_only":true,"sparse_windows":true})
+ 		var layer: Node3D = Layers.new()
+ 		node.add_child(layer)
+-		layer.setup(def,moss_material,crack_material,{"walls_only":true,"individual_moss":true,"include_cracks":false})
++		layer.setup(def,moss_material,crack_material,{"walls_only":true,"individual_moss":true,"include_cracks":false,"moss_span_scale":0.40})
++		var wall_cracks: Node3D = WallCracks.new()
++		node.add_child(wall_cracks)
++		wall_cracks.setup(def)
+ 		var roots: Array[Dictionary] = []
+ 		var values: Dictionary = {}
+ 		for path_index: int in patch.paths.size():
+@@ -46,7 +50,7 @@
+ 			var hit: Dictionary = Geometry.sample(item["surface"],item["center"].x,0)
+ 			var anchor: Vector2 = outside_anchor(node.global_position+hit["position"],hit["normal"],footprint)
+ 			moss.append({"patch":index,"anchor":anchor,"cells":nearby_cells(anchor,footprint),"progress":0.0,"input":0.0})
+-		entries.append({"id":def["id"],"patch":patch,"layer":layer,"roots":roots,"moss":moss})
++		entries.append({"id":def["id"],"patch":patch,"layer":layer,"roots":roots,"moss":moss,"cracks":wall_cracks})
+ 	session.clock.growth_ticked.connect(_growth_tick)
+ 
+ func outside_anchor(point: Vector3, normal: Vector3, footprint: Rect2) -> Vector2:
+--- before/scripts/greening_map/ground_view.gd
++++ after/scripts/greening_map/ground_view.gd
+@@ -100,7 +100,7 @@
+ 	for segment: int in range(CRACK_PATH.size()-1):
+ 		var a: Vector2 = CRACK_PATH[segment]
+ 		var b: Vector2 = CRACK_PATH[segment+1]
+-		var side: Vector2 = Vector2(-(b-a).y,(b-a).x).normalized()*0.0175
++		var side: Vector2 = Vector2(-(b-a).y,(b-a).x).normalized()*0.0275
+ 		var corners: Array[Vector2] = [a-side,a+side,b+side,b-side]
+ 		for index: int in [0,2,1,0,3,2]:
+ 			var v: Vector2 = corners[index]
+--- before/scripts/vegetation_lab/growth_patch.gd
++++ after/scripts/vegetation_lab/growth_patch.gd
+@@ -12,9 +12,12 @@
+ var growth_events: Array[Dictionary] = []
+ var root_progress: Dictionary = {}
+ var root_durations: Dictionary = {}
++var sparse_windows: bool = false
++var leaf_records: Array[Dictionary] = []
+ 
+ func setup(def: Dictionary, library: RefCounted, options: Dictionary = {}) -> void:
+ 	definition = def
++	sparse_windows = options.get("sparse_windows",false)
+ 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+ 	rng.seed = int(def["seed"])
+ 	var extent: Vector2 = def["extent"]
+@@ -29,7 +32,7 @@
+ 	var vine_rng: RandomNumberGenerator = RandomNumberGenerator.new()
+ 	vine_rng.seed = int(def["seed"])+7109
+ 	var lane: int = 0
+-	for surface: Dictionary in def["surfaces"]:
++	for surface: Dictionary in ([] if sparse_windows else def["surfaces"]):
+ 		var u: float = vine_rng.randf_range(0.24,0.34)
+ 		while u < float(surface["width"])-0.20:
+ 			var amplitude: float = 0.014 if lane%3==0 else vine_rng.randf_range(0.22,0.42)
+@@ -78,6 +81,8 @@
+ 							paths[-1]["variation"] = {"bend":bend,"slope":slope,"steps":count}
+ 			u += vine_rng.randf_range(0.55,0.88)
+ 			lane += 1
++	if sparse_windows:
++		_window_routes(def)
+ 	var point_count: int = 0
+ 	for path: Dictionary in paths:
+ 		point_count += path["points"].size()
+@@ -110,6 +115,7 @@
+ 			var transform_: Transform3D = Transform3D(Basis(Vector3.UP,candidate["angle"]).scaled(Vector3.ONE*scale_),candidate["position"])
+ 			grass_nodes[variant].multimesh.set_instance_transform(i,transform_ if candidate["variant"]==variant else hidden)
+ 	growth_events.clear()
++	leaf_records.clear()
+ 	var cursor: int = 0
+ 	var pose_rows: Array[Transform3D] = []
+ 	for path_index: int in paths.size():
+@@ -125,7 +131,11 @@
+ 			var hit: Dictionary = points[j]
+ 			var leaf_scale: float = clampf((grown-float(hit["distance"]))/0.24,0.00001,1.0)
+ 			var leaf_basis: Basis = Geometry.facing(hit["normal"])*Basis(Vector3.FORWARD,float(j)*0.8)
+-			var leaf_transform: Transform3D = Transform3D(leaf_basis.scaled(Vector3.ONE*leaf_scale),hit["position"]) if j%2==0 else hidden
++			var show_leaf: bool = j%(4 if sparse_windows else 2)==0
++			var size_: float = leaf_scale*(0.52 if sparse_windows else 1.0)
++			var leaf_transform: Transform3D = Transform3D(leaf_basis.scaled(Vector3.ONE*size_),hit["position"]) if show_leaf else hidden
++			if sparse_windows and show_leaf and size_>0.001:
++				leaf_records.append({"surface":path["surface"],"transform":leaf_transform,"u":hit["u"],"v":hit["v"]})
+ 			leaf_node.multimesh.set_instance_transform(cursor,leaf_transform)
+ 			pose_rows.append(leaf_transform)
+ 			if j==0:
+@@ -165,3 +175,72 @@
+ func set_root_progress(values: Dictionary) -> void:
+ 	root_progress = values.duplicate()
+ 	set_growth(progress*100.0)
++
++func _window_routes(def: Dictionary) -> void:
++	# Small-map option: derive a few complete routes from opening charts, never per-leaf data.
++	for surface: Dictionary in def["surfaces"]:
++		var window_index: int = 0
++		var windows: Array[Rect2] = []
++		for hole_: Rect2 in surface["holes"]:
++			if hole_.position.y>=0.05:
++				windows.append(hole_)
++		var has_windows: bool = not windows.is_empty()
++		if not has_windows:
++			windows.append(Rect2(float(surface["width"])*0.42,float(surface["height"])*0.28,0.4,float(surface["height"])*0.50))
++		for hole: Rect2 in windows:
++			var side: float = -1.0 if window_index%2==0 else 1.0
++			var u: float = hole.position.x-0.13 if side<0 else hole.end.x+0.13
++			var root_u: float = u
++			var clear_height: float = 0.0
++			for door: Rect2 in surface["holes"]:
++				if door.position.y<0.05 and door.grow(0.30).has_point(Vector2(root_u,0)):
++					root_u = door.position.x-0.36 if side<0 else door.end.x+0.36
++					clear_height = door.end.y+0.34
++			var top: float = minf(hole.end.y+0.16,float(surface["height"])-0.30)
++			var points: Array[Dictionary] = []
++			var steps: int = ceili(top/0.085)
++			for n: int in range(steps+1):
++				var v: float = float(n)/steps*top
++				var bend: float = sin(v*3.1+window_index*1.7)*0.13 if v<hole.position.y-0.10 else 0.0
++				if not has_windows:
++					bend = 0.23*(sin(v*2.1+0.8)-sin(0.8))
++				# Door bypass needs a quieter lower stem so its leaf radius remains clear.
++				if clear_height>0 and v<clear_height:
++					bend *= 0.20
++				var actual_u: float = lerpf(root_u,u,clampf((v-clear_height)/maxf(0.1,hole.position.y-clear_height),0,1))+bend
++				if not _route_safe(surface,Vector2(actual_u,v)):
++					break
++				_register_point(points,Geometry.sample(surface,actual_u,v),Vector2(actual_u,v))
++			if points.size()<5:
++				continue
++			var parent_index: int = paths.size()
++			_add_path(points,surface,0,-1,-1)
++			# One branch overlaps only the near edge of the glass; one spreads on the solid wall.
++			for branch_index: int in 2:
++				var height_: float = hole.position.y+hole.size.y*0.48 if branch_index==0 else 0.55
++				var junction: int = mini(roundi(height_/top*steps),points.size()-1)
++				var origin: Dictionary = points[junction]
++				var branch: Array[Dictionary] = [origin.duplicate()]
++				branch[0]["distance"] = 0.0
++				var reach: float = minf(0.43,hole.size.x*0.22+0.13) if branch_index==0 and has_windows else 0.63
++				var direction: float = -side if branch_index==0 else side
++				for n: int in range(1,7):
++					var t: float = float(n)/6
++					var uv: Vector2 = Vector2(origin["u"]+direction*(reach*t+sin(t*TAU)*0.065),origin["v"]+0.13*t+sin(t*PI)*0.13)
++					if not _route_safe(surface,uv):
++						break
++					_register_point(branch,Geometry.sample(surface,uv.x,uv.y),uv)
++				if branch.size()>2:
++					_add_path(branch,surface,float(origin["distance"]),parent_index,junction)
++			window_index += 1
++
++func _route_safe(surface: Dictionary, uv: Vector2) -> bool:
++	if uv.x<0.25 or uv.x>float(surface["width"])-0.25 or uv.y>float(surface["height"])-0.25:
++		return false
++	for hole: Rect2 in surface["holes"]:
++		if hole.position.y<0.05 and hole.grow(0.30).has_point(uv):
++			return false
++	for awning: Rect2 in surface.get("awnings",[]):
++		if awning.grow(0.28).has_point(uv):
++			return false
++	return true
+--- before/scripts/vegetation_lab/surface_layers.gd
++++ after/scripts/vegetation_lab/surface_layers.gd
+@@ -32,6 +32,7 @@
+ 			var large: bool = patch_index%3==1
+ 			var size_: float = 2.0 if large else 1.0
+ 			var span: Vector2 = Vector2(size_*rng.randf_range(0.85,1.13),size_*rng.randf_range(0.83,1.12))
++			span *= float(options.get("moss_span_scale",1.0))
+ 			var center: Vector2 = Vector2(u+rng.randf_range(-0.18,0.18),rng.randf_range(0.40,0.94))
+ 			var phase: Vector2 = Vector2(rng.randf()*31.0,rng.randf()*31.0)
+ 			_patch(moss,surface,center,span,false,moss_material,phase)
+--- /dev/null
++++ after/scripts/greening_map/wall_cracks.gd
+@@ -0,0 +1,40 @@
++extends Node3D
++## Separate receiving-only surface ribbons; not holes, baked shadows or building albedo.
++const Geometry: GDScript = preload("res://scripts/vegetation_lab/building_geometry.gd")
++var records: Array[Dictionary] = []
++
++func setup(def: Dictionary) -> void:
++	var material_: StandardMaterial3D = StandardMaterial3D.new()
++	material_.albedo_color = Color("505b4c")
++	material_.roughness = 1
++	material_.cull_mode = BaseMaterial3D.CULL_DISABLED
++	for surface: Dictionary in def["surfaces"]:
++		var st: SurfaceTool = SurfaceTool.new()
++		st.begin(Mesh.PRIMITIVE_TRIANGLES)
++		var vertices: int = 0
++		for x: float in [float(surface["width"])*0.43,float(surface["width"])*0.83]:
++			var y: float = float(surface["height"])*0.68
++			var points: Array[Vector2] = [Vector2(x,y+0.47),Vector2(x-0.12,y+0.18),Vector2(x+0.03,y),Vector2(x-0.09,y-0.28),Vector2(x+0.05,y-0.52)]
++			for i: int in range(points.size()-1):
++				var a: Vector2 = points[i]
++				var b: Vector2 = points[i+1]
++				var side: Vector2 = Vector2(-(b-a).y,(b-a).x).normalized()*0.0275
++				if Geometry.blocked_surface(surface,a.x,a.y,0.12) or Geometry.blocked_surface(surface,b.x,b.y,0.12):
++					continue
++				var blocked: bool = false
++				for awning: Rect2 in surface.get("awnings",[]):
++					blocked = blocked or awning.grow(0.15).has_point(a) or awning.grow(0.15).has_point(b)
++				if blocked:
++					continue
++				for uv: Vector2 in [a-side,b+side,b-side,a-side,a+side,b+side]:
++					var hit: Dictionary = Geometry.sample(surface,uv.x,uv.y)
++					st.set_normal(hit["normal"])
++					st.add_vertex(hit["position"]+hit["normal"]*0.135)
++					vertices += 1
++				records.append({"surface":surface,"a":a,"b":b,"width":0.055})
++		if vertices>0:
++			var node: MeshInstance3D = MeshInstance3D.new()
++			node.mesh = st.commit()
++			node.material_override = material_
++			node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++			add_child(node)
+--- /dev/null
++++ after/tests/greening_map/model_self_logic.gd
+@@ -0,0 +1,159 @@
++extends SceneTree
++const Scene: PackedScene = preload("res://scenes/greening_map.tscn")
++const Definitions: GDScript = preload("res://scripts/vegetation_lab/building_defs.gd")
++const Geometry: GDScript = preload("res://scripts/vegetation_lab/building_geometry.gd")
++const Patch: GDScript = preload("res://scripts/vegetation_lab/growth_patch.gd")
++const Layers: GDScript = preload("res://scripts/vegetation_lab/surface_layers.gd")
++const Parts: GDScript = preload("res://scripts/vegetation_lab/plant_parts.gd")
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const OUT: String = "res://evidence/building-model/self/"
++var checks: Array[Dictionary] = []
++var failures: int = 0
++var raw: Dictionary = {}
++
++func _initialize() -> void:
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	checks.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(checks[-1])
++
++func bounds(node: Node3D, transform_: Transform3D = Transform3D.IDENTITY) -> AABB:
++	var result: AABB = AABB()
++	var first: bool = true
++	var here: Transform3D = transform_*node.transform
++	if node is MeshInstance3D:
++		result = here*(node as MeshInstance3D).get_aabb()
++		first = false
++	for child: Node in node.get_children():
++		if child is Node3D:
++			var box: AABB = bounds(child,here)
++			if box.size.length_squared()>0:
++				result = box if first else result.merge(box)
++				first = false
++	return result
++
++func run() -> void:
++	var old_patch: GDScript = load(OUT+"before/scripts/vegetation_lab/growth_patch.gd")
++	var old_layer: GDScript = load(OUT+"before/scripts/vegetation_lab/surface_layers.gd")
++	var library: RefCounted = Parts.new()
++	var signatures: Array[Dictionary] = []
++	for def: Dictionary in ([] if "--impact" in OS.get_cmdline_user_args() else Definitions.all()):
++		var holder: Node3D = Node3D.new()
++		root.add_child(holder)
++		Geometry.build(holder,def)
++		var a: Node3D = old_patch.new()
++		var b: Node3D = Patch.new()
++		holder.add_child(a)
++		holder.add_child(b)
++		a.setup(def,library)
++		b.setup(def,library)
++		a.set_growth(50)
++		b.set_growth(50)
++		var moss: ShaderMaterial = ShaderMaterial.new()
++		moss.shader = Layers.Moss
++		var cracks: ShaderMaterial = ShaderMaterial.new()
++		cracks.shader = Layers.Cracks
++		var la: Node3D = old_layer.new()
++		var lb: Node3D = Layers.new()
++		holder.add_child(la)
++		holder.add_child(lb)
++		la.setup(def,moss,cracks)
++		lb.setup(def,moss,cracks)
++		check(a.layout_signature()==b.layout_signature() and a.pose_signature==b.pose_signature and la.patch_records==lb.patch_records,"old_default_"+def["id"])
++		signatures.append({"id":def["id"],"old_layout":a.layout_signature(),"new_layout":b.layout_signature(),"old_pose50":a.pose_signature,"new_pose50":b.pose_signature,"old_moss":str(la.patch_records).sha256_text(),"new_moss":str(lb.patch_records).sha256_text()})
++		holder.free()
++	raw["default_signatures"] = signatures
++	var model: PackedScene = load("res://assets/models/ruin_house/ruin_house.glb")
++	var instance: Node3D = model.instantiate()
++	var box: AABB = bounds(instance)
++	check(box.position.x>= -3.2 and box.end.x<=3.2 and box.position.z>= -2.8 and box.end.z<=2.8,"imported_model_inside_foundation",str(box))
++	raw["model_bounds"] = {"position":box.position,"size":box.size,"children":instance.get_child_count()}
++	instance.free()
++	var lab: Node = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	lab.session.spread.allow_hook = func(_index: int) -> bool: return false
++	var zero: bool = true
++	var resources: bool = true
++	var exclusions: bool = true
++	var overlap: int = 0
++	for entry: Dictionary in lab.wall_growth.entries:
++		resources = resources and entry["patch"].leaf_node.multimesh.mesh==lab.ground_view.library.leaves and entry["patch"].grass_nodes.is_empty()
++		for path: Dictionary in entry["patch"].paths:
++			for hit: Dictionary in path["points"]:
++				var uv: Vector2 = Vector2(hit["u"],hit["v"])
++				for hole: Rect2 in path["surface"]["holes"]:
++					if hole.position.y<0.05:
++						exclusions = exclusions and not hole.grow(0.25).has_point(uv)
++					elif hole.has_point(uv):
++						overlap += 1
++				for awning: Rect2 in path["surface"].get("awnings",[]):
++					exclusions = exclusions and not awning.grow(0.25).has_point(uv)
++		for root_: Dictionary in entry["roots"]:
++			zero = zero and root_["progress"]==0
++	check(zero and resources,"initial_zero_shared_no_duplicate_ground")
++	check(exclusions and overlap>0,"window_partial_routes_door_awning_clear","window path samples="+str(overlap))
++	for index: int in lab.session.state.tile_count():
++		var p: Vector2 = Session.cell_center(index)
++		if lab.session.state.target[index]==1 and p.x> -6.3 and p.x< -0.1 and p.y>0.8 and p.y<1.8:
++			lab.session.state.set_stage(index,WorldState.STAGE_MATURE)
++			lab.session.state.growth[index] = 120000
++	var counters: Vector2i = Vector2i(lab.session.state.greened_count,lab.session.state.target_count)
++	lab.session.advance_game(45)
++	raw["local45"] = lab.wall_growth.snapshot()
++	lab.session.advance_game(90)
++	raw["local135"] = lab.wall_growth.snapshot()
++	var local_only: bool = true
++	var reached: bool = false
++	for entry: Dictionary in lab.wall_growth.entries:
++		for root_: Dictionary in entry["roots"]:
++			if entry["id"]=="A" and root_["anchor"].y>0.9:
++				reached = reached or root_["progress"]==1
++			else:
++				local_only = local_only and root_["progress"]==0
++	check(reached and local_only and counters==Vector2i(lab.session.state.greened_count,lab.session.state.target_count),"local_clock_growth_counter_unchanged")
++	var coverage: Array[Dictionary] = []
++	for entry: Dictionary in lab.wall_growth.entries:
++		var values: Dictionary = {}
++		for root_: Dictionary in entry["roots"]:
++			values[root_["path"]] = 1.0
++		entry["patch"].set_root_progress(values)
++		for surface: Dictionary in entry["patch"].definition["surfaces"]:
++			var area: float = float(surface["width"])*float(surface["height"])
++			for hole: Rect2 in surface["holes"]:
++				area -= hole.get_area()
++			var upper_bound: float = 0
++			for leaf: Dictionary in entry["patch"].leaf_records:
++				if leaf["surface"]!=surface:
++					continue
++				var min_: Vector2 = Vector2(INF,INF)
++				var max_: Vector2 = Vector2(-INF,-INF)
++				for vertex: Vector3 in library.leaves.get_faces():
++					var v: Vector3 = leaf["transform"]*vertex
++					var uv: Vector2 = Vector2((v-Vector3(surface["origin"])).dot(surface["tangent"]),v.y)
++					min_ = min_.min(uv)
++					max_ = max_.max(uv)
++				upper_bound += (max_.x-min_.x)*(max_.y-min_.y)
++			for path: Dictionary in entry["patch"].paths:
++				if path["surface"]==surface:
++					upper_bound += float(path["length"])*0.048 # Full tube diameter, overlaps counted repeatedly.
++			for patch: Dictionary in entry["layer"].patch_records:
++				if patch["surface_width"]==surface["width"]:
++					upper_bound += float(patch["span"][0])*float(patch["span"][1]) # Entire sheet, incl discarded fragments.
++			coverage.append({"building":entry["id"],"normal":surface["normal"],"solid_wall_area_m2":area,"vegetation_upper_bound_m2":upper_bound,"upper_ratio":upper_bound/area})
++			check(upper_bound/area<0.5,"wall_bare_half_"+entry["id"]+str(surface["normal"]),str(upper_bound/area))
++	raw["coverage_conservative_sum"] = coverage
++	lab.session.paused = true
++	var before: String = str(lab.wall_growth.snapshot())
++	lab.elevation_slider.value = 15
++	check(lab.elevation_number.value==15 and lab.sun_elevation==15,"elevation_slider_sync")
++	lab.elevation_number.value = 80
++	check(lab.elevation_slider.value==80 and before==str(lab.wall_growth.snapshot()),"elevation_number_sync_no_growth")
++	FileAccess.open(OUT+"logic-results.json",FileAccess.WRITE).store_string(JSON.stringify({"results":checks,"failures":failures},"\t"))
++	FileAccess.open(OUT+"logic-raw.json",FileAccess.WRITE).store_string(JSON.stringify(raw,"\t"))
++	lab.free()
++	await process_frame
++	quit(0 if failures==0 else 1)
+--- /dev/null
++++ after/tests/greening_map/model_self_capture.gd
+@@ -0,0 +1,110 @@
++extends SceneTree
++const Scene: PackedScene = preload("res://scenes/greening_map.tscn")
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const OUT: String = "res://evidence/building-model/self/"
++var lab: Node
++var checks: Array[Dictionary] = []
++var raw: Array[Dictionary] = []
++var failures: int = 0
++
++func _initialize() -> void:
++	root.unfocusable = true
++	create_timer(80).timeout.connect(func() -> void: quit(99))
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	checks.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(checks[-1])
++
++func capture(label_: String, representative: bool = false) -> Image:
++	await lab.wait_render()
++	var image_: Image = lab.render_view.get_texture().get_image()
++	image_.save_png(OUT+label_+"_640.png")
++	var ui: Image = root.get_texture().get_image()
++	ui.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++	ui.save_png(OUT+label_+"_ui_1920.png")
++	if representative:
++		var output: Image = lab.doubled_view.get_texture().get_image()
++		output.save_png(OUT+label_+"_1920.png")
++		var expected: Image = image_.duplicate()
++		expected.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++		check(expected.get_data()==output.get_data(),"nearest3_exact")
++	var state: Dictionary = lab.wall_growth.snapshot()
++	state["label"] = label_
++	state["clock"] = lab.session.clock.elapsed
++	state["elevation"] = lab.sun_elevation
++	state["azimuth"] = lab.sun_azimuth
++	raw.append(state)
++	print("IMAGE "+ProjectSettings.globalize_path(OUT+label_+"_ui_1920.png"))
++	return image_
++
++func changed(a: Image, b: Image) -> int:
++	var count: int = 0
++	for y: int in a.get_height():
++		for x: int in a.get_width():
++			if a.get_pixel(x,y)!=b.get_pixel(x,y):
++				count += 1
++	return count
++
++func run() -> void:
++	lab = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	if DisplayServer.get_name()=="headless" or RenderingServer.get_video_adapter_name().is_empty():
++		print("GPU NOT_RUN")
++		quit(2)
++		return
++	lab.session.spread.allow_hook = func(_index: int) -> bool: return false
++	await capture("model_initial",true)
++	# Only the fixed root/patch neighborhoods are made mature, then the real clock advances.
++	for entry: Dictionary in lab.wall_growth.entries:
++		for group: Array in [entry["roots"],entry["moss"]]:
++			for item: Dictionary in group:
++				for index: int in item["cells"]:
++					lab.session.state.set_stage(index,WorldState.STAGE_MATURE)
++					lab.session.state.growth[index] = 120000
++	lab.ground_view.refresh(lab.session.state)
++	var counter: Vector2i = Vector2i(lab.session.state.greened_count,lab.session.state.target_count)
++	lab.session.advance_game(45)
++	lab.update_hud()
++	await capture("model_growth45")
++	lab.session.advance_game(90)
++	lab.update_hud()
++	var maximum: Image = await capture("model_growth135")
++	var full: bool = true
++	for entry: Dictionary in lab.wall_growth.entries:
++		for root_: Dictionary in entry["roots"]:
++			full = full and is_equal_approx(root_["progress"],1)
++	check(full and counter==Vector2i(lab.session.state.greened_count,lab.session.state.target_count),"maximum_root_one_counter_invariant")
++	lab.ground_view.pavement_cracks.hide()
++	var pavement_off: Image = await capture("pavement_cracks_OFF")
++	check(changed(maximum,pavement_off)>8,"pavement_cracks_actual_pixels",str(changed(maximum,pavement_off)))
++	lab.ground_view.pavement_cracks.show()
++	lab.pause_check.button_pressed = true
++	var before: String = str(lab.wall_growth.snapshot())
++	# Keep the known pond-shore sprite pose; camera, reflections and caster update through product code.
++	lab.session.position = Session.to_logic(Vector2(-7.9,3.5))
++	lab.azimuth_slider.value = 225
++	lab.elevation_slider.value = 15
++	var low: Image = await capture("elevation15")
++	lab.elevation_number.value = 80
++	var high: Image = await capture("elevation80")
++	check(changed(low,high)>100 and lab.elevation_slider.value==80 and lab.elevation_number.value==80 and before==str(lab.wall_growth.snapshot()),"elevation_UI_real_shadow_no_growth")
++	lab.elevation_number.value = 52
++	lab.azimuth_number.value = 320
++	var target: Vector3 = Vector3(-3.2,1.2,-2.0)
++	lab.camera.size = 9.0
++	lab.camera.position = target+Vector3(22,22*sqrt(2.0/3.0),22)
++	lab.camera.look_at(target)
++	var on: Image = await capture("A_window_cracks_closeup")
++	for entry: Dictionary in lab.wall_growth.entries:
++		entry["cracks"].hide()
++	var off: Image = await capture("A_wall_cracks_OFF")
++	check(changed(on,off)>4,"wall_cracks_independent_GPU_pixels",str(changed(on,off)))
++	FileAccess.open(OUT+"gpu-results.json",FileAccess.WRITE).store_string(JSON.stringify({"adapter":RenderingServer.get_video_adapter_name(),"results":checks,"failures":failures},"\t"))
++	FileAccess.open(OUT+"gpu-raw.json",FileAccess.WRITE).store_string(JSON.stringify(raw,"\t"))
++	lab.free()
++	await process_frame
++	quit(0 if failures==0 else 1)
+--- /dev/null
++++ after/assets/models/ruin_house/attachments.gd
+@@ -0,0 +1,12 @@
++extends RefCounted
++## Meter units, origin at center of the ground-contact rectangle. No per-leaf placements.
++const Definitions: GDScript = preload("res://scripts/vegetation_lab/building_defs.gd")
++
++static func definition() -> Dictionary:
++	var def: Dictionary = Definitions.all()[0].duplicate(true)
++	def["model_asset"] = "res://assets/models/ruin_house/ruin_house.glb"
++	def["restore_roof"] = false
++	# UV rectangles include the actual door lintel/awning silhouette plus clearance.
++	def["surfaces"][0]["awnings"] = [Rect2(3.33,2.18,1.72,0.30)]
++	def["surfaces"][1]["awnings"] = []
++	return def
+--- /dev/null
++++ after/assets/models/ruin_house/README.md
+@@ -0,0 +1,17 @@
++# RuinHouse / TECH-3D-12
++
++ローカル自作のコード生成GLB。AI画像・外部モデル・Blenderは使用していない。壁、窓の凹みと枠、閉じた金属扉、扉ひさし、欠けた屋根スラブ、分割パラペット、露出鉄筋を別meshで保持する。StandardMaterial3Dの素地色と実ライトを使い、光や影の焼込みはない。モデル内に植物・地面・衝突は含めない。
++
++- 単位: m、Y上、足元矩形中心を原点。主要壁は幅6.0 × 奥行4.8 × 高さ2.8。
++- import後の全mesh AABB: min(-3.175,-0.06,-2.56)、size(6.345,3.509645,5.355)。既存A基壇のX±3.2 / Z±2.8以内。小マップでは既存どおりY+0.12に置く。
++- 接続データ: `attachments.gd`。既存Aの表面chart・開口・通路を継承し、扉ひさしのUV除外領域を追加。任意meshから自動抽出しない。
++- 植物: 共通generatorが表面/窓/扉/ひさしから疎な経路を派生。個々の葉や成長段階専用assetは持たない。屋根植生は対象外。
++
++リポジトリルートを作業ディレクトリとして再生成:
++
++```powershell
++& C:/godot/Godot_v4.7.2-stable_win64_console.exe --headless --path . --script res://scripts/model_build/ruin_house_export.gd
++& C:/godot/Godot_v4.7.2-stable_win64_console.exe --headless --editor --path . --import
++```
++
++通常確認は `launchers/labs/run_greening_map.bat`。旧植生labのA生成元/屋根は保全している。本資産は工程確認用の小モデルで、完成美術や任意モデル対応ではない。
+--- /dev/null
++++ after/scripts/model_build/ruin_house_export.gd
+@@ -0,0 +1,77 @@
++extends SceneTree
++## Rebuild: Godot --headless --path <repo> --script res://scripts/model_build/ruin_house_export.gd
++const G: GDScript = preload("res://scripts/render_study_3d/ruin_geometry.gd")
++const Walls: GDScript = preload("res://scripts/vegetation_lab/building_geometry.gd")
++const Attachments: GDScript = preload("res://assets/models/ruin_house/attachments.gd")
++const OUTPUT: String = "res://assets/models/ruin_house/ruin_house.glb"
++
++func _initialize() -> void:
++	build.call_deferred()
++
++func material_(hex: String, label_: String) -> StandardMaterial3D:
++	var mat: StandardMaterial3D = StandardMaterial3D.new()
++	mat.resource_name = label_
++	mat.albedo_color = Color(hex)
++	mat.roughness = 0.96
++	return mat
++
++func build() -> void:
++	var house: Node3D = Node3D.new()
++	house.name = "RuinHouse"
++	root.add_child(house)
++	var def: Dictionary = Attachments.definition()
++	var concrete: Material = material_("9c9f90","WeatheredConcrete")
++	var edge: Material = material_("afb09d","ConcreteFrames")
++	var roof: Material = material_("858d7d","RoofConcrete")
++	var rust: Material = material_("80654b","RustSteel")
++	var recess: Material = material_("243730","DarkRecess")
++	G.box(house,"BackWall",Vector3(0,1.4,-2.4),Vector3(6,2.8,0.22),concrete)
++	G.box(house,"LeftWall",Vector3(-3,1.4,0),Vector3(0.22,2.8,4.8),concrete)
++	for surface: Dictionary in def["surfaces"]:
++		Walls._plane_wall(house,surface,concrete)
++		for hole: Rect2 in surface["holes"]:
++			var door: bool = hole.position.y<0.05
++			var center: Vector2 = hole.get_center()
++			var hit: Dictionary = Walls.sample(surface,center.x,center.y)
++			var panel: MeshInstance3D = G.box(house,"ClosedRustDoor" if door else "RecessedWindow",hit["position"]-hit["normal"]*0.12,Vector3(hole.size.x-0.05,hole.size.y-0.04,0.07),rust if door else recess)
++			panel.basis = Walls.facing(hit["normal"])
++			for x: float in [hole.position.x,hole.end.x]:
++				part(house,surface,Vector2(x,center.y),Vector3(0.09,hole.size.y+0.12,0.18),edge,"WindowOrDoorJamb")
++			for y: float in [hole.position.y,hole.end.y]:
++				part(house,surface,Vector2(center.x,y),Vector3(hole.size.x+0.12,0.09,0.18),edge,"SillOrLintel")
++			if not door:
++				part(house,surface,center,Vector3(0.035,hole.size.y-0.08,0.12),rust,"WindowMullion")
++			else:
++				part(house,surface,Vector2(center.x+0.39,1.05),Vector3(0.13,0.04,0.20),recess,"DoorHandle")
++				var awning: MeshInstance3D = part(house,surface,Vector2(center.x,2.34),Vector3(1.70,0.13,0.53),roof,"ConcreteDoorAwning")
++				awning.position += hit["normal"]*0.05
++	# Missing corner is real geometry; the slab and broken parapet stay inside the foundation.
++	var outline: PackedVector2Array = PackedVector2Array([Vector2(-3.16,-2.56),Vector2(3.16,-2.56),Vector2(3.16,1.55),Vector2(2.92,1.58),Vector2(2.84,1.96),Vector2(2.43,2.08),Vector2(2.31,2.56),Vector2(-0.8,2.56),Vector2(-1.0,2.42),Vector2(-1.3,2.56),Vector2(-3.16,2.56)])
++	G._prism(house,"BrokenRoofSlab",outline,2.75,0.22,roof)
++	for i: int in 9:
++		var x: float = -2.85+i*0.69
++		G.box(house,"RearParapet",Vector3(x,3.08,-2.43),Vector3(0.65,0.24,0.18),concrete)
++		if i not in [3,7,8]:
++			G.box(house,"ChippedFrontParapet",Vector3(x,3.04+(i%3)*0.025,2.43),Vector3(0.60,0.15+(i%3)*0.05,0.18),edge)
++	for i: int in 5:
++		G.box(house,"LeftRoofRim",Vector3(-3.05,3.08,-1.95+i*0.87),Vector3(0.17,0.25,0.80),concrete)
++	for i: int in 3:
++		G.box(house,"RightRoofRim",Vector3(3.05,3.07,-1.95+i*0.87),Vector3(0.17,0.22,0.79),concrete)
++	for x: float in [-2.5,-2.29]:
++		var rod: MeshInstance3D = G.box(house,"ExposedRebar",Vector3(x,3.22,2.39),Vector3(0.035,0.46,0.035),rust)
++		rod.rotation.z = 0.17
++	for child: Node in house.get_children():
++		child.owner = house
++	var document: GLTFDocument = GLTFDocument.new()
++	var state: GLTFState = GLTFState.new()
++	var append_error: Error = document.append_from_scene(house,state)
++	var write_error: Error = document.write_to_filesystem(state,OUTPUT) if append_error==OK else append_error
++	print("GLB_EXPORT append=",append_error," write=",write_error," children=",house.get_child_count())
++	house.free()
++	quit(0 if write_error==OK else 1)
++
++func part(parent: Node3D, surface: Dictionary, uv: Vector2, size_: Vector3, mat: Material, label_: String) -> MeshInstance3D:
++	var hit: Dictionary = Walls.sample(surface,uv.x,uv.y)
++	var node: MeshInstance3D = G.box(parent,label_,hit["position"]+hit["normal"]*0.08,size_,mat)
++	node.basis = Walls.facing(hit["normal"])
++	return node

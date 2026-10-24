@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: The vectors must not be zero.
+   at: Quaternion (./core/math/quaternion.h:140)
+   GDScript backtrace (most recent call first):
+       [0] set_growth (res://scripts/vegetation_lab/growth_patch.gd:87)
+       [1] setup (res://scripts/vegetation_lab/growth_patch.gd:48)
+       [2] _ready (res://scripts/vegetation_lab/lab.gd:72)
+       [3] run (res://tests/vegetation_lab/self_capture.gd:36)
+ERROR: The vectors must not be zero.
+   at: Quaternion (./core/math/quaternion.h:140)
+   GDScript backtrace (most recent call first):
+       [0] set_growth (res://scripts/vegetation_lab/growth_patch.gd:87)
+       [1] setup (res://scripts/vegetation_lab/growth_patch.gd:48)
+       [2] _ready (res://scripts/vegetation_lab/lab.gd:72)
+       [3] run (res://tests/vegetation_lab/self_capture.gd:36)
+ERROR: The vectors must not be zero.
+   at: Quaternion (./core/math/quaternion.h:140)
+   GDScript backtrace (most recent call first):
+       [0] set_growth (res://scripts/vegetation_lab/growth_patch.gd:87)
+       [1] set_growth (res://scripts/vegetation_lab/lab.gd:150)
+       [2] _ready (res://scripts/vegetation_lab/lab.gd:89)
+       [3] run (res://tests/vegetation_lab/self_capture.gd:36)
+ERROR: The vectors must not be zero.
+   at: Quaternion (./core/math/quaternion.h:140)
+   GDScript backtrace (most recent call first):
+       [0] set_growth (res://scripts/vegetation_lab/growth_patch.gd:87)
+       [1] set_growth (res://scripts/vegetation_lab/lab.gd:150)
+       [2] _ready (res://scripts/vegetation_lab/lab.gd:89)
+       [3] run (res://tests/vegetation_lab/self_capture.gd:36)
+GPU NOT_RUN: structural load only

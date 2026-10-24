@@ -1,0 +1,149 @@
+{
+  "asset_id": "VIN-047",
+  "name": "分枝する地表ランナー網",
+  "category": "VIN",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      0.07136943750083447,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -0.004875867627561092,
+      0.006790619343519211,
+      -0.7248148322105408
+    ],
+    "max": [
+      2.187443971633911,
+      0.13594825565814972,
+      0.9120139479637146
+    ]
+  },
+  "dimensions": [
+    2.1923198392614722,
+    0.1291576363146305,
+    1.6368287801742554
+  ],
+  "placement_size_xz": [
+    2.1923198392614722,
+    1.6368287801742554
+  ],
+  "contact_type": "ground_attachment",
+  "contact_bounds_xz": null,
+  "geometry_stats": {
+    "triangles": 1926,
+    "vertices": 1141,
+    "objects": 4,
+    "material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "Groundnet_stem",
+      "layer": "parent_stem",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-047_lateral_runners",
+      "layer": "lateral_runners",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-047_petioles",
+      "layer": "petioles",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "Small_network_leaves",
+      "layer": "leaves",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_olive",
+        "Leaf_deep"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "root": [
+      0,
+      0,
+      0
+    ],
+    "receiver_normal": [
+      0,
+      1,
+      0
+    ],
+    "design_family": "branching lateral runner network with leaf gaps",
+    "growth_order": "root, parent stem, branches, petioles, leaves",
+    "leaf_method": "connected individual curved laminae; no green panel",
+    "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; historical mapping inferred from chronological preview batches, not recovered original metadata",
+    "game_wind": "NOT_RUN",
+    "openings": "placement must retain doorway clearance and at least50 percent exposed wall",
+    "ground_runner": true,
+    "ground_contact_blender_z": 0
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 1926,
+      "triangles_after": 1926,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "047_branching_ground_vine_network.blend",
+    "glb": "047_branching_ground_vine_network.glb"
+  },
+  "geometry_budget_review": {
+    "provisional_guideline_triangles": 800,
+    "actual_triangles": 1926,
+    "reason": "Connected curved stems, petioles and individual leaf geometry instead of a flat foliage panel; provisional vegetation guideline exceeded. Godot performance NOT_RUN.",
+    "game_performance": "NOT_RUN"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

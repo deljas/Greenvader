@@ -1,0 +1,42 @@
+[
+  {
+    "path": "scripts/vegetation_lab/brick.gdshader",
+    "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1"
+  },
+  {
+    "path": "scripts/vegetation_lab/building_defs.gd",
+    "sha256": "02777ae4bfc5c6bc193cf4354e510f3c0531a60471fe6a4c26279ad371379805"
+  },
+  {
+    "path": "scripts/vegetation_lab/building_geometry.gd",
+    "sha256": "f887bc8e9d23315e7ac6279a9742e5432f2587ebde0c451642fa7da0f576a753"
+  },
+  {
+    "path": "scripts/vegetation_lab/growth_patch.gd",
+    "sha256": "3185b54ad0ddb8b9dacbd256cec26d5ec7f0c984588fa1b8e4d3db35850b556c"
+  },
+  {
+    "path": "scripts/vegetation_lab/lab.gd",
+    "sha256": "0b44d93fc4bc6c09099bc4d9054d9a963c3584c9e9d34840cf27d832e330d9be"
+  },
+  {
+    "path": "scripts/vegetation_lab/plant_parts.gd",
+    "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c"
+  },
+  {
+    "path": "project.godot",
+    "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f"
+  },
+  {
+    "path": "scripts/render_study_3d/ruin_geometry.gd",
+    "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4"
+  },
+  {
+    "path": "scenes/vegetation_lab.tscn",
+    "sha256": "17ca277ee747171dbe3257dbd62c96444770e9cf943c5eeee3524f1aeae3acc9"
+  },
+  {
+    "path": "run_vegetation_lab.bat",
+    "sha256": "70565d70412bfad985c69f6671ebbf30855d2413cc86143cc930ca524bb13fa9"
+  }
+]

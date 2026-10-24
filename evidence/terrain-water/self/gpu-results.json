@@ -1,0 +1,46 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 1,
+	"results": [
+		{
+			"detail": "",
+			"id": "GPU.nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pond.reflection_toggle_GPU",
+			"status": "PASS"
+		},
+		{
+			"detail": "test box changes 0 pixels INSIDE the unchanged pond; box casts no shadow",
+			"id": "pond.actual_geometry_reflection",
+			"status": "FAIL"
+		},
+		{
+			"detail": "",
+			"id": "reflection.state_RNG_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "terrain.same_logical_stage_rate",
+			"status": "PASS"
+		},
+		{
+			"detail": "mature visible clumps pavement/soil = [1, 3]",
+			"id": "terrain.shared_grass_sparse_vs_soil",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "soil.original_samples_transforms_preserved",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "view_light.state_unchanged",
+			"status": "PASS"
+		}
+	]
+}

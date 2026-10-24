@@ -1,0 +1,100 @@
+{
+	"chosen_half_m": 0.279999995231628,
+	"failures": 0,
+	"full_card_axis_half_m": 0.290699454487803,
+	"min_foundation_wall_gap_m": 0.09,
+	"pixel_world": 0.0513888888888889,
+	"results": [
+		{
+			"detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+			"id": "visible_all_A_front",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision_clear_A_front",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+			"id": "visible_all_A_right",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision_clear_A_right",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+			"id": "visible_all_A_corner",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision_clear_A_corner",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+			"id": "visible_all_B_right",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision_clear_B_right",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+			"id": "visible_all_B_front",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision_clear_B_front",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "all_frames_flips_shared_physical_foot",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "upright_16x24_projection",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "presentation_foot_pixel_snap",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"visible\": 0, \"opaque_fixture_pixels\": 168 }",
+			"id": "behind_occlusion_preserved",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "depth_test_remains_enabled",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "paused_wall_checks_state_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "upright_sprite_enters_reflection",
+			"status": "PASS"
+		}
+	],
+	"snap_max_axis_m": 0.054506147716463
+}

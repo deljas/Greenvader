@@ -1,0 +1,195 @@
+{
+  "task": "TECH-3D-03",
+  "created": "2026-10-16T07:25:40.923746+09:00",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "methods": "Static code and self-GPU evidence review; independent offline PNG/log/hash checks only. No Godot/OS input/foreground/cursor actions.",
+  "checks": [
+    {
+      "id": "one_state_texture_flip_foot_snap_sync",
+      "result": "PASS",
+      "method": "static source review and independent inspection of 72 walk records; recorded foot equality is self evidence"
+    },
+    {
+      "id": "independent_pose_ON_OFF_shadow_masks",
+      "result": "PASS",
+      "method": "independent offline per-pixel subtraction plus visual alpha silhouette inspection"
+    },
+    {
+      "id": "representative_PNG_nearest3x",
+      "result": "PASS",
+      "method": "independent offline all-pixel comparison"
+    },
+    {
+      "id": "bounded_walk_and_one_occlusion_example",
+      "result": "PASS",
+      "method": "raw representative PNGs and decoded contact sheet viewed; behind image byte-matches empty scene. No continuous playback."
+    },
+    {
+      "id": "frozen_hash_preservation_final_GPU_log",
+      "result": "PASS",
+      "method": "independent file/hash/log inspection"
+    },
+    {
+      "id": "independent_GPU_execution",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "native_initial_focus_physical_input",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "real_time_FPS_all_sun_directions_all_frame_playback",
+      "result": "NOT_RUN"
+    }
+  ],
+  "totals": {
+    "PASS": 5,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "source_manifest_sha256": "0ecfe1f5bc432353f38f7292ed2b25ca3327c656b856f59fee14b5f0cb97be91",
+  "frozen_hashes": [
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_fixture.gd",
+      "sha256": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+      "sha256": "1764895c0c5bd9034055f3841c93523b63529d8fa7ecd1f82c42362c192d5647",
+      "matches_frozen": true
+    },
+    {
+      "path": "scenes/sprite_shadow_lab.tscn",
+      "sha256": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048",
+      "matches_frozen": true
+    },
+    {
+      "path": "run_sprite_shadow_lab.bat",
+      "sha256": "690663ee2648f99565f0439beaa91adf164c56db5ebe0de15f1523a81e5ada6e",
+      "matches_frozen": true
+    },
+    {
+      "path": "tests/render_study_3d/self_sprite_shadow_capture.gd",
+      "sha256": "b4a2599d22fc95e02fe292e8538ea1d1867eed7e6361d129beb26f23238877f8",
+      "matches_frozen": true
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_0.png",
+      "sha256": "7e8ea79014abff2bb2cb38481f455d8ba7b3cbbb641b0ab4b8bf43593f6a631a",
+      "matches_frozen": true
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_1.png",
+      "sha256": "7792c907b752ea37e7a0939eb3e3e899baff83b1e55bf469afa22ecf5e90bb93",
+      "matches_frozen": true
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_2.png",
+      "sha256": "9ac33e6d7c35ec3093996ef9eef63247d1ab19496dda4b366dada0a8f8a9f49d",
+      "matches_frozen": true
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_3.png",
+      "sha256": "07ead5f0741ccaa5f6e5afbed48b86d6c5bc257b305aca92d8cab81ceefe047b",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/behind_building_640.png",
+      "sha256": "4413f95e573b8931e1e993097827eadd9a04948b9ec62aa7950ba2741c34e106",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/checks.json",
+      "sha256": "84e1e0451eae19538ef9463081457b4431a9abfecf02531ff177de575054f49c",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/fixed_pose0_closeup_6x.png",
+      "sha256": "6ae0edab00719893ccbd53073f7dfec3f7b7f4d5721c3906ccc72d164ecdde65",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/fixed_pose0_off_640.png",
+      "sha256": "9128c8e5c09a2a88a052554d7b14ce7bcba56b940e0fa788fe053765be30b866",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/fixed_pose0_on_1920.png",
+      "sha256": "8f8258d646498c509e19e1dc9f458f6e01858c6353369c7539c1753cdaa91b82",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/fixed_pose0_on_640.png",
+      "sha256": "8c1a800a823ce1e61a48d4aa0c139ea94e26d3d262923cae9acb6a9edf6970a7",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/fixed_pose2_off_640.png",
+      "sha256": "f67c9ee987316d1efae96990c6a276692ebaa724b3a6547b960f0df9bbc91899",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/fixed_pose2_on_640.png",
+      "sha256": "7cfce86c2b5d139720d1dbdc2cb3a98339214a8580b657e721854e919a3b5835",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/integrity.json",
+      "sha256": "4f5d766733ca9e93b65cdae0b454ec69ba8ff56f6c2ad9c7cd12e6a881c5cbd8",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/process.json",
+      "sha256": "9ab5c444a34e5d76cc2dfe94b209cb3ae876bc0da766564f7c9c2278e33f4dde",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/shadow_mask_pose0.png",
+      "sha256": "5caa0158b7e4e5296412e7b32bd9796f7c6b46e1a162fe0cc1c6d2981c57a6b3",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/shadow_mask_pose2.png",
+      "sha256": "1a7946732937ccb11d626c61a261db99e6905b850c6ceaab9b008fd0887c129d",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/source-before.json",
+      "sha256": "6ef6df9285ee5da441b9245bfb4117fbcd075b43daf697b1aa449dd45fe0241b",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/sync-frames.json",
+      "sha256": "53fd60e4a94dec66d6c8e93d1f9c5fccdd9e8316b5aabeb24f5f89b06736f42a",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/video_decode_contact.png",
+      "sha256": "3cebc2e3a48005bc5e98f56a7b7a93afc7fd313b083e7222a3f49cc1c3d4d9a6",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/walk_closeup_4s.mp4",
+      "sha256": "c3e52aed434f8ab8f2bcb24cee7f2377ad107be9745ab3bfa9dd332b312cbf93",
+      "matches_frozen": true
+    },
+    {
+      "path": "evidence/render-study-3d/sprite-shadow/self/walk_full_4s.mp4",
+      "sha256": "4957a41c54f721f4942f9e3adf4d4d34d25838a789eef22bb2a881d4489c0069",
+      "matches_frozen": true
+    }
+  ],
+  "started_5_source_hashes_stable": true,
+  "existing_6_match_prior_independent_evidence": true,
+  "final_GPU_log_ok": true,
+  "historical_parse_log": "Contains expected NOT_RUN real GPU required guard ERROR in headless; not a final-GPU error.",
+  "limitations": [
+    "Upright light-facing yaw shadow card is an artistic approximation without body thickness.",
+    "Visible character shaded=false: self-lighting not verified or implemented here.",
+    "Snapshot lacks separate raw feet; equality is supported by source derivation and self recorded flag.",
+    "MP4 compression/yuv420p does not preserve PNG pixels; decoded contact sheet inspected, no continuous playback.",
+    "18fps sample timeline is not measured real-time FPS."
+  ],
+  "acceptance": "Parent decides acceptance; final character/art quality belongs to user."
+}

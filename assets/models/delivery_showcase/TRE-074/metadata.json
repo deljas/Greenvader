@@ -1,0 +1,165 @@
+{
+  "asset_id": "TRE-074",
+  "name": "膝根と羽状葉の湿地針葉樹",
+  "category": "TRE",
+  "version": "expansion.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      3.5864163087680936,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.4721046686172485,
+      -0.027465691789984703,
+      -1.5960960388183594
+    ],
+    "max": [
+      1.5258077383041382,
+      7.200298309326172,
+      1.570359706878662
+    ]
+  },
+  "dimensions": [
+    2.9979124069213867,
+    7.227764001116157,
+    3.1664557456970215
+  ],
+  "placement_size_xz": [
+    2.9979124069213867,
+    3.1664557456970215
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -1.5,
+    -1.5,
+    1.5,
+    1.5
+  ],
+  "geometry_stats": {
+    "triangles": 26816,
+    "vertices": 24822,
+    "objects": 6,
+    "material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "Cypress_flared_trunk",
+      "layer": "trunk",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-074_roots",
+      "layer": "roots",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-074_knee_roots",
+      "layer": "knee_roots",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-074_boughs",
+      "layer": "boughs",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-074_twigs",
+      "layer": "twigs",
+      "materials": [
+        "Cypress_dark"
+      ]
+    },
+    {
+      "name": "Cypress_feather_leaflets",
+      "layer": "crown_feather",
+      "materials": [
+        "Cypress_leaf",
+        "Cypress_dark",
+        "Leaf_olive"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "design_family": "wetland conifer with flared trunk, separate knee roots and feathery foliage",
+    "trunk_layer": "trunk",
+    "canopy_layers": "crown_*",
+    "ground_contact_radius_m": 1.5,
+    "leaf_method": "individually curved leaf blades attached to connected twigs; no solid green canopy shell",
+    "growth_stage": "single design; not counted as a colour or growth-stage variant",
+    "game_wind": "NOT_RUN",
+    "canopy_occlusion_game": "NOT_RUN",
+    "leaflet_count": 4000,
+    "knee_root_layer": "knee_roots",
+    "water_surface_included": false,
+    "suggested_water_height_blender_z": 0.12,
+    "root_connection": "knee roots connect below the ground plane; underground root geometry omitted",
+    "design_expansion": true
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 26816,
+      "triangles_after": 26816,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "geometry_budget_review": {
+    "provisional_guideline_triangles": 5000,
+    "actual_triangles": 26816,
+    "reason": "Connected branches and separate curved leaf blades retained instead of flat canopy cards. Game performance NOT_RUN.",
+    "game_performance": "NOT_RUN"
+  },
+  "recreation_not_original_recovery": false,
+  "design_expansion": true,
+  "delivery_files": {
+    "blend": "074_wetland_cypress_knee_roots.blend",
+    "glb": "074_wetland_cypress_knee_roots.glb"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

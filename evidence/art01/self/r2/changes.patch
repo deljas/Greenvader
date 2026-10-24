@@ -1,0 +1,42 @@
+diff --git a/evidence/art01/self/r2/before/study_raster.gd.txt b/scripts/art_study/study_raster.gd
+index e5d812a..21acf2a 100644
+--- a/evidence/art01/self/r2/before/study_raster.gd.txt
++++ b/scripts/art_study/study_raster.gd
+@@ -24,13 +24,8 @@ static func boundary(y: int) -> int:
+ static func is_grass(x: int, y: int) -> bool:
+ 	return FIELD.has_point(Vector2i(x, y)) and x < boundary(y)
+ 
+-static func short_grass_color(x: int, y: int) -> Color:
+-	# Broad, low-contrast colonies first. Blades below are shaped marks, not noise.
+-	var wave: float = sin(float(x) * 0.022 + sin(float(y) * 0.019)) + cos(float(y) * 0.031 - float(x) * 0.009)
+-	if wave > 0.65:
+-		return Color("4f7445")
+-	if wave < -0.7:
+-		return Color("40654b")
++static func short_grass_color(_x: int, _y: int) -> Color:
++	# Fixed material base; broad illumination belongs to a future lighting layer.
+ 	return Color("466d46")
+ 
+ static func tall_centers(rich: bool) -> Array[Vector2i]:
+@@ -51,7 +46,7 @@ static func ground(rich: bool) -> Image:
+ 	image.fill(Color("202f2d"))
+ 	for y: int in range(FIELD.position.y, FIELD.end.y):
+ 		for x: int in SIZE.x:
+-			var soil: Color = Color("777061") if (x / 24 + y / 17) % 5 == 0 else Color("716c60")
++			var soil: Color = Color("716c60")
+ 			image.set_pixel(x, y, short_grass_color(x, y) if is_grass(x, y) else soil)
+ 	# A continuous carpet: short blades throughout the whole green area. Irregular
+ 	# spacing and connected 2-4px strokes avoid a repeating checkerboard / dot field.
+diff --git a/evidence/art01/self/r2/before/self_check.gd.txt b/tests/art01/self_check.gd
+index d8cd318..fc423d3 100644
+--- a/evidence/art01/self/r2/before/self_check.gd.txt
++++ b/tests/art01/self_check.gd
+@@ -3,7 +3,7 @@ extends SceneTree
+ ## PNGs are code-raster compositions, NOT screenshots of the actual window/UI.
+ 
+ const Raster: GDScript = preload("res://scripts/art_study/study_raster.gd")
+-const OUTPUT: String = "res://evidence/art01/self/"
++const OUTPUT: String = "res://evidence/art01/self/r2/"
+ var checks: Array[Dictionary] = []
+ var failures: int = 0
+ 

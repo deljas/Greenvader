@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "id": "visible_all_A_front", "status": "PASS", "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }" }
+{ "id": "collision_clear_A_front", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-clip/self/after_A_front_ui_1920.png
+{ "id": "visible_all_A_right", "status": "PASS", "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }" }
+{ "id": "collision_clear_A_right", "status": "PASS", "detail": "" }
+{ "id": "nearest3_exact", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-clip/self/after_A_right_ui_1920.png
+{ "id": "visible_all_A_corner", "status": "PASS", "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }" }
+{ "id": "collision_clear_A_corner", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-clip/self/after_A_corner_ui_1920.png
+{ "id": "visible_all_B_right", "status": "PASS", "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }" }
+{ "id": "collision_clear_B_right", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-clip/self/after_B_right_ui_1920.png
+{ "id": "visible_all_B_front", "status": "PASS", "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }" }
+{ "id": "collision_clear_B_front", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-clip/self/after_B_front_ui_1920.png
+{ "id": "all_frames_flips_shared_physical_foot", "status": "PASS", "detail": "" }
+{ "id": "upright_16x24_projection", "status": "PASS", "detail": "" }
+{ "id": "presentation_foot_pixel_snap", "status": "PASS", "detail": "" }
+{ "id": "behind_occlusion_preserved", "status": "PASS", "detail": "{ \"visible\": 0, \"opaque_fixture_pixels\": 168 }" }
+IMAGE C:/godot/greenvader/evidence/wall-clip/self/after_behind_A_ui_1920.png
+{ "id": "depth_test_remains_enabled", "status": "PASS", "detail": "" }
+{ "id": "paused_wall_checks_state_unchanged", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-clip/self/after_reflection_actor_ui_1920.png
+{ "id": "upright_sprite_enters_reflection", "status": "PASS", "detail": "" }

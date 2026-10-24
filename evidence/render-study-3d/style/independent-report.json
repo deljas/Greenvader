@@ -1,0 +1,144 @@
+{
+  "task": "TECH-3D-02",
+  "created": "2026-10-15T23:51:45.320357+09:00",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "environment": {
+    "inspection_OS": "Windows-11-10.0.26200-SP0",
+    "Python": "3.12.14",
+    "GPU_evidence": "Godot 4.7.2 / Vulkan Forward+ / RTX 5070 Ti"
+  },
+  "scope": "Read-only source/PNG/log/hash inspection, only this report written. No Godot rerun, OS input, foreground or cursor operations.",
+  "independent_GPU_execution": "NOT_RUN; source and self-GPU evidence review distinguished from offline independent pixel checks",
+  "checks": [
+    {
+      "id": "sizes_and_all_pixels_3x",
+      "result": "PASS",
+      "method": "independent offline Pillow full-byte comparison",
+      "pairs": [
+        {
+          "variant": "A_hard_shadow",
+          "source_size": [
+            640,
+            360
+          ],
+          "output_size": [
+            1920,
+            1080
+          ],
+          "exact_nearest_3x": true
+        },
+        {
+          "variant": "B_hard_shadow_grade",
+          "source_size": [
+            640,
+            360
+          ],
+          "output_size": [
+            1920,
+            1080
+          ],
+          "exact_nearest_3x": true
+        }
+      ]
+    },
+    {
+      "id": "same_GPU_source_camera_material_light_and_pre_upscale_grade",
+      "result": "PASS",
+      "method": "static source review plus submitted GPU capture log",
+      "detail": "set_time(1), unchanged camera/material/geometry; disable render_view updates after A capture; B samples that texture once in a 640x360 GPU viewport, then nearest 3x. B luminance20 levels mixed20%, warm highlights/cool shadows, no exact20-color claim.",
+      "A_B_changed_source_pixels": 230114
+    },
+    {
+      "id": "visual_shadow_boundary_and_acne_removed",
+      "result": "PASS",
+      "method": "view_image comparison of final A/B, prior noon640, and initial A",
+      "detail": "Final images have no initial regular diagonal shadow stripes. Shape/shadow locations remain consistent, with a clearer ground shadow edge than prior noon. Limited static visual check; residual shadow-map interpolation is not called binary."
+    },
+    {
+      "id": "GPU_log_existing_preservation_and_frozen_hashes",
+      "result": "PASS",
+      "method": "independent file/hash/log inspection; GPU itself not rerun",
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "frozen_files": [
+        {
+          "path": "tests/render_study_3d/self_capture_style.gd",
+          "sha256": "db92d0a1d3d3335c3d549b30713d786cefa3d268cc9f4e3f17ac3322542d67e0",
+          "matches_frozen": true
+        },
+        {
+          "path": "assets/render_study_3d/style_grade.gdshader",
+          "sha256": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae",
+          "matches_frozen": true
+        },
+        {
+          "path": "evidence/render-study-3d/style/A_hard_shadow_1920.png",
+          "sha256": "cd7fa5590b13bbce4ade056ecd184a16ffe049ad94b4ad33b850b4e98ead647e",
+          "matches_frozen": true
+        },
+        {
+          "path": "evidence/render-study-3d/style/A_hard_shadow_640.png",
+          "sha256": "4413f95e573b8931e1e993097827eadd9a04948b9ec62aa7950ba2741c34e106",
+          "matches_frozen": true
+        },
+        {
+          "path": "evidence/render-study-3d/style/B_hard_shadow_grade_1920.png",
+          "sha256": "e773249baebf51d2eca3f64417c728c09d752dccff50d0a91b13695f598cff88",
+          "matches_frozen": true
+        },
+        {
+          "path": "evidence/render-study-3d/style/B_hard_shadow_grade_640.png",
+          "sha256": "9321c728dd5c660c606f64b226fa857f7d6ffb27c1b7482407ba276c5b4787c0",
+          "matches_frozen": true
+        }
+      ],
+      "preserved_existing_files": [
+        {
+          "path": "scripts/render_study_3d/study.gd",
+          "sha256": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+          "matches_style_baseline": true,
+          "matches_prior_independent_evidence": true
+        },
+        {
+          "path": "scripts/render_study_3d/ruin_geometry.gd",
+          "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+          "matches_style_baseline": true,
+          "matches_prior_independent_evidence": true
+        },
+        {
+          "path": "assets/render_study_3d/concrete.gdshader",
+          "sha256": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+          "matches_style_baseline": true,
+          "matches_prior_independent_evidence": true
+        },
+        {
+          "path": "scenes/render_study_3d.tscn",
+          "sha256": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce",
+          "matches_style_baseline": true,
+          "matches_prior_independent_evidence": true
+        },
+        {
+          "path": "project.godot",
+          "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+          "matches_style_baseline": true,
+          "matches_prior_independent_evidence": true
+        }
+      ],
+      "hashes_stable_during_inspection": true
+    },
+    {
+      "id": "native_UI_initial_focus_physical_input",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "time_changes_motion_flicker",
+      "result": "NOT_RUN"
+    }
+  ],
+  "totals": {
+    "PASS": 4,
+    "FAIL": 0,
+    "NOT_RUN": 2
+  },
+  "limitations": "Same-frame origin is supported by source freeze and submitted GPU log, not an independent GPU recapture. Fine material noise unchanged. Final aesthetic acceptance belongs to user; parent decides task acceptance."
+}

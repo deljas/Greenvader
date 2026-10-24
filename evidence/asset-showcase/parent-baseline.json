@@ -1,0 +1,30 @@
+[
+  {
+    "path": "project.godot",
+    "sha256": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F"
+  },
+  {
+    "path": "scenes/greening_map.tscn",
+    "sha256": "27D849DA29B67711B59585CA83E12E2E39CC8ECF8121E60BA0D8E87CC4DACA34"
+  },
+  {
+    "path": "scripts/greening_map/map.gd",
+    "sha256": "5F429CAC37AE7545A461CA621C7052F198282417B8B250A50A6737F99E66C7C8"
+  },
+  {
+    "path": "scripts/greening_map/session.gd",
+    "sha256": "54C7A32D60501C348B6468FBBD01C41F49EC4D1ABF797EFD84D96482CCDFDBC0"
+  },
+  {
+    "path": "scripts/greening_map/water_surface.gd",
+    "sha256": "582796D1C3B3AB00193D9888990EF9C6EF30082A1AEED5644A51F714F910D971"
+  },
+  {
+    "path": "scripts/greening_map/wall_growth_controller.gd",
+    "sha256": "A46C8C665A931BD5432AA37EE7CFC3E2AEC1B852AD55740BD4EC121CF5591529"
+  },
+  {
+    "path": "launchers/labs/run_greening_map.bat",
+    "sha256": "56AEAC85B7D217A8F2044FC6E90A6A370B27324D9A97FAA0BB3A8813EA8DB18E"
+  }
+]

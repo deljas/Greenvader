@@ -1,0 +1,4268 @@
+[
+  {
+    "id": "BLD-007",
+    "name": "外廊下付き低層集合住宅",
+    "scene": "res://assets/models/town_lab/BLD-007/007_ochre_gallery_apartment_pitched_roof.glb",
+    "metadata": {
+      "asset_id": "BLD-007",
+      "name": "外廊下付き低層集合住宅",
+      "category": "BLD",
+      "version": "0.2.0",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          4.537205696105957,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -6.345000267028809,
+          0.0,
+          -3.145287036895752
+        ],
+        "max": [
+          6.345000267028809,
+          9.074411392211914,
+          3.145287036895752
+        ]
+      },
+      "dimensions": [
+        12.690000534057617,
+        9.074411392211914,
+        6.290574073791504
+      ],
+      "placement_size_xz": [
+        12.690000534057617,
+        6.290574073791504
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -6.345000267028809,
+        -3.145287036895752,
+        6.345000267028809,
+        3.145287036895752
+      ],
+      "geometry_stats": {
+        "triangles": 35490,
+        "vertices": 25620,
+        "objects": 14,
+        "material_count": 13,
+        "blender_material_count": 13,
+        "glb_material_count": 14
+      },
+      "meshes": [
+        {
+          "name": "Upper_gallery_floor",
+          "layer": "gallery_floor",
+          "materials": [
+            "Concrete_broken.004"
+          ]
+        },
+        {
+          "name": "Ground_gallery",
+          "layer": "ground_gallery",
+          "materials": [
+            "Concrete_broken.004"
+          ]
+        },
+        {
+          "name": "Gallery_internal_floor",
+          "layer": "floor_slab",
+          "materials": [
+            "Concrete_broken.004"
+          ]
+        },
+        {
+          "name": "Gallery_foundation",
+          "layer": "foundation",
+          "materials": [
+            "Concrete_broken.004"
+          ]
+        },
+        {
+          "name": "BLD-007_parapet",
+          "layer": "parapet",
+          "materials": [
+            "BLD-007_core"
+          ]
+        },
+        {
+          "name": "BLD-007_individual_brick",
+          "layer": "facade_brick",
+          "materials": [
+            "BLD-007_course_0",
+            "BLD-007_course_1",
+            "BLD-007_course_2"
+          ]
+        },
+        {
+          "name": "BLD-007_gallery_front",
+          "layer": "gallery_front",
+          "materials": [
+            "BLD-007_core"
+          ]
+        },
+        {
+          "name": "BLD-007_gallery_ends",
+          "layer": "gallery_ends",
+          "materials": [
+            "BLD-007_core"
+          ]
+        },
+        {
+          "name": "BLD-007_gallery_back",
+          "layer": "gallery_back",
+          "materials": [
+            "BLD-007_core"
+          ]
+        },
+        {
+          "name": "BLD-007_frames",
+          "layer": "frames",
+          "materials": [
+            "BLD-007_Frame_sage_paint",
+            "Oxidized_steel.004"
+          ]
+        },
+        {
+          "name": "BLD-007_doors",
+          "layer": "doors",
+          "materials": [
+            "Weathered_wood.003"
+          ]
+        },
+        {
+          "name": "BLD-007_columns",
+          "layer": "columns",
+          "materials": [
+            "Concrete_warm.002"
+          ]
+        },
+        {
+          "name": "BLD-007_pitched_roof_covering",
+          "layer": "pitched_roof_covering",
+          "materials": [
+            "Roof_slate_1",
+            "Roof_slate_0",
+            "Roof_slate_2"
+          ]
+        },
+        {
+          "name": "BLD-007_pitched_roof_structure",
+          "layer": "pitched_roof_structure",
+          "materials": [
+            "Roof_old_timber"
+          ]
+        }
+      ],
+      "external_textures": [
+        "textures/BLD-007_roof_albedo.png",
+        "textures/concrete_surface_color.png"
+      ],
+      "connections": {
+        "floor_levels_m": [
+          0.18,
+          3.65
+        ],
+        "gallery_separate": true,
+        "parapet_separate": true,
+        "ground_doors_and_windows": "generated_receiver_surfaces",
+        "front_receiving_plane_obstacles": "gallery slabs, columns and parapets; use separate exclusion geometry, not one clear wall",
+        "collision_candidate": "body footprint and columns; overhead gallery not a single ground blocking box",
+        "root_candidates": [
+          [
+            -5.6,
+            0.18,
+            1.45
+          ],
+          [
+            -2.6,
+            0.18,
+            1.45
+          ],
+          [
+            0.4,
+            0.18,
+            1.45
+          ]
+        ],
+        "design_family": "ochre brick; long external galleries with contrasting grey concrete decks",
+        "construction_revision": "Original unique structure retained; dedicated visible facade construction added, not a new color-variant ID",
+        "vegetation": "Independent reusable layers; no plants joined to building",
+        "old_source": "lots/lot_005/BLD-007_external_gallery_apartment",
+        "revision_of": "BLD-007",
+        "not_additional_asset": true,
+        "game_adapter": "NOT_RUN; facade offsets require connector clearance review",
+        "intrinsic_albedo": "Low-amplitude aged-pigment grain only; no baked lighting, AO or reflections.",
+        "facade_surface_offset_m": 0.026,
+        "receiver_offset_note": "Original recorded planes describe underlying wall; facade relief up to .026m requires outward clearance and opening-edge review in game connector.",
+        "frame_palette": "sage_paint",
+        "roof_revision": "Actual roof form changed after user flat-roof feedback, not a color-only change",
+        "roof_systems": [
+          {
+            "kind": "gable_x",
+            "material_family": "slate",
+            "eave_height_y_up": 7.699999809265137,
+            "rise_m": 1.45,
+            "bounds_xz": [
+              -6.28000020980835,
+              -3.119999885559082,
+              6.28000020980835,
+              3.119999885559082
+            ],
+            "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+            "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+          }
+        ],
+        "old_flat_roof_receivers": "SUPERSEDED: do not reuse old roof planes; new roof slopes/frame/holes need game adapter",
+        "vegetation_roof_integration": "NOT_RUN",
+        "source_version_before_roof_revision": "revisions/architecture_diversity_02/BLD-007_ochre_gallery_apartment",
+        "legacy_roof_data_not_current": {}
+      },
+      "generated_receiver_surfaces": [
+        {
+          "id": "gallery_front_00",
+          "origin": [
+            -6.0,
+            0.18,
+            1.4000000000000001
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "size": [
+            12,
+            7.32
+          ],
+          "openings_uv": [
+            [
+              1.08,
+              0.020000000000000018,
+              1.92,
+              2.42
+            ],
+            [
+              2.25,
+              0.8700000000000001,
+              2.95,
+              2.0999999999999996
+            ],
+            [
+              1.08,
+              3.67,
+              1.92,
+              6.07
+            ],
+            [
+              2.25,
+              4.5200000000000005,
+              2.95,
+              5.75
+            ],
+            [
+              4.08,
+              0.020000000000000018,
+              4.92,
+              2.42
+            ],
+            [
+              5.25,
+              0.8700000000000001,
+              5.95,
+              2.0999999999999996
+            ],
+            [
+              4.08,
+              3.67,
+              4.92,
+              6.07
+            ],
+            [
+              5.25,
+              4.5200000000000005,
+              5.95,
+              5.75
+            ],
+            [
+              7.08,
+              0.020000000000000018,
+              7.92,
+              2.42
+            ],
+            [
+              8.25,
+              0.8700000000000001,
+              8.95,
+              2.0999999999999996
+            ],
+            [
+              7.08,
+              3.67,
+              7.92,
+              6.07
+            ],
+            [
+              8.25,
+              4.5200000000000005,
+              8.95,
+              5.75
+            ],
+            [
+              10.08,
+              0.020000000000000018,
+              10.92,
+              2.42
+            ],
+            [
+              11.25,
+              0.8700000000000001,
+              11.95,
+              2.0999999999999996
+            ],
+            [
+              10.08,
+              3.67,
+              10.92,
+              6.07
+            ],
+            [
+              11.25,
+              4.5200000000000005,
+              11.95,
+              5.75
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "gallery_back_01",
+          "origin": [
+            6.0,
+            0.18,
+            -3.0
+          ],
+          "tangent_u": [
+            -1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "size": [
+            12,
+            7.32
+          ],
+          "openings_uv": [
+            [
+              10.0,
+              0.8700000000000001,
+              11.0,
+              2.1199999999999997
+            ],
+            [
+              10.0,
+              4.5200000000000005,
+              11.0,
+              5.77
+            ],
+            [
+              7.0,
+              0.8700000000000001,
+              8.0,
+              2.1199999999999997
+            ],
+            [
+              7.0,
+              4.5200000000000005,
+              8.0,
+              5.77
+            ],
+            [
+              4.0,
+              0.8700000000000001,
+              5.0,
+              2.1199999999999997
+            ],
+            [
+              4.0,
+              4.5200000000000005,
+              5.0,
+              5.77
+            ],
+            [
+              1.0,
+              0.8700000000000001,
+              2.0,
+              2.1199999999999997
+            ],
+            [
+              1.0,
+              4.5200000000000005,
+              2.0,
+              5.77
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "gallery_ends_02",
+          "origin": [
+            -6.0,
+            0.18,
+            -2.8899999999999997
+          ],
+          "tangent_u": [
+            0,
+            0,
+            1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "size": [
+            4.18,
+            7.32
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "gallery_ends_03",
+          "origin": [
+            6.0,
+            0.18,
+            1.2899999999999998
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "size": [
+            4.18,
+            7.32
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        }
+      ],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 35490,
+          "triangles_after": 35490,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN",
+        "roof_design_review": "Actual pitched/hipped/gambrel/mansard/asymmetric/double-ridge roof geometry reviewed at 640x360; remaining functional flat roofs elsewhere are intentional."
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true,
+      "budget_note": "Measured cost includes facade relief and pitched roof units/frame, above initial small-building guide. Godot performance NOT_RUN."
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\007_ochre_gallery_apartment_pitched_roof",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\007_ochre_gallery_apartment_pitched_roof\\007_ochre_gallery_apartment_pitched_roof.glb",
+        "copy": "assets/models/town_lab/BLD-007/007_ochre_gallery_apartment_pitched_roof.glb",
+        "sha256": "eeaf596afb6a585f003e028bc0be6badec99a3ac60b30e5406ecc31972cf1adc"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\007_ochre_gallery_apartment_pitched_roof\\metadata.json",
+        "copy": "assets/models/town_lab/BLD-007/metadata.json",
+        "sha256": "520a1e6f93bf6d508f29c398151694983249acb8f3a4275907d011d4e93c5dc1"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\007_ochre_gallery_apartment_pitched_roof\\textures\\BLD-007_roof_albedo.png",
+        "copy": "assets/models/town_lab/BLD-007/textures/BLD-007_roof_albedo.png",
+        "sha256": "837c10dfec27cdcaa1a2e492f86298a743cc84f274f84aa772024a20b726ffeb"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\007_ochre_gallery_apartment_pitched_roof\\textures\\concrete_surface_color.png",
+        "copy": "assets/models/town_lab/BLD-007/textures/concrete_surface_color.png",
+        "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+      }
+    ]
+  },
+  {
+    "id": "BLD-019",
+    "name": "カフェの店舗",
+    "scene": "res://assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof.glb",
+    "metadata": {
+      "asset_id": "BLD-019",
+      "name": "カフェの店舗",
+      "category": "BLD",
+      "version": "0.2.0",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          3.2062501907348633,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -3.334223747253418,
+          0.0,
+          -3.365000009536743
+        ],
+        "max": [
+          3.3218307495117188,
+          6.412500381469727,
+          4.215000152587891
+        ]
+      },
+      "dimensions": [
+        6.656054496765137,
+        6.412500381469727,
+        7.580000162124634
+      ],
+      "placement_size_xz": [
+        6.656054496765137,
+        7.580000162124634
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -3.334223747253418,
+        -3.365000009536743,
+        3.3218307495117188,
+        4.215000152587891
+      ],
+      "geometry_stats": {
+        "triangles": 4458,
+        "vertices": 2772,
+        "objects": 9,
+        "material_count": 10,
+        "blender_material_count": 10,
+        "glb_material_count": 10
+      },
+      "meshes": [
+        {
+          "name": "Terrace_low_sill",
+          "layer": "sill",
+          "materials": [
+            "Chalk_frame.001"
+          ]
+        },
+        {
+          "name": "cafe_left",
+          "layer": "cafe_left",
+          "materials": [
+            "BLD-019_surface"
+          ]
+        },
+        {
+          "name": "Cafe_foundation",
+          "layer": "foundation",
+          "materials": [
+            "Concrete_broken.007"
+          ]
+        },
+        {
+          "name": "cafe_back",
+          "layer": "cafe_back",
+          "materials": [
+            "BLD-019_surface"
+          ]
+        },
+        {
+          "name": "BLD-019_frames",
+          "layer": "frames",
+          "materials": [
+            "BLD-019_Frame_sage_paint",
+            "Oxidized_steel.007",
+            "Weathered_wood.006"
+          ]
+        },
+        {
+          "name": "BLD-019_cafe_terrace_side",
+          "layer": "cafe_terrace_side",
+          "materials": [
+            "BLD-019_surface"
+          ]
+        },
+        {
+          "name": "BLD-019_cafe_front",
+          "layer": "cafe_front",
+          "materials": [
+            "BLD-019_surface"
+          ]
+        },
+        {
+          "name": "BLD-019_pitched_roof_covering",
+          "layer": "pitched_roof_covering",
+          "materials": [
+            "Roof_clay_1",
+            "Roof_clay_0",
+            "Roof_clay_2"
+          ]
+        },
+        {
+          "name": "BLD-019_pitched_roof_structure",
+          "layer": "pitched_roof_structure",
+          "materials": [
+            "Roof_old_timber"
+          ]
+        }
+      ],
+      "external_textures": [
+        "textures/BLD-019_roof_albedo.png",
+        "textures/BLD-019_surface_albedo.png",
+        "textures/concrete_surface_color.png"
+      ],
+      "connections": {
+        "terrace_opening": "right side low sill at .4m, not full doorway",
+        "awning_bounds_y_up": [
+          -3,
+          3.18,
+          3.3,
+          2.4,
+          3.4,
+          4.15
+        ],
+        "entry_center": [
+          1.3,
+          0,
+          3.2
+        ],
+        "plant_exclusion": "entry clearance and awning solid; route vines around edge",
+        "design_family": "dusty rose cafe with an open terrace and muted green roof",
+        "construction_revision": "Original unique structure retained; dedicated visible facade construction added, not a new color-variant ID",
+        "vegetation": "Independent reusable layers; no plants joined to building",
+        "old_source": "lots/lot_010/BLD-019_terrace_cafe",
+        "revision_of": "BLD-019",
+        "not_additional_asset": true,
+        "game_adapter": "NOT_RUN; facade offsets require connector clearance review",
+        "intrinsic_albedo": "Low-amplitude aged-pigment grain only; no baked lighting, AO or reflections.",
+        "frame_palette": "sage_paint",
+        "roof_revision": "Actual roof form changed after user flat-roof feedback, not a color-only change",
+        "roof_systems": [
+          {
+            "kind": "asym_y",
+            "material_family": "clay",
+            "eave_height_y_up": 4.800000190734863,
+            "rise_m": 1.65,
+            "bounds_xz": [
+              -3.299999952316284,
+              -3.299999952316284,
+              3.299999952316284,
+              3.299999952316284
+            ],
+            "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+            "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+          },
+          {
+            "kind": "asym_y",
+            "material_family": "clay",
+            "eave_height_y_up": 3.4000000953674316,
+            "rise_m": 0.28475004792213443,
+            "bounds_xz": [
+              -3.0,
+              3.299999952316284,
+              2.4000000953674316,
+              4.150000095367432
+            ],
+            "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+            "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+          }
+        ],
+        "old_flat_roof_receivers": "SUPERSEDED: do not reuse old roof planes; new roof slopes/frame/holes need game adapter",
+        "vegetation_roof_integration": "NOT_RUN",
+        "source_version_before_roof_revision": "revisions/architecture_diversity_03/BLD-019_dusty_rose_terrace_cafe",
+        "legacy_roof_data_not_current": {}
+      },
+      "generated_receiver_surfaces": [
+        {
+          "id": "cafe_front_00",
+          "origin": [
+            -3.2,
+            0.18,
+            3.19
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "size": [
+            6.4,
+            4.32
+          ],
+          "openings_uv": [
+            [
+              0.5,
+              0.6200000000000001,
+              2.75,
+              3.07
+            ],
+            [
+              3.9000000000000004,
+              0.06,
+              5.1,
+              2.82
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "cafe_terrace_side_01",
+          "origin": [
+            3.19,
+            0.18,
+            3.08
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "size": [
+            6.16,
+            4.32
+          ],
+          "openings_uv": [
+            [
+              0.5800000000000001,
+              0.22000000000000003,
+              4.73,
+              2.42
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "cafe_back_02",
+          "origin": [
+            3.2,
+            0.18,
+            -3.19
+          ],
+          "tangent_u": [
+            -1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "size": [
+            6.4,
+            4.32
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "cafe_left_03",
+          "origin": [
+            -3.19,
+            0.18,
+            -3.08
+          ],
+          "tangent_u": [
+            0,
+            0,
+            1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "size": [
+            6.16,
+            4.32
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        }
+      ],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 4458,
+          "triangles_after": 4458,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN",
+        "roof_design_review": "Actual pitched/hipped/gambrel/mansard/asymmetric/double-ridge roof geometry reviewed at 640x360; remaining functional flat roofs elsewhere are intentional."
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\019_dusty_rose_terrace_cafe_pitched_roof",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\019_dusty_rose_terrace_cafe_pitched_roof\\019_dusty_rose_terrace_cafe_pitched_roof.glb",
+        "copy": "assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof.glb",
+        "sha256": "7239c0e3f224f116f2aaa3a67811b38c1708f869aa44ef854b57024b9d20a4bc"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\019_dusty_rose_terrace_cafe_pitched_roof\\metadata.json",
+        "copy": "assets/models/town_lab/BLD-019/metadata.json",
+        "sha256": "7ebcba349a13eaf0e47a5c8a75db592136c67010dc0f9c7d59e8567ab72704a6"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\019_dusty_rose_terrace_cafe_pitched_roof\\textures\\BLD-019_roof_albedo.png",
+        "copy": "assets/models/town_lab/BLD-019/textures/BLD-019_roof_albedo.png",
+        "sha256": "113e0f971ade0ad9e3732a8bf52c788d8acc7cb5433158df2bf0adda7b6d2d61"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\019_dusty_rose_terrace_cafe_pitched_roof\\textures\\BLD-019_surface_albedo.png",
+        "copy": "assets/models/town_lab/BLD-019/textures/BLD-019_surface_albedo.png",
+        "sha256": "db75529aac8009cfca2f50445e008d1416a2e578f77101f29a789cb3e6de153b"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\019_dusty_rose_terrace_cafe_pitched_roof\\textures\\concrete_surface_color.png",
+        "copy": "assets/models/town_lab/BLD-019/textures/concrete_surface_color.png",
+        "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+      }
+    ]
+  },
+  {
+    "id": "BLD-038",
+    "name": "小さな礼拝堂",
+    "scene": "res://assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel.glb",
+    "metadata": {
+      "asset_id": "BLD-038",
+      "name": "小さな礼拝堂",
+      "category": "BLD",
+      "version": "0.1.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          3.9600000381469727,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -6.276000022888184,
+          0.0,
+          -3.299999952316284
+        ],
+        "max": [
+          6.276000022888184,
+          7.920000076293945,
+          3.299999952316284
+        ]
+      },
+      "dimensions": [
+        12.552000045776367,
+        7.920000076293945,
+        6.599999904632568
+      ],
+      "placement_size_xz": [
+        12.552000045776367,
+        6.599999904632568
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -6.276000022888184,
+        -3.299999952316284,
+        6.276000022888184,
+        3.299999952316284
+      ],
+      "geometry_stats": {
+        "triangles": 12958,
+        "vertices": 9479,
+        "objects": 17,
+        "material_count": 8,
+        "blender_material_count": 8,
+        "glb_material_count": 9
+      },
+      "meshes": [
+        {
+          "name": "Chapel_foundation",
+          "layer": "foundation",
+          "materials": [
+            "Concrete_broken"
+          ]
+        },
+        {
+          "name": "chapel_back",
+          "layer": "chapel_back",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_tower_base",
+          "layer": "tower_base",
+          "materials": [
+            "Concrete_broken"
+          ]
+        },
+        {
+          "name": "BLD-038_roof",
+          "layer": "roof",
+          "materials": [
+            "BLD-038_roof"
+          ]
+        },
+        {
+          "name": "BLD-038_gables",
+          "layer": "gables",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_entry_arch",
+          "layer": "entry_arch",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_sides",
+          "layer": "chapel_sides",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_front",
+          "layer": "chapel_front",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_facade_stone",
+          "layer": "facade_stone",
+          "materials": [
+            "BLD-038_course_0",
+            "BLD-038_course_1",
+            "BLD-038_course_2"
+          ]
+        },
+        {
+          "name": "BLD-038_annex_foundations",
+          "layer": "annex_foundations",
+          "materials": [
+            "Concrete_broken"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_arm_west_front",
+          "layer": "chapel_arm_west_front",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_arm_west_side_-1",
+          "layer": "chapel_arm_west_side_-1",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_arm_west_side_1",
+          "layer": "chapel_arm_west_side_1",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_frames",
+          "layer": "frames",
+          "materials": [
+            "BLD-038_Frame_dark_brown",
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_arm_east_front",
+          "layer": "chapel_arm_east_front",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_arm_east_side_-1",
+          "layer": "chapel_arm_east_side_-1",
+          "materials": [
+            "BLD-038_core"
+          ]
+        },
+        {
+          "name": "BLD-038_chapel_arm_east_side_1",
+          "layer": "chapel_arm_east_side_1",
+          "materials": [
+            "BLD-038_core"
+          ]
+        }
+      ],
+      "external_textures": [
+        "textures/BLD-038_roof_albedo.png",
+        "textures/concrete_surface_color.png"
+      ],
+      "connections": {
+        "pointed_entry_height_m": 4.65,
+        "broken_tower_layer": "tower_base",
+        "roof_receiver": "two slopes, tower footprint exclusion",
+        "religious_symbols_included": false,
+        "entry_clearance": "pointed polygon, not full upper rectangle",
+        "design_family": "cross-shaped stone chapel with low side arms, gabled nave and broken tower base",
+        "construction_revision": "Original unique structure retained; dedicated visible facade construction added, not a new color-variant ID",
+        "vegetation": "Independent reusable layers; no plants joined to building",
+        "old_source": "lots/lot_017/BLD-038_small_chapel_broken_tower_base",
+        "revision_of": "BLD-038",
+        "not_additional_asset": true,
+        "game_adapter": "NOT_RUN; facade offsets require connector clearance review",
+        "added_wings": [
+          {
+            "name": "chapel_arm_west",
+            "footprint_xz": [
+              -6.15,
+              -2.1,
+              -3.85,
+              0.5
+            ],
+            "height_m": 3.97,
+            "entry_rule": "side opening; main building connector/navigation NOT_RUN"
+          },
+          {
+            "name": "chapel_arm_east",
+            "footprint_xz": [
+              3.85,
+              -2.1,
+              6.15,
+              0.5
+            ],
+            "height_m": 3.97,
+            "entry_rule": "side opening; main building connector/navigation NOT_RUN"
+          }
+        ],
+        "footprint_family": "Cross-shaped, lower side arms around the central nave; tower and central front entry preserved",
+        "new_placement_required": true,
+        "intrinsic_albedo": "Low-amplitude aged-pigment grain only; no baked lighting, AO or reflections.",
+        "facade_surface_offset_m": 0.026,
+        "receiver_offset_note": "Original recorded planes describe underlying wall; facade relief up to .026m requires outward clearance and opening-edge review in game connector.",
+        "frame_palette": "dark_brown"
+      },
+      "generated_receiver_surfaces": [
+        {
+          "id": "chapel_front_00",
+          "origin": [
+            -4.0,
+            0.18,
+            3.19
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "size": [
+            8,
+            5.07
+          ],
+          "openings_uv": [
+            [
+              3.05,
+              0.06,
+              4.95,
+              4.470000000000001
+            ],
+            [
+              1.0,
+              1.22,
+              1.9,
+              3.42
+            ],
+            [
+              6.1,
+              1.22,
+              7.0,
+              3.42
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_back_01",
+          "origin": [
+            4.0,
+            0.18,
+            -3.19
+          ],
+          "tangent_u": [
+            -1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "size": [
+            8,
+            5.07
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_sides_02",
+          "origin": [
+            -3.9899999999999998,
+            0.18,
+            -3.08
+          ],
+          "tangent_u": [
+            0,
+            0,
+            1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "size": [
+            6.16,
+            5.07
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_sides_03",
+          "origin": [
+            3.9899999999999998,
+            0.18,
+            3.08
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "size": [
+            6.16,
+            5.07
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_arm_west_front_04",
+          "origin": [
+            -6.15,
+            0.24,
+            0.6
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "size": [
+            2.3,
+            3.51
+          ],
+          "openings_uv": [
+            [
+              0.73,
+              0.8600000000000001,
+              1.5699999999999998,
+              2.0599999999999996
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_arm_west_side_-1_05",
+          "origin": [
+            -6.25,
+            0.24,
+            -2.1
+          ],
+          "tangent_u": [
+            0,
+            0,
+            1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "size": [
+            2.6,
+            3.51
+          ],
+          "openings_uv": [
+            [
+              0.75,
+              0.9099999999999999,
+              1.85,
+              2.1100000000000003
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_arm_west_side_1_06",
+          "origin": [
+            -3.75,
+            0.24,
+            0.5
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "size": [
+            2.6,
+            3.51
+          ],
+          "openings_uv": [
+            [
+              0.75,
+              0.0,
+              1.85,
+              2.41
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_arm_east_front_07",
+          "origin": [
+            3.85,
+            0.24,
+            0.6
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "size": [
+            2.3,
+            3.51
+          ],
+          "openings_uv": [
+            [
+              0.73,
+              0.8600000000000001,
+              1.5699999999999998,
+              2.0599999999999996
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_arm_east_side_-1_08",
+          "origin": [
+            3.75,
+            0.24,
+            -2.1
+          ],
+          "tangent_u": [
+            0,
+            0,
+            1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "size": [
+            2.6,
+            3.51
+          ],
+          "openings_uv": [
+            [
+              0.75,
+              0.0,
+              1.85,
+              2.41
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "chapel_arm_east_side_1_09",
+          "origin": [
+            6.25,
+            0.24,
+            0.5
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "size": [
+            2.6,
+            3.51
+          ],
+          "openings_uv": [
+            [
+              0.75,
+              0.9099999999999999,
+              1.85,
+              2.1100000000000003
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        }
+      ],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 12958,
+          "triangles_after": 12958,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN",
+        "art_style": "Same realistic low-resolution 3D rendering language, independently assessed from design",
+        "design_diversity": "Different construction, roof/profile and frame palettes; original differing functional forms retained or explicitly expanded"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true,
+      "budget_note": "Facade course relief and original exposed structure exceed initial small-building triangle guide; actual count recorded, game performance NOT_RUN.",
+      "user_direction": "New architecture direction approved 2026-10-16 22:50 UTC; varied frames and nonrectangular footprints requested. Not individual user approval of every asset."
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\038_cross_plan_stone_chapel",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\038_cross_plan_stone_chapel\\038_cross_plan_stone_chapel.glb",
+        "copy": "assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel.glb",
+        "sha256": "9eed7fe3953382a2158fe2d0e5808104d297442550b00885d4052415345ba149"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\038_cross_plan_stone_chapel\\metadata.json",
+        "copy": "assets/models/town_lab/BLD-038/metadata.json",
+        "sha256": "6ec4e06bc7c1304868b60e9e6713b5fdc1da7287383fd2764b800d74e50051db"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\038_cross_plan_stone_chapel\\textures\\BLD-038_roof_albedo.png",
+        "copy": "assets/models/town_lab/BLD-038/textures/BLD-038_roof_albedo.png",
+        "sha256": "18ccdd9d1765dd63af802bc8489ff78fe2dcf1ec00ff01b698c5584c1fe3b56b"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\038_cross_plan_stone_chapel\\textures\\concrete_surface_color.png",
+        "copy": "assets/models/town_lab/BLD-038/textures/concrete_surface_color.png",
+        "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+      }
+    ]
+  },
+  {
+    "id": "BLD-046",
+    "name": "水処理ポンプ棟",
+    "scene": "res://assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof.glb",
+    "metadata": {
+      "asset_id": "BLD-046",
+      "name": "水処理ポンプ棟",
+      "category": "BLD",
+      "version": "0.2.0",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          2.9742960929870605,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -4.162630081176758,
+          0.0,
+          -3.3528099060058594
+        ],
+        "max": [
+          4.800000190734863,
+          5.948592185974121,
+          3.352809190750122
+        ]
+      },
+      "dimensions": [
+        8.962630271911621,
+        5.948592185974121,
+        6.7056190967559814
+      ],
+      "placement_size_xz": [
+        8.962630271911621,
+        6.7056190967559814
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -4.162630081176758,
+        -3.3528099060058594,
+        4.800000190734863,
+        3.352809190750122
+      ],
+      "geometry_stats": {
+        "triangles": 4260,
+        "vertices": 2678,
+        "objects": 11,
+        "material_count": 7,
+        "blender_material_count": 7,
+        "glb_material_count": 7
+      },
+      "meshes": [
+        {
+          "name": "Pump_roof_step",
+          "layer": "Pump_roof_step",
+          "materials": [
+            "BLD-046_surface"
+          ]
+        },
+        {
+          "name": "pump_low_front",
+          "layer": "pump_low_front",
+          "materials": [
+            "BLD-046_surface"
+          ]
+        },
+        {
+          "name": "pump_low_back",
+          "layer": "pump_low_back",
+          "materials": [
+            "BLD-046_surface"
+          ]
+        },
+        {
+          "name": "pump_left",
+          "layer": "pump_left",
+          "materials": [
+            "BLD-046_surface"
+          ]
+        },
+        {
+          "name": "Pump_large_pipe_connector",
+          "layer": "pipe_connector",
+          "materials": [
+            "Oxidized_steel.002"
+          ]
+        },
+        {
+          "name": "pump_high_back",
+          "layer": "pump_high_back",
+          "materials": [
+            "BLD-046_surface"
+          ]
+        },
+        {
+          "name": "Pump_foundation",
+          "layer": "foundation",
+          "materials": [
+            "Concrete_broken.004"
+          ]
+        },
+        {
+          "name": "BLD-046_pump_right",
+          "layer": "pump_right",
+          "materials": [
+            "BLD-046_surface"
+          ]
+        },
+        {
+          "name": "BLD-046_pump_high_front",
+          "layer": "pump_high_front",
+          "materials": [
+            "BLD-046_surface"
+          ]
+        },
+        {
+          "name": "BLD-046_pitched_roof_covering",
+          "layer": "pitched_roof_covering",
+          "materials": [
+            "Roof_copper_1",
+            "Roof_copper_0",
+            "Roof_copper_2"
+          ]
+        },
+        {
+          "name": "BLD-046_pitched_roof_structure",
+          "layer": "pitched_roof_structure",
+          "materials": [
+            "Roof_old_timber"
+          ]
+        }
+      ],
+      "external_textures": [
+        "textures/BLD-046_roof_albedo.png",
+        "textures/BLD-046_surface_albedo.png",
+        "textures/concrete_surface_color.png"
+      ],
+      "connections": {
+        "pipe_connector_center_y_up": [
+          4.8,
+          1.45,
+          0
+        ],
+        "pipe_radius_m": 1.02,
+        "connector_axis_y_up": [
+          1,
+          0,
+          0
+        ],
+        "pipe_connection_game": "NOT_RUN",
+        "entry_center": [
+          -1.0,
+          0,
+          3.2
+        ],
+        "design_family": "sage painted pump house with stepped roof and large pipe ports",
+        "construction_revision": "Original unique structure retained; dedicated visible facade construction added, not a new color-variant ID",
+        "vegetation": "Independent reusable layers; no plants joined to building",
+        "old_source": "lots/lot_018/BLD-046_water_treatment_pump_house",
+        "revision_of": "BLD-046",
+        "not_additional_asset": true,
+        "game_adapter": "NOT_RUN; facade offsets require connector clearance review",
+        "intrinsic_albedo": "Low-amplitude aged-pigment grain only; no baked lighting, AO or reflections.",
+        "frame_palette_note": "No pale painted door/window frame mesh in this model; existing structural metal/wood retained.",
+        "legacy_roof_data_not_current": {
+          "roof_step_m": 1.15
+        },
+        "roof_revision": "Actual roof form changed after user flat-roof feedback, not a color-only change",
+        "roof_systems": [
+          {
+            "kind": "hip",
+            "material_family": "copper",
+            "eave_height_y_up": 4.800000190734863,
+            "rise_m": 1.15,
+            "bounds_xz": [
+              -4.099999904632568,
+              -3.299999952316284,
+              0.800000011920929,
+              3.299999952316284
+            ],
+            "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+            "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+          },
+          {
+            "kind": "hip",
+            "material_family": "copper",
+            "eave_height_y_up": 3.6500000953674316,
+            "rise_m": 1.1222499680519105,
+            "bounds_xz": [
+              0.75,
+              -3.299999952316284,
+              4.099999904632568,
+              3.299999952316284
+            ],
+            "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+            "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+          }
+        ],
+        "old_flat_roof_receivers": "SUPERSEDED: do not reuse old roof planes; new roof slopes/frame/holes need game adapter",
+        "vegetation_roof_integration": "NOT_RUN",
+        "source_version_before_roof_revision": "revisions/architecture_diversity_05/BLD-046_sage_pump_building"
+      },
+      "generated_receiver_surfaces": [
+        {
+          "id": "pump_high_front_00",
+          "origin": [
+            -4.0,
+            0.18,
+            3.19
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "size": [
+            4.8,
+            4.32
+          ],
+          "openings_uv": [
+            [
+              2.4,
+              0.06,
+              3.5999999999999996,
+              3.2199999999999998
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "pump_low_front_01",
+          "origin": [
+            0.7999999999999998,
+            0.18,
+            3.19
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "size": [
+            3.2,
+            3.2199999999999998
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "pump_high_back_02",
+          "origin": [
+            0.7999999999999998,
+            0.18,
+            -3.19
+          ],
+          "tangent_u": [
+            -1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "size": [
+            4.8,
+            4.32
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "pump_low_back_03",
+          "origin": [
+            4.0,
+            0.18,
+            -3.19
+          ],
+          "tangent_u": [
+            -1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "size": [
+            3.2,
+            3.2199999999999998
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "pump_left_04",
+          "origin": [
+            -3.9899999999999998,
+            0.18,
+            -3.08
+          ],
+          "tangent_u": [
+            0,
+            0,
+            1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "size": [
+            6.16,
+            4.32
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "pump_right_05",
+          "origin": [
+            3.9899999999999998,
+            0.18,
+            3.08
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "size": [
+            6.16,
+            3.2199999999999998
+          ],
+          "openings_uv": [
+            [
+              1.78,
+              0.22000000000000003,
+              4.38,
+              2.42
+            ]
+          ],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        },
+        {
+          "id": "Pump_roof_step_06",
+          "origin": [
+            0.86,
+            3.45,
+            3.08
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "size": [
+            6.16,
+            1.13
+          ],
+          "openings_uv": [],
+          "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+        }
+      ],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 4260,
+          "triangles_after": 4260,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN",
+        "roof_design_review": "Actual pitched/hipped/gambrel/mansard/asymmetric/double-ridge roof geometry reviewed at 640x360; remaining functional flat roofs elsewhere are intentional."
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\046_sage_pump_building_pitched_roof",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\046_sage_pump_building_pitched_roof\\046_sage_pump_building_pitched_roof.glb",
+        "copy": "assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof.glb",
+        "sha256": "a4ae511b1a27191b2c88c3c164bc6dbb5a3d0715d514c4228703e205b4ccee02"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\046_sage_pump_building_pitched_roof\\metadata.json",
+        "copy": "assets/models/town_lab/BLD-046/metadata.json",
+        "sha256": "4e6f4a0b44a94e5be0df85560b15b6915b79e26c4340ff87ab87d8c803d2ee14"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\046_sage_pump_building_pitched_roof\\textures\\BLD-046_roof_albedo.png",
+        "copy": "assets/models/town_lab/BLD-046/textures/BLD-046_roof_albedo.png",
+        "sha256": "2074ab0db46a588c3cae31026beaea281002deecc2b1cf9cf2a700205525b079"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\046_sage_pump_building_pitched_roof\\textures\\BLD-046_surface_albedo.png",
+        "copy": "assets/models/town_lab/BLD-046/textures/BLD-046_surface_albedo.png",
+        "sha256": "f31ca6eb004a9ff78c5a8900cc94e2c3ac72a80cc2d7bddce0545ad057fa70c9"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\046_sage_pump_building_pitched_roof\\textures\\concrete_surface_color.png",
+        "copy": "assets/models/town_lab/BLD-046/textures/concrete_surface_color.png",
+        "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+      }
+    ]
+  },
+  {
+    "id": "BLD-079",
+    "name": "水車付き石造廃屋",
+    "scene": "res://assets/models/town_lab/BLD-079/079_stone_watermill_ruin.glb",
+    "metadata": {
+      "asset_id": "BLD-079",
+      "name": "水車付き石造廃屋",
+      "category": "BLD",
+      "version": "rebuild.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          2.5046244636178017,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -2.5232815742492676,
+          -0.022352978587150574,
+          -2.5400002002716064
+        ],
+        "max": [
+          3.7249999046325684,
+          5.031601905822754,
+          2.5400002002716064
+        ]
+      },
+      "dimensions": [
+        6.248281478881836,
+        5.0539548844099045,
+        5.080000400543213
+      ],
+      "placement_size_xz": [
+        6.248281478881836,
+        5.080000400543213
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -2.5232815742492676,
+        -2.5400002002716064,
+        3.7249999046325684,
+        2.5400002002716064
+      ],
+      "geometry_stats": {
+        "triangles": 10676,
+        "vertices": 6768,
+        "objects": 14,
+        "material_count": 9
+      },
+      "meshes": [
+        {
+          "name": "BLD-079_foundation",
+          "layer": "foundation",
+          "materials": [
+            "Mortar",
+            "Stone_warm"
+          ]
+        },
+        {
+          "name": "BLD-079_exterior_Mill_front",
+          "layer": "exterior_Mill_front",
+          "materials": [
+            "Stone_warm",
+            "Stone_cool"
+          ]
+        },
+        {
+          "name": "BLD-079_exterior_Mill_back",
+          "layer": "exterior_Mill_back",
+          "materials": [
+            "Stone_cool"
+          ]
+        },
+        {
+          "name": "BLD-079_exterior_Mill_side-2.25",
+          "layer": "exterior_Mill_side-2.25",
+          "materials": [
+            "Stone_warm",
+            "Stone_cool"
+          ]
+        },
+        {
+          "name": "BLD-079_exterior_Mill_side2.25",
+          "layer": "exterior_Mill_side2.25",
+          "materials": [
+            "Stone_warm",
+            "Stone_cool"
+          ]
+        },
+        {
+          "name": "BLD-079_frames",
+          "layer": "frames",
+          "materials": [
+            "Weathered_wood"
+          ]
+        },
+        {
+          "name": "BLD-079_roof_rafters",
+          "layer": "roof_rafters",
+          "materials": [
+            "Wood_endgrain",
+            "Timber_dark"
+          ]
+        },
+        {
+          "name": "BLD-079_roof_covering",
+          "layer": "roof_covering",
+          "materials": [
+            "Mill_roof"
+          ]
+        },
+        {
+          "name": "BLD-079_roof_edge",
+          "layer": "roof_edge",
+          "materials": [
+            "Trim_faded"
+          ]
+        },
+        {
+          "name": "Wheel_axle",
+          "layer": "wheel_axle",
+          "materials": [
+            "Timber_dark"
+          ]
+        },
+        {
+          "name": "BLD-079_wheel",
+          "layer": "wheel",
+          "materials": [
+            "Weathered_wood"
+          ]
+        },
+        {
+          "name": "BLD-079_wheel_buckets",
+          "layer": "wheel_buckets",
+          "materials": [
+            "Wood_silver"
+          ]
+        },
+        {
+          "name": "Outer_bearing",
+          "layer": "wheel_support",
+          "materials": [
+            "Timber_dark"
+          ]
+        },
+        {
+          "name": "BLD-079_fallen_debris",
+          "layer": "fallen_debris",
+          "materials": [
+            "Wood_endgrain"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "connections": {
+        "design_family": "stone watermill and exterior paddle wheel",
+        "damage_description": "front gable and large roof sector collapsed; wheel buckets missing",
+        "roof_system": "weathered wood-shingle gable",
+        "vegetation": "NOT included; reusable separate plant assets; leave >=50% wall surface exposed at maturity",
+        "entry_clearance": "Keep recorded door opening and approach unobstructed",
+        "collision_navigation": "NOT_RUN; use individual walls, not the open building volume",
+        "revision_of": "BLD-079",
+        "not_additional_asset": true,
+        "origin_convention": "building footprint centre at ground plane",
+        "receiver_data": "generated_receiver_surfaces contains explicit opening exclusions and irregular top profiles; game adapter NOT_RUN",
+        "wheel_centre_blender": [
+          2.78,
+          0,
+          1.85
+        ],
+        "wheel_axis_blender": [
+          1,
+          0,
+          0
+        ],
+        "wheel_rotation": "NOT_RUN; static grouped wheel",
+        "water_channel": "Separate ground/water required; no reflection baked",
+        "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; historical ID mapping inferred from ordered preview batches"
+      },
+      "generated_receiver_surfaces": [
+        {
+          "id": "Mill_front",
+          "origin": [
+            0,
+            0,
+            2.4
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "u_range": [
+            -2.25,
+            2.25
+          ],
+          "base_height": 0.22,
+          "top_profile_uv": [
+            [
+              -2.25,
+              3.45
+            ],
+            [
+              -1.0,
+              4.1
+            ],
+            [
+              -0.6,
+              3.75
+            ],
+            [
+              0,
+              4.95
+            ],
+            [
+              0.35,
+              4.15
+            ],
+            [
+              0.65,
+              4.4
+            ],
+            [
+              1.15,
+              2.8
+            ],
+            [
+              1.55,
+              3.05
+            ],
+            [
+              2.25,
+              2.45
+            ]
+          ],
+          "openings_uv": [
+            [
+              -1.5,
+              -0.35,
+              0.22,
+              2.6
+            ]
+          ],
+          "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+        },
+        {
+          "id": "Mill_back",
+          "origin": [
+            0,
+            0,
+            -2.4
+          ],
+          "tangent_u": [
+            1,
+            0,
+            0
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "u_range": [
+            -2.25,
+            2.25
+          ],
+          "base_height": 0.22,
+          "top_profile_uv": [
+            [
+              -2.25,
+              3.45
+            ],
+            [
+              0,
+              4.95
+            ],
+            [
+              2.25,
+              3.45
+            ]
+          ],
+          "openings_uv": [
+            [
+              -0.6,
+              0.6,
+              1.2,
+              2.2
+            ]
+          ],
+          "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+        },
+        {
+          "id": "Mill_side-2.25",
+          "origin": [
+            -2.4,
+            0,
+            0
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "u_range": [
+            -2.25,
+            2.25
+          ],
+          "base_height": 0.22,
+          "top_profile_uv": [
+            [
+              -2.25,
+              3.45
+            ],
+            [
+              2.25,
+              3.45
+            ]
+          ],
+          "openings_uv": [
+            [
+              -0.65,
+              0.65,
+              1.1,
+              2.1
+            ]
+          ],
+          "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+        },
+        {
+          "id": "Mill_side2.25",
+          "origin": [
+            2.4,
+            0,
+            0
+          ],
+          "tangent_u": [
+            0,
+            0,
+            -1
+          ],
+          "tangent_v": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "u_range": [
+            -2.25,
+            2.25
+          ],
+          "base_height": 0.22,
+          "top_profile_uv": [
+            [
+              -2.25,
+              3.45
+            ],
+            [
+              2.25,
+              3.45
+            ]
+          ],
+          "openings_uv": [
+            [
+              -0.3,
+              0.3,
+              1.5,
+              2.0
+            ]
+          ],
+          "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+        }
+      ],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 10676,
+          "triangles_after": 10676,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true,
+      "recreation_not_original_recovery": true,
+      "delivery_files": {
+        "blend": "079_stone_watermill_ruin.blend",
+        "glb": "079_stone_watermill_ruin.glb"
+      },
+      "geometry_budget_review": {
+        "provisional_guideline_triangles": 10000,
+        "actual_triangles": 10676,
+        "reason": "Physical masonry courses, curved structural surfaces, and exposed separate supports retained for readable damage and non-faceted silhouettes. Provisional triangle guideline exceeded; Godot performance NOT_RUN. Optimize only after game-side measurement, without changing candidate count.",
+        "game_performance": "NOT_RUN"
+      },
+      "coordinate_documentation_revision": 1,
+      "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\079_stone_watermill_ruin",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\079_stone_watermill_ruin\\079_stone_watermill_ruin.glb",
+        "copy": "assets/models/town_lab/BLD-079/079_stone_watermill_ruin.glb",
+        "sha256": "a88c703d505061cb294696b6ff6f6adaca4806f01a1422bc32558eb100b2e040"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\079_stone_watermill_ruin\\metadata.json",
+        "copy": "assets/models/town_lab/BLD-079/metadata.json",
+        "sha256": "f0a024bc4e4f17ddc1582bce17c434ab6a62e94017dfbb40a46e5d6f6ea72671"
+      }
+    ]
+  },
+  {
+    "id": "BLD-091",
+    "name": "直交コンテナ建屋の廃墟",
+    "scene": "res://assets/models/town_lab/BLD-091/091_crossed_container_ruin.glb",
+    "metadata": {
+      "asset_id": "BLD-091",
+      "name": "直交コンテナ建屋の廃墟",
+      "category": "BLD",
+      "version": "rebuild.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          2.58629709482193,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -3.065000057220459,
+          0.017593979835510254,
+          -3.065000057220459
+        ],
+        "max": [
+          3.065000057220459,
+          5.15500020980835,
+          3.538076877593994
+        ]
+      },
+      "dimensions": [
+        6.130000114440918,
+        5.137406229972839,
+        6.603076934814453
+      ],
+      "placement_size_xz": [
+        6.130000114440918,
+        6.603076934814453
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -3.065000057220459,
+        -3.065000057220459,
+        3.065000057220459,
+        3.538076877593994
+      ],
+      "geometry_stats": {
+        "triangles": 4572,
+        "vertices": 3048,
+        "objects": 8,
+        "material_count": 3
+      },
+      "meshes": [
+        {
+          "name": "BLD-091_floor",
+          "layer": "floor",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "BLD-091_exterior_Container_side",
+          "layer": "exterior_Container_side",
+          "materials": [
+            "Container_blue",
+            "Container_ochre"
+          ]
+        },
+        {
+          "name": "BLD-091_corrugation",
+          "layer": "corrugation",
+          "materials": [
+            "Container_blue",
+            "Container_ochre"
+          ]
+        },
+        {
+          "name": "BLD-091_exterior_Container_end",
+          "layer": "exterior_Container_end",
+          "materials": [
+            "Container_blue",
+            "Container_ochre"
+          ]
+        },
+        {
+          "name": "BLD-091_frame",
+          "layer": "frame",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "BLD-091_roof",
+          "layer": "roof",
+          "materials": [
+            "Container_blue",
+            "Container_ochre"
+          ]
+        },
+        {
+          "name": "BLD-091_supports",
+          "layer": "supports",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "BLD-091_stair",
+          "layer": "stair",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "connections": {
+        "design_family": "perpendicular stacked shipping containers",
+        "damage_description": "broad upper roof collapse with exposed ribs",
+        "roof_system": "corrugated flat industrial module roof",
+        "vegetation": "NOT included; reusable separate plant assets; leave >=50% wall surface exposed at maturity",
+        "entry_clearance": "Keep recorded door opening and approach unobstructed",
+        "collision_navigation": "NOT_RUN; use individual walls, not the open building volume",
+        "revision_of": "BLD-091",
+        "not_additional_asset": true,
+        "origin_convention": "building footprint centre at ground plane",
+        "receiver_data": "generated_receiver_surfaces contains explicit opening exclusions and irregular top profiles; game adapter NOT_RUN",
+        "module_frames": [
+          {
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "rotation_z_degrees": 0
+          },
+          {
+            "translation": [
+              0.9,
+              0,
+              2.55
+            ],
+            "rotation_z_degrees": 90
+          }
+        ],
+        "receiver_kind": "module-local panels; adapter NOT_RUN",
+        "upper_floor_z": 2.67,
+        "interior": "empty structural shells",
+        "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; old ID mapping inferred from ordered preview batches, not recovered source manifest"
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 4572,
+          "triangles_after": 4572,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true,
+      "recreation_not_original_recovery": true,
+      "delivery_files": {
+        "blend": "091_crossed_container_ruin.blend",
+        "glb": "091_crossed_container_ruin.glb"
+      },
+      "coordinate_documentation_revision": 1,
+      "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\091_crossed_container_ruin",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\091_crossed_container_ruin\\091_crossed_container_ruin.glb",
+        "copy": "assets/models/town_lab/BLD-091/091_crossed_container_ruin.glb",
+        "sha256": "05f37f10c2b884ccdfefc1240dc4fa6300053ebfdc45aefc303028cf233ef18c"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\091_crossed_container_ruin\\metadata.json",
+        "copy": "assets/models/town_lab/BLD-091/metadata.json",
+        "sha256": "8a8c675d9df8c0d88214ac4a47896f735d2099400b5befab2c43f919162d833e"
+      }
+    ]
+  },
+  {
+    "id": "BLD-123",
+    "name": "円筒灯台",
+    "scene": "res://assets/models/town_lab/BLD-123/123_lighthouse.glb",
+    "metadata": {
+      "asset_id": "BLD-123",
+      "name": "円筒灯台",
+      "category": "BLD",
+      "version": "rebuild.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          4.625,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -1.6200000047683716,
+          0.0,
+          -1.6200000047683716
+        ],
+        "max": [
+          1.6200000047683716,
+          9.25,
+          1.6200000047683716
+        ]
+      },
+      "dimensions": [
+        3.240000009536743,
+        9.25,
+        3.240000009536743
+      ],
+      "placement_size_xz": [
+        3.240000009536743,
+        3.240000009536743
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -1.6200000047683716,
+        -1.6200000047683716,
+        1.6200000047683716,
+        1.6200000047683716
+      ],
+      "geometry_stats": {
+        "triangles": 11060,
+        "vertices": 10198,
+        "objects": 7,
+        "material_count": 7
+      },
+      "meshes": [
+        {
+          "name": "Stone_plinth",
+          "layer": "foundation",
+          "materials": [
+            "Stone_warm"
+          ]
+        },
+        {
+          "name": "Tapered_lime_wall",
+          "layer": "tower_wall",
+          "materials": [
+            "Tower_lime"
+          ]
+        },
+        {
+          "name": "Lantern_floor",
+          "layer": "lantern_floor",
+          "materials": [
+            "Stone_light"
+          ]
+        },
+        {
+          "name": "BLD-123_lantern_frame",
+          "layer": "lantern_frame",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "BLD-123_lantern_glass",
+          "layer": "lantern_glass",
+          "materials": [
+            "Window_remnant"
+          ]
+        },
+        {
+          "name": "BLD-123_roof_covering",
+          "layer": "roof_covering",
+          "materials": [
+            "Slate"
+          ]
+        },
+        {
+          "name": "BLD-123_lamp",
+          "layer": "lamp",
+          "materials": [
+            "Oxidized_steel",
+            "Lamp_glass"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "connections": {
+        "design_family": "tapered round lighthouse",
+        "damage_description": "missing two lantern panes; open door and slit",
+        "roof_system": "conical metal cap",
+        "vegetation": "NOT included; reusable separate plant assets; leave >=50% wall surface exposed at maturity",
+        "entry_clearance": "Keep recorded door opening and approach unobstructed",
+        "collision_navigation": "NOT_RUN; use individual walls, not the open building volume",
+        "revision_of": "BLD-123",
+        "not_additional_asset": true,
+        "origin_convention": "building footprint centre at ground plane",
+        "receiver_data": "generated_receiver_surfaces contains explicit opening exclusions and irregular top profiles; game adapter NOT_RUN",
+        "curved_receiver": "tapered cylinder; not planar; adapter NOT_RUN",
+        "door_y_up": {
+          "center": [
+            0,
+            1.15,
+            1.35
+          ],
+          "width": 0.7,
+          "height": 2.1
+        },
+        "recreation_status": "NEWLY_REBUILT_FROM_SURVIVING_PREVIEW; not original file recovery"
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 11060,
+          "triangles_after": 11060,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true,
+      "recreation_not_original_recovery": true,
+      "delivery_files": {
+        "blend": "123_lighthouse.blend",
+        "glb": "123_lighthouse.glb"
+      },
+      "geometry_budget_review": {
+        "provisional_guideline_triangles": 10000,
+        "actual_triangles": 11060,
+        "reason": "Physical masonry courses, curved structural surfaces, and exposed separate supports retained for readable damage and non-faceted silhouettes. Provisional triangle guideline exceeded; Godot performance NOT_RUN. Optimize only after game-side measurement, without changing candidate count.",
+        "game_performance": "NOT_RUN"
+      },
+      "coordinate_documentation_revision": 1,
+      "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\123_lighthouse",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\123_lighthouse\\123_lighthouse.glb",
+        "copy": "assets/models/town_lab/BLD-123/123_lighthouse.glb",
+        "sha256": "9135597459883cfddc2c1cbf3d065007ffc8bd3a3adfa4090200ed68ade2de90"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\123_lighthouse\\metadata.json",
+        "copy": "assets/models/town_lab/BLD-123/metadata.json",
+        "sha256": "7133250124ca80527498d1c2509ed3592a64e58816d16c4e5347598e9e347210"
+      }
+    ]
+  },
+  {
+    "id": "PRP-001",
+    "name": "折れた街灯",
+    "scene": "res://assets/models/town_lab/PRP-001/001_broken_streetlamp.glb",
+    "metadata": {
+      "asset_id": "PRP-001",
+      "category": "PRP",
+      "version": "0.0.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) Blender -> (x,z,-y) GLB",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "aabb": {
+        "min": [
+          -0.20000000298023224,
+          0.0,
+          -0.18000000715255737
+        ],
+        "max": [
+          0.7200000286102295,
+          3.1999998092651367,
+          0.18000000715255737
+        ]
+      },
+      "dimensions": [
+        0.9200000315904617,
+        3.1999998092651367,
+        0.36000001430511475
+      ],
+      "placement_size_xz": [
+        0.9200000315904617,
+        0.36000001430511475
+      ],
+      "contact_bounds_xz": [
+        -0.20000000298023224,
+        -0.18000000715255737,
+        0.7200000286102295,
+        0.18000000715255737
+      ],
+      "geometry_stats": {
+        "triangles": 230,
+        "vertices": 127,
+        "objects": 6,
+        "material_count": 3,
+        "blender_material_count": 3,
+        "glb_material_count": 3
+      },
+      "meshes": [
+        {
+          "name": "PRP_Base_plate",
+          "layer": "base",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "PRP_Bent_pole",
+          "layer": "pole",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "PRP_Broken_cable",
+          "layer": "cable",
+          "materials": [
+            "Rust"
+          ]
+        },
+        {
+          "name": "PRP_Lamp_housing",
+          "layer": "lamp",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "PRP_Lamp_glass",
+          "layer": "lamp",
+          "materials": [
+            "Lamp_glass"
+          ]
+        },
+        {
+          "name": "PRP_Rust_band",
+          "layer": "rust",
+          "materials": [
+            "Rust"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "texture_note": "No image textures required; simple opaque Principled materials, no baked illumination.",
+      "connections": {
+        "base_center": [
+          0,
+          0,
+          0
+        ],
+        "fixture_emits_light": false,
+        "broken_cable_separate": true
+      },
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 230,
+          "triangles_after": 230,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN",
+        "visual_notes": "Native-scale individual/reimport views and shared wall/ground composition reviewed. Small membrane and grass assessed in composite. Not Godot verification."
+      },
+      "integration_status": "NOT_RUN",
+      "material_behavior": {
+        "opaque": true,
+        "double_sided": true,
+        "external_textures_required": false
+      }
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\001_broken_streetlamp",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\001_broken_streetlamp\\001_broken_streetlamp.glb",
+        "copy": "assets/models/town_lab/PRP-001/001_broken_streetlamp.glb",
+        "sha256": "18fba8991523fcb7ec0e70b748dffe329c16da5d1e79a4ea1ba0c7c90328d9f1"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\001_broken_streetlamp\\metadata.json",
+        "copy": "assets/models/town_lab/PRP-001/metadata.json",
+        "sha256": "9a79e0e68b8ef2b49afe28b5618514ecff0f85ef23d06ee3e0653ac75ce109bd"
+      }
+    ]
+  },
+  {
+    "id": "PRP-005",
+    "name": "電線の残る電柱",
+    "scene": "res://assets/models/town_lab/PRP-005/005_wired_utility_pole.glb",
+    "metadata": {
+      "asset_id": "PRP-005",
+      "name": "電線の残る電柱",
+      "category": "PRP",
+      "version": "0.0.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          3.1094565391540527,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -0.6899999976158142,
+          0.0,
+          -0.4129645824432373
+        ],
+        "max": [
+          0.7299999594688416,
+          6.2189130783081055,
+          0.4125184714794159
+        ]
+      },
+      "dimensions": [
+        1.4199999570846558,
+        6.2189130783081055,
+        0.8254830539226532
+      ],
+      "placement_size_xz": [
+        1.4199999570846558,
+        0.8254830539226532
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -0.6899999976158142,
+        -0.4129645824432373,
+        0.7299999594688416,
+        0.4125184714794159
+      ],
+      "geometry_stats": {
+        "triangles": 1416,
+        "vertices": 734,
+        "objects": 4,
+        "material_count": 4,
+        "blender_material_count": 4,
+        "glb_material_count": 4
+      },
+      "meshes": [
+        {
+          "name": "Standing_utility_pole",
+          "layer": "pole",
+          "materials": [
+            "Weathered_wood"
+          ]
+        },
+        {
+          "name": "Utility_top_crossarm",
+          "layer": "crossarm",
+          "materials": [
+            "Weathered_wood"
+          ]
+        },
+        {
+          "name": "PRP-005_insulators",
+          "layer": "insulators",
+          "materials": [
+            "Oxidized_steel",
+            "Chalk_frame"
+          ]
+        },
+        {
+          "name": "PRP-005_wires",
+          "layer": "wires",
+          "materials": [
+            "Dark_recess"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "connections": {
+        "wire_endpoints": [
+          [
+            -0.6,
+            5.96,
+            0.4
+          ],
+          [
+            -0.6,
+            5.94,
+            -0.4
+          ],
+          [
+            0.62,
+            5.96,
+            0.4
+          ],
+          [
+            0.62,
+            5.94,
+            -0.4
+          ]
+        ],
+        "wire_dynamics": "NOT_RUN",
+        "crossarm_insulators_wires_separate": true,
+        "collision_candidate": "pole trunk, not wire bounding box"
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 1416,
+          "triangles_after": 1416,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\005_wired_utility_pole",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\005_wired_utility_pole\\005_wired_utility_pole.glb",
+        "copy": "assets/models/town_lab/PRP-005/005_wired_utility_pole.glb",
+        "sha256": "7a00519cb5f03fc2a21d054d1bb260e7fa510809597d557ab57542170e6dde98"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\005_wired_utility_pole\\metadata.json",
+        "copy": "assets/models/town_lab/PRP-005/metadata.json",
+        "sha256": "172951050577f17f333c36ad2556433f5bb60eb2f2bf523ae80e49fd00e43b77"
+      }
+    ]
+  },
+  {
+    "id": "PRP-012",
+    "name": "屋根付きバス停",
+    "scene": "res://assets/models/town_lab/PRP-012/012_ruined_bus_shelter.glb",
+    "metadata": {
+      "asset_id": "PRP-012",
+      "name": "屋根付きバス停",
+      "category": "PRP",
+      "version": "0.0.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          1.2100000381469727,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -1.649999976158142,
+          0.0,
+          -0.800000011920929
+        ],
+        "max": [
+          1.649999976158142,
+          2.4200000762939453,
+          0.800000011920929
+        ]
+      },
+      "dimensions": [
+        3.299999952316284,
+        2.4200000762939453,
+        1.600000023841858
+      ],
+      "placement_size_xz": [
+        3.299999952316284,
+        1.600000023841858
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -1.649999976158142,
+        -0.800000011920929,
+        1.649999976158142,
+        0.800000011920929
+      ],
+      "geometry_stats": {
+        "triangles": 480,
+        "vertices": 276,
+        "objects": 6,
+        "material_count": 5,
+        "blender_material_count": 5,
+        "glb_material_count": 5
+      },
+      "meshes": [
+        {
+          "name": "PRP-012_posts",
+          "layer": "posts",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "Shelter_chipped_roof",
+          "layer": "roof",
+          "materials": [
+            "Roof_aggregate"
+          ]
+        },
+        {
+          "name": "PRP-012_frame",
+          "layer": "frame",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "PRP-012_seat_frame",
+          "layer": "seat_frame",
+          "materials": [
+            "Rust"
+          ]
+        },
+        {
+          "name": "PRP-012_seat",
+          "layer": "seat",
+          "materials": [
+            "Weathered_wood"
+          ]
+        },
+        {
+          "name": "PRP-012_glass_remnants",
+          "layer": "glass_remnants",
+          "materials": [
+            "Window_remnant"
+          ]
+        }
+      ],
+      "external_textures": [
+        "textures/concrete_surface_color.png"
+      ],
+      "connections": {
+        "seat_height_m": 0.5,
+        "roof_clearance_m": 2.3,
+        "posts_roof_seat_glass_separate": true,
+        "glass_mode": "opaque tinted remnants; no painted reflections",
+        "front_access_open": true,
+        "collision_candidate": "posts and seat; do not block entire shelter bounding box"
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 480,
+          "triangles_after": 480,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\012_ruined_bus_shelter",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\012_ruined_bus_shelter\\012_ruined_bus_shelter.glb",
+        "copy": "assets/models/town_lab/PRP-012/012_ruined_bus_shelter.glb",
+        "sha256": "17418891b3e387282f591202fcb5f4253aa718ac67e4c62712ee5929f6dd19df"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\012_ruined_bus_shelter\\metadata.json",
+        "copy": "assets/models/town_lab/PRP-012/metadata.json",
+        "sha256": "ff5a65c9396cf0223a09fc43b051f98089ad3689c3f767e2d06c63465044883a"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\012_ruined_bus_shelter\\textures\\concrete_surface_color.png",
+        "copy": "assets/models/town_lab/PRP-012/textures/concrete_surface_color.png",
+        "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+      }
+    ]
+  },
+  {
+    "id": "PRP-017",
+    "name": "大型廃棄物コンテナ",
+    "scene": "res://assets/models/town_lab/PRP-017/017_open_waste_container.glb",
+    "metadata": {
+      "asset_id": "PRP-017",
+      "name": "大型廃棄物コンテナ",
+      "category": "PRP",
+      "version": "0.0.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          0.9399999976158142,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -1.159999966621399,
+          0.0,
+          -0.699999988079071
+        ],
+        "max": [
+          1.159999966621399,
+          1.8799999952316284,
+          0.699999988079071
+        ]
+      },
+      "dimensions": [
+        2.319999933242798,
+        1.8799999952316284,
+        1.399999976158142
+      ],
+      "placement_size_xz": [
+        2.319999933242798,
+        1.399999976158142
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -1.159999966621399,
+        -0.699999988079071,
+        1.159999966621399,
+        0.699999988079071
+      ],
+      "geometry_stats": {
+        "triangles": 520,
+        "vertices": 288,
+        "objects": 4,
+        "material_count": 4,
+        "blender_material_count": 4,
+        "glb_material_count": 4
+      },
+      "meshes": [
+        {
+          "name": "PRP-017_body",
+          "layer": "body",
+          "materials": [
+            "Bin_paint"
+          ]
+        },
+        {
+          "name": "Open_container_lid",
+          "layer": "roof",
+          "materials": [
+            "Roof_aggregate"
+          ]
+        },
+        {
+          "name": "PRP-017_wheels",
+          "layer": "wheels",
+          "materials": [
+            "Dark_recess"
+          ]
+        },
+        {
+          "name": "PRP-017_wheel_forks",
+          "layer": "wheel_forks",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        }
+      ],
+      "external_textures": [
+        "textures/concrete_surface_color.png"
+      ],
+      "connections": {
+        "lid_separate": true,
+        "lid_hinge_y_up": [
+          0,
+          1.39,
+          -0.7
+        ],
+        "lid_open_slope": 0.35,
+        "wheel_count": 4,
+        "collision_candidate": "box body and open lid, game simplified choice NOT_RUN"
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 520,
+          "triangles_after": 520,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\017_open_waste_container",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\017_open_waste_container\\017_open_waste_container.glb",
+        "copy": "assets/models/town_lab/PRP-017/017_open_waste_container.glb",
+        "sha256": "6bbd718052e19762e44c27e0c4f28144ec3e9f648943bd9c57933d6b06a901d3"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\017_open_waste_container\\metadata.json",
+        "copy": "assets/models/town_lab/PRP-017/metadata.json",
+        "sha256": "a08fdf5221ee58638ab3a8950c8e4df8474ba489d0a615939d4ed0fa8887f7d6"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\017_open_waste_container\\textures\\concrete_surface_color.png",
+        "copy": "assets/models/town_lab/PRP-017/textures/concrete_surface_color.png",
+        "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+      }
+    ]
+  },
+  {
+    "id": "PRP-034",
+    "name": "消火栓",
+    "scene": "res://assets/models/town_lab/PRP-034/034_generic_fire_hydrant.glb",
+    "metadata": {
+      "asset_id": "PRP-034",
+      "name": "消火栓",
+      "category": "PRP",
+      "version": "0.0.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          0.5299999713897705,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -0.38999998569488525,
+          0.0,
+          -0.25
+        ],
+        "max": [
+          0.38999998569488525,
+          1.059999942779541,
+          0.25
+        ]
+      },
+      "dimensions": [
+        0.7799999713897705,
+        1.059999942779541,
+        0.5
+      ],
+      "placement_size_xz": [
+        0.7799999713897705,
+        0.5
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -0.38999998569488525,
+        -0.25,
+        0.38999998569488525,
+        0.25
+      ],
+      "geometry_stats": {
+        "triangles": 580,
+        "vertices": 304,
+        "objects": 5,
+        "material_count": 2,
+        "blender_material_count": 2,
+        "glb_material_count": 2
+      },
+      "meshes": [
+        {
+          "name": "Hydrant_foot",
+          "layer": "base",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "Hydrant_short_body",
+          "layer": "body",
+          "materials": [
+            "Hydrant_red"
+          ]
+        },
+        {
+          "name": "PRP-034_outlets",
+          "layer": "outlets",
+          "materials": [
+            "Hydrant_red"
+          ]
+        },
+        {
+          "name": "PRP-034_caps",
+          "layer": "caps",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "Hydrant_top_nut",
+          "layer": "top_nut",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "connections": {
+        "outlet_count": 2,
+        "caps_separate": true,
+        "generic_design": true,
+        "collision_candidate": "short central cylinder and two outlets"
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 580,
+          "triangles_after": 580,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\034_generic_fire_hydrant",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\034_generic_fire_hydrant\\034_generic_fire_hydrant.glb",
+        "copy": "assets/models/town_lab/PRP-034/034_generic_fire_hydrant.glb",
+        "sha256": "e663fd157152a8e4f6c36d1cfcd1ebd5b5c01fc16c069d79584a62554b822010"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\034_generic_fire_hydrant\\metadata.json",
+        "copy": "assets/models/town_lab/PRP-034/metadata.json",
+        "sha256": "aa83c8c3ce9d8394500113b61ac96ccd2e6dcaaa1b3354aeee595d537624e7bc"
+      }
+    ]
+  },
+  {
+    "id": "PRP-041",
+    "name": "錆びた乗用車の外殻",
+    "scene": "res://assets/models/town_lab/PRP-041/041_crumpled_passenger_car_shell.glb",
+    "metadata": {
+      "asset_id": "PRP-041",
+      "name": "錆びた乗用車の外殻",
+      "category": "PRP",
+      "version": "0.0.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          0.7749999761581421,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -1.0,
+          0.0,
+          -1.9250000715255737
+        ],
+        "max": [
+          1.0,
+          1.5499999523162842,
+          1.9500000476837158
+        ]
+      },
+      "dimensions": [
+        2.0,
+        1.5499999523162842,
+        3.8750001192092896
+      ],
+      "placement_size_xz": [
+        2.0,
+        3.8750001192092896
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -1.0,
+        -1.9250000715255737,
+        1.0,
+        1.9500000476837158
+      ],
+      "geometry_stats": {
+        "triangles": 832,
+        "vertices": 454,
+        "objects": 7,
+        "material_count": 3,
+        "blender_material_count": 3,
+        "glb_material_count": 3
+      },
+      "meshes": [
+        {
+          "name": "Car_floor",
+          "layer": "floor",
+          "materials": [
+            "Dark_recess"
+          ]
+        },
+        {
+          "name": "PRP-041_body",
+          "layer": "body",
+          "materials": [
+            "Vehicle_rust",
+            "Vehicle_paint"
+          ]
+        },
+        {
+          "name": "Crumpled_bonnet",
+          "layer": "bonnet",
+          "materials": [
+            "Vehicle_rust"
+          ]
+        },
+        {
+          "name": "Car_roof",
+          "layer": "roof",
+          "materials": [
+            "Vehicle_paint"
+          ]
+        },
+        {
+          "name": "PRP-041_window_frames",
+          "layer": "window_frames",
+          "materials": [
+            "Vehicle_rust"
+          ]
+        },
+        {
+          "name": "PRP-041_wheels",
+          "layer": "wheels",
+          "materials": [
+            "Dark_recess"
+          ]
+        },
+        {
+          "name": "PRP-041_seat_remnants",
+          "layer": "seat_remnants",
+          "materials": [
+            "Dark_recess"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "connections": {
+        "window_openings_real": true,
+        "front_crumple_geometry": true,
+        "body_roof_wheels_separate": true,
+        "brand": "none",
+        "collision_candidate": "simplified damaged car envelope"
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 832,
+          "triangles_after": 832,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\041_crumpled_passenger_car_shell",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\041_crumpled_passenger_car_shell\\041_crumpled_passenger_car_shell.glb",
+        "copy": "assets/models/town_lab/PRP-041/041_crumpled_passenger_car_shell.glb",
+        "sha256": "c3f9bec4492c9cb7c84cc3be6448cb1725169e8aeba20a169e5e1302b5c59951"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\041_crumpled_passenger_car_shell\\metadata.json",
+        "copy": "assets/models/town_lab/PRP-041/metadata.json",
+        "sha256": "424483473894f5f65edad9364aeff6d54fbe3cc4e70911b3f68ccdbbf7fdb04e"
+      }
+    ]
+  },
+  {
+    "id": "PRP-075",
+    "name": "放置された滑り台",
+    "scene": "res://assets/models/town_lab/PRP-075/075_abandoned_playground_slide.glb",
+    "metadata": {
+      "asset_id": "PRP-075",
+      "name": "放置された滑り台",
+      "category": "PRP",
+      "version": "rebuild.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) -> (x,z,-y)",
+        "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "preview_camera": {
+        "resolution": [
+          640,
+          360
+        ],
+        "vertical_span_m": 18.5,
+        "elevation_degrees": 30,
+        "azimuth_degrees": 45,
+        "target_y_up": [
+          0,
+          1.0447373040951788,
+          0
+        ]
+      },
+      "aabb": {
+        "min": [
+          -1.5837230682373047,
+          -0.009367535822093487,
+          -0.37328699231147766
+        ],
+        "max": [
+          1.502183198928833,
+          2.098842144012451,
+          0.37328699231147766
+        ]
+      },
+      "dimensions": [
+        3.0859062671661377,
+        2.1082096798345447,
+        0.7465739846229553
+      ],
+      "placement_size_xz": [
+        3.0859062671661377,
+        0.7465739846229553
+      ],
+      "contact_type": "ground_contact",
+      "contact_bounds_xz": [
+        -1.5837230682373047,
+        -0.37328699231147766,
+        1.502183198928833,
+        0.37328699231147766
+      ],
+      "geometry_stats": {
+        "triangles": 810,
+        "vertices": 444,
+        "objects": 7,
+        "material_count": 4
+      },
+      "meshes": [
+        {
+          "name": "Slide_curved_sheet",
+          "layer": "slide_sheet",
+          "materials": [
+            "Machine_sage"
+          ]
+        },
+        {
+          "name": "PRP-075_side_rims",
+          "layer": "side_rims",
+          "materials": [
+            "Machine_sage"
+          ]
+        },
+        {
+          "name": "Top_platform",
+          "layer": "platform",
+          "materials": [
+            "Machine_sage"
+          ]
+        },
+        {
+          "name": "PRP-075_supports",
+          "layer": "supports",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "PRP-075_ladder",
+          "layer": "ladder",
+          "materials": [
+            "Oxidized_steel"
+          ]
+        },
+        {
+          "name": "PRP-075_handles",
+          "layer": "handles",
+          "materials": [
+            "Muted_ochre"
+          ]
+        },
+        {
+          "name": "PRP-075_rungs",
+          "layer": "rungs",
+          "materials": [
+            "Rust"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "connections": {
+        "design_family": "abandoned curved playground slide with a connected ladder and guard handles",
+        "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; exact historical ID mapping inferred from ordered preview groups, not original file recovery",
+        "vegetation": "separate",
+        "collision_navigation": "NOT_RUN",
+        "static_prop_not_functional_mechanism": true
+      },
+      "generated_receiver_surfaces": [],
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 810,
+          "triangles_after": 810,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN"
+      },
+      "integration_status": "NOT_RUN",
+      "self_review_not_independent": true,
+      "recreation_not_original_recovery": true,
+      "delivery_files": {
+        "blend": "075_abandoned_playground_slide.blend",
+        "glb": "075_abandoned_playground_slide.glb"
+      },
+      "coordinate_documentation_revision": 1,
+      "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\075_abandoned_playground_slide",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\075_abandoned_playground_slide\\075_abandoned_playground_slide.glb",
+        "copy": "assets/models/town_lab/PRP-075/075_abandoned_playground_slide.glb",
+        "sha256": "8b355925b2cafdd98352f52f7e8bfbb0e07c7d8be17053fc0f768e026da560b4"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\075_abandoned_playground_slide\\metadata.json",
+        "copy": "assets/models/town_lab/PRP-075/metadata.json",
+        "sha256": "3b04b634971006b5009440cab3278f0838bf484b71cd2a23923a8cad5bea8ae6"
+      }
+    ]
+  },
+  {
+    "id": "TRE-001",
+    "name": "非対称な広葉樹",
+    "scene": "res://assets/models/town_lab/TRE-001/001_asymmetric_broadleaf.glb",
+    "metadata": {
+      "asset_id": "TRE-001",
+      "category": "TRE",
+      "version": "0.0.1",
+      "units": "meters",
+      "coordinates": {
+        "blender": "Z_UP",
+        "delivery": "Y_UP",
+        "mapping": "(x,y,z) Blender -> (x,z,-y) GLB",
+        "all_metadata_vectors": "GLB local Y_UP"
+      },
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "aabb": {
+        "min": [
+          -2.2284719944000244,
+          -0.0413711778819561,
+          -1.5725972652435303
+        ],
+        "max": [
+          2.0015950202941895,
+          5.437097072601318,
+          1.7341394424438477
+        ]
+      },
+      "dimensions": [
+        4.230067014694214,
+        5.4784682504832745,
+        3.306736707687378
+      ],
+      "placement_size_xz": [
+        4.230067014694214,
+        3.306736707687378
+      ],
+      "contact_bounds_xz": [
+        -2.2284719944000244,
+        -1.5725972652435303,
+        2.0015950202941895,
+        1.7341394424438477
+      ],
+      "geometry_stats": {
+        "triangles": 1290,
+        "vertices": 861,
+        "objects": 4,
+        "material_count": 4,
+        "blender_material_count": 4,
+        "glb_material_count": 4
+      },
+      "meshes": [
+        {
+          "name": "TRE_Trunk",
+          "layer": "trunk",
+          "materials": [
+            "Bark"
+          ]
+        },
+        {
+          "name": "TRE-001_roots",
+          "layer": "roots",
+          "materials": [
+            "Bark"
+          ]
+        },
+        {
+          "name": "TRE-001_branches",
+          "layer": "branches",
+          "materials": [
+            "Bark"
+          ]
+        },
+        {
+          "name": "TRE-001_crown",
+          "layer": "crown",
+          "materials": [
+            "Leaf_deep",
+            "Leaf_mid",
+            "Leaf_young"
+          ]
+        }
+      ],
+      "external_textures": [],
+      "texture_note": "No image textures required; simple opaque Principled materials, no baked illumination.",
+      "connections": {
+        "trunk_layer": "trunk",
+        "crown_layer": "crown",
+        "contact_radius_m": 0.8,
+        "canopy_game_occlusion": "NOT_RUN",
+        "asymmetric_cluster_centers": [
+          [
+            -1.1,
+            3.25,
+            -0.0
+          ],
+          [
+            0.95,
+            3.8,
+            -0.35
+          ],
+          [
+            -0.67,
+            4.32,
+            -0.65
+          ],
+          [
+            0.2,
+            4.67,
+            0.65
+          ],
+          [
+            0.65,
+            5.02,
+            -0.48
+          ],
+          [
+            -1.25,
+            4.02,
+            0.35
+          ]
+        ]
+      },
+      "validation": {
+        "blender_visual": "PASS_MAIN_SELF_REVIEW",
+        "glb_reimport": {
+          "status": "PASS",
+          "aabb_max_error_m": 0.0,
+          "raw_glb_y_up_aabb_max_error_m": 0.0,
+          "triangles_before": 1290,
+          "triangles_after": 1290,
+          "material_names_preserved": true,
+          "pbr_value_max_error": 0.0,
+          "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+          "render_file": "reimport_preview_640.png"
+        },
+        "godot_performance": "NOT_RUN",
+        "godot_reflection": "NOT_RUN",
+        "godot_shadows": "NOT_RUN",
+        "godot_pixel_perfect": "NOT_RUN",
+        "godot_greening": "NOT_RUN",
+        "visual_notes": "Native-scale individual/reimport views and shared wall/ground composition reviewed. Small membrane and grass assessed in composite. Not Godot verification."
+      },
+      "integration_status": "NOT_RUN",
+      "material_behavior": {
+        "opaque": true,
+        "double_sided": true,
+        "external_textures_required": false
+      }
+    },
+    "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\001_asymmetric_broadleaf",
+    "files": [
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\001_asymmetric_broadleaf\\001_asymmetric_broadleaf.glb",
+        "copy": "assets/models/town_lab/TRE-001/001_asymmetric_broadleaf.glb",
+        "sha256": "d058c573abeaa0bc7a99e07098049e69deb09ff61d5cd31e7fcf00a944d75150"
+      },
+      {
+        "source": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\001_asymmetric_broadleaf\\metadata.json",
+        "copy": "assets/models/town_lab/TRE-001/metadata.json",
+        "sha256": "4f0d3c1562795c8bd120980f8688ed2b5689c22f34ae675854b13e7ef23a6f8f"
+      }
+    ]
+  }
+]

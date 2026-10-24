@@ -1,0 +1,45 @@
+{
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "files": [
+    {
+      "path": "run_greening_map.bat",
+      "sha256": "49e95546916b55113a6c3d4135fb161d55c30cedb85dfa5708946a3f1b0f4df8",
+      "bytes": 121
+    },
+    {
+      "path": "scenes/greening_map.tscn",
+      "sha256": "27d849da29b67711b59585ca83e12e2e39cc8ecf8121e60ba0d8e87cc4daca34",
+      "bytes": 176
+    },
+    {
+      "path": "scripts/greening_map/actor.gd",
+      "sha256": "5090930dee70a41fb0573c4a7b0278c42185c2abd0fa095152d86222b167c262",
+      "bytes": 2758
+    },
+    {
+      "path": "scripts/greening_map/ground_view.gd",
+      "sha256": "3d4652c6fdb4123e9f679933700c540dbfdee3acb60bbf89b480c3b0b44935a5",
+      "bytes": 3600
+    },
+    {
+      "path": "scripts/greening_map/map.gd",
+      "sha256": "7a1d56f999c57a408a4fc1a21a1bd8b03dd407c99b1f6d82282135dbbebff228",
+      "bytes": 11069
+    },
+    {
+      "path": "scripts/greening_map/session.gd",
+      "sha256": "f4955463ed994ce9a64df7fee69129abd98e522b0a12884d936a275af9cfd08f",
+      "bytes": 6129
+    },
+    {
+      "path": "tests/greening_map/self_capture.gd",
+      "sha256": "29e1a9e0912e9d0939c19ae455972277c61f7f4549d159c67b89f656d5f441d2",
+      "bytes": 7471
+    },
+    {
+      "path": "tests/greening_map/self_logic.gd",
+      "sha256": "e7dc0f941de3883e0840e42bbd1b1d36ccab16bf16ad1d80ee7914694e235c4a",
+      "bytes": 3738
+    }
+  ]
+}

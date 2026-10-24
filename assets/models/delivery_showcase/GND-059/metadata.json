@@ -1,0 +1,165 @@
+{
+  "asset_id": "GND-059",
+  "name": "曲がる路面電車軌道の舗装",
+  "category": "GND",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      -0.08749999385327101,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -2.4000000953674316,
+      -0.19999998807907104,
+      -1.600000023841858
+    ],
+    "max": [
+      2.4000000953674316,
+      0.02500000037252903,
+      1.600000023841858
+    ]
+  },
+  "dimensions": [
+    4.800000190734863,
+    0.22499998845160007,
+    3.200000047683716
+  ],
+  "placement_size_xz": [
+    4.800000190734863,
+    3.200000047683716
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -2.4000000953674316,
+    -1.600000023841858,
+    2.4000000953674316,
+    1.600000023841858
+  ],
+  "geometry_stats": {
+    "triangles": 2148,
+    "vertices": 1304,
+    "objects": 3,
+    "material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "Tram_subbase",
+      "layer": "base",
+      "materials": [
+        "Soil"
+      ]
+    },
+    {
+      "name": "GND-059_pavers",
+      "layer": "pavers",
+      "materials": [
+        "Paving_worn",
+        "Paving_grey"
+      ]
+    },
+    {
+      "name": "GND-059_rails",
+      "layer": "rails",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    }
+  ],
+  "external_textures": [
+    "textures/soil_surface_color.png"
+  ],
+  "connections": {
+    "design_family": "curved tram rails embedded in cut paving blocks",
+    "cell_m": 0.4,
+    "grid_cells": [
+      12,
+      8
+    ],
+    "nominal_bounds_xz": [
+      -2.4,
+      -1.6,
+      2.4,
+      1.6
+    ],
+    "edge_datum_y": 0,
+    "origin": "tile centre at nominal ground zero",
+    "collision_navigation": "NOT_RUN",
+    "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; ID mapping inferred from chronological image groups",
+    "grass_layer": "grass, independent from ground",
+    "water": null,
+    "rail_ports_glb": [
+      [
+        -2.4,
+        0.025,
+        0.19400000000000006
+      ],
+      [
+        -2.4,
+        0.025,
+        -0.906
+      ],
+      [
+        2.4,
+        0.025,
+        0.19400000000000006
+      ],
+      [
+        2.4,
+        0.025,
+        -0.906
+      ]
+    ],
+    "rail_bend": "y=.10*x*x-.22 in Blender plane; two rails offset .55m"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 2148,
+      "triangles_after": 2148,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "059_curved_tram_track_paving.blend",
+    "glb": "059_curved_tram_track_paving.glb"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

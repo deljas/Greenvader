@@ -1,0 +1,150 @@
+{
+  "asset_id": "PRP-041",
+  "name": "錆びた乗用車の外殻",
+  "category": "PRP",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      0.7749999761581421,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.0,
+      0.0,
+      -1.9250000715255737
+    ],
+    "max": [
+      1.0,
+      1.5499999523162842,
+      1.9500000476837158
+    ]
+  },
+  "dimensions": [
+    2.0,
+    1.5499999523162842,
+    3.8750001192092896
+  ],
+  "placement_size_xz": [
+    2.0,
+    3.8750001192092896
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -1.0,
+    -1.9250000715255737,
+    1.0,
+    1.9500000476837158
+  ],
+  "geometry_stats": {
+    "triangles": 832,
+    "vertices": 454,
+    "objects": 7,
+    "material_count": 3,
+    "blender_material_count": 3,
+    "glb_material_count": 3
+  },
+  "meshes": [
+    {
+      "name": "Car_floor",
+      "layer": "floor",
+      "materials": [
+        "Dark_recess"
+      ]
+    },
+    {
+      "name": "PRP-041_body",
+      "layer": "body",
+      "materials": [
+        "Vehicle_rust",
+        "Vehicle_paint"
+      ]
+    },
+    {
+      "name": "Crumpled_bonnet",
+      "layer": "bonnet",
+      "materials": [
+        "Vehicle_rust"
+      ]
+    },
+    {
+      "name": "Car_roof",
+      "layer": "roof",
+      "materials": [
+        "Vehicle_paint"
+      ]
+    },
+    {
+      "name": "PRP-041_window_frames",
+      "layer": "window_frames",
+      "materials": [
+        "Vehicle_rust"
+      ]
+    },
+    {
+      "name": "PRP-041_wheels",
+      "layer": "wheels",
+      "materials": [
+        "Dark_recess"
+      ]
+    },
+    {
+      "name": "PRP-041_seat_remnants",
+      "layer": "seat_remnants",
+      "materials": [
+        "Dark_recess"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "window_openings_real": true,
+    "front_crumple_geometry": true,
+    "body_roof_wheels_separate": true,
+    "brand": "none",
+    "collision_candidate": "simplified damaged car envelope"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 832,
+      "triangles_after": 832,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true
+}

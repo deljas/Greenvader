@@ -1,0 +1,74 @@
+{
+  "method": "Independent offline image-byte inspection; no engine execution",
+  "checks": [
+    {
+      "id": "integer2x.morning",
+      "result": "PASS",
+      "detail": "All 1920x1080 output pixels compared with exact source-pixel replication."
+    },
+    {
+      "id": "integer2x.noon",
+      "result": "PASS",
+      "detail": "All 1920x1080 output pixels compared with exact source-pixel replication."
+    },
+    {
+      "id": "integer2x.evening",
+      "result": "PASS",
+      "detail": "All 1920x1080 output pixels compared with exact source-pixel replication."
+    },
+    {
+      "id": "shadow_reference_difference",
+      "result": "PASS",
+      "changed_pixels": 34718,
+      "detail": "Files differ; claim that only shadow was toggled is separately reviewed against capture code."
+    },
+    {
+      "id": "camera_evidence_files",
+      "result": "PASS",
+      "detail": "Five samples exist; no claim of all-frame temporal stability."
+    }
+  ],
+  "frames": [
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_00_960.png",
+      "size": [
+        960,
+        540
+      ],
+      "equals_noon": true
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_01_960.png",
+      "size": [
+        960,
+        540
+      ],
+      "equals_noon": false
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_02_960.png",
+      "size": [
+        960,
+        540
+      ],
+      "equals_noon": false
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_03_960.png",
+      "size": [
+        960,
+        540
+      ],
+      "equals_noon": false
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_04_960.png",
+      "size": [
+        960,
+        540
+      ],
+      "equals_noon": false
+    }
+  ],
+  "failures": 0
+}

@@ -1,0 +1,43 @@
+{
+	"failures": 0,
+	"pond_bounds": "[P: (-7.6, 3.200001), S: (2.0, 2.4)]",
+	"puddle_position": "(0.2, 0.006, 2.2)",
+	"reflection_mask": 1,
+	"results": [
+		{
+			"detail": "",
+			"id": "GPU.nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pond.reflection_toggle_GPU",
+			"status": "PASS"
+		},
+		{
+			"detail": "box changes 339 pixels inside pond, no shadow",
+			"id": "pond.actual_geometry_reflection",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "reflection.plane_projection_mapping",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "reflection.actual_world_and_exclusions",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "puddle.visual_only_shared_texture",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "reflection_light_puddle.state_unchanged",
+			"status": "PASS"
+		}
+	]
+}

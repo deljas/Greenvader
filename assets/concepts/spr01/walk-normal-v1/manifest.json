@@ -1,0 +1,585 @@
+{
+  "kind": "walk-normal-initial-trial",
+  "internal_screen": [
+    640,
+    360
+  ],
+  "frame_size": [
+    24,
+    36
+  ],
+  "sheet": "sheet.png",
+  "sheet_size": [
+    96,
+    144
+  ],
+  "row_order": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "fps": 8,
+  "loop": true,
+  "cycle_ms": 500,
+  "foot_anchor_xy": [
+    12,
+    34
+  ],
+  "gif_frame_ms": [
+    120,
+    130,
+    120,
+    130
+  ],
+  "directions": [
+    {
+      "direction": "down",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "down-0.png",
+          "rect": [
+            0,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+        },
+        {
+          "file": "down-1.png",
+          "rect": [
+            24,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            4,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-left-foot-contact",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "sha256": "3f1527bfa13cff92be42f2afc59abfcf2d335a57ebc39deae9c93f6b6a388924"
+        },
+        {
+          "file": "down-2.png",
+          "rect": [
+            48,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "6ca45e983fa905e6710b11a6d116ede8d81f8df0ccd89ebde9a3e1833ae4d793"
+        },
+        {
+          "file": "down-3.png",
+          "rect": [
+            72,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            2,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-right-foot-contact",
+          "support_pixel_x_at_y33": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "115ae946a39ff7d71499e3ff546fc5cb3a614f77e1045569ecb5c86f50123ac9"
+        }
+      ]
+    },
+    {
+      "direction": "left",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "left-0.png",
+          "rect": [
+            0,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+        },
+        {
+          "file": "left-1.png",
+          "rect": [
+            24,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            5,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-left-foot-contact",
+          "support_pixel_x_at_y33": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "sha256": "8fddc6c89f5a6b38bbb496047f7c3d9e024a54644ec3e58d9ed375f70d2d1473"
+        },
+        {
+          "file": "left-2.png",
+          "rect": [
+            48,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            6,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "217f9027b0c1f8afab50df708fba7f53af8820078012a1c429c54db115ed2b94"
+        },
+        {
+          "file": "left-3.png",
+          "rect": [
+            72,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            3,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-right-foot-contact",
+          "support_pixel_x_at_y33": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "f6fde2b3520beb8dcf38771cfc3b5c4d66c1a14e879fc7e9162a2e83275d9870"
+        }
+      ]
+    },
+    {
+      "direction": "right",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "right-0.png",
+          "rect": [
+            0,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+        },
+        {
+          "file": "right-1.png",
+          "rect": [
+            24,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            5,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-left-foot-contact",
+          "support_pixel_x_at_y33": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "sha256": "b1fcf6328e6846d39638303cfbbe481e947ede01c6861e6c30ea4922e55808cc"
+        },
+        {
+          "file": "right-2.png",
+          "rect": [
+            48,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            6,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "sha256": "5b9bdc03c50d0575a4700de8f4839235bcf344f3add0d5387baa27ae1c3732bf"
+        },
+        {
+          "file": "right-3.png",
+          "rect": [
+            72,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-right-foot-contact",
+          "support_pixel_x_at_y33": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "sha256": "84a8df915d38b28f71e3c02cb66f1816d43832d81c5f240f476778ad5c61965f"
+        }
+      ]
+    },
+    {
+      "direction": "up",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "up-0.png",
+          "rect": [
+            0,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+        },
+        {
+          "file": "up-1.png",
+          "rect": [
+            24,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            4,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-left-foot-contact",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "sha256": "b51e5f83c345321bb887b0c256f12523d4bb2bbecc62fd11efd9d443eb369965"
+        },
+        {
+          "file": "up-2.png",
+          "rect": [
+            48,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "a6df662c5edb8ba26bde56448f2c4689ad3adff22f5c3abec7a17d170fd0d94d"
+        },
+        {
+          "file": "up-3.png",
+          "rect": [
+            72,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            2,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "screen-right-foot-contact",
+          "support_pixel_x_at_y33": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "772c47e281cd27accf14cfc4506640b7dbca2baeae599cbf683081d6362b77de"
+        }
+      ]
+    }
+  ]
+}

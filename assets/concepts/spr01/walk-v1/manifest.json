@@ -1,0 +1,433 @@
+{
+  "kind": "walk-hop-initial-trial",
+  "internal_screen": [
+    640,
+    360
+  ],
+  "frame_size": [
+    24,
+    36
+  ],
+  "sheet": "sheet.png",
+  "sheet_size": [
+    96,
+    144
+  ],
+  "row_order": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "fps": 8,
+  "loop": true,
+  "cycle_ms": 500,
+  "foot_anchor_xy": [
+    12,
+    34
+  ],
+  "gif_frame_ms": [
+    120,
+    130,
+    120,
+    130
+  ],
+  "directions": [
+    {
+      "direction": "down",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "down-0.png",
+          "rect": [
+            0,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "contact",
+          "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+        },
+        {
+          "file": "down-1.png",
+          "rect": [
+            24,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "phase": "prepare-compress",
+          "sha256": "62782b714ff6ff105bf84503edb188bef87e472ead47aba8ea99f3a6ca63f146"
+        },
+        {
+          "file": "down-2.png",
+          "rect": [
+            48,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            32
+          ],
+          "visible_bottom_gap_px": 2,
+          "nominal_body_y_offset_px": -2,
+          "phase": "airborne",
+          "sha256": "cb1d6be7c4db8e456fd90ec8ba6a8d420a904779a7b96f692c6d554a165ed9e9"
+        },
+        {
+          "file": "down-3.png",
+          "rect": [
+            72,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            1,
+            23,
+            33
+          ],
+          "visible_bottom_gap_px": 1,
+          "nominal_body_y_offset_px": -1,
+          "phase": "descending",
+          "sha256": "3af6423647ce4c8f85dff34f584656de57eb0eae98cafc565e9842499750833c"
+        }
+      ]
+    },
+    {
+      "direction": "left",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "left-0.png",
+          "rect": [
+            0,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "contact",
+          "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+        },
+        {
+          "file": "left-1.png",
+          "rect": [
+            24,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            6,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "phase": "prepare-compress",
+          "sha256": "06015cf2a26236f835d0e06de04334247a2135524e9ff463a195750a3992350e"
+        },
+        {
+          "file": "left-2.png",
+          "rect": [
+            48,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            22,
+            32
+          ],
+          "visible_bottom_gap_px": 2,
+          "nominal_body_y_offset_px": -2,
+          "phase": "airborne",
+          "sha256": "f13c66639a0bee463aae5a5ac6418d021a0aeeff539839ed5acd409ba5c49a87"
+        },
+        {
+          "file": "left-3.png",
+          "rect": [
+            72,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            2,
+            22,
+            33
+          ],
+          "visible_bottom_gap_px": 1,
+          "nominal_body_y_offset_px": -1,
+          "phase": "descending",
+          "sha256": "39c95f09169880f6efd962ddd37cc8e88ccdfd2bafe1939e1c67f53c73a15f54"
+        }
+      ]
+    },
+    {
+      "direction": "right",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "right-0.png",
+          "rect": [
+            0,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "contact",
+          "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+        },
+        {
+          "file": "right-1.png",
+          "rect": [
+            24,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            6,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "phase": "prepare-compress",
+          "sha256": "b710e324c9d1667ba857ab6816f85260a5a94fd101b60dc60b2e649485aea120"
+        },
+        {
+          "file": "right-2.png",
+          "rect": [
+            48,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            4,
+            23,
+            32
+          ],
+          "visible_bottom_gap_px": 2,
+          "nominal_body_y_offset_px": -2,
+          "phase": "airborne",
+          "sha256": "c992efeaf31121cc3ca14e30fdc91e47d2d1c215559daf0808e446455234029a"
+        },
+        {
+          "file": "right-3.png",
+          "rect": [
+            72,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            2,
+            23,
+            33
+          ],
+          "visible_bottom_gap_px": 1,
+          "nominal_body_y_offset_px": -1,
+          "phase": "descending",
+          "sha256": "3fad36e58a7808d0e836faf24ab8b6a3578a2ce3ae5dbf31f4a64010d9f94f46"
+        }
+      ]
+    },
+    {
+      "direction": "up",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "up-0.png",
+          "rect": [
+            0,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "phase": "contact",
+          "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+        },
+        {
+          "file": "up-1.png",
+          "rect": [
+            24,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "phase": "prepare-compress",
+          "sha256": "85c0b9ef5e8dc5d358837015195c4cee7232bedb74a39470fa4d17dffcba5668"
+        },
+        {
+          "file": "up-2.png",
+          "rect": [
+            48,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            32
+          ],
+          "visible_bottom_gap_px": 2,
+          "nominal_body_y_offset_px": -2,
+          "phase": "airborne",
+          "sha256": "db6cf31730fc918e27c7ddb0cfedd70143e2cf2a751e3db8844d5b9538918130"
+        },
+        {
+          "file": "up-3.png",
+          "rect": [
+            72,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            1,
+            23,
+            33
+          ],
+          "visible_bottom_gap_px": 1,
+          "nominal_body_y_offset_px": -1,
+          "phase": "descending",
+          "sha256": "06f18ff7731c9ee91cbb5139b9d75f6dacc7ea7701f0f7488dbb38ecb336f369"
+        }
+      ]
+    }
+  ]
+}

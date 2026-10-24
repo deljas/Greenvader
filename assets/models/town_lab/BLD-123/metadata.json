@@ -1,0 +1,177 @@
+{
+  "asset_id": "BLD-123",
+  "name": "円筒灯台",
+  "category": "BLD",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      4.625,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.6200000047683716,
+      0.0,
+      -1.6200000047683716
+    ],
+    "max": [
+      1.6200000047683716,
+      9.25,
+      1.6200000047683716
+    ]
+  },
+  "dimensions": [
+    3.240000009536743,
+    9.25,
+    3.240000009536743
+  ],
+  "placement_size_xz": [
+    3.240000009536743,
+    3.240000009536743
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -1.6200000047683716,
+    -1.6200000047683716,
+    1.6200000047683716,
+    1.6200000047683716
+  ],
+  "geometry_stats": {
+    "triangles": 11060,
+    "vertices": 10198,
+    "objects": 7,
+    "material_count": 7
+  },
+  "meshes": [
+    {
+      "name": "Stone_plinth",
+      "layer": "foundation",
+      "materials": [
+        "Stone_warm"
+      ]
+    },
+    {
+      "name": "Tapered_lime_wall",
+      "layer": "tower_wall",
+      "materials": [
+        "Tower_lime"
+      ]
+    },
+    {
+      "name": "Lantern_floor",
+      "layer": "lantern_floor",
+      "materials": [
+        "Stone_light"
+      ]
+    },
+    {
+      "name": "BLD-123_lantern_frame",
+      "layer": "lantern_frame",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "BLD-123_lantern_glass",
+      "layer": "lantern_glass",
+      "materials": [
+        "Window_remnant"
+      ]
+    },
+    {
+      "name": "BLD-123_roof_covering",
+      "layer": "roof_covering",
+      "materials": [
+        "Slate"
+      ]
+    },
+    {
+      "name": "BLD-123_lamp",
+      "layer": "lamp",
+      "materials": [
+        "Oxidized_steel",
+        "Lamp_glass"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "design_family": "tapered round lighthouse",
+    "damage_description": "missing two lantern panes; open door and slit",
+    "roof_system": "conical metal cap",
+    "vegetation": "NOT included; reusable separate plant assets; leave >=50% wall surface exposed at maturity",
+    "entry_clearance": "Keep recorded door opening and approach unobstructed",
+    "collision_navigation": "NOT_RUN; use individual walls, not the open building volume",
+    "revision_of": "BLD-123",
+    "not_additional_asset": true,
+    "origin_convention": "building footprint centre at ground plane",
+    "receiver_data": "generated_receiver_surfaces contains explicit opening exclusions and irregular top profiles; game adapter NOT_RUN",
+    "curved_receiver": "tapered cylinder; not planar; adapter NOT_RUN",
+    "door_y_up": {
+      "center": [
+        0,
+        1.15,
+        1.35
+      ],
+      "width": 0.7,
+      "height": 2.1
+    },
+    "recreation_status": "NEWLY_REBUILT_FROM_SURVIVING_PREVIEW; not original file recovery"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 11060,
+      "triangles_after": 11060,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "123_lighthouse.blend",
+    "glb": "123_lighthouse.glb"
+  },
+  "geometry_budget_review": {
+    "provisional_guideline_triangles": 10000,
+    "actual_triangles": 11060,
+    "reason": "Physical masonry courses, curved structural surfaces, and exposed separate supports retained for readable damage and non-faceted silhouettes. Provisional triangle guideline exceeded; Godot performance NOT_RUN. Optimize only after game-side measurement, without changing candidate count.",
+    "game_performance": "NOT_RUN"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

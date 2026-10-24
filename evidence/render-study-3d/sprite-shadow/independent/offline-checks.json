@@ -1,0 +1,114 @@
+{
+  "created": "2026-10-16T07:23:51.708993+09:00",
+  "method": "Independent offline files/PNG inspection; no Godot run",
+  "source_hashes_start": [
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+      "sha256": "1764895c0c5bd9034055f3841c93523b63529d8fa7ecd1f82c42362c192d5647"
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_fixture.gd",
+      "sha256": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951"
+    },
+    {
+      "path": "scenes/sprite_shadow_lab.tscn",
+      "sha256": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048"
+    },
+    {
+      "path": "run_sprite_shadow_lab.bat",
+      "sha256": "690663ee2648f99565f0439beaa91adf164c56db5ebe0de15f1523a81e5ada6e"
+    },
+    {
+      "path": "tests/render_study_3d/self_sprite_shadow_capture.gd",
+      "sha256": "b4a2599d22fc95e02fe292e8538ea1d1867eed7e6361d129beb26f23238877f8"
+    }
+  ],
+  "sync": {
+    "total_capture_records": 77,
+    "walk_count": 72,
+    "unique_walk_samples": 72,
+    "poses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "flipped_walk_records": 36,
+    "texture_ID_matches": true,
+    "recorded_flip_and_foot_matches": true,
+    "integer_screen_feet": true,
+    "ground_height_matches": true
+  },
+  "pose_masks": [
+    {
+      "pose": 0,
+      "changed_pixels": 284,
+      "bbox": [
+        361,
+        295,
+        397,
+        310
+      ],
+      "saved_mask_matches_independent_ON_OFF": true,
+      "bbox_occupancy": 0.5259259259259259
+    },
+    {
+      "pose": 2,
+      "changed_pixels": 250,
+      "bbox": [
+        362,
+        297,
+        397,
+        311
+      ],
+      "saved_mask_matches_independent_ON_OFF": true,
+      "bbox_occupancy": 0.5102040816326531
+    }
+  ],
+  "pose_mask_differing_pixels": 114,
+  "integer_scale": {
+    "source_size": [
+      640,
+      360
+    ],
+    "output_size": [
+      1920,
+      1080
+    ],
+    "all_pixels_nearest3x": true
+  },
+  "behind_matches_empty_hard_shadow_scene": true,
+  "existing_preservation": [
+    {
+      "path": "scripts/render_study_3d/study.gd",
+      "sha256": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+      "matches_before": true
+    },
+    {
+      "path": "scripts/render_study_3d/ruin_geometry.gd",
+      "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+      "matches_before": true
+    },
+    {
+      "path": "assets/render_study_3d/concrete.gdshader",
+      "sha256": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+      "matches_before": true
+    },
+    {
+      "path": "assets/render_study_3d/style_grade.gdshader",
+      "sha256": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae",
+      "matches_before": true
+    },
+    {
+      "path": "scenes/render_study_3d.tscn",
+      "sha256": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce",
+      "matches_before": true
+    },
+    {
+      "path": "project.godot",
+      "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+      "matches_before": true
+    }
+  ],
+  "foot_limit": "Raw separate display/caster foot coordinates not logged; foot equality is source review plus self recorded result."
+}

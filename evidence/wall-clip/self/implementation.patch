@@ -1,0 +1,349 @@
+--- before/scripts/greening_map/actor.gd
++++ scripts/greening_map/actor.gd
+@@ -1,5 +1,5 @@
+ extends Node3D
+-## Same two-card method as sprite_shadow_lab; reduced 16x24 fixture for this map.
++## Upright yaw-facing display + upright light-facing caster. Both share physical height.
+ const Fixture: GDScript = preload("res://scripts/render_study_3d/sprite_shadow_fixture.gd")
+ var textures: Array[ImageTexture] = []
+ var display_sprite: Sprite3D
+@@ -10,6 +10,7 @@
+ var render_foot: Vector3
+ var frame: int = 0
+ var flip: bool = false
++var vertical_scale: float = 1.0
+ 
+ func setup(camera_: Camera3D, sun_: DirectionalLight3D) -> void:
+ 	camera = camera_
+@@ -42,15 +43,18 @@
+ 	var correction: Vector2 = point.round()-point
+ 	var ground_forward: Vector3 = Vector3(camera.global_basis.z.x,0,camera.global_basis.z.z).normalized()
+ 	render_foot = logical_foot+camera.global_basis.x*correction.x*pixel_world+ground_forward*correction.y*pixel_world/(-camera.global_basis.y.dot(ground_forward))
+-	var half_height: float = 12.0*pixel_world
+-	display_sprite.global_basis = camera.global_basis
+-	display_sprite.global_position = render_foot+camera.global_basis.y*half_height
++	# Correct upright projection foreshortening without tilting the head into walls.
++	vertical_scale = 1.0/maxf(camera.global_basis.y.dot(Vector3.UP),0.1)
++	var half_height: float = 12.0*pixel_world*vertical_scale
++	display_sprite.global_basis = Basis(camera.global_basis.x,Vector3.UP*vertical_scale,ground_forward)
++	display_sprite.global_position = render_foot+Vector3.UP*half_height
+ 	var normal: Vector3 = Vector3(sun.global_basis.z.x,0,sun.global_basis.z.z).normalized()
+-	shadow_board.global_basis = Basis(Vector3.UP.cross(normal),Vector3.UP,normal)
++	shadow_board.global_basis = Basis(Vector3.UP.cross(normal),Vector3.UP*vertical_scale,normal)
+ 	shadow_board.global_position = render_foot+Vector3.UP*half_height
+ 	for sprite: Sprite3D in [display_sprite,shadow_board]:
+ 		sprite.texture = textures[frame]
+ 		sprite.flip_h = flip
+ 
+ func sync_snapshot() -> Dictionary:
+-	return {"frame":frame,"flip":flip,"texture_match":display_sprite.texture==shadow_board.texture,"flip_match":display_sprite.flip_h==shadow_board.flip_h,"foot_match":(display_sprite.global_position-camera.global_basis.y*12.0*pixel_world).distance_to(shadow_board.global_position-Vector3.UP*12.0*pixel_world)<0.00001,"screen_foot":camera.unproject_position(render_foot)}
++	var half_height: float = 12.0*pixel_world*vertical_scale
++	return {"frame":frame,"flip":flip,"texture_match":display_sprite.texture==shadow_board.texture,"flip_match":display_sprite.flip_h==shadow_board.flip_h,"foot_match":(display_sprite.global_position-Vector3.UP*half_height).distance_to(shadow_board.global_position-Vector3.UP*half_height)<0.00001,"screen_foot":camera.unproject_position(render_foot),"physical_height":half_height*2.0,"vertical_scale":vertical_scale}
+--- before/scripts/greening_map/session.gd
++++ scripts/greening_map/session.gd
+@@ -6,7 +6,9 @@
+ const CELL: float = 0.4
+ const ORIGIN: Vector2 = Vector2(-9.6,-8.0)
+ const SPEED: float = 24.0 # logical px/s = 2.4 metres/s, unaffected by sim multiplier
+-const HALF: Vector2 = Vector2.ONE
++# Full 16px card half-span on each XZ axis + worst pixel-snap shift - minimum
++# visible-foundation clearance: .291 + .055 - .09 = .256m; use .28m locally.
++const HALF: Vector2 = Vector2(2.8,2.8)
+ const BUILDINGS: Array[Dictionary] = [
+ 	{"definition":0,"center":Vector2(-3.2,-2.0),"footprint":Rect2i(8,8,16,14)},
+ 	{"definition":1,"center":Vector2(4.0,-3.8),"footprint":Rect2i(30,6,8,9)}
+--- /dev/null
++++ tests/greening_map/wall_clip_self_after.gd
+@@ -0,0 +1,80 @@
++extends "res://tests/greening_map/wall_clip_self_base.gd"
++func run() -> void:
++	if not setup_lab():
++		quit(2)
++		return
++	var state_before: PackedByteArray = var_to_bytes(lab.session.state.to_dict())
++	var cases: Array[Dictionary] = [
++		{"id":"A_front","start":Vector2(-3.2,1.8),"keys":[KEY_W,KEY_D]},
++		{"id":"A_right","start":Vector2(1.0,-2.0),"keys":[KEY_W,KEY_A]},
++		{"id":"A_corner","start":Vector2(1.0,1.8),"keys":[KEY_W]},
++		{"id":"B_right","start":Vector2(6.5,-3.8),"keys":[KEY_W,KEY_A]},
++		{"id":"B_front","start":Vector2(4.0,-0.8),"keys":[KEY_W,KEY_D]}
++	]
++	for item: Dictionary in cases:
++		var codes: Array[int] = []
++		for code: int in item["keys"]:
++			codes.append(code)
++		if item["id"]=="A_corner":
++			# Axis sliding can leave the corner during a long diagonal push.
++			lab.session.position = Session.to_logic(Vector2(Session.HALF.x/10.0,0.8+Session.HALF.y/10.0))
++			lab.update_actor(Vector2.ZERO)
++		else:
++			await press_wall(item["start"],codes)
++		var row: Dictionary = geometry_row(item["id"])
++		row["visibility"] = await visible_pixels()
++		rows.append(row)
++		check(row["visibility"]["visible"]==row["visibility"]["opaque_fixture_pixels"],"visible_all_"+item["id"],str(row["visibility"]))
++		check(Walker.is_clear(lab.session.state,4,lab.session.position,Session.HALF),"collision_clear_"+item["id"])
++		await capture("after_"+item["id"],item["id"]=="A_right")
++	# Whole rectangular card bounds cover all opaque texels and flips. Verify the
++	# camera projection and shared physical board state for each frame/flip once.
++	var ground: Vector2 = Session.to_ground(lab.session.position)
++	var sync_rows: Array[Dictionary] = []
++	var all_sync: bool = true
++	var dimensions: bool = true
++	for flip: bool in [false,true]:
++		for frame: int in 4:
++			lab.actor.pose(Vector3(ground.x,0.016,ground.y),frame,flip)
++			var row: Dictionary = geometry_row("frame_%d_flip_%s" % [frame,str(flip)])
++			var s: Dictionary = row["sync"]
++			all_sync = all_sync and s["texture_match"] and s["flip_match"] and s["foot_match"]
++			var bottom_left: Vector3 = Vector3(row["corners"][0][0],row["corners"][0][1],row["corners"][0][2])
++			var bottom_right: Vector3 = Vector3(row["corners"][1][0],row["corners"][1][1],row["corners"][1][2])
++			var top_left: Vector3 = Vector3(row["corners"][3][0],row["corners"][3][1],row["corners"][3][2])
++			var width: float = lab.camera.unproject_position(bottom_right).x-lab.camera.unproject_position(bottom_left).x
++			var height: float = lab.camera.unproject_position(bottom_left).y-lab.camera.unproject_position(top_left).y
++			row["projected_size"] = [width,height]
++			dimensions = dimensions and absf(width-16)<0.0001 and absf(height-24)<0.0001 and absf(top_left.x-bottom_left.x)<0.00001 and absf(top_left.z-bottom_left.z)<0.00001
++			sync_rows.append(row)
++	check(all_sync,"all_frames_flips_shared_physical_foot")
++	check(dimensions,"upright_16x24_projection")
++	var screen_foot: Vector2 = lab.camera.unproject_position(lab.actor.render_foot)
++	check(screen_foot.distance_to(screen_foot.round())<0.0001,"presentation_foot_pixel_snap")
++	lab.session.position = Session.to_logic(Vector2(-3.2,-5.5))
++	lab.update_actor(Vector2.ZERO)
++	var behind: Dictionary = geometry_row("behind_A")
++	behind["visibility"] = await visible_pixels()
++	rows.append(behind)
++	check(behind["visibility"]["visible"]==0,"behind_occlusion_preserved",str(behind["visibility"]))
++	await capture("after_behind_A")
++	check(lab.actor.display_sprite.no_depth_test==false,"depth_test_remains_enabled")
++	check(state_before==var_to_bytes(lab.session.state.to_dict()),"paused_wall_checks_state_unchanged")
++	# Upright display stays in the same scene/layer and therefore enters the existing
++	# reflection pass. Place it on the ray into the pond solely for this image pair.
++	lab.session.position = Session.to_logic(Vector2(-7.9,3.0))
++	lab.update_actor(Vector2.ZERO)
++	await capture("after_reflection_actor")
++	var reflection_on: Image = lab.water_surface.reflection_view.get_texture().get_image()
++	reflection_on.save_png(OUT+"actor_reflection_ON_320.png")
++	lab.actor.display_sprite.hide()
++	await lab.wait_render()
++	var reflection_off: Image = lab.water_surface.reflection_view.get_texture().get_image()
++	reflection_off.save_png(OUT+"actor_reflection_OFF_320.png")
++	check(reflection_on.get_data()!=reflection_off.get_data(),"upright_sprite_enters_reflection")
++	lab.actor.display_sprite.show()
++	var f: FileAccess = FileAccess.open(OUT+"after-raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"cases":rows,"frames_flips":sync_rows},"\t"))
++	f = FileAccess.open(OUT+"gpu-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"results":checks,"failures":failures,"pixel_world":lab.actor.pixel_world,"min_foundation_wall_gap_m":0.09,"full_card_axis_half_m":8.0*lab.actor.pixel_world/sqrt(2.0),"snap_max_axis_m":1.5*lab.actor.pixel_world/sqrt(2.0),"chosen_half_m":Session.HALF.x/10.0},"\t"))
++	quit(0 if failures==0 else 1)
+--- /dev/null
++++ tests/greening_map/wall_clip_self_base.gd
+@@ -0,0 +1,101 @@
++extends SceneTree
++const Scene: PackedScene = preload("res://scenes/greening_map.tscn")
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const OUT: String = "res://evidence/wall-clip/self/"
++var lab: Node
++var rows: Array[Dictionary] = []
++var checks: Array[Dictionary] = []
++var failures: int = 0
++
++func _initialize() -> void:
++	root.unfocusable = true
++	create_timer(70).timeout.connect(func() -> void: quit(99))
++	run.call_deferred()
++
++func run() -> void:
++	quit(2)
++
++func setup_lab() -> bool:
++	lab = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	lab.session.paused = true
++	return DisplayServer.get_name()!="headless" and not RenderingServer.get_video_adapter_name().is_empty()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	checks.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(checks[-1])
++
++func key(code: int, pressed: bool) -> void:
++	var event: InputEventKey = InputEventKey.new()
++	event.physical_keycode = code
++	event.keycode = code
++	event.pressed = pressed
++	Input.parse_input_event(event)
++	await process_frame
++
++func press_wall(start: Vector2, codes: Array[int]) -> void:
++	lab.session.position = Session.to_logic(start)
++	for code: int in codes:
++		await key(code,true)
++	for i: int in 3:
++		lab.step(0.5) # 1.5s deliberate pressure, same production input path.
++	for code: int in codes:
++		await key(code,false)
++	lab.update_actor(Vector2.ZERO)
++
++func geometry_row(label_: String) -> Dictionary:
++	var sprite: Sprite3D = lab.actor.display_sprite
++	var half_width: float = 8.0*lab.actor.pixel_world
++	var half_height: float = 12.0*lab.actor.pixel_world
++	var corners: Array = []
++	for xy: Vector2 in [Vector2(-1,-1),Vector2(1,-1),Vector2(1,1),Vector2(-1,1)]:
++		var p: Vector3 = sprite.global_position+sprite.global_basis.x*half_width*xy.x+sprite.global_basis.y*half_height*xy.y
++		corners.append([p.x,p.y,p.z])
++	var foot: Vector3 = lab.actor.render_foot
++	return {"label":label_,"logical_position":[lab.session.position.x,lab.session.position.y],"half_logic":str(Session.HALF),"render_foot":[foot.x,foot.y,foot.z],"corners":corners,"display_up":str(sprite.global_basis.y),"sync":lab.actor.sync_snapshot()}
++
++func capture(label_: String, representative: bool = false) -> void:
++	await lab.wait_render()
++	var image_: Image = lab.render_view.get_texture().get_image()
++	image_.save_png(OUT+label_+"_world_640.png")
++	var ui: Image = root.get_texture().get_image()
++	ui.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++	ui.save_png(OUT+label_+"_ui_1920.png")
++	var center: Vector2i = Vector2i(lab.camera.unproject_position(lab.actor.render_foot).round())
++	var crop: Image = image_.get_region(Rect2i(center-Vector2i(40,60),Vector2i(80,80)))
++	crop.resize(480,480,Image.INTERPOLATE_NEAREST)
++	crop.save_png(OUT+label_+"_closeup_6x.png")
++	if representative:
++		var output: Image = lab.doubled_view.get_texture().get_image()
++		output.save_png(OUT+label_+"_world_1920.png")
++		image_.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++		check(output.get_data()==image_.get_data(),"nearest3_exact")
++	print("IMAGE "+ProjectSettings.globalize_path(OUT+label_+"_ui_1920.png"))
++
++func visible_pixels() -> Dictionary:
++	# Paired actual GPU frames isolate visible sprite pixels without its shadow.
++	lab.actor.shadow_board.visible = false
++	lab.actor.display_sprite.visible = true
++	await lab.wait_render()
++	var on: Image = lab.render_view.get_texture().get_image()
++	lab.actor.display_sprite.visible = false
++	await lab.wait_render()
++	var off: Image = lab.render_view.get_texture().get_image()
++	lab.actor.display_sprite.visible = true
++	lab.actor.shadow_board.visible = true
++	var foot: Vector2i = Vector2i(lab.camera.unproject_position(lab.actor.render_foot).round())
++	var changed: int = 0
++	for y: int in range(foot.y-25,foot.y+1):
++		for x: int in range(foot.x-9,foot.x+9):
++			if on.get_pixel(x,y)!=off.get_pixel(x,y):
++				changed += 1
++	var texture: Image = lab.actor.display_sprite.texture.get_image()
++	var expected: int = 0
++	for y: int in texture.get_height():
++		for x: int in texture.get_width():
++			if texture.get_pixel(x,y).a>=0.5:
++				expected += 1
++	return {"visible":changed,"opaque_fixture_pixels":expected}
+--- /dev/null
++++ tests/greening_map/wall_clip_self_before.gd
+@@ -0,0 +1,14 @@
++extends "res://tests/greening_map/wall_clip_self_base.gd"
++func run() -> void:
++	if not setup_lab():
++		quit(2)
++		return
++	for item: Dictionary in [{"id":"A_right","start":Vector2(1.0,-2.0)},{"id":"B_right","start":Vector2(6.5,-3.8)}]:
++		await press_wall(item["start"],[KEY_W,KEY_A])
++		await capture("before_"+item["id"])
++		var row: Dictionary = geometry_row(item["id"])
++		row["visibility"] = await visible_pixels()
++		rows.append(row)
++	var f: FileAccess = FileAccess.open(OUT+"before-raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify(rows,"\t"))
++	quit(0)
+--- /dev/null
++++ tests/greening_map/wall_clip_self_corner.gd
+@@ -0,0 +1,18 @@
++extends "res://tests/greening_map/wall_clip_self_base.gd"
++## One corrected corner fixture; other successful cases are not repeated.
++func run() -> void:
++	if not setup_lab():
++		quit(2)
++		return
++	lab.session.position = Session.to_logic(Vector2(Session.HALF.x/10.0,0.8+Session.HALF.y/10.0))
++	lab.update_actor(Vector2.ZERO)
++	var row: Dictionary = geometry_row("A_corner")
++	row["visibility"] = await visible_pixels()
++	check(row["visibility"]["visible"]==row["visibility"]["opaque_fixture_pixels"],"visible_all_A_corner",str(row["visibility"]))
++	check(Walker.is_clear(lab.session.state,4,lab.session.position,Session.HALF),"collision_clear_A_corner")
++	await capture("after_A_corner")
++	var f: FileAccess = FileAccess.open(OUT+"corner-raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify(row,"\t"))
++	f = FileAccess.open(OUT+"corner-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"results":checks,"failures":failures},"\t"))
++	quit(0 if failures==0 else 1)
+--- /dev/null
++++ tests/greening_map/wall_clip_self_logic.gd
+@@ -0,0 +1,67 @@
++extends SceneTree
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const OUT: String = "res://evidence/wall-clip/self/"
++var results: Array[Dictionary] = []
++var failures: int = 0
++
++func _initialize() -> void:
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	results.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(results[-1])
++
++func run() -> void:
++	var model: RefCounted = Session.new()
++	var spawn: Vector2 = model.position
++	var axial: Vector2 = model.walk(Vector2.RIGHT,0.20)
++	model.position = spawn
++	var diagonal: Vector2 = model.walk(Vector2.ONE,0.20)
++	check(absf(axial.length()-diagonal.length())<0.001 and axial.x>0 and axial.y<0,"movement.screen_axes_normalized","axial %.8f / diagonal %.8f logical px" % [axial.length(),diagonal.length()])
++	# Long motion through each actual obstacle: use the game Walker, assert final foot rectangles are clear.
++	model.position = Session.to_logic(Vector2(-3.2,2.0))
++	model.position = Walker.move(model.state,Session.TILE_PX,model.position,Vector2(0,-60),Session.HALF)
++	check(Walker.is_clear(model.state,Session.TILE_PX,model.position,Session.HALF) and Session.to_ground(model.position).y>=0.89,"collision.building_foundation")
++	model.position = Session.to_logic(Vector2(-6.8,6.0))
++	model.position = Walker.move(model.state,Session.TILE_PX,model.position,Vector2(0,-60),Session.HALF)
++	check(Walker.is_clear(model.state,Session.TILE_PX,model.position,Session.HALF) and Session.to_ground(model.position).y>5.69,"collision.water")
++	model.position = Walker.move(model.state,Session.TILE_PX,spawn,Vector2(400,400),Session.HALF)
++	check(Walker.is_clear(model.state,Session.TILE_PX,model.position,Session.HALF),"collision.perimeter")
++	model.position = spawn
++	var target: Vector2 = Vector2(0.6,3.8)
++	var seeds: int = model.play.seeds
++	check(model.scatter(target,false) and model.play.seeds==seeds-1 and model.play.last_scatter.size()>0,"seed.real_landing_spending")
++	var planted: int = model.play.last_scatter[0]
++	var water: float = model.play.water
++	check(model.state.stage[planted]==WorldState.STAGE_SEED and model.scatter(target,true) and model.play.water==water-10 and model.play.last_wet_count>0,"water.real_landing_spending")
++	model.play.seeds = 0
++	model.play.water = 0
++	var stages: PackedByteArray = model.state.stage.duplicate()
++	check(not model.scatter(target,false) and not model.scatter(target,true) and stages==model.state.stage,"resources.insufficient_no_mutation")
++	model.refill()
++	check(model.play.seeds==model.play_tuning.seed_max and model.play.water==model.play_tuning.water_max,"resources.debug_refill")
++	model.play.water = 0
++	model.position = Session.to_logic(Vector2(-6.8,5.8))
++	model.advance_game(1)
++	check(model.play.water>0,"water.existing_waterside_refill")
++	model.position = spawn
++	var before: float = model.clock.elapsed
++	model.paused = true
++	model.advance(0.1)
++	check(model.clock.elapsed==before,"clock.growth_pause")
++	model.paused = false
++	model.advance_game(24)
++	check(model.state.stage[planted]>=WorldState.STAGE_SPROUT1,"growth.seed_to_sprout")
++	model.advance_game(90)
++	check(model.state.stage[planted]==WorldState.STAGE_MATURE and model.spread.total_planted>0,"growth.mature_natural_spread")
++	var outside: bool = true
++	for i: int in model.state.tile_count():
++		if model.state.target[i]==0:
++			outside = outside and model.state.stage[i]==0 and model.state.growth[i]==0
++	check(outside and model.state.counters_consistent(),"world.non_targets_counters")
++	var f: FileAccess = FileAccess.open(OUT+"logic-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"results":results,"failures":failures},"\t"))
++	model.close()
++	quit(0 if failures==0 else 1)

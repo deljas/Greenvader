@@ -1,0 +1,117 @@
+[
+	{
+		"counts": [
+			0,
+			82,
+			225,
+			509,
+			800
+		],
+		"fixed_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.615, 0.008352, -0.041564)]",
+		"id": 7,
+		"stats": {
+			"components": 47,
+			"distance": 3.575199842453,
+			"estimated_links": 44,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 3,
+			"shown_triangles": 800,
+			"triangles": 800,
+			"vertices": 604
+		}
+	},
+	{
+		"counts": [
+			0,
+			189,
+			473,
+			959,
+			1302
+		],
+		"fixed_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.010637, 0.012808, -0.112925)]",
+		"id": 32,
+		"stats": {
+			"components": 21,
+			"distance": 3.37214374542236,
+			"estimated_links": 18,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 3,
+			"shown_triangles": 1302,
+			"triangles": 1302,
+			"vertices": 738
+		}
+	},
+	{
+		"counts": [
+			0,
+			251,
+			915,
+			1693,
+			1926
+		],
+		"fixed_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.091284, 0.0, -0.0936)]",
+		"id": 47,
+		"stats": {
+			"components": 53,
+			"distance": 2.8941490650177,
+			"estimated_links": 52,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 5,
+			"shown_triangles": 1926,
+			"triangles": 1926,
+			"vertices": 1141
+		}
+	},
+	{
+		"counts": [
+			0,
+			182,
+			546,
+			1096,
+			1542
+		],
+		"fixed_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.054064, 0.003825, -0.36901)]",
+		"id": 60,
+		"stats": {
+			"components": 27,
+			"distance": 3.90753269195557,
+			"estimated_links": 24,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.06)",
+			"root_vertex": 3,
+			"shown_triangles": 1542,
+			"triangles": 1542,
+			"vertices": 885
+		}
+	},
+	{
+		"counts": [
+			0,
+			5,
+			24,
+			36,
+			120
+		],
+		"fixed_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0025, 0.001254, -0.026676)]",
+		"id": 24,
+		"stats": {
+			"components": 7,
+			"distance": 0.53020304441452,
+			"estimated_links": 6,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 120,
+			"triangles": 120,
+			"vertices": 89
+		}
+	}
+]

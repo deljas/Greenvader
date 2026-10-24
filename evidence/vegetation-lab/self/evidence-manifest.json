@@ -1,0 +1,42 @@
+[
+  {
+    "path": "report.md",
+    "sha256": "7b7c0cb0855af2e363d23ad9d399352c62d3294d745cdfb8cf42b6bafec27d38"
+  },
+  {
+    "path": "source-manifest.json",
+    "sha256": "43110c446cfad865061a08f6c499059fdee0efe39d82ed84ac06b5535f55f5e7"
+  },
+  {
+    "path": "image-manifest.json",
+    "sha256": "a1b3d7862e986159e42dc63e698e96acdaf12f42721afdf14acb5a7d6d130888"
+  },
+  {
+    "path": "integrity.json",
+    "sha256": "5099b0dcac201a0b88564c9699e72a09005f0247db3ac95fd7dd6153a9661fdb"
+  },
+  {
+    "path": "results.json",
+    "sha256": "e7fbbb7c2d7436b96dbd1bde083e92f03a024ae24a4de83232258512eb3b7e91"
+  },
+  {
+    "path": "process.json",
+    "sha256": "946e42d8ba21e326bb3369564e3cb9d3412cab0d76cf94db5513c5f59264174c"
+  },
+  {
+    "path": "gpu.log",
+    "sha256": "abb065897ecb1a11d1b8caaa50fba21f0fbe6d25a12442eed7acf1212a82038b"
+  },
+  {
+    "path": "stdout.log",
+    "sha256": "1ed94878d4fc38ff250f38b479235e633eb38bdca89aaa47d08f76ecbefb312e"
+  },
+  {
+    "path": "stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "parse.log",
+    "sha256": "7cec109d281944d01d93e832d938f706b062023e95f5c723c818c916223d6d63"
+  }
+]

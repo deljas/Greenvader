@@ -1,0 +1,75 @@
+{
+  "task": "TECH-3D-04",
+  "created": "2026-10-16T07:40:33.516119+09:00",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "environment": {
+    "inspection": "Windows, bundled Python/Pillow offline",
+    "submitted_GPU": "Godot4.7.2 Vulkan Forward+ RTX5070Ti"
+  },
+  "checks": [
+    {
+      "id": "sun_UI_arbitrary_angles_extremes",
+      "result": "PASS",
+      "method": "static UI/basis guard review, submitted GPU log/snapshots and representative PNG inspection",
+      "detail": "Fractional135.7/25.4 and315.2/61.2, +90 finite/directON, -90 finite/directOFF; 0.1 degree slider/SpinBox signals and angle definition present. Not independent engine execution."
+    },
+    {
+      "id": "point_orbit_switch_pause_position",
+      "result": "PASS",
+      "method": "source/signal route and self GPU log review, independent image crop comparison outside UI",
+      "detail": "45/225/OFF differ; pause/manual/resume are supported by code and submitted engine-signal test. 48 sampled orbit positions, not live FPS."
+    },
+    {
+      "id": "per_light_caster_masks",
+      "result": "PASS",
+      "method": "static layer/mask review and independent submitted PNG comparison",
+      "sun_mask": 3,
+      "point_mask": 5,
+      "wrong_sun_board_removed_changed_pixels": 0,
+      "own_point_board_removed_changed_pixels": 616
+    },
+    {
+      "id": "both_casters_shared_pose_sync",
+      "result": "PASS",
+      "method": "static shared-frame/flip/foot review plus independent JSON inspection; point ID/raw separate feet are not logged, their matches are self-recorded flags"
+    },
+    {
+      "id": "representative_UI_PNGs_and_integer3x",
+      "result": "PASS",
+      "method": "independent full-pixel comparison of four representative pairs and view_image UI/scene review",
+      "detail": "UI640 is GPU root capture and UI1920 a CPU nearest export; world1920 is separate GPU readback. MP4 decoded contact sheet only."
+    },
+    {
+      "id": "frozen_target_preservation_and_GPU_logs",
+      "result": "PASS",
+      "method": "independent 77 source/evidence/frame hashes and9 existing-baseline checks; actual guard-only diff reviewed",
+      "frozen_count": 77,
+      "existing_unchanged": 8,
+      "permitted_safety_guard_change": 1
+    },
+    {
+      "id": "independent_GPU_engine_reexecution",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "native_initial_focus_physical_input",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "all_angles_light_combinations_runtime_FPS_continuous_playback",
+      "result": "NOT_RUN"
+    }
+  ],
+  "totals": {
+    "PASS": 6,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "limitations": [
+    "Independent runtime/GPU not run; source and self-GPU evidence review clearly separated from independent offline computations.",
+    "Light-facing upright alpha cards approximate silhouettes without body thickness; visible character remains unshaded.",
+    "58 logged states give finite/sync evidence only for sampled conditions.",
+    "Video is48samples/12fps presentation, lossy H264/yuv420p, not actual performance or exact PNG pixels."
+  ],
+  "acceptance": "Parent decides task acceptance; user decides art/play feel."
+}

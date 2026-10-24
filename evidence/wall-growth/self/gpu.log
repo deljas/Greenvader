@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "id": "nearest3_exact", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/initial_wall_zero_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/front_wall_after45_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/front_wall_after135_ui_1920.png
+{ "id": "GPU_fixture_front_local_only", "status": "PASS", "detail": "" }
+{ "id": "wall_no_counter_gain", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/water_reflection_shadow_ON_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/water_shadow_only_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/water_reflection_shadow_OFF_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/water_reflection_only_ui_1920.png
+{ "id": "water_real_cast_shadow_without_reflection", "status": "PASS", "detail": "{ \"pixels\": 57, \"first_rgb_sum\": 44.7607858926058, \"second_rgb_sum\": 65.7176482379436 }" }
+{ "id": "water_reflection_without_caster_shadow", "status": "PASS", "detail": "{ \"pixels\": 908, \"first_rgb_sum\": 1085.4823795557, \"second_rgb_sum\": 1046.87060701847 }" }
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/water_sun270_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/wall-growth/self/water_shadow_only_sun270_ui_1920.png
+{ "id": "water_shadow_follows_sun", "status": "PASS", "detail": "" }

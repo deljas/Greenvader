@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS grid_preserved_target_footprints 
+PASS known_4unit_cell_8x4_diamond 
+PASS known_inverse 
+PASS screen_direction_diagonal_equal_speed [(50.00854, 0.0), (35.35547, -35.35547)]
+PASS four_wall_contacts_match_feet 
+PASS complete_building_circuit 
+PASS low_obstacle_contact 
+PASS camera_mouse_inverse_cell (554.0, 470.0)
+PASS ground_marker_actor_layers 
+PASS engine_key_injection (25.00427, 0.0)
+PASS front_walkable 
+PASS behind_faded_walkable 
+PASS behind_fade_trigger 
+PASS left_front_walkable 
+PASS right_front_walkable 
+PASS fractional_diagonal_camera_pixel_snap 
+SELF_DONE failures=0

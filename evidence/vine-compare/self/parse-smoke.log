@@ -1,0 +1,14 @@
+ERROR: Failed to open log file for writing: user://logs/godot.log
+   at: rotate_file (core/io/logger.cpp:169)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Invalid type in function 'plane' in base 'GDScript'. The array of argument 6 (Array) does not have the same element type as the expected typed array argument.
+   at: _ready (res://scripts/vine_compare/compare.gd:79)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/vine_compare/compare.gd:79)
+       [1] run (res://tests/vine_compare/self_capture.gd:37)
+{ "id": "inventory_63", "status": "FAIL", "detail": "0" }
+SCRIPT ERROR: Invalid access to property or key 'selected' on a base object of type 'Nil'.
+   at: run (res://tests/vine_compare/self_capture.gd:42)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/vine_compare/self_capture.gd:42)

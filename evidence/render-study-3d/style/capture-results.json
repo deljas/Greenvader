@@ -1,0 +1,29 @@
+{
+	"A_B_differ": true,
+	"A_exact_nearest_3x": true,
+	"B_exact_nearest_3x": true,
+	"OS_input": "none",
+	"angular_distance": 0.0,
+	"atlas_size_unmodified": 4096,
+	"camera": "[X: (0.707107, 0.0, -0.707107), Y: (-0.353553, 0.866025, -0.353553), Z: (0.612372, 0.5, 0.612372), O: (14.0, 12.23095, 14.0)]",
+	"device": "NVIDIA GeForce RTX 5070 Ti",
+	"dynamic_flicker": "NOT_RUN",
+	"grade": "one GPU sample at 640; no explicit gamma conversion; warm light/cool shadow; scalar luma 20 levels mixed 20%",
+	"native": "NOT_RUN",
+	"output_size": "(1920, 1080)",
+	"renderer": "forward_plus",
+	"same_frozen_source": true,
+	"saved": true,
+	"shadow_bias": 0.100000001490116,
+	"shadow_blur": 1.0,
+	"shadow_filter": "SHADOW_QUALITY_HARD",
+	"shadow_normal_bias": 1.0,
+	"source_size": "(640, 360)",
+	"sun": {
+		"color": "(1.0, 0.98, 0.9, 1.0)",
+		"energy": 1.35,
+		"id": "noon",
+		"sun": "(-5.0, 10.0, 6.0)",
+		"title": "昼"
+	}
+}

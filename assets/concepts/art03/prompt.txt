@@ -1,0 +1,8 @@
+Built-in image_gen edit. Input: ../art02/daylight-v1.png
+
+Use case: style-transfer
+Asset type: pixel-art game visual development, one full scene, no comparison sheet.
+Input image: edit target, existing daylight ruined city block concept.
+Primary request: Preserve this exact quarter-view composition but organize the fine painterly texture into crisp, deliberate pixel-art color clusters suitable for a 960x540 logical game scene shown at 2x. Output a 1920x1080 landscape image if possible. Smallest intentional marks should read as uniform 2x2 display-pixel blocks; no smaller detail, no antialiasing.
+Invariants: retain the identical building silhouette, roof slabs, stairway, vine placement, street shape, puddle position, foreground walls, right tree and tiny pink flower character position and relative size. Keep the same camera and framing. No sky. Keep the existing neutral daylight material colors.
+Change only the rendering language: clustered leaf masses with sharp local form shading, clear grass blade tufts, simplified readable masonry breaks, cleaner flatter asphalt between cracks. Preserve lush vegetation and the beautiful quiet post-apocalyptic feeling. No black outlines or contour strokes. Reduce scattered subpixel-looking speckles. Do not introduce broad light/dark patches across the ground or dramatic lighting gradients; lighting design is deferred. No new objects, no text, no labels, no UI, no watermark. This is a single image and must not contain split panels.

@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "source": "evidence\\spr01\\references\\user-game-640.png",
+  "source_sha256": "74b0ccf77d67804815e171c08d5add3bfdcbf016e89c6ae060e2269f993b09c0",
+  "source_mode": "RGB",
+  "source_size": [
+    1282,
+    752
+  ],
+  "game_origin_in_screenshot": [
+    1,
+    31
+  ],
+  "game_internal_size": [
+    640,
+    360
+  ],
+  "window_integer_scale": 2,
+  "common_feet_in_game_pixels": [
+    294,
+    200
+  ],
+  "source_bytes_unchanged": true,
+  "results": [
+    {
+      "source_sprite": "assets\\concepts\\spr01\\front-pixel-v1\\front-16x24.png",
+      "source_sprite_sha256": "f188d843f64c3d2c54f1442deff625ddee920d6af14b59c64a8ec422976efffc",
+      "sprite_size": [
+        16,
+        24
+      ],
+      "source_foot_anchor": [
+        8,
+        22
+      ],
+      "scale": 2,
+      "scaled_frame_size": [
+        32,
+        48
+      ],
+      "top_left_in_screenshot": [
+        573,
+        387
+      ],
+      "feet_in_screenshot": [
+        589,
+        431
+      ],
+      "scaled_opaque_bbox_relative": [
+        2,
+        4,
+        30,
+        44
+      ],
+      "outside_alpha_pixels_preserved": 963432,
+      "foreground_pixels_exact": 632,
+      "changed_pixels": 632,
+      "nearest_2x_replication": true,
+      "preview_crop_exact": true,
+      "file": "screen-16x24.png",
+      "sha256": "7f1729565d8b2263fffb24483511c5e9d30ad0d41f941e6f4c8ec6b10ec67815"
+    },
+    {
+      "source_sprite": "assets\\concepts\\spr01\\front-pixel-v1\\front-24x36.png",
+      "source_sprite_sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18",
+      "sprite_size": [
+        24,
+        36
+      ],
+      "source_foot_anchor": [
+        12,
+        34
+      ],
+      "scale": 2,
+      "scaled_frame_size": [
+        48,
+        72
+      ],
+      "top_left_in_screenshot": [
+        565,
+        363
+      ],
+      "feet_in_screenshot": [
+        589,
+        431
+      ],
+      "scaled_opaque_bbox_relative": [
+        2,
+        6,
+        46,
+        68
+      ],
+      "outside_alpha_pixels_preserved": 962620,
+      "foreground_pixels_exact": 1444,
+      "changed_pixels": 1444,
+      "nearest_2x_replication": true,
+      "preview_crop_exact": true,
+      "file": "screen-24x36.png",
+      "sha256": "2039a4fed3e47653692991da43166a411b3517d8abbf963d4581da9788202ff7"
+    }
+  ],
+  "comparison": {
+    "file": "comparison.png",
+    "size": [
+      688,
+      328
+    ],
+    "same_crop_xyxy": [
+      481,
+      319,
+      801,
+      559
+    ],
+    "additional_scale": 1,
+    "sha256": "21388c892a096b2de6d2da519c6b6eb4a867026864ebeced75c8d338cb14970a"
+  },
+  "limitations": [
+    "Static screenshot size preview only",
+    "No lighting/shadow/occlusion/game rendering verification"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "asset_id": "PRP-012",
+  "name": "屋根付きバス停",
+  "category": "PRP",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      1.2100000381469727,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.649999976158142,
+      0.0,
+      -0.800000011920929
+    ],
+    "max": [
+      1.649999976158142,
+      2.4200000762939453,
+      0.800000011920929
+    ]
+  },
+  "dimensions": [
+    3.299999952316284,
+    2.4200000762939453,
+    1.600000023841858
+  ],
+  "placement_size_xz": [
+    3.299999952316284,
+    1.600000023841858
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -1.649999976158142,
+    -0.800000011920929,
+    1.649999976158142,
+    0.800000011920929
+  ],
+  "geometry_stats": {
+    "triangles": 480,
+    "vertices": 276,
+    "objects": 6,
+    "material_count": 5,
+    "blender_material_count": 5,
+    "glb_material_count": 5
+  },
+  "meshes": [
+    {
+      "name": "PRP-012_posts",
+      "layer": "posts",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "Shelter_chipped_roof",
+      "layer": "roof",
+      "materials": [
+        "Roof_aggregate"
+      ]
+    },
+    {
+      "name": "PRP-012_frame",
+      "layer": "frame",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP-012_seat_frame",
+      "layer": "seat_frame",
+      "materials": [
+        "Rust"
+      ]
+    },
+    {
+      "name": "PRP-012_seat",
+      "layer": "seat",
+      "materials": [
+        "Weathered_wood"
+      ]
+    },
+    {
+      "name": "PRP-012_glass_remnants",
+      "layer": "glass_remnants",
+      "materials": [
+        "Window_remnant"
+      ]
+    }
+  ],
+  "external_textures": [
+    "textures/concrete_surface_color.png"
+  ],
+  "connections": {
+    "seat_height_m": 0.5,
+    "roof_clearance_m": 2.3,
+    "posts_roof_seat_glass_separate": true,
+    "glass_mode": "opaque tinted remnants; no painted reflections",
+    "front_access_open": true,
+    "collision_candidate": "posts and seat; do not block entire shelter bounding box"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 480,
+      "triangles_after": 480,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true
+}

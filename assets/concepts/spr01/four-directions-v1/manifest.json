@@ -1,0 +1,86 @@
+{
+  "type": "static-direction-candidates",
+  "internal_screen": [
+    640,
+    360
+  ],
+  "sheet": "sheet.png",
+  "sheet_size": [
+    96,
+    36
+  ],
+  "frame_size": [
+    24,
+    36
+  ],
+  "directions": [
+    {
+      "direction": "down",
+      "file": "down.png",
+      "rect": [
+        0,
+        0,
+        24,
+        36
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "frame_count": 1,
+      "fps": 1,
+      "loop": false
+    },
+    {
+      "direction": "left",
+      "file": "left.png",
+      "rect": [
+        24,
+        0,
+        24,
+        36
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "frame_count": 1,
+      "fps": 1,
+      "loop": false
+    },
+    {
+      "direction": "right",
+      "file": "right.png",
+      "rect": [
+        48,
+        0,
+        24,
+        36
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "frame_count": 1,
+      "fps": 1,
+      "loop": false
+    },
+    {
+      "direction": "up",
+      "file": "up.png",
+      "rect": [
+        72,
+        0,
+        24,
+        36
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "frame_count": 1,
+      "fps": 1,
+      "loop": false
+    }
+  ]
+}

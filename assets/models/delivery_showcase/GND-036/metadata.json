@@ -1,0 +1,202 @@
+{
+  "asset_id": "GND-036",
+  "name": "非対称の水たまり",
+  "category": "GND",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "aabb": {
+    "min": [
+      -0.39774999022483826,
+      0.002499999478459358,
+      -0.32249999046325684
+    ],
+    "max": [
+      0.3869999945163727,
+      0.05015572905540466,
+      0.36550000309944153
+    ]
+  },
+  "dimensions": [
+    0.7847499847412109,
+    0.047655729576945305,
+    0.6879999935626984
+  ],
+  "placement_size_xz": [
+    0.7847499847412109,
+    0.6879999935626984
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -0.39774999022483826,
+    -0.32249999046325684,
+    0.3869999945163727,
+    0.36550000309944153
+  ],
+  "geometry_stats": {
+    "triangles": 299,
+    "vertices": 186,
+    "objects": 4,
+    "material_count": 4,
+    "blender_material_count": 4,
+    "glb_material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "GND036_WaterSurface",
+      "layer": "water_surface",
+      "materials": [
+        "Water_placeholder"
+      ]
+    },
+    {
+      "name": "GND036_MudRim",
+      "layer": "mud_rim",
+      "materials": [
+        "Mud"
+      ]
+    },
+    {
+      "name": "GND-036_stones",
+      "layer": "stones",
+      "materials": [
+        "Stone"
+      ]
+    },
+    {
+      "name": "Puddle_fallen_leaf",
+      "layer": "fallen_leaves",
+      "materials": [
+        "Dry_leaf"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "logical_cells": [
+      2,
+      2
+    ],
+    "cell_size_m": 0.4,
+    "water_surface_name": "GND036_WaterSurface",
+    "water_height_m": 0.008,
+    "water_normal": [
+      0,
+      1,
+      0
+    ],
+    "water_material_slot": "Water_placeholder",
+    "outline_y_up": [
+      [
+        -0.34,
+        0.008,
+        0.2
+      ],
+      [
+        -0.29,
+        0.008,
+        0.31
+      ],
+      [
+        -0.1,
+        0.008,
+        0.34
+      ],
+      [
+        0.04,
+        0.008,
+        0.26
+      ],
+      [
+        0.27,
+        0.008,
+        0.29
+      ],
+      [
+        0.36,
+        0.008,
+        0.13
+      ],
+      [
+        0.27,
+        0.008,
+        0.02
+      ],
+      [
+        0.34,
+        0.008,
+        -0.1
+      ],
+      [
+        0.22,
+        0.008,
+        -0.25
+      ],
+      [
+        0.06,
+        0.008,
+        -0.3
+      ],
+      [
+        -0.02,
+        0.008,
+        -0.18
+      ],
+      [
+        -0.16,
+        0.008,
+        -0.3
+      ],
+      [
+        -0.31,
+        0.008,
+        -0.18
+      ],
+      [
+        -0.26,
+        0.008,
+        -0.02
+      ],
+      [
+        -0.37,
+        0.008,
+        0.07
+      ]
+    ],
+    "reflection_and_shadow_connection": "NOT_RUN; replace/connect Godot water material",
+    "rim_stones_leaves_separate": true,
+    "no_painted_reflections": true
+  },
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 299,
+      "triangles_after": 299,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "self_review_notes": "Individual/reimport previews and two physical-scale compositions reviewed. Larger leaf volume uses overlapping curved leaves, not a sphere or billboard. Godot remains untested."
+}

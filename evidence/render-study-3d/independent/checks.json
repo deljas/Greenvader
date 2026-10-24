@@ -1,0 +1,19 @@
+{
+  "task": "TECH-3D-01",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "checks": [
+    {"id":"dedicated_entry_and_existing_preservation","result":"PASS","method":"static and independent hash inspection","count":396},
+    {"id":"GPU_capture_provenance","result":"PASS","method":"source/log/PNG evidence review; no independent engine run"},
+    {"id":"same_camera_orthogonal_ground_2to1","result":"PASS","method":"source geometry derivation, PNG and self projection log review"},
+    {"id":"lighting_and_shape_correspondence","result":"PASS","method":"source/visual review and independent offline shadow-reference comparison","shadow_changed_pixels":34718},
+    {"id":"3D_material_no_baked_lighting_no_AA_outline","result":"PASS","method":"static and PNG review"},
+    {"id":"all_three_integer_2x_PNG_pairs","result":"PASS","method":"independent offline full pixel comparison"},
+    {"id":"bounded_camera_evidence","result":"PASS","method":"five file inspection; first/last visual only"},
+    {"id":"frozen_target_stable","result":"PASS","method":"independent start/end and manifest SHA256 comparison","count":19},
+    {"id":"independent_GPU_engine_execution","result":"NOT_RUN"},
+    {"id":"native_UI_initial_focus_physical_input","result":"NOT_RUN"},
+    {"id":"continuous_temporal_stability_performance_export","result":"NOT_RUN"}
+  ],
+  "totals":{"PASS":8,"FAIL":0,"NOT_RUN":3},
+  "acceptance":"Parent decides technical acceptance; user decides art direction."
+}

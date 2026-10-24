@@ -1,0 +1,335 @@
+{
+  "count": 66,
+  "files": [
+    {
+      "path": "assets/concepts/art04/ruin-grass-detail-v1.png.import",
+      "sha256": "d392b413ca1788a17bcad5d0352cc41e3a70bb7699284b17340e7defa7f6ff16",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/concepts/art04/ruin-grass-wide-v2.png.import",
+      "sha256": "60f1f847ad65c08d7214a439e064a0ee2eb898a35155fa4de841304230b4191f",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/concepts/art04/scene-960x540-at-1080p.png.import",
+      "sha256": "f4abd9fb98bc23d88cf288d118b840f76ce7d81566bb8c865ef1af8ee00795d8",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/concepts/art04/scene-960x540.png.import",
+      "sha256": "7f99cceece6a2f07df5ef0be094bf250498ef855b20520ac602e9e2b63ba8d48",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/concepts/art05/greening-triptych-v1.png.import",
+      "sha256": "15d07fbdab0efb7bd4b738129bc8b8fb63dcc2433cb21f738c3246eb04f6ddf6",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/render_study_3d/concrete.gdshader.uid",
+      "sha256": "5b476be2491a79587c741cd1fc1fd36302b355b2707cfe501a5545422e9935d0",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/render_study_3d/style_grade.gdshader.uid",
+      "sha256": "092f90a51a605208bb17cf3b8023c0bc0d4dbbfb5e096c7f36a64c63d976c87f",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_0.png.import",
+      "sha256": "4db10f7d22a47f82ebf373fa4c84dedb5b1dfcf926345d9ca2e1b97bb712cee1",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_1.png.import",
+      "sha256": "96239a30ad3da81d8f1c456bd2076e514db322e33ab8f881cce44c2043ddbb86",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_2.png.import",
+      "sha256": "a29d656fa793dd5add9fa0f51348c32d8ad5399144472843d63755ee0b59b7f1",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "assets/render_study_3d/sprite_shadow/fixture_3.png.import",
+      "sha256": "066ab3af8e8bed3b12c10f22eff35467589b70636480c4d618cbf0dcc6e88800",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/greening_map/actor.gd.uid",
+      "sha256": "1d77a1976b6c701a5b2999b0e10ac65480b63c02571c5f31fa88ae67682bf956",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/greening_map/ground_view.gd.uid",
+      "sha256": "385e79a33c35f2ca77eb709afafe2feec3d7380fa0f55370a9154f5ddfefa8b0",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/greening_map/map.gd.uid",
+      "sha256": "b2d7f6f337adcdfd33473cda500cff8abe2471b61840959d0010bbcad493946a",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/greening_map/session.gd.uid",
+      "sha256": "03cd16ece02081d30b352847075d8b74a7b60c267b9e956c0c7815fd53900afe",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/greening_map/wall_growth_controller.gd.uid",
+      "sha256": "a5a52ad43fa5fc1a5c2ce8cf4f02e52d25b96d4dcedfeaec764531b02cd580a7",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/greening_map/water_surface.gd.uid",
+      "sha256": "3e6bfc3f5ac5e5ab32e3f48a6887aaec03a09935869dd826bc831f8dfcc34952",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/greening_map/water_surface.gdshader.uid",
+      "sha256": "1fd24f76406897f9b1d9d33d88f10fa92cb049273cdea1ce63939d2662669c61",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/render_study_3d/light_lab.gd.uid",
+      "sha256": "9519c338b89269cfefb22ad049655a5089ec40f59af532d21eab2e32bf9e2473",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/render_study_3d/ruin_geometry.gd.uid",
+      "sha256": "0c00d8c4e36424d834106a4ad895456258a4fdd93387175a219208514b2dd13c",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_fixture.gd.uid",
+      "sha256": "dc8d8f5c3371645a0277e29489e9182384ae6229eb42e5fcf7d19fd0add24350",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_lab.gd.uid",
+      "sha256": "07b7d63717653a3393962daa3dc345d23960719142103bec0aceb1e191f8d8ce",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/render_study_3d/study.gd.uid",
+      "sha256": "e08ab8f1c6d70fe39b889831db77bf26de96e8d1cf276c99a9e078050a076b36",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/brick.gdshader.uid",
+      "sha256": "42146a0ae3fbbdfa93617b8fd39bb9c90c519ca1deb38c5bb26fc0f1dbed4546",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/building_defs.gd.uid",
+      "sha256": "4732ff929a0fda06cf5fc05be338341226aee0fc8ab5f04b29094ee81467aee5",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/building_geometry.gd.uid",
+      "sha256": "597307275ce0b2e116ba3f04656463b0299e6048315d3ed6d09962d7fa02648a",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/cracks.gdshader.uid",
+      "sha256": "c1b5211b1f3fe70619e7147b261fa75baec7735875a690781bf2f631b54114cf",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd.uid",
+      "sha256": "a3c0e9886b851c9995cdd59d0d9e88a96d25c88f9ebf26c673ae78dce45eea91",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/lab.gd.uid",
+      "sha256": "ffc6101c4899e2664ee015031df224d30e2056db13374915942463329c7b8208",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/moss.gdshader.uid",
+      "sha256": "2c8d3fe6138a329c6cb322a465519d8713312f4157b1b0728232e14a34b427a7",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/plant_parts.gd.uid",
+      "sha256": "d3cd90b6afce4966fbcbafe79af5b35dfe122576afca4b8340e4b3f17331c986",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "scripts/vegetation_lab/surface_layers.gd.uid",
+      "sha256": "18713b084dc07d84dc51236c3f538c38f041eb987491adcf2561297505e25985",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/independent_session.gd.uid",
+      "sha256": "36e4aae634926aa5ce7d32ff45e723dfe4d7568ec30d80d8d15efe4c7cb3938b",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/self_capture.gd.uid",
+      "sha256": "b7ea46073f870becb929504e68a6b861993fa5fe0da82ada1c34e8f3f9769564",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/self_logic.gd.uid",
+      "sha256": "45c8a4d512ddc81af425374ad36d0370c5c20a04603b9eb0d2953f942938cba3",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_capture.gd.uid",
+      "sha256": "80b23ce68b6864137577f2e9fb9442dd7434672cd29e6c3efa878c5d6c7a538c",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_final.gd.uid",
+      "sha256": "724a1b3f9cc25a84c053582d4132f3445c72647ceb9361aa559d7d773aa963bc",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_logic.gd.uid",
+      "sha256": "e9b4c9127af861cee0435c754fb679890270a4109a4ea6a203fac5b8090d6fe8",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_reflection.gd.uid",
+      "sha256": "97d1158c84a1258562cc642bc8988944f4965ab9efd9eca3473ae63370682893",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_after.gd.uid",
+      "sha256": "4bdc957e0224641302a3ac71dd28f9c75ebc1a82f5257f62021e7c41c4684be6",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_base.gd.uid",
+      "sha256": "8267e2af8710ac9f2d73bb8eda1d5510a69c4b98f89c9c6fe1b28cb0c2175f57",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_before.gd.uid",
+      "sha256": "dc5956b3d8b628e9d386aa530a09ade597e15c5817c04ae6a378eb40b6a7b7dd",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_corner.gd.uid",
+      "sha256": "bda46e1cd451a85ca390df311692293c52ce5db00c9806e1f1433d3f1c9e8ac4",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_logic.gd.uid",
+      "sha256": "3afdde62a61251573cb9a81bcd200d32ae7f2fd5bbf21c4883d1f7871a7a0ac0",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/wall_growth_self_capture.gd.uid",
+      "sha256": "da27210a19a70609cf19f01d7cf868677f1adadb45807a0487a4314ef8013685",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/greening_map/wall_growth_self_logic.gd.uid",
+      "sha256": "e8bcd3b555096a363bdf109dc900f4a0028f071c4bd929b50e6f84707a8ea753",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/p2/p2_05_checks.gd.uid",
+      "sha256": "b5b5bcbe79b065108e6981b1f5c9715065ee984d8ceec9e7d4f6b64c01cb307d",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/p2/p2_05_gpu.gd.uid",
+      "sha256": "8d6a189b33cdcfef596567c00322776df7843da43864a91715218c6008726ad2",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/p2/p2_06_bot.gd.uid",
+      "sha256": "cbe075ec11bb4ccf1375ee2b26329fe1fab1a23ca71423ec5e77a1d9296f898e",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/p2/p2_06_front.gd.uid",
+      "sha256": "aff6c599c397a4d89aed6710c63ddde140c1af56fec8bb4e3b5274b5e68961b9",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/p2/p2_06_tempo.gd.uid",
+      "sha256": "d906f487f5bb7173dbd468c9583e3cec2a45816d68bdd8178443445f442c5b2f",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/p2/independent/p2_05_v_logic.gd.uid",
+      "sha256": "e27fa66588c4205d67b57a485d83354997338acfb7a61174220d3150b326152f",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/quarter_view/independent_checks.gd.uid",
+      "sha256": "0494fbc204369c4ce3fc6eba950b76c26ad1a9e7ff87cf9d55336dc4e728f813",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/quarter_view/independent_mouse_r2.gd.uid",
+      "sha256": "00de3f4587d49a2889fa8bb03ff684993097fee7790297db5c0a2ed6d2199f1f",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/quarter_view/self_mouse_r2.gd.uid",
+      "sha256": "397f40f1e9229f060dd258ad6aebfaadef1e5757e1345e4ce7c72ad1ffcb7956",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/render_study_3d/self_capture_640.gd.uid",
+      "sha256": "5b82cfad3e126c81dcd3952e0cbdb16efea0469692a6ebe07ab58f5bf011b26a",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/render_study_3d/self_capture_style.gd.uid",
+      "sha256": "350cb58990f93a5bdb1242abf62878051a28f7db99c9d3f45a57bbc5d5a829b4",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/render_study_3d/self_checks.gd.uid",
+      "sha256": "403740c6327733b5563688fcb9249e5e4b78064428b6f6add06eecb8fd7e3ea3",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/render_study_3d/self_geometry_probe.gd.uid",
+      "sha256": "9ea786025262edb5c60916b0e8424ef09103b17193251b99599a1548c44ae551",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/render_study_3d/self_light_capture.gd.uid",
+      "sha256": "ef142e7e4c7fca57962ef54c58e9dc25c80f91f74d482fc6864157cd90f47c08",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/render_study_3d/self_sprite_shadow_capture.gd.uid",
+      "sha256": "2b8f088b45946e52a12aeba47f4f9e96bea1844aa06b3e2bf49399c6a144d08f",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/vegetation_lab/independent_geometry.gd.uid",
+      "sha256": "6a552fd6fed2666d338bc3ea1ae92c87d53f45795731954848d5c351517de38d",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/vegetation_lab/self_branch_capture.gd.uid",
+      "sha256": "f023986789d663decee37c558c01afd4d01287f4fdb5af59399dff911a22695c",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/vegetation_lab/self_branch_closeups.gd.uid",
+      "sha256": "7943e98b585b3d1a6eeba4708b4f0ba7f52a879ca54b4112704361c327b7a5a5",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/vegetation_lab/self_capture.gd.uid",
+      "sha256": "4ee1bbb9e056cc0e11d8364afb89e607419917cbd58465b5e792f238c5be994a",
+      "kind": "Godot import-generated sidecar"
+    },
+    {
+      "path": "tests/vegetation_lab/self_variation_capture.gd.uid",
+      "sha256": "e7ef0b72ab307bcee43832d8ebd7b652a7a98b8aacb8ed9611371078b0315f87",
+      "kind": "Godot import-generated sidecar"
+    }
+  ]
+}

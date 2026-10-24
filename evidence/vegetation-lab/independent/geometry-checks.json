@@ -1,0 +1,85 @@
+{
+  "buildings": [
+    {
+      "building": "A",
+      "grass_corridor_violations": 0,
+      "grass_vertices": 16986,
+      "growth": [
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 0,
+          "visible_leaf_clusters": 210
+        },
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 50,
+          "visible_leaf_clusters": 210
+        },
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 100,
+          "visible_leaf_clusters": 210
+        }
+      ],
+      "mature_wall_leaf_vertices": 2772,
+      "minimum_grass_corridor_clearance": 1.41435084342957,
+      "minimum_wall_leaf_surface_clearance": -3.63494716644287,
+      "opening_projection_hits": 0
+    },
+    {
+      "building": "B",
+      "grass_corridor_violations": 0,
+      "grass_vertices": 15732,
+      "growth": [
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 0,
+          "visible_leaf_clusters": 112
+        },
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 50,
+          "visible_leaf_clusters": 112
+        },
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 100,
+          "visible_leaf_clusters": 112
+        }
+      ],
+      "mature_wall_leaf_vertices": 1806,
+      "minimum_grass_corridor_clearance": 0.641235971450806,
+      "minimum_wall_leaf_surface_clearance": -1.83494697570801,
+      "opening_projection_hits": 516
+    },
+    {
+      "building": "C",
+      "grass_corridor_violations": 0,
+      "grass_vertices": 17100,
+      "growth": [
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 0,
+          "visible_leaf_clusters": 624
+        },
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 50,
+          "visible_leaf_clusters": 624
+        },
+        {
+          "highest_leaf_center": 0.0,
+          "percentage": 100,
+          "visible_leaf_clusters": 624
+        }
+      ],
+      "mature_wall_leaf_vertices": 9828,
+      "minimum_grass_corridor_clearance": 0.888788962364197,
+      "minimum_wall_leaf_surface_clearance": -1.7362609282136,
+      "opening_projection_hits": 0
+    }
+  ],
+  "method": "headless actual mature vertices; independent segment distance and opening projection, no Geometry helpers",
+  "validity": "NOT_RUN",
+  "reason": "Headless MultiMesh getters returned origin/identity-like values at all stages, contradicting GPU evidence; raw vertex-derived metrics are unusable, not product FAILs. No retry."
+}

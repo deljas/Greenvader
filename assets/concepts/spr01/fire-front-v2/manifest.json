@@ -1,0 +1,424 @@
+{
+  "kind": "front-fire-v2-candidate",
+  "character_size": [
+    24,
+    36
+  ],
+  "foot_anchor_xy": [
+    12,
+    34
+  ],
+  "direction": "down",
+  "idle": {
+    "file": "idle.png",
+    "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  },
+  "preview_cycle_ms": 2000,
+  "preview_trajectory": {
+    "speed_y_px_per_ms": 0.35,
+    "lifetime_ms": 150,
+    "preview_only": true
+  },
+  "gif": {
+    "sampling_step_ms": 20,
+    "event_rounding": "first sample at or after exact event",
+    "release_ms": {
+      "seed": 40,
+      "water": 160
+    }
+  },
+  "actions": {
+    "seed": {
+      "durations_ms": [
+        33,
+        50,
+        50,
+        67
+      ],
+      "total_ms": 200,
+      "release_events": [
+        {
+          "type": "projectile-release",
+          "time_ms": 33,
+          "socket_xy": [
+            12,
+            14
+          ]
+        }
+      ],
+      "character_sheet": "seed-character-sheet.png",
+      "formation_sheet": "seed-formation-sheet.png",
+      "projectile": {
+        "file": "seed-projectile.png",
+        "size": [
+          8,
+          8
+        ],
+        "anchor_xy": [
+          4,
+          4
+        ],
+        "sha256": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4"
+      },
+      "frames": [
+        {
+          "index": 0,
+          "start_ms": 0,
+          "duration_ms": 33,
+          "end_ms": 33,
+          "phase": "gather",
+          "character": {
+            "file": "seed-character-0.png",
+            "rect": [
+              0,
+              0,
+              24,
+              36
+            ],
+            "sha256": "bdfeb8fe021a767587a698bf7a7e286a2d8c735fc4bf87ee4fa91cd314832879"
+          },
+          "formation_fx": {
+            "file": "seed-formation-0.png",
+            "rect": [
+              0,
+              0,
+              24,
+              36
+            ],
+            "sha256": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815"
+          },
+          "socket_xy": [
+            12,
+            13
+          ],
+          "body_y_offset_px": 0
+        },
+        {
+          "index": 1,
+          "start_ms": 33,
+          "duration_ms": 50,
+          "end_ms": 83,
+          "phase": "flick-release-recoil",
+          "character": {
+            "file": "seed-character-1.png",
+            "rect": [
+              24,
+              0,
+              24,
+              36
+            ],
+            "sha256": "5d39e8a48a14e184c60bf6078854f57075625c5125030adfcf38e049acc04f1a"
+          },
+          "formation_fx": {
+            "file": "seed-formation-1.png",
+            "rect": [
+              24,
+              0,
+              24,
+              36
+            ],
+            "sha256": "423889ef46e857c487d400f00d4a5cf11c25b9e09abe7a031ae489ed0ebfe05d"
+          },
+          "socket_xy": [
+            12,
+            14
+          ],
+          "body_y_offset_px": 1
+        },
+        {
+          "index": 2,
+          "start_ms": 83,
+          "duration_ms": 50,
+          "end_ms": 133,
+          "phase": "large-leaf-recoil",
+          "character": {
+            "file": "seed-character-2.png",
+            "rect": [
+              48,
+              0,
+              24,
+              36
+            ],
+            "sha256": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a"
+          },
+          "formation_fx": {
+            "file": "seed-formation-2.png",
+            "rect": [
+              48,
+              0,
+              24,
+              36
+            ],
+            "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+          },
+          "socket_xy": [
+            12,
+            13
+          ],
+          "body_y_offset_px": 0
+        },
+        {
+          "index": 3,
+          "start_ms": 133,
+          "duration_ms": 67,
+          "end_ms": 200,
+          "phase": "recover",
+          "character": {
+            "file": "seed-character-3.png",
+            "rect": [
+              72,
+              0,
+              24,
+              36
+            ],
+            "sha256": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b"
+          },
+          "formation_fx": {
+            "file": "seed-formation-3.png",
+            "rect": [
+              72,
+              0,
+              24,
+              36
+            ],
+            "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+          },
+          "socket_xy": [
+            12,
+            13
+          ],
+          "body_y_offset_px": 0
+        }
+      ]
+    },
+    "water": {
+      "durations_ms": [
+        40,
+        60,
+        50,
+        60,
+        80,
+        110
+      ],
+      "total_ms": 400,
+      "release_events": [
+        {
+          "type": "projectile-release",
+          "time_ms": 150,
+          "socket_xy": [
+            12,
+            14
+          ]
+        }
+      ],
+      "character_sheet": "water-character-sheet.png",
+      "formation_sheet": "water-formation-sheet.png",
+      "projectile": {
+        "file": "water-projectile.png",
+        "size": [
+          8,
+          8
+        ],
+        "anchor_xy": [
+          4,
+          4
+        ],
+        "sha256": "b9ce5ea6c1143b5fcafff31e3a83e51eaaaf5ed8ab4823280428dbdac94cb504"
+      },
+      "frames": [
+        {
+          "index": 0,
+          "start_ms": 0,
+          "duration_ms": 40,
+          "end_ms": 40,
+          "phase": "open-small-drop",
+          "character": {
+            "file": "water-character-0.png",
+            "rect": [
+              0,
+              0,
+              24,
+              36
+            ],
+            "sha256": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6"
+          },
+          "formation_fx": {
+            "file": "water-formation-0.png",
+            "rect": [
+              0,
+              0,
+              24,
+              36
+            ],
+            "sha256": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f"
+          },
+          "socket_xy": [
+            12,
+            13
+          ],
+          "body_y_offset_px": 0
+        },
+        {
+          "index": 1,
+          "start_ms": 40,
+          "duration_ms": 60,
+          "end_ms": 100,
+          "phase": "inflate-medium",
+          "character": {
+            "file": "water-character-1.png",
+            "rect": [
+              24,
+              0,
+              24,
+              36
+            ],
+            "sha256": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a"
+          },
+          "formation_fx": {
+            "file": "water-formation-1.png",
+            "rect": [
+              24,
+              0,
+              24,
+              36
+            ],
+            "sha256": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed"
+          },
+          "socket_xy": [
+            12,
+            13
+          ],
+          "body_y_offset_px": 0
+        },
+        {
+          "index": 2,
+          "start_ms": 100,
+          "duration_ms": 50,
+          "end_ms": 150,
+          "phase": "inflate-large-stretch",
+          "character": {
+            "file": "water-character-2.png",
+            "rect": [
+              48,
+              0,
+              24,
+              36
+            ],
+            "sha256": "4fdb4b9bafa501e9b60d296fb8c7105f7e4b561708bf67d8579a1b6a6c04f04e"
+          },
+          "formation_fx": {
+            "file": "water-formation-2.png",
+            "rect": [
+              48,
+              0,
+              24,
+              36
+            ],
+            "sha256": "810570325d8c573faf6b9575313f42261a3c81715d6734334185955de18b6cb7"
+          },
+          "socket_xy": [
+            12,
+            12
+          ],
+          "body_y_offset_px": -1
+        },
+        {
+          "index": 3,
+          "start_ms": 150,
+          "duration_ms": 60,
+          "end_ms": 210,
+          "phase": "push-release",
+          "character": {
+            "file": "water-character-3.png",
+            "rect": [
+              72,
+              0,
+              24,
+              36
+            ],
+            "sha256": "6452cbbc28552d0320d01b52f17970853f3e29e55a764fff4cb94212d6ee14b1"
+          },
+          "formation_fx": {
+            "file": "water-formation-3.png",
+            "rect": [
+              72,
+              0,
+              24,
+              36
+            ],
+            "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+          },
+          "socket_xy": [
+            12,
+            14
+          ],
+          "body_y_offset_px": 1
+        },
+        {
+          "index": 4,
+          "start_ms": 210,
+          "duration_ms": 80,
+          "end_ms": 290,
+          "phase": "large-leaf-soft-droop",
+          "character": {
+            "file": "water-character-4.png",
+            "rect": [
+              96,
+              0,
+              24,
+              36
+            ],
+            "sha256": "e859312bc28c923a34a6547227dfb35e80a3d0f08563e9f7b0ed822d0e83f589"
+          },
+          "formation_fx": {
+            "file": "water-formation-4.png",
+            "rect": [
+              96,
+              0,
+              24,
+              36
+            ],
+            "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+          },
+          "socket_xy": [
+            12,
+            14
+          ],
+          "body_y_offset_px": 1
+        },
+        {
+          "index": 5,
+          "start_ms": 290,
+          "duration_ms": 110,
+          "end_ms": 400,
+          "phase": "recover",
+          "character": {
+            "file": "water-character-5.png",
+            "rect": [
+              120,
+              0,
+              24,
+              36
+            ],
+            "sha256": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad"
+          },
+          "formation_fx": {
+            "file": "water-formation-5.png",
+            "rect": [
+              120,
+              0,
+              24,
+              36
+            ],
+            "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+          },
+          "socket_xy": [
+            12,
+            13
+          ],
+          "body_y_offset_px": 0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "manifest": {
+    "expected": "9ba09266b55c830b8def6b308fc9fb4a1aaafec1b794efbed231d6f11ca9ad3a",
+    "actual": "9ba09266b55c830b8def6b308fc9fb4a1aaafec1b794efbed231d6f11ca9ad3a",
+    "pass": true
+  },
+  "source": {
+    "count": 8,
+    "mismatches": [],
+    "pass": true
+  },
+  "evidence": {
+    "count": 101,
+    "mismatches": [],
+    "pass": true
+  },
+  "protected_evidence_paths": [],
+  "before_snapshot": {
+    "count": 110,
+    "expected_changed_paths": [
+      {
+        "path": "scripts/greening_map/ground_view.gd",
+        "actual": "4d9c817c15942549670639cbc86bf0b27ba8371d954c3cba74c08518c9917cdb",
+        "expected": "3d4652c6fdb4123e9f679933700c540dbfdee3acb60bbf89b480c3b0b44935a5"
+      },
+      {
+        "path": "scripts/greening_map/map.gd",
+        "actual": "d1fcbe9300bdc84850ac8e96482f995a397fc9652847061b8fcba81ff2797f0d",
+        "expected": "7a1d56f999c57a408a4fc1a21a1bd8b03dd407c99b1f6d82282135dbbebff228"
+      }
+    ],
+    "unexpected_mismatches": []
+  },
+  "protected": {
+    "count": 108,
+    "mismatches": [],
+    "pass": true,
+    "method": "Uses already computed hashes, excluding the two explicitly assigned edited product files from before110. No repeat hash."
+  },
+  "prior_tech08_evidence": {
+    "count": 39,
+    "mismatches": [],
+    "pass": true,
+    "method": "Each prior self evidence entry compared once against its published immutable manifest. Older labs PNG sets not exhaustively checked."
+  }
+}

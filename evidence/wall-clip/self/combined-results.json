@@ -1,0 +1,97 @@
+{
+  "results": [
+    {
+      "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+      "id": "visible_all_A_front",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "collision_clear_A_front",
+      "status": "PASS"
+    },
+    {
+      "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+      "id": "visible_all_A_right",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "collision_clear_A_right",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "nearest3_exact",
+      "status": "PASS"
+    },
+    {
+      "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+      "id": "visible_all_B_right",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "collision_clear_B_right",
+      "status": "PASS"
+    },
+    {
+      "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+      "id": "visible_all_B_front",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "collision_clear_B_front",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "all_frames_flips_shared_physical_foot",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "upright_16x24_projection",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "presentation_foot_pixel_snap",
+      "status": "PASS"
+    },
+    {
+      "detail": "{ \"visible\": 0, \"opaque_fixture_pixels\": 168 }",
+      "id": "behind_occlusion_preserved",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "depth_test_remains_enabled",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "paused_wall_checks_state_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "upright_sprite_enters_reflection",
+      "status": "PASS"
+    },
+    {
+      "detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+      "id": "visible_all_A_corner",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "collision_clear_A_corner",
+      "status": "PASS"
+    }
+  ],
+  "PASS": 18,
+  "FAIL": 0,
+  "corner_supersession": "Initial diagonal pressure slid along front wall; corner-raw.json is the actual fixed boundary sample. No product code changed after first after-GPU run."
+}

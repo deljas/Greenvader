@@ -1,0 +1,149 @@
+{
+  "asset_id": "PRP-005",
+  "name": "電線の残る電柱",
+  "category": "PRP",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      3.1094565391540527,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -0.6899999976158142,
+      0.0,
+      -0.4129645824432373
+    ],
+    "max": [
+      0.7299999594688416,
+      6.2189130783081055,
+      0.4125184714794159
+    ]
+  },
+  "dimensions": [
+    1.4199999570846558,
+    6.2189130783081055,
+    0.8254830539226532
+  ],
+  "placement_size_xz": [
+    1.4199999570846558,
+    0.8254830539226532
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -0.6899999976158142,
+    -0.4129645824432373,
+    0.7299999594688416,
+    0.4125184714794159
+  ],
+  "geometry_stats": {
+    "triangles": 1416,
+    "vertices": 734,
+    "objects": 4,
+    "material_count": 4,
+    "blender_material_count": 4,
+    "glb_material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "Standing_utility_pole",
+      "layer": "pole",
+      "materials": [
+        "Weathered_wood"
+      ]
+    },
+    {
+      "name": "Utility_top_crossarm",
+      "layer": "crossarm",
+      "materials": [
+        "Weathered_wood"
+      ]
+    },
+    {
+      "name": "PRP-005_insulators",
+      "layer": "insulators",
+      "materials": [
+        "Oxidized_steel",
+        "Chalk_frame"
+      ]
+    },
+    {
+      "name": "PRP-005_wires",
+      "layer": "wires",
+      "materials": [
+        "Dark_recess"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "wire_endpoints": [
+      [
+        -0.6,
+        5.96,
+        0.4
+      ],
+      [
+        -0.6,
+        5.94,
+        -0.4
+      ],
+      [
+        0.62,
+        5.96,
+        0.4
+      ],
+      [
+        0.62,
+        5.94,
+        -0.4
+      ]
+    ],
+    "wire_dynamics": "NOT_RUN",
+    "crossarm_insulators_wires_separate": true,
+    "collision_candidate": "pole trunk, not wire bounding box"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 1416,
+      "triangles_after": 1416,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true
+}

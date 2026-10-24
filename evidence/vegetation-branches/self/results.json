@@ -1,0 +1,86 @@
+{
+	"NOT_RUN": [
+		"OS physical input",
+		"video",
+		"normal game regression"
+	],
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"results": [
+		{
+			"detail": "",
+			"id": "GPU.nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "CPU poses/layout; no headless MultiMesh getters",
+			"id": "restore_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "branches 10, max lateral UV 0.51",
+			"id": "branch_order_spread_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "CPU poses/layout; no headless MultiMesh getters",
+			"id": "restore_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "branches 8, max lateral UV 1.02",
+			"id": "branch_order_spread_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "CPU poses/layout; no headless MultiMesh getters",
+			"id": "restore_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "branches 94, max lateral UV 1.36",
+			"id": "branch_order_spread_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "moss.independent_GPU",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "moss.zero_no_effect",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "moss.OFF_baseline",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cracks.independent_GPU",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cracks.OFF_baseline",
+			"status": "PASS"
+		}
+	]
+}

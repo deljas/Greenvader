@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "front_png_byte_identical": true,
+  "front_grid_byte_identical": true,
+  "front_source_sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18",
+  "palette_source_identical": true,
+  "left_right_direct_equal": false,
+  "left_right_reflected_equal": false,
+  "side_body_mask_changes_from_front": {
+    "left": 23,
+    "right": 29
+  },
+  "sheet_rects_match": true,
+  "preview_8x_and_2x_cells_exact": true,
+  "results": [
+    {
+      "direction": "down",
+      "file": "down.png",
+      "size": [
+        24,
+        36
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_colors": 8,
+      "bbox_exclusive": [
+        1,
+        3,
+        23,
+        34
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "no_clipping": true,
+      "grid_readback_match": true,
+      "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+    },
+    {
+      "direction": "left",
+      "file": "left.png",
+      "size": [
+        24,
+        36
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_colors": 8,
+      "bbox_exclusive": [
+        2,
+        4,
+        22,
+        34
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "no_clipping": true,
+      "grid_readback_match": true,
+      "sha256": "c7ef8dd3fe6ae79166293e45d302da6929f98ddabdd33b04f57b80feac8b5cc0"
+    },
+    {
+      "direction": "right",
+      "file": "right.png",
+      "size": [
+        24,
+        36
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_colors": 8,
+      "bbox_exclusive": [
+        2,
+        4,
+        23,
+        34
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "no_clipping": true,
+      "grid_readback_match": true,
+      "sha256": "481f0f0fa446553fcd3b74953ee0b3e739e5560e2f3b3e424a152b24339c16f8"
+    },
+    {
+      "direction": "up",
+      "file": "up.png",
+      "size": [
+        24,
+        36
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_colors": 6,
+      "bbox_exclusive": [
+        1,
+        3,
+        23,
+        34
+      ],
+      "anchor_xy": [
+        12,
+        34
+      ],
+      "no_clipping": true,
+      "grid_readback_match": true,
+      "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+    }
+  ]
+}

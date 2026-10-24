@@ -1,0 +1,81 @@
+{
+	"NOT_RUN": [
+		"OS physical input",
+		"video",
+		"normal game regression"
+	],
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"results": [
+		{
+			"detail": "",
+			"id": "GPU.nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "UI.slider_number_presets",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "layout.restore_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resource.shared_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "grass clump margin .34; vine opening margin .32",
+			"id": "exclusions_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "grass 298 / vine paths 6",
+			"id": "finite_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "layout.restore_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resource.shared_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "grass clump margin .34; vine opening margin .32",
+			"id": "exclusions_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "grass 276 / vine paths 2",
+			"id": "finite_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "layout.restore_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resource.shared_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "grass clump margin .34; vine opening margin .32",
+			"id": "exclusions_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "grass 300 / vine paths 12",
+			"id": "finite_2",
+			"status": "PASS"
+		}
+	]
+}

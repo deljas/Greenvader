@@ -1,0 +1,17 @@
+{
+  "magic": "glTF",
+  "bytes": 59100,
+  "meshes": 82,
+  "nodes": 83,
+  "materials": [
+    "WeatheredConcrete",
+    "DarkRecess",
+    "ConcreteFrames",
+    "RustSteel",
+    "RoofConcrete"
+  ],
+  "asset": {
+    "generator": "Godot Engine v4.7.2.stable.official@ed1daf0bf001b61586d9930840f2f1394092c079",
+    "version": "2.0"
+  }
+}

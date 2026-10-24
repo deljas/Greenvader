@@ -1,0 +1,62 @@
+{
+  "task": "TECH-3D-12",
+  "date": "2026-10-16",
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "source_manifest_sha256": "65fe15418708b536994de0d2ef0a96924dd9db75a6472f65d08c0dc09dc5f0f4",
+  "environment": "Windows; submitted Godot4.7.2 Vulkan Forward+ RTX5070Ti; independent offline Python/Pillow/Numpy",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "checks": [
+    {
+      "id": "model_asset_metadata",
+      "status": "PASS",
+      "method": "実GLB/生成元/metadata/読込コード・GPU",
+      "evidence": "GLB2.0/82mesh/83node。実POSITIONとscene変換から独立AABBを算出し記録値と一致、X±3.2/Z±2.8内。ひさし実meshはmetadata UV除外内。窓枠/扉/ひさし/欠損屋根を識別。export→通常scene import→PackedScene読込経路あり。"
+    },
+    {
+      "id": "sparse_growth_openings_coverage",
+      "status": "PASS",
+      "method": "実コード/自己raw・代表GPU/別offline計測",
+      "evidence": "共通Resourceから窓枠沿い＋一部横断枝を生成、扉/ひさしは拡大除外。最大root1、葉0.52/4点ごと・苔span0.40で完成密度を調整。4面の素地分母を独立再計算し保守和24.6/36.0/24.3/28.7%と整合。葉実mesh bbox/茎径0.048/全苔sheetの加算根拠を確認。別の画像壁面差分11.4/15.5/15.3/11.6%は影等込みの補助値で被覆率とはしない。"
+    },
+    {
+      "id": "local_logic_legacy_defaults",
+      "status": "PASS",
+      "method": "実差分/自己証拠レビュー",
+      "evidence": "局所clock/入力/進行加算式は維持、session/地形/counter保全。logic有効13条件と初回FAIL53.1%→影響10PASSを区別。旧default A/B/C layout/pose50/moss signatureは初回3件の一致を確認、最終option内調整後は未再走。GPU全近傍成熟fixtureで45/135秒進行、pause中光操作のwall rawは一致。"
+    },
+    {
+      "id": "cracks_elevation_pixels",
+      "status": "PASS",
+      "method": "実コード/実GPU目視/offline",
+      "evidence": "壁/舗装ひびは独立層・動的受光、舗装幅だけ0.035→0.055m。ON/OFF独立集計は通常640舗装104px/近接640壁180px、通常壁の可視性は目視。仰角5〜85 UI同期/既定52、15/52/80画像で影変化と水反射を確認。代表640→GPU1920全RGBA nearest3一致。"
+    },
+    {
+      "id": "freeze_preservation_runtime",
+      "status": "PASS",
+      "method": "独立hash/実ログ",
+      "evidence": "manifest digest一致、source16・保全452・証拠44全件一致。GPU57936 exit0/stderr空。export append/write0、GLB importと最終asset読込成功。import safe-save ERROR1/P2 uid WARNING6を残し、runtimeエラーとは区別。派生sidecar66は親整理対象。"
+    },
+    {
+      "id": "independent_engine_run",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "新Godot/import/再生成/GPU/入力注入なし。自己計測の全leaf-transform和を別runtimeで取り直していない。"
+    },
+    {
+      "id": "native_environment_save",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "native/物理入力/保存とeditor safe-save原因の追加調査。OS入力/前面化/cursor/ユーザーGodot操作なし。"
+    },
+    {
+      "id": "broad_geometry_regression",
+      "status": "NOT_RUN",
+      "method": "範囲外",
+      "evidence": "全path/全mesh接触の幾何証明、全角度/夜/多灯、性能/長時間/全ゲーム回帰、任意建物/窓なし面GPU、最終美術評価。"
+    }
+  ]
+}

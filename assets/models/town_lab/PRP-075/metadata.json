@@ -1,0 +1,154 @@
+{
+  "asset_id": "PRP-075",
+  "name": "放置された滑り台",
+  "category": "PRP",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      1.0447373040951788,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.5837230682373047,
+      -0.009367535822093487,
+      -0.37328699231147766
+    ],
+    "max": [
+      1.502183198928833,
+      2.098842144012451,
+      0.37328699231147766
+    ]
+  },
+  "dimensions": [
+    3.0859062671661377,
+    2.1082096798345447,
+    0.7465739846229553
+  ],
+  "placement_size_xz": [
+    3.0859062671661377,
+    0.7465739846229553
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -1.5837230682373047,
+    -0.37328699231147766,
+    1.502183198928833,
+    0.37328699231147766
+  ],
+  "geometry_stats": {
+    "triangles": 810,
+    "vertices": 444,
+    "objects": 7,
+    "material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "Slide_curved_sheet",
+      "layer": "slide_sheet",
+      "materials": [
+        "Machine_sage"
+      ]
+    },
+    {
+      "name": "PRP-075_side_rims",
+      "layer": "side_rims",
+      "materials": [
+        "Machine_sage"
+      ]
+    },
+    {
+      "name": "Top_platform",
+      "layer": "platform",
+      "materials": [
+        "Machine_sage"
+      ]
+    },
+    {
+      "name": "PRP-075_supports",
+      "layer": "supports",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP-075_ladder",
+      "layer": "ladder",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP-075_handles",
+      "layer": "handles",
+      "materials": [
+        "Muted_ochre"
+      ]
+    },
+    {
+      "name": "PRP-075_rungs",
+      "layer": "rungs",
+      "materials": [
+        "Rust"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "design_family": "abandoned curved playground slide with a connected ladder and guard handles",
+    "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; exact historical ID mapping inferred from ordered preview groups, not original file recovery",
+    "vegetation": "separate",
+    "collision_navigation": "NOT_RUN",
+    "static_prop_not_functional_mechanism": true
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 810,
+      "triangles_after": 810,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "075_abandoned_playground_slide.blend",
+    "glb": "075_abandoned_playground_slide.glb"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

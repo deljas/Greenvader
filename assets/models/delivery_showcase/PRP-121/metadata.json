@@ -1,0 +1,155 @@
+{
+  "asset_id": "PRP-121",
+  "name": "大径前輪自転車",
+  "category": "PRP",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      1.1937499642372131,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.1150000095367432,
+      0.004999995231628418,
+      -0.34999996423721313
+    ],
+    "max": [
+      1.8849999904632568,
+      2.382499933242798,
+      0.34999996423721313
+    ]
+  },
+  "dimensions": [
+    3.0,
+    2.3774999380111694,
+    0.6999999284744263
+  ],
+  "placement_size_xz": [
+    3.0,
+    0.6999999284744263
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -1.1150000095367432,
+    -0.34999996423721313,
+    1.8849999904632568,
+    0.34999996423721313
+  ],
+  "geometry_stats": {
+    "triangles": 2388,
+    "vertices": 1268,
+    "objects": 7,
+    "material_count": 3
+  },
+  "meshes": [
+    {
+      "name": "PRP-121_wheels",
+      "layer": "wheels",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP-121_spokes",
+      "layer": "spokes",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP-121_axles",
+      "layer": "axles",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "Curved_backbone",
+      "layer": "frame",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "Leather_saddle",
+      "layer": "saddle",
+      "materials": [
+        "Weathered_wood"
+      ]
+    },
+    {
+      "name": "Handlebar",
+      "layer": "handlebar",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP-121_cranks",
+      "layer": "cranks",
+      "materials": [
+        "Rust"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "design_family": "large front wheel bicycle",
+    "recreation_status": "NEWLY_REBUILT_FROM_SURVIVING_PREVIEW; not original file recovery",
+    "vegetation": "separate",
+    "collision_navigation": "NOT_RUN",
+    "static_prop_not_functional_mechanism": true,
+    "static_balance_support_required": "game placement, NOT_RUN"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 2388,
+      "triangles_after": 2388,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "121_highwheel_bicycle.blend",
+    "glb": "121_highwheel_bicycle.glb"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

@@ -1,0 +1,119 @@
+{
+	"default_signatures": [
+		{
+			"id": "A",
+			"new_layout": "345acf4dd0c30b9a30342f6f11d8bc32822a97d7c4ddf98936380b60dfa222b2",
+			"new_moss_records": "a537c2aebaf07a0d2ae441f3add7e3556fa3673d1a2177e12c6875e3f1804ae4",
+			"new_pose50": "88103477e0ddd89574394959d0d6c11ff9af0f2c6bd8e52e0480757bd8f1f915",
+			"old_layout": "345acf4dd0c30b9a30342f6f11d8bc32822a97d7c4ddf98936380b60dfa222b2",
+			"old_moss_records": "a537c2aebaf07a0d2ae441f3add7e3556fa3673d1a2177e12c6875e3f1804ae4",
+			"old_pose50": "88103477e0ddd89574394959d0d6c11ff9af0f2c6bd8e52e0480757bd8f1f915"
+		},
+		{
+			"id": "B",
+			"new_layout": "3e3e2b74210a8ee6c56fab1a211305daa4b0f00ea8a4dee2b17802304d704047",
+			"new_moss_records": "2d138e511b03cfae1c7ebbf089db9d946e515d5ad0887ec33549a1d32c402e6d",
+			"new_pose50": "5d6f3e8c280252735631c9eea8751bd5bdc0463dfecfced7c4c2874a73e0736a",
+			"old_layout": "3e3e2b74210a8ee6c56fab1a211305daa4b0f00ea8a4dee2b17802304d704047",
+			"old_moss_records": "2d138e511b03cfae1c7ebbf089db9d946e515d5ad0887ec33549a1d32c402e6d",
+			"old_pose50": "5d6f3e8c280252735631c9eea8751bd5bdc0463dfecfced7c4c2874a73e0736a"
+		},
+		{
+			"id": "C",
+			"new_layout": "5ccdd550241230f937e7c1c78a2f77105b8ea36f89b8eb993c045f82fa34263d",
+			"new_moss_records": "4518dd68e519157ee84c26ee87db04e642fb4ad9664873a44553a8694f0fcfa1",
+			"new_pose50": "adfab6b7b9932ca8989553877ed749d8939af1b1b0460c7731bf98a323db47fe",
+			"old_layout": "5ccdd550241230f937e7c1c78a2f77105b8ea36f89b8eb993c045f82fa34263d",
+			"old_moss_records": "4518dd68e519157ee84c26ee87db04e642fb4ad9664873a44553a8694f0fcfa1",
+			"old_pose50": "adfab6b7b9932ca8989553877ed749d8939af1b1b0460c7731bf98a323db47fe"
+		}
+	],
+	"failures": 0,
+	"results": [
+		{
+			"detail": "",
+			"id": "default_compatibility_A",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "default_compatibility_B",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "default_compatibility_C",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "fixture_front_root",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "initial_zero_wall_only_no_ground_roof_cracks",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "actual_session_seed_landing",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "seed_stage_no_wall_input",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sprout_and_real_clock_connection",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "mature_ground_has_delayed_wall_growth",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "wall_progress_no_greening_counter_gain",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "other_building_unaffected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "individual_patch_materials",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "moss_separate_slower_progress",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "green_loss_holds_not_reverses",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pause_sun_refresh_no_progress",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resume_reaches_full_without_input_cap",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "soil_pavement_equal_internal_input",
+			"status": "PASS"
+		}
+	]
+}

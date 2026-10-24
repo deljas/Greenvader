@@ -1,0 +1,30 @@
+[
+  {
+    "path": "project.godot",
+    "sha256": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F"
+  },
+  {
+    "path": "scripts/vegetation_lab/plant_parts.gd",
+    "sha256": "9B9B5D91E2E15CBB7470878182A5B88C0920D7A1BC0DD3D97B1AA0DD196ABF7C"
+  },
+  {
+    "path": "scripts/vegetation_lab/growth_patch.gd",
+    "sha256": "1AD65EFB2C2F938A64362A2E33D1DF35171EAD65885792093D67B319F4D6BEE3"
+  },
+  {
+    "path": "scripts/vegetation_lab/building_geometry.gd",
+    "sha256": "A23ED72C8F250E2997E456CDAA324EC8D1CFA9C9CD25E7139FD19CB7C48D9B2A"
+  },
+  {
+    "path": "scripts/vegetation_lab/building_defs.gd",
+    "sha256": "AD1E464294CBC169F2A00B24102EA1F150491FF210405ECD02C5A02999BE9946"
+  },
+  {
+    "path": "scripts/greening_map/map.gd",
+    "sha256": "5F429CAC37AE7545A461CA621C7052F198282417B8B250A50A6737F99E66C7C8"
+  },
+  {
+    "path": "scripts/asset_showcase/showcase.gd",
+    "sha256": "9F3B21A37D52B25C9C0E6995BCD0A1E4884A2236327B8ED6D3BFA80D343A188B"
+  }
+]

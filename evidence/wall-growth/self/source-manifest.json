@@ -1,0 +1,42 @@
+{
+  "task": "TECH-3D-11",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "state": "frozen uncommitted shared tree",
+  "files": [
+    {
+      "path": "scripts/greening_map/map.gd",
+      "sha256": "99ae25067e2ec34a0f323960814d41285ad620798e021c68710a1dc3b17d7591",
+      "bytes": 11749
+    },
+    {
+      "path": "scripts/greening_map/water_surface.gdshader",
+      "sha256": "d4b851841523478dbce0579010179d48b0a30cb8dd3277b923342e9de4d0ddde",
+      "bytes": 1117
+    },
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "8db1e144547f6db5de84691792c368e4d74f2486cb5847dcc96109a2492268e3",
+      "bytes": 8606
+    },
+    {
+      "path": "scripts/vegetation_lab/surface_layers.gd",
+      "sha256": "65b0d57b5987a102a257677e04ff28d51435b8bbb5b4be4b56dab66ceb0aa5aa",
+      "bytes": 4991
+    },
+    {
+      "path": "scripts/greening_map/wall_growth_controller.gd",
+      "sha256": "88dc971dd534ef66953895f3a8cb60d25e201cf5d76e4f56846b4ac7ff5e45fa",
+      "bytes": 5003
+    },
+    {
+      "path": "tests/greening_map/wall_growth_self_logic.gd",
+      "sha256": "1c7cb9ff200f193bc5faca0e80dc97396cd4e37e8b88fad0033d54d6e91717aa",
+      "bytes": 7379
+    },
+    {
+      "path": "tests/greening_map/wall_growth_self_capture.gd",
+      "sha256": "ae31b0a472a5a6665195f95e52063218118e4418668ce480f91c4ab202a64ab2",
+      "bytes": 5601
+    }
+  ]
+}

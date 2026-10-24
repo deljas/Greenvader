@@ -1,0 +1,147 @@
+{
+  "asset_id": "TRE-027",
+  "name": "扇形葉の樹木",
+  "category": "TRE",
+  "version": "revision.rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      2.4642813843674958,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.2506086826324463,
+      -0.004284731112420559,
+      -1.2582364082336426
+    ],
+    "max": [
+      1.5080790519714355,
+      4.932847499847412,
+      1.398062825202942
+    ]
+  },
+  "dimensions": [
+    2.758687734603882,
+    4.937132230959833,
+    2.6562992334365845
+  ],
+  "placement_size_xz": [
+    2.758687734603882,
+    2.6562992334365845
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -0.35,
+    -0.35,
+    0.35,
+    0.35
+  ],
+  "geometry_stats": {
+    "triangles": 2678,
+    "vertices": 1629,
+    "objects": 4,
+    "material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "Fan_palm_trunk",
+      "layer": "trunk",
+      "materials": [
+        "Bark.002"
+      ]
+    },
+    {
+      "name": "TRE-027_petioles",
+      "layer": "petioles",
+      "materials": [
+        "Bark"
+      ]
+    },
+    {
+      "name": "TRE-027_crown_fan",
+      "layer": "crown_fan",
+      "materials": [
+        "Fan_leaf",
+        "Fan_leaf_dry"
+      ]
+    },
+    {
+      "name": "TRE-027_ribs",
+      "layer": "ribs",
+      "materials": [
+        "Fan_leaf"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "design_family": "pleated radial fan leaves on separate arching petioles",
+    "trunk_layer": "trunk",
+    "canopy_layers": "crown_*",
+    "ground_contact_radius_m": 0.35,
+    "leaf_method": "individually curved leaf blades attached to connected twigs; no solid green canopy shell",
+    "growth_stage": "single design; not counted as a colour or growth-stage variant",
+    "game_wind": "NOT_RUN",
+    "canopy_occlusion_game": "NOT_RUN",
+    "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; historical ID mapping inferred from ordered preview batches",
+    "leaf_count": 9,
+    "retained_original_layers": [
+      "trunk",
+      "roots"
+    ],
+    "existing_asset_revision": true,
+    "reference": "03_pine_and_fan_revisions_1920_nearest.png"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 2678,
+      "triangles_after": 2678,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "existing_asset_revision": true,
+  "baseline_version": "0.0.1",
+  "delivery_files": {
+    "blend": "027_fan_leaf_tree.blend",
+    "glb": "027_fan_leaf_tree.glb"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

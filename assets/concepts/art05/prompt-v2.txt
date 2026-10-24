@@ -1,0 +1,11 @@
+Use case: precise-object-edit.
+Input image 1 is the EDIT TARGET: the existing three-panel greening comparison board. Produce one revised version of this exact board. THIS IS A NARROW CORRECTION TO THE RIGHTMOST THIRD ONLY.
+
+Freeze the LEFT and CENTER panels as they are. Keep the same separators, overall board dimensions/aspect, framing, orthographic camera, daylight, light color and building identity. Do not redesign, recolor, zoom or add anything to the first two panels.
+
+RIGHTMOST PANEL ONLY:
+The mature scene currently has too much bare pavement and looks only partly grown. Increase mature GROUND vegetation substantially: dense, thick short grass covering roughly 70–80% of the visible ground/pavement footprint around the building, with scattered higher tufts and overlapping low leafy clumps. It must read as a rich continuous grassland with individual tuft shapes and varied heights, not scattered tiny weeds on a large bare road. Dark blue-green roots, warm green blade tips, crisp localized shading, no flat green paint or uniform moss tint. Fill most of the currently broad exposed foreground paving and side areas with this turf. Preserve a narrow paved approach only about one tile wide leading to the rusty door steps, plus a few exposed paving tiles around the outer rim and occasional small joint glimpses so the old grid remains recognizable. Do not leave wide continuous roads or a big empty foreground.
+
+Also increase the right panel's low grass/leaf coverage onto the flat roof from the existing perimeter growth, to around half or slightly more of the roof surface, in irregular connected tuft and leaf clusters. Keep clear remnants of roof concrete and the broken segmented parapet, never turn it into trees or a tall forest.
+
+Preserve the SAME one-story concrete building, flat roof silhouette, rusty rods, original three dark recessed windows, closed rusted blue-gray door and two steps. Keep the door and all window openings readable; preserve wall vines already present. No new structures, no trees, no people, no animals, no text or UI. Same hard daylight and shadow direction; do not add scene-wide illumination patches, fog, blur, smooth photographic grass or outlines. Keep the crisp low-resolution pixel-like look. Apart from this stronger mature vegetation in the right panel, change nothing.

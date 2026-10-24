@@ -1,0 +1,92 @@
+{
+	"checks": [
+		{
+			"detail": "two cached compositions, no simulation",
+			"id": "scene.load",
+			"result": "PASS"
+		},
+		{
+			"detail": "640x360 source",
+			"id": "raster.size",
+			"result": "PASS"
+		},
+		{
+			"detail": "existing 16x16 flower",
+			"id": "player.scale",
+			"result": "PASS"
+		},
+		{
+			"detail": "existing 4x4 pickup, not the projectile",
+			"id": "seed.pickup",
+			"result": "PASS"
+		},
+		{
+			"detail": "64x84 original tree",
+			"id": "tree.scale",
+			"result": "PASS"
+		},
+		{
+			"detail": "A=129 B=280 tall clumps; B includes every A clump, same palette",
+			"id": "density.only",
+			"result": "PASS"
+		},
+		{
+			"detail": "same world positions reproduce identical bytes",
+			"id": "raster.fixed",
+			"result": "PASS"
+		},
+		{
+			"detail": "soil and opaque crown pixels unchanged between variants; transparent gaps retain grass",
+			"id": "composition.fixed",
+			"result": "PASS"
+		},
+		{
+			"detail": "engine-internal B key selects rich",
+			"id": "input.B",
+			"result": "PASS"
+		},
+		{
+			"detail": "engine-internal A key selects restrained",
+			"id": "input.A",
+			"result": "PASS"
+		},
+		{
+			"detail": "button signal connects to B; physical mouse NOT_RUN",
+			"id": "button.signal",
+			"result": "PASS"
+		},
+		{
+			"detail": "switching/idle uses existing cached rasters",
+			"id": "cache.idle",
+			"result": "PASS"
+		},
+		{
+			"detail": "inherited integer viewport stretch, explicit nearest; native drawing NOT_RUN",
+			"id": "display.config",
+			"result": "PASS"
+		},
+		{
+			"detail": "CPU composition, Japanese UI not included",
+			"id": "png.A_restrained",
+			"result": "PASS"
+		},
+		{
+			"detail": "CPU composition, Japanese UI not included",
+			"id": "png.B_rich",
+			"result": "PASS"
+		},
+		{
+			"detail": "No verified pre-launch no-focus option in Godot --help. Did not open a native window. PNGs are CPU rasters, not actual rendered UI.",
+			"id": "native.window_and_UI",
+			"result": "NOT_RUN"
+		},
+		{
+			"detail": "No OS input sent; user may open run_art_study.bat and click A/B.",
+			"id": "physical.input",
+			"result": "NOT_RUN"
+		}
+	],
+	"density_A": 129,
+	"density_B": 280,
+	"failures": 0
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "BLD-123",
+    "name": "円筒灯台",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\123_lighthouse\\123_lighthouse.glb",
+    "bytes": 408732,
+    "sha256": "9135597459883CFDDC2C1CBF3D065007FFC8BD3A3ADFA4090200ED68ADE2DE90"
+  },
+  {
+    "id": "PRP-121",
+    "name": "大径前輪自転車",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\121_highwheel_bicycle\\121_highwheel_bicycle.glb",
+    "bytes": 65540,
+    "sha256": "CA8CA0BF7CBFD5CF3DB340E6BDA9C486DD32B78375023035A454C117019ED3A8"
+  },
+  {
+    "id": "BLD-007",
+    "name": "外廊下付き低層集合住宅",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\007_ochre_gallery_apartment_pitched_roof\\007_ochre_gallery_apartment_pitched_roof.glb",
+    "bytes": 2817424,
+    "sha256": "EEAF596AFB6A585F003E028BC0BE6BADEC99A3AC60B30E5406ECC31972CF1ADC"
+  },
+  {
+    "id": "BLD-038",
+    "name": "小さな礼拝堂",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\038_cross_plan_stone_chapel\\038_cross_plan_stone_chapel.glb",
+    "bytes": 1132744,
+    "sha256": "9EED7FE3953382A2158FE2D0E5808104D297442550B00885D4052415345BA149"
+  },
+  {
+    "id": "GND-009",
+    "name": "ひびから草が出る舗装",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\ground\\009_cracked_paving\\009_cracked_paving.glb",
+    "bytes": 36928,
+    "sha256": "83BB53821EB73C99BE72CE5EE0D02315CDE4371FAC0CC9C9C8E1D287C2B6C488"
+  },
+  {
+    "id": "GND-036",
+    "name": "非対称の水たまり",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\ground\\036_asymmetric_puddle\\036_asymmetric_puddle.glb",
+    "bytes": 30996,
+    "sha256": "54404D89BFA2071034F82ED22C0F1095D85AB495B3A95FE4DB599E2AD5D967F1"
+  },
+  {
+    "id": "MOS-003",
+    "name": "三日月状の小島",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\moss\\003_crescent_ground_membrane\\003_crescent_ground_membrane.glb",
+    "bytes": 1544,
+    "sha256": "37FF94AA65468F7D7D7084DBE9A24E7CE4125D8DAB36555C914B3466ABD70A3D"
+  },
+  {
+    "id": "MOS-012",
+    "name": "内角に集まるコケ",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\moss\\012_inside_corner_moss\\012_inside_corner_moss.glb",
+    "bytes": 2992,
+    "sha256": "0BD0F2D6753F36C37964BFDE4EEA2A497412A3150409D6DA7017D6905E2EFDF2"
+  },
+  {
+    "id": "PRP-001",
+    "name": "折れた街灯",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\001_broken_streetlamp\\001_broken_streetlamp.glb",
+    "bytes": 19124,
+    "sha256": "18FBA8991523FCB7EC0E70B748DFFE329C16DA5D1E79A4EA1BA0C7C90328D9F1"
+  },
+  {
+    "id": "PRP-041",
+    "name": "錆びた乗用車の外殻",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\041_crumpled_passenger_car_shell\\041_crumpled_passenger_car_shell.glb",
+    "bytes": 47632,
+    "sha256": "C3F9BEC4492C9CB7C84CC3BE6448CB1725169E8AEBA20A169E5E1302B5C59951"
+  },
+  {
+    "id": "TRE-001",
+    "name": "非対称な広葉樹",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\001_asymmetric_broadleaf\\001_asymmetric_broadleaf.glb",
+    "bytes": 91280,
+    "sha256": "D058C573ABEAA0BC7A99E07098049E69DEB09FF61D5CD31E7FCF00A944D75150"
+  },
+  {
+    "id": "TRE-027",
+    "name": "扇形葉の樹木",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\027_fan_leaf_tree\\027_fan_leaf_tree.glb",
+    "bytes": 82924,
+    "sha256": "8825521E4A20C69704D22380DEC34B5B39170D0E11EDF52E155722F7BA867AB4"
+  },
+  {
+    "id": "VIN-007",
+    "name": "窓枠沿いと窓端横断",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\007_window_vine\\007_window_vine.glb",
+    "bytes": 34476,
+    "sha256": "B431B82CE13CABD0E51F2A75A46E85FED5819A5A5884D786AF6646D1FD880845"
+  },
+  {
+    "id": "BLD-079",
+    "name": "水車付き石造廃屋",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\buildings\\079_stone_watermill_ruin\\079_stone_watermill_ruin.glb",
+    "bytes": 515944,
+    "sha256": "A88C703D505061CB294696B6FF6F6ADACA4806F01A1422BC32558EB100B2E040"
+  },
+  {
+    "id": "TRE-054",
+    "name": "板根の広がる大きな広葉樹",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\054_flared_buttress_tree\\054_flared_buttress_tree.glb",
+    "bytes": 243328,
+    "sha256": "AD1B3EE7194EEF6929073B296A6CC6689C3ADDEA52B43212D3F8D52531A42591"
+  },
+  {
+    "id": "VIN-032",
+    "name": "木質の横広がりツタ",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\032_woody_spreading_wall_vine\\032_woody_spreading_wall_vine.glb",
+    "bytes": 38048,
+    "sha256": "C5475267825C93071A59736DCA42450E941CD31F5B4D7918733FE8E4C48E27BD"
+  },
+  {
+    "id": "VIN-047",
+    "name": "分枝する地表ランナー網",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\047_branching_ground_vine_network\\047_branching_ground_vine_network.glb",
+    "bytes": 52696,
+    "sha256": "5A1FBD98CBB023540EDDCA83781B5A2E50DC6272DBCE9B4A82E9E21E3089A4B8"
+  },
+  {
+    "id": "MOS-024",
+    "name": "空隙のある地表のコケ群",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\moss\\024_ground_moss_archipelago\\024_ground_moss_archipelago.glb",
+    "bytes": 33532,
+    "sha256": "28BCDC581E84596C73C92DF9EF28A48457AFC9B9EA6D9F6A610EBF9214DD1BF2"
+  },
+  {
+    "id": "GND-059",
+    "name": "曲がる路面電車軌道の舗装",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\ground\\059_curved_tram_track_paving\\059_curved_tram_track_paving.glb",
+    "bytes": 117192,
+    "sha256": "79A9FE5C39AC51E9000D49B23E49B9C451757AA5F8ACE2014FA89DA56002C63C"
+  },
+  {
+    "id": "PRP-075",
+    "name": "放置された滑り台",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\props\\075_abandoned_playground_slide\\075_abandoned_playground_slide.glb",
+    "bytes": 28772,
+    "sha256": "8B355925B2CAFDD98352F52F7E8BFBB0E07C7D8BE17053FC0F768E026DA560B4"
+  },
+  {
+    "id": "MOS-035",
+    "name": "根張りの凹凸へ沿うコケ膜",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\moss\\035_flared_root_collar_moss\\035_flared_root_collar_moss.glb",
+    "bytes": 92712,
+    "sha256": "1AC669CB7AB6FCB0E4CF5B9A17633ABC1CBC4C9586A518F6AA716C05C1CB92F7"
+  },
+  {
+    "id": "TRE-074",
+    "name": "膝根と羽状葉の湿地針葉樹",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\trees\\074_wetland_cypress_knee_roots\\074_wetland_cypress_knee_roots.glb",
+    "bytes": 926488,
+    "sha256": "606547E39F311D7A7AD2B9C6C50A566A91D2D36C31DA2480E683760622C332D8"
+  },
+  {
+    "id": "VIN-060",
+    "name": "張り出し縁を避けて垂れるツタ",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\060_projecting_ledge_double_cascade_vine\\060_projecting_ledge_double_cascade_vine.glb",
+    "bytes": 44092,
+    "sha256": "E20D7B069F647D32B600E653BB8E8827DEA02FB83A70961BDDD8224403325903"
+  },
+  {
+    "id": "GND-077",
+    "name": "欠損した六角テラコッタ舗装",
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\ground\\077_broken_hex_terracotta_paving\\077_broken_hex_terracotta_paving.glb",
+    "bytes": 101488,
+    "sha256": "BDDED6FE70AE5E89D26012CD5DF191C10FC4A680E878F59B17FE48FE6CC8D88B"
+  }
+]

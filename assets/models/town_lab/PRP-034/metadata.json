@@ -1,0 +1,134 @@
+{
+  "asset_id": "PRP-034",
+  "name": "消火栓",
+  "category": "PRP",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      0.5299999713897705,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -0.38999998569488525,
+      0.0,
+      -0.25
+    ],
+    "max": [
+      0.38999998569488525,
+      1.059999942779541,
+      0.25
+    ]
+  },
+  "dimensions": [
+    0.7799999713897705,
+    1.059999942779541,
+    0.5
+  ],
+  "placement_size_xz": [
+    0.7799999713897705,
+    0.5
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -0.38999998569488525,
+    -0.25,
+    0.38999998569488525,
+    0.25
+  ],
+  "geometry_stats": {
+    "triangles": 580,
+    "vertices": 304,
+    "objects": 5,
+    "material_count": 2,
+    "blender_material_count": 2,
+    "glb_material_count": 2
+  },
+  "meshes": [
+    {
+      "name": "Hydrant_foot",
+      "layer": "base",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "Hydrant_short_body",
+      "layer": "body",
+      "materials": [
+        "Hydrant_red"
+      ]
+    },
+    {
+      "name": "PRP-034_outlets",
+      "layer": "outlets",
+      "materials": [
+        "Hydrant_red"
+      ]
+    },
+    {
+      "name": "PRP-034_caps",
+      "layer": "caps",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "Hydrant_top_nut",
+      "layer": "top_nut",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "outlet_count": 2,
+    "caps_separate": true,
+    "generic_design": true,
+    "collision_candidate": "short central cylinder and two outlets"
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 580,
+      "triangles_after": 580,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true
+}

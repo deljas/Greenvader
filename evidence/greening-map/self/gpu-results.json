@@ -1,0 +1,61 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"results": [
+		{
+			"detail": "",
+			"id": "input.UI_does_not_scatter",
+			"status": "PASS"
+		},
+		{
+			"detail": "window size (1920, 1080); logical target (275.9683, 225.439); result 種 → 5セル",
+			"id": "input.left_seed_real_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "input.right_water_real_state",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pick.building_screen_occlusion",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "landing.blocked_across_building",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "UI.growth_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sim.sprout_actual_stage",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sim.mature_and_natural_spread",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "view.read_only_state_mapping",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "UI.sun_slider_number",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sun.GPU_changes_no_growth_mutation",
+			"status": "PASS"
+		}
+	]
+}

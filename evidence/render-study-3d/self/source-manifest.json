@@ -1,0 +1,95 @@
+{
+  "task": "TECH-3D-01",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "created": "2026-10-15T23:14:46.5882197+09:00",
+  "state": "frozen uncommitted dedicated study; existing ART/TECH unchanged by this agent",
+  "sources": [
+    {
+      "path": "scripts/render_study_3d/study.gd",
+      "sha256": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460"
+    },
+    {
+      "path": "scripts/render_study_3d/ruin_geometry.gd",
+      "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4"
+    },
+    {
+      "path": "assets/render_study_3d/concrete.gdshader",
+      "sha256": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a"
+    },
+    {
+      "path": "scenes/render_study_3d.tscn",
+      "sha256": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce"
+    },
+    {
+      "path": "run_render_study_3d.bat",
+      "sha256": "4c607b47ad8aa506af5b28bf82347f78eb59561f26d519ae5f60416e84bf61da"
+    },
+    {
+      "path": "tests/render_study_3d/self_checks.gd",
+      "sha256": "859f98f81f15e6cd78932541b2a1758830cb841806bee9a859fc191f39447afb"
+    },
+    {
+      "path": "tests/render_study_3d/self_geometry_probe.gd",
+      "sha256": "b875b4bac44cb142aa409ee7f0aeab2f9578401c2fafafea2a03becc6ccda0bc"
+    }
+  ],
+  "images": [
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_00_960.png",
+      "sha256": "9da15140bb3172724e6bb5f60738e72593bade93536357da2929b49a255a48b7"
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_01_960.png",
+      "sha256": "fa742f9a084d845247b7f2240fce267f098ec5cf4a41ea92d8dd9fd0f443c673"
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_02_960.png",
+      "sha256": "d64892071469cfb9133d38cffefc99c2642571b8fb1cdff847de7acbf5dede0c"
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_03_960.png",
+      "sha256": "9cb34f89dab121191d128cd5aa945be48b6d84b91acc0fa75e4a8d5cdeaa0d55"
+    },
+    {
+      "path": "evidence/render-study-3d/self/camera_noon_04_960.png",
+      "sha256": "c68101dbb9dd6e5c8dad856f80295c3ef5a43f1379631e96d2895f6d0a7069e4"
+    },
+    {
+      "path": "evidence/render-study-3d/self/evening_1920.png",
+      "sha256": "4bc20083ec4d159a8e5602b237dc3ec64e6cd6576fa18e6a011c6b8dc52a8c5b"
+    },
+    {
+      "path": "evidence/render-study-3d/self/evening_960.png",
+      "sha256": "aef9b31d2e17189de1ff9a068bb8adee2ad327abc2e35924e43f396f518b1e29"
+    },
+    {
+      "path": "evidence/render-study-3d/self/morning_1920.png",
+      "sha256": "3f02b9e315f6f58b162907e2a8cb53436a7dd35e82e39b3fddaf62c0a94d89cd"
+    },
+    {
+      "path": "evidence/render-study-3d/self/morning_960.png",
+      "sha256": "521ae41fb666c409b90e72a78e2b12e1dda32347ab260c32f6512cdf439b8caf"
+    },
+    {
+      "path": "evidence/render-study-3d/self/noon_1920.png",
+      "sha256": "f9a1f7507f06b56acb0736a9b7e451e248f6871416acd864f30a10e62244a69a"
+    },
+    {
+      "path": "evidence/render-study-3d/self/noon_960.png",
+      "sha256": "9da15140bb3172724e6bb5f60738e72593bade93536357da2929b49a255a48b7"
+    },
+    {
+      "path": "evidence/render-study-3d/self/noon_shadow_disabled_reference_960.png",
+      "sha256": "fe949501feeaf5618f3ebe7b35d2d67c70bc1cfb85e79a2c7d76a45a52aaccb0"
+    }
+  ],
+  "renderer": "Vulkan 1.4.341 Forward+",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "gpu_results": "15 PASS / 0 FAIL / 2 NOT_RUN",
+  "gpu_exit": 0,
+  "shadow_changed_pixels": 34718,
+  "prior_evidence": "self/initial/ is superseded geometry before prism winding fix",
+  "native": "NOT_RUN",
+  "processes": "All self processes exited; Godot process count 0 at resource handoff",
+  "existing_baseline": "evidence/render-study-3d/baseline-existing.json (parent manages comparison)"
+}

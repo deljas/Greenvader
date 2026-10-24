@@ -1,0 +1,28 @@
+Use case: stylized-concept
+Asset type: one landscape comparison board for a pixel-art game character brainstorming meeting; CONCEPT ONLY, not a finished sprite sheet.
+
+Primary request: Create ONE clean, wide comparison board with THREE equal columns A, B, C. Each column must show the SAME daytime game scene, the SAME nighttime game scene, and a large close-up of its tiny walking flower protagonist alongside its wild boar enemy. The variations compare character design and color, not background design or relative character size.
+
+Input images:
+Image 1, C:/godot/greenvader/evidence/weather/03/front_day_640.png: daytime supporting compositing input. Preserve this actual game's quarter-view orthographic setting, muted olive pavement, little worn buildings, trees, hard shadows and dense grass, and its building placement. Repeat the same daytime crop across all three columns.
+Image 2, C:/godot/greenvader/evidence/poc/09/full_night_640.png: nighttime supporting compositing input. Preserve this actual game's nighttime quarter-view setting, dark blue sky, flat roof ruins and white water tower, dense grass, small warm lamps, and its building placement. Repeat the same nighttime crop across all three columns.
+Do not invent a new landscape. Use the supplied game screenshots as scene backdrops, keeping their recognizable composition. Existing temporary colored placeholder figures in daytime may be replaced by the proposed flower and boar.
+
+Composition:
+A single orderly landscape board, roughly 16:9, three clearly separated equal-width columns. Top narrow heading row with A, B, C. Upper half: matching daytime scene crop per column, with one small flower protagonist and one boar on visible ground. Middle row: matching nighttime scene crop per column with the same characters, at matching sizes and comparable ground positions. Bottom third: neutral dark gray-green swatch with one much enlarged flower and one enlarged boar per column, preserving chunky sparse pixel design. The large portraits must be readable. Add small CONCEPT ONLY across the top. No other text is needed. In both scene rows all three flower protagonists must be visually equal in height; all three boars must be visually equal in size. Day and night are lighting variants of the same design.
+
+Subjects:
+A: a small wildflower with cream-white petals, a warm yellow circular center with two tiny simple eyes, a short green stalk and two broad leaf feet. Simple, humble, cute. The plant is the entire body.
+B: a small flower with dusty muted pale-pink petals, a pale desaturated center with two tiny expressionless eyes, a short stalk and leaf/root feet. Cute but quiet and slightly unsettling, never grotesque.
+C: a small flower with vivid vermilion-orange petals, a pale yellow circular center with two tiny eyes, a short stalk and blue-green leaf feet. Strong simple contrasting color shapes make it easy to find against muted grass.
+For each: clearly a SMALL FLOWER WITH FEET, not a person wearing a flower hat. No human body, no clothes, no arms/hands, no weapon, no flower pot, no accessories.
+Each wild boar is a squat compact four-legged brown to gray-brown animal with a broad snout, simple pale tusks, chunky torso and hard planar shading. Harmonize its earthy browns with the respective flower without changing species or giving it fantasy armor.
+
+Style/medium:
+Game-oriented pixel art. Crisp stepped silhouettes, large readable color clusters and few shades. No black outline, no dark perimeter stroke, no painted rim disguised as an outline. Internal dark eye pixels and interior shading are allowed. Hard shading. Avoid excessive fine detail even in the enlarged characters. The source screenshots have low-resolution 3D backgrounds; insert clearly compatible flat pixel sprites, not plush toys or high-detail 3D figures.
+The small scene characters should suggest a modest readability increase from the temporary sprites, roughly a 20x28 flower at a 640-wide game viewport (or 30x42 at 960), but this is an illustrative comparison, not a dimensional proof. Do not print these numbers.
+
+Night invariants:
+Do not add self-emission, halo, glow, aura, extra spotlights, outlined rims or brightened grass to artificially boost visibility. Keep the same night backdrop and its existing lamps. The flower colors can receive the scene's existing blue ambient illumination but remain clearly color-related to their daytime design. No glowing protagonist or boar.
+
+Avoid: smooth digital painting, gradients on sprites, antialias blur, depth of field, motion blur, photorealism, black cartoon outlines, human silhouette, hats, clothing, weapons, pots, additional characters, decorative botanical detail, unequal character scales between A/B/C, changing the environment between columns, unsupported claims of pixel-perfect or final-production readiness.

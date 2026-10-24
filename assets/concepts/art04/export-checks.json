@@ -1,0 +1,15 @@
+{
+  "sourceWidth": 1672,
+  "sourceHeight": 941,
+  "method": "Same source, nearest centre sampling to each logical raster, exact pixel replication to 1920x1080. No palette quantization or hand pixel cleanup.",
+  "results": [
+    {
+      "logicalWidth": 960,
+      "logicalHeight": 540,
+      "scale": 2,
+      "outputWidth": 1920,
+      "outputHeight": 1080,
+      "mismatchedPixels": 0
+    }
+  ]
+}

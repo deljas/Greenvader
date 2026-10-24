@@ -1,0 +1,106 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"name": "grid_preserved_target_footprints",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "known_4unit_cell_8x4_diamond",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "known_inverse",
+			"status": "PASS"
+		},
+		{
+			"detail": "[(50.00854, 0.0), (35.35547, -35.35547)]",
+			"name": "screen_direction_diagonal_equal_speed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "four_wall_contacts_match_feet",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "complete_building_circuit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "low_obstacle_contact",
+			"status": "PASS"
+		},
+		{
+			"detail": "(554.0, 470.0)",
+			"name": "camera_mouse_inverse_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "ground_marker_actor_layers",
+			"status": "PASS"
+		},
+		{
+			"detail": "(25.00427, 0.0)",
+			"name": "engine_key_injection",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "front_walkable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "behind_faded_walkable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "behind_fade_trigger",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "left_front_walkable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "right_front_walkable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"name": "fractional_diagonal_camera_pixel_snap",
+			"status": "PASS"
+		},
+		{
+			"detail": "Logic-only pass; GPU pass is separate",
+			"name": "GPU_visual_and_native",
+			"status": "NOT_RUN"
+		},
+		{
+			"detail": "User manual check only; no OS input sent",
+			"name": "physical_OS_input",
+			"status": "NOT_RUN"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 0
+}

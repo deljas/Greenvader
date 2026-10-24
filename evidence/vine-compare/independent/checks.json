@@ -1,0 +1,271 @@
+{
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "frozen": {
+    "count": 7,
+    "mismatches": []
+  },
+  "existing": {
+    "count": 7,
+    "mismatches": []
+  },
+  "originals": {
+    "count": 126,
+    "mismatches": []
+  },
+  "inventory": {
+    "count": 63,
+    "ids": [
+      "VIN-001",
+      "VIN-002",
+      "VIN-003",
+      "VIN-004",
+      "VIN-005",
+      "VIN-006",
+      "VIN-007",
+      "VIN-008",
+      "VIN-009",
+      "VIN-010",
+      "VIN-011",
+      "VIN-012",
+      "VIN-013",
+      "VIN-014",
+      "VIN-015",
+      "VIN-016",
+      "VIN-017",
+      "VIN-018",
+      "VIN-019",
+      "VIN-020",
+      "VIN-021",
+      "VIN-022",
+      "VIN-023",
+      "VIN-024",
+      "VIN-025",
+      "VIN-026",
+      "VIN-027",
+      "VIN-028",
+      "VIN-029",
+      "VIN-030",
+      "VIN-031",
+      "VIN-032",
+      "VIN-033",
+      "VIN-034",
+      "VIN-035",
+      "VIN-036",
+      "VIN-037",
+      "VIN-038",
+      "VIN-039",
+      "VIN-040",
+      "VIN-041",
+      "VIN-042",
+      "VIN-043",
+      "VIN-044",
+      "VIN-045",
+      "VIN-046",
+      "VIN-047",
+      "VIN-048",
+      "VIN-049",
+      "VIN-050",
+      "VIN-051",
+      "VIN-052",
+      "VIN-053",
+      "VIN-054",
+      "VIN-055",
+      "VIN-056",
+      "VIN-057",
+      "VIN-058",
+      "VIN-059",
+      "VIN-060",
+      "VIN-061",
+      "VIN-062",
+      "VIN-063"
+    ],
+    "smoke_ids_match": true,
+    "smoke_status_counts": {
+      "PASS": 63
+    },
+    "source_import_sidecars": []
+  },
+  "smoke_stat_mismatch": [
+    {
+      "id": "VIN-007",
+      "recorded_triangles": 468,
+      "glb_triangles": 800
+    }
+  ],
+  "representatives": [
+    {
+      "id": 7,
+      "glb_triangles": 800,
+      "counts": [
+        0,
+        82,
+        225,
+        509,
+        800
+      ],
+      "root": "(0.0, 0.0, 0.0)",
+      "endpoint_monotonic": true
+    },
+    {
+      "id": 32,
+      "glb_triangles": 1302,
+      "counts": [
+        0,
+        189,
+        473,
+        959,
+        1302
+      ],
+      "root": "(0.0, 0.0, 0.0)",
+      "endpoint_monotonic": true
+    },
+    {
+      "id": 47,
+      "glb_triangles": 1926,
+      "counts": [
+        0,
+        251,
+        915,
+        1693,
+        1926
+      ],
+      "root": "(0.0, 0.0, 0.0)",
+      "endpoint_monotonic": true
+    },
+    {
+      "id": 60,
+      "glb_triangles": 1542,
+      "counts": [
+        0,
+        182,
+        546,
+        1096,
+        1542
+      ],
+      "root": "(0.0, 0.0, 0.06)",
+      "endpoint_monotonic": true
+    },
+    {
+      "id": 24,
+      "glb_triangles": 120,
+      "counts": [
+        0,
+        5,
+        24,
+        36,
+        120
+      ],
+      "root": "(0.0, 0.0, 0.0)",
+      "endpoint_monotonic": true
+    }
+  ],
+  "frames": [
+    {
+      "path": "evidence\\vine-compare\\self\\007_full_ui_1920.png",
+      "sha256": "fe0bd2940a4100da0bb79716f08d5fcf79d7d681535045f40279202e4d599093",
+      "size": [
+        1920,
+        1080
+      ],
+      "raw_size": [
+        640,
+        360
+      ],
+      "integer3_blocks": true
+    },
+    {
+      "path": "evidence\\vine-compare\\self\\007_half_ui_1920.png",
+      "sha256": "5c86042b475b3ce7fe37a4067b8872eba97e4f1e3c694feb7bb0dafa5d61e648",
+      "size": [
+        1920,
+        1080
+      ],
+      "raw_size": [
+        640,
+        360
+      ],
+      "integer3_blocks": true
+    },
+    {
+      "path": "evidence\\vine-compare\\self\\007_low_sun_ui_1920.png",
+      "sha256": "19e8195bc40dd4a6e4b3c9e4d0e8e895677f380090b9999debc31d1c454ec1f7",
+      "size": [
+        1920,
+        1080
+      ],
+      "raw_size": [
+        640,
+        360
+      ],
+      "integer3_blocks": true
+    },
+    {
+      "path": "evidence\\vine-compare\\self\\007_zero_ui_1920.png",
+      "sha256": "593f2305847cc9749420f75703d19ad01f91261992fb51c2582ca44b58f1f296",
+      "size": [
+        1920,
+        1080
+      ],
+      "raw_size": [
+        640,
+        360
+      ],
+      "integer3_blocks": true
+    },
+    {
+      "path": "evidence\\vine-compare\\self\\024_half_ui_1920.png",
+      "sha256": "02829f595fbbffe3a888624cf8ab9afeb9e223042fec8e1ff5c0d6da28777972",
+      "size": [
+        1920,
+        1080
+      ],
+      "raw_size": [
+        640,
+        360
+      ],
+      "integer3_blocks": true
+    },
+    {
+      "path": "evidence\\vine-compare\\self\\047_half_ui_1920.png",
+      "sha256": "458c1dfc66f28c8fc475e68e3412d5aac2f6783d83bb8658a29d7e32209dea95",
+      "size": [
+        1920,
+        1080
+      ],
+      "raw_size": [
+        640,
+        360
+      ],
+      "integer3_blocks": true
+    },
+    {
+      "path": "evidence\\vine-compare\\self\\060_half_ui_1920.png",
+      "sha256": "66fd95f4daf67b492e9cb6d07c9f58ed24f204296ceecaf0ed43ab444d3b6ec7",
+      "size": [
+        1920,
+        1080
+      ],
+      "raw_size": [
+        640,
+        360
+      ],
+      "integer3_blocks": true
+    }
+  ],
+  "evidence_sha256": {
+    "evidence\\vine-compare\\self\\preservation.json": "cff80a2d51df8061f39605ff4cc244079f622d9ab15a494e4e28886100ebb1f9",
+    "evidence\\vine-compare\\self\\representatives.json": "e06afc67eabe0bd9fe7080a2c134102051ca628c11fbec1553bdc61c6303184a",
+    "evidence\\vine-compare\\self\\results.json": "0b5d5dbe1b56f4eaed56a5179ca134069648abe9b9d824c6bd1482b13d578dca",
+    "evidence\\vine-compare\\self\\smoke.json": "769725ab710874f788509b6c6054d85bdba520b19a8d5185e9d7c9359ece03e5",
+    "evidence\\vine-compare\\self\\source-hashes.json": "12dab4aaa36e245ef8c16a29135d9d37f47e27763dfb4b7505b4e27869f286d0"
+  },
+  "failures": 0,
+  "post_review_freeze": {
+    "count": 7,
+    "mismatches": [],
+    "manifest_sha256": "0252b72185a5b83d9052b02f312f486d1001ef2fd90d75c10cb0cdc716c27304",
+    "changed_source": "tests/vine_compare/self_capture.gd",
+    "changed_source_sha256": "3513ed162277d4f44432fb3ffad737918e85a1221022bc8aa98c99b0a23bf602",
+    "gpu_rerun": false
+  }
+}

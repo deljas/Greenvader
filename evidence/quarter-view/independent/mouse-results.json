@@ -1,0 +1,32 @@
+{
+	"checks": [
+		{
+			"detail": "[(1214.5, 281.5), (303, 70)]",
+			"id": "mouse_viewport_local_event",
+			"status": "FAIL"
+		},
+		{
+			"detail": "[(550.0, 466.0), (137, 116)]",
+			"id": "mouse_known_ground_and_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "User manual check; no OS input or cursor movement",
+			"id": "physical_OS_input",
+			"status": "NOT_RUN"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 1,
+	"renderer": "forward_plus"
+}

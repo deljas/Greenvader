@@ -1,0 +1,40 @@
+{
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "files": [
+    {
+      "path": "scripts/greening_map/actor.gd",
+      "sha256": "51300a1054bc811a11606b38b693b403eb6bc70539bc26c4d85f2a6f8a44077f",
+      "bytes": 3121
+    },
+    {
+      "path": "scripts/greening_map/session.gd",
+      "sha256": "54c7a32d60501c348b6468fbbd01c41f49ec4d1abf797efd84d96482ccdfdbc0",
+      "bytes": 6289
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_after.gd",
+      "sha256": "87858b88c658ff29a531929b30d32f3cef01ea6418b92a9c85c6a03639999bd7",
+      "bytes": 4888
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_base.gd",
+      "sha256": "bc8419b528edfaf4aaa42ec8ef898c1a595a1a95dc300a93efd4528bc6c01563",
+      "bytes": 4170
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_before.gd",
+      "sha256": "f7aaac660fe19bb8a5e23ae8cca32ec9c7346a24a8ec130ac4afc045ba6a40f0",
+      "bytes": 560
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_corner.gd",
+      "sha256": "cd6be0362d7259234a6ea9764760a3ee08155563e87563ae681303c71cfa4f8e",
+      "bytes": 969
+    },
+    {
+      "path": "tests/greening_map/wall_clip_self_logic.gd",
+      "sha256": "ea2851ca6834654923590df1da7bb1af27e85943ff96c2397e1a32df39ce16e8",
+      "bytes": 3802
+    }
+  ]
+}

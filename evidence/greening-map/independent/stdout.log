@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "id": "walk_free_closed_loop", "result": "PASS", "detail": "Four screen-cardinal steps each0.3m at2.4m/s; closed loop returns within0.002logical px." }
+{ "id": "independent_obstacle_edges", "result": "PASS", "detail": "[{\"expected_east_edge\":5.7,\"position\":[5.69999980926514,-3.79999971389771]},{\"expected_east_edge\":-5.5,\"position\":[-5.50000047683716,4.19999980926514]},{\"expected_east_edge\":9.1,\"position\":[9.10000038146973,5.80000019073486]}]" }
+{ "id": "scatter_cost_and_seed_not_green", "result": "PASS", "detail": "One seed/10water spent; fresh seed is not counted green before sprouting." }
+{ "id": "pause_only_stops_growth", "result": "PASS", "detail": "During growth pause, scatter and walking remain active while simulation clock does not advance." }
+{ "id": "actual_growth_and_spread", "result": "PASS", "detail": "A separately planted dry cell sprouts by30game seconds and matures by61; real natural spread has planted cells." }
+{ "id": "empty_resources_no_mutation", "result": "PASS", "detail": "Both requests at a valid nearby location are rejected with no stage/moisture mutation." }
+{ "id": "independent_counter_recount", "result": "PASS", "detail": "Direct array count, without WorldState.counters_consistent or display-derived totals." }

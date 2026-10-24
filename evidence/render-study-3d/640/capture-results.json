@@ -1,0 +1,13 @@
+{
+	"OS_input": "none",
+	"camera_size": 10.1999998092651,
+	"camera_transform": "[X: (0.707107, 0.0, -0.707107), Y: (-0.353553, 0.866025, -0.353553), Z: (0.612372, 0.5, 0.612372), O: (14.0, 12.23095, 14.0)]",
+	"device": "NVIDIA GeForce RTX 5070 Ti",
+	"exact_nearest_3x": true,
+	"native": "NOT_RUN; GPU viewport capture only",
+	"output_size": "(1920, 1080)",
+	"renderer": "forward_plus",
+	"saved": true,
+	"source_size": "(640, 360)",
+	"time": "noon"
+}

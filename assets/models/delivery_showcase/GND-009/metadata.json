@@ -1,0 +1,232 @@
+{
+  "asset_id": "GND-009",
+  "category": "GND",
+  "version": "0.0.4",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "aabb": {
+    "min": [
+      -0.4000000059604645,
+      -0.07999999821186066,
+      -0.4000000059604645
+    ],
+    "max": [
+      0.4000000059604645,
+      0.27329427003860474,
+      0.4000000059604645
+    ]
+  },
+  "geometry_stats": {
+    "triangles": 568,
+    "vertices": 433,
+    "objects": 5,
+    "material_count": 6,
+    "blender_material_count": 6,
+    "glb_material_count": 6
+  },
+  "external_textures": [
+    "textures/paving_surface_color.png"
+  ],
+  "textures_packed": true,
+  "integration_status": "NOT_RUN",
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "primary": {
+        "status": "PASS",
+        "aabb_max_error_m": 0.0,
+        "triangles": 568,
+        "material_names_match": true,
+        "atlas_embedded": true,
+        "image_material_reimported": true
+      },
+      "12x6_site": {
+        "status": "PASS",
+        "aabb_max_error_m": 0.0,
+        "triangles": 6324,
+        "material_names_match": true,
+        "atlas_embedded": true,
+        "image_material_reimported": true
+      },
+      "vine": {
+        "status": "PASS",
+        "aabb_max_error_m": 0.0,
+        "triangles": 800,
+        "material_names_match": true,
+        "atlas_embedded": false,
+        "image_material_reimported": false
+      }
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "connections": {
+    "logical_cells": [
+      2,
+      2
+    ],
+    "cell_size_m": 0.4,
+    "top_height_m": 0,
+    "edge_bounds_xz": [
+      -0.4,
+      -0.4,
+      0.4,
+      0.4
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "placement_method": "Independent surface/cracks/rooted grass; do not repeat full decorated tile uniformly. Larger assembly example has a whole-site nonperiodic crack network. Internal greening ratio unchanged."
+  },
+  "meshes": [
+    {
+      "name": "GND-009_Paving_2x2",
+      "layer": "pavement",
+      "materials": [
+        "Paving_v003"
+      ]
+    },
+    {
+      "name": "GND-009_Main_hairline",
+      "layer": "cracks",
+      "materials": [
+        "Hairline_fracture"
+      ]
+    },
+    {
+      "name": "GND-009_Short_branch",
+      "layer": "cracks",
+      "materials": [
+        "Hairline_fracture"
+      ]
+    },
+    {
+      "name": "grass_cluster_00",
+      "layer": "grass_cluster_00",
+      "materials": [
+        "Grass_meadow",
+        "Grass_shadowgreen",
+        "Grass_strawtips",
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "grass_cluster_01",
+      "layer": "grass_cluster_01",
+      "materials": [
+        "Grass_meadow",
+        "Grass_shadowgreen",
+        "Grass_strawtips",
+        "Vine_stem"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "variant_id": "12x6_site_example",
+      "counts_as_additional_asset": false,
+      "logical_cells": [
+        12,
+        6
+      ],
+      "dimensions_pavement_xz": [
+        4.8,
+        2.4
+      ],
+      "file": "variants/GND-009_12x6.glb",
+      "aabb": {
+        "min": [
+          -2.4000000953674316,
+          -0.07999999821186066,
+          -1.2000000476837158
+        ],
+        "max": [
+          2.4000000953674316,
+          0.41978132724761963,
+          1.2000000476837158
+        ]
+      },
+      "geometry_stats": {
+        "triangles": 6324,
+        "vertices": 4768,
+        "objects": 18,
+        "material_count": 6
+      },
+      "scene_placement_y_up": [
+        0.4,
+        0,
+        4.0
+      ],
+      "grass_root_centers": [
+        [
+          -2.03,
+          0.004,
+          0.3600000000000003
+        ],
+        [
+          -1.73,
+          0.004,
+          0.3899999999999997
+        ],
+        [
+          -0.9600000000000001,
+          0.004,
+          -0.18000000000000016
+        ],
+        [
+          -0.7,
+          0.004,
+          -0.31000000000000005
+        ],
+        [
+          -0.315,
+          0.004,
+          -0.6800000000000002
+        ],
+        [
+          -0.17,
+          0.004,
+          -0.41999999999999993
+        ],
+        [
+          1.9500000000000002,
+          0.004,
+          0.9100000000000001
+        ],
+        [
+          1.7800000000000002,
+          0.004,
+          0.5
+        ],
+        [
+          -2.05,
+          0.004,
+          -0.8199999999999998
+        ],
+        [
+          -1.1400000000000001,
+          0.004,
+          -0.43999999999999995
+        ]
+      ]
+    }
+  ],
+  "plant_refinement": "Individual curved grass blades with raised midribs and geometric basal stems; root locations fixed and distribution nonperiodic.",
+  "budget_note": "568 triangles primary 2x2-cell module. Whole-site 12x6-cell assembly is 6324 triangles, not an additional asset; Godot performance NOT_RUN."
+}

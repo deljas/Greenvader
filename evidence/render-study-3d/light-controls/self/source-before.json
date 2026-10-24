@@ -1,0 +1,38 @@
+[
+  {
+    "path": "scripts/render_study_3d/study.gd",
+    "sha256": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460"
+  },
+  {
+    "path": "scripts/render_study_3d/ruin_geometry.gd",
+    "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4"
+  },
+  {
+    "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+    "sha256": "1764895c0c5bd9034055f3841c93523b63529d8fa7ecd1f82c42362c192d5647"
+  },
+  {
+    "path": "scripts/render_study_3d/sprite_shadow_fixture.gd",
+    "sha256": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951"
+  },
+  {
+    "path": "assets/render_study_3d/concrete.gdshader",
+    "sha256": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a"
+  },
+  {
+    "path": "assets/render_study_3d/style_grade.gdshader",
+    "sha256": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae"
+  },
+  {
+    "path": "scenes/render_study_3d.tscn",
+    "sha256": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce"
+  },
+  {
+    "path": "scenes/sprite_shadow_lab.tscn",
+    "sha256": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048"
+  },
+  {
+    "path": "project.godot",
+    "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f"
+  }
+]

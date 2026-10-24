@@ -1,0 +1,430 @@
+{
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "uncommitted": true,
+  "files": [
+    {
+      "path": "scripts/town_lab/actor.gd",
+      "sha256": "334ef7efd07376d822e1d750c718b7d535cc3d4d89e35d4c5d336c0ce47efad4"
+    },
+    {
+      "path": "scripts/town_lab/actor.gd.uid",
+      "sha256": "6acddca3216a9998756e625c75113d62131935549987a593104dadd88be33e6d"
+    },
+    {
+      "path": "scripts/town_lab/day_cycle.gd",
+      "sha256": "01f3bbbe4470a19d6265275b35eff50cadcc6aaf507731a9ab955b91d76a17cb"
+    },
+    {
+      "path": "scripts/town_lab/day_cycle.gd.uid",
+      "sha256": "809c6655f64d6692af932596387e96e648f8c2fb261695d52c5cbc07c2e76f1c"
+    },
+    {
+      "path": "scripts/town_lab/town.gd",
+      "sha256": "3621d93e851701a7d3277504d67d95265c297d0ae96f13ff4270f817e340ebd1"
+    },
+    {
+      "path": "scripts/town_lab/town.gd.uid",
+      "sha256": "a4bff3c6980fa09d67d59121d0eab0822cd7a25031faeeee2704690fec0b4e81"
+    },
+    {
+      "path": "scripts/town_lab/water.gd",
+      "sha256": "cb7e3eead1be00fe6965c4f0aa6ede0ed37f83aa21e40ac6dab456ccfe87ad98"
+    },
+    {
+      "path": "scripts/town_lab/water.gd.uid",
+      "sha256": "cbfe8427ddbb69ff7d8c06dfaa50086321232b8f4c493efc437b98c65871c809"
+    },
+    {
+      "path": "scripts/town_lab/water.gdshader",
+      "sha256": "5ebe5823da76531327f304b80e09be1a76778e1263c33b902ada7166502a03b4"
+    },
+    {
+      "path": "scripts/town_lab/water.gdshader.uid",
+      "sha256": "2bbd0f5f33c9b27517a5e26560b53a509b5dd7dcaab3c83b77e557f6247747bc"
+    },
+    {
+      "path": "assets/models/town_lab/manifest.json",
+      "sha256": "3a42aa7d83c18f859f7db81edad75bad96c4ca07bedb851c5e06c04426814fbb"
+    },
+    {
+      "path": "assets/models/town_lab/README.md",
+      "sha256": "c803f5eb5daad6a100def45ff2616b13e72710438c32575347b3942cb68330f3"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/007_ochre_gallery_apartment_pitched_roof.glb",
+      "sha256": "eeaf596afb6a585f003e028bc0be6badec99a3ac60b30e5406ecc31972cf1adc"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/007_ochre_gallery_apartment_pitched_roof.glb.import",
+      "sha256": "b6b11ce41a5dbfa0f966e70551eaeae87e7d79c89b3bc52aabf079641ceda801"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/007_ochre_gallery_apartment_pitched_roof_concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/007_ochre_gallery_apartment_pitched_roof_concrete_surface_color.png.import",
+      "sha256": "412e8d3034d8cc739b308f3141ac1ccb0e82c7ba7b2bf875bf4e96990d074229"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/metadata.json",
+      "sha256": "520a1e6f93bf6d508f29c398151694983249acb8f3a4275907d011d4e93c5dc1"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/textures/BLD-007_roof_albedo.png",
+      "sha256": "837c10dfec27cdcaa1a2e492f86298a743cc84f274f84aa772024a20b726ffeb"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/textures/BLD-007_roof_albedo.png.import",
+      "sha256": "c4d700b09c34b55e50ba622bf2ae14eb577aa0e0d8aa7e0d5706857c3c5f1638"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-007/textures/concrete_surface_color.png.import",
+      "sha256": "5ecebc93ecb2272b72fa31760370d56786b970b236f32eeecfb69975ec135f71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof.glb",
+      "sha256": "7239c0e3f224f116f2aaa3a67811b38c1708f869aa44ef854b57024b9d20a4bc"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof.glb.import",
+      "sha256": "31b9e952dd77159304cf79a5baf74b2f0d44cc1d30ed8f032d722971b192d69c"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof_BLD-019_surface_albedo.png",
+      "sha256": "db75529aac8009cfca2f50445e008d1416a2e578f77101f29a789cb3e6de153b"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof_BLD-019_surface_albedo.png.import",
+      "sha256": "d7d7480ccb98d426dc68999d11ed5bd9cf777fa3c7997e292f0449fd6c22fe21"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof_concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/019_dusty_rose_terrace_cafe_pitched_roof_concrete_surface_color.png.import",
+      "sha256": "f5a02e24706dde5572447ee59690f51f26e10e473c197ddeed971d89c33a8462"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/metadata.json",
+      "sha256": "7ebcba349a13eaf0e47a5c8a75db592136c67010dc0f9c7d59e8567ab72704a6"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/textures/BLD-019_roof_albedo.png",
+      "sha256": "113e0f971ade0ad9e3732a8bf52c788d8acc7cb5433158df2bf0adda7b6d2d61"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/textures/BLD-019_roof_albedo.png.import",
+      "sha256": "b1f18dd0a2bdaf5f4858a582963b5d6252afa82c7652090bb08328f581753069"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/textures/BLD-019_surface_albedo.png",
+      "sha256": "db75529aac8009cfca2f50445e008d1416a2e578f77101f29a789cb3e6de153b"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/textures/BLD-019_surface_albedo.png.import",
+      "sha256": "c11766f4979f3a12ce528c9bb9cde0e6ace6c3ae396bcab36f03e317cef30d7d"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-019/textures/concrete_surface_color.png.import",
+      "sha256": "39bcb466944ece4d2e3d1ab0fa5454d30085946b1bcc2942b3326d481999d4ae"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel.glb",
+      "sha256": "9eed7fe3953382a2158fe2d0e5808104d297442550b00885d4052415345ba149"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel.glb.import",
+      "sha256": "5071f6a8b857251d336c390de2b1dc43c9fcc04c9acad94e22e0b1a63218eb10"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel_BLD-038_roof_albedo.png",
+      "sha256": "18ccdd9d1765dd63af802bc8489ff78fe2dcf1ec00ff01b698c5584c1fe3b56b"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel_BLD-038_roof_albedo.png.import",
+      "sha256": "9d594078c039a8923d42ba692962cd59ac292de8727c739faf9064247c940e5c"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel_concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/038_cross_plan_stone_chapel_concrete_surface_color.png.import",
+      "sha256": "88540ab32299f2e1649bcce6efd1a868ad753daec2f102a374a88dab85762bc2"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/metadata.json",
+      "sha256": "6ec4e06bc7c1304868b60e9e6713b5fdc1da7287383fd2764b800d74e50051db"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/textures/BLD-038_roof_albedo.png",
+      "sha256": "18ccdd9d1765dd63af802bc8489ff78fe2dcf1ec00ff01b698c5584c1fe3b56b"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/textures/BLD-038_roof_albedo.png.import",
+      "sha256": "fc9a2060914a51d6213938af4f819ccf07c5c728c73b0847ccddaed2b9331247"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-038/textures/concrete_surface_color.png.import",
+      "sha256": "20bc8e85c691b02dd483227c48ce4f85d35aa2c14414f94e20fcaf65dd2d668b"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof.glb",
+      "sha256": "a4ae511b1a27191b2c88c3c164bc6dbb5a3d0715d514c4228703e205b4ccee02"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof.glb.import",
+      "sha256": "4b099a7911e76d38e85c6c8485de2dbf39b7111a2cc0d1589119a094b185d0f3"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof_BLD-046_surface_albedo.png",
+      "sha256": "f31ca6eb004a9ff78c5a8900cc94e2c3ac72a80cc2d7bddce0545ad057fa70c9"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof_BLD-046_surface_albedo.png.import",
+      "sha256": "abc2ad52c7fc7f19a9ba29bb00746968e1cffedd4d9b34bddf0c03b0c083e459"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof_concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/046_sage_pump_building_pitched_roof_concrete_surface_color.png.import",
+      "sha256": "8632eccd0b2a8a500e4db1b1e62bb5c6a37db37cb4bc4e3ea51841f448b4ba04"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/metadata.json",
+      "sha256": "4e6f4a0b44a94e5be0df85560b15b6915b79e26c4340ff87ab87d8c803d2ee14"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/textures/BLD-046_roof_albedo.png",
+      "sha256": "2074ab0db46a588c3cae31026beaea281002deecc2b1cf9cf2a700205525b079"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/textures/BLD-046_roof_albedo.png.import",
+      "sha256": "06fcbf15f0626efc912250242947a8b4248098182503b203636e796cc1450610"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/textures/BLD-046_surface_albedo.png",
+      "sha256": "f31ca6eb004a9ff78c5a8900cc94e2c3ac72a80cc2d7bddce0545ad057fa70c9"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/textures/BLD-046_surface_albedo.png.import",
+      "sha256": "fa7d48a0a6dd73a6fdcf860466082777768d020ecdb00c64574d6ad31c60347c"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-046/textures/concrete_surface_color.png.import",
+      "sha256": "530c04774dea3acc0138721563a400750269722c2c42bc4b30b11bd24fb1c3b8"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-079/079_stone_watermill_ruin.glb",
+      "sha256": "a88c703d505061cb294696b6ff6f6adaca4806f01a1422bc32558eb100b2e040"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-079/079_stone_watermill_ruin.glb.import",
+      "sha256": "88cab39594d108cb95276d7512abc1743ad598967aa7eb310447d03a70110ba1"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-079/metadata.json",
+      "sha256": "f0a024bc4e4f17ddc1582bce17c434ab6a62e94017dfbb40a46e5d6f6ea72671"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-091/091_crossed_container_ruin.glb",
+      "sha256": "05f37f10c2b884ccdfefc1240dc4fa6300053ebfdc45aefc303028cf233ef18c"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-091/091_crossed_container_ruin.glb.import",
+      "sha256": "868cce0a7c8881946437e93aa3129f9f91c5b9c0fbb980d95329c9e4fd2f7dff"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-091/metadata.json",
+      "sha256": "8a8c675d9df8c0d88214ac4a47896f735d2099400b5befab2c43f919162d833e"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-123/123_lighthouse.glb",
+      "sha256": "9135597459883cfddc2c1cbf3d065007ffc8bd3a3adfa4090200ed68ade2de90"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-123/123_lighthouse.glb.import",
+      "sha256": "e401d95c9b562b81559c52668d13d3e2e38f9cf0373005709efe077ab7fdc688"
+    },
+    {
+      "path": "assets/models/town_lab/BLD-123/metadata.json",
+      "sha256": "7133250124ca80527498d1c2509ed3592a64e58816d16c4e5347598e9e347210"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-001/001_broken_streetlamp.glb",
+      "sha256": "18fba8991523fcb7ec0e70b748dffe329c16da5d1e79a4ea1ba0c7c90328d9f1"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-001/001_broken_streetlamp.glb.import",
+      "sha256": "143902439947793ce1ddea98a772514e344ad638600c0fc49edad58a914d6e7a"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-001/metadata.json",
+      "sha256": "9a79e0e68b8ef2b49afe28b5618514ecff0f85ef23d06ee3e0653ac75ce109bd"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-005/005_wired_utility_pole.glb",
+      "sha256": "7a00519cb5f03fc2a21d054d1bb260e7fa510809597d557ab57542170e6dde98"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-005/005_wired_utility_pole.glb.import",
+      "sha256": "8f1432142786bbdfc00db8de2e628b4683e9b0565b7635370f583c2134528fe7"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-005/metadata.json",
+      "sha256": "172951050577f17f333c36ad2556433f5bb60eb2f2bf523ae80e49fd00e43b77"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-012/012_ruined_bus_shelter.glb",
+      "sha256": "17418891b3e387282f591202fcb5f4253aa718ac67e4c62712ee5929f6dd19df"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-012/012_ruined_bus_shelter.glb.import",
+      "sha256": "a5694d3acb575ccab050d29c4a6a53b59018f71665b69d69b2265a7b8dfca73c"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-012/012_ruined_bus_shelter_concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-012/012_ruined_bus_shelter_concrete_surface_color.png.import",
+      "sha256": "d9d12148bb1537488c7cc3190fbffd31685dc7310515b84258f7367799201886"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-012/metadata.json",
+      "sha256": "ff5a65c9396cf0223a09fc43b051f98089ad3689c3f767e2d06c63465044883a"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-012/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-012/textures/concrete_surface_color.png.import",
+      "sha256": "39f4ea6ebf13af223266ddbef63c0756c029752e104828e880d8d791ffab4e82"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-017/017_open_waste_container.glb",
+      "sha256": "6bbd718052e19762e44c27e0c4f28144ec3e9f648943bd9c57933d6b06a901d3"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-017/017_open_waste_container.glb.import",
+      "sha256": "b84bc8b4a15feefd2afb813b6544880295bb281a5c9130211801702ff161aefd"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-017/017_open_waste_container_concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-017/017_open_waste_container_concrete_surface_color.png.import",
+      "sha256": "ebe48752d738c1c62316b1fc31267eb04cc41aec05e0bc33efa658592582919a"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-017/metadata.json",
+      "sha256": "a08fdf5221ee58638ab3a8950c8e4df8474ba489d0a615939d4ed0fa8887f7d6"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-017/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-017/textures/concrete_surface_color.png.import",
+      "sha256": "1a2a841c6fa4173f613feb08358244153eae78a17ac2db13a1956a4dbd7f9bb2"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-034/034_generic_fire_hydrant.glb",
+      "sha256": "e663fd157152a8e4f6c36d1cfcd1ebd5b5c01fc16c069d79584a62554b822010"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-034/034_generic_fire_hydrant.glb.import",
+      "sha256": "56baedb549785e05228839bddf5af61231764015ef1e4efaa7a818e6ca6b06b4"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-034/metadata.json",
+      "sha256": "aa83c8c3ce9d8394500113b61ac96ccd2e6dcaaa1b3354aeee595d537624e7bc"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-041/041_crumpled_passenger_car_shell.glb",
+      "sha256": "c3f9bec4492c9cb7c84cc3be6448cb1725169e8aeba20a169e5e1302b5c59951"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-041/041_crumpled_passenger_car_shell.glb.import",
+      "sha256": "36bad6d2b2329bd21d64706f5ea244f8238cd668c1590e34b78fa532790651b4"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-041/metadata.json",
+      "sha256": "424483473894f5f65edad9364aeff6d54fbe3cc4e70911b3f68ccdbbf7fdb04e"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-075/075_abandoned_playground_slide.glb",
+      "sha256": "8b355925b2cafdd98352f52f7e8bfbb0e07c7d8be17053fc0f768e026da560b4"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-075/075_abandoned_playground_slide.glb.import",
+      "sha256": "817d03da1cc048efff1f62759638ea9676cbf33b3c0dc0caf6724d8a61d155a3"
+    },
+    {
+      "path": "assets/models/town_lab/PRP-075/metadata.json",
+      "sha256": "3b04b634971006b5009440cab3278f0838bf484b71cd2a23923a8cad5bea8ae6"
+    },
+    {
+      "path": "assets/models/town_lab/TRE-001/001_asymmetric_broadleaf.glb",
+      "sha256": "d058c573abeaa0bc7a99e07098049e69deb09ff61d5cd31e7fcf00a944d75150"
+    },
+    {
+      "path": "assets/models/town_lab/TRE-001/001_asymmetric_broadleaf.glb.import",
+      "sha256": "9fad50ee442d16eafbb9a35e08d77893317782cf7f24412f75d9c184cd57ed13"
+    },
+    {
+      "path": "assets/models/town_lab/TRE-001/metadata.json",
+      "sha256": "4f0d3c1562795c8bd120980f8688ed2b5689c22f34ae675854b13e7ef23a6f8f"
+    },
+    {
+      "path": "tests/town_lab/self_capture.gd",
+      "sha256": "92d6bffdd05a10d44a36bedecd8e1b1fbcdba10d988e8f2358082165f815f73b"
+    },
+    {
+      "path": "tests/town_lab/self_freeze.py",
+      "sha256": "edad5523af70986b12d5200210da3541dc5da3b8660acf244154679bacea844a"
+    },
+    {
+      "path": "tests/town_lab/self_prepare.py",
+      "sha256": "2151991a74e8bfcebcd69c733ed21ea85c38e8939458b296a1bc1088005ea343"
+    },
+    {
+      "path": "tests/town_lab/self_reflection.gd",
+      "sha256": "55f530adcc65b5a32ea4f064c302dd8571c07f61f01fa8220fd11331a486663a"
+    },
+    {
+      "path": "scenes/town_lab.tscn",
+      "sha256": "a32d96b8ef0de723ac13ed4544fc0f14f2d65b6e546cd03803ae5cec31c369c8"
+    },
+    {
+      "path": "launchers/labs/run_town_lab.bat",
+      "sha256": "dcff7ba5d40f8f0a598c3e4320f812a8b774bc242a41a622cc440813c05c58c9"
+    },
+    {
+      "path": "launchers/README.md",
+      "sha256": "9fa77cd5185e13978fe77a5cf2f79f0d74b910e33909dc4cb3dc4f8d1d2fcee7"
+    }
+  ]
+}

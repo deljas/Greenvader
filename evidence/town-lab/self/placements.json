@@ -1,0 +1,173 @@
+[
+	{
+		"bounds_min": "(-19.345, 0.0, -15.14529)",
+		"bounds_size": "(12.69, 9.074411, 6.290573)",
+		"collision_rectangles": 852,
+		"entry": "(-13.0, 0.0, -8.854713)",
+		"id": "BLD-007",
+		"kind": "building",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-16.32803, 0.0, 7.21)",
+		"bounds_size": "(6.656054, 6.4125, 7.58)",
+		"collision_rectangles": 144,
+		"entry": "(-14.3062, 0.0, 8.225)",
+		"id": "BLD-019",
+		"kind": "building",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(6.724, 0.0, -15.3)",
+		"bounds_size": "(12.552, 7.92, 6.6)",
+		"collision_rectangles": 506,
+		"entry": "(13.0, 0.0, -8.7)",
+		"id": "BLD-038",
+		"kind": "building",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(8.518685, 0.0, 7.64719)",
+		"bounds_size": "(8.96263, 5.948592, 6.705619)",
+		"collision_rectangles": 174,
+		"entry": "(14.31868, 0.0, 7.799999)",
+		"id": "BLD-046",
+		"kind": "building",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-23.12414, 0.0, 18.46)",
+		"bounds_size": "(6.248281, 5.053955, 5.080002)",
+		"collision_rectangles": 1258,
+		"entry": "(-19.39914, 0.022353, 18.46)",
+		"id": "BLD-079",
+		"kind": "building",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(9.934999, 0.0, 17.19846)",
+		"bounds_size": "(6.130001, 5.137406, 6.603077)",
+		"collision_rectangles": 438,
+		"entry": "(13.0, -0.017594, 17.19846)",
+		"id": "BLD-091",
+		"kind": "building",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-22.62, 0.0, -22.62)",
+		"bounds_size": "(3.240002, 9.25, 3.240002)",
+		"collision_rectangles": 660,
+		"entry": "(-21.0, 0.0, -19.65)",
+		"id": "BLD-123",
+		"kind": "building",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-15.9375, 0.0, 1.0)",
+		"bounds_size": "(3.875, 1.55, 2.0)",
+		"collision_rectangles": 1,
+		"entry": "(-12.0625, 0.0, 2.0)",
+		"id": "PRP-041",
+		"kind": "large_prop",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-10.65, 0.0, 4.6)",
+		"bounds_size": "(3.3, 2.42, 1.6)",
+		"collision_rectangles": 1,
+		"entry": "(-9.0, 0.0, 6.2)",
+		"id": "PRP-012",
+		"kind": "large_prop",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(17.84, 0.0, -6.5)",
+		"bounds_size": "(2.32, 1.88, 1.4)",
+		"collision_rectangles": 1,
+		"entry": "(19.0, 0.0, -5.1)",
+		"id": "PRP-017",
+		"kind": "large_prop",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(4.81, 0.0, -6.75)",
+		"bounds_size": "(0.78, 1.06, 0.5)",
+		"collision_rectangles": 1,
+		"entry": "(5.2, 0.0, -6.25)",
+		"id": "PRP-034",
+		"kind": "small_prop",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-21.71, 0.0, 4.587258)",
+		"bounds_size": "(1.42, 6.218913, 0.825483)",
+		"collision_rectangles": 1,
+		"entry": "(-21.02, 0.0, 5.412742)",
+		"id": "PRP-005",
+		"kind": "pole",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-8.542953, 0.0, 19.62671)",
+		"bounds_size": "(3.085907, 2.10821, 0.746574)",
+		"collision_rectangles": 1,
+		"entry": "(-6.95923, 0.009368, 20.37329)",
+		"id": "PRP-075",
+		"kind": "large_prop",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-5.46, 0.0, -4.18)",
+		"bounds_size": "(0.92, 3.2, 0.36)",
+		"collision_rectangles": 1,
+		"entry": "(-5.26, 0.0, -3.82)",
+		"id": "PRP-001",
+		"kind": "lamp",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(4.54, 0.0, 3.82)",
+		"bounds_size": "(0.92, 3.2, 0.36)",
+		"collision_rectangles": 1,
+		"entry": "(4.74, 0.0, 4.18)",
+		"id": "PRP-001",
+		"kind": "lamp",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-5.46, 0.0, 13.82)",
+		"bounds_size": "(0.92, 3.2, 0.360001)",
+		"collision_rectangles": 1,
+		"entry": "(-5.26, 0.0, 14.18)",
+		"id": "PRP-001",
+		"kind": "lamp",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(4.54, 0.0, -14.18)",
+		"bounds_size": "(0.92, 3.2, 0.360001)",
+		"collision_rectangles": 1,
+		"entry": "(4.74, 0.0, -13.82)",
+		"id": "PRP-001",
+		"kind": "lamp",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(-8.115033, 0.0, -21.65337)",
+		"bounds_size": "(4.230067, 5.478468, 3.306738)",
+		"collision_rectangles": 1,
+		"entry": "(-5.886561, 0.041371, -18.34663)",
+		"id": "TRE-001",
+		"kind": "tree",
+		"scale": "(1.0, 1.0, 1.0)"
+	},
+	{
+		"bounds_min": "(19.6926, 0.0, 5.429595)",
+		"bounds_size": "(4.614807, 5.478468, 5.14081)",
+		"collision_rectangles": 1,
+		"entry": "(23.58211, 0.041371, 8.493382)",
+		"id": "TRE-001",
+		"kind": "tree",
+		"scale": "(1.0, 1.0, 1.0)"
+	}
+]

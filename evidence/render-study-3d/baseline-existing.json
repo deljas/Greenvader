@@ -1,0 +1,1586 @@
+[
+  {
+    "Path": "project.godot",
+    "Hash": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F"
+  },
+  {
+    "Path": "tests\\self\\p0_checks.gd",
+    "Hash": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E"
+  },
+  {
+    "Path": "tests\\self\\p0_checks.gd.uid",
+    "Hash": "A0DF535FCAF71F3FE4E97F5C5841918014A3416DD9E6DB3E3FD77B044430DBD7"
+  },
+  {
+    "Path": "scripts\\world\\world_state.gd.uid",
+    "Hash": "F688093BE358C749A903E80647E6B289382446989180E7122FF37F25D1D23CA2"
+  },
+  {
+    "Path": "scripts\\world\\world_state.gd",
+    "Hash": "867C720CCBEA1C94D54CC0E634683AE0CFAF3566B13D0931120590EAE88BD852"
+  },
+  {
+    "Path": "scripts\\world\\spread_sim.gd.uid",
+    "Hash": "E95B5945383810B8F37728D000947993243FCB31B197B1228DA9CE4BD2C75B9D"
+  },
+  {
+    "Path": "scripts\\world\\spread_sim.gd",
+    "Hash": "9D349173758DC779F6782F1A90A7E4065D1EBD5D0D1FC916A8C6D3CC5C029376"
+  },
+  {
+    "Path": "scripts\\world\\sim_clock.gd.uid",
+    "Hash": "62B5ECFF3785CE560955ABC5FB7341C1BCEC08AB8F836D79E9FBDE4B270EE58A"
+  },
+  {
+    "Path": "scripts\\world\\sim_clock.gd",
+    "Hash": "139DAA8BBDCA8A264460A3F7481A6FE80B97BCBA91C1151D809A77F81EEED216"
+  },
+  {
+    "Path": "scripts\\world\\simulation_driver.gd.uid",
+    "Hash": "23988388D6413492F692C04666753D600ECE96267E2BAC1BC05D93016A3E0E3E"
+  },
+  {
+    "Path": "scripts\\world\\simulation_driver.gd",
+    "Hash": "6DCF6BE8DB2FBB54580DB85E7DFC6B24D91ACBD7403A294DD1E89E4D5AA3008C"
+  },
+  {
+    "Path": "scripts\\world\\region_view.gd.uid",
+    "Hash": "E10522F5ACA4EB3E32636F840640629D391DAF3E6254240B20AA1BF120C0FB91"
+  },
+  {
+    "Path": "scripts\\world\\region_view.gd",
+    "Hash": "A0C0483BF21FD38F26639765325B5398A48B0F7C26D4CC5897B3447C453A60BE"
+  },
+  {
+    "Path": "scripts\\world\\region_loader.gd.uid",
+    "Hash": "E899EEA3B595D4B8E3A706A76C1E1DE65418C574D2848484F287D4EC0FE1F2E3"
+  },
+  {
+    "Path": "scripts\\world\\region_loader.gd",
+    "Hash": "D16F97BB99E68B578EB398939D041275CB70275405B10AF256F77ADC504308EB"
+  },
+  {
+    "Path": "scripts\\world\\growth_sim.gd.uid",
+    "Hash": "E2A7670DBA4365171B636D89051D2AE79C595C50E339F7310EC42C3C6F5EE56B"
+  },
+  {
+    "Path": "scripts\\world\\growth_sim.gd",
+    "Hash": "4EA9757D93B8A173B1DB8332066A93221BEAF7BD2EA51626051B1B9001C68899"
+  },
+  {
+    "Path": "scripts\\world\\far_seed_sim.gd.uid",
+    "Hash": "FC3556D710CF1A2A0317AFBA5799F814A11EBF2CF06C3C8F4C31C872A3D43DFA"
+  },
+  {
+    "Path": "scripts\\world\\far_seed_sim.gd",
+    "Hash": "4FD24BBE301C00AFF3E74365B718EBF0CD83CA226B4B49C4F054B456449187EA"
+  },
+  {
+    "Path": "scripts\\weather_view.gd.uid",
+    "Hash": "DC1C105114093AE0075B5086A565C79FD3C1777478E841878BF5828E12FE2908"
+  },
+  {
+    "Path": "scripts\\weather_view.gd",
+    "Hash": "3AFC806BE685C90CAC4CB13F28AFDB44310CF42197A5E4FEDA576A4D41628188"
+  },
+  {
+    "Path": "scenes\\quarter_view_lab.tscn",
+    "Hash": "A5B30126479EEBBB8276CDD4422F8BD5F6673BCA7260D1AD7C3492A976CE87B7"
+  },
+  {
+    "Path": "scenes\\main.tscn",
+    "Hash": "18E4CB5CF9C6FCD0215AD2F2E511920A6798B92BD6A927977CC3D0198E9AD73D"
+  },
+  {
+    "Path": "scenes\\art_study.tscn",
+    "Hash": "4FEC8B33E252E573AD0776C5500A0EE98544AAF0F75E53F5F5180EF22315EE75"
+  },
+  {
+    "Path": "scripts\\landscape_prop.gd.uid",
+    "Hash": "D1318EA2ED539089AE816788784587C81DCC61DA3B7BDFD18270E26F3D4355D7"
+  },
+  {
+    "Path": "scripts\\landscape_prop.gd",
+    "Hash": "3B7D52A98791794E8E7FFFB62861DC840B6FFFB4316966F6E5E6EEAD88299A76"
+  },
+  {
+    "Path": "scripts\\landscape_art.gd.uid",
+    "Hash": "335950B7D722456ED24C666A207C8E0F8BABD3B4EB874C5484886B6692E213DB"
+  },
+  {
+    "Path": "scripts\\landscape_art.gd",
+    "Hash": "65509DFD31E03C3792D2C1172A31211F2A8E5694D3B98B531B1227B13B28A914"
+  },
+  {
+    "Path": "scripts\\debug_layout.gd",
+    "Hash": "B0E2CE901F9DA4DB996A4758F9FFEA179E0D7536200D6CA603A47826261D9848"
+  },
+  {
+    "Path": "tests\\quarter_view\\self_mouse_r2.gd",
+    "Hash": "2F73591C3C1A3E37E53705A596EA56E7F49456A2F27BD5EE58C0206CDB622FBF"
+  },
+  {
+    "Path": "tests\\quarter_view\\self_checks.gd.uid",
+    "Hash": "57E5D4F13860F8AA620EFD69A170AA374D40BB0F2A89A638842B48CBF2CC2496"
+  },
+  {
+    "Path": "tests\\quarter_view\\self_checks.gd",
+    "Hash": "2959631AC9CB1A0AFCE22F86B0B2623D8E9F2BC0AA675A113B29F90AE740A27C"
+  },
+  {
+    "Path": "tests\\quarter_view\\independent_mouse_r2.gd",
+    "Hash": "4C1A2049966564E8F179C0DD8DABD5D43820C91D32E67FB3A62A59F38A9E8AF4"
+  },
+  {
+    "Path": "tests\\quarter_view\\independent_checks.gd",
+    "Hash": "B6D45AAFD36C500CFDAAE95769E5009D65B76F2C4EFD30C684E4B3ADFF7416E5"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_driver.gd",
+    "Hash": "03B8FF7F4F74676135BC2245254B14A05C3118AF6AF68B4A3BA7E2BC57C5357E"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_build_checks.py",
+    "Hash": "050DFE9C4ECCD558F1D9111274D078AF0996A0BC86D76D2D64B8EAD2AFAE71A0"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_analyze.gd.uid",
+    "Hash": "080F2AA3C8764F2567CB95FA908C67A763CB2416DF0F4ECCBF756B558F493BDD"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_analyze.gd",
+    "Hash": "5D446A40920AE2BCCA0DA8750BBBA95E52860056797749FF43BFCC8E8A164524"
+  },
+  {
+    "Path": "tests\\independent\\p0_layout_oracle.ps1",
+    "Hash": "304998BECB287BDB8E2C06351E1D0223A82781EB88E8E869255F30D9BC06E95D"
+  },
+  {
+    "Path": "tests\\independent\\p0_art_checks.gd.uid",
+    "Hash": "4AC364D699BF6A91560912F2705FEC498314CA7025404A5E264D53B583D19887"
+  },
+  {
+    "Path": "tests\\independent\\p0_art_checks.gd",
+    "Hash": "A13EE5545C35E258CF83847CFDD60974A243A2CC2C2B3CE189D2FD367A5C4E23"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_observer.gd",
+    "Hash": "08B5E81238B361238777BA5FC0049E47FE5A7FD9F87D4804644BF51BCAEF55D5"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_hash.sh",
+    "Hash": "397AA5888821133FAA8F1A1F0327748CAAC2E27DC13E356641156FBE4C9D3AA2"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_driver.tscn",
+    "Hash": "A36937F77263270BD1FA80E5FEF4ED9C74B671DB560B269182AE6BA720F91B8F"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_driver.gd.uid",
+    "Hash": "163FD4C6CEB8DD88A4DA807080CAB30BA567CD8CF4CBEB0FEA4729AB1CE7D489"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_observer.tscn",
+    "Hash": "12B3361B339679726A09151B9D5009D3BD0DF539E6D484A8D6224F306EE70D2C"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_observer.gd.uid",
+    "Hash": "1E02F5BEFD6BCE49E817CAFFF318CF51850002B6669CF362E0F8744BED06F8F4"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_printwindow.ps1",
+    "Hash": "D8A73AAFD146DCE9D5169BC36F8DD07875296CCDA36E6EF2B8FF377C0A252B1D"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_zoom.gd.uid",
+    "Hash": "C1157BB2E704F5FAB83CECF598A5984B4F39B740340B5019036F05B4628BA316"
+  },
+  {
+    "Path": "tests\\independent\\p0_verify_zoom.gd",
+    "Hash": "8A47515F9C1AA63B7A9A319BF02EC7D16C44B93FAC7996FDE9481643A2E3C53D"
+  },
+  {
+    "Path": "tests\\art01\\self_check.gd.uid",
+    "Hash": "556C1D75C903BEB07E11F2BE1006294CEBCC4AEBD16E7F4A40D542C17620921B"
+  },
+  {
+    "Path": "tests\\art01\\self_check.gd",
+    "Hash": "AB0CE1D437E5A6723CC1C56CE76B280DAE8FFD1A3603EB58169C65E5F57674CF"
+  },
+  {
+    "Path": "tests\\art01\\independent_check.gd.uid",
+    "Hash": "3CA9A05299FC52B27F6A8DA1C64A3AC750C17338FF42FCB4FA0C069B64922129"
+  },
+  {
+    "Path": "tests\\art01\\independent_check.gd",
+    "Hash": "0776585DC9D5A3845D43AAE4A064DBE21AC9A0236DC0150904FD6260FB86D4CE"
+  },
+  {
+    "Path": "tests\\p2\\p2_03_checks.gd",
+    "Hash": "831F628926F8B593112B343155C6A7E6BA3E982FD35BD6CBEBF5AE8A86E2356E"
+  },
+  {
+    "Path": "tests\\p2\\p2_02_gpu.gd.uid",
+    "Hash": "21212085217679C13AF9BDCAC6A5B416A7025BBE23EFC527B1B435FCC8403BCC"
+  },
+  {
+    "Path": "tests\\p2\\p2_02_gpu.gd",
+    "Hash": "FADAEBD0CEA988C096D88CAB3A3E863CBD1B16FDFAF2D892961D6D3D8185BE05"
+  },
+  {
+    "Path": "tests\\p2\\p2_02_checks.gd.uid",
+    "Hash": "D21796A2757F6F84D115E078B48BDC248C988F485BE2C4DAAFCF38B26A68A19E"
+  },
+  {
+    "Path": "tests\\p2\\p2_02_checks.gd",
+    "Hash": "9E6138CB42B752BB4E24FBCF7CF1677F34C31D981F4A21F2E29D75392BF5786D"
+  },
+  {
+    "Path": "tests\\p2\\p2_01_perf.gd.uid",
+    "Hash": "11AE419596D0A7AD4DFB6DA4191B6C77413BE26EF0662FE0783A4CB6EDB4C2DE"
+  },
+  {
+    "Path": "tests\\p2\\p2_01_perf.gd",
+    "Hash": "CC2A9D3961BD6362D5355108461895202446EF71BDE64B732FB68E7274F91D26"
+  },
+  {
+    "Path": "tests\\p2\\p2_01_gpu.gd.uid",
+    "Hash": "FDAE6A3EEB13EA34BF088FD4E4E16792D59FED383FF9DD9A6D39EDDFE9F964C4"
+  },
+  {
+    "Path": "tests\\p2\\p2_01_gpu.gd",
+    "Hash": "2D2AA445333E398304ECC7D5F90CB82D435E6DE166F35E760286C8A02F1C1272"
+  },
+  {
+    "Path": "tests\\p2\\p2_01_checks.gd.uid",
+    "Hash": "5F202360BC54DFFE996208D367AEC00DE726DB35A0E8141C2C284CEB12DC6508"
+  },
+  {
+    "Path": "tests\\p2\\p2_01_checks.gd",
+    "Hash": "F927406C0F575A3E820D86C6E408D9D12A3C40CAD0BE45A276CE5B0228BFD350"
+  },
+  {
+    "Path": "tests\\p2\\p2_06_tempo.gd",
+    "Hash": "0C1227AA2A8BDD58E0F103155799A2809DF3E7DCB9BFFEB33654C7B79827A53A"
+  },
+  {
+    "Path": "tests\\p2\\p2_06_front.gd",
+    "Hash": "128C136C6E2242DF3F26AE1F0BAD5340378AD0995DB8349A09AE72CD1E2A2795"
+  },
+  {
+    "Path": "tests\\p2\\p2_06_bot.gd",
+    "Hash": "D296EE7FAC5149AD49ADC35202A29E9B8C2D1A0748AFA8A1301994E0CE1C63A7"
+  },
+  {
+    "Path": "tests\\p2\\p2_05_gpu.gd",
+    "Hash": "9922D37C686FD06135579D315AF9EE8502CDA37D5BF6400402E3159100462B19"
+  },
+  {
+    "Path": "tests\\p2\\p2_05_checks.gd",
+    "Hash": "18CFF9BD22AA31A34214ACCF2BBA4783CCAEE57DD3AB28421675E97F75A807FB"
+  },
+  {
+    "Path": "tests\\p2\\p2_04_gpu.gd.uid",
+    "Hash": "3B6207B669392B7ADDE7AAC72BB9AC7522992DB2A0281CD76F04296A1B6CBDA4"
+  },
+  {
+    "Path": "tests\\p2\\p2_04_gpu.gd",
+    "Hash": "9335B7DD9B664AC7829ECDA3270E025FC26D20216FE160E418F2BF43D792C095"
+  },
+  {
+    "Path": "tests\\p2\\p2_04_checks.gd.uid",
+    "Hash": "3FFB8CFEA633E2A909FBA2DAC7F246CA53F3DD6C40264F6C8E7D64EF26A8D0D1"
+  },
+  {
+    "Path": "tests\\p2\\p2_04_checks.gd",
+    "Hash": "89D2E5746A96F89E56961DCBA2E918E0C3CD27A2A0FC6F7B6CA77F43395719C9"
+  },
+  {
+    "Path": "tests\\p2\\p2_03_gpu.gd.uid",
+    "Hash": "048213D15384A5DCE6469C902C3B6E8DA2F49ED2BF78FFC55DBAAF224FCBA14E"
+  },
+  {
+    "Path": "tests\\p2\\p2_03_gpu.gd",
+    "Hash": "992CFE83ADBF30AE02D580B45EC328CA02E073976A13A696B9677617E350478D"
+  },
+  {
+    "Path": "tests\\p2\\p2_03_checks.gd.uid",
+    "Hash": "CB4B44FFBB4247B4F6C4DB70F125E93E93B111C2BC9F22BED35650813FD05137"
+  },
+  {
+    "Path": "scripts\\debug_layout.gd.uid",
+    "Hash": "F0010A11EDCB26D185F262690F55C15984DEDC6A9218F370BDC6001800DC2717"
+  },
+  {
+    "Path": "scripts\\pixel_art.gd.uid",
+    "Hash": "AF723ED02CF2F5A5F5B97532D97284D43214FA0EA86FFC7D4982EF9370543DEA"
+  },
+  {
+    "Path": "scripts\\pixel_art.gd",
+    "Hash": "798A992CBD37914C33EA2424107F533AE0A612CDD54E5BD893B95BE46DF924FA"
+  },
+  {
+    "Path": "scripts\\main.gd.uid",
+    "Hash": "8D398456E3FC495ABF0C96A9666A5AE4D1A322A103EDC59E8286787DD25A71BD"
+  },
+  {
+    "Path": "scripts\\main.gd",
+    "Hash": "85F4980665F7E3D21AEC67F44E3D5D66A3CB519D83F784519841C3483A9EA555"
+  },
+  {
+    "Path": "scripts\\player.gd",
+    "Hash": "BD935CEF8A91CA49739403AF136C159D414C594BDC7F3BF385602D42D10D296B"
+  },
+  {
+    "Path": "scripts\\art_study\\study_raster.gd.uid",
+    "Hash": "16B2A28785D95B05B10A70FECC72C0E103D557C67C851CD372368E21C0ACB1F9"
+  },
+  {
+    "Path": "scripts\\art_study\\study_raster.gd",
+    "Hash": "3B246F48A2A2C8E438D7E57B81B66C13F52DAFE5E8481402538CF2E3347C6E46"
+  },
+  {
+    "Path": "scripts\\art_study\\art_study.gd.uid",
+    "Hash": "585A6ACDE7CCBD13D379FAE80E3FEA7D0224341FC7F3BFEA3723C4FC5B1EC78B"
+  },
+  {
+    "Path": "scripts\\art_study\\art_study.gd",
+    "Hash": "18CE9AD7CED5BBD3E4BE1AC0855C49C58E3532BF3507EB681A0260B1EEC9B8DA"
+  },
+  {
+    "Path": "scripts\\player.gd.uid",
+    "Hash": "67C32FA15D2EEB9E51AB93C89495557A4996725BC80E45B45717923FFD3C8CA7"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_05_v_logic.gd",
+    "Hash": "D471E2CD0635D584446E7B3181DD828D8F6E0884EFAFBA2E35E93331AFA8C8D3"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_04_v_scene.gd.uid",
+    "Hash": "AD5E78074B63EC03D6FE2C5D990426E1E9E5F7D9C17CC8646700F7D82EAFAF63"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_04_v_scene.gd",
+    "Hash": "027D2B9D5F8FAFF1A4185F6BF5E66B6480E441400F1617EDBFE24E3C2276E27E"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_04_v_logic.gd.uid",
+    "Hash": "7A627514DED3E0274ACB219626519D5EDF2ED3E3464D8F4F2995AEBF8B50D090"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_04_v_logic.gd",
+    "Hash": "A373E72044AA3ADB1F2A9F0FC0606ABE3668A310D00B39C86A54D5937894FA74"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_03_v_scene.gd.uid",
+    "Hash": "8AEB715BFBA9292CE28364E44353857DDB792BC85D57BC24D302D636F15059B4"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_03_v_scene.gd",
+    "Hash": "1E91577CCEC5FE5FF6D20EAB49C276D3AC6BE5AC544F5FC1F0F154A7E7964186"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_03_v_gpu.gd.uid",
+    "Hash": "995D267BD93A347C2F8183108B8FFA77062C141B3C25DF1C100BBBF76F14C2B8"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_03_v_gpu.gd",
+    "Hash": "798EF3746B7C5DC9128A1B7444505E223D5987D5E8987B025324281671F8BD79"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_02_v_scene.gd.uid",
+    "Hash": "AC78BA06A3603ADD929A7E4B95526B74F7722F513912E291393D3B02FAF253A8"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_02_v_scene.gd",
+    "Hash": "60AA77FC93C55C5CD5F143F89002350D647711F550F9379FDF07C7EB3B98689D"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_01_v_scene.gd.uid",
+    "Hash": "FDBFB7C5EE17A4D3074D1DDBD5E25776FCBD7103DA057DC53174827A14711A0B"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_01_v_scene.gd",
+    "Hash": "B3C42E65588CCF8EAFE703D268997083F376F8099136002A0A926908F3715372"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_01_v_logic.gd.uid",
+    "Hash": "DEC54D54A2A52FDD985D1E671AB32F963577E048C76D0DC44F0D0482A8CF3CDE"
+  },
+  {
+    "Path": "tests\\p2\\independent\\p2_01_v_logic.gd",
+    "Hash": "DD7AF8CE940139BF12888AD948DAF6DF35091E44AEC568DC23E1A31A152D7D92"
+  },
+  {
+    "Path": "scripts\\quarter_view_lab\\projection.gd.uid",
+    "Hash": "6D1F3B6A1980660B2C0DDE9CF72BE51162A4CCBF0FA34B44807C697287F9D631"
+  },
+  {
+    "Path": "scripts\\quarter_view_lab\\projection.gd",
+    "Hash": "7A267293DDA0F1D1621303466C8830D2DF0CBA76E93F1C143C7F842447E9E77D"
+  },
+  {
+    "Path": "scripts\\quarter_view_lab\\lab.gd.uid",
+    "Hash": "0C50F42D3244ADA07F4F3712BFED79B917D70AB2CC1500462C78CA1DE95DD46C"
+  },
+  {
+    "Path": "scripts\\quarter_view_lab\\lab.gd",
+    "Hash": "90DC921293D7E0B4A461ECEBF4F03B76AD85FE1A791C809789FA7EDE9D962830"
+  },
+  {
+    "Path": "scripts\\play\\pickup_view.gd",
+    "Hash": "08E56E7E0F8BFCABC87EFA5D59F245AAFA05362F50990E4FADFF50F46672DF7D"
+  },
+  {
+    "Path": "scripts\\play\\landing.gd.uid",
+    "Hash": "62D96F05BE8D00C5D0A465FB21AAE18623735B890BD90C05AB5A155B3BB879F4"
+  },
+  {
+    "Path": "scripts\\play\\landing.gd",
+    "Hash": "613B5805C5C4AE2BB1197A6AC59228E6AC42EE9D371ECEBCB9141284C70821D3"
+  },
+  {
+    "Path": "scripts\\play\\ground_pickups.gd.uid",
+    "Hash": "13630362077817C751C6AC8370441919840D1364338751551E9847E10F9F3E49"
+  },
+  {
+    "Path": "scripts\\play\\ground_pickups.gd",
+    "Hash": "8B78DCEB275DD6CE295B3FA7EAE2F848A13891A01916C322DEA096ADEAB61FB1"
+  },
+  {
+    "Path": "scripts\\play\\cultivation.gd.uid",
+    "Hash": "BD047CD1FB5C64EE0EEC0B865F45AEA590E2D75E9D2EEC049799FCC1CA673EC8"
+  },
+  {
+    "Path": "scripts\\play\\cultivation.gd",
+    "Hash": "48A49E7F28519A4C222879104B5DD4022264DEDAB6FA86A67C83752790D2B381"
+  },
+  {
+    "Path": "scripts\\play\\cultivated_view.gd.uid",
+    "Hash": "4C7F1EAB062C0F94574291398F2D2FB41E1BE9EABE3AD8D67AB55114973A1306"
+  },
+  {
+    "Path": "scripts\\play\\cultivated_view.gd",
+    "Hash": "557EC9AAA0CED51762CEA74790215CECA42E55F6662E98F2D068072706550179"
+  },
+  {
+    "Path": "scripts\\play\\cultivated_plant.gd.uid",
+    "Hash": "17AF4C5B8A77D5AAA5D53583C842F7D8C57D267CCD5CA93D686A81F1208C0163"
+  },
+  {
+    "Path": "scripts\\play\\cultivated_plant.gd",
+    "Hash": "2FDA122C439C9605DE0A071EF65E21C32BB741AFD9A44F1791D643078E1A91EF"
+  },
+  {
+    "Path": "scripts\\play\\play_art.gd.uid",
+    "Hash": "1EBB492BC731DE0DFA355E62A23B64B4D7949FE305BE9E5851BA3B437592FA78"
+  },
+  {
+    "Path": "scripts\\play\\play_art.gd",
+    "Hash": "F8E66578E6D849A1678D9FDB462BF1F33C0FCF9EE4DB21EBF850194A2D8EF975"
+  },
+  {
+    "Path": "scripts\\play\\player_health.gd.uid",
+    "Hash": "86E00AC5A4323ED4B3FD5A3F44ECCB050AD45B2848C7995A1D43341E891629BE"
+  },
+  {
+    "Path": "scripts\\play\\player_health.gd",
+    "Hash": "69FD95FA779D7E5FBB760DBE8B08808E22E45910F7971C8866C689C840494804"
+  },
+  {
+    "Path": "scripts\\play\\plant_producer.gd.uid",
+    "Hash": "7978A8C9E03301A5F076A20A13ADBE4DA4930AA6E9C3E2BBEF46FFC024D8F7E1"
+  },
+  {
+    "Path": "scripts\\play\\plant_producer.gd",
+    "Hash": "9767578BDF4A155636D4D30CF2C1AE558605BF6EB2C9945EB9DE435008BCD835"
+  },
+  {
+    "Path": "scripts\\play\\pickup_view.gd.uid",
+    "Hash": "B9CDF0ACD9FE15593F9129BC2F12C0075215FDB1D5828B1B3E14ACA363D25982"
+  },
+  {
+    "Path": "scripts\\play\\play_hud.gd.uid",
+    "Hash": "9BA68A62531505CE4698FDC1F423CB2DFF98C8AC01A6EF4737A99BDE3F3C831D"
+  },
+  {
+    "Path": "scripts\\play\\play_hud.gd",
+    "Hash": "53F0A992AEDB4CC03EA4CF25EA4A21E0504626465044D88ECB796EA5268281EC"
+  },
+  {
+    "Path": "scripts\\play\\play_driver.gd.uid",
+    "Hash": "A7E99B67A311E776F086B5909F617CF1151FF9254632ACC9759FD3B33B17BD6E"
+  },
+  {
+    "Path": "scripts\\play\\play_driver.gd",
+    "Hash": "D0BCA7962072AD0127099A2CE0EEE5984ECCBF59F3919582718D885863C24A01"
+  },
+  {
+    "Path": "scripts\\play\\play_state.gd.uid",
+    "Hash": "52F187E474D0CA0E71AB6746E6D3C51B6ACDAED535F9622A4632D90E3F5C0C60"
+  },
+  {
+    "Path": "scripts\\play\\play_state.gd",
+    "Hash": "82CB0E6591860E99F8E7CDAC64BDED38C414E15678341658DF78EC558B57B1CA"
+  },
+  {
+    "Path": "scripts\\play\\projectile_field.gd",
+    "Hash": "DDFE0245B218F5967AAD2D968DD19D47FA8F01DAACA57A17866ED8BE0B26FB3C"
+  },
+  {
+    "Path": "scripts\\play\\projectile_field.gd.uid",
+    "Hash": "905D008015E13899CE03D40DC699F477F212BC3602F91962C418A7E30CF227BC"
+  },
+  {
+    "Path": "scripts\\play\\zone_notice.gd.uid",
+    "Hash": "C9E86D4D7DFEB05A885CCE0E20A6F0637779F19BF3B3A8117F1B50636800F46E"
+  },
+  {
+    "Path": "scripts\\play\\zone_notice.gd",
+    "Hash": "89E65920D0EB6A16DF6D1AB86223D7494353E54B93C4AF6EACA8736205C1D699"
+  },
+  {
+    "Path": "scripts\\play\\zone_hud.gd.uid",
+    "Hash": "39ACAA147427D20255A2BEECA914A19987390C9B1AF92AE8810110E3E43F56BE"
+  },
+  {
+    "Path": "scripts\\play\\zone_hud.gd",
+    "Hash": "EAE3A334B70C9484F1C916E52CAC75B8719929E1C273306F92216850CB444B51"
+  },
+  {
+    "Path": "scripts\\play\\walker.gd.uid",
+    "Hash": "5DFDE377C0ABCA6AF008BF68EC24D28F4976A99B3D8BA3F7FCDADC99C7DC6514"
+  },
+  {
+    "Path": "scripts\\play\\walker.gd",
+    "Hash": "0856EC7CFAD824B8CBAD22936FB1DD409F07DD8CAF196D2A24561B6B34D23BC7"
+  },
+  {
+    "Path": "scripts\\play\\seed_source.gd.uid",
+    "Hash": "A4BD5D1B5639B647089EC88F2E8823372F61E3575517ABC7A4A5804BB8DC93AD"
+  },
+  {
+    "Path": "scripts\\play\\seed_source.gd",
+    "Hash": "B2BDD59BD4789381512A25D3C7C0E5913F896EADC8F240BEC73AF7571BEB1062"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\image-hashes.json",
+    "Hash": "96FEEB958417A385D1062C039240CE706043BB317CBEEB88148A08A410D57793"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\export-preview.ps1",
+    "Hash": "AD2A9AEBE458E51C08A439847EE9420C1B03D9054628C043B7B80EA675B4FE2A"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\export-checks.json",
+    "Hash": "8B0A1BD6B9D788EAE75ED1776FA9A0566D050A9EFE21613219796862F6C4C051"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\prompt-v2.txt",
+    "Hash": "1DF30BB830638E5D3475FEC3B252F19BEEFBC6BADD5DCDB4E0D3F6C58C6B6643"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\prompt-v1.txt",
+    "Hash": "125F7B4A10EE48CBF8C31DA6F389E59627A951B463E370830A514AB65B60B001"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\ruin-grass-detail-v1.png",
+    "Hash": "4137F24E1BC1C9EA7C8C14DF78065A4BB603AE0C2A913724FDFEAC5C0753CF2C"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\scene-960x540.png",
+    "Hash": "44916FF1592AC743B4BD36BEA450F7CA2B382EB2AC5C99CD05D8D95C27E33DA1"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\scene-960x540-at-1080p.png",
+    "Hash": "69C0D051B4C8C2994915D93DD8DAA8985B4177532AE27C706EA973956FD9161C"
+  },
+  {
+    "Path": "assets\\concepts\\art04\\ruin-grass-wide-v2.png",
+    "Hash": "006C1F0C88CF5A481F612DF0D57A8DCD71824B0DCC12B7829541D2654C29CF2D"
+  },
+  {
+    "Path": "assets\\concepts\\art02\\sunset-v1.png.import",
+    "Hash": "E6D28DC59F89CD90BE1D2482D4E72C46DA09668BD5D1BA3250090018AFA2FD41"
+  },
+  {
+    "Path": "assets\\concepts\\art02\\sunset-v1.png",
+    "Hash": "EFA826CACC409E1ACCBBCBDB9551FC88D113AC1BE1149B28EBECC686F533126D"
+  },
+  {
+    "Path": "assets\\concepts\\art02\\prompts.txt",
+    "Hash": "A0D86D335BD3513811FBC4712286C80A955E41DDFC3EB8AF7672D45F9F8C28DF"
+  },
+  {
+    "Path": "assets\\concepts\\art02\\daylight-v1.png.import",
+    "Hash": "70D32A8F7D5C7E74BCDEF2285765D04AB1E3789B336EE3B60617A418F2DE4A4D"
+  },
+  {
+    "Path": "assets\\concepts\\art02\\daylight-v1.png",
+    "Hash": "871E0FCA8C97A6321B37133EE0E572A790AF667A0AD2D927085DB60F4CC78597"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-960x540.png.import",
+    "Hash": "6A3EBBD414E8F5E94A87E874E22A79553DF6FA7F82BA15E889C139FB7DC41154"
+  },
+  {
+    "Path": "data\\zone_def.gd.uid",
+    "Hash": "83DE1951AB7856EE8E3BBB9B793BE5AF42791E1E34E969A52EE912F3550C4451"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-960x540.png",
+    "Hash": "3D665E7708C5355892DCF920D9765F5612A10F3014DB5F115D90306000B6DAC2"
+  },
+  {
+    "Path": "data\\zone_def.gd",
+    "Hash": "61DC1C2AAA73B1DC8CBCA0CE1B6C80541E5C993814784DDD6AE4593C358E0557"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-960x540-at-1080p.png.import",
+    "Hash": "4F007A8B62686C9F431243A9F2CE61B4096AA99220BF36E1A617F6F8E2198359"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-960x540-at-1080p.png",
+    "Hash": "9D0E2B995216FBA951F88C56C9D00B89A09E2ACE88A8BE7969E6008A602A66E3"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-640x360.png.import",
+    "Hash": "967E9A52E633B7B7DC9C45C15EE200BF327D5B00E0D153565898BC58EFF10646"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-640x360.png",
+    "Hash": "E327432BD93D10EFE4BF15613237B960A566334337E567FE2619146475D4B224"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-640x360-at-1080p.png.import",
+    "Hash": "9AD432DB03B9D5F6E4BC380DF12F4E7BBBEA54A772D9FC2EF34C2420069A0AEF"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\study-640x360-at-1080p.png",
+    "Hash": "BACE9EBE3E7E8F8DC2CCAB079E32116CB20D9C5EC039CD8FCF1A2262F1A2A857"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\prompt.txt",
+    "Hash": "88B9C0759D052CE96620BB590BBB4A1EC8F24C5ABD30EF41515B1232680BD6BD"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\pixel-study-master.png.import",
+    "Hash": "E3AE4B26A4E7F304568C0C646FCDB3DD7AF55244632204207E0421DEF3EEFD57"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\pixel-study-master.png",
+    "Hash": "C65B17A01769FBCF6D7430F37D2BE26AB1CE7C74A62512840B2748ECAE40B00A"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\image-hashes.json",
+    "Hash": "F068C70A72D57C5FEBF38BAA560B7E88D13161B0AD4451974314660947CB80B4"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\export-comparison.ps1",
+    "Hash": "7F29491D317CD7A36F953750690241BD8D6F763355317BD97F607416FA64A6F3"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\export-checks.json",
+    "Hash": "8717BA5F961579779A1ECA2016424CD493FA878A48DAC4E5040C1DED5AC86D1C"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\detail-comparison.png.import",
+    "Hash": "A3560B798E37D2ABFD96493F9AB0FA939AE9E2EF180BC10395C57840A2F53204"
+  },
+  {
+    "Path": "assets\\concepts\\art03\\detail-comparison.png",
+    "Hash": "750D2C0FC9BE3A76AC78DE2AC4A752B560F6B9C28E7F2E614224649C0C529C6F"
+  },
+  {
+    "Path": "data\\region_01.png.import",
+    "Hash": "373380B76F0FCA58AB62CFC7BC2A2D2AFAF3ED6EF0879C240206D822352C0D72"
+  },
+  {
+    "Path": "data\\region_01.png",
+    "Hash": "95D86BEF9BB715E45B1BF8B99DF99F7A84416E19858CB60111171FE5E7153DD9"
+  },
+  {
+    "Path": "data\\play_tuning.tres",
+    "Hash": "28B541B647DD9E64CC461010B662B68DF49C5EBD989250C618EB5BA2E3E86FCF"
+  },
+  {
+    "Path": "data\\play_tuning.gd.uid",
+    "Hash": "B79F47AFEB5C3A1B386CD71B97A5619464C473D39D02329CAD06553786947CE4"
+  },
+  {
+    "Path": "data\\play_tuning.gd",
+    "Hash": "EB5729FE9F9AD5E598782DE87F4D26E308027BD8DE2CFF3CDC817ACAD69F6AED"
+  },
+  {
+    "Path": "data\\plant_def.gd.uid",
+    "Hash": "EA8FB142362DB20B476649D446BED68F7D35A41E2027F33BF136ABC8297B7825"
+  },
+  {
+    "Path": "data\\plant_def.gd",
+    "Hash": "FCBFBE0B65FF5E91E7CB41133B60147D0F200C43C6EB9D62E61AB64531ACBAD3"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_tempo.gd.uid",
+    "Hash": "3B65A45A8ED4D4343B7B7807FA447E238F36695D2E92F7A21A1DD7936D7A1F22"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_tempo.gd",
+    "Hash": "35A261D196B7E2850574A85B3E058F5E96F76102BE8632FA378DC8D2794D1752"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_perf.gd.uid",
+    "Hash": "7FC398A5A61828DA1D1CC2D69B03E72B699D7C2371D717129E5311B5A20F9E6E"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_perf.gd",
+    "Hash": "6087F9D9DC9FD1CF2FB311D6AB951ED57BB4DACD8D1B0EDA0C70898977B5DA93"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_gpu.gd.uid",
+    "Hash": "1D14333174B40485BA5F1E28A99B8F7F323D89829721F47D665EB88B81BE0A21"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_gpu.gd",
+    "Hash": "75BC127B5C4C896A4A25E266F2FD79004A08D0BFAF0CAA485F342A01896509B9"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_checks.gd.uid",
+    "Hash": "DEC176D0B1B1270964883FF2328B2B5FC7C22F73604F539604E864EDC17EFFD3"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_checks.gd",
+    "Hash": "B14211EB681B1311995349BD0B93D7E3114DFF26293C74C3D08B89D501E64C61"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_bot.gd.uid",
+    "Hash": "5466B20C2CAA171F06AE1F1351EDDC38BCEBA8D0C345D497F12F0B339378E266"
+  },
+  {
+    "Path": "tests\\p1\\p1_06_bot.gd",
+    "Hash": "E0E90BB52336647F4E6A24B51EB40CEC822B91C63B56DD9D6EBCA286EBE5FF22"
+  },
+  {
+    "Path": "tests\\p1\\p1_05_gpu.gd.uid",
+    "Hash": "7E05F6C176B29391E245AF1A587F483985DA900ADB98C50F37A227BCF23F070A"
+  },
+  {
+    "Path": "tests\\p1\\p1_05_gpu.gd",
+    "Hash": "AC9965FDC5BBC14AC33943FDD629B7D03CE8D6AE38569228DCAE328D1C05AB6C"
+  },
+  {
+    "Path": "tests\\p1\\p1_05_checks.gd.uid",
+    "Hash": "1D705D2AED6946206435758768208A77557D7C6F993AECF87908D3B287B362D6"
+  },
+  {
+    "Path": "tests\\p1\\p1_05_checks.gd",
+    "Hash": "B08E8C6D1E2DDAEB12CC107EDACB1C8307DFCD91E9C3AAC816F34CB3766C273B"
+  },
+  {
+    "Path": "tests\\p1\\p1_04_gpu.gd.uid",
+    "Hash": "52814CEDAC3950B1B3E6A09E5CEAC1412FA7F25AFE0E590A54829564CB8EFE7E"
+  },
+  {
+    "Path": "tests\\p1\\p1_04_gpu.gd",
+    "Hash": "BA9CEEA46043D365CC6B71E04B0400A0745F799A8759433D18394CE2CC41411A"
+  },
+  {
+    "Path": "tests\\p1\\p1_04_dump.gd.uid",
+    "Hash": "68559F0F9E1C16861FADFA090457406780A8B26C80A8DEFEE8AAA09CF0E2A851"
+  },
+  {
+    "Path": "tests\\p1\\p1_04_dump.gd",
+    "Hash": "FE60FC16C0851CA0512911768F698BF11790C09D1F31EA0A2582D439B9BE94EC"
+  },
+  {
+    "Path": "tests\\p1\\p1_04_checks.gd.uid",
+    "Hash": "CD13D3AD22AC1BF96D922D46F4DEA4596DCF9D4AE1C7CFADA5CD2DBF36B67CD3"
+  },
+  {
+    "Path": "tests\\p1\\p1_04_checks.gd",
+    "Hash": "1830E8897CC12417E05372B5A6D567B4C898EE8D7334B1164D8BD921A33D1504"
+  },
+  {
+    "Path": "tests\\p1\\p1_03_gpu.gd.uid",
+    "Hash": "A9786A39925051E23F0EF78B973DC9285C8B09D46C7FADB0843CBAC0C0BDCD6C"
+  },
+  {
+    "Path": "tests\\p1\\p1_03_gpu.gd",
+    "Hash": "717835E9C6F7D878CD9509371C5501FAAC410B5891EA034E012E15630A5E0849"
+  },
+  {
+    "Path": "tests\\p1\\p1_03_crop.gd.uid",
+    "Hash": "57D7A2DFDED2C5DE8A2B16A9073905261F953BFD981EFE1322E3E410CA8FF157"
+  },
+  {
+    "Path": "tests\\p1\\p1_03_crop.gd",
+    "Hash": "8D328CB38E0612FBB6EEE0E44B4AC963D0848D7D29774195AD26C24912D1131F"
+  },
+  {
+    "Path": "tests\\p1\\p1_03_checks.gd.uid",
+    "Hash": "C08F40F343AB3F8A66F285493C137581C134579E45881CF9CE28D0FD4ABAA4EF"
+  },
+  {
+    "Path": "tests\\p1\\p1_03_checks.gd",
+    "Hash": "3DB61B8F7A8E068B37A4257F2D650EB4B8420B2E5CB107F66B438FCC4C018450"
+  },
+  {
+    "Path": "tests\\p1\\p1_02_gpu.gd.uid",
+    "Hash": "72B3547D4AEC7A57AF419C5655CC0F8B792B55027F6C42C25AAD3DAEC0D2BDEB"
+  },
+  {
+    "Path": "tests\\p1\\p1_02_gpu.gd",
+    "Hash": "07B6A60623072218560406FD983E75085DAFBD8CA3435049272EC1D8E8F3448D"
+  },
+  {
+    "Path": "tests\\p1\\p1_02_checks.gd.uid",
+    "Hash": "C61C27BB5461259686D57C536BB0237DA256914D9A1E50DE21CB7AC134AC416A"
+  },
+  {
+    "Path": "tests\\p1\\p1_02_checks.gd",
+    "Hash": "B88F4B1748C098D29CDEA091504450C525E0F46636208DEF000CB14D8B704101"
+  },
+  {
+    "Path": "tests\\p1\\p1_01_gpu.gd.uid",
+    "Hash": "1AB5909B17D76CD1D70A6F02D650AB36E3C7356C9C0796406BB8F715BC350201"
+  },
+  {
+    "Path": "tests\\p1\\p1_01_gpu.gd",
+    "Hash": "B657F781EC09EF037C134D7AAAA404620D0BB094DFCDE825CD6A8028D2966290"
+  },
+  {
+    "Path": "tests\\p1\\p1_01_checks.gd.uid",
+    "Hash": "F7CAD106A9E86B9283DFFE3B73CBF2207616F9C26131171A370A0B9C17A15A45"
+  },
+  {
+    "Path": "tests\\p1\\p1_01_checks.gd",
+    "Hash": "200E0AC35DE6D46B971B3526E555D30A7F0B01DCE5FB5C1DBAC3892240A5291F"
+  },
+  {
+    "Path": "scripts\\tools\\gen_zones_region_01.gd.uid",
+    "Hash": "F3F593BF525AC69CBABAC3DDFF956A1486D2EF5369EDBBC7B2935D3E9E5F1D26"
+  },
+  {
+    "Path": "scripts\\tools\\gen_zones_region_01.gd",
+    "Hash": "9FAFB5303159891C2061F09E306EBE3A3B2B16D5C52EC29C5B746D791DE80840"
+  },
+  {
+    "Path": "scripts\\tools\\gen_region_01.gd.uid",
+    "Hash": "E68E3A7381CC3C878DF4FE9732E9EAF7AF5650040D174D9EB616BABACDDD9D85"
+  },
+  {
+    "Path": "scripts\\tools\\gen_region_01.gd",
+    "Hash": "5DADE6A5AC6E192109E9C5B21495B9EC3EF93BE0076165C94D8792D0D7B657C0"
+  },
+  {
+    "Path": "data\\enemy_tuning.gd.uid",
+    "Hash": "D51929BA1D8A90A717DC63D74F006E668B5883B81D64C353E09DBC6225CEB56C"
+  },
+  {
+    "Path": "data\\enemy_tuning.gd",
+    "Hash": "446DC837CA07446F0E433EB521AE8B1428FD99EB1E622A1EA4A01F0DC6F5754E"
+  },
+  {
+    "Path": "data\\enemy_tuning.tres",
+    "Hash": "0D11A542B16A2DE4C329D5E57DC09E759877F22735D07448C322933F971DE01A"
+  },
+  {
+    "Path": "data\\sim_tuning.gd",
+    "Hash": "907E65D3A6E755636D52F90A06D29FB36335676AB74A3D75F2A6CE5D71A85FAB"
+  },
+  {
+    "Path": "data\\region_def.gd.uid",
+    "Hash": "B51F7E196828A364D92DFF4148A9DE84A3068C9E0C227BF076B952627AB5A431"
+  },
+  {
+    "Path": "data\\region_def.gd",
+    "Hash": "E2BEDDD30A8B24F3C533B5E9BB91C9C23C6290241607038FBDAA918F3B352A0D"
+  },
+  {
+    "Path": "data\\region_01_zones.png.import",
+    "Hash": "9466863CDFCF885DED7C4DB72CFCCEC2AAD3EF971774D8C8FC18D5B73D9F5113"
+  },
+  {
+    "Path": "data\\region_01_zones.png",
+    "Hash": "F3BB1BB6C08DAAF309026CAC532796B6D481C9380CC018A6350A27698C60F438"
+  },
+  {
+    "Path": "data\\region_01.tres",
+    "Hash": "A910F286F5FE7821E0AA3D3F77336EA4480555DFB4F6083328F320D7C72A0CD6"
+  },
+  {
+    "Path": "data\\zones\\zone_06_east_south.tres",
+    "Hash": "91328989A60846EDF34041368DA7BDCDF3F10881D8B6F7968580D8E4DEFA620A"
+  },
+  {
+    "Path": "data\\zones\\zone_05_east_middle.tres",
+    "Hash": "EEFFF35373BDF27273F93D54DA0E4BC10B05F5CFE6DB625BA57D90055659EF53"
+  },
+  {
+    "Path": "data\\zones\\zone_04_east_north.tres",
+    "Hash": "7A9FAD55C3D8CE0666681397E560BAC1408B11E89108CB6F26A1120728989F8B"
+  },
+  {
+    "Path": "data\\zones\\zone_03_west_south2.tres",
+    "Hash": "42F7F2381B62DF192068E9EF774D62BCFBABF266C8F686F3F5CE469AD64F98EE"
+  },
+  {
+    "Path": "data\\zones\\zone_02_west_south1.tres",
+    "Hash": "DC76657EA043DAB9DC208A9F4077F039E315932DC795FCDAB8AF48D4C4C11B5A"
+  },
+  {
+    "Path": "data\\zones\\zone_01_west_north.tres",
+    "Hash": "6726A74D4D61F8BC8FEBC88906225EC78F3CB9104FF328C56407E6F6995EB9B5"
+  },
+  {
+    "Path": "data\\zones\\zone_00_start.tres",
+    "Hash": "7C6569675BAA2066E2EDAF1ADD533D0D9A7A7C1E0B8DFF293821E42E1C27F42B"
+  },
+  {
+    "Path": "data\\terrain_def.gd.uid",
+    "Hash": "E2C98545E07EE21FAA0DCF71813A9E8558ECCE3B95EC39F41ED69565B926C976"
+  },
+  {
+    "Path": "data\\terrain_def.gd",
+    "Hash": "A1EE3959BA455D2CF99CDF36C97130F6821AAEDD224DD70B735D2248D2C97966"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_driver.gd",
+    "Hash": "B138FBF2B3A3B551AD851B3BB68E648D9C35B94BBFFAD0FBE704318F68FA89EC"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_combat.gd.uid",
+    "Hash": "565FD2803AED91BEB059AD0E1F479754E4B6BF24CBA4308958677851E2EB7791"
+  },
+  {
+    "Path": "scripts\\enemy\\zone_progress.gd.uid",
+    "Hash": "C327E2DD348B9C75F6D2479425B26C41E359BDAA7D6060275958EF14E623EFD0"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_combat.gd",
+    "Hash": "D505FD57A9880270E4A8C811B9782E34A4EA8F02DA3D7179859E24A7771991ED"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_art.gd.uid",
+    "Hash": "9CC84C8656EAAF7E47244D686951AEEC6910D6DC96ED27EDDA55BFBD3D0EA756"
+  },
+  {
+    "Path": "scripts\\enemy\\zone_progress.gd",
+    "Hash": "45B6CDE544E61E37D906A892538BF0A72B8D658B007E4328DB682D68FDEC847A"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_art.gd",
+    "Hash": "D6534ADC72BCC17D9D7FE36562E676FBC5B6D9F73C1003C2989DC758B38CD5BE"
+  },
+  {
+    "Path": "scripts\\enemy\\carcass.gd.uid",
+    "Hash": "C5ED21B75FC4274FE0FECE0E20D0B72D69C103E4BBCF1033E03FB7D64526F7F7"
+  },
+  {
+    "Path": "scripts\\enemy\\nest.gd.uid",
+    "Hash": "DA7E391B950291879EEA9BCFE1ABC6DC29391B0F7EE97E1B883836273CFE0AF4"
+  },
+  {
+    "Path": "scripts\\enemy\\carcass.gd",
+    "Hash": "E032A392E8334A4097570E2576824C16BAC5C17E2AF307772264BEF993E02196"
+  },
+  {
+    "Path": "scripts\\enemy\\nest.gd",
+    "Hash": "26BEAACCFEE07DFE4B4D946B48E294C31D5EBDA7F4BFA392379A20AFD8FD0621"
+  },
+  {
+    "Path": "scripts\\enemy\\boar.gd.uid",
+    "Hash": "177B3CC4D8C847875860CF99A2C946DAFA9055B2CC15F056BDD1919D66F5275D"
+  },
+  {
+    "Path": "scripts\\enemy\\boar.gd",
+    "Hash": "78966EEFB0C160D917820751093FEC0EF96EAB8798AD6F0EDDA146F66399522F"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_field.gd",
+    "Hash": "483B1DEDA5634B0B57CBB791125CD505BEFC3A6D0E902BA13B73F970477877D0"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_driver.gd.uid",
+    "Hash": "FC8F1AA1C14C33151F214B979280CB399F2D0A05F9EDDE3F84C21B0D01B88225"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_field.gd.uid",
+    "Hash": "E16362AA296690F30E235F11FFD662F7C25C42FB38F76DD97E2F90114EED9320"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_view.gd",
+    "Hash": "7F85D5394FF22B65D920CBCE51870684B8335F886E773548768C3299036793B4"
+  },
+  {
+    "Path": "scripts\\enemy\\enemy_view.gd.uid",
+    "Hash": "D4C215C9B1067674A2DE4C362CE2C8BB48E4B323506F9B8D0F31E15AD6387B07"
+  },
+  {
+    "Path": "tests\\p1\\count_png.py",
+    "Hash": "6660577CA4A9517A0502542741F888AD7DB1516961B757435109871D1E6CCD52"
+  },
+  {
+    "Path": "data\\sim_tuning.gd.uid",
+    "Hash": "B373D265E2BE7661145FC4226ECD0C8452E0858E6816D3B04109FDDDC86F254E"
+  },
+  {
+    "Path": "data\\sim_tuning.tres",
+    "Hash": "F81C1C683BF877E33746B5BE8AB19F81D5C4DF076FDB844E26853063691ECD9E"
+  },
+  {
+    "Path": "data\\plants\\normal.tres",
+    "Hash": "C3C6D6FBF8067B8E676EBC923AD1742340B271088276D15445291556965200F6"
+  },
+  {
+    "Path": "data\\plants\\kiwi.tres",
+    "Hash": "99010EA7CEA0FADEEB3BAE8BA60EF6A783AC62765F2132B670E5F65042A60A8D"
+  },
+  {
+    "Path": "data\\plants\\carrot.tres",
+    "Hash": "42B37C9B2CA645EB1E557C0D3DEB2451F12C58C2814CA181D9CF4493266A01AF"
+  },
+  {
+    "Path": "data\\terrain\\water.tres",
+    "Hash": "C790E57BB8D7508BA579130EE1BDA1F8007FAFCC2C1AD466A4A5703E9A34EB6D"
+  },
+  {
+    "Path": "data\\terrain\\wasteland.tres",
+    "Hash": "642561E84C5CAA1E17FF503C5A76146091285301078B08735E0B8516AE6A7AD3"
+  },
+  {
+    "Path": "data\\terrain\\shore.tres",
+    "Hash": "B174FDF5AF13AA97B83F5E986027E8C25EF126EBB9F4586D6267295492D7658B"
+  },
+  {
+    "Path": "data\\terrain\\shallows.tres",
+    "Hash": "B543A8E40EFBE804A774673092CB99AD63D4F3C5FA97E46E806E33AAC6488094"
+  },
+  {
+    "Path": "data\\terrain\\safe.tres",
+    "Hash": "9B40C6C0C6BB1393EE2D14CE5622E98AC0CB1BD0828DF1FC045755A35B5186E9"
+  },
+  {
+    "Path": "data\\terrain\\building.tres",
+    "Hash": "3ABD408ABABF2EEC7A4505455EAAA0FCD28B325D72AE46258B84C087305723B5"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_gpu_offline.gd",
+    "Hash": "72F7B1D39D33596DF17E11AC409E44C863319F926A79CCAAA70E83C081336D74"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_gpu.gd.uid",
+    "Hash": "F23A5F761AEC68EE19B5623BA1E8FFB99DEAEC3A5C7C4C2E2E98C2270DA719D4"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_gpu.gd",
+    "Hash": "CAA5DE8CDBE4CE4860104023D1E6908855B71EE3ED33D811C890637977220B06"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_run.sh",
+    "Hash": "FFC983E6AD033F25AA5D6F3CE3568B97B5D87BED5F4524402BDE6F8AFEFCFC11"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_v_scene.gd.uid",
+    "Hash": "C55718AA44991C9FE3CC63793F6845AC7D289705923F5827BA7E77A67A39B9B4"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_v_scene.gd",
+    "Hash": "634899F7812A830BE4B21CEB03730C956C2E399C81FAC103E98CC2E4909DB21D"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_v_logic.gd.uid",
+    "Hash": "CA97D57CDB119201DC4AB30F54234260CAB28455C6DC45A61A6EED8CAD893DF9"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_v_logic.gd",
+    "Hash": "BA1F33D1FB4A1674812898A60C0217B13978AE545A29A950FF0484A6EEBE5A03"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_v_gpu.gd.uid",
+    "Hash": "BF5C4C242A929776F58653C9B4E5ECF589CE5552EB42696A0E61196BFDB07FA0"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_v_gpu.gd",
+    "Hash": "EE1CAF3063040F7B71E7E0BA5969256C404A9E215077A4C85EA8A8B219347173"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_run.sh",
+    "Hash": "695DD07DB54C54ECA543F21A5335CF7BC070B6692B291DCC0773E30D3C19AD4A"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_reg_v_checks.gd.uid",
+    "Hash": "93952210C04E35946AED291D16C52557C7AF10A17FD2E71794F69C2431684387"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_reg_v_checks.gd",
+    "Hash": "5E8E5FB3D21DD31DE9368B44948DEF25118FD7ED4B286A6CC9C32205B2FF970B"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_reg_p1_02_v_checks.gd.uid",
+    "Hash": "A9CD0B7AD25BDCC2154123A77234B59386A7CBA81C043BB8F53DDD395E1FE9EF"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_03_reg_p1_02_v_checks.gd",
+    "Hash": "FE6ACAFA3562302495629BECC57611AE386C5D013919E0B072DCCBA13716B5B5"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_02_v_gpu.gd.uid",
+    "Hash": "0EE1A00326524DCE35F6D8B0C8D5B5E409656D85F9BCA916EE439973949580B3"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_02_v_gpu.gd",
+    "Hash": "724364C2A7504ADAE01094E0DBD9489F5CBE12F7CD1DA3A0235FD0D0C9AC24B1"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_02_v_checks.gd.uid",
+    "Hash": "88E157232CF9B143B1D9E0EC4362033FEEB8C58438408D586EE2F852664DDC35"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_02_v_checks.gd",
+    "Hash": "D1DE9A7CF07EE2C0DC46AD812DEF43942AD0C13CF1D092EC20EC4997DFCAD9C7"
+  },
+  {
+    "Path": "tests\\p1\\independent\\hash_sources.sh",
+    "Hash": "F16208C797BF815B7FDAB50AB8F19BE22394139308D347B6946BEB429CF566CA"
+  },
+  {
+    "Path": "tests\\p1\\independent\\count_png_gdi.ps1",
+    "Hash": "7385E1DE68F7D2EE1B165B1B201161F62089BAFC46C365EC526A07AE5C04CB97"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_logic.gd",
+    "Hash": "3C2272DD117797202513702E93F60D86F03F402EC73295E123A3C66FD662A3E0"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_gpu_offline.gd.uid",
+    "Hash": "3913AE746EAA410DBEC245535F6C927D97571DA501F4404D0F03281AAEC55102"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_gpu_offline.gd",
+    "Hash": "9E10A8E7C34A6AB88DE9706A35F70C377235097E87642F180D084486F1F096A6"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_gpu.gd.uid",
+    "Hash": "5854568D1D04EC5A9C62A2FA35122247E7BE5EADB2BEB058EA426C3AC3998E1B"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_gpu.gd",
+    "Hash": "DF116118485C0A2FD559B0709C8BD57730645A3DBBB8FAB088C1FEC3457A57AF"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_run.sh",
+    "Hash": "17083DB02A2A47F68FCB01A9B3296E31880A565D59795F9DCD45F3687A2EFAB5"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_reg.sh",
+    "Hash": "40FA91FD4C7B1E29CDA841A42C6AA2DF3B9173B724A27C3DA215E1A85C632687"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_scene.gd.uid",
+    "Hash": "747F9AD3828544C85F30B6DCF33A49453A5E1EB7FE05A571A099E0B91B8A9ADB"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_scene.gd",
+    "Hash": "773BECA85EA2126E59CE732686DCD101D68D75154A45C9F661883B02510D3D13"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_region_info.gd.uid",
+    "Hash": "A8BD1C33775B8EE9BA9312D9FD147700C6B718016DDA9EC36ECCADEA67E891FA"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_region_info.gd",
+    "Hash": "753662497FFE714F32C2AB680547DE7C202739348A8606ECAB9B6C7617BA9972"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_merge.gd.uid",
+    "Hash": "F9D23E5FC7178CF1AC9E6E05B980B239E90CD7BE878B5344C9FE06EB02C03E09"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_merge.gd",
+    "Hash": "05E12F1228EF1A252899715A01BB2976D0494322022781A753F2E77B05432FC1"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_logic.gd.uid",
+    "Hash": "9CC14A176853EC0F49E2D3B95C929F3A9732ECE4CEB74A3480532A8E0755CC3C"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_logic.gd",
+    "Hash": "2153E7ACCD6DC1E1F57B4EB1CC862DD41DAEA0DD131F057054B6A00185633DCC"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_04_v_gpu_offline.gd.uid",
+    "Hash": "9FBB1657E856370731DEBD72CCBAE0DF8E4F886F65C3FCBD374A1E36A51B2934"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_scene_all.sh",
+    "Hash": "7A2743C9C056C1164B742ED99CCACAE82606BBC8D6D0C1A1E3EB4A75CB8EC2C6"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_run.sh",
+    "Hash": "1258CDDFA3B07C9ABB72311E07CFAF60FF7CABAB1EE7BD877AB80BF3C0381016"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_rerun.sh",
+    "Hash": "E07773539BC1C09C81B1BDEB485DB918AE0005AA5A8A1549A812E3EEF510F241"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_reg.sh",
+    "Hash": "36B3891D94FBA6B9AC4134D93772DF35F5E100768E728F0FE25604A6DE6538C2"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_map.py",
+    "Hash": "4E7152BA335809EAFF3C6F9941D9552B435D48EF6F92FC6D7F31F9C3FE327621"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_scene.gd.uid",
+    "Hash": "4AC64F4DDF9A9893BA5E1F57188F041178D3C4ACF285359F50B7C66ECE36DFBE"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_scene.gd",
+    "Hash": "2310B32FA564F0BD0710C50B1748EDA1DBD74DCC09FE357EACC45457B3DA470F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_05_v_logic.gd.uid",
+    "Hash": "CF3D1CFC0B68AF17267E2F73D23B3688882051453D116F74E6BDA4F57155FDFF"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_perf.gd",
+    "Hash": "4B47B48C6A17B78A65973E0481DA5E54DF7B8794475C71B25665839C25053979"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_logic.gd.uid",
+    "Hash": "776F435FE4DDFCF66CCB93A304C74332B161466D4DA57026E14CBB1C59882CC0"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_logic.gd",
+    "Hash": "8A5282AE56191122D8747F2C7FAAB46D8C70F8783CA7125EFCF173B3B54B6B25"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_gpu.gd.uid",
+    "Hash": "77C002C90D03331A3BCF2FB3AAB287742FFD213702C6E2E697A599FFAB9F23AD"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_gpu.gd",
+    "Hash": "01940C3E9F9EF806C76B7531AF1B3DB10344F00E42090E13A310692435B38ABB"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_scene.gd.uid",
+    "Hash": "7316401B3D946499884827DC530DD84C0D669FEDCCAEEBACCC96121CE873C62B"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_scene.gd",
+    "Hash": "804E10000CD887C0C710E6B3E60E2FB2A4A85F2B4CAAC9A75FDFCB3747917F99"
+  },
+  {
+    "Path": "tests\\p1\\independent\\p1_06_v_perf.gd.uid",
+    "Hash": "FBC64EC14BAD1A877676A4D5FF9331ECB49408A79913156D8530D56095896FF7"
+  },
+  {
+    "Path": "tests\\p1\\independent\\v_gpu.gd.uid",
+    "Hash": "151171364D4F0F1F4BBB147DA3088F5A1A4B3EE2E76C0D56B816588217BD4E57"
+  },
+  {
+    "Path": "tests\\p1\\independent\\v_gpu.gd",
+    "Hash": "7FA01C77C60F70157BE66F1135DFE26B9DA1EADB569791C607A78FE56ACE782C"
+  },
+  {
+    "Path": "tests\\p1\\independent\\v_checks.gd.uid",
+    "Hash": "CF59B2DFD0747C8774B77BAB65102D671A838A0C36DC898D26B767DC68616755"
+  },
+  {
+    "Path": "tests\\p1\\independent\\v_checks.gd",
+    "Hash": "C4A67E7201B8933332826495C8B7C571267B54E4A420425730CAA9C3862497C9"
+  },
+  {
+    "Path": "tests\\p1\\independent\\rungodot.sh",
+    "Hash": "704B08A7E3F4261DD5D9F0A71BCAB9394CE2A27463D5B11F03FCA763F74B5347"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_03_scene.gd.uid",
+    "Hash": "3105907F948C34A241B5AC82AB5773B60ACF1AFF88B3711519D2557F5FFCD359"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_03_scene.gd",
+    "Hash": "33389FF187CFC26DC6BAA5A183ED86656CE6DE277B5BEBA04C394604888ED191"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_03_logic.gd.uid",
+    "Hash": "F49C242C90E03268AD2BE83B4807F9F67E1E925432AA1712C091630C698D6D3F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_03_logic.gd",
+    "Hash": "B351103DCDF3BEDA6A32CCF388C275B047BCFDE48532339F60794A126C84702A"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_02_v.gd.uid",
+    "Hash": "66EF9C70F4D604835AE4D56793AD698F170288A2F31FAC56F5FE4DF54A3FF750"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_02_v.gd",
+    "Hash": "D1DE9A7CF07EE2C0DC46AD812DEF43942AD0C13CF1D092EC20EC4997DFCAD9C7"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_01_v.gd.uid",
+    "Hash": "A127C16A549D9E4491AF1821CD0BE80FA4B6E82051A15A38D52F9B174DB84682"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p1_01_v.gd",
+    "Hash": "5C85AE08E5ADFA0CC785DA0BF887C465FD4A113D27DBB05E9CC6AB76A92B0959"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p0_checks.gd.uid",
+    "Hash": "5DFAE2BC4F64E3146C9CC6996B5C8984900E9B405C52951DE4EE7388A6494E20"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p0_checks.gd",
+    "Hash": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p0_art.gd.uid",
+    "Hash": "8ABF363BDD829EB7FEEDBAD0C3D6DFE34E9895AF374704637E9FF5EA4014F495"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_p0_art.gd",
+    "Hash": "F69066DE1A81B5404E66E5F267C25DFC98D0B533D32A34A17FCC472877AEC4D9"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_04.gd.uid",
+    "Hash": "2004A3B81127C506AC2B2FFF2B69D3802F16CD4CB3FE8A6C381BA60AB07FC24F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_04.gd",
+    "Hash": "9C401754A15A3E8838894373A19B86A16636F96F42163A29C8F8A09EE39684E6"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_03.gd.uid",
+    "Hash": "7A993675DC65F7438EE3665D15D2DBB03828E42D0E21740DAF1C7A84DEAA3C64"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_03.gd",
+    "Hash": "CA0B258CFA3CF1C7974F86D1477368F0C49F90E2D58A8AA155513ADB82AC607C"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_02.gd.uid",
+    "Hash": "05308DCA8268A1DF3876B0704F9EDA07097FEF77A6C2A6B8007706C268F9F76D"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_02.gd",
+    "Hash": "B516312ECF5691EC5328D99DEC22A49270C71DDB15E59D9EA15165FB607A6D54"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_01.gd.uid",
+    "Hash": "553522D7F5966DEA7F3A5FAC064C5180E9484ADA4DB54D6C9718B96388794441"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg04\\r_impl_p1_01.gd",
+    "Hash": "E0C41CE3646E3E282203A96E6BD8034453A334E8635BB6D319C5A70A27C838BC"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_05.gd.uid",
+    "Hash": "45FB18F2CD9E771C6CE7B00E64878CE07C2A1BE6475BAB559D2D8E85CC7CCF07"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_05.gd",
+    "Hash": "1A11E89CF25F313E1474F7FA1C21DC42F1C9D2A7FDF37C7EF1E67FB2359C9A4D"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_04.gd.uid",
+    "Hash": "D2343811DCAC4ADD1E471CEFD7EA3BE3537EF315570A94FEAFB93A4C9428060F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_04.gd",
+    "Hash": "8CF1EF8F4A5FFC92C638193F631026140A361694A85CB45C04ABF2FB661F99AA"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_03.gd.uid",
+    "Hash": "1A0E6AF4D4568C7DBBD1D71036C683A5D9A17026EFB8C5E74BA0F5C3DDAC06CE"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_03.gd",
+    "Hash": "FB1A1D07702E58D8A26F90BCCF24D0D18F479D0911D4443BAC028D702CD8E1DD"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_02.gd.uid",
+    "Hash": "C63A626B7E57B3DFF8932C5BCD107C811651639586E8B743D61DE6FB0074E28E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_02.gd",
+    "Hash": "131D40DD3F500047CF3717120818A8B913D08E6BFC0A9CB5C796292D7806C462"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_01.gd.uid",
+    "Hash": "4062A3B8770DDF7D7D64891BDBE49EDD8F05F257193024E5D871C4FE1C3AB0B5"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_impl_p1_01.gd",
+    "Hash": "B893987EFA23EC930ACF12743C1F05F8BE989C8770DB7FEB4AEE15911249E369"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_01_v.gd",
+    "Hash": "176843E4C5D1FEE8492D474C690B81E6A9D63B810658A39CC8C05C0D8E2912E2"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p0_checks.gd.uid",
+    "Hash": "EDBC235C5C162DC61541E7955C456F8BE1BBC782AC067AA01B98F3E4FD3C09FB"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p0_checks.gd",
+    "Hash": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p0_art.gd.uid",
+    "Hash": "9A33AB8EE0023A850DF22D0DAB092D4DFA4D8BF9999A1F08E8161A9FDEE0E78B"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p0_art.gd",
+    "Hash": "57957C969A9E3D26F6AC07BB610824C7817CD8A191DCFF0BA36CCAC589C83472"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_02_v.gd.uid",
+    "Hash": "B700F58B151123C117D7FF4A278CC4CF0C000CE254802D27F0F8DD0CC46AAA77"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_02_v.gd",
+    "Hash": "3911A60B965111A7333F01DC2866243D47EF5A666658E6F0F8EDDFC31EEA3A11"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_01_v.gd.uid",
+    "Hash": "D1676F439D63843E9F113C2078B807FDC17A51FE0F064CF17B569AD32D4C62C6"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_03_logic.gd.uid",
+    "Hash": "49E56ACDEED52FED54F7CD4E3EDC23BA0B2176ECD194B37C6EC3BCF7E1B3984E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_03_logic.gd",
+    "Hash": "C95DB64FF31D064E09733D647D2EAE1A9299E095666A6D5203D153ED16EE0508"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_03_scene.gd",
+    "Hash": "C1BCB14BE4965BCD506EC32BF6814BF2733F6D4D49939A75975F3061A2C8FC58"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_04_scene.gd.uid",
+    "Hash": "4B4CC39CF2B5C00915D37AC6D18A2CAE94F5FBD3D002C4353D882BBF61616FF5"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_04_scene.gd",
+    "Hash": "271211CA77093BED1C2FDF1AE4FCA52F813C1E0CD288FDD916E51601FE7DA897"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_04_logic.gd.uid",
+    "Hash": "22D19473BB1E4230BE97A620F048162A67ABBA552E1301B170C239DB32269864"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_04_logic.gd",
+    "Hash": "0C5FE0CBF8EE6125B70A8735A52DA2E44D1E52C9C50DBB7629AF165B8137472E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg06\\r_p1_03_scene.gd.uid",
+    "Hash": "2B15DCB9263C7108D6C44955736F9B65312FB6E5A4E0DF7C5E082151552E17AF"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_04_scene.gd.uid",
+    "Hash": "D09EF8F75ABD0B65EB5B45B210DB804A5E3C71BEFD901C3307879A46CC7B10E1"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_04_scene.gd",
+    "Hash": "D2A4199EF1E9D9876FBC8059BEE378C8CC67D2DDEEDCF765118325BE6B255229"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_04_logic.gd.uid",
+    "Hash": "3D2FECE63607C6BC91BAF83180605DC782FA08BEBA4FBA71D22FA6DDC2B6A21D"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_04_logic.gd",
+    "Hash": "B7CB93D033C5BECB2B0C18A0E122DE3A3C8C2A2F66F6EA35D20B4099F66A563B"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_03_scene.gd.uid",
+    "Hash": "9E750BEA0653AF5CE0948C96040A5DF4B170B51E6784FD8484DD63777B5F5A9C"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_03_scene.gd",
+    "Hash": "465AD26797DEA46E15BD00A9E9EA52D130C09E7212CAFF26F4EC8EFC4032BB8D"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_03_logic.gd.uid",
+    "Hash": "0DDE52D99FE5B17A8B5F2FE1453B7167FD3378E813209E9DC616B27F278EC406"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_03_logic.gd",
+    "Hash": "AC0AF930DAB0D28DD19B9491A77C921C77D1580CBA79D9D795BBE8D3314D76F8"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_02_v.gd.uid",
+    "Hash": "A13D021A5BCF200BD65C9230F0E45AD126B93057F563019872EDC8B893BBE21F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_02_v.gd",
+    "Hash": "62A062ADE8E890F19990DE3888385D27BDD9A5FA9E087FCB6415745A27368F5F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_01_v.gd.uid",
+    "Hash": "24CFD544968BBD6A9A3E04CD20AAFE19736F703C9312397FAE4E2E8ADB2913E5"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p1_01_v.gd",
+    "Hash": "29D1674654B7A1833C3D8E2E1F50775BE865E3844C606154F19CA645CDACA96E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p0_checks.gd.uid",
+    "Hash": "A583A1061445DAF79D034A588C48188C14355958CBB052AE99E260889A8DD57B"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p0_checks.gd",
+    "Hash": "D2786EB4052C1D0958C7F33F23D2BA9A5282B3ADB34075D9333653B30D6CF18E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p0_art.gd.uid",
+    "Hash": "B503635B67D6EB456E0A789789EA10A2E1FEB0493DE3490EE70816510B3BCD72"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_p0_art.gd",
+    "Hash": "94C354364210987566FFFE4E6C3789905C1E3C5C420B37A5BB60BBCA096F3D50"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_05.gd.uid",
+    "Hash": "DFD4F7C4324E780070E799A37752D6DB42A729EA9C9E4C3D4E09AC42FFFFB29E"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_05.gd",
+    "Hash": "433EF968A1664D97D3A14DE7FC23ED7ACE003D9CD5E7FA8B1797027B8C1F537F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_04.gd.uid",
+    "Hash": "206626650AD772ADE429190FAF8C01FF95C0B08D4B65DD2CA45A4F373AF80773"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_04.gd",
+    "Hash": "DED0321DBBDFF7326868DED58E6CF24870F6AE57D51018E43821480BF202E996"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_03.gd.uid",
+    "Hash": "0EEEA01F55D75F5A65F76BDF8F17C9036E9DDDE50CEEDA4E69CBEFDD471EB2CC"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_03.gd",
+    "Hash": "AB165DD5D1B0DDD416E68C6D8A18479AC2E51F5D6CB4069A4D3842120AB0628A"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_02.gd.uid",
+    "Hash": "2CB292511187ED0DDEEDC7BFD23B97AC98417F26241C4639B5D2C214B348D99F"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_02.gd",
+    "Hash": "131D40DD3F500047CF3717120818A8B913D08E6BFC0A9CB5C796292D7806C462"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_01.gd.uid",
+    "Hash": "70FA7E2CF32346259886483A3220CCBD822111BA698DE585A31B96E6219DFDB2"
+  },
+  {
+    "Path": "tests\\p1\\independent\\reg05\\r_impl_p1_01.gd",
+    "Hash": "E0C41CE3646E3E282203A96E6BD8034453A334E8635BB6D319C5A70A27C838BC"
+  }
+]

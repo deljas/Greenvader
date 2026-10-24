@@ -1,0 +1,569 @@
+{
+  "task": "TECH-3D-06",
+  "created": "2026-10-16T18:37:28.665315+09:00",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "environment": "Windows; offline Python/Pillow. Submitted GPU Godot4.7.2 Vulkan Forward+ RTX5070Ti",
+  "manifest_sha256": "5f127d46f3dc66174150eb56ea94fad753f8719920d04231187f9075ac961187",
+  "checks": [
+    {
+      "id": "shared_branch_connectivity_reach_growth_order",
+      "result": "PASS",
+      "method": "independent raw Euclidean graph/path inspection plus source/GPU review; source common-distance gating, no independent engine run",
+      "details": [
+        {
+          "building": "A",
+          "paths": 13,
+          "branches": 10,
+          "points": 196,
+          "max_actual_distance_error": 8.326605271946619e-08,
+          "max_junction_gap": 0,
+          "max_start_vs_root_arrival_error": 4.7516139023429105e-08,
+          "max_lateral_UV": 0.50999999046326,
+          "max_horizontal_world_chord": 0.5099999904632571,
+          "directions": [
+            -1,
+            1
+          ],
+          "errors": []
+        },
+        {
+          "building": "B",
+          "paths": 10,
+          "branches": 8,
+          "points": 200,
+          "max_actual_distance_error": 7.167547799724616e-08,
+          "max_junction_gap": 0,
+          "max_start_vs_root_arrival_error": 1.0063221367317965e-08,
+          "max_lateral_UV": 1.020000040531158,
+          "max_horizontal_world_chord": 1.0200001001357986,
+          "directions": [
+            1
+          ],
+          "errors": []
+        },
+        {
+          "building": "C",
+          "paths": 106,
+          "branches": 94,
+          "points": 2282,
+          "max_actual_distance_error": 5.202546038418632e-08,
+          "max_junction_gap": 0,
+          "max_start_vs_root_arrival_error": 4.600217451411481e-08,
+          "max_lateral_UV": 1.3600001335144105,
+          "max_horizontal_world_chord": 1.4927353610808145,
+          "directions": [
+            -1,
+            1
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "id": "independent_moss_amount_and_OFF",
+      "result": "PASS",
+      "method": "independent world PNG comparison plus separate sheets/material/UI source review",
+      "changed_pixels": {
+        "moss_only_100": 6091,
+        "moss_amount_000": 0,
+        "moss_OFF": 0
+      }
+    },
+    {
+      "id": "A_original_roof_reuse_and_support",
+      "result": "PASS",
+      "method": "old roof detached intact by source; old geometry preserved; final A closeup visual inspection; support query stops on missing roof",
+      "limit": "No full triangle/instance contact audit"
+    },
+    {
+      "id": "independent_cracks_example",
+      "result": "PASS",
+      "method": "separate node/material/cast-OFF source and independent world PNG comparison",
+      "ON_changed_pixels": 19,
+      "OFF_changed_pixels": 0
+    },
+    {
+      "id": "UI_framing_and_representative_integer3x",
+      "result": "PASS",
+      "method": "final A/C selected roofs below2UI rows by view_image; offline full pixel comparison3pairs; UI1920 CPU export distinguished from world1920 GPU"
+    },
+    {
+      "id": "frozen_before_after_preservation_and_GPU_logs",
+      "result": "PASS",
+      "method": "74 frozen source/evidence hashes stable, before matches prior independent evidence,6read-only targets preserved; both GPU exits0/stderr empty"
+    },
+    {
+      "id": "independent_GPU_engine_or_MultiMesh_reexecution",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "native_focus_physical_input",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "all_surfaces_illumination_performance_game_regression",
+      "result": "NOT_RUN"
+    }
+  ],
+  "totals": {
+    "PASS": 6,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "final_hashes": [
+    {
+      "path": "scripts/vegetation_lab/brick.gdshader",
+      "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/building_defs.gd",
+      "sha256": "ad1e464294cbc169f2a00b24102ea1f150491ff210405ecd02c5a02999be9946",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/building_geometry.gd",
+      "sha256": "a23ed72c8f250e2997e456cdaa324ec8d1cfa9c9cd25e7139fd19cb7c48d9b2a",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/cracks.gdshader",
+      "sha256": "d95599aa1cf271bb8125fcb46015c65c0f3d3fc35a73d80b54dc0e231264ede8",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "1db84b90e24915d855b0dcd5956bb6601929ab7edbd5e9547b59ed61c4d89146",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/lab.gd",
+      "sha256": "6999c087f879e634b77d4d1457bbdb238aaf876c294e38c7c8a778cc82e79a6b",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/moss.gdshader",
+      "sha256": "5a9be850ac0b95e738818ee29a389df3c591d408e2568a340c010ac31e54a26a",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/plant_parts.gd",
+      "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/surface_layers.gd",
+      "sha256": "02e073437dd24ae532cafdd74068de182a453528c80cb54a40f1174e476a1d06",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "tests/vegetation_lab/self_branch_capture.gd",
+      "sha256": "1381134bf538ea0f2ade049574945be5eeb3edb64881effbc6accd5145f1a10c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "tests/vegetation_lab/self_branch_closeups.gd",
+      "sha256": "9b68e09b38521c8f7e7d3472e697bb99e362d05c9d73345420fc76f76ca50609",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/A_roof_branches_closeup_ui_1920.png",
+      "sha256": "a73780943e8157a54806e573fd6d523d81bd5fcdba16d8399f12c6f37d9b1699",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/A_roof_branches_closeup_ui_640.png",
+      "sha256": "c3baf53ca8e91bcb2003f15acdc14cda30a559520ad250a14458fe357364b275",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/A_roof_branches_closeup_world_640.png",
+      "sha256": "f562ebdecaeca07a256264d047be33e9dfa70c9af1604af085c54b17cffdb91f",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/project.godot",
+      "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/run_vegetation_lab.bat",
+      "sha256": "70565d70412bfad985c69f6671ebbf30855d2413cc86143cc930ca524bb13fa9",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scenes/vegetation_lab.tscn",
+      "sha256": "17ca277ee747171dbe3257dbd62c96444770e9cf943c5eeee3524f1aeae3acc9",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scripts/render_study_3d/ruin_geometry.gd",
+      "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scripts/vegetation_lab/brick.gdshader",
+      "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scripts/vegetation_lab/building_defs.gd",
+      "sha256": "02777ae4bfc5c6bc193cf4354e510f3c0531a60471fe6a4c26279ad371379805",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scripts/vegetation_lab/building_geometry.gd",
+      "sha256": "f887bc8e9d23315e7ac6279a9742e5432f2587ebde0c451642fa7da0f576a753",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "3185b54ad0ddb8b9dacbd256cec26d5ec7f0c984588fa1b8e4d3db35850b556c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scripts/vegetation_lab/lab.gd",
+      "sha256": "0b44d93fc4bc6c09099bc4d9054d9a963c3584c9e9d34840cf27d832e330d9be",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before/scripts/vegetation_lab/plant_parts.gd",
+      "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/before-manifest.json",
+      "sha256": "4e0564bfa175379c1b337ac5ec2c1e0c9abf68968e217e643845dd837eedd7ba",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/C_branches_closeup_ui_1920.png",
+      "sha256": "fc4291d48b8769509913f9101f15fb88f665d1909a419a7f49f1e07a22d54803",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/C_branches_closeup_ui_640.png",
+      "sha256": "18888cede4788ec08953ee043b9fea040ec85adfc87c762c3ee5f8f6f65ad1cd",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/C_branches_closeup_world_640.png",
+      "sha256": "38ff217df3a50e81c56f766ee8ee34acde8f2afc64f2147d03e50596eaa987ec",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/closeups-process.json",
+      "sha256": "4c7eb02abbf589d7cc8d8ec865a095900aca7662afaa83139b82f88de082c77b",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/closeups-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/closeups-stdout.log",
+      "sha256": "1951cadc997d56e56a1282ac88a9c8e77c886534eedcae0e7a8a0458116a877e",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/closeups.log",
+      "sha256": "9219ce1784345b246a75f6e2e18b16a5c6e18276d0d2e4741128779db7413481",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/cracks_OFF_ui_1920.png",
+      "sha256": "c9e0d3b435380fd80770d7ff88ae14d49dcc41828d11f62b98041cde0f6f2876",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/cracks_OFF_ui_640.png",
+      "sha256": "23d716151b07bc7849831ecc9b08355640f6a660d2bdeef68f9451d307f70ad4",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/cracks_OFF_world_640.png",
+      "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/cracks_only_ui_1920.png",
+      "sha256": "fe6e33a8faf25f7d00a79998450e9a1a59267ef31c669843b64af01ebbc258fe",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/cracks_only_ui_640.png",
+      "sha256": "df612636638325fd422f01bfd49b0731e2e9983a12e285c9dc737a8ac92f7c2d",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/cracks_only_world_640.png",
+      "sha256": "9b47dfb992547c6539c0ac6790b5903bcd1190997904207eafe65c52797e175c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/gpu.log",
+      "sha256": "ef3655920666daab14d837fa10ae0b3d652a03520bce84e609b9d9eb4a33caf1",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_000_ui_1920.png",
+      "sha256": "46091e4e27f2f5929724c121ae689aa47c100e9caa354bc9e6854b17d3f37535",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_000_ui_640.png",
+      "sha256": "930d3e8e8f01660c97ca7f99331ec6171c442e9f058b237bfe8af8d08e167c1c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_000_world_640.png",
+      "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_050_ui_1920.png",
+      "sha256": "508014c200d5704cb6a733940fe3510aa9f589c0aa4b3ffdda866993705ac381",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_050_ui_640.png",
+      "sha256": "3010cc224e7d93a8d4762fec1abb9070a3b808ac0ee170ffaeb418a9799268cd",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_050_world_640.png",
+      "sha256": "2dfd587370874cc5a60aecbffd42f9e48ba65f317f64eee2a7c5b6d7de945093",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_100_ui_1920.png",
+      "sha256": "b709da35bc1a8148982fc29b67d645cd19d231ae628470b8e5d88aedc2ff0927",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_100_ui_640.png",
+      "sha256": "6b58a4bd79a77ee3c81e852bc7af3dd67169b23ee12fdd48e2eb805f46a50a81",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_100_world_1920.png",
+      "sha256": "c22fd48c9c5de6624a4b6156563e8fc5dbeeeb4e66e1150d6e6ec677a67e7a31",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/growth_100_world_640.png",
+      "sha256": "8d2041fff3e41919b4e5ae4344971622de9c1bfd276a19b083d264c3a774a54f",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/implementation.patch",
+      "sha256": "61f0691c8c8eec123722788364a22bcbd98908ef2a6158595890b4cbd424a5fd",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/initial/A_roof_branches_closeup_ui_1920.png",
+      "sha256": "a66469c857c146631bfebff3844b1a52916cbcd89c791774b17115eeb25ed7a3",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/initial/A_roof_branches_closeup_ui_640.png",
+      "sha256": "433e7d8efa459f78dc0e3cd6d6086ef70ffd6789c36faf2af2c0436c9595181b",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/initial/A_roof_branches_closeup_world_640.png",
+      "sha256": "6d3fc2f56c46393a91df336fd4bbe4680e76379f717e4d5c97ba19b4eb978d58",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/initial/C_branches_closeup_ui_1920.png",
+      "sha256": "302e98de9883c654b82ca5d9e67d9232d2d2c39d391f9dbb58594ea6fef83750",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/initial/C_branches_closeup_ui_640.png",
+      "sha256": "ac10d20085cdb9ed48b9667d68e89dd61e632b36bbb6e1ad64982c7938a58feb",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/initial/C_branches_closeup_world_640.png",
+      "sha256": "51e10d7de60068ea8e1de367781b62668e179512c528b6f805b2c34febce0b01",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/integrity.json",
+      "sha256": "fd09399d55078942285e39e01fb54639404880cb9b7d433cfe09c1d5cc367962",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_amount_000_ui_1920.png",
+      "sha256": "1f3e7168c9cdeb2278399cd6c50d701eba376d562d1e6887bcea3398181e4ac7",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_amount_000_ui_640.png",
+      "sha256": "2b22b77dcc1f00629ff931fd7d64f240deabc0a7f174d08bd3a766fda4f1d04b",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_amount_000_world_640.png",
+      "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_OFF_ui_1920.png",
+      "sha256": "c9e0d3b435380fd80770d7ff88ae14d49dcc41828d11f62b98041cde0f6f2876",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_OFF_ui_640.png",
+      "sha256": "23d716151b07bc7849831ecc9b08355640f6a660d2bdeef68f9451d307f70ad4",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_OFF_world_640.png",
+      "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_only_100_ui_1920.png",
+      "sha256": "04040ad9ff996ff30873a46abce3d1bf60b7d2cae0a1a83fd7f0c67e6fdc59fe",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_only_100_ui_640.png",
+      "sha256": "ae7a271c48522d8c26b876685013361d38b21d61d82479c0a54850fe0eb5ad7a",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/moss_only_100_world_640.png",
+      "sha256": "86c79d514b58537692e92341aff52133fd241ff1c2d0fed310837bfd20bee2e1",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/parse.log",
+      "sha256": "a2f34ae79c104064a698032ebbd7b7422ba5d99d43d32c9c9f4fabfa46ede5ac",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/path-snapshot.json",
+      "sha256": "656b4634ef5e8497f62c11c56704a15b54dbea164b733d266bd0efa2ca9d26c4",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/process.json",
+      "sha256": "ef7c894ea62d9a4839bd788e7e13950ad9d53768fe938118eba72a91fb88707e",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/report.md",
+      "sha256": "c852082d08eec3d679c303e3298ea14faa9b40eb77ca09ff42066eef16e42df2",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/results.json",
+      "sha256": "606e8c21546d707ef0eafef55c4c83223d987742695f5b9a26ec8094d85cd271",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/source-manifest.json",
+      "sha256": "5f127d46f3dc66174150eb56ea94fad753f8719920d04231187f9075ac961187",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-branches/self/stdout.log",
+      "sha256": "9691df2a4ef2ef3788acef4122528753b1dda9aedf95d5e4ab751b6f6a16a557",
+      "matches_frozen": true,
+      "matches_start": true
+    }
+  ],
+  "GPU_main_and_closeup_logs_ok": true,
+  "limits": [
+    "B has only +u branches after conservative exclusion; each building still has lateral branches.",
+    "Branch start timing is proved by raw geometric distances plus source gating, not newly captured animation.",
+    "Same-rate return/resource material identity includes submitted GPU result review, not independent runtime.",
+    "Paths stop before openings/edges; no rerouting,recursive vines or arbitrary mesh wrapping.",
+    "A roof support highest-triangle query and clearance are approximate; native/fine geometry collision not verified.",
+    "Cracks are19source pixels in this fixture, no physical damage.",
+    "Final art acceptance belongs to user."
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "method": "Offline independent review of submitted raw/PNG; no Godot run. Water comparison uses a manually located interior pond polygon, not the product/test projection helper. Rates expected from ticket 90/135 seconds and explicit mature-ground fixture.",
+  "initial_all_zero": true,
+  "clock_rows": [
+    {
+      "label": "initial_wall_zero",
+      "clock": 0.0,
+      "growth_ticks": 0,
+      "target": 1422,
+      "green": 12
+    },
+    {
+      "label": "front_wall_after45",
+      "clock": 45.0,
+      "growth_ticks": 90,
+      "target": 1422,
+      "green": 44
+    },
+    {
+      "label": "front_wall_after135",
+      "clock": 135.0,
+      "growth_ticks": 270,
+      "target": 1422,
+      "green": 44
+    },
+    {
+      "label": "water_reflection_shadow_ON",
+      "clock": 135.0,
+      "growth_ticks": 270,
+      "target": 1422,
+      "green": 44
+    },
+    {
+      "label": "water_shadow_only",
+      "clock": 135.0,
+      "growth_ticks": 270,
+      "target": 1422,
+      "green": 44
+    },
+    {
+      "label": "water_reflection_shadow_OFF",
+      "clock": 135.0,
+      "growth_ticks": 270,
+      "target": 1422,
+      "green": 44
+    },
+    {
+      "label": "water_reflection_only",
+      "clock": 135.0,
+      "growth_ticks": 270,
+      "target": 1422,
+      "green": 44
+    },
+    {
+      "label": "water_sun270",
+      "clock": 135.0,
+      "growth_ticks": 270,
+      "target": 1422,
+      "green": 44
+    },
+    {
+      "label": "water_shadow_only_sun270",
+      "clock": 135.0,
+      "growth_ticks": 270,
+      "target": 1422,
+      "green": 44
+    }
+  ],
+  "local_nonfront": [
+    {
+      "building": "A",
+      "other_wall_or_building_count": 11,
+      "all_zero": true
+    },
+    {
+      "building": "B",
+      "other_wall_or_building_count": 10,
+      "all_zero": true
+    }
+  ],
+  "representative_neighborhoods": [
+    {
+      "kind": "roots",
+      "index": 0,
+      "anchor": [
+        -5.951711,
+        1.0
+      ],
+      "cells": [
+        1063,
+        1064,
+        1065,
+        1066,
+        1112,
+        1113
+      ],
+      "max_distance_m": 0.6482889999999992,
+      "all_outside_foundation": true,
+      "fixture_mature_cells": 5,
+      "total_target_cells": 6,
+      "expected_input": 0.8333333333333334,
+      "actual_input": 0.833333333333333,
+      "expected_progress45": 0.4166666666666667,
+      "actual_progress45": 0.416666666666667,
+      "expected_progress135": 1,
+      "actual_progress135": 1.0,
+      "pass": true
+    },
+    {
+      "kind": "roots",
+      "index": 1,
+      "anchor": [
+        -5.127778,
+        1.0
+      ],
+      "cells": [
+        1066,
+        1067,
+        1068,
+        1114,
+        1115
+      ],
+      "max_distance_m": 0.5277780000000005,
+      "all_outside_foundation": true,
+      "fixture_mature_cells": 5,
+      "total_target_cells": 5,
+      "expected_input": 1.0,
+      "actual_input": 1.0,
+      "expected_progress45": 0.5,
+      "actual_progress45": 0.499999999999999,
+      "expected_progress135": 1,
+      "actual_progress135": 1.0,
+      "pass": true
+    },
+    {
+      "kind": "moss",
+      "index": 0,
+      "anchor": [
+        -5.596222,
+        1.0
+      ],
+      "cells": [
+        1064,
+        1065,
+        1066,
+        1067,
+        1113,
+        1114
+      ],
+      "max_distance_m": 0.6037779999999993,
+      "all_outside_foundation": true,
+      "fixture_mature_cells": 6,
+      "total_target_cells": 6,
+      "expected_input": 1.0,
+      "actual_input": 1.0,
+      "expected_progress45": 0.3333333333333333,
+      "actual_progress45": 0.333333333333334,
+      "expected_progress135": 1,
+      "actual_progress135": 0.999999999999994,
+      "pass": true
+    },
+    {
+      "kind": "moss",
+      "index": 1,
+      "anchor": [
+        -4.608043,
+        1.0
+      ],
+      "cells": [
+        1067,
+        1068,
+        1069,
+        1115,
+        1116,
+        1117
+      ],
+      "max_distance_m": 0.5714009886664541,
+      "all_outside_foundation": true,
+      "fixture_mature_cells": 6,
+      "total_target_cells": 6,
+      "expected_input": 1.0,
+      "actual_input": 1.0,
+      "expected_progress45": 0.3333333333333333,
+      "actual_progress45": 0.333333333333334,
+      "expected_progress135": 1,
+      "actual_progress135": 0.999999999999994,
+      "pass": true
+    }
+  ],
+  "paused_sun_reflection_wall_state_equal": true,
+  "legacy_default_signature_review": [
+    {
+      "building": "A",
+      "layout_equal": true,
+      "pose50_equal": true,
+      "moss_equal": true
+    },
+    {
+      "building": "B",
+      "layout_equal": true,
+      "pose50_equal": true,
+      "moss_equal": true
+    },
+    {
+      "building": "C",
+      "layout_equal": true,
+      "pose50_equal": true,
+      "moss_equal": true
+    }
+  ],
+  "nearest3": {
+    "sizes": [
+      [
+        640,
+        360
+      ],
+      [
+        1920,
+        1080
+      ]
+    ],
+    "full_rgba_equal": true
+  },
+  "water_shadow_without_reflection": {
+    "changed_pixels": 42,
+    "first_rgb_sum": 8549,
+    "second_rgb_sum": 12348,
+    "changed_bounds": [
+      158,
+      169,
+      168,
+      175
+    ]
+  },
+  "water_reflection_without_caster": {
+    "changed_pixels": 745,
+    "first_rgb_sum": 231607,
+    "second_rgb_sum": 219030,
+    "changed_bounds": [
+      140,
+      167,
+      196,
+      193
+    ]
+  },
+  "water_shadow_sun225_to270": {
+    "changed_pixels": 82,
+    "first_rgb_sum": 20721,
+    "second_rgb_sum": 20300,
+    "changed_bounds": [
+      158,
+      167,
+      180,
+      175
+    ]
+  },
+  "process": {
+    "pid": 27960,
+    "exited": true,
+    "exit_code": 0
+  },
+  "stderr_bytes": 0
+}

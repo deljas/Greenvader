@@ -1,0 +1,14 @@
+[
+  {
+    "path": "tests/render_study_3d/self_capture_640.gd",
+    "sha256": "4dbf56ceca73b52c7d76546d54968173a5bd6158924405bd6294ba92c9fe1d7f"
+  },
+  {
+    "path": "evidence/render-study-3d/640/noon_640.png",
+    "sha256": "543c7943fabad49df8d6d312e38d8b1125e5dd142f07db2de3a6c6e229181169"
+  },
+  {
+    "path": "evidence/render-study-3d/640/noon_640_at_1920.png",
+    "sha256": "a7cf16561976260155017d27be5b4f1570af3793bc45af0cc9f465d763f259f5"
+  }
+]

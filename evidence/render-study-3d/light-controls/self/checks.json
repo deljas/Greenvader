@@ -1,0 +1,87 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"id": "world.GPU_exact_3x",
+			"status": "PASS"
+		},
+		{
+			"detail": "UI 1920 PNG is a nearest3x export from actual GPU root640",
+			"id": "UI.GPU_source_size",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "UI.slider_spin_sync",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sun.representative_GPU_changes",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sun.zenith_finite",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sun.nadir_finite_direct_OFF",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "orbit.pause_manual_position",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "world.GPU_exact_3x",
+			"status": "PASS"
+		},
+		{
+			"detail": "UI 1920 PNG is a nearest3x export from actual GPU root640",
+			"id": "UI.GPU_source_size",
+			"status": "PASS"
+		},
+		{
+			"detail": "world GPU bytes unchanged when sun-only card is removed",
+			"id": "mask.point_ignores_sun_board",
+			"status": "PASS"
+		},
+		{
+			"detail": "own point-card OFF changes 616 GPU pixels",
+			"id": "mask.point_own_board_has_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "point.positions_and_OFF_change_GPU",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "orbit.resume_advances",
+			"status": "PASS"
+		},
+		{
+			"detail": "58 sampled states",
+			"id": "sync.both_lights_all_samples",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "display_marker_do_not_cast",
+			"status": "PASS"
+		}
+	],
+	"device": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"native": "NOT_RUN",
+	"physical_input": "NOT_RUN",
+	"point_caster_mask": 5,
+	"point_shadow_pixels": 616,
+	"sun_caster_mask": 3,
+	"video": "48 GPU PNGs, 12fps presentation, not measured runtime FPS"
+}

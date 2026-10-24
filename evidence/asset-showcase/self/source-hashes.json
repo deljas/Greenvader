@@ -1,0 +1,279 @@
+{
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "uncommitted": true,
+  "copied_files_verified": 57,
+  "category_counts": {
+    "BLD": 4,
+    "VIN": 4,
+    "MOS": 4,
+    "TRE": 4,
+    "GND": 4,
+    "PRP": 4
+  },
+  "source_files": [
+    {
+      "path": "assets/models/delivery_showcase/BLD-007/007_ochre_gallery_apartment_pitched_roof.glb",
+      "sha256": "eeaf596afb6a585f003e028bc0be6badec99a3ac60b30e5406ecc31972cf1adc"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-007/metadata.json",
+      "sha256": "520a1e6f93bf6d508f29c398151694983249acb8f3a4275907d011d4e93c5dc1"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-007/textures/BLD-007_roof_albedo.png",
+      "sha256": "837c10dfec27cdcaa1a2e492f86298a743cc84f274f84aa772024a20b726ffeb"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-007/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-038/038_cross_plan_stone_chapel.glb",
+      "sha256": "9eed7fe3953382a2158fe2d0e5808104d297442550b00885d4052415345ba149"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-038/metadata.json",
+      "sha256": "6ec4e06bc7c1304868b60e9e6713b5fdc1da7287383fd2764b800d74e50051db"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-038/textures/BLD-038_roof_albedo.png",
+      "sha256": "18ccdd9d1765dd63af802bc8489ff78fe2dcf1ec00ff01b698c5584c1fe3b56b"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-038/textures/concrete_surface_color.png",
+      "sha256": "9e72a7e83afab5b1ee8aca606639c7a36e1e936cf87d1a1cb5cc312deedfdd71"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-079/079_stone_watermill_ruin.glb",
+      "sha256": "a88c703d505061cb294696b6ff6f6adaca4806f01a1422bc32558eb100b2e040"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-079/metadata.json",
+      "sha256": "f0a024bc4e4f17ddc1582bce17c434ab6a62e94017dfbb40a46e5d6f6ea72671"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-123/123_lighthouse.glb",
+      "sha256": "9135597459883cfddc2c1cbf3d065007ffc8bd3a3adfa4090200ed68ade2de90"
+    },
+    {
+      "path": "assets/models/delivery_showcase/BLD-123/metadata.json",
+      "sha256": "7133250124ca80527498d1c2509ed3592a64e58816d16c4e5347598e9e347210"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-007/007_window_vine.glb",
+      "sha256": "b431b82ce13cabd0e51f2a75a46e85fed5819a5a5884d786af6646d1fd880845"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-007/metadata.json",
+      "sha256": "b97a41130810b9aec50b8e18282346d1b773ce77e9517bc6442cd4f7c50f118c"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-032/032_woody_spreading_wall_vine.glb",
+      "sha256": "c5475267825c93071a59736dca42450e941cd31f5b4d7918733fe8e4c48e27bd"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-032/metadata.json",
+      "sha256": "4eaa742e2cfd70d5a2fd45fd6ebd54667fb936873f9ce3695d2f5ac0a68e129b"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-047/047_branching_ground_vine_network.glb",
+      "sha256": "5a1fbd98cbb023540eddca83781b5a2e50dc6272dbce9b4a82e9e21e3089a4b8"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-047/metadata.json",
+      "sha256": "a61470faba6b1dc80f37fda656084d2e9fe8de2f777d06d57936a89195d887fc"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-060/060_projecting_ledge_double_cascade_vine.glb",
+      "sha256": "e20d7b069f647d32b600e653bb8e8827dea02fb83a70961bddd8224403325903"
+    },
+    {
+      "path": "assets/models/delivery_showcase/VIN-060/metadata.json",
+      "sha256": "62799e4f6eef51688a839b65a9bd9439d303749b861b1b8fa705cba3b852ee01"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-003/003_crescent_ground_membrane.glb",
+      "sha256": "37ff94aa65468f7d7d7084dbe9a24e7ce4125d8dab36555c914b3466abd70a3d"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-003/metadata.json",
+      "sha256": "bc3ac0f6f80d54eb18b9ad62936e57b1d38fade9f6e1a3a4f1bd4a3ceb4d75bf"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-012/012_inside_corner_moss.glb",
+      "sha256": "0bd0f2d6753f36c37964bfde4eea2a497412a3150409d6da7017d6905e2efdf2"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-012/metadata.json",
+      "sha256": "d92304e10c60e6d61e20a938bd138174afcd314a485867ee71567ceedf8dd05e"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-024/024_ground_moss_archipelago.glb",
+      "sha256": "28bcdc581e84596c73c92df9ef28a48457afc9b9ea6d9f6a610ebf9214dd1bf2"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-024/metadata.json",
+      "sha256": "6917b9db4609b8aa89e9d0d60f1dd5a3d7bb0f8eaa9dd4430f90cf91d302cf89"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-024/textures/moss_surface_color.png",
+      "sha256": "6b9554aa026563fd0289112d019eba1ef1031b7ec27866e173472599b8a827a1"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-035/035_flared_root_collar_moss.glb",
+      "sha256": "1ac669cb7ab6fcb0e4cf5b9a17633abc1cbc4c9586a518f6aa716c05c1cb92f7"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-035/metadata.json",
+      "sha256": "e57c0d9e72e0a81fac433028b8246e4f7b058b85e97497a6cf8facf8e87f3b1e"
+    },
+    {
+      "path": "assets/models/delivery_showcase/MOS-035/textures/moss_surface_color.png",
+      "sha256": "6b9554aa026563fd0289112d019eba1ef1031b7ec27866e173472599b8a827a1"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-001/001_asymmetric_broadleaf.glb",
+      "sha256": "d058c573abeaa0bc7a99e07098049e69deb09ff61d5cd31e7fcf00a944d75150"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-001/metadata.json",
+      "sha256": "4f0d3c1562795c8bd120980f8688ed2b5689c22f34ae675854b13e7ef23a6f8f"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-027/027_fan_leaf_tree.glb",
+      "sha256": "8825521e4a20c69704d22380dec34b5b39170d0e11edf52e155722f7ba867ab4"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-027/metadata.json",
+      "sha256": "255125e45b20643a85a7358bf5df9dab93857125b0be599ba35b9ccecc061db0"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-054/054_flared_buttress_tree.glb",
+      "sha256": "ad1b3ee7194eef6929073b296a6cc6689c3addea52b43212d3f8d52531a42591"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-054/metadata.json",
+      "sha256": "c55d3e43442e2af2990117e26d22b29c63dbf0401c9a918b91481eb7710504fb"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-074/074_wetland_cypress_knee_roots.glb",
+      "sha256": "606547e39f311d7a7ad2b9c6c50a566a91d2d36c31da2480e683760622c332d8"
+    },
+    {
+      "path": "assets/models/delivery_showcase/TRE-074/metadata.json",
+      "sha256": "9c258652d507c62bf11f37f6d108881e2a726c831f2b9f7fa1be4d943967eec4"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-009/009_cracked_paving.glb",
+      "sha256": "83bb53821eb73c99be72ce5ee0d02315cde4371fac0cc9c9c8e1d287c2b6c488"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-009/metadata.json",
+      "sha256": "429943b631f5ef6d1cad981f65e90357b5947a1ce5e4b26ed560195ac81c0c29"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-009/textures/paving_surface_color.png",
+      "sha256": "c118fdb6efdf2983840877c94fad903e4761006e7c1848f9fe5eb23b1e8c7427"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-036/036_asymmetric_puddle.glb",
+      "sha256": "54404d89bfa2071034f82ed22c0f1095d85ab495b3a95fe4db599e2ad5d967f1"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-036/metadata.json",
+      "sha256": "27c32dcaff4321399870abfd31e2b2a742e933c807dfed411df3d995e08b8a33"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-059/059_curved_tram_track_paving.glb",
+      "sha256": "79a9fe5c39ac51e9000d49b23e49b9c451757aa5f8ace2014fa89da56002c63c"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-059/metadata.json",
+      "sha256": "efd21a914741fcc2acaddbb03ec241e7730de38d47ccee04f13985ddd821b2e8"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-059/textures/soil_surface_color.png",
+      "sha256": "8bef8f0864888a97a3a2e274e66d299277d05545696d3844039b10911c77649a"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-077/077_broken_hex_terracotta_paving.glb",
+      "sha256": "bdded6fe70ae5e89d26012cd5df191c10fc4a680e878f59b17fe48fe6cc8d88b"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-077/metadata.json",
+      "sha256": "e0a97080e445b7c62221bfbc21519e594a895a591303cd0afc76a8d46e37bd4d"
+    },
+    {
+      "path": "assets/models/delivery_showcase/GND-077/textures/soil_surface_color.png",
+      "sha256": "8bef8f0864888a97a3a2e274e66d299277d05545696d3844039b10911c77649a"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-001/001_broken_streetlamp.glb",
+      "sha256": "18fba8991523fcb7ec0e70b748dffe329c16da5d1e79a4ea1ba0c7c90328d9f1"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-001/metadata.json",
+      "sha256": "9a79e0e68b8ef2b49afe28b5618514ecff0f85ef23d06ee3e0653ac75ce109bd"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-041/041_crumpled_passenger_car_shell.glb",
+      "sha256": "c3f9bec4492c9cb7c84cc3be6448cb1725169e8aeba20a169e5e1302b5c59951"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-041/metadata.json",
+      "sha256": "424483473894f5f65edad9364aeff6d54fbe3cc4e70911b3f68ccdbbf7fdb04e"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-075/075_abandoned_playground_slide.glb",
+      "sha256": "8b355925b2cafdd98352f52f7e8bfbb0e07c7d8be17053fc0f768e026da560b4"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-075/metadata.json",
+      "sha256": "3b04b634971006b5009440cab3278f0838bf484b71cd2a23923a8cad5bea8ae6"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-121/121_highwheel_bicycle.glb",
+      "sha256": "ca8ca0bf7cbfd5cf3db340e6bda9c486dd32b78375023035a454c117019ed3a8"
+    },
+    {
+      "path": "assets/models/delivery_showcase/PRP-121/metadata.json",
+      "sha256": "caeade9615ba0217562c6b477c7b4ea003cfcbe2e3cba094eebce6711fa0cfe0"
+    },
+    {
+      "path": "scripts/asset_showcase/showcase.gd",
+      "sha256": "9f3b21a37d52b25c9c0e6995bcd0a1e4884a2236327b8ed6d3bfa80d343a188b"
+    },
+    {
+      "path": "scenes/asset_showcase.tscn",
+      "sha256": "597b3cc9defb12ca6661882c53842c87d08ced2efa61d4dd904f1341b8a89d3f"
+    },
+    {
+      "path": "launchers/labs/run_asset_showcase.bat",
+      "sha256": "016bcb0caf4fadf833c01f9baf19bf1f56190996d7fad5bd2cda291516aeb098"
+    },
+    {
+      "path": "launchers/README.md",
+      "sha256": "031c47389876f8516c69ff6324d00205de6e6db0e583ceac7808b43fa029cf1f"
+    },
+    {
+      "path": "tests/asset_showcase/self_prepare.py",
+      "sha256": "629960fce1a2e696d05fbdb4476fd032ff8be372474d6f08328990f1b77d9260"
+    },
+    {
+      "path": "tests/asset_showcase/self_capture.gd",
+      "sha256": "991b3a27a00fc45c6cdb48d547d59c7b300be0c23277c87de9cbc4ee7a48a062"
+    },
+    {
+      "path": "tests/asset_showcase/self_freeze.py",
+      "sha256": "f0e5e18ff1e017e8b3c459e3704bcb823fd77eff9fd87ad82041b3da8fc79258"
+    },
+    {
+      "path": "assets/models/delivery_showcase/README.md",
+      "sha256": "5b9d448e890f2d95365d0073b150ede3f707c927e6f04cb1a4e840ec4fdce6a6"
+    },
+    {
+      "path": "assets/models/delivery_showcase/manifest.json",
+      "sha256": "fb46b0aba674944455764be6dc79abc9e41ef3a4b5d832f1987a6a8d9c40577d"
+    }
+  ]
+}

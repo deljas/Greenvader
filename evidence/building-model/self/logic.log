@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "id": "imported_model_inside_foundation", "status": "PASS", "detail": "[P: (-3.175, -0.06, -2.56), S: (6.345, 3.509645, 5.355)]" }
+{ "id": "initial_zero_shared_no_duplicate_ground", "status": "PASS", "detail": "" }
+{ "id": "window_partial_routes_door_awning_clear", "status": "PASS", "detail": "window path samples=30" }
+{ "id": "local_clock_growth_counter_unchanged", "status": "PASS", "detail": "" }
+{ "id": "wall_bare_half_A(0.0, 0.0, 1.0)", "status": "PASS", "detail": "0.24554113464318" }
+{ "id": "wall_bare_half_A(1.0, 0.0, 0.0)", "status": "PASS", "detail": "0.36009471815278" }
+{ "id": "wall_bare_half_B(0.0, 0.0, 1.0)", "status": "PASS", "detail": "0.24309028332456" }
+{ "id": "wall_bare_half_B(1.0, 0.0, 0.0)", "status": "PASS", "detail": "0.28712640748731" }
+{ "id": "elevation_slider_sync", "status": "PASS", "detail": "" }
+{ "id": "elevation_number_sync_no_growth", "status": "PASS", "detail": "" }

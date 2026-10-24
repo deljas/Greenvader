@@ -1,0 +1,38 @@
+[
+	{
+		"actor": {
+			"frame": 1,
+			"height": 1.64999996317509,
+			"lamp": 0,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(23.5946, 25.70317, 17.99864)",
+		"hour": 12.0,
+		"label": "building_wall_contact",
+		"moon_energy": 0.0,
+		"position": "(-6.400001, -12.0)",
+		"sun": "(12.16739, 24.57456, 12.16739)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	},
+	{
+		"actor": {
+			"frame": 1,
+			"height": 1.64999996317509,
+			"lamp": 0,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(20.51304, 25.69054, 24.49052)",
+		"hour": 22.0,
+		"label": "water_night_building_reflection",
+		"moon_energy": 0.159999996423721,
+		"position": "(-9.5, -5.5)",
+		"sun": "(-19.52805, -22.16474, -5.232526)",
+		"sun_energy": 0.0,
+		"sun_visible": false
+	}
+]

@@ -1,0 +1,52 @@
+{
+  "magic": "glTF",
+  "version": 2,
+  "bytes": 59100,
+  "nodes": 83,
+  "meshes": 82,
+  "actual_vertex_bounds": {
+    "min": [
+      -3.1749998927116394,
+      -0.059999942779541016,
+      -2.559999942779541
+    ],
+    "max": [
+      3.169999947134888,
+      3.449645220623942,
+      2.7949999570846558
+    ],
+    "size": [
+      6.344999839846528,
+      3.509645163403483,
+      5.354999899864197
+    ]
+  },
+  "inside_foundation": true,
+  "awning_bounds": {
+    "min": [
+      0.3400000333786011,
+      2.2749999165534973,
+      2.2649999856948853
+    ],
+    "max": [
+      2.040000081062317,
+      2.4049999117851257,
+      2.7949999570846558
+    ]
+  },
+  "awning_uv_metadata_covers_mesh": true,
+  "has_required_parts": {
+    "RecessedWindow": true,
+    "WindowOrDoorJamb": true,
+    "ClosedRustDoor": true,
+    "ConcreteDoorAwning": true,
+    "BrokenRoofSlab": true
+  },
+  "materials": [
+    "WeatheredConcrete",
+    "DarkRecess",
+    "ConcreteFrames",
+    "RustSteel",
+    "RoofConcrete"
+  ]
+}

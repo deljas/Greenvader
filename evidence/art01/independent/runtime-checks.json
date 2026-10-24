@@ -1,0 +1,32 @@
+{
+	"checks": [
+		{
+			"detail": "Scene instantiated; A/B engine events and B button signal select expected variant. No physical input tested.",
+			"id": "engine_scene_and_controls",
+			"result": "PASS"
+		},
+		{
+			"detail": "Inspected CPU PNGs match instantiated source images byte for byte; every 2x pixel equals its source pixel.",
+			"id": "png_provenance_and_integer_pixels",
+			"result": "PASS"
+		},
+		{
+			"detail": "5537 changed source pixels, 0 outside grass comparison area; soil and header/footer stay identical.",
+			"id": "comparison_scope",
+			"result": "PASS"
+		},
+		{
+			"detail": "Both variants retain every opaque pixel of the existing 16px flower, three 4px pickup seeds and 32x18 enemy, at identical coordinates.",
+			"id": "existing_sample_pixels",
+			"result": "PASS"
+		},
+		{
+			"detail": "7 scene descendants; exactly two original cached textures survive input and idle. No per-blade nodes.",
+			"id": "cache_and_node_budget",
+			"result": "PASS"
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"user_data": "C:/godot/greenvader/evidence/art01/independent/profile/Godot/app_userdata/グリーンベーダー"
+}

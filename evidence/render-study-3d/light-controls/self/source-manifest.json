@@ -1,0 +1,394 @@
+{
+  "task": "TECH-3D-04",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "created": "2026-10-16T07:37:57.6974370+09:00",
+  "state": "frozen; GPU/import returned; edit stopped",
+  "sources": [
+    {
+      "path": "scripts/render_study_3d/light_lab.gd",
+      "sha256": "4363a4884abc1b736b15836033577eb1bf29e1ec541c6e289e3d56701a51ca7d"
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+      "sha256": "8a2559a19400ded573ab0f0d29c3379e248ec79265e4abf0f6d069fb3a097e64"
+    },
+    {
+      "path": "scenes/light_lab.tscn",
+      "sha256": "a585b90b42c00e34089bcabf768e3de5ccddf03744f6add80dd291f478a2408f"
+    },
+    {
+      "path": "run_light_lab.bat",
+      "sha256": "a1fc412372e7ea2c57e4a1f290979ed987b4522dcead1ca6f4864a5205adb10c"
+    },
+    {
+      "path": "tests/render_study_3d/self_light_capture.gd",
+      "sha256": "f5caf1c40e535eb8afb4cf7624d8e66892121bcd651990cefd048220f868db75"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/render-study-3d/light-controls/self/checks.json",
+      "sha256": "07ba400e9516cddffb52767397423dacd2af27ef016bc34693749c8d1d2b689f"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/default_ui_1920.png",
+      "sha256": "df4072cece3ca3de2e5a3a4b7b1047b7036d009573468992c82e95233b33b4b0"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/default_ui_640.png",
+      "sha256": "b72363d496409276e86d80f43e6eaa23f1858892efcb181a30caeb5d156578f8"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/default_world_1920.png",
+      "sha256": "d72eeb6fcc2e3e547f4516a8bd40b9984d8e709be9297120a9695084018f552b"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/default_world_640.png",
+      "sha256": "ab7004412ed1262c8b62fc379f556b3fcf69f1d0363df39c3483eb88f391f6ad"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/existing-safety.patch",
+      "sha256": "8f39e9439b39dc36c8d3174d5c00365563dd8a225c878ef7bd9d1e0983036c38"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/integrity.json",
+      "sha256": "ebc4c0f2ef03e6120fc174947321a1bd8ea89b4ccd91aa34d677fc770d690e20"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/orbit_controls_4s.mp4",
+      "sha256": "17999133aadf700dd62da1a447d99749a9de6f679825e1bff7a525ccdf04ad2e"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_OFF_ui_640.png",
+      "sha256": "63c141ba084ffb6d44c5112a3530e9b8d1d79f2730ff257a6381a3068443d78d"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_only_225_ui_640.png",
+      "sha256": "988edc4891920ee5cf983fb08c35499783aeb2828baeae1abb2e7bd2c58ff2e9"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_only_45_ui_1920.png",
+      "sha256": "bf10aae5913b1521a8ad009067dd1bb8ebc2e1a90c6f08e8fb23a6037ecb9637"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_only_45_ui_640.png",
+      "sha256": "0931d94c375d730372172db7f3e52cee2857b68ca4b1542f1b53439811ea9739"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_only_45_world_1920.png",
+      "sha256": "72bf50053449b729bc6fce413b57de6016c03666feae46e5cc357ef454e5ec72"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_only_45_world_640.png",
+      "sha256": "d198a55250ec24b4084cd4ace2013d2c64d18be496031d558cb7a8cece1e5e6e"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_only_own_board_OFF_ui_640.png",
+      "sha256": "6b5a4d38650e6118f97abbc238799e753979fd9cc04e4c8a95acae479b3ef7b6"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/point_only_wrong_sun_board_OFF_ui_640.png",
+      "sha256": "0931d94c375d730372172db7f3e52cee2857b68ca4b1542f1b53439811ea9739"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/process.json",
+      "sha256": "9156f93a7df37c42b7e8c7f4233042bc03bb48c95e541f1a65465c46071cd325"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/snapshots.json",
+      "sha256": "ff39ea393d5a2db0af023f6054797109457f1c363354488dda06ce105d00d475"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/source-before.json",
+      "sha256": "c941083d8fcbdf6f0da2e19e189788da59c3e6b2f5142d65e2e73d855e97ffd0"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/sun_135_25_ui_640.png",
+      "sha256": "a10ef74368c3870364ca912f830b4c898df575e42ef36d08e42ba2d03a06056f"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/sun_315_61_ui_640.png",
+      "sha256": "47f2f208c9fdd8bcd41c4b575a16204a96bc532f1607dc0671dbb963ff7361a5"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/sun_below_horizon_ui_640.png",
+      "sha256": "c4187cecdb2ee3a9ca30eca5f9150bffed65c630716a4aa87e85003f22f34336"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/sun_zenith_ui_640.png",
+      "sha256": "f662037c88d3b74925454126092a13176649339ed84cff310bb079aa027e4f2d"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/video_decode_contact.png",
+      "sha256": "c8adf27c7d980c49ed4f443e38d6ce8d277ae9d348bc74effc7759170a4ccea3"
+    }
+  ],
+  "frames": [
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_000_ui_640.png",
+      "sha256": "4a7f2fb80441a76437f15c0365d5f090655e80c74a2c3076c6ba8f72eb2121cb"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_001_ui_640.png",
+      "sha256": "1f039d4efd8b71ed5883132938584658db23ce2bac2e161b1b07b1c693ec953b"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_002_ui_640.png",
+      "sha256": "cbb0f90363bc7a69545276ecf191b65ec227446186f17672195f4e3a0c2b6d36"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_003_ui_640.png",
+      "sha256": "347326b74f12d7d218a46d05c697cee3ec9ec34de2ee02509ff4bbbe777bcaa0"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_004_ui_640.png",
+      "sha256": "29e35d69677bea87e1cd491c0d8b3b9eeddf76bbc22a33ff1c8abaf56ca0f98a"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_005_ui_640.png",
+      "sha256": "9ab7156c363010b1181c37d709cead47892a7c268696220239cfa5df1c60a2b9"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_006_ui_640.png",
+      "sha256": "7b3347a6a559cff76319caa06adc7cb1830d2bde418e1d36bb0282c3df793a3b"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_007_ui_640.png",
+      "sha256": "e3a522c2168d47fe6ae171fb6e0bb8e8c2c3ab84316d00a10fc5f5c655e670b6"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_008_ui_640.png",
+      "sha256": "bfef9205602beb93fbee582c81acda25be6c73b41ce8a5e0eeaab9f93281ef47"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_009_ui_640.png",
+      "sha256": "806edf607daf0ede278f4782456593d208978ddbc104b28de9a659270c686fec"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_010_ui_640.png",
+      "sha256": "90c7c63f75801e062680cee129539b250ba86230e6a2ad7eaffe7c29c95880ad"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_011_ui_640.png",
+      "sha256": "dfd8a3e8dc886289f7e90a755424877a8a7e79ec3c7136274f7a1e59eda442f9"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_012_ui_640.png",
+      "sha256": "4354c682787babc526ab46826688adb78c6f12753896d8418f6227fd3c24d5d5"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_013_ui_640.png",
+      "sha256": "4855cfbf4b6a64a6b88be6d7120c6e84877f553de82cee9daca087039787da88"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_014_ui_640.png",
+      "sha256": "4ef97c80c1444aacba7c998ebf21570d11a3f085ccaa45d91998aef0f8d3fffd"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_015_ui_640.png",
+      "sha256": "bfdb7d6601acfe960ed4e12282f7bf7ad3187edf01db9774b5eb6112e8ddaea7"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_016_ui_640.png",
+      "sha256": "2e54a98d481aa57f658015bfea9c2a437b8b0488daf772ec7039317e595a47dc"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_017_ui_640.png",
+      "sha256": "91dd72bed75599e8e14b521c1d7035e8898e7bfe175dcf062883a6d5a8307cb2"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_018_ui_640.png",
+      "sha256": "3df0c41c538afda41494e4a885691627f3c5d6098edc12211e4d8e44d5454a65"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_019_ui_640.png",
+      "sha256": "64c930db7ad56d3cf6a94ca083e590d780d45a861a3a5ca77a57a572f332891e"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_020_ui_640.png",
+      "sha256": "09011ffa909bed529dd9cd1d73a0f34bb9e5aed555efd771666463bd89f2de01"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_021_ui_640.png",
+      "sha256": "5dd572de7986fa424aea2130123a1a653b0525fc679faf5c8cd2841af8dcb9bf"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_022_ui_640.png",
+      "sha256": "ef10117f330c179bfb02abfac1e21250742f5b86d40e79460177e953644b33f7"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_023_ui_640.png",
+      "sha256": "80f37ccd1fc6598519f924ced04a8675727bee925478fec29abb16e141a7627f"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_024_ui_640.png",
+      "sha256": "b80d2a270e48ad28552862e0d53f24681e70c0d402d56f450288a3cae48382a3"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_025_ui_640.png",
+      "sha256": "d00fb41b2694a60ee3024d23237701ed6d1ba54fdfc8bf5480e6e9c834add132"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_026_ui_640.png",
+      "sha256": "3af60d646fa1488f19efa0179e240cb19f01b25628ec879cd0fef1c5b9a96cc3"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_027_ui_640.png",
+      "sha256": "ec9450669e2d0324191f8f3d2e401bc2654399251601130c28d2879f0105b420"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_028_ui_640.png",
+      "sha256": "431d1c445cf988311b44c414568631d675853f0ae8ec05a3c527b560263e4d56"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_029_ui_640.png",
+      "sha256": "4b6d1f7d186a6fefa51c539056704c924e00a5bc1e93b106febe8b2445f2c979"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_030_ui_640.png",
+      "sha256": "ab6cb5f45473332245be8e835ccd7b88c2102257478b9399b12ceec96471d23d"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_031_ui_640.png",
+      "sha256": "c6b1325f848017b31e16fb877586ff80c9f8af7a8e6be31592680d40adeb9d7d"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_032_ui_640.png",
+      "sha256": "1f2ddbf8ab092ad9c75291ffbfb43b95585ac1eec0975df1f1021b9d21d60d8a"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_033_ui_640.png",
+      "sha256": "9b3d8e73f9605f8003570f1272587ee7e2a067c1f6961118000c118a4b3af1d4"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_034_ui_640.png",
+      "sha256": "04a205e036605271ac4bc4775182c09e76e331540a03b3f58c2b18b2f32981c5"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_035_ui_640.png",
+      "sha256": "d05300ba3ed56ba2a8c7928e890e091dc44253be1fe547f433ce87c5c8bdf6f3"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_036_ui_640.png",
+      "sha256": "da55033698718a20574d4a76f82fdc5dad10be72228c7c81ecc746358430c280"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_037_ui_640.png",
+      "sha256": "9f899219dd1cf298cccd210497d5c34db25ce7ab6d540658e3db666462407d82"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_038_ui_640.png",
+      "sha256": "85916e12da2ba747b5714d5989b1b6427b47ab4e3fd0fe16c801751834365e23"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_039_ui_640.png",
+      "sha256": "f8f554baf3a764afd4e425e7c9a475a60e8c79fc19feb418a9ed431f25f82c68"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_040_ui_640.png",
+      "sha256": "bd73852719fec0301a54b24d57d747a8da95102cfbb444c4f8b13c35fcf223ac"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_041_ui_640.png",
+      "sha256": "48b4589f528a79737c7ea7df954973175262e40615d7e6f958920301c947abc9"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_042_ui_640.png",
+      "sha256": "d1aaeda013b7480dd89658fd6914a39ffbfd3463d87fb22aeb56b81534c9dbe0"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_043_ui_640.png",
+      "sha256": "6abf24786c17dadb4d3eff029221726a3fd5dbeb125748da509434e45f0091c2"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_044_ui_640.png",
+      "sha256": "858c8737705452a3810c5297d1dc8680840c10c550d595b84b54f6f5d2a733a2"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_045_ui_640.png",
+      "sha256": "5e017d8e3919c4c762cb6cb9425e55038c8e1cb131ffeafd9938edc25a205257"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_046_ui_640.png",
+      "sha256": "f2e4d588bc46f567f54c2edd11cca5c8c17eb2366a04afab057b47e6ce6429b3"
+    },
+    {
+      "path": "evidence/render-study-3d/light-controls/self/frames/orbit_047_ui_640.png",
+      "sha256": "7829fa45b4f94ff88db9053e0d17b2db1e06b4eb2621f75bc9bf0c5387ade37a"
+    }
+  ],
+  "existing_integrity": [
+    {
+      "path": "scripts/render_study_3d/study.gd",
+      "before": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+      "after": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scripts/render_study_3d/ruin_geometry.gd",
+      "before": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+      "after": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+      "before": "1764895c0c5bd9034055f3841c93523b63529d8fa7ecd1f82c42362c192d5647",
+      "after": "8a2559a19400ded573ab0f0d29c3379e248ec79265e4abf0f6d069fb3a097e64",
+      "unchanged": false,
+      "permitted_guard_change": true
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_fixture.gd",
+      "before": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951",
+      "after": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951",
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "assets/render_study_3d/concrete.gdshader",
+      "before": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+      "after": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "assets/render_study_3d/style_grade.gdshader",
+      "before": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae",
+      "after": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae",
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scenes/render_study_3d.tscn",
+      "before": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce",
+      "after": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce",
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scenes/sprite_shadow_lab.tscn",
+      "before": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048",
+      "after": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048",
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "project.godot",
+      "before": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+      "after": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+      "unchanged": true,
+      "permitted_guard_change": false
+    }
+  ],
+  "gpu": "Vulkan Forward+ RTX5070Ti",
+  "gpu_exit": 0,
+  "checks": "15 PASS / 0 FAIL",
+  "samples": 58,
+  "point_shadow_pixels": 616,
+  "UI1920": "CPU nearest3x from GPU root640; world1920 is actual separate GPU viewport",
+  "video": "48 PNGs/12fps/4s presentation; H264 lossy, not FPS benchmark",
+  "native": "NOT_RUN",
+  "processes": "all self exited; Godot count 0 at resource handoff"
+}

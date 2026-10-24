@@ -1,0 +1,618 @@
+{
+  "asset_id": "BLD-038",
+  "name": "小さな礼拝堂",
+  "category": "BLD",
+  "version": "0.1.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      3.9600000381469727,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -6.276000022888184,
+      0.0,
+      -3.299999952316284
+    ],
+    "max": [
+      6.276000022888184,
+      7.920000076293945,
+      3.299999952316284
+    ]
+  },
+  "dimensions": [
+    12.552000045776367,
+    7.920000076293945,
+    6.599999904632568
+  ],
+  "placement_size_xz": [
+    12.552000045776367,
+    6.599999904632568
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -6.276000022888184,
+    -3.299999952316284,
+    6.276000022888184,
+    3.299999952316284
+  ],
+  "geometry_stats": {
+    "triangles": 12958,
+    "vertices": 9479,
+    "objects": 17,
+    "material_count": 8,
+    "blender_material_count": 8,
+    "glb_material_count": 9
+  },
+  "meshes": [
+    {
+      "name": "Chapel_foundation",
+      "layer": "foundation",
+      "materials": [
+        "Concrete_broken"
+      ]
+    },
+    {
+      "name": "chapel_back",
+      "layer": "chapel_back",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_tower_base",
+      "layer": "tower_base",
+      "materials": [
+        "Concrete_broken"
+      ]
+    },
+    {
+      "name": "BLD-038_roof",
+      "layer": "roof",
+      "materials": [
+        "BLD-038_roof"
+      ]
+    },
+    {
+      "name": "BLD-038_gables",
+      "layer": "gables",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_entry_arch",
+      "layer": "entry_arch",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_sides",
+      "layer": "chapel_sides",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_front",
+      "layer": "chapel_front",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_facade_stone",
+      "layer": "facade_stone",
+      "materials": [
+        "BLD-038_course_0",
+        "BLD-038_course_1",
+        "BLD-038_course_2"
+      ]
+    },
+    {
+      "name": "BLD-038_annex_foundations",
+      "layer": "annex_foundations",
+      "materials": [
+        "Concrete_broken"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_arm_west_front",
+      "layer": "chapel_arm_west_front",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_arm_west_side_-1",
+      "layer": "chapel_arm_west_side_-1",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_arm_west_side_1",
+      "layer": "chapel_arm_west_side_1",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_frames",
+      "layer": "frames",
+      "materials": [
+        "BLD-038_Frame_dark_brown",
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_arm_east_front",
+      "layer": "chapel_arm_east_front",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_arm_east_side_-1",
+      "layer": "chapel_arm_east_side_-1",
+      "materials": [
+        "BLD-038_core"
+      ]
+    },
+    {
+      "name": "BLD-038_chapel_arm_east_side_1",
+      "layer": "chapel_arm_east_side_1",
+      "materials": [
+        "BLD-038_core"
+      ]
+    }
+  ],
+  "external_textures": [
+    "textures/BLD-038_roof_albedo.png",
+    "textures/concrete_surface_color.png"
+  ],
+  "connections": {
+    "pointed_entry_height_m": 4.65,
+    "broken_tower_layer": "tower_base",
+    "roof_receiver": "two slopes, tower footprint exclusion",
+    "religious_symbols_included": false,
+    "entry_clearance": "pointed polygon, not full upper rectangle",
+    "design_family": "cross-shaped stone chapel with low side arms, gabled nave and broken tower base",
+    "construction_revision": "Original unique structure retained; dedicated visible facade construction added, not a new color-variant ID",
+    "vegetation": "Independent reusable layers; no plants joined to building",
+    "old_source": "lots/lot_017/BLD-038_small_chapel_broken_tower_base",
+    "revision_of": "BLD-038",
+    "not_additional_asset": true,
+    "game_adapter": "NOT_RUN; facade offsets require connector clearance review",
+    "added_wings": [
+      {
+        "name": "chapel_arm_west",
+        "footprint_xz": [
+          -6.15,
+          -2.1,
+          -3.85,
+          0.5
+        ],
+        "height_m": 3.97,
+        "entry_rule": "side opening; main building connector/navigation NOT_RUN"
+      },
+      {
+        "name": "chapel_arm_east",
+        "footprint_xz": [
+          3.85,
+          -2.1,
+          6.15,
+          0.5
+        ],
+        "height_m": 3.97,
+        "entry_rule": "side opening; main building connector/navigation NOT_RUN"
+      }
+    ],
+    "footprint_family": "Cross-shaped, lower side arms around the central nave; tower and central front entry preserved",
+    "new_placement_required": true,
+    "intrinsic_albedo": "Low-amplitude aged-pigment grain only; no baked lighting, AO or reflections.",
+    "facade_surface_offset_m": 0.026,
+    "receiver_offset_note": "Original recorded planes describe underlying wall; facade relief up to .026m requires outward clearance and opening-edge review in game connector.",
+    "frame_palette": "dark_brown"
+  },
+  "generated_receiver_surfaces": [
+    {
+      "id": "chapel_front_00",
+      "origin": [
+        -4.0,
+        0.18,
+        3.19
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        8,
+        5.07
+      ],
+      "openings_uv": [
+        [
+          3.05,
+          0.06,
+          4.95,
+          4.470000000000001
+        ],
+        [
+          1.0,
+          1.22,
+          1.9,
+          3.42
+        ],
+        [
+          6.1,
+          1.22,
+          7.0,
+          3.42
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_back_01",
+      "origin": [
+        4.0,
+        0.18,
+        -3.19
+      ],
+      "tangent_u": [
+        -1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        8,
+        5.07
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_sides_02",
+      "origin": [
+        -3.9899999999999998,
+        0.18,
+        -3.08
+      ],
+      "tangent_u": [
+        0,
+        0,
+        1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        6.16,
+        5.07
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_sides_03",
+      "origin": [
+        3.9899999999999998,
+        0.18,
+        3.08
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        6.16,
+        5.07
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_arm_west_front_04",
+      "origin": [
+        -6.15,
+        0.24,
+        0.6
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        2.3,
+        3.51
+      ],
+      "openings_uv": [
+        [
+          0.73,
+          0.8600000000000001,
+          1.5699999999999998,
+          2.0599999999999996
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_arm_west_side_-1_05",
+      "origin": [
+        -6.25,
+        0.24,
+        -2.1
+      ],
+      "tangent_u": [
+        0,
+        0,
+        1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        2.6,
+        3.51
+      ],
+      "openings_uv": [
+        [
+          0.75,
+          0.9099999999999999,
+          1.85,
+          2.1100000000000003
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_arm_west_side_1_06",
+      "origin": [
+        -3.75,
+        0.24,
+        0.5
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        2.6,
+        3.51
+      ],
+      "openings_uv": [
+        [
+          0.75,
+          0.0,
+          1.85,
+          2.41
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_arm_east_front_07",
+      "origin": [
+        3.85,
+        0.24,
+        0.6
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        2.3,
+        3.51
+      ],
+      "openings_uv": [
+        [
+          0.73,
+          0.8600000000000001,
+          1.5699999999999998,
+          2.0599999999999996
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_arm_east_side_-1_08",
+      "origin": [
+        3.75,
+        0.24,
+        -2.1
+      ],
+      "tangent_u": [
+        0,
+        0,
+        1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        2.6,
+        3.51
+      ],
+      "openings_uv": [
+        [
+          0.75,
+          0.0,
+          1.85,
+          2.41
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "chapel_arm_east_side_1_09",
+      "origin": [
+        6.25,
+        0.24,
+        0.5
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        2.6,
+        3.51
+      ],
+      "openings_uv": [
+        [
+          0.75,
+          0.9099999999999999,
+          1.85,
+          2.1100000000000003
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    }
+  ],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 12958,
+      "triangles_after": 12958,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN",
+    "art_style": "Same realistic low-resolution 3D rendering language, independently assessed from design",
+    "design_diversity": "Different construction, roof/profile and frame palettes; original differing functional forms retained or explicitly expanded"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "budget_note": "Facade course relief and original exposed structure exceed initial small-building triangle guide; actual count recorded, game performance NOT_RUN.",
+  "user_direction": "New architecture direction approved 2026-10-16 22:50 UTC; varied frames and nonrectangular footprints requested. Not individual user approval of every asset."
+}

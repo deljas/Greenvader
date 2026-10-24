@@ -1,0 +1,213 @@
+{
+	"NOT_RUN": [
+		"physical_keyboard_OS",
+		"performance_full_angles",
+		"game_save_combat_growth_integration",
+		"user_art_approval"
+	],
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"checks": [
+		{
+			"detail": "",
+			"id": "start_clear",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "BLD-007_grounded",
+			"status": "PASS"
+		},
+		{
+			"detail": "(-13.0, 0.0, -7.904714)",
+			"id": "BLD-007_entry_approach",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "BLD-019_grounded",
+			"status": "PASS"
+		},
+		{
+			"detail": "(-14.3062, 0.0, 7.275001)",
+			"id": "BLD-019_entry_approach",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "BLD-038_grounded",
+			"status": "PASS"
+		},
+		{
+			"detail": "(13.0, 0.0, -7.75)",
+			"id": "BLD-038_entry_approach",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "BLD-046_grounded",
+			"status": "PASS"
+		},
+		{
+			"detail": "(14.31868, 0.0, 6.849999)",
+			"id": "BLD-046_entry_approach",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "BLD-079_grounded",
+			"status": "PASS"
+		},
+		{
+			"detail": "(-19.39914, 0.022353, 17.51)",
+			"id": "BLD-079_entry_approach",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "BLD-091_grounded",
+			"status": "PASS"
+		},
+		{
+			"detail": "(13.0, -0.017594, 16.24846)",
+			"id": "BLD-091_entry_approach",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "BLD-123_grounded",
+			"status": "PASS"
+		},
+		{
+			"detail": "(-21.0, 0.0, -18.7)",
+			"id": "BLD-123_entry_approach",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "seven_diverse_buildings",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "buildings_no_major_overlap",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "four_irregular_puddles_four_lamps",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "walking_sprite_shadow_sync",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "large_prop_collision",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "boundary_collision",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "camera_follows",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zoom_fixed_human_height_shaded",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "one_120_second_cycle_fixed_step",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "time_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "east_south_west_source",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "opposite_shadow_compass",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "wrap_and_determinism",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "night_no_underground_sun",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.39514358585102 / 0.1470065568902",
+			"id": "night_darker_but_visible",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "1980",
+			"id": "water_night_local_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": "1687",
+			"id": "building_reflection_present",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "reflection_follows_camera",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.63999998569489 / 0.63999998569489",
+			"id": "normalized_diagonal_input",
+			"status": "PASS"
+		},
+		{
+			"detail": "61",
+			"id": "water_day_receives_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": "3625",
+			"id": "water_night_local_shadow_repair",
+			"status": "PASS"
+		},
+		{
+			"detail": "1785",
+			"id": "building_reflection_repair",
+			"status": "PASS"
+		},
+		{
+			"detail": "(-5.8, -12.0) -> (-6.400001, -12.0)",
+			"id": "known_building_wall_stops",
+			"status": "PASS"
+		},
+		{
+			"detail": "44.0000066757202",
+			"id": "main_crossing_side_alley_short_loop",
+			"status": "PASS"
+		}
+	],
+	"failures": 0,
+	"prior_pass_reused": true
+}

@@ -1,0 +1,1010 @@
+[
+	{
+		"id": "VIN-001",
+		"stats": {
+			"components": 28,
+			"distance": 2.15660071372986,
+			"estimated_links": 27,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 3,
+			"shown_triangles": 628,
+			"triangles": 628,
+			"vertices": 406
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-002",
+		"stats": {
+			"components": 21,
+			"distance": 2.85067963600159,
+			"estimated_links": 20,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 0,
+			"shown_triangles": 460,
+			"triangles": 460,
+			"vertices": 302
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-003",
+		"stats": {
+			"components": 22,
+			"distance": 1.89701509475708,
+			"estimated_links": 21,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 500,
+			"triangles": 500,
+			"vertices": 322
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-004",
+		"stats": {
+			"components": 15,
+			"distance": 1.82083964347839,
+			"estimated_links": 14,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 0,
+			"shown_triangles": 332,
+			"triangles": 332,
+			"vertices": 217
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-005",
+		"stats": {
+			"components": 30,
+			"distance": 2.18987798690796,
+			"estimated_links": 29,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 64,
+			"shown_triangles": 684,
+			"triangles": 684,
+			"vertices": 438
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-006",
+		"stats": {
+			"components": 21,
+			"distance": 2.05051732063293,
+			"estimated_links": 20,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 468,
+			"triangles": 468,
+			"vertices": 303
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-007",
+		"stats": {
+			"components": 21,
+			"distance": 2.05051732063293,
+			"estimated_links": 20,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 468,
+			"triangles": 468,
+			"vertices": 303
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-008",
+		"stats": {
+			"components": 49,
+			"distance": 2.88081645965576,
+			"estimated_links": 48,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 96,
+			"shown_triangles": 1112,
+			"triangles": 1112,
+			"vertices": 714
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-009",
+		"stats": {
+			"components": 44,
+			"distance": 1.80541563034058,
+			"estimated_links": 43,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 132,
+			"shown_triangles": 1012,
+			"triangles": 1012,
+			"vertices": 646
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-010",
+		"stats": {
+			"components": 19,
+			"distance": 1.32592296600342,
+			"estimated_links": 18,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 5,
+			"shown_triangles": 428,
+			"triangles": 428,
+			"vertices": 276
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-011",
+		"stats": {
+			"components": 11,
+			"distance": 1.95573699474335,
+			"estimated_links": 10,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 268,
+			"triangles": 268,
+			"vertices": 171
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-012",
+		"stats": {
+			"components": 9,
+			"distance": 1.84629929065704,
+			"estimated_links": 8,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 0,
+			"shown_triangles": 292,
+			"triangles": 292,
+			"vertices": 176
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-013",
+		"stats": {
+			"components": 15,
+			"distance": 2.02954149246216,
+			"estimated_links": 14,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 332,
+			"triangles": 332,
+			"vertices": 217
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-014",
+		"stats": {
+			"components": 15,
+			"distance": 2.02779960632324,
+			"estimated_links": 14,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 0,
+			"shown_triangles": 332,
+			"triangles": 332,
+			"vertices": 217
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-015",
+		"stats": {
+			"components": 24,
+			"distance": 4.24696159362793,
+			"estimated_links": 23,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 536,
+			"triangles": 536,
+			"vertices": 349
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-016",
+		"stats": {
+			"components": 16,
+			"distance": 1.87758779525757,
+			"estimated_links": 15,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 360,
+			"triangles": 360,
+			"vertices": 233
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-017",
+		"stats": {
+			"components": 22,
+			"distance": 1.84753179550171,
+			"estimated_links": 21,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 506,
+			"triangles": 506,
+			"vertices": 333
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-018",
+		"stats": {
+			"components": 11,
+			"distance": 2.02466344833374,
+			"estimated_links": 10,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 2,
+			"shown_triangles": 268,
+			"triangles": 268,
+			"vertices": 171
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-019",
+		"stats": {
+			"components": 13,
+			"distance": 1.74361312389374,
+			"estimated_links": 12,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(-0.232, 0.12, 0.0)",
+			"root_vertex": 6,
+			"shown_triangles": 422,
+			"triangles": 422,
+			"vertices": 255
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-020",
+		"stats": {
+			"components": 9,
+			"distance": 1.57291686534882,
+			"estimated_links": 8,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(-0.065, 0.0, 0.0)",
+			"root_vertex": 6,
+			"shown_triangles": 204,
+			"triangles": 204,
+			"vertices": 132
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-021",
+		"stats": {
+			"components": 21,
+			"distance": 1.88545107841492,
+			"estimated_links": 20,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(-0.8, 0.025, 0.0)",
+			"root_vertex": 3,
+			"shown_triangles": 428,
+			"triangles": 428,
+			"vertices": 286
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-022",
+		"stats": {
+			"components": 11,
+			"distance": 1.60162556171417,
+			"estimated_links": 10,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(-0.6, 0.025, 0.0)",
+			"root_vertex": 0,
+			"shown_triangles": 282,
+			"triangles": 282,
+			"vertices": 178
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-023",
+		"stats": {
+			"components": 21,
+			"distance": 1.009321808815,
+			"estimated_links": 20,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 476,
+			"triangles": 476,
+			"vertices": 304
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-024",
+		"stats": {
+			"components": 7,
+			"distance": 0.53020304441452,
+			"estimated_links": 6,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 120,
+			"triangles": 120,
+			"vertices": 89
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-025",
+		"stats": {
+			"components": 7,
+			"distance": 0.539425611495972,
+			"estimated_links": 6,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 2,
+			"shown_triangles": 132,
+			"triangles": 132,
+			"vertices": 92
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-026",
+		"stats": {
+			"components": 3,
+			"distance": 0.896550178527832,
+			"estimated_links": 2,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 6,
+			"shown_triangles": 88,
+			"triangles": 88,
+			"vertices": 56
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-027",
+		"stats": {
+			"components": 21,
+			"distance": 0.935791611671448,
+			"estimated_links": 20,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 0,
+			"shown_triangles": 332,
+			"triangles": 332,
+			"vertices": 238
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-028",
+		"stats": {
+			"components": 2,
+			"distance": 0.658896684646606,
+			"estimated_links": 1,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 5,
+			"shown_triangles": 360,
+			"triangles": 360,
+			"vertices": 187
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-029",
+		"stats": {
+			"components": 6,
+			"distance": 1.32237386703491,
+			"estimated_links": 5,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 5,
+			"shown_triangles": 204,
+			"triangles": 204,
+			"vertices": 120
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-030",
+		"stats": {
+			"components": 30,
+			"distance": 2.47669982910156,
+			"estimated_links": 29,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 224,
+			"shown_triangles": 664,
+			"triangles": 664,
+			"vertices": 434
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-031",
+		"stats": {
+			"components": 78,
+			"distance": 4.0673885345459,
+			"estimated_links": 75,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 4400,
+			"triangles": 4400,
+			"vertices": 2732
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-032",
+		"stats": {
+			"components": 21,
+			"distance": 3.37214374542236,
+			"estimated_links": 18,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 3,
+			"shown_triangles": 1302,
+			"triangles": 1302,
+			"vertices": 738
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-033",
+		"stats": {
+			"components": 26,
+			"distance": 3.31694340705872,
+			"estimated_links": 23,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 1502,
+			"triangles": 1502,
+			"vertices": 918
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-034",
+		"stats": {
+			"components": 23,
+			"distance": 3.99723935127258,
+			"estimated_links": 20,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 1454,
+			"triangles": 1454,
+			"vertices": 823
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-035",
+		"stats": {
+			"components": 21,
+			"distance": 2.98663425445557,
+			"estimated_links": 18,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 1212,
+			"triangles": 1212,
+			"vertices": 684
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-036",
+		"stats": {
+			"components": 71,
+			"distance": 3.99895405769348,
+			"estimated_links": 68,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 3,
+			"shown_triangles": 4658,
+			"triangles": 4658,
+			"vertices": 2471
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-037",
+		"stats": {
+			"components": 20,
+			"distance": 2.68834328651428,
+			"estimated_links": 19,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 1032,
+			"triangles": 1032,
+			"vertices": 655
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-038",
+		"stats": {
+			"components": 35,
+			"distance": 3.37490367889404,
+			"estimated_links": 34,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 1438,
+			"triangles": 1438,
+			"vertices": 853
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-039",
+		"stats": {
+			"components": 25,
+			"distance": 3.71076107025146,
+			"estimated_links": 24,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.245)",
+			"root_vertex": 0,
+			"shown_triangles": 1664,
+			"triangles": 1664,
+			"vertices": 930
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-040",
+		"stats": {
+			"components": 21,
+			"distance": 3.87813496589661,
+			"estimated_links": 20,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 2696,
+			"triangles": 2696,
+			"vertices": 1430
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-041",
+		"stats": {
+			"components": 18,
+			"distance": 2.49262547492981,
+			"estimated_links": 17,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 6,
+			"shown_triangles": 1080,
+			"triangles": 1080,
+			"vertices": 576
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-042",
+		"stats": {
+			"components": 56,
+			"distance": 3.60218334197998,
+			"estimated_links": 55,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 2666,
+			"triangles": 2666,
+			"vertices": 1795
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-043",
+		"stats": {
+			"components": 27,
+			"distance": 2.95001149177551,
+			"estimated_links": 26,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 1430,
+			"triangles": 1430,
+			"vertices": 940
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-044",
+		"stats": {
+			"components": 13,
+			"distance": 3.44901895523071,
+			"estimated_links": 12,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 764,
+			"triangles": 764,
+			"vertices": 495
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-045",
+		"stats": {
+			"components": 15,
+			"distance": 3.02028942108154,
+			"estimated_links": 14,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 1070,
+			"triangles": 1070,
+			"vertices": 707
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-046",
+		"stats": {
+			"components": 10,
+			"distance": 2.18295216560364,
+			"estimated_links": 9,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 590,
+			"triangles": 590,
+			"vertices": 378
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-047",
+		"stats": {
+			"components": 53,
+			"distance": 2.8941490650177,
+			"estimated_links": 52,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 5,
+			"shown_triangles": 1926,
+			"triangles": 1926,
+			"vertices": 1141
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-048",
+		"stats": {
+			"components": 26,
+			"distance": 2.2086706161499,
+			"estimated_links": 25,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 1452,
+			"triangles": 1452,
+			"vertices": 897
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-049",
+		"stats": {
+			"components": 17,
+			"distance": 2.60911679267883,
+			"estimated_links": 16,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 4,
+			"shown_triangles": 2742,
+			"triangles": 2742,
+			"vertices": 1435
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-050",
+		"stats": {
+			"components": 36,
+			"distance": 3.80276823043823,
+			"estimated_links": 35,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 7,
+			"shown_triangles": 1506,
+			"triangles": 1506,
+			"vertices": 1050
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-051",
+		"stats": {
+			"components": 13,
+			"distance": 2.72371053695679,
+			"estimated_links": 12,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.0)",
+			"root_vertex": 5,
+			"shown_triangles": 1164,
+			"triangles": 1164,
+			"vertices": 671
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-052",
+		"stats": {
+			"components": 30,
+			"distance": 3.45711970329285,
+			"estimated_links": 29,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.08)",
+			"root_vertex": 4,
+			"shown_triangles": 1600,
+			"triangles": 1600,
+			"vertices": 925
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-053",
+		"stats": {
+			"components": 39,
+			"distance": 5.25966644287109,
+			"estimated_links": 38,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.36)",
+			"root_vertex": 1,
+			"shown_triangles": 4306,
+			"triangles": 4306,
+			"vertices": 2326
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-054",
+		"stats": {
+			"components": 61,
+			"distance": 3.47145199775696,
+			"estimated_links": 60,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.2)",
+			"root_vertex": 0,
+			"shown_triangles": 4774,
+			"triangles": 4774,
+			"vertices": 2654
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-055",
+		"stats": {
+			"components": 23,
+			"distance": 6.10706377029419,
+			"estimated_links": 22,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(-1.12, 0.0, 0.09)",
+			"root_vertex": 4,
+			"shown_triangles": 2010,
+			"triangles": 2010,
+			"vertices": 1106
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-056",
+		"stats": {
+			"components": 34,
+			"distance": 3.7613205909729,
+			"estimated_links": 33,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 2.2, 0.0)",
+			"root_vertex": 1,
+			"shown_triangles": 1796,
+			"triangles": 1796,
+			"vertices": 1041
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-057",
+		"stats": {
+			"components": 30,
+			"distance": 3.043217420578,
+			"estimated_links": 29,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.06, 0.0)",
+			"root_vertex": 5,
+			"shown_triangles": 1600,
+			"triangles": 1600,
+			"vertices": 925
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-058",
+		"stats": {
+			"components": 16,
+			"distance": 3.32107925415039,
+			"estimated_links": 15,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.06)",
+			"root_vertex": 3,
+			"shown_triangles": 876,
+			"triangles": 876,
+			"vertices": 505
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-059",
+		"stats": {
+			"components": 25,
+			"distance": 3.34448218345642,
+			"estimated_links": 22,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.09)",
+			"root_vertex": 3,
+			"shown_triangles": 1390,
+			"triangles": 1390,
+			"vertices": 800
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-060",
+		"stats": {
+			"components": 27,
+			"distance": 3.90753269195557,
+			"estimated_links": 24,
+			"metadata_links": 2,
+			"progress": 100.0,
+			"root": "(0.0, 0.0, 0.06)",
+			"root_vertex": 3,
+			"shown_triangles": 1542,
+			"triangles": 1542,
+			"vertices": 885
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-061",
+		"stats": {
+			"components": 29,
+			"distance": 3.30941319465637,
+			"estimated_links": 28,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.0, 0.081967, 1.1)",
+			"root_vertex": 4,
+			"shown_triangles": 1586,
+			"triangles": 1586,
+			"vertices": 916
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-062",
+		"stats": {
+			"components": 50,
+			"distance": 3.59134101867676,
+			"estimated_links": 49,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(0.5, 0.0, 0.0)",
+			"root_vertex": 3,
+			"shown_triangles": 3768,
+			"triangles": 3768,
+			"vertices": 2099
+		},
+		"status": "PASS"
+	},
+	{
+		"id": "VIN-063",
+		"stats": {
+			"components": 22,
+			"distance": 4.96305847167969,
+			"estimated_links": 21,
+			"metadata_links": 0,
+			"progress": 100.0,
+			"root": "(-1.15, 0.0, 0.1)",
+			"root_vertex": 0,
+			"shown_triangles": 1224,
+			"triangles": 1224,
+			"vertices": 706
+		},
+		"status": "PASS"
+	}
+]

@@ -1,0 +1,212 @@
+{
+	"NOT_RUN": [
+		"physical_input_OS",
+		"game_growth_save_integration",
+		"all_angles_performance",
+		"user_art_review"
+	],
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"results": [
+		{
+			"detail": "63",
+			"id": "inventory_63",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "initial_007_old_sparse",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "actual_old_library",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "all_ID_single_smoke",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "select_7",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_empty_7",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "original_finish_7",
+			"status": "PASS"
+		},
+		{
+			"detail": "[0, 82, 225, 509, 800]",
+			"id": "root_fixed_path_growth_7",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "material_roundtrip_7",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "select_32",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_empty_32",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "original_finish_32",
+			"status": "PASS"
+		},
+		{
+			"detail": "[0, 189, 473, 959, 1302]",
+			"id": "root_fixed_path_growth_32",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "material_roundtrip_32",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "select_47",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_empty_47",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "original_finish_47",
+			"status": "PASS"
+		},
+		{
+			"detail": "[0, 251, 915, 1693, 1926]",
+			"id": "root_fixed_path_growth_47",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "material_roundtrip_47",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "select_60",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_empty_60",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "original_finish_60",
+			"status": "PASS"
+		},
+		{
+			"detail": "[0, 182, 546, 1096, 1542]",
+			"id": "root_fixed_path_growth_60",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "material_roundtrip_60",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "select_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_empty_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "original_finish_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "[0, 5, 24, 36, 120]",
+			"id": "root_fixed_path_growth_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "material_roundtrip_24",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "missing_ID_keeps_previous",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "recover_valid_ID",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "ID_change_preserves_growth",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "paused_state_fixed",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "play_stop_UI",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "path_error_keeps_previous",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "path_reload_recovery",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "old_lab_density_option",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sun_controls_GPU",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "receiver_off",
+			"status": "PASS"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+  "manifest": {
+    "expected": "9d0d43d42f8fb154c158b0875a1e492527b192c5051d2f9c07568571f6fa4c37",
+    "actual": "9d0d43d42f8fb154c158b0875a1e492527b192c5051d2f9c07568571f6fa4c37",
+    "pass": true
+  },
+  "source": {
+    "count": 7,
+    "mismatches": [],
+    "pass": true
+  },
+  "protected": {
+    "count": 114,
+    "mismatches": [],
+    "pass": true
+  },
+  "evidence": {
+    "count": 63,
+    "mismatches": [],
+    "pass": true
+  },
+  "protected_ground_water": [
+    "scripts/greening_map/ground_view.gd",
+    "scripts/greening_map/map.gd",
+    "scripts/greening_map/water_surface.gd",
+    "scripts/greening_map/water_surface.gdshader"
+  ]
+}

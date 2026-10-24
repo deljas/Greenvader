@@ -1,0 +1,43 @@
+ERROR: Failed to open log file for writing: user://logs/godot.log
+   at: rotate_file (core/io/logger.cpp:169)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RendererCompositorRD (servers/rendering/renderer_rd/renderer_compositor_rd.cpp:337)
+
+{ "id": "start_clear", "status": "PASS", "detail": "" }
+{ "id": "BLD-007_grounded", "status": "PASS", "detail": "" }
+{ "id": "BLD-007_entry_approach", "status": "PASS", "detail": "(-13.0, 0.0, -7.904714)" }
+{ "id": "BLD-019_grounded", "status": "PASS", "detail": "" }
+{ "id": "BLD-019_entry_approach", "status": "PASS", "detail": "(-14.3062, 0.0, 7.275001)" }
+{ "id": "BLD-038_grounded", "status": "PASS", "detail": "" }
+{ "id": "BLD-038_entry_approach", "status": "PASS", "detail": "(13.0, 0.0, -7.75)" }
+{ "id": "BLD-046_grounded", "status": "PASS", "detail": "" }
+{ "id": "BLD-046_entry_approach", "status": "PASS", "detail": "(14.31868, 0.0, 6.849999)" }
+{ "id": "BLD-079_grounded", "status": "PASS", "detail": "" }
+{ "id": "BLD-079_entry_approach", "status": "PASS", "detail": "(-19.39914, 0.022353, 17.51)" }
+{ "id": "BLD-091_grounded", "status": "PASS", "detail": "" }
+{ "id": "BLD-091_entry_approach", "status": "PASS", "detail": "(13.0, -0.017594, 16.24846)" }
+{ "id": "BLD-123_grounded", "status": "PASS", "detail": "" }
+{ "id": "BLD-123_entry_approach", "status": "PASS", "detail": "(-21.0, 0.0, -18.7)" }
+{ "id": "seven_diverse_buildings", "status": "PASS", "detail": "" }
+{ "id": "buildings_no_major_overlap", "status": "PASS", "detail": "" }
+{ "id": "four_irregular_puddles_four_lamps", "status": "PASS", "detail": "" }
+{ "id": "normalized_diagonal_input", "status": "FAIL", "detail": "" }
+{ "id": "walking_sprite_shadow_sync", "status": "PASS", "detail": "" }
+{ "id": "large_prop_collision", "status": "PASS", "detail": "" }
+{ "id": "boundary_collision", "status": "PASS", "detail": "" }
+{ "id": "camera_follows", "status": "PASS", "detail": "" }
+{ "id": "zoom_fixed_human_height_shaded", "status": "PASS", "detail": "" }
+{ "id": "one_120_second_cycle_fixed_step", "status": "PASS", "detail": "" }
+{ "id": "time_pause", "status": "PASS", "detail": "" }
+{ "id": "east_south_west_source", "status": "PASS", "detail": "" }
+{ "id": "opposite_shadow_compass", "status": "PASS", "detail": "" }
+{ "id": "wrap_and_determinism", "status": "PASS", "detail": "" }
+{ "id": "night_no_underground_sun", "status": "PASS", "detail": "" }
+{ "id": "night_darker_but_visible", "status": "PASS", "detail": "0.39514358585102 / 0.1470065568902" }
+{ "id": "nearest3_exact", "status": "PASS", "detail": "" }
+{ "id": "water_day_receives_shadow", "status": "FAIL", "detail": "0" }
+{ "id": "water_night_local_shadow", "status": "PASS", "detail": "1980" }
+{ "id": "building_reflection_present", "status": "PASS", "detail": "1687" }
+{ "id": "reflection_follows_camera", "status": "PASS", "detail": "" }

@@ -1,0 +1,88 @@
+{
+  "frame_size": [
+    24,
+    36
+  ],
+  "foot_anchor": [
+    12,
+    34
+  ],
+  "internal_screen": [
+    640,
+    360
+  ],
+  "fps": 8,
+  "loop": true,
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "walk_sheet_rows": "directions",
+  "walk_sheet_columns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "idle_sheet_columns": "directions",
+  "sheets": {
+    "idle": "idle.png",
+    "normal": "walk-normal.png",
+    "hop": "walk-hop.png"
+  },
+  "source_directories": {
+    "idle": "assets/concepts/spr01/four-directions-v2/",
+    "normal": "assets/concepts/spr01/walk-normal-v2/",
+    "hop": "assets/concepts/spr01/walk-v1/"
+  },
+  "production": "Exact copies of repository-native pixel-grid artwork; no resizing, no mirrored directions",
+  "adopted_walk": "normal v2; adopted by user on 2026-10-20; gameplay always uses normal; hop retained as reference",
+  "fire_front": {
+    "runtime_directory": "fire-front-v3/",
+    "source_directory": "assets/concepts/spr01/fire-front-v3/",
+    "temporary_directions": "front artwork reused for every aim direction while firing only",
+    "event_ms": {
+      "seed": 66,
+      "water": 400
+    },
+    "total_ms": {
+      "seed": 400,
+      "water": 800
+    },
+    "layers": [
+      "character",
+      "formation_fx",
+      "flying_projectile"
+    ],
+    "status": "historical prototype; runtime superseded by fire_directions"
+  },
+  "fire_directions": {
+    "runtime_directory": "fire-directions-v1/",
+    "source_directory": "assets/concepts/spr01/fire-directions-v1/",
+    "directions": [
+      "down",
+      "left",
+      "right",
+      "up"
+    ],
+    "sheet_rows": "directions; authored independently, never mirrored",
+    "event_ms": {
+      "seed": 66,
+      "water": 400
+    },
+    "total_ms": {
+      "seed": 400,
+      "water": 800
+    },
+    "layers": [
+      "character",
+      "formation_fx",
+      "flying_projectile"
+    ],
+    "sockets": "release_events[0].socket_by_direction; visual offset only",
+    "seed_eyes": "normal open eyes in every frame",
+    "water_front": "byte-identical to front-v3"
+  }
+}

@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS engine_scene_and_controls: Scene instantiated; A/B engine events and B button signal select expected variant. No physical input tested.
+PASS png_provenance_and_integer_pixels: Inspected CPU PNGs match instantiated source images byte for byte; every 2x pixel equals its source pixel.
+PASS comparison_scope: 5537 changed source pixels, 0 outside grass comparison area; soil and header/footer stay identical.
+PASS existing_sample_pixels: Both variants retain every opaque pixel of the existing 16px flower, three 4px pickup seeds and 32x18 enemy, at identical coordinates.
+PASS cache_and_node_budget: 7 scene descendants; exactly two original cached textures survive input and idle. No per-blade nodes.

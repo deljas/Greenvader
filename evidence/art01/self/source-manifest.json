@@ -1,0 +1,106 @@
+{
+  "task": "ART-01",
+  "created": "2026-10-15T20:09:46.1517975+09:00",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "state": "implementation frozen; uncommitted shared tree",
+  "sources": [
+    {
+      "path": "scripts/art_study/art_study.gd",
+      "sha256": "18ce9ad7ced5bbd3e4be1ac0855c49c58e3532bf3507eb681a0260b1eec9b8da"
+    },
+    {
+      "path": "scripts/art_study/art_study.gd.uid",
+      "sha256": "585a6acde7ccbd13d379fae80e3fea7d0224341fc7f3bfea3723c4fc5b1ec78b"
+    },
+    {
+      "path": "scripts/art_study/study_raster.gd",
+      "sha256": "57eedab5a29c9250709a0939b9d4a9a979ec9dae0234eed36142c0882599cee4"
+    },
+    {
+      "path": "scripts/art_study/study_raster.gd.uid",
+      "sha256": "16b2a28785d95b05b10a70fecc72c0e103d557c67c851cd372368e21c0acb1f9"
+    },
+    {
+      "path": "scenes/art_study.tscn",
+      "sha256": "4fec8b33e252e573ad0776c5500a0ee98544aaf0f75e53f5f5180ef22315ee75"
+    },
+    {
+      "path": "run_art_study.bat",
+      "sha256": "3658e2e0bd13313450987a8bb433189621c4b4d79f8232fcb29d6638b995b9c4"
+    },
+    {
+      "path": "tests/art01/self_check.gd",
+      "sha256": "88ea803585d7b1bb88f53b835e53b63f7e456ec696acb5f884713e0222b7c98d"
+    },
+    {
+      "path": "tests/art01/self_check.gd.uid",
+      "sha256": "556c1d75c903beb07e11f2be1006294cebcc4aebd16e7f4a40d542c17620921b"
+    }
+  ],
+  "unchanged_dependencies": [
+    {
+      "path": "project.godot",
+      "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f"
+    },
+    {
+      "path": "scripts/landscape_art.gd",
+      "sha256": "65509dfd31e03c3792d2c1172a31211f2a8e5694d3b98b531b1227b13b28a914"
+    },
+    {
+      "path": "scripts/pixel_art.gd",
+      "sha256": "798a992cbd37914c33ea2424107f533ae0a612cdd54e5bd893b95be46df924fa"
+    },
+    {
+      "path": "scripts/play/play_art.gd",
+      "sha256": "f8e66578e6d849a1678d9fdb462bf1f33c0fcf9ee4db21ebf850194a2d8ef975"
+    },
+    {
+      "path": "scripts/world/region_view.gd",
+      "sha256": "a0c0483bf21fd38f26639765325b5398a48b0f7c26d4cc5897b3447c453a60be"
+    }
+  ],
+  "images": [
+    {
+      "path": "evidence/art01/self/A_restrained_2x.png",
+      "sha256": "32f88114b906366d7ac71f627c6d7b4a9959a1ca23cecf184ff3fc1e418e827d"
+    },
+    {
+      "path": "evidence/art01/self/A_restrained.png",
+      "sha256": "8847925cc0e2e42e48186f1e55c10cfba7106e71340e6321733fa5ebfe4aebd8"
+    },
+    {
+      "path": "evidence/art01/self/AB_detail_4x.png",
+      "sha256": "573cc31ce460a8743064dfe512fc7f97ca5af23690fcc027489857a5237f44f3"
+    },
+    {
+      "path": "evidence/art01/self/AB_field_2x.png",
+      "sha256": "103d0fe26ed82d6f17f87f37d792f7ee4987519944df5757f44d8cab0d1a0919"
+    },
+    {
+      "path": "evidence/art01/self/B_rich_2x.png",
+      "sha256": "79542199891335095e1e0ec7089f40b4a02c2fa9ff1e7ab830a1026dbbbcec7e"
+    },
+    {
+      "path": "evidence/art01/self/B_rich.png",
+      "sha256": "f8003669702a940e2580dd033a04987df2dced4ee48a3d4a883b9bf86d2224f7"
+    }
+  ],
+  "git_status": [
+    " M tasks/README.md",
+    "?? evidence/art01/",
+    "?? run_art_study.bat",
+    "?? scenes/art_study.tscn",
+    "?? scripts/art_study/",
+    "?? tasks/ART_01.md",
+    "?? tests/art01/",
+    "?? tests/p2/independent/p2_05_v_logic.gd.uid",
+    "?? tests/p2/p2_05_checks.gd.uid",
+    "?? tests/p2/p2_05_gpu.gd.uid",
+    "?? tests/p2/p2_06_bot.gd.uid",
+    "?? tests/p2/p2_06_front.gd.uid",
+    "?? tests/p2/p2_06_tempo.gd.uid"
+  ],
+  "self_results": "15 PASS / 0 FAIL / 2 NOT_RUN",
+  "native": "NOT_RUN; CPU PNGs are not actual-window screenshots",
+  "processes": "All self Godot processes exited; zero Godot processes observed before resource release"
+}

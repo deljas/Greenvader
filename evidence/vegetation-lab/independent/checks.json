@@ -1,0 +1,356 @@
+{
+  "task": "TECH-3D-05",
+  "created": "2026-10-16T08:09:40.229966+09:00",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "manifest_sha256": "43110c446cfad865061a08f6c499059fdee0efe39d82ed84ac06b5535f55f5e7",
+  "environment": "Windows/Godot4.7.2; submitted GPU Vulkan Forward+ RTX5070Ti; independent Pillow offline and one headless attempt",
+  "checks": [
+    {
+      "id": "three_distinct_buildings_and_shared_resources",
+      "result": "PASS",
+      "method": "actual source and GPU PNG review; one Parts instance passed to all3 patches, common2grass/leaf/stem meshes and materials"
+    },
+    {
+      "id": "fixed_seed_root_first_growth_UI",
+      "result": "PASS",
+      "method": "source plus0/50/100GPU/self-return evidence review; setup-only random candidates, set_growth changes transforms only"
+    },
+    {
+      "id": "openings_corridors_preserved_limited",
+      "result": "PASS",
+      "method": "independent source/material-size reasoning plus mature GPU windows/doors/corridor inspection; not accepting self helper as proof",
+      "limit": "Conservative full opening-x strip exclusion, visible2walls A/B; qualitative margin reasoning only"
+    },
+    {
+      "id": "C_cylindrical_cone_placement_limited",
+      "result": "PASS",
+      "method": "surface charts, normals,0.16offset and common leaf/stem code plus C GPU closeup review",
+      "limit": "No exact full mesh wrapping, faceted window grid, local roof/eave approximation"
+    },
+    {
+      "id": "UI_GPU_images_integer3x",
+      "result": "PASS",
+      "method": "independent offline5pair all-pixel comparison plus representative GPU visual inspection",
+      "pairs": [
+        {
+          "sample": "growth_000",
+          "origin": "GPU root640 and CPU nearest presentation1920",
+          "source_size": [
+            640,
+            360
+          ],
+          "output_size": [
+            1920,
+            1080
+          ],
+          "exact3x": true
+        },
+        {
+          "sample": "growth_050",
+          "origin": "GPU root640 and CPU nearest presentation1920",
+          "source_size": [
+            640,
+            360
+          ],
+          "output_size": [
+            1920,
+            1080
+          ],
+          "exact3x": true
+        },
+        {
+          "sample": "growth_100",
+          "origin": "GPU root640 and CPU nearest presentation1920",
+          "source_size": [
+            640,
+            360
+          ],
+          "output_size": [
+            1920,
+            1080
+          ],
+          "exact3x": true
+        },
+        {
+          "sample": "C_mature_closeup",
+          "origin": "GPU root640 and CPU nearest presentation1920",
+          "source_size": [
+            640,
+            360
+          ],
+          "output_size": [
+            1920,
+            1080
+          ],
+          "exact3x": true
+        },
+        {
+          "sample": "growth_100_world",
+          "origin": "GPU640 and separate GPU1920",
+          "source_size": [
+            640,
+            360
+          ],
+          "output_size": [
+            1920,
+            1080
+          ],
+          "exact3x": true
+        }
+      ]
+    },
+    {
+      "id": "frozen_sources_evidence_preservation_logs",
+      "result": "PASS",
+      "method": "independent32hash start/end,5prior-independent protected hashes, finalGPU log/process check"
+    },
+    {
+      "id": "headless_actual_MultiMesh_geometry_measurement",
+      "result": "NOT_RUN",
+      "detail": "Headless MultiMesh getters returned origin/identity-like values at all stages, contradicting GPU evidence; raw vertex-derived metrics are unusable, not product FAILs. No retry."
+    },
+    {
+      "id": "native_physical_input_independent_GPU",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "all_surfaces_lights_video_performance_game_regression",
+      "result": "NOT_RUN"
+    }
+  ],
+  "totals": {
+    "PASS": 6,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "frozen_files": [
+    {
+      "path": "run_vegetation_lab.bat",
+      "sha256": "70565d70412bfad985c69f6671ebbf30855d2413cc86143cc930ca524bb13fa9",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scenes/vegetation_lab.tscn",
+      "sha256": "17ca277ee747171dbe3257dbd62c96444770e9cf943c5eeee3524f1aeae3acc9",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/brick.gdshader",
+      "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/building_defs.gd",
+      "sha256": "02777ae4bfc5c6bc193cf4354e510f3c0531a60471fe6a4c26279ad371379805",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/building_geometry.gd",
+      "sha256": "f887bc8e9d23315e7ac6279a9742e5432f2587ebde0c451642fa7da0f576a753",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "3185b54ad0ddb8b9dacbd256cec26d5ec7f0c984588fa1b8e4d3db35850b556c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/lab.gd",
+      "sha256": "0b44d93fc4bc6c09099bc4d9054d9a963c3584c9e9d34840cf27d832e330d9be",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "scripts/vegetation_lab/plant_parts.gd",
+      "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "tests/vegetation_lab/self_capture.gd",
+      "sha256": "b3e54f03db6ad345b3ba1afbda2e6e6d44ba02f4ee52271c355431a2a018fca6",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/C_mature_closeup_ui_1920.png",
+      "sha256": "a63a64369544d44740332447c69f3c6f1d86b8d254b96de4f4391f41606b16eb",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/C_mature_closeup_ui_640.png",
+      "sha256": "49ab9619e67ec8c74ed2dc65f8694578fc8118cc1c22f2c45f92a9debb448e20",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/C_mature_closeup_world_640.png",
+      "sha256": "3119ef02792e25adfcb738f4e931a9fe42a96256a0b8b42cab37b8c1534c9811",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_000_ui_1920.png",
+      "sha256": "ccb02e5cc502fa9d8857bbb310a118a42c6262ee46d0ec6fcd4cd23e1820650a",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_000_ui_640.png",
+      "sha256": "9e25847bd95f6c63b15bcb50033e35340aa55947105030cd2fc2ce3b6df3d129",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_000_world_640.png",
+      "sha256": "db4428247f8cdb402c10db8122073518e5e9141ead7c32583a7205a784e44e30",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_050_ui_1920.png",
+      "sha256": "0adf9469c71bc3b592437ee3904fb407abf1a33293818809052359ccee0c875f",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_050_ui_640.png",
+      "sha256": "ac9a39cea134eb547377bc173482e74250cbd0731fd25283d02a042b9388b7dc",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_050_world_640.png",
+      "sha256": "605b65fd35af60216abc2d03de894e1014cd791784bf1abb88fa8f00f32893da",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_100_ui_1920.png",
+      "sha256": "fd80d59bd23aff23388083bd56a2f6bb882ebe3736eadcdc0043ade291e6238d",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_100_ui_640.png",
+      "sha256": "c90416b875bd7230c6e046ff508a3ff59bf1ba52e483bde6366ef7178412e578",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_100_world_1920.png",
+      "sha256": "c444730e6c1bbc14c2789e39c147d5e42ab6bc8d50253067b515b758ebf0b9f5",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/growth_100_world_640.png",
+      "sha256": "130cda3bb88d86db46d13e3a4f488821d9a8a6948a153e7d8014560f8436beb9",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/report.md",
+      "sha256": "7b7c0cb0855af2e363d23ad9d399352c62d3294d745cdfb8cf42b6bafec27d38",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/source-manifest.json",
+      "sha256": "43110c446cfad865061a08f6c499059fdee0efe39d82ed84ac06b5535f55f5e7",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/image-manifest.json",
+      "sha256": "a1b3d7862e986159e42dc63e698e96acdaf12f42721afdf14acb5a7d6d130888",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/integrity.json",
+      "sha256": "5099b0dcac201a0b88564c9699e72a09005f0247db3ac95fd7dd6153a9661fdb",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/results.json",
+      "sha256": "e7fbbb7c2d7436b96dbd1bde083e92f03a024ae24a4de83232258512eb3b7e91",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/process.json",
+      "sha256": "946e42d8ba21e326bb3369564e3cb9d3412cab0d76cf94db5513c5f59264174c",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/gpu.log",
+      "sha256": "abb065897ecb1a11d1b8caaa50fba21f0fbe6d25a12442eed7acf1212a82038b",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/stdout.log",
+      "sha256": "1ed94878d4fc38ff250f38b479235e633eb38bdca89aaa47d08f76ecbefb312e",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_frozen": true,
+      "matches_start": true
+    },
+    {
+      "path": "evidence/vegetation-lab/self/parse.log",
+      "sha256": "7cec109d281944d01d93e832d938f706b062023e95f5c723c818c916223d6d63",
+      "matches_frozen": true,
+      "matches_start": true
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "project.godot",
+      "actual": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+      "matches_before_and_prior_independent": true
+    },
+    {
+      "path": "scripts/render_study_3d/study.gd",
+      "actual": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+      "matches_before_and_prior_independent": true
+    },
+    {
+      "path": "scripts/render_study_3d/ruin_geometry.gd",
+      "actual": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+      "matches_before_and_prior_independent": true
+    },
+    {
+      "path": "assets/render_study_3d/concrete.gdshader",
+      "actual": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+      "matches_before_and_prior_independent": true
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+      "actual": "8a2559a19400ded573ab0f0d29c3379e248ec79265e4abf0f6d069fb3a097e64",
+      "matches_before_and_prior_independent": true
+    }
+  ],
+  "final_GPU_logs_ok": true,
+  "headless_measurement": "NOT_RUN; raw untrusted values retained in geometry-checks.json",
+  "limitations": [
+    "Source/image exclusion assessment only, no verified actual MultiMesh vertex measurement.",
+    "Self14PASS reviewed, not substituted for independent execution.",
+    "3Dfixture only, no final art acceptance or gameplay growth/save integration.",
+    "Initial parse Quaternion errors are historical; final GPU exercised affected states without errors."
+  ],
+  "acceptance": "Parent decides task acceptance."
+}

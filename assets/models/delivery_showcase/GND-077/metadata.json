@@ -1,0 +1,146 @@
+{
+  "asset_id": "GND-077",
+  "name": "欠損した六角テラコッタ舗装",
+  "category": "GND",
+  "version": "expansion.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      0.039466701447963715,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.600000023841858,
+      -0.20000000298023224,
+      -1.2000000476837158
+    ],
+    "max": [
+      1.600000023841858,
+      0.27893340587615967,
+      1.2000000476837158
+    ]
+  },
+  "dimensions": [
+    3.200000047683716,
+    0.4789334088563919,
+    2.4000000953674316
+  ],
+  "placement_size_xz": [
+    3.200000047683716,
+    2.4000000953674316
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -1.600000023841858,
+    -1.2000000476837158,
+    1.600000023841858,
+    1.2000000476837158
+  ],
+  "geometry_stats": {
+    "triangles": 2512,
+    "vertices": 1918,
+    "objects": 3,
+    "material_count": 6
+  },
+  "meshes": [
+    {
+      "name": "Exposed_tile_bedding",
+      "layer": "bedding",
+      "materials": [
+        "Soil"
+      ]
+    },
+    {
+      "name": "GND-077_paving",
+      "layer": "paving",
+      "materials": [
+        "Tile_worn",
+        "Tile_ochre"
+      ]
+    },
+    {
+      "name": "Separate_irregular_grass_blades",
+      "layer": "grass",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_olive",
+        "Leaf_deep"
+      ]
+    }
+  ],
+  "external_textures": [
+    "textures/soil_surface_color.png"
+  ],
+  "connections": {
+    "design_family": "staggered hexagonal terracotta paving with two irregular missing areas and independent grass",
+    "cell_m": 0.4,
+    "grid_cells": [
+      8,
+      6
+    ],
+    "nominal_bounds_xz": [
+      -1.6,
+      -1.2,
+      1.6,
+      1.2
+    ],
+    "edge_datum_y": 0,
+    "origin": "tile centre at nominal ground zero",
+    "collision_navigation": "NOT_RUN",
+    "grass_layer": "grass, independent from ground",
+    "water": null,
+    "pattern_alignment": "rows follow world X; outer boundary remains orthogonal0.4m grid",
+    "grass_roots": "only in exposed bedding where tiles are absent",
+    "paving_substrate_preserved": true,
+    "design_expansion": true
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 2512,
+      "triangles_after": 2512,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": false,
+  "design_expansion": true,
+  "delivery_files": {
+    "blend": "077_broken_hex_terracotta_paving.blend",
+    "glb": "077_broken_hex_terracotta_paving.glb"
+  }
+}

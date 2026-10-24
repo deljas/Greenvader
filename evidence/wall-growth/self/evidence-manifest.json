@@ -1,0 +1,197 @@
+[
+  {
+    "path": "before/scripts/greening_map/map.gd",
+    "sha256": "d1fcbe9300bdc84850ac8e96482f995a397fc9652847061b8fcba81ff2797f0d",
+    "bytes": 11387
+  },
+  {
+    "path": "before/scripts/greening_map/water_surface.gd",
+    "sha256": "582796d1c3b3ab00193d9888990ef9c6ef30082a1aeed5644a51f714f910d971",
+    "bytes": 3395
+  },
+  {
+    "path": "before/scripts/greening_map/water_surface.gdshader",
+    "sha256": "a4b4f1369f21546d9bc177b8fb48b3a2f0b747cab105c9bfd182e175bc366d25",
+    "bytes": 674
+  },
+  {
+    "path": "before/scripts/vegetation_lab/growth_patch.gd",
+    "sha256": "f7d2ba2de0a6448c9c99b3a07d304c9418439a38103cad000a25a097afef36ee",
+    "bytes": 7654
+  },
+  {
+    "path": "before/scripts/vegetation_lab/surface_layers.gd",
+    "sha256": "0ad587e2304392b6072b317a5e1a8f8ff76918725e6ab0a6ff8eb52bc7b83dbe",
+    "bytes": 4200
+  },
+  {
+    "path": "before-manifest.json",
+    "sha256": "f44eaf455efeaa3674cf0d1e3849cc02b1793251d06b7548fbab17ad81847462",
+    "bytes": 16970
+  },
+  {
+    "path": "front_wall_after135_ui_1920.png",
+    "sha256": "0fcaa6d064838634e944c09981977cc9c2b98863cea76e836a31f8df76efd7a9",
+    "bytes": 176230
+  },
+  {
+    "path": "front_wall_after135_world_640.png",
+    "sha256": "92bffa505d6100a11ac2e61265a8d6b617fef8eef5896b3be02a2ee0fe18c552",
+    "bytes": 101526
+  },
+  {
+    "path": "front_wall_after45_ui_1920.png",
+    "sha256": "150e9c440346b2d45b64ce36ffdc53d57052247f9d36fd3bf1e10a6b04393db8",
+    "bytes": 175082
+  },
+  {
+    "path": "front_wall_after45_world_640.png",
+    "sha256": "f9fc8e7d6e49ee6979600a34f003c8f8da25d31624676c68e54259ea7fffcbb7",
+    "bytes": 100864
+  },
+  {
+    "path": "gpu-raw.json",
+    "sha256": "ba10d6929c539de1544d7fce73ec439f597993ae3474b56308401ca2f2516d03",
+    "bytes": 63896
+  },
+  {
+    "path": "gpu-results.json",
+    "sha256": "641d09809ba22339d93eb71e1aecc0373995a89b880c36e69a29f27565602b89",
+    "bytes": 782
+  },
+  {
+    "path": "gpu.log",
+    "sha256": "0e90c11fe07c6cb90157804ca3f62ac31b12077730e072378e630c8c4e2b2eeb",
+    "bytes": 1541
+  },
+  {
+    "path": "implementation.patch",
+    "sha256": "a08fe018f42f3e9d56c021c49316c75c682287f3a10a65e01eadea651ddd682d",
+    "bytes": 29469
+  },
+  {
+    "path": "initial_wall_zero_ui_1920.png",
+    "sha256": "14ac9233ef3a83d7ef068fdfc069f6d7840492b6798939dda218f974e4da920a",
+    "bytes": 172017
+  },
+  {
+    "path": "initial_wall_zero_world_1920.png",
+    "sha256": "7388b65d2507db14c6096a78adc428e44db01b0fb726b66770e3fe487ca3c302",
+    "bytes": 147563
+  },
+  {
+    "path": "initial_wall_zero_world_640.png",
+    "sha256": "056f84e65c23dd73738021ec9916f789650b7da94bb6a36ad8dd4910f697c620",
+    "bytes": 99198
+  },
+  {
+    "path": "integrity.json",
+    "sha256": "7630e9444048726ff545fb8478617d2ce8983bf4d0d0c767de3b72d4545fa7c4",
+    "bytes": 30277
+  },
+  {
+    "path": "logic-raw.json",
+    "sha256": "ab88557c9b823bbae1576d84ca89ca39cb203e33da9316ec7233e593f2d0a81b",
+    "bytes": 14067
+  },
+  {
+    "path": "logic-results.json",
+    "sha256": "db395a56814a164ba5e29dfce204ee3089db7331d9dc5afec1745cf9ef68e7a0",
+    "bytes": 3196
+  },
+  {
+    "path": "logic.log",
+    "sha256": "4ca578945be9d2a47f86e65df90273c901c921bf3a460a0178085235dd5f0cb8",
+    "bytes": 1336
+  },
+  {
+    "path": "parse.log",
+    "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+    "bytes": 73
+  },
+  {
+    "path": "process.json",
+    "sha256": "00f0b73c390506731aa802607ff361f0092e801512090817c744abcef8e552ac",
+    "bytes": 60
+  },
+  {
+    "path": "report.md",
+    "sha256": "7dcec94bbd5ec7b63386aef2548b06ed53071b62e1c24efa00f71442ad8ed157",
+    "bytes": 3662
+  },
+  {
+    "path": "source-manifest.json",
+    "sha256": "6e155b63a50a5410ad6c38fdde4dbaf7cf1812de53d2a60e914ec02dcdbdce07",
+    "bytes": 1415
+  },
+  {
+    "path": "stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "stdout.log",
+    "sha256": "0ea521619f864333f0c80272b316c85d49d5aece1f731fc1d63fe3f1ab3d77b2",
+    "bytes": 1559
+  },
+  {
+    "path": "water_reflection_only_ui_1920.png",
+    "sha256": "698cfb9e6ab1f1e335150b08220cd33e5b20532be091bbf0cecdfe9b2fe39d00",
+    "bytes": 169073
+  },
+  {
+    "path": "water_reflection_only_world_640.png",
+    "sha256": "091b4908fb5ec405d20b902d5a64b68d64dc507a3e6e2072df7b19cd5578ecb6",
+    "bytes": 97532
+  },
+  {
+    "path": "water_reflection_shadow_OFF_ui_1920.png",
+    "sha256": "317bce95f5c133a5105fb1cfad0332ef97a17e47494033e5bc2ca287f4e7ae19",
+    "bytes": 168703
+  },
+  {
+    "path": "water_reflection_shadow_OFF_world_640.png",
+    "sha256": "d73ab14542cf8e011d63ff8ea31e95d4bce292bb9155845913d62142cc35520f",
+    "bytes": 97200
+  },
+  {
+    "path": "water_reflection_shadow_ON_ui_1920.png",
+    "sha256": "4292e33c0cad5e838643a618939696c548b0dcac37c82c5039ed5325bcc2fb6d",
+    "bytes": 169171
+  },
+  {
+    "path": "water_reflection_shadow_ON_world_640.png",
+    "sha256": "f5f55f1cd37de2b94b54672f22c1c7fc3d43e03e40cf3d9b3f807d8e263cae72",
+    "bytes": 97647
+  },
+  {
+    "path": "water_shadow_only_sun270_ui_1920.png",
+    "sha256": "05db567af7180b6f58342f161bede60ed617f63f1482aebedf3b465029f4a58b",
+    "bytes": 168629
+  },
+  {
+    "path": "water_shadow_only_sun270_world_640.png",
+    "sha256": "37afd61ca78631123d33215875212d60f0ea0594f144044e0080602eaa2cbac0",
+    "bytes": 97635
+  },
+  {
+    "path": "water_shadow_only_ui_1920.png",
+    "sha256": "4c4bc8994fc6d96625f44727aa30c9d6d387264b9f8db6a7c0c9d895215ca30f",
+    "bytes": 168808
+  },
+  {
+    "path": "water_shadow_only_world_640.png",
+    "sha256": "88e37468f7fd91c35ec67acfe300ed037bf8a16ad286582faf3ff75d0b0a47ca",
+    "bytes": 97311
+  },
+  {
+    "path": "water_sun270_ui_1920.png",
+    "sha256": "3c26ccc625be62403ef4d776e5c962935120593e18668bf7bbf46dd4a33ba2d8",
+    "bytes": 169324
+  },
+  {
+    "path": "water_sun270_world_640.png",
+    "sha256": "b638f7d07c9fb019cb1c8e687b7a6b0da30477f7a12f42147e4bc0a539392a68",
+    "bytes": 97979
+  }
+]

@@ -1,0 +1,90 @@
+extends SceneTree
+## One short CPU/engine check. No OS input and no native window is opened.
+## PNGs are code-raster compositions, NOT screenshots of the actual window/UI.
+
+const Raster: GDScript = preload("res://scripts/art_study/study_raster.gd")
+const OUTPUT: String = "res://evidence/art01/self/"
+var checks: Array[Dictionary] = []
+var failures: int = 0
+
+func _initialize() -> void:
+	call_deferred("_run")
+
+func record(id: String, passed: bool, detail: String) -> void:
+	checks.append({"id": id, "result": "PASS" if passed else "FAIL", "detail": detail})
+	if not passed:
+		failures += 1
+	print("%s %s %s" % ["PASS" if passed else "FAIL", id, detail])
+
+func _run() -> void:
+	var packed: PackedScene = load("res://scenes/art_study.tscn") as PackedScene
+	var study: Node2D = packed.instantiate() as Node2D
+	root.add_child(study)
+	await process_frame
+	record("scene.load", study.images.size() == 2 and study.raster_builds == 2, "two cached compositions, no simulation")
+	record("raster.size", study.images[0].get_size() == Vector2i(640, 360), "640x360 source")
+	record("player.scale", PixelArt.flower().get_size() == Vector2(16, 16), "existing 16x16 flower")
+	record("seed.pickup", PlayArt.fruit().get_size() == Vector2(4, 4), "existing 4x4 pickup, not the projectile")
+	record("tree.scale", Raster.tree().get_size() == Vector2i(64, 84), "64x84 original tree")
+	var a_centers: Array[Vector2i] = Raster.tall_centers(false)
+	var b_centers: Array[Vector2i] = Raster.tall_centers(true)
+	var includes_a: bool = true
+	for p: Vector2i in a_centers:
+		includes_a = includes_a and b_centers.has(p)
+	record("density.only", includes_a and b_centers.size() > a_centers.size(), "A=%d B=%d tall clumps; B includes every A clump, same palette" % [a_centers.size(), b_centers.size()])
+	var a: Image = study.images[0]
+	var b: Image = study.images[1]
+	record("raster.fixed", a.get_data() == Raster.composition(false).get_data(), "same world positions reproduce identical bytes")
+	var soil: Rect2i = Rect2i(490, 50, 130, 260)
+	var tree_pixels_equal: bool = true
+	var tree_mask: Image = Raster.tree()
+	for ty: int in 64:
+		for tx: int in 64:
+			if tree_mask.get_pixel(tx, ty).a > 0.0:
+				var p: Vector2i = Raster.TREE_POSITION + Vector2i(tx, ty)
+				tree_pixels_equal = tree_pixels_equal and a.get_pixelv(p) == b.get_pixelv(p)
+	record("composition.fixed", a.get_region(soil).get_data() == b.get_region(soil).get_data() and tree_pixels_equal, "soil and opaque crown pixels unchanged between variants; transparent gaps retain grass")
+	var key: InputEventKey = InputEventKey.new()
+	key.keycode = KEY_B
+	key.pressed = true
+	Input.parse_input_event(key)
+	await process_frame
+	record("input.B", study.variant == 1, "engine-internal B key selects rich")
+	key = InputEventKey.new()
+	key.keycode = KEY_A
+	key.pressed = true
+	Input.parse_input_event(key)
+	await process_frame
+	record("input.A", study.variant == 0, "engine-internal A key selects restrained")
+	study.buttons[1].pressed.emit()
+	record("button.signal", study.variant == 1, "button signal connects to B; physical mouse NOT_RUN")
+	await process_frame
+	record("cache.idle", study.raster_builds == 2 and study.images[0].get_data() == a.get_data(), "switching/idle uses existing cached rasters")
+	record("display.config", ProjectSettings.get_setting("display/window/stretch/scale_mode") == "integer" and study.texture_filter == CanvasItem.TEXTURE_FILTER_NEAREST, "inherited integer viewport stretch, explicit nearest; native drawing NOT_RUN")
+	for i: int in 2:
+		var name: String = "A_restrained" if i == 0 else "B_rich"
+		record("png." + name, study.images[i].save_png(OUTPUT + name + ".png") == OK, "CPU composition, Japanese UI not included")
+		var doubled: Image = study.images[i].duplicate()
+		doubled.resize(1280, 720, Image.INTERPOLATE_NEAREST)
+		doubled.save_png(OUTPUT + name + "_2x.png")
+	# Same native-pixel crop for each variant, 4x nearest, A on left / B on right.
+	var crop: Rect2i = Rect2i(192, 102, 240, 155)
+	var comparison: Image = Image.create(480, 155, false, Image.FORMAT_RGBA8)
+	comparison.blit_rect(a, crop, Vector2i.ZERO)
+	comparison.blit_rect(b, crop, Vector2i(240, 0))
+	comparison.resize(1920, 620, Image.INTERPOLATE_NEAREST)
+	comparison.save_png(OUTPUT + "AB_detail_4x.png")
+	var full: Image = Image.create(1280, 278, false, Image.FORMAT_RGBA8)
+	full.blit_rect(a, Raster.FIELD, Vector2i.ZERO)
+	full.blit_rect(b, Raster.FIELD, Vector2i(640, 0))
+	full.resize(2560, 556, Image.INTERPOLATE_NEAREST)
+	full.save_png(OUTPUT + "AB_field_2x.png")
+	checks.append({"id": "native.window_and_UI", "result": "NOT_RUN", "detail": "No verified pre-launch no-focus option in Godot --help. Did not open a native window. PNGs are CPU rasters, not actual rendered UI."})
+	checks.append({"id": "physical.input", "result": "NOT_RUN", "detail": "No OS input sent; user may open run_art_study.bat and click A/B."})
+	var out: FileAccess = FileAccess.open(OUTPUT + "checks.json", FileAccess.WRITE)
+	out.store_string(JSON.stringify({"checks": checks, "failures": failures, "density_A": a_centers.size(), "density_B": b_centers.size()}, "\t"))
+	out.close()
+	study.queue_free()
+	await process_frame
+	print("ART01 SELF FINISHED failures=%d; native NOT_RUN; no OS input" % failures)
+	quit(0 if failures == 0 else 1)

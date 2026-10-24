@@ -1,0 +1,71 @@
+extends SceneTree
+## One same-frame GPU A/B capture. Existing materials and source scene untouched.
+const Scene: PackedScene = preload("res://scenes/render_study_3d.tscn")
+const Grade: Shader = preload("res://assets/render_study_3d/style_grade.gdshader")
+const OUT: String = "res://evidence/render-study-3d/style/"
+
+func _initialize() -> void:
+	root.unfocusable = true
+	run.call_deferred()
+
+func blit_view(tex: Texture2D, size_: Vector2i, shader_: Shader = null) -> SubViewport:
+	var view: SubViewport = SubViewport.new()
+	view.size = size_
+	view.disable_3d = true
+	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	root.add_child(view)
+	var rect: TextureRect = TextureRect.new()
+	rect.texture = tex
+	rect.size = size_
+	rect.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	if shader_ != null:
+		var mat: ShaderMaterial = ShaderMaterial.new()
+		mat.shader = shader_
+		rect.material = mat
+	view.add_child(rect)
+	return view
+
+func run() -> void:
+	var study: Node = Scene.instantiate()
+	root.add_child(study)
+	study.render_view.size = Vector2i(640,360)
+	study.set_time(1)
+	RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_HARD)
+	# HARD disables the soft filter; keep its footprint scale nonzero because
+	# zero introduces severe self-shadow acne with the existing low biases.
+	study.sun.shadow_blur = 1.0
+	study.sun.shadow_bias = 0.10
+	study.sun.shadow_normal_bias = 1.0
+	var device: String = RenderingServer.get_video_adapter_name()
+	if DisplayServer.get_name() == "headless" or device.is_empty():
+		push_error("NOT_RUN: GPU required")
+		quit(2)
+		return
+	await study.wait_render()
+	var a: Image = study.render_view.get_texture().get_image()
+	var a3: Image = study.doubled_view.get_texture().get_image()
+	# Freeze this exact hard-shadow GPU frame as the source of both variants.
+	study.render_view.render_target_update_mode = SubViewport.UPDATE_DISABLED
+	var graded: SubViewport = blit_view(study.render_view.get_texture(),Vector2i(640,360),Grade)
+	var b3view: SubViewport = blit_view(graded.get_texture(),Vector2i(1920,1080))
+	await study.wait_render()
+	var b: Image = graded.get_texture().get_image()
+	var b3: Image = b3view.get_texture().get_image()
+	var a_exact: Image = a.duplicate()
+	a_exact.resize(1920,1080,Image.INTERPOLATE_NEAREST)
+	var b_exact: Image = b.duplicate()
+	b_exact.resize(1920,1080,Image.INTERPOLATE_NEAREST)
+	var a_ok: bool = a_exact.get_data() == a3.get_data()
+	var b_ok: bool = b_exact.get_data() == b3.get_data()
+	var frozen: bool = a.get_data() == study.render_view.get_texture().get_image().get_data()
+	var saved: bool = a.save_png(OUT+"A_hard_shadow_640.png") == OK
+	saved = a3.save_png(OUT+"A_hard_shadow_1920.png") == OK and saved
+	saved = b.save_png(OUT+"B_hard_shadow_grade_640.png") == OK and saved
+	saved = b3.save_png(OUT+"B_hard_shadow_grade_1920.png") == OK and saved
+	var different: bool = a.get_data() != b.get_data()
+	var result: Dictionary = {"device":device,"renderer":RenderingServer.get_current_rendering_method(),"source_size":a.get_size(),"output_size":a3.get_size(),"A_exact_nearest_3x":a_ok,"B_exact_nearest_3x":b_ok,"same_frozen_source":frozen,"A_B_differ":different,"saved":saved,"shadow_filter":"SHADOW_QUALITY_HARD","shadow_blur":study.sun.shadow_blur,"shadow_bias":study.sun.shadow_bias,"shadow_normal_bias":study.sun.shadow_normal_bias,"angular_distance":study.sun.light_angular_distance,"atlas_size_unmodified":ProjectSettings.get_setting("rendering/lights_and_shadows/directional_shadow/size"),"grade":"one GPU sample at 640; no explicit gamma conversion; warm light/cool shadow; scalar luma 20 levels mixed 20%","camera":study.camera.transform,"sun":study.TIMES[1],"native":"NOT_RUN","dynamic_flicker":"NOT_RUN","OS_input":"none"}
+	var file: FileAccess = FileAccess.open(OUT+"capture-results.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(result,"\t"))
+	file.close()
+	print("STYLE_DONE A_3x=%s B_3x=%s same_source=%s different=%s saved=%s" % [a_ok,b_ok,frozen,different,saved])
+	quit(0 if a_ok and b_ok and frozen and different and saved else 1)

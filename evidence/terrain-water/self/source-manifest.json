@@ -1,0 +1,45 @@
+{
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "files": [
+    {
+      "path": "scripts/greening_map/ground_view.gd",
+      "sha256": "4d9c817c15942549670639cbc86bf0b27ba8371d954c3cba74c08518c9917cdb",
+      "bytes": 6175
+    },
+    {
+      "path": "scripts/greening_map/map.gd",
+      "sha256": "d1fcbe9300bdc84850ac8e96482f995a397fc9652847061b8fcba81ff2797f0d",
+      "bytes": 11387
+    },
+    {
+      "path": "scripts/greening_map/water_surface.gd",
+      "sha256": "582796d1c3b3ab00193d9888990ef9c6ef30082a1aeed5644a51f714f910d971",
+      "bytes": 3395
+    },
+    {
+      "path": "scripts/greening_map/water_surface.gdshader",
+      "sha256": "a4b4f1369f21546d9bc177b8fb48b3a2f0b747cab105c9bfd182e175bc366d25",
+      "bytes": 674
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_capture.gd",
+      "sha256": "56ce5c8144b644e4c064593a97ba76ce49732497d0da6dd89d821aa6ece39058",
+      "bytes": 6364
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_final.gd",
+      "sha256": "ae24462818a68f055051e247af244e20c74c6e3365edcdaf9a2ab0d8d1268174",
+      "bytes": 493
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_logic.gd",
+      "sha256": "e1043c715b8d05a9e8ed157d6ebbc9478de194d86988b0615182916a78956a88",
+      "bytes": 3806
+    },
+    {
+      "path": "tests/greening_map/terrain_water_self_reflection.gd",
+      "sha256": "35e971cb26a0892d58d01a3aa187ecdc60d55b30371481e1470af0a4fc5f3f30",
+      "bytes": 3293
+    }
+  ]
+}

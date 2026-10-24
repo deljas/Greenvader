@@ -1,0 +1,65 @@
+[
+  {
+    "path": "scripts/render_study_3d/study.gd",
+    "before": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+    "after": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+    "unchanged": true,
+    "permitted_guard_change": false
+  },
+  {
+    "path": "scripts/render_study_3d/ruin_geometry.gd",
+    "before": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+    "after": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+    "unchanged": true,
+    "permitted_guard_change": false
+  },
+  {
+    "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+    "before": "1764895c0c5bd9034055f3841c93523b63529d8fa7ecd1f82c42362c192d5647",
+    "after": "8a2559a19400ded573ab0f0d29c3379e248ec79265e4abf0f6d069fb3a097e64",
+    "unchanged": false,
+    "permitted_guard_change": true
+  },
+  {
+    "path": "scripts/render_study_3d/sprite_shadow_fixture.gd",
+    "before": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951",
+    "after": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951",
+    "unchanged": true,
+    "permitted_guard_change": false
+  },
+  {
+    "path": "assets/render_study_3d/concrete.gdshader",
+    "before": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+    "after": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+    "unchanged": true,
+    "permitted_guard_change": false
+  },
+  {
+    "path": "assets/render_study_3d/style_grade.gdshader",
+    "before": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae",
+    "after": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae",
+    "unchanged": true,
+    "permitted_guard_change": false
+  },
+  {
+    "path": "scenes/render_study_3d.tscn",
+    "before": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce",
+    "after": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce",
+    "unchanged": true,
+    "permitted_guard_change": false
+  },
+  {
+    "path": "scenes/sprite_shadow_lab.tscn",
+    "before": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048",
+    "after": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048",
+    "unchanged": true,
+    "permitted_guard_change": false
+  },
+  {
+    "path": "project.godot",
+    "before": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+    "after": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+    "unchanged": true,
+    "permitted_guard_change": false
+  }
+]

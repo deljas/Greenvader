@@ -1,0 +1,133 @@
+{
+  "asset_id": "PRP-001",
+  "category": "PRP",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) Blender -> (x,z,-y) GLB",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "aabb": {
+    "min": [
+      -0.20000000298023224,
+      0.0,
+      -0.18000000715255737
+    ],
+    "max": [
+      0.7200000286102295,
+      3.1999998092651367,
+      0.18000000715255737
+    ]
+  },
+  "dimensions": [
+    0.9200000315904617,
+    3.1999998092651367,
+    0.36000001430511475
+  ],
+  "placement_size_xz": [
+    0.9200000315904617,
+    0.36000001430511475
+  ],
+  "contact_bounds_xz": [
+    -0.20000000298023224,
+    -0.18000000715255737,
+    0.7200000286102295,
+    0.18000000715255737
+  ],
+  "geometry_stats": {
+    "triangles": 230,
+    "vertices": 127,
+    "objects": 6,
+    "material_count": 3,
+    "blender_material_count": 3,
+    "glb_material_count": 3
+  },
+  "meshes": [
+    {
+      "name": "PRP_Base_plate",
+      "layer": "base",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP_Bent_pole",
+      "layer": "pole",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP_Broken_cable",
+      "layer": "cable",
+      "materials": [
+        "Rust"
+      ]
+    },
+    {
+      "name": "PRP_Lamp_housing",
+      "layer": "lamp",
+      "materials": [
+        "Oxidized_steel"
+      ]
+    },
+    {
+      "name": "PRP_Lamp_glass",
+      "layer": "lamp",
+      "materials": [
+        "Lamp_glass"
+      ]
+    },
+    {
+      "name": "PRP_Rust_band",
+      "layer": "rust",
+      "materials": [
+        "Rust"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "texture_note": "No image textures required; simple opaque Principled materials, no baked illumination.",
+  "connections": {
+    "base_center": [
+      0,
+      0,
+      0
+    ],
+    "fixture_emits_light": false,
+    "broken_cable_separate": true
+  },
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 230,
+      "triangles_after": 230,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN",
+    "visual_notes": "Native-scale individual/reimport views and shared wall/ground composition reviewed. Small membrane and grass assessed in composite. Not Godot verification."
+  },
+  "integration_status": "NOT_RUN",
+  "material_behavior": {
+    "opaque": true,
+    "double_sided": true,
+    "external_textures_required": false
+  }
+}

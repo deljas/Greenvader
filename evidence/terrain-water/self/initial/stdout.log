@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "id": "GPU.nearest3_exact", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/pond_normal_reflection_ON_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/pond_normal_reflection_OFF_ui_1920.png
+{ "id": "pond.reflection_toggle_GPU", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/pond_test_fixture_ON_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/pond_test_fixture_OFF_ui_1920.png
+{ "id": "pond.actual_geometry_reflection", "status": "FAIL", "detail": "test box changes 0 pixels INSIDE the unchanged pond; box casts no shadow" }
+{ "id": "reflection.state_RNG_unchanged", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/soil_pavement_stage_1_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/soil_pavement_stage_2_ui_1920.png
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/soil_pavement_stage_4_ui_1920.png
+{ "id": "terrain.same_logical_stage_rate", "status": "PASS", "detail": "" }
+{ "id": "terrain.shared_grass_sparse_vs_soil", "status": "PASS", "detail": "mature visible clumps pavement/soil = [1, 3]" }
+{ "id": "soil.original_samples_transforms_preserved", "status": "PASS", "detail": "" }
+IMAGE C:/godot/greenvader/evidence/terrain-water/self/terrain_sun135_ui_1920.png
+{ "id": "view_light.state_unchanged", "status": "PASS", "detail": "" }

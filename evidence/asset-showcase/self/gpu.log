@@ -1,0 +1,78 @@
+ERROR: Failed to open log file for writing: user://logs/godot.log
+   at: rotate_file (core/io/logger.cpp:169)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RendererCompositorRD (servers/rendering/renderer_rd/renderer_compositor_rd.cpp:337)
+
+{ "id": "24_models_loaded", "status": "PASS", "detail": "" }
+{ "id": "BLD-007_mesh_native_scale", "status": "PASS", "detail": "14" }
+{ "id": "BLD-007_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "BLD-038_mesh_native_scale", "status": "PASS", "detail": "17" }
+{ "id": "BLD-038_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "BLD-079_mesh_native_scale", "status": "PASS", "detail": "14" }
+{ "id": "BLD-079_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "BLD-123_mesh_native_scale", "status": "PASS", "detail": "7" }
+{ "id": "BLD-123_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "VIN-007_mesh_native_scale", "status": "PASS", "detail": "7" }
+{ "id": "VIN-007_not_below_floor", "status": "PASS", "detail": "0.00364759378135" }
+{ "id": "VIN-032_mesh_native_scale", "status": "PASS", "detail": "9" }
+{ "id": "VIN-032_not_below_floor", "status": "PASS", "detail": "-0.00080830603838" }
+{ "id": "VIN-047_mesh_native_scale", "status": "PASS", "detail": "4" }
+{ "id": "VIN-047_not_below_floor", "status": "PASS", "detail": "0.01879061944783" }
+{ "id": "VIN-060_mesh_native_scale", "status": "PASS", "detail": "9" }
+{ "id": "VIN-060_not_below_floor", "status": "PASS", "detail": "0.00817508995533" }
+{ "id": "MOS-003_mesh_native_scale", "status": "PASS", "detail": "1" }
+{ "id": "MOS-003_not_below_floor", "status": "PASS", "detail": "0.02400000020862" }
+{ "id": "MOS-012_mesh_native_scale", "status": "PASS", "detail": "3" }
+{ "id": "MOS-012_not_below_floor", "status": "PASS", "detail": "0.03199999779463" }
+{ "id": "MOS-024_mesh_native_scale", "status": "PASS", "detail": "1" }
+{ "id": "MOS-024_not_below_floor", "status": "PASS", "detail": "0.01400000043213" }
+{ "id": "MOS-035_mesh_native_scale", "status": "PASS", "detail": "1" }
+{ "id": "MOS-035_not_below_floor", "status": "PASS", "detail": "0.01200000010431" }
+{ "id": "TRE-001_mesh_native_scale", "status": "PASS", "detail": "4" }
+{ "id": "TRE-001_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "TRE-027_mesh_native_scale", "status": "PASS", "detail": "4" }
+{ "id": "TRE-027_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "TRE-054_mesh_native_scale", "status": "PASS", "detail": "11" }
+{ "id": "TRE-054_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "TRE-074_mesh_native_scale", "status": "PASS", "detail": "6" }
+{ "id": "TRE-074_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "GND-009_mesh_native_scale", "status": "PASS", "detail": "5" }
+{ "id": "GND-009_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "GND-036_mesh_native_scale", "status": "PASS", "detail": "4" }
+{ "id": "GND-036_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "GND-059_mesh_native_scale", "status": "PASS", "detail": "3" }
+{ "id": "GND-059_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "GND-077_mesh_native_scale", "status": "PASS", "detail": "3" }
+{ "id": "GND-077_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "PRP-001_mesh_native_scale", "status": "PASS", "detail": "6" }
+{ "id": "PRP-001_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "PRP-041_mesh_native_scale", "status": "PASS", "detail": "7" }
+{ "id": "PRP-041_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "PRP-075_mesh_native_scale", "status": "PASS", "detail": "7" }
+{ "id": "PRP-075_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "PRP-121_mesh_native_scale", "status": "PASS", "detail": "7" }
+{ "id": "PRP-121_not_below_floor", "status": "PASS", "detail": "0.0" }
+{ "id": "category_0_UI", "status": "PASS", "detail": "" }
+BLD_category labels: [{ "id": "BLD-007", "visible": true, "position": "(82.51161, 222.0)" }, { "id": "BLD-038", "visible": true, "position": "(224.8372, 222.0)" }, { "id": "BLD-079", "visible": true, "position": "(367.1628, 222.0)" }, { "id": "BLD-123", "visible": true, "position": "(509.4884, 222.0)" }]
+{ "id": "category_1_UI", "status": "PASS", "detail": "" }
+VIN_category labels: [{ "id": "VIN-007", "visible": true, "position": "(128.617, 231.5952)" }, { "id": "VIN-032", "visible": true, "position": "(234.2826, 226.0576)" }, { "id": "VIN-047", "visible": true, "position": "(377.6167, 236.8055)" }, { "id": "VIN-060", "visible": true, "position": "(467.4778, 227.8542)" }]
+{ "id": "category_2_UI", "status": "PASS", "detail": "" }
+MOS_category labels: [{ "id": "MOS-003", "visible": true, "position": "(133.8626, 203.6804)" }, { "id": "MOS-012", "visible": true, "position": "(242.4081, 211.0517)" }, { "id": "MOS-024", "visible": true, "position": "(350.9298, 202.8164)" }, { "id": "MOS-035", "visible": true, "position": "(442.8779, 211.1529)" }]
+{ "id": "category_3_UI", "status": "PASS", "detail": "" }
+TRE_category labels: [{ "id": "TRE-001", "visible": true, "position": "(116.1786, 235.0893)" }, { "id": "TRE-027", "visible": true, "position": "(236.1786, 235.0893)" }, { "id": "TRE-054", "visible": true, "position": "(356.1787, 235.0894)" }, { "id": "TRE-074", "visible": true, "position": "(476.1788, 235.0894)" }]
+{ "id": "category_4_UI", "status": "PASS", "detail": "" }
+GND_category labels: [{ "id": "GND-009", "visible": true, "position": "(93.85725, 191.1785)" }, { "id": "GND-036", "visible": true, "position": "(228.8573, 191.1785)" }, { "id": "GND-059", "visible": true, "position": "(363.8569, 191.1783)" }, { "id": "GND-077", "visible": true, "position": "(498.857, 191.1783)" }]
+{ "id": "category_5_UI", "status": "PASS", "detail": "" }
+PRP_category labels: [{ "id": "PRP-001", "visible": true, "position": "(102.6523, 223.2553)" }, { "id": "PRP-041", "visible": true, "position": "(231.2236, 223.2552)" }, { "id": "PRP-075", "visible": true, "position": "(359.7948, 223.2551)" }, { "id": "PRP-121", "visible": true, "position": "(488.366, 223.255)" }]
+{ "id": "individual_UI_focus", "status": "PASS", "detail": "" }
+MOS003_individual labels: [{ "id": "MOS-003", "visible": true, "position": "(296.3472, 188.2541)" }, { "id": "MOS-012", "visible": true, "position": "(549.6199, 205.4541)" }, { "id": "MOS-024", "visible": false, "position": "(802.8373, 186.2382)" }, { "id": "MOS-035", "visible": false, "position": "(1017.383, 205.6899)" }]
+{ "id": "nearest3_exact", "status": "PASS", "detail": "" }
+{ "id": "category_key_internal", "status": "PASS", "detail": "" }
+{ "id": "camera_input_internal", "status": "PASS", "detail": "" }
+{ "id": "zoom_input_internal", "status": "PASS", "detail": "" }
+BLD123_sun52 labels: [{ "id": "BLD-007", "visible": false, "position": "(-849.6007, 278.0)" }, { "id": "BLD-038", "visible": false, "position": "(-467.8669, 278.0)" }, { "id": "BLD-079", "visible": false, "position": "(-86.13314, 278.0)" }, { "id": "BLD-123", "visible": true, "position": "(295.6006, 278.0)" }]
+BLD123_sun15 labels: [{ "id": "BLD-007", "visible": false, "position": "(-849.6007, 278.0)" }, { "id": "BLD-038", "visible": false, "position": "(-467.8669, 278.0)" }, { "id": "BLD-079", "visible": false, "position": "(-86.13314, 278.0)" }, { "id": "BLD-123", "visible": true, "position": "(295.6006, 278.0)" }]
+{ "id": "sun_UI_changes_render", "status": "PASS", "detail": "" }
+{ "id": "orthographic_30degree", "status": "PASS", "detail": "" }

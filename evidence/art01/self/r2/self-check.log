@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS scene.load two cached compositions, no simulation
+PASS raster.size 640x360 source
+PASS player.scale existing 16x16 flower
+PASS seed.pickup existing 4x4 pickup, not the projectile
+PASS tree.scale 64x84 original tree
+PASS density.only A=129 B=280 tall clumps; B includes every A clump, same palette
+PASS raster.fixed same world positions reproduce identical bytes
+PASS composition.fixed soil and opaque crown pixels unchanged between variants; transparent gaps retain grass
+PASS input.B engine-internal B key selects rich
+PASS input.A engine-internal A key selects restrained
+PASS button.signal button signal connects to B; physical mouse NOT_RUN
+PASS cache.idle switching/idle uses existing cached rasters
+PASS display.config inherited integer viewport stretch, explicit nearest; native drawing NOT_RUN
+PASS png.A_restrained CPU composition, Japanese UI not included
+PASS png.B_rich CPU composition, Japanese UI not included
+ART01 SELF FINISHED failures=0; native NOT_RUN; no OS input

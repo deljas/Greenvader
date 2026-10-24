@@ -1,0 +1,25 @@
+{
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "files": [
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "f7d2ba2de0a6448c9c99b3a07d304c9418439a38103cad000a25a097afef36ee",
+      "bytes": 7654
+    },
+    {
+      "path": "scripts/vegetation_lab/moss.gdshader",
+      "sha256": "b106dd3471a5b7790f82841028bf869b55ad30668787c232173f03f424f9db6a",
+      "bytes": 527
+    },
+    {
+      "path": "scripts/vegetation_lab/surface_layers.gd",
+      "sha256": "0ad587e2304392b6072b317a5e1a8f8ff76918725e6ab0a6ff8eb52bc7b83dbe",
+      "bytes": 4200
+    },
+    {
+      "path": "tests/vegetation_lab/self_variation_capture.gd",
+      "sha256": "185443c8b3e5f6f6cc340d9219de04e4fe9700e7dcd65c46c4770db33eaae34f",
+      "bytes": 6012
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "frozen": {
+    "count": 106,
+    "mismatches": []
+  },
+  "protected": {
+    "count": 167,
+    "mismatches": []
+  },
+  "source_copies": {
+    "count": 42,
+    "mismatches": []
+  },
+  "inventory": {
+    "assets": 15,
+    "placed": 19,
+    "buildings": [
+      "BLD-007",
+      "BLD-019",
+      "BLD-038",
+      "BLD-046",
+      "BLD-079",
+      "BLD-091",
+      "BLD-123"
+    ],
+    "exact_7_buildings": true,
+    "all_native_scale": true,
+    "building_grounded": true,
+    "blocker_count": 4044
+  },
+  "building_overlap_pairs": [],
+  "frames": [
+    {
+      "path": "evidence\\town-lab\\self\\building_wall_contact_ui_1920.png",
+      "sha256": "8ad19f71ed539def8bddce5de87a79264e63c2520dfd2192de9638d2d1b9c0c3",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\evening_overview_ui_1920.png",
+      "sha256": "c1462f78a97abc932833e67eaf7d42af96c81928ec3e59ea354481def6e83086",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\morning_overview_ui_1920.png",
+      "sha256": "fb48f804bef6110d96377b5443a6171c516cf449bae3b1a66f4daac4a62f3e3a",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\night_overview_ui_1920.png",
+      "sha256": "729c84bedf9b97236bde67ee11f22a3668f1976dabfadc5adf2197be576969f4",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\noon_overview_ui_1920.png",
+      "sha256": "d87b2358c183b673f7ed1b31762f50581c3cfca8b90401d4d7ad76722f4a3279",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\water_building_reflection_ui_1920.png",
+      "sha256": "cce6a9de4c114d9b1e53942e6932fc0b10149a0289138612c86227b81de0a818",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\water_day_shadow_OFF_ui_1920.png",
+      "sha256": "0a7e9d91469b6e8efdb472b07a87b9845259462f54441f58dd63b5040134c9e6",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\water_day_shadow_ui_1920.png",
+      "sha256": "4201d693e5e43f74c49d5514fea8e5c2f3a19ccf50f366e59d1e960d63c1c482",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\water_night_building_reflection_ui_1920.png",
+      "sha256": "8fe6b77606d2a912bf964705685376bd18198a62da779b63b4cb0e32a8d5e7f0",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\water_night_lamps_ui_1920.png",
+      "sha256": "c5d893d1244713df99cd6e275e483c6a064a92b967353146f13d6c94954c0cc2",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\water_night_shadow_OFF_ui_1920.png",
+      "sha256": "408aae6e97ba577807d25d5ea9a603898b78d12f2d3d56f73ca1fffc7f818672",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    },
+    {
+      "path": "evidence\\town-lab\\self\\water_reflection_OFF_ui_1920.png",
+      "sha256": "49f7d1b555134760c097581612cc3c690cfac23d49ebb94412161cf01d22f497",
+      "size": [
+        1920,
+        1080
+      ],
+      "integer3": true
+    }
+  ],
+  "gpu_differences": {
+    "day_shadow_pixels": 61,
+    "night_shadow_pixels": 3625,
+    "final_P1_reflection_pixels": 1557
+  },
+  "final_overview_average_RGB": {
+    "morning": 0.3492447179103123,
+    "noon": 0.3948500192901234,
+    "evening": 0.34875910607298477,
+    "night": 0.14905158973311547
+  },
+  "raw_compass": [
+    {
+      "label": "morning_overview",
+      "screen_right_source": 28.088020831411384,
+      "screen_south_source": 7.526161736237136,
+      "height": 7.37701,
+      "expected_compass": true,
+      "actor_shaded": true,
+      "actor_sync": true
+    },
+    {
+      "label": "noon_overview",
+      "screen_right_source": 0.0,
+      "screen_south_source": 17.20728795668277,
+      "height": 24.57456,
+      "expected_compass": true,
+      "actor_shaded": true,
+      "actor_sync": true
+    },
+    {
+      "label": "evening_overview",
+      "screen_right_source": -28.088020831411384,
+      "screen_south_source": 7.526161736237136,
+      "height": 7.37701,
+      "expected_compass": true,
+      "actor_shaded": true,
+      "actor_sync": true
+    },
+    {
+      "label": "night_overview",
+      "screen_right_source": -10.108461961015038,
+      "screen_south_source": -17.50837119568488,
+      "height": -22.16474,
+      "expected_compass": true,
+      "actor_shaded": true,
+      "actor_sync": true
+    }
+  ],
+  "recorded_results": {
+    "count": 40,
+    "statuses": {
+      "PASS": 40
+    },
+    "effective_conditions": 38,
+    "excluded_superseded": [
+      "water_night_local_shadow",
+      "building_reflection_present"
+    ]
+  },
+  "evidence_sha256": {
+    "evidence\\town-lab\\self\\initial-results.json": "53cb268e455b85b7da90fc737789ff77388eba66d9dffaa46a38eec4de924723",
+    "evidence\\town-lab\\self\\placements.json": "abddd079f1a214e493b7d01c5c5d0464f1e6548f95114ea04ee0e308d1b937f9",
+    "evidence\\town-lab\\self\\preservation.json": "74143fb70c60743c8293be98fcb7400d89c5276de45692deae993a04199b5cb1",
+    "evidence\\town-lab\\self\\protected-baseline.json": "e528ee976f881ea26fc66005ab6577fcc4ce16d1bef3280a51af4a85098a4f28",
+    "evidence\\town-lab\\self\\raw-contact.json": "95083227bdac47c80acd78801dd14fab15971fa452c8c38d2b69b026e0723e37",
+    "evidence\\town-lab\\self\\raw-repair.json": "414750e8cf00b052625b687f5967b3a5c201a0b08bb064decf7bb15c2ccf327b",
+    "evidence\\town-lab\\self\\raw.json": "4fb43918c085f46e83cc4b02fc7aa8f55d7a536ab3eb30a33f8b0f615d31575a",
+    "evidence\\town-lab\\self\\results.json": "e5c3ac43c1fa3f6361cf8b1dc4a88890a0b7712263d423b3eacfc4f97fbe8df1",
+    "evidence\\town-lab\\self\\source-hashes.json": "6c2295130fcdb4d287e269e8f9e5c704a72509c315b77dd909b7a142b187ff4c"
+  },
+  "failures": 0
+}

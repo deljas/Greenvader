@@ -1,0 +1,130 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Safe save failed. This may be a permissions problem, but also may happen because you are running a paranoid antivirus. If this is the case, please switch to Windows Defender or disable the 'safe save' option in editor settings. This makes it work, but increases the risk of file corruption in a crash.
+   at: _close (drivers/windows/file_access_windows.cpp:277)
+[   0% ] first_scan_filesystem | Started プロジェクトの初期化 (5 steps)
+[   0% ] first_scan_filesystem | ファイル構造をスキャン中...
+[  16% ] first_scan_filesystem | グローバルクラス名を読み込み中...
+[  33% ] first_scan_filesystem | GDExtensionを検証中...
+[  50% ] first_scan_filesystem | 自動読み込みスクリプトを作成中...
+[  66% ] first_scan_filesystem | プラグインを初期化中...
+[  83% ] first_scan_filesystem | ファイルスキャンを開始...
+[ DONE ] first_scan_filesystem
+
+WARNING: Missing .uid file for path "res://tests/p2/independent/p2_05_v_logic.gd". The file was re-created from cache.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1391)
+WARNING: Missing .uid file for path "res://tests/p2/p2_05_checks.gd". The file was re-created from cache.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1391)
+WARNING: Missing .uid file for path "res://tests/p2/p2_05_gpu.gd". The file was re-created from cache.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1391)
+WARNING: Missing .uid file for path "res://tests/p2/p2_06_bot.gd". The file was re-created from cache.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1391)
+WARNING: Missing .uid file for path "res://tests/p2/p2_06_front.gd". The file was re-created from cache.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1391)
+WARNING: Missing .uid file for path "res://tests/p2/p2_06_tempo.gd". The file was re-created from cache.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1391)
+[   0% ] update_scripts_classes | Started グローバルクラスを登録中... (49 steps)
+[   0% ] update_scripts_classes | 
+[   2% ] update_scripts_classes | 
+[   4% ] update_scripts_classes | 
+[   6% ] update_scripts_classes | 
+[   8% ] update_scripts_classes | 
+[  10% ] update_scripts_classes | 
+[  12% ] update_scripts_classes | 
+[  14% ] update_scripts_classes | 
+[  16% ] update_scripts_classes | 
+[  18% ] update_scripts_classes | 
+[  20% ] update_scripts_classes | 
+[  22% ] update_scripts_classes | 
+[  24% ] update_scripts_classes | 
+[  26% ] update_scripts_classes | 
+[  28% ] update_scripts_classes | 
+[  30% ] update_scripts_classes | 
+[  32% ] update_scripts_classes | 
+[  34% ] update_scripts_classes | 
+[  36% ] update_scripts_classes | 
+[  38% ] update_scripts_classes | 
+[  40% ] update_scripts_classes | 
+[  42% ] update_scripts_classes | 
+[  44% ] update_scripts_classes | 
+[  46% ] update_scripts_classes | 
+[  48% ] update_scripts_classes | 
+[  50% ] update_scripts_classes | 
+[  52% ] update_scripts_classes | 
+[  54% ] update_scripts_classes | 
+[  56% ] update_scripts_classes | 
+[  58% ] update_scripts_classes | 
+[  60% ] update_scripts_classes | 
+[  62% ] update_scripts_classes | 
+[  64% ] update_scripts_classes | 
+[  66% ] update_scripts_classes | 
+[  68% ] update_scripts_classes | 
+[  70% ] update_scripts_classes | 
+[  72% ] update_scripts_classes | 
+[  74% ] update_scripts_classes | 
+[  76% ] update_scripts_classes | 
+[  78% ] update_scripts_classes | 
+[  80% ] update_scripts_classes | 
+[  82% ] update_scripts_classes | 
+[  84% ] update_scripts_classes | 
+[  86% ] update_scripts_classes | 
+[  88% ] update_scripts_classes | 
+[  90% ] update_scripts_classes | 
+[  92% ] update_scripts_classes | 
+[  94% ] update_scripts_classes | 
+[  96% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started アクションをスキャン中... (10 steps)
+[   0% ] _update_scan_actions | ruin-grass-detail-v1.png
+[   9% ] _update_scan_actions | ruin-grass-wide-v2.png
+[  18% ] _update_scan_actions | scene-960x540-at-1080p.png
+[  27% ] _update_scan_actions | scene-960x540.png
+[  36% ] _update_scan_actions | greening-triptych-v1.png
+[  45% ] _update_scan_actions | ruin_house.glb
+[  54% ] _update_scan_actions | fixture_0.png
+[  63% ] _update_scan_actions | fixture_1.png
+[  72% ] _update_scan_actions | fixture_2.png
+[  81% ] _update_scan_actions | fixture_3.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started アセットを(再)インポート中 (10 steps)
+[   0% ] reimport | 再インポートするファイルを準備中...
+[   9% ] reimport | 再インポートするファイルを準備中...
+[  18% ] reimport | 再インポートするファイルを準備中...
+[  27% ] reimport | 再インポートするファイルを準備中...
+[  36% ] reimport | 再インポートするファイルを準備中...
+[  45% ] reimport | 再インポートするファイルを準備中...
+[  54% ] reimport | 再インポートするファイルを準備中...
+[  63% ] reimport | 再インポートするファイルを準備中...
+[  72% ] reimport | 再インポートするファイルを準備中...
+[  81% ] reimport | 再インポートするファイルを準備中...
+[   0% ] reimport | 再インポート前の操作を実行中...
+[   0% ] reimport | ruin-grass-detail-v1.png
+[   9% ] reimport | ruin-grass-wide-v2.png
+[  18% ] reimport | scene-960x540-at-1080p.png
+[  27% ] reimport | scene-960x540.png
+[  36% ] reimport | greening-triptych-v1.png
+[  45% ] reimport | fixture_0.png
+[  54% ] reimport | fixture_1.png
+[  63% ] reimport | fixture_2.png
+[  72% ] reimport | fixture_3.png
+[  81% ] reimport | ruin_house.glb
+[   0% ] import | Started シーンをインポート (104 steps)
+[   0% ] import | シーンをインポート中...
+[   1% ] import | カスタムスクリプトの実行中...
+[  99% ] import | 保存中...
+[ DONE ] import
+
+[  90% ] reimport | アセットインポートを終了しています...
+[ DONE ] reimport
+
+[   0% ] reimport | Started アセットを(再)インポート中 (10 steps)
+[   0% ] reimport | 再インポート後の操作を実行中...
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started エディターの読み込み (5 steps)
+[   0% ] loading_editor_layout | エディターレイアウトを読み込み中...
+[  16% ] loading_editor_layout | ドックを読み込み中...
+[ DONE ] loading_editor_layout
+

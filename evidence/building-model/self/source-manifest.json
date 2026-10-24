@@ -1,0 +1,87 @@
+{
+  "task": "TECH-3D-12",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "state": "frozen uncommitted shared tree",
+  "files": [
+    {
+      "path": "scripts/greening_map/map.gd",
+      "sha256": "5f429cac37ae7545a461ca621c7052f198282417b8b250a50a6737f99e66c7c8",
+      "bytes": 13057
+    },
+    {
+      "path": "scripts/greening_map/wall_growth_controller.gd",
+      "sha256": "a46c8c665a931bd5432aa37ee7cfc3e2aec1b852ad55740bd4ec121cf5591529",
+      "bytes": 5251
+    },
+    {
+      "path": "scripts/greening_map/ground_view.gd",
+      "sha256": "cfe085f8cd8a1bb2d814ca1f65a0e539fcc57cb2614a677d60045bbb92c211f4",
+      "bytes": 6175
+    },
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "1ad65efb2c2f938a64362a2e33d1df35171ead65885792093d67b319f4d6bee3",
+      "bytes": 12432
+    },
+    {
+      "path": "scripts/vegetation_lab/surface_layers.gd",
+      "sha256": "207cf604ceba47f76dfd120f4753ffb5b149e3a7223db815b4075e73a43079ba",
+      "bytes": 5045
+    },
+    {
+      "path": "scripts/greening_map/wall_cracks.gd",
+      "sha256": "cfd748cb40bb2841ce586bcb619994d95ab063252296ff78b9c23ddadfb51a94",
+      "bytes": 1883
+    },
+    {
+      "path": "scripts/greening_map/wall_cracks.gd.uid",
+      "sha256": "7151a073b7446a6df30f93a0a7b22144533fd68ee7397afc72f35cc70fdc5a12",
+      "bytes": 19
+    },
+    {
+      "path": "tests/greening_map/model_self_logic.gd",
+      "sha256": "8d0e43ec02a1c8c75df4330df39b8dde4bb3427bd9ed51f99d0b4af6c3c06e6b",
+      "bytes": 7829
+    },
+    {
+      "path": "tests/greening_map/model_self_capture.gd",
+      "sha256": "7aea1589cd44c5ccf04d36ca72007a5e9f4dfef7d3bcc43b41b12c0905f4f82e",
+      "bytes": 4837
+    },
+    {
+      "path": "assets/models/ruin_house/attachments.gd",
+      "sha256": "41a5af27ac398489a37577627acfb8a93ce6c4f27daf5bef54e3eab5e049f249",
+      "bytes": 588
+    },
+    {
+      "path": "assets/models/ruin_house/attachments.gd.uid",
+      "sha256": "2a1151944085e067d5e5633d7a8d3d60d90d4d8fa1a006f382d13ce2bc3aab67",
+      "bytes": 19
+    },
+    {
+      "path": "assets/models/ruin_house/README.md",
+      "sha256": "e8d00124cf106fca29e746cf5bffa4d826457059361b309ed498458610fc6573",
+      "bytes": 1564
+    },
+    {
+      "path": "assets/models/ruin_house/ruin_house.glb",
+      "sha256": "f37e73f566558dcfc9706cd64834bbf62d1850d27535506feb23e2a40dffffd8",
+      "bytes": 59100
+    },
+    {
+      "path": "assets/models/ruin_house/ruin_house.glb.import",
+      "sha256": "5e2f5b9e649c5e42cd46aa91e2342b6f4cfb1e7532efde5cc5db62251560e0db",
+      "bytes": 1170
+    },
+    {
+      "path": "scripts/model_build/ruin_house_export.gd",
+      "sha256": "4bdb0610f85f1d8061b821acb3bd6f524d4257de1e21795a8bf33626cd9d9906",
+      "bytes": 4385
+    },
+    {
+      "path": "scripts/model_build/ruin_house_export.gd.uid",
+      "sha256": "abc2f33ee08cd62093ba68ea5ac5e4e9a0dc3195310a860674f3b09a1210cccb",
+      "bytes": 19
+    }
+  ]
+}

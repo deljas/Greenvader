@@ -1,0 +1,70 @@
+{
+	"failures": 0,
+	"results": [
+		{
+			"detail": "axial 4.80007410 / diagonal 4.79995728 logical px",
+			"id": "movement.screen_axes_normalized",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision.building_foundation",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision.water",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision.perimeter",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "seed.real_landing_spending",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "water.real_landing_spending",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources.insufficient_no_mutation",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources.debug_refill",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "water.existing_waterside_refill",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "clock.growth_pause",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "growth.seed_to_sprout",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "growth.mature_natural_spread",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "world.non_targets_counters",
+			"status": "PASS"
+		}
+	]
+}

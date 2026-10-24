@@ -1,0 +1,35 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"id": "PNG.exact_nearest_3x",
+			"status": "PASS"
+		},
+		{
+			"detail": "pose0=45 pose2=35 changed pixels vs own caster-OFF reference",
+			"id": "GPU.real_alpha_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "GPU.pose_changes_shadow_outline",
+			"status": "PASS"
+		},
+		{
+			"detail": "76 captures, 4 poses, flip samples=36",
+			"id": "sync.every_sample",
+			"status": "PASS"
+		}
+	],
+	"device": "NVIDIA GeForce RTX 5070 Ti",
+	"duration_seconds": 4.0,
+	"failures": 0,
+	"fixed_shadow0_pixels": 45,
+	"fixed_shadow2_pixels": 35,
+	"frames": 72,
+	"native": "NOT_RUN",
+	"physical_input": "NOT_RUN",
+	"pixel_world": 0.0283333328035143,
+	"sample_fps": 18,
+	"video": "PNG series is lossless; external MP4 encode may change color/pixels"
+}

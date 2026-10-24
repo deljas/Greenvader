@@ -1,0 +1,310 @@
+--- before/scripts/vegetation_lab/growth_patch.gd
++++ scripts/vegetation_lab/growth_patch.gd
+@@ -23,44 +23,57 @@
+ 				grass_candidates.append({"position":Vector3(p.x,0.02,p.y),"angle":rng.randf()*TAU,"threshold":rng.randf()*0.65,"variant":rng.randi_range(0,1)})
+ 	for variant: int in 2:
+ 		grass_nodes.append(_instances(library.grasses[variant],library.foliage_material,grass_candidates.size()))
++	# Separate RNG preserves the existing grass candidates bit-for-bit.
++	var vine_rng: RandomNumberGenerator = RandomNumberGenerator.new()
++	vine_rng.seed = int(def["seed"])+7109
++	var lane: int = 0
+ 	for surface: Dictionary in def["surfaces"]:
+-		var u: float = 0.32
++		var u: float = vine_rng.randf_range(0.24,0.34)
+ 		while u < float(surface["width"])-0.20:
+-			var safe: bool = true
+-			for hole: Rect2 in surface["holes"]:
+-				if u > hole.position.x-0.40 and u < hole.end.x+0.40:
+-					safe = false
+-			if safe:
+-				var points: Array[Dictionary] = []
+-				var length_: float = float(surface["height"])+1.65
+-				var steps: int = ceili(length_/0.10)
+-				for step: int in range(steps+1):
+-					var d: float = float(step)/steps*length_
+-					var uv: float = u+sin(d*2.2+u)*0.035
+-					var hit: Dictionary = Geometry.path_sample(def,surface,uv,d)
+-					if hit.is_empty():
+-						break
+-					_register_point(points,hit,Vector2(uv,d))
++			var amplitude: float = 0.014 if lane%3==0 else vine_rng.randf_range(0.22,0.42)
++			var phase: float = vine_rng.randf()*TAU
++			var frequency: float = vine_rng.randf_range(1.15,1.85)
++			var points: Array[Dictionary] = []
++			var length_: float = float(surface["height"])+1.65
++			var steps: int = ceili(length_/0.085)
++			for step: int in range(steps+1):
++				var d: float = float(step)/steps*length_
++				var uv: float = clampf(u+amplitude*(sin(d*frequency+phase)-sin(phase)),0.20,float(surface["width"])-0.20)
++				# Moving stems are checked at their actual UV, not their original lane.
++				if d<=float(surface["height"]) and Geometry.blocked_surface(surface,uv,d,0.34):
++					break
++				var hit: Dictionary = Geometry.path_sample(def,surface,uv,d)
++				if hit.is_empty():
++					break
++				_register_point(points,hit,Vector2(uv,d))
++			if points.size()>4:
+ 				var parent_index: int = paths.size()
+ 				_add_path(points,surface,0.0,-1,-1)
+-				# Both directions share the trunk's exact junction, then spread in UV.
++				paths[parent_index]["variation"] = {"amplitude":amplitude,"phase":phase,"frequency":frequency,"root_u":u}
+ 				for height_: float in [0.62,1.38,2.38,3.45,4.35]:
+-					if height_ > float(surface["height"])-0.20:
++					var branch_height: float = height_+vine_rng.randf_range(-0.16,0.16)
++					if branch_height > minf(float(surface["height"])-0.20,float(points[-1]["v"])-0.10):
+ 						continue
+-					var junction: int = mini(roundi(height_/length_*steps),points.size()-1)
++					var junction: int = mini(roundi(branch_height/length_*steps),points.size()-1)
+ 					var origin: Dictionary = points[junction]
+ 					for direction: float in [-1.0,1.0]:
+ 						var branch: Array[Dictionary] = [origin.duplicate()]
+ 						branch[0]["distance"] = 0.0
+-						for n: int in range(1,17):
+-							var bu: float = float(origin["u"])+direction*n*0.085
+-							var bv: float = float(origin["v"])+n*0.042
+-							if bu < 0.18 or bu > float(surface["width"])-0.18 or bv > float(surface["height"])-0.20 or Geometry.blocked_surface(surface,bu,bv,0.34):
++						var count: int = vine_rng.randi_range(10,20)
++						var slope: float = vine_rng.randf_range(0.015,0.065)
++						var bend: float = vine_rng.randf_range(-0.22,0.22)
++						for n: int in range(1,count+1):
++							var t: float = float(n)/count
++							var bu: float = float(origin["u"])+direction*(n*0.075+sin(t*PI)*bend)
++							var bv: float = float(origin["v"])+n*slope+sin(t*TAU)*bend
++							if bu<0.18 or bu>float(surface["width"])-0.18 or bv<0.08 or bv>float(surface["height"])-0.20 or Geometry.blocked_surface(surface,bu,bv,0.34):
+ 								break
+ 							_register_point(branch,Geometry.sample(surface,bu,bv),Vector2(bu,bv))
+ 						if branch.size()>3:
+ 							_add_path(branch,surface,float(origin["distance"]),parent_index,junction)
+-			u += 0.63
++							paths[-1]["variation"] = {"bend":bend,"slope":slope,"steps":count}
++			u += vine_rng.randf_range(0.55,0.88)
++			lane += 1
+ 	var point_count: int = 0
+ 	for path: Dictionary in paths:
+ 		point_count += path["points"].size()
+--- before/scripts/vegetation_lab/moss.gdshader
++++ scripts/vegetation_lab/moss.gdshader
+@@ -3,8 +3,9 @@
+ uniform float coverage : hint_range(0,1) = 0.6;
+ void fragment() {
+ 	vec2 p=UV*2.0-1.0;
++	float broad=sin(UV2.x*3.7+sin(UV2.y*4.3))*sin(UV2.y*4.7+UV2.x*1.9);
+ 	float n=sin(UV2.x*19.0+sin(UV2.y*12.0))*sin(UV2.y*21.0+UV2.x*7.0);
+-	float edge=length(p*vec2(1.0,0.87))+n*0.18;
++	float edge=length(p*vec2(1.0,0.87))+broad*0.30+n*0.13;
+ 	if (coverage<=0.0 || edge>coverage*1.22 || fract(sin(dot(floor(UV2*20.0),vec2(13.3,71.7)))*43758.5)<0.08) discard;
+ 	ALBEDO=mix(vec3(0.17,0.25,0.12),vec3(0.30,0.38,0.16),n*0.3+0.5);
+ 	ROUGHNESS=1.0;
+--- before/scripts/vegetation_lab/surface_layers.gd
++++ scripts/vegetation_lab/surface_layers.gd
+@@ -8,6 +8,7 @@
+ var moss_material: ShaderMaterial
+ var crack_material: ShaderMaterial
+ var definition: Dictionary
++var patch_records: Array[Dictionary] = []
+ 
+ func setup(def: Dictionary, shared_moss: ShaderMaterial, shared_cracks: ShaderMaterial) -> void:
+ 	definition = def
+@@ -19,27 +20,38 @@
+ 	cracks = Node3D.new()
+ 	cracks.name = "IndependentCracks"
+ 	add_child(cracks)
++	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
++	rng.seed = int(def["seed"])+7291
++	var patch_index: int = 0
+ 	for surface: Dictionary in def["surfaces"]:
+-		var u: float = 0.50
+-		while u<float(surface["width"])-0.25:
+-			_patch(moss,surface,Vector2(u,0.50+0.10*sin(u*8)),Vector2(1.05,0.95),false,moss_material)
+-			_patch(moss,surface,Vector2(u,1.13+0.12*sin(u*3)),Vector2(0.72,0.70),false,moss_material)
+-			_patch(moss,surface,Vector2(u,float(surface["height"])+1.20),Vector2(1.0,0.68),true,moss_material)
+-			u += 0.85
++		var u: float = 0.48
++		while u<float(surface["width"])-0.20:
++			var large: bool = patch_index%3==1
++			var size_: float = 2.0 if large else 1.0
++			var span: Vector2 = Vector2(size_*rng.randf_range(0.85,1.13),size_*rng.randf_range(0.83,1.12))
++			var center: Vector2 = Vector2(u+rng.randf_range(-0.18,0.18),rng.randf_range(0.40,0.94))
++			var phase: Vector2 = Vector2(rng.randf()*31.0,rng.randf()*31.0)
++			_patch(moss,surface,center,span,false,moss_material,phase)
++			var roof_span: Vector2 = Vector2(size_*rng.randf_range(0.82,1.08),size_*rng.randf_range(0.70,0.90))
++			_patch(moss,surface,Vector2(u+rng.randf_range(-0.17,0.17),float(surface["height"])+1.30+rng.randf_range(-0.12,0.12)),roof_span,true,moss_material,phase+Vector2(5,9))
++			u += rng.randf_range(0.90,1.38)
++			patch_index += 1
+ 		_patch(cracks,surface,Vector2(float(surface["width"])*0.43,float(surface["height"])*0.75),Vector2(0.72,0.85),false,crack_material)
+ 		_patch(cracks,surface,Vector2(float(surface["width"])*0.82,float(surface["height"])*0.45),Vector2(0.62,0.90),false,crack_material)
+ 
+-func _patch(parent: Node3D, surface: Dictionary, center: Vector2, span: Vector2, roof: bool, material_: Material) -> void:
++func _patch(parent: Node3D, surface: Dictionary, center: Vector2, span: Vector2, roof: bool, material_: Material, phase: Vector2 = Vector2.ZERO) -> void:
+ 	var st: SurfaceTool = SurfaceTool.new()
+ 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+ 	var added: int = 0
+ 	# Small chart cells follow curved surfaces and leave openings clear.
+-	for row: int in 6:
+-		for col: int in 6:
++	# Preserve the crack sheet's original 6x6 geometry; larger moss uses <=.16 chart cells.
++	var divisions: int = 6 if parent==cracks else maxi(6,ceili(maxf(span.x,span.y)/0.16))
++	for row: int in divisions:
++		for col: int in divisions:
+ 			var corners: Array[Dictionary] = []
+ 			var valid: bool = true
+ 			for xy: Vector2 in [Vector2(col,row),Vector2(col+1,row),Vector2(col+1,row+1),Vector2(col,row+1)]:
+-				var uv: Vector2 = center+(xy/6.0-Vector2.ONE*0.5)*span
++				var uv: Vector2 = center+(xy/float(divisions)-Vector2.ONE*0.5)*span
+ 				if uv.x<0.05 or uv.x>float(surface["width"])-0.05 or (not roof and (uv.y<0.03 or uv.y>float(surface["height"])-0.03 or Geometry.blocked_surface(surface,uv.x,uv.y,0.08))):
+ 					valid = false
+ 				var hit: Dictionary = Geometry.path_sample(definition,surface,uv.x,uv.y) if roof else Geometry.sample(surface,uv.x,uv.y)
+@@ -47,8 +59,8 @@
+ 					valid = false
+ 				else:
+ 					hit["position"] += hit["normal"]*(0.132 if surface["kind"]=="plane" and not roof else 0.035)
+-					hit["uv"] = xy/6.0
+-					hit["uv2"] = uv
++					hit["uv"] = xy/float(divisions)
++					hit["uv2"] = uv+phase
+ 				corners.append(hit)
+ 			if not valid:
+ 				continue
+@@ -59,6 +71,8 @@
+ 				st.set_uv2(vertex["uv2"])
+ 				st.add_vertex(vertex["position"])
+ 				added += 1
++	if parent==moss:
++		patch_records.append({"surface_kind":surface["kind"],"surface_width":surface["width"],"center":[center.x,center.y],"span":[span.x,span.y],"phase":[phase.x,phase.y],"roof":roof,"divisions":divisions,"vertices":added})
+ 	if added>0:
+ 		var mesh: MeshInstance3D = MeshInstance3D.new()
+ 		mesh.mesh = st.commit()
+--- /dev/null
++++ tests/vegetation_lab/self_variation_capture.gd
+@@ -0,0 +1,131 @@
++extends SceneTree
++const Scene: PackedScene = preload("res://scenes/vegetation_lab.tscn")
++const OUT: String = "res://evidence/vegetation-variation/self/"
++var lab: Node
++var results: Array[Dictionary] = []
++var snapshots: Array[Dictionary] = []
++var failures: int = 0
++
++func _initialize() -> void:
++	root.unfocusable = true
++	create_timer(70).timeout.connect(func() -> void: quit(99))
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	results.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(results[-1])
++
++func capture(label_: String, representative: bool = false) -> Image:
++	await lab.wait_render()
++	var image_: Image = lab.render_view.get_texture().get_image()
++	image_.save_png(OUT+label_+"_world_640.png")
++	var ui: Image = root.get_texture().get_image()
++	ui.save_png(OUT+label_+"_ui_640.png")
++	ui.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++	ui.save_png(OUT+label_+"_ui_1920.png")
++	if representative:
++		var gpu3: Image = lab.doubled_view.get_texture().get_image()
++		gpu3.save_png(OUT+label_+"_world_1920.png")
++		var expected: Image = image_.duplicate()
++		expected.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++		check(expected.get_data()==gpu3.get_data(),"GPU.nearest3_exact")
++	print("IMAGE "+ProjectSettings.globalize_path(OUT+label_+"_ui_1920.png"))
++	return image_
++
++func differences(a: Image, b: Image) -> int:
++	var total: int = 0
++	for y: int in a.get_height():
++		for x: int in a.get_width():
++			if a.get_pixel(x,y)!=b.get_pixel(x,y):
++				total += 1
++	return total
++
++func run() -> void:
++	lab = Scene.instantiate()
++	root.add_child(lab)
++	if DisplayServer.get_name()=="headless" or RenderingServer.get_video_adapter_name().is_empty():
++		print("GPU NOT_RUN: structural load only")
++		quit(2)
++		return
++	lab.moss_check.button_pressed = false
++	var baseline: Image
++	for i: int in 3:
++		lab.presets[i].pressed.emit()
++		var img: Image = await capture("growth_%03d" % [i*50],i==2)
++		if i==0:
++			baseline = img
++	var signatures: Array[String] = []
++	for patch: Node3D in lab.patches:
++		signatures.append(patch.layout_signature()+patch.pose_signature)
++	lab.slider.value = 50
++	lab.number.value = 100
++	for i: int in 3:
++		var patch: Node3D = lab.patches[i]
++		check(signatures[i]==patch.layout_signature()+patch.pose_signature,"determinism_"+str(i))
++		var straight: int = 0
++		var curved: int = 0
++		var order: bool = true
++		var clear: bool = true
++		var rows: Array[Dictionary] = []
++		for path: Dictionary in patch.paths:
++			var min_u: float = INF
++			var max_u: float = -INF
++			var points: Array[Dictionary] = []
++			for hit: Dictionary in path["points"]:
++				if hit["v"]<=path["surface"]["height"]:
++					min_u = minf(min_u,hit["u"])
++					max_u = maxf(max_u,hit["u"])
++					for hole: Rect2 in path["surface"]["holes"]:
++						clear = clear and not (hit["u"]>hole.position.x-0.33 and hit["u"]<hole.end.x+0.33 and hit["v"]>hole.position.y-0.33 and hit["v"]<hole.end.y+0.33)
++				points.append({"position":[hit["position"].x,hit["position"].y,hit["position"].z],"u":hit["u"],"v":hit["v"],"distance":hit["distance"]})
++			if path["parent"]<0:
++				if max_u-min_u<0.06:
++					straight += 1
++				if max_u-min_u>0.15:
++					curved += 1
++			else:
++				var parent: Dictionary = patch.paths[path["parent"]]
++				var junction: int = path["junction"]
++				var measured: float = 0.0
++				for n: int in range(1,junction+1):
++					measured += Vector3(parent["points"][n-1]["position"]).distance_to(parent["points"][n]["position"])
++				order = order and absf(measured-float(path["start"]))<0.0001 and Vector3(parent["points"][junction]["position"]).is_equal_approx(path["points"][0]["position"])
++			rows.append({"parent":path["parent"],"junction":path["junction"],"start":path["start"],"variation":path.get("variation",{}),"points":points})
++		check(straight>0 and curved>0,"straight_curved_"+str(i),"straight %d / curved %d, measured wall UV range" % [straight,curved])
++		check(clear and order,"openings_order_"+str(i))
++		check(patch.leaf_node.multimesh.mesh==lab.library.leaves and patch.stem_node.multimesh.mesh==lab.library.stem and patch.grass_nodes[0].multimesh.mesh==lab.library.grasses[0] and patch.leaf_node.material_override==lab.library.foliage_material,"resources_"+str(i))
++		var patches_: Array = lab.layers[i].patch_records
++		var small: int = 0
++		var large: int = 0
++		for record: Dictionary in patches_:
++			var span: Array = record["span"]
++			if not record["roof"]:
++				if span[0]<1.3 and span[1]<1.3:
++					small += 1
++				if span[0]>1.6 and span[1]>1.6:
++					large += 1
++		check(small>0 and large>0,"moss_sizes_"+str(i),"small %d / large %d" % [small,large])
++		snapshots.append({"building":patch.definition["id"],"grass_signature":str(patch.grass_candidates).sha256_text(),"paths":rows,"patches":patches_})
++	lab.presets[0].pressed.emit()
++	lab.moss_slider.value = 100
++	lab.moss_check.button_pressed = true
++	var moss_on: Image = await capture("moss_only_100")
++	check(differences(baseline,moss_on)>50 and lab.slider.value==0,"moss_independent_GPU")
++	lab.moss_check.button_pressed = false
++	var moss_off: Image = await capture("moss_OFF")
++	check(baseline.get_data()==moss_off.get_data(),"moss_OFF_exact")
++	lab.presets[2].pressed.emit()
++	lab.moss_slider.value = 60
++	lab.moss_check.button_pressed = true
++	for index: int in [1,3]:
++		lab.view_select.select(index)
++		lab.view_select.item_selected.emit(index)
++		await capture("A_closeup" if index==1 else "C_closeup")
++	var result_file: FileAccess = FileAccess.open(OUT+"results.json",FileAccess.WRITE)
++	result_file.store_string(JSON.stringify({"adapter":RenderingServer.get_video_adapter_name(),"results":results,"failures":failures,"NOT_RUN":["OS physical input","video","performance","all directions","normal game regression"]},"\t"))
++	var raw_file: FileAccess = FileAccess.open(OUT+"raw.json",FileAccess.WRITE)
++	raw_file.store_string(JSON.stringify(snapshots,"\t"))
++	quit(0 if failures==0 else 1)
++

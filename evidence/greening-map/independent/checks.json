@@ -1,0 +1,68 @@
+{
+  "task": "TECH-3D-08",
+  "date": "2026-10-16",
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "source_manifest_sha256": "5a26c4bb1f73c28bcfeaffaa8890151b81c66bc3415511db0d8cb5c17e8b4f7e",
+  "environment": "Windows / Godot4.7.2 headless independent; submitted GPU Vulkan Forward+ RTX5070Ti",
+  "summary": {
+    "PASS": 6,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "checks": [
+    {
+      "id": "session_movement_collision",
+      "status": "PASS",
+      "method": "独立実行",
+      "evidence": "1回のheadlessで四方向の閉路と、自己テストと異なる位置から建物東端5.7m・水東端-5.5m・外周9.1mの停止を確認。session-checks.json/headless.log"
+    },
+    {
+      "id": "session_scatter_growth",
+      "status": "PASS",
+      "method": "独立実行",
+      "evidence": "種1/水10消費、種は緑化未算入、pause中の歩行/散布、乾燥セル30秒発芽/61秒成熟、実自然伝播、資源ゼロ時不変、直接配列集計。1回7 PASS/0 FAIL、exit0・stderr空。"
+    },
+    {
+      "id": "raw_state_view_counts",
+      "status": "PASS",
+      "method": "独立offline",
+      "evidence": "raw5件をterrain target集合とstage配列から再集計。対象1422、緑化12→31→95、成熟12→12→49。非対象不変、表示stage集計、frame/flip/foot同期記録が一致。照明変更前後の成長状態も一致。offline-checks.json"
+    },
+    {
+      "id": "input_path",
+      "status": "PASS",
+      "method": "実コード+提出GPU証拠レビュー",
+      "evidence": "mapの_input/_unhandled_inputから実sessionへ接続。640 viewport整数stretchによるwindow→logical変換を前提に、GPU testはwindow座標をInput.parse_input_eventへ注入。UI処理後/上下帯・建物AABB・射程/遮蔽判定あり。独立入力再注入ではない。"
+    },
+    {
+      "id": "gpu_visual_and_nearest",
+      "status": "PASS",
+      "method": "提出実GPUの独立目視/offline",
+      "evidence": "initial/grown74/sun135/behind UI1920を目視。地面成長、太陽変更に対応する受光/影、建物後方遮蔽を確認。initial_world640/1920は640×360/1920×1080で全画素nearest3一致。"
+    },
+    {
+      "id": "freeze_preservation_logs",
+      "status": "PASS",
+      "method": "独立hash/ログ",
+      "evidence": "指定manifest digest一致、ソース8件・before103件・証拠39件すべて一致。最終self GPU/logicログにエラーなし、GPU exit0/stderr空。自己初回の移動許容/マウス注入失敗は保持済み。hash-checks.json"
+    },
+    {
+      "id": "independent_gpu_replay",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "既存GPU証拠が足りるため新規GPU・入力再注入なし。headlessを描画証拠とはしない。"
+    },
+    {
+      "id": "native_physical_input",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "BATのnative起動、初期フォーカス、物理キーボード/マウス経路は手動確認へ。OS入力/前面化/カーソル操作なし。"
+    },
+    {
+      "id": "broad_regression",
+      "status": "NOT_RUN",
+      "method": "範囲外",
+      "evidence": "全方向/全位置/全解像度、性能/長時間、通常ゲーム/P2回帰、全地域100%、保存/敵/本番資源循環は未検証。"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "asset_id": "MOS-003",
+  "name": "三日月状の小島",
+  "category": "MOS",
+  "version": "0.0.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "aabb": {
+    "min": [
+      -0.3799999952316284,
+      0.012000000104308128,
+      -0.20000000298023224
+    ],
+    "max": [
+      0.3400000035762787,
+      0.012000000104308128,
+      0.1899999976158142
+    ]
+  },
+  "dimensions": [
+    0.7199999988079071,
+    0.0,
+    0.39000000059604645
+  ],
+  "placement_size_xz": [
+    0.7199999988079071,
+    0.39000000059604645
+  ],
+  "contact_type": "horizontal_surface_attachment",
+  "contact_bounds_xz": null,
+  "geometry_stats": {
+    "triangles": 12,
+    "vertices": 14,
+    "objects": 1,
+    "material_count": 1,
+    "blender_material_count": 1,
+    "glb_material_count": 1
+  },
+  "meshes": [
+    {
+      "name": "Moss_crescent",
+      "layer": "membrane",
+      "materials": [
+        "Moss"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "outline": [
+      [
+        -0.38,
+        0.012,
+        0
+      ],
+      [
+        -0.31,
+        0.012,
+        0.11
+      ],
+      [
+        -0.14,
+        0.012,
+        0.19
+      ],
+      [
+        0.1,
+        0.012,
+        0.18
+      ],
+      [
+        0.34,
+        0.012,
+        0.07
+      ],
+      [
+        0.15,
+        0.012,
+        0.1
+      ],
+      [
+        -0.04,
+        0.012,
+        0.07
+      ],
+      [
+        -0.1,
+        0.012,
+        0
+      ],
+      [
+        -0.02,
+        0.012,
+        -0.07
+      ],
+      [
+        0.13,
+        0.012,
+        -0.09
+      ],
+      [
+        0.32,
+        0.012,
+        -0.08
+      ],
+      [
+        0.1,
+        0.012,
+        -0.17
+      ],
+      [
+        -0.12,
+        0.012,
+        -0.2
+      ],
+      [
+        -0.3,
+        0.012,
+        -0.12
+      ]
+    ],
+    "logical_cells": [
+      2,
+      1
+    ],
+    "growth_mask": "none; thin ground membrane with large unfilled concavity"
+  },
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 12,
+      "triangles_after": 12,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "metadata_revision": 2,
+  "metadata_revision_note": "Contact category clarified from existing receiver records; geometry unchanged."
+}

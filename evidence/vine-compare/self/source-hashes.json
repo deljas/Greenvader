@@ -1,0 +1,34 @@
+{
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "uncommitted": true,
+  "files": [
+    {
+      "path": "scripts/vine_compare/compare.gd",
+      "sha256": "f296072f2a2076a014ca95e8bd855dcf4e681d009e06ecbfc281f4f3135accce"
+    },
+    {
+      "path": "scripts/vine_compare/path_reveal.gd",
+      "sha256": "dfd77a746361e1027d0a6fb2aca67c8c949dd97f7c0ea773a9411bdb15794186"
+    },
+    {
+      "path": "scenes/vine_compare.tscn",
+      "sha256": "90f939ad29ec3d923d9ce09fb7d771fdd24dbfbe8fc593d0450b02abafe17b31"
+    },
+    {
+      "path": "launchers/labs/run_vine_compare.bat",
+      "sha256": "ce7b8cdd1a40dc13d19875228bc14c0aa42dee759a79e431ce182fb5f7c5dde9"
+    },
+    {
+      "path": "launchers/README.md",
+      "sha256": "9944ee69256ae165a6688c4cf06b0aa9284fba77fce58f15d90ee52c0e014816"
+    },
+    {
+      "path": "tests/vine_compare/self_capture.gd",
+      "sha256": "3513ed162277d4f44432fb3ffad737918e85a1221022bc8aa98c99b0a23bf602"
+    },
+    {
+      "path": "tests/vine_compare/self_freeze.py",
+      "sha256": "cfc4b8809e97d470e259f2b571ad43aff8657ff494730d9dcc1d32ba3917dfc9"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"id": "viewport.sizes",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "camera.default_noon_orthogonal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "output.no_temporal_or_spatial_AA",
+			"status": "PASS"
+		},
+		{
+			"detail": "separate meshes; no source picture",
+			"id": "geometry.openings_roof_rubble",
+			"status": "FAIL"
+		},
+		{
+			"detail": "[(37.43512, 18.71756), (-37.43512, 18.71756), (0.0, -45.84839)]",
+			"id": "projection.2to1_verticals",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "input.engine_time_switch",
+			"status": "PASS"
+		},
+		{
+			"detail": "Headless dummy logic pass only",
+			"id": "GPU.images_and_shadows",
+			"status": "NOT_RUN"
+		},
+		{
+			"detail": "Hidden process + root.unfocusable; initial focus invariance and actual native presentation not measured",
+			"id": "native.initial_focus_and_display",
+			"status": "NOT_RUN"
+		},
+		{
+			"detail": "No OS input, cursor move or foreground API",
+			"id": "physical.OS_input",
+			"status": "NOT_RUN"
+		}
+	],
+	"device": "",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 1,
+	"renderer": "forward_plus",
+	"sun_settings": [
+		{
+			"color": "(1.0, 0.87, 0.7, 1.0)",
+			"energy": 1.25,
+			"id": "morning",
+			"sun": "(8.0, 4.0, -6.0)",
+			"title": "朝"
+		},
+		{
+			"color": "(1.0, 0.98, 0.9, 1.0)",
+			"energy": 1.35,
+			"id": "noon",
+			"sun": "(-5.0, 10.0, 6.0)",
+			"title": "昼"
+		},
+		{
+			"color": "(1.0, 0.7, 0.44, 1.0)",
+			"energy": 1.15,
+			"id": "evening",
+			"sun": "(-8.0, 3.2, 5.0)",
+			"title": "夕"
+		}
+	]
+}

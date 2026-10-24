@@ -1,0 +1,47 @@
+[
+  {
+    "path": "scenes/quarter_view_lab.tscn",
+    "sha256": "A5B30126479EEBBB8276CDD4422F8BD5F6673BCA7260D1AD7C3492A976CE87B7",
+    "matches": true
+  },
+  {
+    "path": "scripts/quarter_view_lab/lab.gd",
+    "sha256": "90DC921293D7E0B4A461ECEBF4F03B76AD85FE1A791C809789FA7EDE9D962830",
+    "matches": true
+  },
+  {
+    "path": "scripts/quarter_view_lab/lab.gd.uid",
+    "sha256": "0C50F42D3244ADA07F4F3712BFED79B917D70AB2CC1500462C78CA1DE95DD46C",
+    "matches": true
+  },
+  {
+    "path": "scripts/quarter_view_lab/projection.gd",
+    "sha256": "7A267293DDA0F1D1621303466C8830D2DF0CBA76E93F1C143C7F842447E9E77D",
+    "matches": true
+  },
+  {
+    "path": "scripts/quarter_view_lab/projection.gd.uid",
+    "sha256": "6D1F3B6A1980660B2C0DDE9CF72BE51162A4CCBF0FA34B44807C697287F9D631",
+    "matches": true
+  },
+  {
+    "path": "run_quarter_view_lab.bat",
+    "sha256": "74501ED54F306862B1D3DA7166B1E43F24A537B87D28E5BC16D17F2D20315A8E",
+    "matches": true
+  },
+  {
+    "path": "tests/quarter_view/self_checks.gd",
+    "sha256": "2959631AC9CB1A0AFCE22F86B0B2623D8E9F2BC0AA675A113B29F90AE740A27C",
+    "matches": true
+  },
+  {
+    "path": "tests/quarter_view/self_checks.gd.uid",
+    "sha256": "57E5D4F13860F8AA620EFD69A170AA374D40BB0F2A89A638842B48CBF2CC2496",
+    "matches": true
+  },
+  {
+    "path": "tests/quarter_view/self_mouse_r2.gd",
+    "sha256": "2F73591C3C1A3E37E53705A596EA56E7F49456A2F27BD5EE58C0206CDB622FBF",
+    "matches": true
+  }
+]

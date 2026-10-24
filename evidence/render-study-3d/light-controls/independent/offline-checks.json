@@ -1,0 +1,194 @@
+{
+  "method": "Independent offline Pillow/JSON/hash inspection, no engine execution",
+  "created": "2026-10-16T07:39:53.134697+09:00",
+  "pairs": [
+    {
+      "sample": "default",
+      "category": "ui",
+      "source_size": [
+        640,
+        360
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "exact_nearest3x": true,
+      "origin": "GPU root640 + CPU nearest export1920"
+    },
+    {
+      "sample": "default",
+      "category": "world",
+      "source_size": [
+        640,
+        360
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "exact_nearest3x": true,
+      "origin": "GPU viewport640 + separate GPU viewport1920"
+    },
+    {
+      "sample": "point_only_45",
+      "category": "ui",
+      "source_size": [
+        640,
+        360
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "exact_nearest3x": true,
+      "origin": "GPU root640 + CPU nearest export1920"
+    },
+    {
+      "sample": "point_only_45",
+      "category": "world",
+      "source_size": [
+        640,
+        360
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "exact_nearest3x": true,
+      "origin": "GPU viewport640 + separate GPU viewport1920"
+    }
+  ],
+  "pixel_comparisons": {
+    "point_wrong_sun_board_OFF_pixels": 0,
+    "point_own_board_OFF_pixels": 616,
+    "point45_vs225_scene_crop_pixels": 123881,
+    "point225_vsOFF_scene_crop_pixels": 45872,
+    "sun_representatives_scene_crop_pixels": 146119
+  },
+  "snapshot_inspection": {
+    "count": 58,
+    "orbit_samples": 48,
+    "poses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "flipped_orbit_samples": 24,
+    "all_recorded_flags": true,
+    "actual_sun_texture_ID_match": true,
+    "all_positions_finite": true,
+    "screen_feet_integer": true,
+    "orbit_positions_unique": 48,
+    "sun_representatives": [
+      {
+        "sample": "sun_135_25",
+        "azimuth": 135.7,
+        "elevation": 25.4,
+        "direct_sun": true,
+        "sun_basis_finite": true,
+        "point_basis_finite": true
+      },
+      {
+        "sample": "sun_315_61",
+        "azimuth": 315.2,
+        "elevation": 61.2,
+        "direct_sun": true,
+        "sun_basis_finite": true,
+        "point_basis_finite": true
+      },
+      {
+        "sample": "sun_zenith",
+        "azimuth": 315.2,
+        "elevation": 90.0,
+        "direct_sun": true,
+        "sun_basis_finite": true,
+        "point_basis_finite": true
+      },
+      {
+        "sample": "sun_below_horizon",
+        "azimuth": 315.2,
+        "elevation": -90.0,
+        "direct_sun": false,
+        "sun_basis_finite": true,
+        "point_basis_finite": true
+      }
+    ]
+  },
+  "preservation": [
+    {
+      "path": "scripts/render_study_3d/study.gd",
+      "actual": "18bfb709d7f582c7ea5462943611878c6c4d47649164b52f60b1233889caa460",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scripts/render_study_3d/ruin_geometry.gd",
+      "actual": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_lab.gd",
+      "actual": "8a2559a19400ded573ab0f0d29c3379e248ec79265e4abf0f6d069fb3a097e64",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": false,
+      "permitted_guard_change": true
+    },
+    {
+      "path": "scripts/render_study_3d/sprite_shadow_fixture.gd",
+      "actual": "de923e1ec835786f505843ffb26e7775597aaa0069ad48a3719cd604a0f9f951",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "assets/render_study_3d/concrete.gdshader",
+      "actual": "9a42784e6c3314b18f1b6d141ff2f0fe22f4a025ed20daf85fe92ef7720b455a",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "assets/render_study_3d/style_grade.gdshader",
+      "actual": "9e4edd01548d5e8abd4ade38ba8cef0e0dfd0c661602aaae04e758c8e6df1dae",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scenes/render_study_3d.tscn",
+      "actual": "45704231eff9da34c5da00d43b473dc6b93799116c9837d9d217c70feeb65cce",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "scenes/sprite_shadow_lab.tscn",
+      "actual": "71b6dd7373f2201b9a52a54b1b9af7b336a24f168b30fa0c9297003224fd9048",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    },
+    {
+      "path": "project.godot",
+      "actual": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f",
+      "matches_recorded_after": true,
+      "before_matches_prior_independent_evidence": true,
+      "unchanged": true,
+      "permitted_guard_change": false
+    }
+  ],
+  "before_sprite_original_matches_previous_independent_hash": true
+}

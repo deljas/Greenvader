@@ -1,0 +1,24 @@
+{
+  "manifest_sha256": "6e155b63a50a5410ad6c38fdde4dbaf7cf1812de53d2a60e914ec02dcdbdce07",
+  "excluded_planned_changed_paths": [
+    "scripts/greening_map/map.gd",
+    "scripts/greening_map/water_surface.gdshader",
+    "scripts/vegetation_lab/growth_patch.gd",
+    "scripts/vegetation_lab/surface_layers.gd"
+  ],
+  "source": {
+    "count": 7,
+    "mismatches": [],
+    "pass": true
+  },
+  "protected": {
+    "count": 117,
+    "mismatches": [],
+    "pass": true
+  },
+  "evidence": {
+    "count": 39,
+    "mismatches": [],
+    "pass": true
+  }
+}

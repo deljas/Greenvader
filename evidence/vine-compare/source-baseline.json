@@ -1,0 +1,506 @@
+[
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\001_s_curve_stem\\001_s_curve_stem.glb",
+    "sha256": "BFDE4FB6BE7D13E685DA621EEB79D7C2FC564BA96B5D8194568AE7824F2C8A79"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\001_s_curve_stem\\metadata.json",
+    "sha256": "F58294CD383B60357F1E8F7D27AD895D61CAA1F88A3963F2EE952AC28124A018"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\002_c_curve_obstacle_bypass\\002_c_curve_obstacle_bypass.glb",
+    "sha256": "7191325BD0D7FD0DCC09739D985F5C58CE2F917EB2C38C00D38D02B1C99E48D3"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\002_c_curve_obstacle_bypass\\metadata.json",
+    "sha256": "7D35DACBAC2D3F570A258F0A3BF1A1286B32C1CAC3D930C33CCB8933D4192557"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\003_sparse_straight_climb\\003_sparse_straight_climb.glb",
+    "sha256": "66ACEE00CFD1B7850356BBE61FBE88CAEAE8E6EA31AE7358BCCACA397F02A152"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\003_sparse_straight_climb\\metadata.json",
+    "sha256": "382B11269D576552FE28D64287E732CDFD35F0E5416AE3A2C0B7C4D17506C1AC"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\004_diagonal_climb\\004_diagonal_climb.glb",
+    "sha256": "BF5FDACFB8771CA27E1140E18B08F8014E3516991C808AF2874339B9C2B79732"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\004_diagonal_climb\\metadata.json",
+    "sha256": "BE40CF3BFAC75AA24523D163BE775EAFAE8BCC516F22E744F76A4398287259AA"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\005_y_branch_stem\\005_y_branch_stem.glb",
+    "sha256": "B34B8216282D526666B302AA24888D3FDF05D5ED84B9660F30F07C6A744EE699"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\005_y_branch_stem\\metadata.json",
+    "sha256": "A91DD893515EA8A4E1C25911E472D8C89803F902EDF74E7740D5330EAD0120E4"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\006_lateral_t_branch\\006_lateral_t_branch.glb",
+    "sha256": "3FEDBF9542AA54FEA7C3387DFCC40D1C6069C717E6EA141FAF5AD2780C5CFC11"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\006_lateral_t_branch\\metadata.json",
+    "sha256": "35FB612943716CD483E3888EA8EC02F81FFA05B0FB4722CA84F3F34B42C7E5EB"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\007_window_vine\\007_window_vine.glb",
+    "sha256": "B431B82CE13CABD0E51F2A75A46E85FED5819A5A5884D786AF6646D1FD880845"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\007_window_vine\\metadata.json",
+    "sha256": "B97A41130810B9AEC50B8E18282346D1B773CE77E9517BC6442CD4F7C50F118C"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\008_multi_level_asymmetric_branches\\008_multi_level_asymmetric_branches.glb",
+    "sha256": "176B9BB4B1B51EC257255366E104642F2FB8752FBC038C78A3E2344293A8AF28"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\008_multi_level_asymmetric_branches\\metadata.json",
+    "sha256": "F5A87BAE9312FF9B8E3546150616C1B9C454C9830C5D9FDF32F03D162224CE05"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\009_fan_crown_branch\\009_fan_crown_branch.glb",
+    "sha256": "489559B4F6D65B76DFA66BFB470E2E1A1AB95076C4ADDC050D028FCCCF8B6D2D"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\009_fan_crown_branch\\metadata.json",
+    "sha256": "1E4762E385037FB58CEF243FCA4E56E5324F6377043450F757E2E902AB0C9FEF"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\010_ground_to_wall_root\\010_ground_to_wall_root.glb",
+    "sha256": "22063CC3C9357E62829F4B950E848971B1D7251E6039ADDC8ACB4AE1716C322A"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\010_ground_to_wall_root\\metadata.json",
+    "sha256": "F97B3FC03B0BCCA18D706042D544CF0A93253515EDAB6ADD26610C81CD5763FC"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\011_outside_corner_vine\\011_outside_corner_vine.glb",
+    "sha256": "81135543235ADDE6CC28622FB3C349789E0331FE94499377A347EA45ECB338F5"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\011_outside_corner_vine\\metadata.json",
+    "sha256": "61F942E8EBF5F65C7C07296A8735C92238D9406628E8124BC74E98A7F996494D"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\012_inside_corner_vine\\012_inside_corner_vine.glb",
+    "sha256": "9B3D91BE5ACC540B0E1BF105720D1B341B23D1A602B725E35B0C7AA2CFD4427C"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\012_inside_corner_vine\\metadata.json",
+    "sha256": "143FD9CE718FB091894A1BB707EE6D0AC93E03EE6B9612D065DB31F56A268076"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\013_arch_above_window\\013_arch_above_window.glb",
+    "sha256": "42B5933A7A48C9816D55FACD76054A03BAC40F098ADCF248AF25E9DAD92A7CA8"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\013_arch_above_window\\metadata.json",
+    "sha256": "E75CD82B06AA04E2264BF36CA12F5627253D5AB897A483A3C3B548778608AB6E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\014_window_bottom_edge_strip\\014_window_bottom_edge_strip.glb",
+    "sha256": "2B84241CCDEE11F097C85102E8ACDB64E0B6FD72C0FF20CF5D30B3047D436133"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\014_window_bottom_edge_strip\\metadata.json",
+    "sha256": "703A38E9590E0D7C627E221FEC582C7834F17925A0D7D99C17292CE35FEFB68C"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\015_large_opening_detour\\015_large_opening_detour.glb",
+    "sha256": "754329ACF3B922A2DEEE0905D5CBCCE6A18EC9D1C1CF2043588E0D8E29D2BABC"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\015_large_opening_detour\\metadata.json",
+    "sha256": "DF07953A0C432DC907438E7E42BE58A60A46ECEAE6A7F2863712E9022CA1E0F6"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\016_top_root_hanging_vine\\016_top_root_hanging_vine.glb",
+    "sha256": "E34D785662541A067DE82E912FA7CB5FE6F78D4200E2A35BC07DD8D499F786C0"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\016_top_root_hanging_vine\\metadata.json",
+    "sha256": "F215097F5DF1A1E5D574924FD3F27CF1B42938E100628DB5EA4DDE3F134F4F38"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\017_wall_to_roof_vine\\017_wall_to_roof_vine.glb",
+    "sha256": "10571D4042B75D25234F45DC08C8B067591AD521F406CBEFA72D4FE0F3FB2295"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\017_wall_to_roof_vine\\metadata.json",
+    "sha256": "C83D4E2F41348C85FD2C89485812C510F101C483ED266FD67FF2DD26A8F5B751"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\018_awning_outer_edge_vine\\018_awning_outer_edge_vine.glb",
+    "sha256": "FDEAEF775A34934CEF9EAF8A1325AEC1B1913CC0617CF05AC8AE9A80F68FFBCF"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\018_awning_outer_edge_vine\\metadata.json",
+    "sha256": "70354A00E40588C1DF9CAD2E00D19F55B67A1A6DC59906D35F4DFBB194C636C4"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\019_half_wrap_column_vine\\019_half_wrap_column_vine.glb",
+    "sha256": "EF7B8F66E84DC913DD3A67CEB74C08C656A72624BD85620F591D2BBA676775B6"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\019_half_wrap_column_vine\\metadata.json",
+    "sha256": "509B5DA7061762DCC720AC2D0CB7EDD1FE6C09ACFA1514BE473D43FD65391F00"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\020_short_pipe_vine\\020_short_pipe_vine.glb",
+    "sha256": "AA394AA5FD3AC82AA46CFDD75905FE2389BC5CD927A7C2F60460BFE3EE2A0B19"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\020_short_pipe_vine\\metadata.json",
+    "sha256": "A196925BE1BE5C611A48F4EF43608F23A8D4994A6B06B23C3340DCC288AD50A5"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\021_ground_runner_two_leaf_clusters\\021_ground_runner_two_leaf_clusters.glb",
+    "sha256": "D372D0F219C1E3E31C48D0CCFC4BE5774F7C47677C90FBBDD2001A670DB7B721"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\021_ground_runner_two_leaf_clusters\\metadata.json",
+    "sha256": "8F21C45D9E81B66C08CC5C891488ACB157A378B950D51E4F0F7056855B79DDE6"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\022_low_rubble_crossing_vine\\022_low_rubble_crossing_vine.glb",
+    "sha256": "DA4ED0930ECC8D46C7FDF7CA1DB350AD2C1944070E4CAEFD0284FE7F4E63A8ED"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\022_low_rubble_crossing_vine\\metadata.json",
+    "sha256": "61D042BFEEB654FF1E8F0067E8C35D1E018FD2CB82734B984290CB5DE70C5A76"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\023_multi_direction_root_stock\\023_multi_direction_root_stock.glb",
+    "sha256": "96A9EBFE43F0D5B144FAAC78D0F01897B74B6C82C9DEFB45BBA04657AF4A16C3"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\023_multi_direction_root_stock\\metadata.json",
+    "sha256": "ACC0A20376DF692E46A6C8CA89250021B163930C7D17851EA445A4320D1AAF00"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\024_sparse_round_leaf_cluster\\024_sparse_round_leaf_cluster.glb",
+    "sha256": "01A7DA5C8455944FEB9F20E0BA7D8FE854F9B3DA51FFEC88AB83D20A744E6F8E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\024_sparse_round_leaf_cluster\\metadata.json",
+    "sha256": "3EF4854C66292543BF8D67A503E67A71DD37B171A599F27FDC85A3843735071E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\025_three_pointed_leaf_cluster\\025_three_pointed_leaf_cluster.glb",
+    "sha256": "6F6E786D82E07B2F7E3810446F966F614EA6BEE29937F9D150A91EBDA5A1DCF2"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\025_three_pointed_leaf_cluster\\metadata.json",
+    "sha256": "1C99AF40F91EE6DD69C7FB1118CE9A96B5D4C5B424A37E97117D52289B6D70BA"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\026_large_split_leaf_cluster\\026_large_split_leaf_cluster.glb",
+    "sha256": "66A6BE79EEB97156C88ADE412CB643F9986D2A8934B3F53B4F530C696CB3EBDD"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\026_large_split_leaf_cluster\\metadata.json",
+    "sha256": "EA948319D9751D0523BB23AC099297F917FE0B13C41C6EB9906567E34A7C634C"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\027_small_leaf_branch_tip\\027_small_leaf_branch_tip.glb",
+    "sha256": "A7DB21E9A099148FDDF2213841475D97EEED6D134CD3B2A891B55AE33ED57171"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\027_small_leaf_branch_tip\\metadata.json",
+    "sha256": "5A2278345BE24C950486B50705636DB1DF8B7920B11ABC708CDC1F76C3F564CC"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\028_tendril_new_growth_tip\\028_tendril_new_growth_tip.glb",
+    "sha256": "047B31450C4B0355D2FE3C86CAC7F177EFAB945BA0F15B2CD13D3DBBDD617403"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\028_tendril_new_growth_tip\\metadata.json",
+    "sha256": "6171A97B9BD5B393E5BF3549FFBBB69C20E4A44CA283E78964A6055F24E93D90"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\029_old_cut_vine_stem\\029_old_cut_vine_stem.glb",
+    "sha256": "5AFBDD13123435B32D6767AB219D77F48E91DD92D212044302D5874BFB5F08A8"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\029_old_cut_vine_stem\\metadata.json",
+    "sha256": "4E4D9AD96E08323E4898395485E1EC952E4E38192D0D974CCA9D1904F3133946"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\030_two_sparse_hanging_curtains\\030_two_sparse_hanging_curtains.glb",
+    "sha256": "81341D5FA41B902F8BA8AF2E1AB3B41F3448324DE021C2C5FE63D4A1B730CE24"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\030_two_sparse_hanging_curtains\\metadata.json",
+    "sha256": "550504DB84F39A5DDB7B61C78A8EB8E646A94027A7E6B21E7F2E87FE03051EA7"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\031_arching_fern_climber\\031_arching_fern_climber.glb",
+    "sha256": "46E979B1DFB123B8ABC46E73B748615660FB3CC9554F639D546FD4C2DB43A9C2"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\031_arching_fern_climber\\metadata.json",
+    "sha256": "9557720FEEEB47FE4ED6219DEFA85CA746F412277FCEDF137A16962693683F65"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\032_woody_spreading_wall_vine\\032_woody_spreading_wall_vine.glb",
+    "sha256": "C5475267825C93071A59736DCA42450E941CD31F5B4D7918733FE8E4C48E27BD"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\032_woody_spreading_wall_vine\\metadata.json",
+    "sha256": "4EAA742E2CFD70D5A2FD45FD6EBD54667FB936873F9CE3695D2F5AC0A68E129B"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\033_flowering_woody_climber\\033_flowering_woody_climber.glb",
+    "sha256": "ADF242E70BC0FF28DBF96816CE3CEEF85139340B6AB22AAA24E6ADF09CB5418E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\033_flowering_woody_climber\\metadata.json",
+    "sha256": "CC3EA84FCDAE5112B2D0094E5EDC3DDEF1E6B64CF1566B8F375CE2B31C953A01"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\034_lobed_leaf_winding_vine\\034_lobed_leaf_winding_vine.glb",
+    "sha256": "FF3E89BDE8157D5849F2F6C8A0DEF125EE5BE07852F3C71403108141D2062FC3"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\034_lobed_leaf_winding_vine\\metadata.json",
+    "sha256": "42ABA96A0BDDAB91DE4072E763B45B2DFC4330339B7752316EC2F96FA8902D6D"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\035_heart_leaf_climber\\035_heart_leaf_climber.glb",
+    "sha256": "EF1D0C33002D1F20FAC234DD6DD46DC410CA41D667EA1E9BB561A612EDABC5CD"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\035_heart_leaf_climber\\metadata.json",
+    "sha256": "388380097701C526D773B5F29E06850E525E8180F49DE4D5F849C3EEF5645E3F"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\036_succulent_trailing_vine\\036_succulent_trailing_vine.glb",
+    "sha256": "6F811598BE11063DD415A48BBFF7FF3659140833C333BB1AF47A03C253ADA036"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\036_succulent_trailing_vine\\metadata.json",
+    "sha256": "F547693BAD88FB2CF5DC28B00FB402E23A533570066EF86D1673E4C6F1DFB341"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\037_round_leaf_ground_runner\\037_round_leaf_ground_runner.glb",
+    "sha256": "E23CBE3410B74F38868B815613DDEB23C55AD5B8242EEEED61F1417C0F193FB6"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\037_round_leaf_ground_runner\\metadata.json",
+    "sha256": "8F9192935CC8956D6B1AED7E7DDE0CB19E86C2CA80B26F8D2C82910A4850EB8D"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\038_paired_leaf_twisting_climber\\038_paired_leaf_twisting_climber.glb",
+    "sha256": "9D29E6A2473C64D60077B4FBADC7BFC40171372B2C9DB3DD7AC9C6824908C332"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\038_paired_leaf_twisting_climber\\metadata.json",
+    "sha256": "10C25B4D142AE9135B7BC958D7DD3B12A6197DB47B383BB2850E921742452DE4"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\039_column_twining_vine\\039_column_twining_vine.glb",
+    "sha256": "DD50AF24A741075503EB1D6C409267D8E997F650740582912EAA3F03C50E4DAB"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\039_column_twining_vine\\metadata.json",
+    "sha256": "18748E962D265CD4EAC51E19E556E7D01A5AC737C54EEF654A6EE9281E61D1EF"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\040_hanging_pitcher_climber\\040_hanging_pitcher_climber.glb",
+    "sha256": "F171DF33FEBB98D85CE4A9216DE089E1E70E42770763886B5D7594C62EA9A474"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\040_hanging_pitcher_climber\\metadata.json",
+    "sha256": "B5F58988D03CC0282DC2763219EA21F5E66E90A180E664FF0BBE46B409664CE0"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\041_segmented_epiphytic_climber\\041_segmented_epiphytic_climber.glb",
+    "sha256": "7A0BDB7253D2108EE786DD6DB2F63A5B93C3E89FCCEA8AACDB145F88585583EB"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\041_segmented_epiphytic_climber\\metadata.json",
+    "sha256": "1D85BDFA56C3A9D5165E932476CB27A2B1709495679269D40D49DC7738AD06FB"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\042_long_pinnate_wall_fern\\042_long_pinnate_wall_fern.glb",
+    "sha256": "E76C82802B83A59D52863F1D6DF56ED77506F4E59DE076BB7B6A886E02BCF466"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\042_long_pinnate_wall_fern\\metadata.json",
+    "sha256": "0BC179E941A9301095247A1DB4E03A49375E36BDC641FD31BF81751797C9D69E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\043_trumpet_flower_wall_climber\\043_trumpet_flower_wall_climber.glb",
+    "sha256": "BA70467E4ECDBEEF365B636E15D6A6A926D5A9E3638FDE4270C46543F9EDBEBA"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\043_trumpet_flower_wall_climber\\metadata.json",
+    "sha256": "C59AAD58222261252774B8D646BF133960F91EC987F0DF22E0E94450A4C49451"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\044_palmate_leaf_climber\\044_palmate_leaf_climber.glb",
+    "sha256": "62595E994526A40B43EB76BD0C43D73925220AFFD46AA789EE59909BD2892B58"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\044_palmate_leaf_climber\\metadata.json",
+    "sha256": "94CA3876D47F690FCDF7E98958C53041212EFA4C552ECC75569EBDAE9217862E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\045_five_leaflet_scrambling_vine\\045_five_leaflet_scrambling_vine.glb",
+    "sha256": "170A86E06AE6C9E5F7FAEF021A571CDEA8FB498F14189CFA98416757768C4328"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\045_five_leaflet_scrambling_vine\\metadata.json",
+    "sha256": "9D9FED7B5A8D0BEF27CBB457AAF8CDAF069D5A1DD790DF5EC4B61336869223E4"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\046_strap_leaf_epiphyte_curtain\\046_strap_leaf_epiphyte_curtain.glb",
+    "sha256": "EAFAE85A34FE48DAD266192CDAF0F21CD46CB289DDA4B8A295795E2F0A06A94E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\046_strap_leaf_epiphyte_curtain\\metadata.json",
+    "sha256": "606012224FB1C6F189C31DB0631B57CB830B872946DA12470D00B16FBEFBF5A3"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\047_branching_ground_vine_network\\047_branching_ground_vine_network.glb",
+    "sha256": "5A1FBD98CBB023540EDDCA83781B5A2E50DC6272DBCE9B4A82E9E21E3089A4B8"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\047_branching_ground_vine_network\\metadata.json",
+    "sha256": "A61470FABA6B1DC80F37FDA656084D2E9FE8DE2F777D06D57936A89195D887FC"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\048_creeper_over_broken_deck\\048_creeper_over_broken_deck.glb",
+    "sha256": "BEEE078B98BD0FFC1FF053245204E227B885CEEAD52CD8613D4B3B0720E20518"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\048_creeper_over_broken_deck\\metadata.json",
+    "sha256": "473A51B7D750147D14D3EA341450D4A04C4630E46E52948231F88278809D4F86"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\049_gourd_ground_vine\\049_gourd_ground_vine.glb",
+    "sha256": "1122854CE97FDB40E6DE8442166350D3DF4CD98C6A2B931793FF3AF3B003980D"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\049_gourd_ground_vine\\metadata.json",
+    "sha256": "B7FD6CE34F7B93128D68D463DC9E40A78C84878AF176F870DF339B319A0858CF"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\050_split_leaf_wall_climber\\050_split_leaf_wall_climber.glb",
+    "sha256": "25804EF18F41B96A669A4C376921CB8CC167F51F8482B296ECD897C0802346B4"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\050_split_leaf_wall_climber\\metadata.json",
+    "sha256": "ED044A2EB72D5CE1D59CFF480D81C37BE4A0309D192454EBEBF39B4F0C4BFB6E"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\051_woody_arching_root_vine\\051_woody_arching_root_vine.glb",
+    "sha256": "FA444C5C7A3C5AE47D7394E1D4F23216C292749E6402D4AC8F010056038B6B01"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\051_woody_arching_root_vine\\metadata.json",
+    "sha256": "297BD6CF458714F8BE95AAD22DC943CEBFC06FD83E4BCD21ADBC3DCF2629AAF9"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\052_mesh_fence_spreading_vine\\052_mesh_fence_spreading_vine.glb",
+    "sha256": "A9A7907D481577B73D76062C953C31B995EA50DA8BA9BA152E5FE727B5C2AFAA"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\052_mesh_fence_spreading_vine\\metadata.json",
+    "sha256": "BA37A979074ACEA7865844ED4E7A616C61DA8F1684165A1148233B6B491355BC"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\053_square_pier_wrapping_vine\\053_square_pier_wrapping_vine.glb",
+    "sha256": "90331CC129A7B598C917BF02DEB0C9D4EEC3A2AC4AF0083B3DAC65BE8E298E7A"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\053_square_pier_wrapping_vine\\metadata.json",
+    "sha256": "404968A71613CFB3B18970606A5D8948A2ED4CA57B935B31ADA5B377B37130B2"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\054_twin_pipe_forking_vine\\054_twin_pipe_forking_vine.glb",
+    "sha256": "9A62C0B61A61CD63DC08F4DF00E6AC4DEA63F3FC65E5083166827426BFDE4525"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\054_twin_pipe_forking_vine\\metadata.json",
+    "sha256": "E98F5E2380F634B3C62991E188F24E4F04AE4C2E4B64E40D3A4CC46B65659552"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\055_outer_arch_climbing_vine\\055_outer_arch_climbing_vine.glb",
+    "sha256": "2CA83386F17EC3D73AB43A1DCAB9BE45B5738976E9726749523620F0BC912B95"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\055_outer_arch_climbing_vine\\metadata.json",
+    "sha256": "0953837B49E5867FCA2300ACB58B8EA3870F3C78B58D10E9F5D01D06B8BE8BFD"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\056_suspended_cable_festoon_vine\\056_suspended_cable_festoon_vine.glb",
+    "sha256": "2900F8B13452EE8EC67357FA2C7B6A0EE634FC8CE8A4DE42A639525D454DFB4A"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\056_suspended_cable_festoon_vine\\metadata.json",
+    "sha256": "8F51CDC2B91936EDCD318031EE5689271728AE80CED5CB0142BCAC7637FA5E75"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\057_sloping_roof_branching_vine\\057_sloping_roof_branching_vine.glb",
+    "sha256": "4F58C7BF16F042F59D6A6A808BBBFFF7435F357FE625088B2785F6A9848A4B93"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\057_sloping_roof_branching_vine\\metadata.json",
+    "sha256": "B2405444BCB412AFBF4AF18F13DB555163163B98BBD344E593DA24829E89B5CC"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\058_wall_to_diagonal_brace_vine\\058_wall_to_diagonal_brace_vine.glb",
+    "sha256": "E472A655EEFAF0D1951BF966E299EE4EA248E4969BE7ED8BF541C5726BD4CA3C"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\058_wall_to_diagonal_brace_vine\\metadata.json",
+    "sha256": "3AB536BB71EEF9B2A7EE05AA987C1B3C9C6C10C36C7D1F64B7A683377BA537FD"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\059_corner_handrail_spreading_vine\\059_corner_handrail_spreading_vine.glb",
+    "sha256": "D929CA54F7364C037475BF2264854CCF581461ED7823BAD8DBEEEC4639B1DA41"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\059_corner_handrail_spreading_vine\\metadata.json",
+    "sha256": "E4476AE1B21E984DED2B6B4F62F5C1846FD65A4C0C6012D1B823921FBE9E24C9"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\060_projecting_ledge_double_cascade_vine\\060_projecting_ledge_double_cascade_vine.glb",
+    "sha256": "E20D7B069F647D32B600E653BB8E8827DEA02FB83A70961BDDD8224403325903"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\060_projecting_ledge_double_cascade_vine\\metadata.json",
+    "sha256": "62799E4F6EEF51688A839B65A9BD9439D303749B861B1B8FA705CBA3B852EE01"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\061_three_rubble_branching_ground_vine\\061_three_rubble_branching_ground_vine.glb",
+    "sha256": "550BE5239B5D05AF6658F43CF6A9F18D40AEA7EB80BC64AEA0034EF4999646F3"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\061_three_rubble_branching_ground_vine\\metadata.json",
+    "sha256": "037CAF53BAFFCF59F3CD79DA07EAAA3D6202B9D6CF8284E9C28006AD3984A84F"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\062_round_container_rim_vine\\062_round_container_rim_vine.glb",
+    "sha256": "D4F80A00161BE875FB90A233726005DD291A4D6BA7127C916C32F7A2C5FC4BDE"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\062_round_container_rim_vine\\metadata.json",
+    "sha256": "C19CA9031335A8B32539605DF333B30DA08D3471A254FFCCB2A8D1E4F5ED3AE1"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\063_triangular_truss_climbing_vine\\063_triangular_truss_climbing_vine.glb",
+    "sha256": "0260DC438A39A25E274A3EECB7FA683CB294F29DC5E6A8E0D4A0F855B14BD3D8"
+  },
+  {
+    "path": "C:\\godot\\greenvader_asset_deliveries\\assets\\vines\\063_triangular_truss_climbing_vine\\metadata.json",
+    "sha256": "F1792A1FB5DF827B39264AB211B6C8A8DE573570048AAF7D5B0B8D0929B46DAF"
+  }
+]

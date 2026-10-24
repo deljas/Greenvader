@@ -1,0 +1,36 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"results": [
+		{
+			"detail": "",
+			"id": "nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "GPU_fixture_front_local_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "wall_no_counter_gain",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"pixels\": 57, \"first_rgb_sum\": 44.7607858926058, \"second_rgb_sum\": 65.7176482379436 }",
+			"id": "water_real_cast_shadow_without_reflection",
+			"status": "PASS"
+		},
+		{
+			"detail": "{ \"pixels\": 908, \"first_rgb_sum\": 1085.4823795557, \"second_rgb_sum\": 1046.87060701847 }",
+			"id": "water_reflection_without_caster_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "water_shadow_follows_sun",
+			"status": "PASS"
+		}
+	]
+}

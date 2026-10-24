@@ -1,0 +1,510 @@
+[
+  {
+    "path": "data/enemy_tuning.gd",
+    "sha256": "446DC837CA07446F0E433EB521AE8B1428FD99EB1E622A1EA4A01F0DC6F5754E"
+  },
+  {
+    "path": "data/enemy_tuning.gd.uid",
+    "sha256": "D51929BA1D8A90A717DC63D74F006E668B5883B81D64C353E09DBC6225CEB56C"
+  },
+  {
+    "path": "data/enemy_tuning.tres",
+    "sha256": "0D11A542B16A2DE4C329D5E57DC09E759877F22735D07448C322933F971DE01A"
+  },
+  {
+    "path": "data/plant_def.gd",
+    "sha256": "FCBFBE0B65FF5E91E7CB41133B60147D0F200C43C6EB9D62E61AB64531ACBAD3"
+  },
+  {
+    "path": "data/plant_def.gd.uid",
+    "sha256": "EA8FB142362DB20B476649D446BED68F7D35A41E2027F33BF136ABC8297B7825"
+  },
+  {
+    "path": "data/plants/carrot.tres",
+    "sha256": "42B37C9B2CA645EB1E557C0D3DEB2451F12C58C2814CA181D9CF4493266A01AF"
+  },
+  {
+    "path": "data/plants/kiwi.tres",
+    "sha256": "99010EA7CEA0FADEEB3BAE8BA60EF6A783AC62765F2132B670E5F65042A60A8D"
+  },
+  {
+    "path": "data/plants/normal.tres",
+    "sha256": "C3C6D6FBF8067B8E676EBC923AD1742340B271088276D15445291556965200F6"
+  },
+  {
+    "path": "data/play_tuning.gd",
+    "sha256": "EB5729FE9F9AD5E598782DE87F4D26E308027BD8DE2CFF3CDC817ACAD69F6AED"
+  },
+  {
+    "path": "data/play_tuning.gd.uid",
+    "sha256": "B79F47AFEB5C3A1B386CD71B97A5619464C473D39D02329CAD06553786947CE4"
+  },
+  {
+    "path": "data/play_tuning.tres",
+    "sha256": "28B541B647DD9E64CC461010B662B68DF49C5EBD989250C618EB5BA2E3E86FCF"
+  },
+  {
+    "path": "data/region_01.png",
+    "sha256": "95D86BEF9BB715E45B1BF8B99DF99F7A84416E19858CB60111171FE5E7153DD9"
+  },
+  {
+    "path": "data/region_01.png.import",
+    "sha256": "373380B76F0FCA58AB62CFC7BC2A2D2AFAF3ED6EF0879C240206D822352C0D72"
+  },
+  {
+    "path": "data/region_01.tres",
+    "sha256": "A910F286F5FE7821E0AA3D3F77336EA4480555DFB4F6083328F320D7C72A0CD6"
+  },
+  {
+    "path": "data/region_01_zones.png",
+    "sha256": "F3BB1BB6C08DAAF309026CAC532796B6D481C9380CC018A6350A27698C60F438"
+  },
+  {
+    "path": "data/region_01_zones.png.import",
+    "sha256": "9466863CDFCF885DED7C4DB72CFCCEC2AAD3EF971774D8C8FC18D5B73D9F5113"
+  },
+  {
+    "path": "data/region_def.gd",
+    "sha256": "E2BEDDD30A8B24F3C533B5E9BB91C9C23C6290241607038FBDAA918F3B352A0D"
+  },
+  {
+    "path": "data/region_def.gd.uid",
+    "sha256": "B51F7E196828A364D92DFF4148A9DE84A3068C9E0C227BF076B952627AB5A431"
+  },
+  {
+    "path": "data/sim_tuning.gd",
+    "sha256": "907E65D3A6E755636D52F90A06D29FB36335676AB74A3D75F2A6CE5D71A85FAB"
+  },
+  {
+    "path": "data/sim_tuning.gd.uid",
+    "sha256": "B373D265E2BE7661145FC4226ECD0C8452E0858E6816D3B04109FDDDC86F254E"
+  },
+  {
+    "path": "data/sim_tuning.tres",
+    "sha256": "F81C1C683BF877E33746B5BE8AB19F81D5C4DF076FDB844E26853063691ECD9E"
+  },
+  {
+    "path": "data/terrain/building.tres",
+    "sha256": "3ABD408ABABF2EEC7A4505455EAAA0FCD28B325D72AE46258B84C087305723B5"
+  },
+  {
+    "path": "data/terrain/safe.tres",
+    "sha256": "9B40C6C0C6BB1393EE2D14CE5622E98AC0CB1BD0828DF1FC045755A35B5186E9"
+  },
+  {
+    "path": "data/terrain/shallows.tres",
+    "sha256": "B543A8E40EFBE804A774673092CB99AD63D4F3C5FA97E46E806E33AAC6488094"
+  },
+  {
+    "path": "data/terrain/shore.tres",
+    "sha256": "B174FDF5AF13AA97B83F5E986027E8C25EF126EBB9F4586D6267295492D7658B"
+  },
+  {
+    "path": "data/terrain/wasteland.tres",
+    "sha256": "642561E84C5CAA1E17FF503C5A76146091285301078B08735E0B8516AE6A7AD3"
+  },
+  {
+    "path": "data/terrain/water.tres",
+    "sha256": "C790E57BB8D7508BA579130EE1BDA1F8007FAFCC2C1AD466A4A5703E9A34EB6D"
+  },
+  {
+    "path": "data/terrain_def.gd",
+    "sha256": "A1EE3959BA455D2CF99CDF36C97130F6821AAEDD224DD70B735D2248D2C97966"
+  },
+  {
+    "path": "data/terrain_def.gd.uid",
+    "sha256": "E2C98545E07EE21FAA0DCF71813A9E8558ECCE3B95EC39F41ED69565B926C976"
+  },
+  {
+    "path": "data/zone_def.gd",
+    "sha256": "61DC1C2AAA73B1DC8CBCA0CE1B6C80541E5C993814784DDD6AE4593C358E0557"
+  },
+  {
+    "path": "data/zone_def.gd.uid",
+    "sha256": "83DE1951AB7856EE8E3BBB9B793BE5AF42791E1E34E969A52EE912F3550C4451"
+  },
+  {
+    "path": "data/zones/zone_00_start.tres",
+    "sha256": "7C6569675BAA2066E2EDAF1ADD533D0D9A7A7C1E0B8DFF293821E42E1C27F42B"
+  },
+  {
+    "path": "data/zones/zone_01_west_north.tres",
+    "sha256": "6726A74D4D61F8BC8FEBC88906225EC78F3CB9104FF328C56407E6F6995EB9B5"
+  },
+  {
+    "path": "data/zones/zone_02_west_south1.tres",
+    "sha256": "DC76657EA043DAB9DC208A9F4077F039E315932DC795FCDAB8AF48D4C4C11B5A"
+  },
+  {
+    "path": "data/zones/zone_03_west_south2.tres",
+    "sha256": "42F7F2381B62DF192068E9EF774D62BCFBABF266C8F686F3F5CE469AD64F98EE"
+  },
+  {
+    "path": "data/zones/zone_04_east_north.tres",
+    "sha256": "7A9FAD55C3D8CE0666681397E560BAC1408B11E89108CB6F26A1120728989F8B"
+  },
+  {
+    "path": "data/zones/zone_05_east_middle.tres",
+    "sha256": "EEFFF35373BDF27273F93D54DA0E4BC10B05F5CFE6DB625BA57D90055659EF53"
+  },
+  {
+    "path": "data/zones/zone_06_east_south.tres",
+    "sha256": "91328989A60846EDF34041368DA7BDCDF3F10881D8B6F7968580D8E4DEFA620A"
+  },
+  {
+    "path": "project.godot",
+    "sha256": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F"
+  },
+  {
+    "path": "run_game.bat",
+    "sha256": "9CB1DCE86C3942E13D8F0787DC67C6199FEB03E0BE7CDE2540AC8D083F122595"
+  },
+  {
+    "path": "scenes/main.tscn",
+    "sha256": "18E4CB5CF9C6FCD0215AD2F2E511920A6798B92BD6A927977CC3D0198E9AD73D"
+  },
+  {
+    "path": "scripts/debug_layout.gd",
+    "sha256": "B0E2CE901F9DA4DB996A4758F9FFEA179E0D7536200D6CA603A47826261D9848"
+  },
+  {
+    "path": "scripts/debug_layout.gd.uid",
+    "sha256": "F0010A11EDCB26D185F262690F55C15984DEDC6A9218F370BDC6001800DC2717"
+  },
+  {
+    "path": "scripts/enemy/boar.gd",
+    "sha256": "78966EEFB0C160D917820751093FEC0EF96EAB8798AD6F0EDDA146F66399522F"
+  },
+  {
+    "path": "scripts/enemy/boar.gd.uid",
+    "sha256": "177B3CC4D8C847875860CF99A2C946DAFA9055B2CC15F056BDD1919D66F5275D"
+  },
+  {
+    "path": "scripts/enemy/carcass.gd",
+    "sha256": "E032A392E8334A4097570E2576824C16BAC5C17E2AF307772264BEF993E02196"
+  },
+  {
+    "path": "scripts/enemy/carcass.gd.uid",
+    "sha256": "C5ED21B75FC4274FE0FECE0E20D0B72D69C103E4BBCF1033E03FB7D64526F7F7"
+  },
+  {
+    "path": "scripts/enemy/enemy_art.gd",
+    "sha256": "D6534ADC72BCC17D9D7FE36562E676FBC5B6D9F73C1003C2989DC758B38CD5BE"
+  },
+  {
+    "path": "scripts/enemy/enemy_art.gd.uid",
+    "sha256": "9CC84C8656EAAF7E47244D686951AEEC6910D6DC96ED27EDDA55BFBD3D0EA756"
+  },
+  {
+    "path": "scripts/enemy/enemy_combat.gd",
+    "sha256": "D505FD57A9880270E4A8C811B9782E34A4EA8F02DA3D7179859E24A7771991ED"
+  },
+  {
+    "path": "scripts/enemy/enemy_combat.gd.uid",
+    "sha256": "565FD2803AED91BEB059AD0E1F479754E4B6BF24CBA4308958677851E2EB7791"
+  },
+  {
+    "path": "scripts/enemy/enemy_driver.gd",
+    "sha256": "B138FBF2B3A3B551AD851B3BB68E648D9C35B94BBFFAD0FBE704318F68FA89EC"
+  },
+  {
+    "path": "scripts/enemy/enemy_driver.gd.uid",
+    "sha256": "FC8F1AA1C14C33151F214B979280CB399F2D0A05F9EDDE3F84C21B0D01B88225"
+  },
+  {
+    "path": "scripts/enemy/enemy_field.gd",
+    "sha256": "483B1DEDA5634B0B57CBB791125CD505BEFC3A6D0E902BA13B73F970477877D0"
+  },
+  {
+    "path": "scripts/enemy/enemy_field.gd.uid",
+    "sha256": "E16362AA296690F30E235F11FFD662F7C25C42FB38F76DD97E2F90114EED9320"
+  },
+  {
+    "path": "scripts/enemy/enemy_view.gd",
+    "sha256": "7F85D5394FF22B65D920CBCE51870684B8335F886E773548768C3299036793B4"
+  },
+  {
+    "path": "scripts/enemy/enemy_view.gd.uid",
+    "sha256": "D4C215C9B1067674A2DE4C362CE2C8BB48E4B323506F9B8D0F31E15AD6387B07"
+  },
+  {
+    "path": "scripts/enemy/nest.gd",
+    "sha256": "26BEAACCFEE07DFE4B4D946B48E294C31D5EBDA7F4BFA392379A20AFD8FD0621"
+  },
+  {
+    "path": "scripts/enemy/nest.gd.uid",
+    "sha256": "DA7E391B950291879EEA9BCFE1ABC6DC29391B0F7EE97E1B883836273CFE0AF4"
+  },
+  {
+    "path": "scripts/enemy/zone_progress.gd",
+    "sha256": "45B6CDE544E61E37D906A892538BF0A72B8D658B007E4328DB682D68FDEC847A"
+  },
+  {
+    "path": "scripts/enemy/zone_progress.gd.uid",
+    "sha256": "C327E2DD348B9C75F6D2479425B26C41E359BDAA7D6060275958EF14E623EFD0"
+  },
+  {
+    "path": "scripts/landscape_art.gd",
+    "sha256": "65509DFD31E03C3792D2C1172A31211F2A8E5694D3B98B531B1227B13B28A914"
+  },
+  {
+    "path": "scripts/landscape_art.gd.uid",
+    "sha256": "335950B7D722456ED24C666A207C8E0F8BABD3B4EB874C5484886B6692E213DB"
+  },
+  {
+    "path": "scripts/landscape_prop.gd",
+    "sha256": "3B7D52A98791794E8E7FFFB62861DC840B6FFFB4316966F6E5E6EEAD88299A76"
+  },
+  {
+    "path": "scripts/landscape_prop.gd.uid",
+    "sha256": "D1318EA2ED539089AE816788784587C81DCC61DA3B7BDFD18270E26F3D4355D7"
+  },
+  {
+    "path": "scripts/main.gd",
+    "sha256": "85F4980665F7E3D21AEC67F44E3D5D66A3CB519D83F784519841C3483A9EA555"
+  },
+  {
+    "path": "scripts/main.gd.uid",
+    "sha256": "8D398456E3FC495ABF0C96A9666A5AE4D1A322A103EDC59E8286787DD25A71BD"
+  },
+  {
+    "path": "scripts/pixel_art.gd",
+    "sha256": "798A992CBD37914C33EA2424107F533AE0A612CDD54E5BD893B95BE46DF924FA"
+  },
+  {
+    "path": "scripts/pixel_art.gd.uid",
+    "sha256": "AF723ED02CF2F5A5F5B97532D97284D43214FA0EA86FFC7D4982EF9370543DEA"
+  },
+  {
+    "path": "scripts/play/cultivated_plant.gd",
+    "sha256": "2FDA122C439C9605DE0A071EF65E21C32BB741AFD9A44F1791D643078E1A91EF"
+  },
+  {
+    "path": "scripts/play/cultivated_plant.gd.uid",
+    "sha256": "17AF4C5B8A77D5AAA5D53583C842F7D8C57D267CCD5CA93D686A81F1208C0163"
+  },
+  {
+    "path": "scripts/play/cultivated_view.gd",
+    "sha256": "557EC9AAA0CED51762CEA74790215CECA42E55F6662E98F2D068072706550179"
+  },
+  {
+    "path": "scripts/play/cultivated_view.gd.uid",
+    "sha256": "4C7F1EAB062C0F94574291398F2D2FB41E1BE9EABE3AD8D67AB55114973A1306"
+  },
+  {
+    "path": "scripts/play/cultivation.gd",
+    "sha256": "48A49E7F28519A4C222879104B5DD4022264DEDAB6FA86A67C83752790D2B381"
+  },
+  {
+    "path": "scripts/play/cultivation.gd.uid",
+    "sha256": "BD047CD1FB5C64EE0EEC0B865F45AEA590E2D75E9D2EEC049799FCC1CA673EC8"
+  },
+  {
+    "path": "scripts/play/ground_pickups.gd",
+    "sha256": "8B78DCEB275DD6CE295B3FA7EAE2F848A13891A01916C322DEA096ADEAB61FB1"
+  },
+  {
+    "path": "scripts/play/ground_pickups.gd.uid",
+    "sha256": "13630362077817C751C6AC8370441919840D1364338751551E9847E10F9F3E49"
+  },
+  {
+    "path": "scripts/play/landing.gd",
+    "sha256": "613B5805C5C4AE2BB1197A6AC59228E6AC42EE9D371ECEBCB9141284C70821D3"
+  },
+  {
+    "path": "scripts/play/landing.gd.uid",
+    "sha256": "62D96F05BE8D00C5D0A465FB21AAE18623735B890BD90C05AB5A155B3BB879F4"
+  },
+  {
+    "path": "scripts/play/pickup_view.gd",
+    "sha256": "08E56E7E0F8BFCABC87EFA5D59F245AAFA05362F50990E4FADFF50F46672DF7D"
+  },
+  {
+    "path": "scripts/play/pickup_view.gd.uid",
+    "sha256": "B9CDF0ACD9FE15593F9129BC2F12C0075215FDB1D5828B1B3E14ACA363D25982"
+  },
+  {
+    "path": "scripts/play/plant_producer.gd",
+    "sha256": "9767578BDF4A155636D4D30CF2C1AE558605BF6EB2C9945EB9DE435008BCD835"
+  },
+  {
+    "path": "scripts/play/plant_producer.gd.uid",
+    "sha256": "7978A8C9E03301A5F076A20A13ADBE4DA4930AA6E9C3E2BBEF46FFC024D8F7E1"
+  },
+  {
+    "path": "scripts/play/play_art.gd",
+    "sha256": "F8E66578E6D849A1678D9FDB462BF1F33C0FCF9EE4DB21EBF850194A2D8EF975"
+  },
+  {
+    "path": "scripts/play/play_art.gd.uid",
+    "sha256": "1EBB492BC731DE0DFA355E62A23B64B4D7949FE305BE9E5851BA3B437592FA78"
+  },
+  {
+    "path": "scripts/play/play_driver.gd",
+    "sha256": "D0BCA7962072AD0127099A2CE0EEE5984ECCBF59F3919582718D885863C24A01"
+  },
+  {
+    "path": "scripts/play/play_driver.gd.uid",
+    "sha256": "A7E99B67A311E776F086B5909F617CF1151FF9254632ACC9759FD3B33B17BD6E"
+  },
+  {
+    "path": "scripts/play/play_hud.gd",
+    "sha256": "53F0A992AEDB4CC03EA4CF25EA4A21E0504626465044D88ECB796EA5268281EC"
+  },
+  {
+    "path": "scripts/play/play_hud.gd.uid",
+    "sha256": "9BA68A62531505CE4698FDC1F423CB2DFF98C8AC01A6EF4737A99BDE3F3C831D"
+  },
+  {
+    "path": "scripts/play/play_state.gd",
+    "sha256": "82CB0E6591860E99F8E7CDAC64BDED38C414E15678341658DF78EC558B57B1CA"
+  },
+  {
+    "path": "scripts/play/play_state.gd.uid",
+    "sha256": "52F187E474D0CA0E71AB6746E6D3C51B6ACDAED535F9622A4632D90E3F5C0C60"
+  },
+  {
+    "path": "scripts/play/player_health.gd",
+    "sha256": "69FD95FA779D7E5FBB760DBE8B08808E22E45910F7971C8866C689C840494804"
+  },
+  {
+    "path": "scripts/play/player_health.gd.uid",
+    "sha256": "86E00AC5A4323ED4B3FD5A3F44ECCB050AD45B2848C7995A1D43341E891629BE"
+  },
+  {
+    "path": "scripts/play/projectile_field.gd",
+    "sha256": "DDFE0245B218F5967AAD2D968DD19D47FA8F01DAACA57A17866ED8BE0B26FB3C"
+  },
+  {
+    "path": "scripts/play/projectile_field.gd.uid",
+    "sha256": "905D008015E13899CE03D40DC699F477F212BC3602F91962C418A7E30CF227BC"
+  },
+  {
+    "path": "scripts/play/seed_source.gd",
+    "sha256": "B2BDD59BD4789381512A25D3C7C0E5913F896EADC8F240BEC73AF7571BEB1062"
+  },
+  {
+    "path": "scripts/play/seed_source.gd.uid",
+    "sha256": "A4BD5D1B5639B647089EC88F2E8823372F61E3575517ABC7A4A5804BB8DC93AD"
+  },
+  {
+    "path": "scripts/play/walker.gd",
+    "sha256": "0856EC7CFAD824B8CBAD22936FB1DD409F07DD8CAF196D2A24561B6B34D23BC7"
+  },
+  {
+    "path": "scripts/play/walker.gd.uid",
+    "sha256": "5DFDE377C0ABCA6AF008BF68EC24D28F4976A99B3D8BA3F7FCDADC99C7DC6514"
+  },
+  {
+    "path": "scripts/play/zone_hud.gd",
+    "sha256": "EAE3A334B70C9484F1C916E52CAC75B8719929E1C273306F92216850CB444B51"
+  },
+  {
+    "path": "scripts/play/zone_hud.gd.uid",
+    "sha256": "39ACAA147427D20255A2BEECA914A19987390C9B1AF92AE8810110E3E43F56BE"
+  },
+  {
+    "path": "scripts/play/zone_notice.gd",
+    "sha256": "89E65920D0EB6A16DF6D1AB86223D7494353E54B93C4AF6EACA8736205C1D699"
+  },
+  {
+    "path": "scripts/play/zone_notice.gd.uid",
+    "sha256": "C9E86D4D7DFEB05A885CCE0E20A6F0637779F19BF3B3A8117F1B50636800F46E"
+  },
+  {
+    "path": "scripts/player.gd",
+    "sha256": "BD935CEF8A91CA49739403AF136C159D414C594BDC7F3BF385602D42D10D296B"
+  },
+  {
+    "path": "scripts/player.gd.uid",
+    "sha256": "67C32FA15D2EEB9E51AB93C89495557A4996725BC80E45B45717923FFD3C8CA7"
+  },
+  {
+    "path": "scripts/tools/gen_region_01.gd",
+    "sha256": "5DADE6A5AC6E192109E9C5B21495B9EC3EF93BE0076165C94D8792D0D7B657C0"
+  },
+  {
+    "path": "scripts/tools/gen_region_01.gd.uid",
+    "sha256": "E68E3A7381CC3C878DF4FE9732E9EAF7AF5650040D174D9EB616BABACDDD9D85"
+  },
+  {
+    "path": "scripts/tools/gen_zones_region_01.gd",
+    "sha256": "9FAFB5303159891C2061F09E306EBE3A3B2B16D5C52EC29C5B746D791DE80840"
+  },
+  {
+    "path": "scripts/tools/gen_zones_region_01.gd.uid",
+    "sha256": "F3F593BF525AC69CBABAC3DDFF956A1486D2EF5369EDBBC7B2935D3E9E5F1D26"
+  },
+  {
+    "path": "scripts/weather_view.gd",
+    "sha256": "3AFC806BE685C90CAC4CB13F28AFDB44310CF42197A5E4FEDA576A4D41628188"
+  },
+  {
+    "path": "scripts/weather_view.gd.uid",
+    "sha256": "DC1C105114093AE0075B5086A565C79FD3C1777478E841878BF5828E12FE2908"
+  },
+  {
+    "path": "scripts/world/far_seed_sim.gd",
+    "sha256": "4FD24BBE301C00AFF3E74365B718EBF0CD83CA226B4B49C4F054B456449187EA"
+  },
+  {
+    "path": "scripts/world/far_seed_sim.gd.uid",
+    "sha256": "FC3556D710CF1A2A0317AFBA5799F814A11EBF2CF06C3C8F4C31C872A3D43DFA"
+  },
+  {
+    "path": "scripts/world/growth_sim.gd",
+    "sha256": "4EA9757D93B8A173B1DB8332066A93221BEAF7BD2EA51626051B1B9001C68899"
+  },
+  {
+    "path": "scripts/world/growth_sim.gd.uid",
+    "sha256": "E2A7670DBA4365171B636D89051D2AE79C595C50E339F7310EC42C3C6F5EE56B"
+  },
+  {
+    "path": "scripts/world/region_loader.gd",
+    "sha256": "D16F97BB99E68B578EB398939D041275CB70275405B10AF256F77ADC504308EB"
+  },
+  {
+    "path": "scripts/world/region_loader.gd.uid",
+    "sha256": "E899EEA3B595D4B8E3A706A76C1E1DE65418C574D2848484F287D4EC0FE1F2E3"
+  },
+  {
+    "path": "scripts/world/region_view.gd",
+    "sha256": "A0C0483BF21FD38F26639765325B5398A48B0F7C26D4CC5897B3447C453A60BE"
+  },
+  {
+    "path": "scripts/world/region_view.gd.uid",
+    "sha256": "E10522F5ACA4EB3E32636F840640629D391DAF3E6254240B20AA1BF120C0FB91"
+  },
+  {
+    "path": "scripts/world/sim_clock.gd",
+    "sha256": "139DAA8BBDCA8A264460A3F7481A6FE80B97BCBA91C1151D809A77F81EEED216"
+  },
+  {
+    "path": "scripts/world/sim_clock.gd.uid",
+    "sha256": "62B5ECFF3785CE560955ABC5FB7341C1BCEC08AB8F836D79E9FBDE4B270EE58A"
+  },
+  {
+    "path": "scripts/world/simulation_driver.gd",
+    "sha256": "6DCF6BE8DB2FBB54580DB85E7DFC6B24D91ACBD7403A294DD1E89E4D5AA3008C"
+  },
+  {
+    "path": "scripts/world/simulation_driver.gd.uid",
+    "sha256": "23988388D6413492F692C04666753D600ECE96267E2BAC1BC05D93016A3E0E3E"
+  },
+  {
+    "path": "scripts/world/spread_sim.gd",
+    "sha256": "9D349173758DC779F6782F1A90A7E4065D1EBD5D0D1FC916A8C6D3CC5C029376"
+  },
+  {
+    "path": "scripts/world/spread_sim.gd.uid",
+    "sha256": "E95B5945383810B8F37728D000947993243FCB31B197B1228DA9CE4BD2C75B9D"
+  },
+  {
+    "path": "scripts/world/world_state.gd",
+    "sha256": "867C720CCBEA1C94D54CC0E634683AE0CFAF3566B13D0931120590EAE88BD852"
+  },
+  {
+    "path": "scripts/world/world_state.gd.uid",
+    "sha256": "F688093BE358C749A903E80647E6B289382446989180E7122FF37F25D1D23CA2"
+  }
+]

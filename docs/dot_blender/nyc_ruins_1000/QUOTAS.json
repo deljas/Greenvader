@@ -1,0 +1,439 @@
+{
+  "pack_id": "nyc_ruins_1000",
+  "id_prefix": "NYC18",
+  "total_count": 1000,
+  "status": "PLANNING_QUOTAS_NOT_COMPLETED_ASSETS",
+  "categories": [
+    {
+      "code": "BLD",
+      "folder": "buildings",
+      "title": "建物完成形",
+      "groups": [
+        {
+          "id_start": "NYC18-BLD-001",
+          "id_end": "NYC18-BLD-050",
+          "count": 50,
+          "label": "6〜10階・高さ約20〜40m",
+          "examples": "レンガ雑居ビル、倉庫転用オフィス、集合住宅、角地の店舗併用棟、石張り商業棟。狭い間口/中庭/街区角/屋上水槽等で構成を変える"
+        },
+        {
+          "id_start": "NYC18-BLD-051",
+          "id_end": "NYC18-BLD-120",
+          "count": 70,
+          "label": "11〜20階・高さ約40〜80m",
+          "examples": "石張りオフィス、縦窓の事務所、ホテル、集合住宅、病院、段状上層の商業棟。平面形・構造・崩落位置を組み合わせる"
+        },
+        {
+          "id_start": "NYC18-BLD-121",
+          "id_end": "NYC18-BLD-150",
+          "count": 30,
+          "label": "21〜40階・高さ約80〜160m",
+          "examples": "ガラスカーテンウォール、鉄骨露出オフィス、段状塔、縦リブ外壁の住宅塔、低層基壇付き塔"
+        },
+        {
+          "id_start": "NYC18-BLD-151",
+          "id_end": "NYC18-BLD-160",
+          "count": 10,
+          "label": "大型ランドマーク・元高さ約120〜200m",
+          "examples": "特徴的な頂部を持つオリジナル高層、上半部崩落の塔、中央が裂けた塔、複数段のセットバック。残存高さと元階数を別記"
+        }
+      ],
+      "count": 160
+    },
+    {
+      "code": "FAC",
+      "folder": "building_modules",
+      "title": "建物分割部品",
+      "groups": [
+        {
+          "id_start": "NYC18-FAC-001",
+          "id_end": "NYC18-FAC-040",
+          "count": 40,
+          "label": "外壁・窓列",
+          "examples": "レンガ/石張り/コンクリート/金属/ガラスの壁、隅角、窓台、剥がれた外装、欠落窓列"
+        },
+        {
+          "id_start": "NYC18-FAC-041",
+          "id_end": "NYC18-FAC-072",
+          "count": 32,
+          "label": "露出床・柱・梁",
+          "examples": "破断スラブ、鉄筋断面、折れた柱、座屈梁、露出コア、床が落ちた角、残った支持枠"
+        },
+        {
+          "id_start": "NYC18-FAC-073",
+          "id_end": "NYC18-FAC-096",
+          "count": 24,
+          "label": "屋根・セットバック",
+          "examples": "パラペット、崩落屋根、段状テラス、屋上小屋、排水溝、頂部の欠損"
+        },
+        {
+          "id_start": "NYC18-FAC-097",
+          "id_end": "NYC18-FAC-120",
+          "count": 24,
+          "label": "入口・低層店舗",
+          "examples": "両開き入口、回転扉の残骸、石造ポータル、ショーウィンドウ、搬入口、乗降用ひさし"
+        },
+        {
+          "id_start": "NYC18-FAC-121",
+          "id_end": "NYC18-FAC-136",
+          "count": 16,
+          "label": "外付階段・連絡設備",
+          "examples": "非常階段、折れた踊り場、逃げ梯子、保守足場、建物間の短い連絡部"
+        },
+        {
+          "id_start": "NYC18-FAC-137",
+          "id_end": "NYC18-FAC-160",
+          "count": 24,
+          "label": "対応する崩落部材",
+          "examples": "窓枠付き落下壁、ひさし断片、屋上小屋の破片、床端とその落下片など接続するキット"
+        }
+      ],
+      "count": 160
+    },
+    {
+      "code": "RDG",
+      "folder": "roads",
+      "title": "道路・歩道・広場",
+      "groups": [
+        {
+          "id_start": "NYC18-RDG-001",
+          "id_end": "NYC18-RDG-040",
+          "count": 40,
+          "label": "車道・路面破損",
+          "examples": "車線、補修跡、轍、段差、舗装剥離、陥没、露出路盤。平坦な通行帯も残す"
+        },
+        {
+          "id_start": "NYC18-RDG-041",
+          "id_end": "NYC18-RDG-064",
+          "count": 24,
+          "label": "歩道",
+          "examples": "大判コンクリート、石板、小片舗装、沈下、建物際、地下採光窓周辺"
+        },
+        {
+          "id_start": "NYC18-RDG-065",
+          "id_end": "NYC18-RDG-080",
+          "count": 16,
+          "label": "交差点・横断部",
+          "examples": "横断歩道、停止線、斜め交差、欠損した交差点角、中央島"
+        },
+        {
+          "id_start": "NYC18-RDG-081",
+          "id_end": "NYC18-RDG-096",
+          "count": 16,
+          "label": "縁石・接合",
+          "examples": "直線/内外角、スロープ端、路肩、排水口、中央分離帯の断面"
+        },
+        {
+          "id_start": "NYC18-RDG-097",
+          "id_end": "NYC18-RDG-108",
+          "count": 12,
+          "label": "開放された路盤・工事跡",
+          "examples": "地下配管溝、埋戻し崩落、ケーブル溝、マンホール周辺の破断"
+        },
+        {
+          "id_start": "NYC18-RDG-109",
+          "id_end": "NYC18-RDG-120",
+          "count": 12,
+          "label": "広場・建物前面",
+          "examples": "入口前の平場、噴水跡周辺、段床の端、崩れた植桝の周辺舗装"
+        }
+      ],
+      "count": 120
+    },
+    {
+      "code": "INF",
+      "folder": "urban_infrastructure",
+      "title": "都市インフラ",
+      "groups": [
+        {
+          "id_start": "NYC18-INF-001",
+          "id_end": "NYC18-INF-016",
+          "count": 16,
+          "label": "地下鉄入口",
+          "examples": "路面の階段口、手すり、入口屋根、壊れた閉鎖柵。歩行可能な地下空間は不要"
+        },
+        {
+          "id_start": "NYC18-INF-017",
+          "id_end": "NYC18-INF-028",
+          "count": 12,
+          "label": "地下道・換気口",
+          "examples": "地下通路入口、歩道の換気グレーチング、地下設備の立上り、採光開口"
+        },
+        {
+          "id_start": "NYC18-INF-029",
+          "id_end": "NYC18-INF-044",
+          "count": 16,
+          "label": "歩道橋",
+          "examples": "橋桁/支持脚/側桁の完形と崩落キット。ゲームの上下通行は実装しない"
+        },
+        {
+          "id_start": "NYC18-INF-045",
+          "id_end": "NYC18-INF-060",
+          "count": 16,
+          "label": "高架鉄道周辺",
+          "examples": "鉄骨高架の区間、柱、落ちた線路、駅外部デッキ、支持構造"
+        },
+        {
+          "id_start": "NYC18-INF-061",
+          "id_end": "NYC18-INF-072",
+          "count": 12,
+          "label": "橋脚・擁壁",
+          "examples": "河岸の擁壁、欠損橋脚、橋台、道路構造の残存部"
+        },
+        {
+          "id_start": "NYC18-INF-073",
+          "id_end": "NYC18-INF-080",
+          "count": 8,
+          "label": "交通広場・乗場",
+          "examples": "バス乗場端部、タクシー乗場の構造物、閉鎖乗降デッキ"
+        }
+      ],
+      "count": 80
+    },
+    {
+      "code": "VEH",
+      "folder": "vehicles",
+      "title": "車両・交通関連",
+      "groups": [
+        {
+          "id_start": "NYC18-VEH-001",
+          "id_end": "NYC18-VEH-030",
+          "count": 30,
+          "label": "乗用車・タクシー",
+          "examples": "セダン、ワゴン、SUV、黄色いタクシー、古い大型車。車種形状と構造的な損傷を区別"
+        },
+        {
+          "id_start": "NYC18-VEH-031",
+          "id_end": "NYC18-VEH-050",
+          "count": 20,
+          "label": "業務・緊急車両",
+          "examples": "配送バン、救急車、消防車、清掃車、保守車。架装の違いを造形に反映"
+        },
+        {
+          "id_start": "NYC18-VEH-051",
+          "id_end": "NYC18-VEH-066",
+          "count": 16,
+          "label": "公共交通車両",
+          "examples": "市バス、連節部、通勤車両の外殻・露出車端、乗降部。車体のみの長さ違いは禁止"
+        },
+        {
+          "id_start": "NYC18-VEH-067",
+          "id_end": "NYC18-VEH-086",
+          "count": 20,
+          "label": "貨物・作業車",
+          "examples": "箱型トラック、牽引車、荷台、フォークリフト、クレーン車の破断部"
+        },
+        {
+          "id_start": "NYC18-VEH-087",
+          "id_end": "NYC18-VEH-100",
+          "count": 14,
+          "label": "自転車等と独立交通残骸",
+          "examples": "自転車、配送用自転車、オートバイ、用途のある車軸/車体断片の小キット"
+        }
+      ],
+      "count": 100
+    },
+    {
+      "code": "STF",
+      "folder": "street_fixtures",
+      "title": "街路設備",
+      "groups": [
+        {
+          "id_start": "NYC18-STF-001",
+          "id_end": "NYC18-STF-020",
+          "count": 20,
+          "label": "案内・看板",
+          "examples": "交差点の道路名板、入口案内、大型広告骨組み、折れた店舗看板。架空の表記"
+        },
+        {
+          "id_start": "NYC18-STF-021",
+          "id_end": "NYC18-STF-044",
+          "count": 24,
+          "label": "街灯・信号",
+          "examples": "片持ち信号、街灯、折れた灯具、支持部が曲がった標識架台、歩行者信号"
+        },
+        {
+          "id_start": "NYC18-STF-045",
+          "id_end": "NYC18-STF-060",
+          "count": 16,
+          "label": "街路家具",
+          "examples": "ベンチ、くずかご、新聞販売箱、消火栓、ボラード"
+        },
+        {
+          "id_start": "NYC18-STF-061",
+          "id_end": "NYC18-STF-076",
+          "count": 16,
+          "label": "駐車・駐輪設備",
+          "examples": "駐輪枠、パーキングメーター、車止め、ゲート、潰れた駐車誘導設備"
+        },
+        {
+          "id_start": "NYC18-STF-077",
+          "id_end": "NYC18-STF-100",
+          "count": 24,
+          "label": "公共・商業設備",
+          "examples": "バス停、キオスク、自販機、電話設備、公園柵、店舗前の日除け・屋外什器"
+        }
+      ],
+      "count": 100
+    },
+    {
+      "code": "EQP",
+      "folder": "building_equipment",
+      "title": "建築設備",
+      "groups": [
+        {
+          "id_start": "NYC18-EQP-001",
+          "id_end": "NYC18-EQP-020",
+          "count": 20,
+          "label": "空調",
+          "examples": "室外機、屋上空調ユニット、冷却塔、壊れた送風機、ダクトと破断部"
+        },
+        {
+          "id_start": "NYC18-EQP-021",
+          "id_end": "NYC18-EQP-036",
+          "count": 16,
+          "label": "電気",
+          "examples": "受電盤、変圧器、配電箱、ケーブルトレイ、切断された引込設備"
+        },
+        {
+          "id_start": "NYC18-EQP-037",
+          "id_end": "NYC18-EQP-052",
+          "count": 16,
+          "label": "水・排水",
+          "examples": "給排水管、露出弁、消防送水管、雨樋、貯水設備の破断口"
+        },
+        {
+          "id_start": "NYC18-EQP-053",
+          "id_end": "NYC18-EQP-060",
+          "count": 8,
+          "label": "昇降機設備",
+          "examples": "露出したエレベーター機械、シャフト頂部の支持枠、かご残骸"
+        },
+        {
+          "id_start": "NYC18-EQP-061",
+          "id_end": "NYC18-EQP-080",
+          "count": 20,
+          "label": "屋上設備",
+          "examples": "屋上水槽、アンテナ、保守クレーン、排気塔、太陽熱設備、折れた設備架台"
+        }
+      ],
+      "count": 80
+    },
+    {
+      "code": "LIF",
+      "folder": "life_traces",
+      "title": "露出部分の生活・業務残骸",
+      "groups": [
+        {
+          "id_start": "NYC18-LIF-001",
+          "id_end": "NYC18-LIF-020",
+          "count": 20,
+          "label": "オフィス",
+          "examples": "デスク群、事務椅子、コピー機、書庫、仕切り、床に崩れた収納"
+        },
+        {
+          "id_start": "NYC18-LIF-021",
+          "id_end": "NYC18-LIF-036",
+          "count": 16,
+          "label": "店舗",
+          "examples": "陳列棚、受付、カウンター、冷蔵ケース、看板と落下品"
+        },
+        {
+          "id_start": "NYC18-LIF-037",
+          "id_end": "NYC18-LIF-048",
+          "count": 12,
+          "label": "公共施設",
+          "examples": "待合席、診療設備、案内カウンター、郵便/配達設備"
+        },
+        {
+          "id_start": "NYC18-LIF-049",
+          "id_end": "NYC18-LIF-060",
+          "count": 12,
+          "label": "裏方・搬入",
+          "examples": "台車、荷物、ロッカー、厨房機器、搬入口に残る作業台"
+        }
+      ],
+      "count": 60
+    },
+    {
+      "code": "RUB",
+      "folder": "rubble",
+      "title": "瓦礫・崩落物",
+      "groups": [
+        {
+          "id_start": "NYC18-RUB-001",
+          "id_end": "NYC18-RUB-016",
+          "count": 16,
+          "label": "レンガ・石材",
+          "examples": "大きな壁片と中小破片、壁際の裾、内角、落下扇形"
+        },
+        {
+          "id_start": "NYC18-RUB-017",
+          "id_end": "NYC18-RUB-036",
+          "count": 20,
+          "label": "コンクリート床・外装",
+          "examples": "鉄筋付きスラブ、床が折り重なる山、外装パネルと下地"
+        },
+        {
+          "id_start": "NYC18-RUB-037",
+          "id_end": "NYC18-RUB-048",
+          "count": 12,
+          "label": "鉄骨・金属",
+          "examples": "折れた梁、曲がった格子、ダクト混在、落下設備の周囲"
+        },
+        {
+          "id_start": "NYC18-RUB-049",
+          "id_end": "NYC18-RUB-060",
+          "count": 12,
+          "label": "ガラス・窓・天井材",
+          "examples": "ガラス片と窓枠、天井パネルと吊材。極細片だけで成立させない"
+        },
+        {
+          "id_start": "NYC18-RUB-061",
+          "id_end": "NYC18-RUB-080",
+          "count": 20,
+          "label": "複合崩落",
+          "examples": "本体の壊れ方に対応する堆積、通路を残した偏り、大小差と疎密のある山"
+        }
+      ],
+      "count": 80
+    },
+    {
+      "code": "SED",
+      "folder": "weathering",
+      "title": "堆積・風化の独立部品",
+      "groups": [
+        {
+          "id_start": "NYC18-SED-001",
+          "id_end": "NYC18-SED-020",
+          "count": 20,
+          "label": "砂泥・流出土",
+          "examples": "不規則な薄い縁、地面が露出する流路、角への堆積、階段に沿う砂"
+        },
+        {
+          "id_start": "NYC18-SED-021",
+          "id_end": "NYC18-SED-040",
+          "count": 20,
+          "label": "表面の劣化",
+          "examples": "塗装剥離、雨だれ、錆の流出、コンクリートの剥落色。光/AOの模様ではない"
+        },
+        {
+          "id_start": "NYC18-SED-041",
+          "id_end": "NYC18-SED-052",
+          "count": 12,
+          "label": "細片・汚れの堆積",
+          "examples": "木片、塗装片、砂利、ガラス混じりの薄い裾。大小と密度を変える"
+        },
+        {
+          "id_start": "NYC18-SED-053",
+          "id_end": "NYC18-SED-060",
+          "count": 8,
+          "label": "排水周辺",
+          "examples": "詰まった側溝、排水口の周囲、乾いた流路、泥とごみの段差"
+        }
+      ],
+      "count": 60
+    }
+  ]
+}
+

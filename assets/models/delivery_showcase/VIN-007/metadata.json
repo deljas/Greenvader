@@ -1,0 +1,187 @@
+{
+  "asset_id": "VIN-007",
+  "category": "VIN",
+  "version": "0.0.2",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) Blender -> (x,z,-y) GLB",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "aabb": {
+    "min": [
+      -0.2749999761581421,
+      -0.008352406322956085,
+      -0.04387175664305687
+    ],
+    "max": [
+      1.5049999952316284,
+      2.5229523181915283,
+      0.12699998915195465
+    ]
+  },
+  "dimensions": [
+    1.7799999713897705,
+    2.5313047245144844,
+    0.17087174579501152
+  ],
+  "placement_size_xz": [
+    1.7799999713897705,
+    0.17087174579501152
+  ],
+  "contact_bounds_xz": [
+    -0.22121766209602356,
+    -0.04387175664305687,
+    1.4797379970550537,
+    0.11879999935626984
+  ],
+  "geometry_stats": {
+    "triangles": 800,
+    "vertices": 692,
+    "objects": 7,
+    "material_count": 4,
+    "blender_material_count": 4,
+    "glb_material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "VIN_Parent_stem",
+      "layer": "parent_stem",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN_Window_edge_branch",
+      "layer": "branch_01",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN_Upper_branch",
+      "layer": "branch_02",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-007_leaves_parent",
+      "layer": "leaves_parent",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_young",
+        "Leaf_deep"
+      ]
+    },
+    {
+      "name": "VIN-007_leaves_branch",
+      "layer": "leaves_branch",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_young",
+        "Leaf_deep"
+      ]
+    },
+    {
+      "name": "VIN-007_petioles_parent",
+      "layer": "petioles_parent",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-007_petioles_branch",
+      "layer": "petioles_branch",
+      "materials": [
+        "Vine_stem"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "texture_note": "No image textures required; simple opaque Principled materials, no baked illumination.",
+  "connections": {
+    "root": [
+      0,
+      0,
+      0
+    ],
+    "attachment_plane_normal": [
+      0,
+      0,
+      1
+    ],
+    "growth_method": "reveal ordered stem segments then connected branches then leaf groups; never scale root",
+    "branches": [
+      {
+        "name": "VIN_Window_edge_branch",
+        "parent": "VIN_Parent_stem",
+        "connection": [
+          0.07,
+          1.26,
+          0
+        ],
+        "direction": [
+          0.51,
+          0.17,
+          0.04
+        ]
+      },
+      {
+        "name": "VIN_Upper_branch",
+        "parent": "VIN_Parent_stem",
+        "connection": [
+          0.32,
+          2.03,
+          0
+        ],
+        "direction": [
+          0.62,
+          0.32,
+          0.01
+        ]
+      }
+    ],
+    "target_window_m": [
+      1.4,
+      1.2
+    ],
+    "root_to_window_bottom_left_m": [
+      0.18,
+      0.8,
+      0
+    ],
+    "leaf_method": "individually curved lamina with midrib; geometric petioles and exposed curved stems; no flat leaf panel"
+  },
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "triangles": 800,
+      "material_names_match": true,
+      "atlas_embedded": false,
+      "image_material_reimported": false
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN",
+    "visual_notes": "Native-scale individual/reimport views and shared wall/ground composition reviewed. Small membrane and grass assessed in composite. Not Godot verification."
+  },
+  "integration_status": "NOT_RUN",
+  "contact_type": "wall attachment, not ground footprint",
+  "ground_contact_bounds": null,
+  "material_behavior": {
+    "opaque": true,
+    "double_sided": true,
+    "external_textures_required": false
+  }
+}

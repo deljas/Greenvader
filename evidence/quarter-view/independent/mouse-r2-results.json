@@ -1,0 +1,38 @@
+{
+	"checks": [
+		{
+			"detail": "stored=(494.0, 413.0) logical=(550.0, 466.0) cell=(137, 116)",
+			"id": "r2_engine_mouse_known_ground",
+			"status": "PASS"
+		},
+		{
+			"detail": "stored=(494.0, 413.0) logical=(585.0, 471.0) cell=(146, 117)",
+			"id": "r2_stationary_mouse_camera_reprojection",
+			"status": "PASS"
+		},
+		{
+			"detail": "center=(0.9176, 0.7843, 0.3686, 1.0) changed diamond pixels=16 expected=16",
+			"id": "r2_gpu_marker_expected_cell",
+			"status": "PASS"
+		},
+		{
+			"detail": "No OS mouse movement or focus operation; user manual check",
+			"id": "physical_OS_mouse",
+			"status": "NOT_RUN"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 0,
+	"renderer": "forward_plus",
+	"revision": "source-manifest-r2.json"
+}

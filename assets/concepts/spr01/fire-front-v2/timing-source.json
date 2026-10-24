@@ -1,0 +1,100 @@
+{
+  "durations_ms": {
+    "seed": [
+      33,
+      50,
+      50,
+      67
+    ],
+    "water": [
+      40,
+      60,
+      50,
+      60,
+      80,
+      110
+    ]
+  },
+  "phases": {
+    "seed": [
+      "gather",
+      "flick-release-recoil",
+      "large-leaf-recoil",
+      "recover"
+    ],
+    "water": [
+      "open-small-drop",
+      "inflate-medium",
+      "inflate-large-stretch",
+      "push-release",
+      "large-leaf-soft-droop",
+      "recover"
+    ]
+  },
+  "release_ms": {
+    "seed": 33,
+    "water": 150
+  },
+  "body_y_offsets": {
+    "seed": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "water": [
+      0,
+      0,
+      -1,
+      1,
+      1,
+      0
+    ]
+  },
+  "socket_xy": {
+    "seed": [
+      [
+        12,
+        13
+      ],
+      [
+        12,
+        14
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        12,
+        13
+      ]
+    ],
+    "water": [
+      [
+        12,
+        13
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        12,
+        12
+      ],
+      [
+        12,
+        14
+      ],
+      [
+        12,
+        14
+      ],
+      [
+        12,
+        13
+      ]
+    ]
+  }
+}

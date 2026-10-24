@@ -1,0 +1,323 @@
+{
+	"NOT_RUN": [
+		"physical_keyboard_OS_path",
+		"full_angle_performance",
+		"water_reflection_growth_collision_integration",
+		"user_art_approval"
+	],
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"head": "99013702eaf36db72a64d60d284680fb834f13c5+uncommitted",
+	"results": [
+		{
+			"detail": "",
+			"id": "24_models_loaded",
+			"status": "PASS"
+		},
+		{
+			"detail": "14",
+			"id": "BLD-007_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "BLD-007_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "17",
+			"id": "BLD-038_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "BLD-038_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "14",
+			"id": "BLD-079_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "BLD-079_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "7",
+			"id": "BLD-123_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "BLD-123_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "7",
+			"id": "VIN-007_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.00364759378135",
+			"id": "VIN-007_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "9",
+			"id": "VIN-032_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "-0.00080830603838",
+			"id": "VIN-032_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "4",
+			"id": "VIN-047_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.01879061944783",
+			"id": "VIN-047_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "9",
+			"id": "VIN-060_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.00817508995533",
+			"id": "VIN-060_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"id": "MOS-003_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.02400000020862",
+			"id": "MOS-003_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"id": "MOS-012_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.03199999779463",
+			"id": "MOS-012_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"id": "MOS-024_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.01400000043213",
+			"id": "MOS-024_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "1",
+			"id": "MOS-035_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.01200000010431",
+			"id": "MOS-035_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "4",
+			"id": "TRE-001_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "TRE-001_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "4",
+			"id": "TRE-027_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "TRE-027_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "11",
+			"id": "TRE-054_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "TRE-054_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "6",
+			"id": "TRE-074_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "TRE-074_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "5",
+			"id": "GND-009_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "GND-009_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "4",
+			"id": "GND-036_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "GND-036_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"id": "GND-059_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "GND-059_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "3",
+			"id": "GND-077_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "GND-077_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "6",
+			"id": "PRP-001_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "PRP-001_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "7",
+			"id": "PRP-041_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "PRP-041_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "7",
+			"id": "PRP-075_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "PRP-075_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "7",
+			"id": "PRP-121_mesh_native_scale",
+			"status": "PASS"
+		},
+		{
+			"detail": "0.0",
+			"id": "PRP-121_not_below_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "category_0_UI",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "category_1_UI",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "category_2_UI",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "category_3_UI",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "category_4_UI",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "category_5_UI",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "individual_UI_focus",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "category_key_internal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "camera_input_internal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zoom_input_internal",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "sun_UI_changes_render",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "orthographic_30degree",
+			"status": "PASS"
+		}
+	]
+}

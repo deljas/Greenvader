@@ -1,0 +1,16 @@
+diff --git a/evidence/render-study-3d/light-controls/self/before/sprite_shadow_lab.gd.txt b/scripts/render_study_3d/sprite_shadow_lab.gd
+index d4a1952..55951c7 100644
+--- a/evidence/render-study-3d/light-controls/self/before/sprite_shadow_lab.gd.txt
++++ b/scripts/render_study_3d/sprite_shadow_lab.gd
+@@ -83,7 +83,10 @@ func apply_pose(index: int, flip: bool, logical_foot: Vector3) -> void:
+ 	# Artistic approximation: face the light horizontally so the alpha silhouette
+ 	# remains readable. It is still an upright card with real 3D light projection,
+ 	# not a volumetric character and not a shadow painted onto the ground.
+-	var light_normal: Vector3 = Vector3(study.sun.global_basis.z.x,0,study.sun.global_basis.z.z).normalized()
++	var light_normal: Vector3 = Vector3(study.sun.global_basis.z.x,0,study.sun.global_basis.z.z)
++	if light_normal.length_squared() < 0.000001:
++		light_normal = forward_ground # Stable upright card at a vertical light.
++	light_normal = light_normal.normalized()
+ 	shadow_board.global_basis = Basis(Vector3.UP.cross(light_normal),Vector3.UP,light_normal)
+ 	shadow_board.global_position = render_foot + Vector3.UP * half_height
+ 	for sprite: Sprite3D in [display_sprite,shadow_board]:

@@ -1,0 +1,649 @@
+{
+  "kind": "walk-normal-initial-trial",
+  "internal_screen": [
+    640,
+    360
+  ],
+  "frame_size": [
+    24,
+    36
+  ],
+  "sheet": "sheet.png",
+  "sheet_size": [
+    96,
+    144
+  ],
+  "row_order": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "fps": 8,
+  "loop": true,
+  "cycle_ms": 500,
+  "foot_anchor_xy": [
+    12,
+    34
+  ],
+  "gif_frame_ms": [
+    120,
+    130,
+    120,
+    130
+  ],
+  "directions": [
+    {
+      "direction": "down",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "down-0.png",
+          "rect": [
+            0,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+        },
+        {
+          "file": "down-1.png",
+          "rect": [
+            24,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            -1,
+            1
+          ],
+          "phase": "left-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "sha256": "c375409993796e9efe56d3d2cfc0f19c41497668913af632097a11a10a3fc113"
+        },
+        {
+          "file": "down-2.png",
+          "rect": [
+            48,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "6ca45e983fa905e6710b11a6d116ede8d81f8df0ccd89ebde9a3e1833ae4d793"
+        },
+        {
+          "file": "down-3.png",
+          "rect": [
+            72,
+            0,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            1,
+            -1
+          ],
+          "phase": "right-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "37cca5dc331a78a738deac853bd4538615743d82a4b1c16026755713e2cfe563"
+        }
+      ]
+    },
+    {
+      "direction": "left",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "left-0.png",
+          "rect": [
+            0,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+        },
+        {
+          "file": "left-1.png",
+          "rect": [
+            24,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            6,
+            21,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            -1,
+            1
+          ],
+          "phase": "left-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "sha256": "15c032f1a83ce0d41994c373675e82e974b5d987b884ec6ba902d7d57d56f32b"
+        },
+        {
+          "file": "left-2.png",
+          "rect": [
+            48,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            6,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "217f9027b0c1f8afab50df708fba7f53af8820078012a1c429c54db115ed2b94"
+        },
+        {
+          "file": "left-3.png",
+          "rect": [
+            72,
+            36,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            1,
+            -1
+          ],
+          "phase": "right-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "f1a70b0cf0d502180fb4b77b6a58de593251ce06675e05a19b7a4eb57c304382"
+        }
+      ]
+    },
+    {
+      "direction": "right",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "right-0.png",
+          "rect": [
+            0,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+        },
+        {
+          "file": "right-1.png",
+          "rect": [
+            24,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            6,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            -1,
+            1
+          ],
+          "phase": "left-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "sha256": "0b4981ca16bff8ce5cb6d14478700dbeb61843266c1213f0e75c7930dfed6462"
+        },
+        {
+          "file": "right-2.png",
+          "rect": [
+            48,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            6,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "sha256": "5b9bdc03c50d0575a4700de8f4839235bcf344f3add0d5387baa27ae1c3732bf"
+        },
+        {
+          "file": "right-3.png",
+          "rect": [
+            72,
+            72,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            4,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            1,
+            -1
+          ],
+          "phase": "right-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "sha256": "a0bd90018adfbc103ce86f7d837e7440019e03f7448fdcc50d235ede477390af"
+        }
+      ]
+    },
+    {
+      "direction": "up",
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "file": "up-0.png",
+          "rect": [
+            0,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "neutral-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+        },
+        {
+          "file": "up-1.png",
+          "rect": [
+            24,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            22,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            -1,
+            1
+          ],
+          "phase": "left-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "sha256": "cbd0c8ba9c9c4b65e86317cfeae8932fc17df8c8e8214f483851452c5c6c32aa"
+        },
+        {
+          "file": "up-2.png",
+          "rect": [
+            48,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            1,
+            5,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 0,
+          "hand_relative_y_offsets": [
+            0,
+            0
+          ],
+          "phase": "passing-contact",
+          "support_pixel_x_at_y33": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "sha256": "a6df662c5edb8ba26bde56448f2c4689ad3adff22f5c3abec7a17d170fd0d94d"
+        },
+        {
+          "file": "up-3.png",
+          "rect": [
+            72,
+            108,
+            24,
+            36
+          ],
+          "anchor_xy": [
+            12,
+            34
+          ],
+          "visible_bbox_exclusive": [
+            2,
+            3,
+            23,
+            34
+          ],
+          "visible_bottom_gap_px": 0,
+          "nominal_body_y_offset_px": 1,
+          "hand_relative_y_offsets": [
+            1,
+            -1
+          ],
+          "phase": "right-contact-weight-down",
+          "support_pixel_x_at_y33": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "dbf3acd5ffcace82e1d6a5802fc7685439cba92196a10563a88012e65ba16854"
+        }
+      ]
+    }
+  ]
+}

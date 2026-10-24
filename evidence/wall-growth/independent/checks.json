@@ -1,0 +1,68 @@
+{
+  "task": "TECH-3D-11",
+  "date": "2026-10-16",
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "source_manifest_sha256": "6e155b63a50a5410ad6c38fdde4dbaf7cf1812de53d2a60e914ec02dcdbdce07",
+  "environment": "Windows; submitted Godot4.7.2 Vulkan Forward+ RTX5070Ti; independent read-only Python/Pillow",
+  "summary": {
+    "PASS": 6,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "checks": [
+    {
+      "id": "local_input_growth",
+      "status": "PASS",
+      "method": "ソース/実GPU/独立offline",
+      "evidence": "初期0、45→135秒でA前面だけ成長を目視。代表root2/moss2のcellsは基壇外・半径0.65m内で、明示成熟fixtureから期待した入力と45/135秒進行が一致。右面/別棟21記録は0。"
+    },
+    {
+      "id": "clock_state_preservation",
+      "status": "PASS",
+      "method": "実clock接続/自己証拠レビュー",
+      "evidence": "session実growth_tickedへ接続し0.5ゲーム秒ごと、Sessionは0.25秒分割で先に実GrowthSimを更新。描画/光では進まない。分母1422固定、fixture後の緑44は45→135秒で不変。pause中の全wall rawも光/反射操作前後で一致。自己17PASSのloss保持/再開・土舗装同等もコードと整合。"
+    },
+    {
+      "id": "branches_resources_exclusions",
+      "status": "PASS",
+      "method": "実ソース/代表画像",
+      "evidence": "幹/枝は同rootのtravelと親junctionの累積距離で順序制御。共通mesh再利用、苔はpatch別material複製。walls_onlyで上端0.34m手前、既存開口marginを保持。屋根/追加地面草/ひびは無効。窓/扉/屋根を代表GPUで確認。"
+    },
+    {
+      "id": "legacy_defaults",
+      "status": "PASS",
+      "method": "実before/after/自己signatureレビュー",
+      "evidence": "options既定値は旧挙動、root metadataはpathsと別。旧原本と新defaultのA/B/C layout/pose50/moss signatureの各一致を確認。旧lab全走行の代用ではない。"
+    },
+    {
+      "id": "water_shadow_pixel",
+      "status": "PASS",
+      "method": "提出GPU目視/独立offline",
+      "evidence": "反射OFFでcaster ON/OFFを比較。独立に選んだ池内ポリゴンで42px暗化（RGB和8549<12348）、caster OFFの反射差745px、太陽225→270で82px差。岸から水へ影が続き反射も維持。代表640/1920は全RGBA画素nearest3一致。"
+    },
+    {
+      "id": "freeze_preservation",
+      "status": "PASS",
+      "method": "独立SHA256/実ログ",
+      "evidence": "親指定manifest digest一致、source7件・保全117件・証拠39件全件一致。self GPU PID27960 exit0/stderr空、logic/GPUログにERRORなし。"
+    },
+    {
+      "id": "independent_engine_run",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "既存実GPU/raw/実ソースで足りるため新Godot実行・独立入力再注入・再GPUなし。自己17logic/6GPUはレビュー結果として区別。"
+    },
+    {
+      "id": "native_physical_save",
+      "status": "NOT_RUN",
+      "method": "未実施",
+      "evidence": "native/フォーカス/物理入力・保存。OS入力/前面化/カーソル/ユーザーGodot操作なし。"
+    },
+    {
+      "id": "broad_generalization",
+      "status": "NOT_RUN",
+      "method": "範囲外",
+      "evidence": "全角度/全map/全raw位置/全branch mesh境界の網羅、長時間/性能/全ゲーム回帰、美術最終承認。屋根接続は次段階。"
+    }
+  ]
+}

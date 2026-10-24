@@ -1,0 +1,482 @@
+--- before/scripts/greening_map/ground_view.gd
++++ scripts/greening_map/ground_view.gd
+@@ -10,6 +10,11 @@
+ var visual_stages: PackedByteArray = PackedByteArray()
+ var visual_growth: PackedInt32Array = PackedInt32Array()
+ var stage_counts: Array[int] = [0,0,0,0,0]
++var pavement_cracks: MultiMeshInstance3D
++var pavement_positions: Array[Vector3] = []
++var pavement_angles: Array[float] = []
++var terrain_floors: Array[MultiMeshInstance3D] = []
++const CRACK_PATH: Array[Vector2] = [Vector2(-0.18,-0.12),Vector2(-0.08,-0.04),Vector2(0.025,-0.07),Vector2(0.09,0.02),Vector2(0.17,0.12)]
+ 
+ func setup(state: WorldState) -> void:
+ 	var tile: BoxMesh = BoxMesh.new()
+@@ -17,6 +22,8 @@
+ 	var materials: Array[Material] = [Geometry.material(Color("777a63"),3),Geometry.material(Color("777a63"),3),Geometry.material(Color("8b8b6d"),3),Geometry.material(Color("477c89"),3),Geometry.material(Color("6a7068")),Geometry.material(Color("477c89"),3),Geometry.material(Color("777d72"),1)]
+ 	for terrain: int in 7:
+ 		var node: MultiMeshInstance3D = _instances(tile,materials[terrain],state.tile_count())
++		node.layers = 2 # Floor undersides must not occlude the planar reflection view.
++		terrain_floors.append(node)
+ 		for index: int in state.tile_count():
+ 			var p: Vector2 = Session.cell_center(index)
+ 			var hidden: bool = state.terrain[index]!=terrain
+@@ -32,12 +39,23 @@
+ 		var p: Vector2 = Session.cell_center(index)
+ 		for k: int in 3:
+ 			samples.append({"position":Vector3(p.x+rng.randf_range(-0.13,0.13),0.008,p.y+rng.randf_range(-0.13,0.13)),"angle":rng.randf()*TAU,"variant":rng.randi_range(0,1)})
++		var angle_: float = float(state.sprout_slot[index])*PI*0.5
++		var crack_origin: Vector3 = Vector3(p.x,0.008,p.y)
++		pavement_angles.append(angle_)
++		pavement_positions.append(crack_origin+Basis(Vector3.UP,angle_)*Vector3(CRACK_PATH[1].x,0,CRACK_PATH[1].y))
++	var crack_material: ShaderMaterial = ShaderMaterial.new()
++	var shader_: Shader = Shader.new()
++	shader_.code = "shader_type spatial; render_mode cull_disabled; varying float progress; void vertex(){progress=INSTANCE_CUSTOM.r;} void fragment(){if(UV.x>progress) discard; ALBEDO=vec3(0.13,0.16,0.12); ROUGHNESS=1.0;}"
++	crack_material.shader = shader_
++	pavement_cracks = _instances(_crack_mesh(),crack_material,state.tile_count(),true)
++	pavement_cracks.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+ 	refresh(state)
+ 
+-func _instances(mesh: Mesh, material_: Material, count: int) -> MultiMeshInstance3D:
++func _instances(mesh: Mesh, material_: Material, count: int, custom: bool = false) -> MultiMeshInstance3D:
+ 	var node: MultiMeshInstance3D = MultiMeshInstance3D.new()
+ 	node.multimesh = MultiMesh.new()
+ 	node.multimesh.transform_format = MultiMesh.TRANSFORM_3D
++	node.multimesh.use_custom_data = custom
+ 	node.multimesh.mesh = mesh
+ 	node.multimesh.instance_count = count
+ 	node.material_override = material_
+@@ -53,7 +71,14 @@
+ 		var stage: int = state.stage[index]
+ 		stage_counts[stage] += 1
+ 		var p: Vector2 = Session.cell_center(index)
+-		seeds.multimesh.set_instance_transform(index,Transform3D(Basis.IDENTITY,Vector3(p.x,0.03,p.y)) if stage==WorldState.STAGE_SEED else hidden)
++		var paved: bool = state.terrain[index]==6
++		var seed_position: Vector3 = pavement_positions[index]+Vector3.UP*0.022 if paved else Vector3(p.x,0.03,p.y)
++		seeds.multimesh.set_instance_transform(index,Transform3D(Basis.IDENTITY,seed_position) if stage==WorldState.STAGE_SEED else hidden)
++		pavement_cracks.multimesh.set_instance_transform(index,Transform3D(Basis(Vector3.UP,pavement_angles[index]),Vector3(p.x,0.004,p.y)) if paved and stage>0 else hidden)
++		var crack_length: float = 0.0 if stage==0 else (0.36 if stage==1 else 0.58+0.42*clampf(float(state.growth[index])/120000.0,0,1))
++		if stage==WorldState.STAGE_MATURE:
++			crack_length = 1.0
++		pavement_cracks.multimesh.set_instance_custom_data(index,Color(crack_length,0,0,1))
+ 		var scale_: float = 0.0
+ 		if stage>=WorldState.STAGE_SPROUT1:
+ 			scale_ = 0.23+0.50*clampf(float(state.growth[index])/120000.0,0,1)
+@@ -64,6 +89,22 @@
+ 			var data: Dictionary = samples[instance]
+ 			for variant: int in 2:
+ 				var transform_: Transform3D = hidden
+-				if scale_>0 and data["variant"]==variant:
+-					transform_ = Transform3D(Basis(Vector3.UP,data["angle"]).scaled(Vector3.ONE*scale_),data["position"])
++				if scale_>0 and data["variant"]==variant and (not paved or k==0):
++					var display_scale: float = scale_*0.50 if paved else scale_
++					transform_ = Transform3D(Basis(Vector3.UP,data["angle"]).scaled(Vector3.ONE*display_scale),pavement_positions[index] if paved else data["position"])
+ 				grass[variant].multimesh.set_instance_transform(instance,transform_)
++
++func _crack_mesh() -> ArrayMesh:
++	var st: SurfaceTool = SurfaceTool.new()
++	st.begin(Mesh.PRIMITIVE_TRIANGLES)
++	for segment: int in range(CRACK_PATH.size()-1):
++		var a: Vector2 = CRACK_PATH[segment]
++		var b: Vector2 = CRACK_PATH[segment+1]
++		var side: Vector2 = Vector2(-(b-a).y,(b-a).x).normalized()*0.0175
++		var corners: Array[Vector2] = [a-side,a+side,b+side,b-side]
++		for index: int in [0,2,1,0,3,2]:
++			var v: Vector2 = corners[index]
++			st.set_normal(Vector3.UP)
++			st.set_uv(Vector2(float(segment+(1 if index>=2 else 0))/4.0,0))
++			st.add_vertex(Vector3(v.x,0,v.y))
++	return st.commit()
+--- before/scripts/greening_map/map.gd
++++ scripts/greening_map/map.gd
+@@ -5,6 +5,8 @@
+ const Definitions: GDScript = preload("res://scripts/vegetation_lab/building_defs.gd")
+ const Buildings: GDScript = preload("res://scripts/vegetation_lab/building_geometry.gd")
+ const Geometry: GDScript = preload("res://scripts/render_study_3d/ruin_geometry.gd")
++const Water: GDScript = preload("res://scripts/greening_map/water_surface.gd")
++var water_surface: Node
+ var session: RefCounted = Session.new()
+ var render_view: SubViewport
+ var doubled_view: SubViewport
+@@ -76,11 +78,16 @@
+ 		var rect: Rect2i = item["footprint"]
+ 		var size_: Vector2 = Vector2(rect.size)*Session.CELL
+ 		var base: Vector2 = Session.ORIGIN+Vector2(rect.position)*Session.CELL
+-		Geometry.box(world,"VisibleBlockedFoundation",Vector3(base.x+size_.x/2,0.04,base.y+size_.y/2),Vector3(size_.x,0.16,size_.y),Geometry.material(Color("747a70")))
++		var foundation: MeshInstance3D = Geometry.box(world,"VisibleBlockedFoundation",Vector3(base.x+size_.x/2,0.04,base.y+size_.y/2),Vector3(size_.x,0.16,size_.y),Geometry.material(Color("747a70")))
++		foundation.layers = 2
+ 		blockers.append(AABB(Vector3(base.x,0,base.y),Vector3(size_.x,float(definition["size"].y)+1.1,size_.y)))
+ 	actor = Actor.new()
+ 	world.add_child(actor)
+ 	actor.setup(camera,sun)
++	water_surface = Water.new()
++	add_child(water_surface)
++	water_surface.setup(render_view,camera,world,session.state)
++	water_surface.add_cosmetic_puddle(world)
+ 	marker = Geometry.box(world,"LastLanding",Vector3.ZERO,Vector3(0.15,0.03,0.15),Geometry.material(Color("e8ce7f")))
+ 	marker.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+ 	marker.visible = false
+--- /dev/null
++++ scripts/greening_map/water_surface.gd
+@@ -0,0 +1,81 @@
++extends Node
++## A single reflection pass shared by the existing pond and optional cosmetic puddle.
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const Surface: Shader = preload("res://scripts/greening_map/water_surface.gdshader")
++const HEIGHT: float = 0.006
++var reflection_view: SubViewport
++var reflection_camera: Camera3D
++var main_camera: Camera3D
++var material_: ShaderMaterial
++var surfaces: Array[MeshInstance3D] = []
++var pond_bounds: Rect2
++var puddle: MeshInstance3D
++
++func setup(parent_view: SubViewport, camera: Camera3D, world: Node3D, state: WorldState) -> void:
++	main_camera = camera
++	reflection_view = SubViewport.new()
++	reflection_view.size = Vector2i(320,180)
++	reflection_view.world_3d = parent_view.find_world_3d()
++	reflection_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
++	reflection_view.msaa_3d = Viewport.MSAA_DISABLED
++	reflection_view.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
++	reflection_view.use_taa = false
++	reflection_view.use_debanding = false
++	add_child(reflection_view)
++	reflection_camera = Camera3D.new()
++	reflection_camera.projection = Camera3D.PROJECTION_ORTHOGONAL
++	reflection_camera.keep_aspect = Camera3D.KEEP_HEIGHT
++	reflection_camera.cull_mask = 1 # Scene objects only: excludes floors/foundations(2), water(4).
++	reflection_view.add_child(reflection_camera)
++	reflection_camera.current = true
++	material_ = ShaderMaterial.new()
++	material_.shader = Surface
++	material_.set_shader_parameter("reflection_texture",reflection_view.get_texture())
++	var lo: Vector2 = Vector2(INF,INF)
++	var hi: Vector2 = Vector2(-INF,-INF)
++	for index: int in state.tile_count():
++		if state.terrain[index]==3:
++			var p: Vector2 = Session.cell_center(index)
++			lo = lo.min(p-Vector2.ONE*Session.CELL*0.5)
++			hi = hi.max(p+Vector2.ONE*Session.CELL*0.5)
++	pond_bounds = Rect2(lo,hi-lo)
++	_plane(world,pond_bounds,"ExistingLogicalPond")
++	sync_camera()
++
++func _plane(world: Node3D, rect: Rect2, label_: String) -> MeshInstance3D:
++	var mesh: MeshInstance3D = MeshInstance3D.new()
++	mesh.name = label_
++	var plane: PlaneMesh = PlaneMesh.new()
++	plane.size = rect.size
++	mesh.mesh = plane
++	var p: Vector2 = rect.get_center()
++	mesh.position = Vector3(p.x,HEIGHT,p.y)
++	mesh.material_override = material_
++	mesh.layers = 4
++	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++	world.add_child(mesh)
++	surfaces.append(mesh)
++	return mesh
++
++func add_cosmetic_puddle(world: Node3D) -> void:
++	# Approved visual-only sample on existing pavement; no collision/state changes.
++	puddle = _plane(world,Rect2(Vector2(-0.5,1.8),Vector2(1.4,0.8)),"WalkableVisualOnlyPuddle")
++
++func sync_camera() -> void:
++	var eye: Vector3 = main_camera.global_position
++	var target: Vector3 = eye-main_camera.global_basis.z*10.0
++	eye.y = HEIGHT*2.0-eye.y
++	target.y = HEIGHT*2.0-target.y
++	reflection_camera.global_position = eye
++	reflection_camera.look_at(target,Vector3.UP)
++	reflection_camera.size = main_camera.size
++	reflection_camera.near = main_camera.near
++	reflection_camera.far = main_camera.far
++	var matrix: Projection = reflection_camera.get_camera_projection()*Projection(reflection_camera.global_transform.affine_inverse())
++	material_.set_shader_parameter("reflection_view_projection",matrix)
++
++func set_reflection(enabled: bool) -> void:
++	material_.set_shader_parameter("reflection_strength",0.76 if enabled else 0.0)
++
++func _process(_delta: float) -> void:
++	sync_camera()
+--- /dev/null
++++ scripts/greening_map/water_surface.gdshader
+@@ -0,0 +1,14 @@
++shader_type spatial;
++render_mode unshaded, cull_disabled;
++uniform sampler2D reflection_texture : source_color, filter_nearest, repeat_disable;
++uniform mat4 reflection_view_projection;
++uniform float reflection_strength : hint_range(0,1) = 0.76;
++uniform vec4 tint : source_color = vec4(0.25,0.43,0.47,1.0);
++varying vec3 world_position;
++void vertex() { world_position=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz; }
++void fragment() {
++	vec4 projected=reflection_view_projection*vec4(world_position,1.0);
++	vec2 uv=projected.xy/projected.w*vec2(0.5,-0.5)+0.5;
++	vec3 reflection=texture(reflection_texture,uv).rgb;
++	ALBEDO=mix(tint.rgb,reflection*vec3(0.88,0.97,1.0),reflection_strength);
++}
+--- /dev/null
++++ tests/greening_map/terrain_water_self_capture.gd
+@@ -0,0 +1,124 @@
++extends SceneTree
++const Scene: PackedScene = preload("res://scenes/greening_map.tscn")
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const Geometry: GDScript = preload("res://scripts/render_study_3d/ruin_geometry.gd")
++const OUT: String = "res://evidence/terrain-water/self/"
++var lab: Node
++var results: Array[Dictionary] = []
++var raw: Array[Dictionary] = []
++var failures: int = 0
++
++func _initialize() -> void:
++	root.unfocusable = true
++	create_timer(70).timeout.connect(func() -> void: quit(99))
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	results.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(results[-1])
++
++func capture(label_: String, representative: bool = false) -> Image:
++	await lab.wait_render()
++	var image_: Image = lab.render_view.get_texture().get_image()
++	image_.save_png(OUT+label_+"_world_640.png")
++	var ui: Image = root.get_texture().get_image()
++	ui.save_png(OUT+label_+"_ui_640.png")
++	ui.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++	ui.save_png(OUT+label_+"_ui_1920.png")
++	if representative:
++		var gpu3: Image = lab.doubled_view.get_texture().get_image()
++		gpu3.save_png(OUT+label_+"_world_1920.png")
++		var expected: Image = image_.duplicate()
++		expected.resize(1920,1080,Image.INTERPOLATE_NEAREST)
++		check(expected.get_data()==gpu3.get_data(),"GPU.nearest3_exact")
++	var snapshot: Dictionary = lab.session.snapshot()
++	snapshot["label"] = label_
++	snapshot["reflection_size"] = str(lab.water_surface.reflection_view.size)
++	raw.append(snapshot)
++	print("IMAGE "+ProjectSettings.globalize_path(OUT+label_+"_ui_1920.png"))
++	return image_
++
++func pond_difference(a: Image, b: Image) -> int:
++	var rect: Rect2 = lab.water_surface.pond_bounds
++	var polygon: PackedVector2Array = PackedVector2Array()
++	for p: Vector2 in [rect.position,rect.position+Vector2(rect.size.x,0),rect.end,rect.position+Vector2(0,rect.size.y)]:
++		polygon.append(lab.camera.unproject_position(Vector3(p.x,0.006,p.y)))
++	var count: int = 0
++	for y: int in a.get_height():
++		for x: int in a.get_width():
++			if Geometry2D.is_point_in_polygon(Vector2(x+0.5,y+0.5),polygon) and a.get_pixel(x,y)!=b.get_pixel(x,y):
++				count += 1
++	return count
++
++func set_fixture(stage: int, growth_: int) -> void:
++	for rect: Rect2i in [Rect2i(24,23,10,3),Rect2i(24,31,10,3)]:
++		for y: int in range(rect.position.y,rect.end.y):
++			for x: int in range(rect.position.x,rect.end.x):
++				var index: int = lab.session.state.index_of(x,y)
++				lab.session.state.set_stage(index,stage)
++				lab.session.state.growth[index] = growth_
++	lab.ground_view.refresh(lab.session.state)
++	lab.update_hud()
++
++func run() -> void:
++	lab = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	if DisplayServer.get_name()=="headless" or RenderingServer.get_video_adapter_name().is_empty():
++		print("GPU NOT_RUN: structural parse only")
++		quit(2)
++		return
++	var state_before: PackedByteArray = var_to_bytes(lab.session.state.to_dict())
++	var landing_before: int = lab.session.play.landing_counter
++	var normal_on: Image = await capture("pond_normal_reflection_ON",true)
++	lab.water_surface.set_reflection(false)
++	var normal_off: Image = await capture("pond_normal_reflection_OFF")
++	check(pond_difference(normal_on,normal_off)>10,"pond.reflection_toggle_GPU")
++	lab.water_surface.set_reflection(true)
++	# Only a test fixture, located on the physical reflection ray into the existing pond.
++	var fixture: MeshInstance3D = Geometry.box(lab.world,"ReflectionTestOnly",Vector3(-7.8,0.8,3.0),Vector3(0.5,1.6,0.5),Geometry.material(Color("c95343")))
++	fixture.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++	var fixture_on: Image = await capture("pond_test_fixture_ON")
++	fixture.hide()
++	var fixture_off: Image = await capture("pond_test_fixture_OFF")
++	var changes: int = pond_difference(fixture_on,fixture_off)
++	check(changes>15,"pond.actual_geometry_reflection","test box changes %d pixels INSIDE the unchanged pond; box casts no shadow" % changes)
++	fixture.free()
++	check(state_before==var_to_bytes(lab.session.state.to_dict()) and landing_before==lab.session.play.landing_counter,"reflection.state_RNG_unchanged")
++	for item: Vector2i in [Vector2i(1,0),Vector2i(2,45000),Vector2i(4,120000)]:
++		set_fixture(item.x,item.y)
++		await capture("soil_pavement_stage_"+str(item.x))
++	var paved: int = lab.session.state.index_of(26,24)
++	var soil: int = lab.session.state.index_of(26,32)
++	check(lab.session.state.target[paved]==lab.session.state.target[soil] and lab.session.state.stage[paved]==lab.session.state.stage[soil] and lab.session.state.growth[paved]==lab.session.state.growth[soil],"terrain.same_logical_stage_rate")
++	var counts: Array[int] = [0,0]
++	for tile: int in [paved,soil]:
++		for k: int in 3:
++			for node: MultiMeshInstance3D in lab.ground_view.grass:
++				if node.multimesh.get_instance_transform(tile*3+k).basis.get_scale().length()>0.01:
++					counts[0 if tile==paved else 1] += 1
++	check(counts==[1,3],"terrain.shared_grass_sparse_vs_soil","mature visible clumps pavement/soil = %s" % str(counts))
++	var before_script: GDScript = load(OUT+"before/scripts/greening_map/ground_view.gd")
++	var old_view: Node3D = before_script.new()
++	lab.world.add_child(old_view)
++	old_view.hide()
++	old_view.setup(lab.session.state)
++	var unchanged_soil: bool = old_view.samples==lab.ground_view.samples
++	for k: int in 3:
++		for variant: int in 2:
++			unchanged_soil = unchanged_soil and old_view.grass[variant].multimesh.get_instance_transform(soil*3+k).is_equal_approx(lab.ground_view.grass[variant].multimesh.get_instance_transform(soil*3+k))
++	check(unchanged_soil,"soil.original_samples_transforms_preserved")
++	old_view.free()
++	state_before = var_to_bytes(lab.session.state.to_dict())
++	lab.ground_view.refresh(lab.session.state)
++	lab.azimuth_slider.value = 135
++	await capture("terrain_sun135")
++	check(state_before==var_to_bytes(lab.session.state.to_dict()),"view_light.state_unchanged")
++	lab.water_surface.reflection_view.get_texture().get_image().save_png(OUT+"reflection_pass_320.png")
++	var f: FileAccess = FileAccess.open(OUT+"gpu-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"adapter":RenderingServer.get_video_adapter_name(),"results":results,"failures":failures},"\t"))
++	f = FileAccess.open(OUT+"raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify(raw,"\t"))
++	quit(0 if failures==0 else 1)
+--- /dev/null
++++ tests/greening_map/terrain_water_self_final.gd
+@@ -0,0 +1,14 @@
++extends "res://tests/greening_map/terrain_water_self_capture.gd"
++## One requested final presentation frame; no regression/test rerun.
++func run() -> void:
++	lab = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	if DisplayServer.get_name()=="headless":
++		quit(2)
++		return
++	set_fixture(WorldState.STAGE_MATURE,120000)
++	await capture("final_comparison")
++	var f: FileAccess = FileAccess.open(OUT+"final-raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify(raw,"\t"))
++	quit(0)
+--- /dev/null
++++ tests/greening_map/terrain_water_self_logic.gd
+@@ -0,0 +1,67 @@
++extends SceneTree
++const Session: GDScript = preload("res://scripts/greening_map/session.gd")
++const OUT: String = "res://evidence/terrain-water/self/"
++var results: Array[Dictionary] = []
++var failures: int = 0
++
++func _initialize() -> void:
++	run.call_deferred()
++
++func check(ok: bool, id: String, detail: String = "") -> void:
++	results.append({"id":id,"status":"PASS" if ok else "FAIL","detail":detail})
++	if not ok:
++		failures += 1
++	print(results[-1])
++
++func run() -> void:
++	var model: RefCounted = Session.new()
++	var spawn: Vector2 = model.position
++	var axial: Vector2 = model.walk(Vector2.RIGHT,0.20)
++	model.position = spawn
++	var diagonal: Vector2 = model.walk(Vector2.ONE,0.20)
++	check(absf(axial.length()-diagonal.length())<0.001 and axial.x>0 and axial.y<0,"movement.screen_axes_normalized","axial %.8f / diagonal %.8f logical px" % [axial.length(),diagonal.length()])
++	# Long motion through each actual obstacle: use the game Walker, assert final foot rectangles are clear.
++	model.position = Session.to_logic(Vector2(-3.2,2.0))
++	model.position = Walker.move(model.state,Session.TILE_PX,model.position,Vector2(0,-60),Session.HALF)
++	check(Walker.is_clear(model.state,Session.TILE_PX,model.position,Session.HALF) and Session.to_ground(model.position).y>=0.89,"collision.building_foundation")
++	model.position = Session.to_logic(Vector2(-6.8,6.0))
++	model.position = Walker.move(model.state,Session.TILE_PX,model.position,Vector2(0,-60),Session.HALF)
++	check(Walker.is_clear(model.state,Session.TILE_PX,model.position,Session.HALF) and Session.to_ground(model.position).y>5.69,"collision.water")
++	model.position = Walker.move(model.state,Session.TILE_PX,spawn,Vector2(400,400),Session.HALF)
++	check(Walker.is_clear(model.state,Session.TILE_PX,model.position,Session.HALF),"collision.perimeter")
++	model.position = spawn
++	var target: Vector2 = Vector2(0.6,3.8)
++	var seeds: int = model.play.seeds
++	check(model.scatter(target,false) and model.play.seeds==seeds-1 and model.play.last_scatter.size()>0,"seed.real_landing_spending")
++	var planted: int = model.play.last_scatter[0]
++	var water: float = model.play.water
++	check(model.state.stage[planted]==WorldState.STAGE_SEED and model.scatter(target,true) and model.play.water==water-10 and model.play.last_wet_count>0,"water.real_landing_spending")
++	model.play.seeds = 0
++	model.play.water = 0
++	var stages: PackedByteArray = model.state.stage.duplicate()
++	check(not model.scatter(target,false) and not model.scatter(target,true) and stages==model.state.stage,"resources.insufficient_no_mutation")
++	model.refill()
++	check(model.play.seeds==model.play_tuning.seed_max and model.play.water==model.play_tuning.water_max,"resources.debug_refill")
++	model.play.water = 0
++	model.position = Session.to_logic(Vector2(-6.8,5.8))
++	model.advance_game(1)
++	check(model.play.water>0,"water.existing_waterside_refill")
++	model.position = spawn
++	var before: float = model.clock.elapsed
++	model.paused = true
++	model.advance(0.1)
++	check(model.clock.elapsed==before,"clock.growth_pause")
++	model.paused = false
++	model.advance_game(24)
++	check(model.state.stage[planted]>=WorldState.STAGE_SPROUT1,"growth.seed_to_sprout")
++	model.advance_game(90)
++	check(model.state.stage[planted]==WorldState.STAGE_MATURE and model.spread.total_planted>0,"growth.mature_natural_spread")
++	var outside: bool = true
++	for i: int in model.state.tile_count():
++		if model.state.target[i]==0:
++			outside = outside and model.state.stage[i]==0 and model.state.growth[i]==0
++	check(outside and model.state.counters_consistent(),"world.non_targets_counters")
++	var f: FileAccess = FileAccess.open(OUT+"logic-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"results":results,"failures":failures},"\t"))
++	model.close()
++	quit(0 if failures==0 else 1)
+--- /dev/null
++++ tests/greening_map/terrain_water_self_reflection.gd
+@@ -0,0 +1,46 @@
++extends "res://tests/greening_map/terrain_water_self_capture.gd"
++## Only reflection affected by actual World3D sharing; terrain checks already passed.
++func run() -> void:
++	lab = Scene.instantiate()
++	lab.automatic = false
++	root.add_child(lab)
++	if DisplayServer.get_name()=="headless":
++		quit(2)
++		return
++	var state_before: PackedByteArray = var_to_bytes(lab.session.state.to_dict())
++	var normal_on: Image = await capture("normal_reflection_ON",true)
++	lab.water_surface.reflection_view.get_texture().get_image().save_png(OUT+"reflection_pass_320.png")
++	lab.water_surface.set_reflection(false)
++	var normal_off: Image = await capture("normal_reflection_OFF")
++	check(pond_difference(normal_on,normal_off)>10,"pond.reflection_toggle_GPU")
++	lab.water_surface.set_reflection(true)
++	var fixture: MeshInstance3D = Geometry.box(lab.world,"ReflectionTestOnly",Vector3(-7.8,0.8,3.0),Vector3(0.5,1.6,0.5),Geometry.material(Color("c95343")))
++	fixture.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++	var fixture_on: Image = await capture("pond_test_fixture_ON")
++	lab.water_surface.reflection_view.get_texture().get_image().save_png(OUT+"reflection_test_fixture_320.png")
++	fixture.hide()
++	var fixture_off: Image = await capture("pond_test_fixture_OFF")
++	var changed: int = pond_difference(fixture_on,fixture_off)
++	check(changed>15,"pond.actual_geometry_reflection","box changes %d pixels inside pond, no shadow" % changed)
++	fixture.free()
++	# A sample point on the water plane must share projected horizontal location,
++	# with vertical mirror reversal between main and reflection cameras.
++	var point: Vector3 = Vector3(0.2,0.006,2.2)
++	var main_uv: Vector2 = lab.camera.unproject_position(point)/Vector2(640,360)
++	var reflection_uv: Vector2 = lab.water_surface.reflection_camera.unproject_position(point)/Vector2(320,180)
++	check(absf(main_uv.x-reflection_uv.x)<0.00001 and absf(main_uv.y+reflection_uv.y-1.0)<0.00001,"reflection.plane_projection_mapping")
++	check(lab.water_surface.reflection_view.find_world_3d()==lab.render_view.find_world_3d() and lab.water_surface.reflection_camera.cull_mask==1,"reflection.actual_world_and_exclusions")
++	var puddle: MeshInstance3D = lab.water_surface.puddle
++	var p: Vector3 = puddle.global_position
++	var logic: Vector2 = Session.to_logic(Vector2(p.x,p.z))
++	var index: int = lab.session.state.index_of(floori(logic.x/4),floori(logic.y/4))
++	check(lab.session.state.terrain[index]==6 and lab.session.state.is_walkable(index%48,index/48) and puddle.material_override==lab.water_surface.surfaces[0].material_override,"puddle.visual_only_shared_texture")
++	lab.azimuth_slider.value = 135
++	await capture("normal_sun135")
++	lab.water_surface.reflection_view.get_texture().get_image().save_png(OUT+"reflection_sun135_320.png")
++	check(state_before==var_to_bytes(lab.session.state.to_dict()),"reflection_light_puddle.state_unchanged")
++	var f: FileAccess = FileAccess.open(OUT+"reflection-results.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify({"results":results,"failures":failures,"pond_bounds":str(lab.water_surface.pond_bounds),"puddle_position":str(p),"reflection_mask":lab.water_surface.reflection_camera.cull_mask},"\t"))
++	f = FileAccess.open(OUT+"reflection-raw.json",FileAccess.WRITE)
++	f.store_string(JSON.stringify(raw,"\t"))
++	quit(0 if failures==0 else 1)

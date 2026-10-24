@@ -1,0 +1,110 @@
+{
+  "task": "TECH-3D-07",
+  "created": "2026-10-16T19:46:24.334345+09:00",
+  "target": "HEAD99013702eaf36db72a64d60d284680fb834f13c5 plus shared frozen uncommitted work",
+  "environment": "Windows; offline bundled Python/Pillow; submitted GPU Godot4.7.2 Vulkan Forward+ RTX5070Ti",
+  "checks": [
+    {
+      "id": "fixed_seed_straight_curved_representatives",
+      "result": "PASS",
+      "method": "three-source diff/current source, selected raw and A/C GPU PNG review",
+      "samples": [
+        {
+          "building": "A",
+          "straight_path_index": 0,
+          "straight_UV_range": 0.01065295934677099,
+          "curved_path_index": 8,
+          "curved_UV_range": 0.7106328010559104,
+          "sample_branch_index": 4,
+          "sample_branch_bend": -0.198415741324425,
+          "junction_gap": 0.0,
+          "start_vs_measured_parent_error": 8.701760090268351e-09,
+          "small_span": [
+            1.02900624275208,
+            0.930805087089539
+          ],
+          "large_span": [
+            1.82845628261566,
+            1.76039397716522
+          ]
+        },
+        {
+          "building": "B",
+          "straight_path_index": 0,
+          "straight_UV_range": 0.027984946966170987,
+          "curved_path_index": 11,
+          "curved_UV_range": 0.38891278207302094,
+          "sample_branch_index": 1,
+          "sample_branch_bend": -0.208741128444672,
+          "junction_gap": 0.0,
+          "start_vs_measured_parent_error": 7.282346947690144e-10,
+          "small_span": [
+            1.11378586292267,
+            1.0159877538681
+          ],
+          "large_span": [
+            1.77089369297028,
+            2.07606363296509
+          ]
+        },
+        {
+          "building": "C",
+          "straight_path_index": 0,
+          "straight_UV_range": 0.013942807912825983,
+          "curved_path_index": 6,
+          "curved_UV_range": 0.51055335998536,
+          "sample_branch_index": 1,
+          "sample_branch_bend": -0.00635483860969543,
+          "junction_gap": 0.0,
+          "start_vs_measured_parent_error": 6.014436504386822e-09,
+          "small_span": [
+            0.946403503417969,
+            1.09980893135071
+          ],
+          "large_span": [
+            2.24032044410706,
+            1.84371280670166
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parent_junction_arrival_and_shared_rules",
+      "result": "PASS",
+      "method": "one branch/building actual Euclidean arrival calculation; unchanged shared-growth/source rule review"
+    },
+    {
+      "id": "mixed_moss_sizes_and_independent_OFF",
+      "result": "PASS",
+      "method": "one small/large visible patch/building plus moss-only GPU image; OFF world bytes equal baseline"
+    },
+    {
+      "id": "representative_nearest3_roof_UI",
+      "result": "PASS",
+      "method": "one actualGPU640/1920 full pixel comparison; A/C roof and UI visual review"
+    },
+    {
+      "id": "independent_freeze_and_preservation_hash_aggregate",
+      "result": "NOT_RUN",
+      "detail": "Hash collector stopped with KeyError project.godot while resolving prior evidence. No completed aggregate result retained; no repeat hash read/check per task limit. No product failure inferred."
+    },
+    {
+      "id": "independent_GPU_native_physical_input",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "exhaustive_raw_all_positions_lights_performance_video_regression",
+      "result": "NOT_RUN"
+    }
+  ],
+  "totals": {
+    "PASS": 4,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "parent_supplied_manifest_SHA256": "42cf5c756ba0620574b676a6dc616962cb46aecd26cda226b1f0f0f0ef0de670",
+  "manifest_SHA256_independently_verified": false,
+  "representative_world_nearest3x": true,
+  "moss_OFF_exact_baseline": true,
+  "limits": "Representative raw only, no full vertex/opening/all-path proof. Self18PASS and preservation10 are reviewed claims, not independently rerun or aggregated hashes. No final art approval."
+}

@@ -1,0 +1,363 @@
+{
+  "asset_id": "BLD-019",
+  "name": "カフェの店舗",
+  "category": "BLD",
+  "version": "0.2.0",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "all_metadata_vectors": "GLB local Y_UP"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      3.2062501907348633,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -3.334223747253418,
+      0.0,
+      -3.365000009536743
+    ],
+    "max": [
+      3.3218307495117188,
+      6.412500381469727,
+      4.215000152587891
+    ]
+  },
+  "dimensions": [
+    6.656054496765137,
+    6.412500381469727,
+    7.580000162124634
+  ],
+  "placement_size_xz": [
+    6.656054496765137,
+    7.580000162124634
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -3.334223747253418,
+    -3.365000009536743,
+    3.3218307495117188,
+    4.215000152587891
+  ],
+  "geometry_stats": {
+    "triangles": 4458,
+    "vertices": 2772,
+    "objects": 9,
+    "material_count": 10,
+    "blender_material_count": 10,
+    "glb_material_count": 10
+  },
+  "meshes": [
+    {
+      "name": "Terrace_low_sill",
+      "layer": "sill",
+      "materials": [
+        "Chalk_frame.001"
+      ]
+    },
+    {
+      "name": "cafe_left",
+      "layer": "cafe_left",
+      "materials": [
+        "BLD-019_surface"
+      ]
+    },
+    {
+      "name": "Cafe_foundation",
+      "layer": "foundation",
+      "materials": [
+        "Concrete_broken.007"
+      ]
+    },
+    {
+      "name": "cafe_back",
+      "layer": "cafe_back",
+      "materials": [
+        "BLD-019_surface"
+      ]
+    },
+    {
+      "name": "BLD-019_frames",
+      "layer": "frames",
+      "materials": [
+        "BLD-019_Frame_sage_paint",
+        "Oxidized_steel.007",
+        "Weathered_wood.006"
+      ]
+    },
+    {
+      "name": "BLD-019_cafe_terrace_side",
+      "layer": "cafe_terrace_side",
+      "materials": [
+        "BLD-019_surface"
+      ]
+    },
+    {
+      "name": "BLD-019_cafe_front",
+      "layer": "cafe_front",
+      "materials": [
+        "BLD-019_surface"
+      ]
+    },
+    {
+      "name": "BLD-019_pitched_roof_covering",
+      "layer": "pitched_roof_covering",
+      "materials": [
+        "Roof_clay_1",
+        "Roof_clay_0",
+        "Roof_clay_2"
+      ]
+    },
+    {
+      "name": "BLD-019_pitched_roof_structure",
+      "layer": "pitched_roof_structure",
+      "materials": [
+        "Roof_old_timber"
+      ]
+    }
+  ],
+  "external_textures": [
+    "textures/BLD-019_roof_albedo.png",
+    "textures/BLD-019_surface_albedo.png",
+    "textures/concrete_surface_color.png"
+  ],
+  "connections": {
+    "terrace_opening": "right side low sill at .4m, not full doorway",
+    "awning_bounds_y_up": [
+      -3,
+      3.18,
+      3.3,
+      2.4,
+      3.4,
+      4.15
+    ],
+    "entry_center": [
+      1.3,
+      0,
+      3.2
+    ],
+    "plant_exclusion": "entry clearance and awning solid; route vines around edge",
+    "design_family": "dusty rose cafe with an open terrace and muted green roof",
+    "construction_revision": "Original unique structure retained; dedicated visible facade construction added, not a new color-variant ID",
+    "vegetation": "Independent reusable layers; no plants joined to building",
+    "old_source": "lots/lot_010/BLD-019_terrace_cafe",
+    "revision_of": "BLD-019",
+    "not_additional_asset": true,
+    "game_adapter": "NOT_RUN; facade offsets require connector clearance review",
+    "intrinsic_albedo": "Low-amplitude aged-pigment grain only; no baked lighting, AO or reflections.",
+    "frame_palette": "sage_paint",
+    "roof_revision": "Actual roof form changed after user flat-roof feedback, not a color-only change",
+    "roof_systems": [
+      {
+        "kind": "asym_y",
+        "material_family": "clay",
+        "eave_height_y_up": 4.800000190734863,
+        "rise_m": 1.65,
+        "bounds_xz": [
+          -3.299999952316284,
+          -3.299999952316284,
+          3.299999952316284,
+          3.299999952316284
+        ],
+        "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+        "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+      },
+      {
+        "kind": "asym_y",
+        "material_family": "clay",
+        "eave_height_y_up": 3.4000000953674316,
+        "rise_m": 0.28475004792213443,
+        "bounds_xz": [
+          -3.0,
+          3.299999952316284,
+          2.4000000953674316,
+          4.150000095367432
+        ],
+        "missing_covering": "irregular localized patch plus original damaged footprint; timber supports visible",
+        "structural_note": "new roof frame bears at original eave level; gable infill partly absent as ruin"
+      }
+    ],
+    "old_flat_roof_receivers": "SUPERSEDED: do not reuse old roof planes; new roof slopes/frame/holes need game adapter",
+    "vegetation_roof_integration": "NOT_RUN",
+    "source_version_before_roof_revision": "revisions/architecture_diversity_03/BLD-019_dusty_rose_terrace_cafe",
+    "legacy_roof_data_not_current": {}
+  },
+  "generated_receiver_surfaces": [
+    {
+      "id": "cafe_front_00",
+      "origin": [
+        -3.2,
+        0.18,
+        3.19
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        6.4,
+        4.32
+      ],
+      "openings_uv": [
+        [
+          0.5,
+          0.6200000000000001,
+          2.75,
+          3.07
+        ],
+        [
+          3.9000000000000004,
+          0.06,
+          5.1,
+          2.82
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "cafe_terrace_side_01",
+      "origin": [
+        3.19,
+        0.18,
+        3.08
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        6.16,
+        4.32
+      ],
+      "openings_uv": [
+        [
+          0.5800000000000001,
+          0.22000000000000003,
+          4.73,
+          2.42
+        ]
+      ],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "cafe_back_02",
+      "origin": [
+        3.2,
+        0.18,
+        -3.19
+      ],
+      "tangent_u": [
+        -1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        6.4,
+        4.32
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    },
+    {
+      "id": "cafe_left_03",
+      "origin": [
+        -3.19,
+        0.18,
+        -3.08
+      ],
+      "tangent_u": [
+        0,
+        0,
+        1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        6.16,
+        4.32
+      ],
+      "openings_uv": [],
+      "status": "MODEL_SURFACE_RECORD; game connector NOT_RUN"
+    }
+  ],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 4458,
+      "triangles_after": 4458,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN",
+    "roof_design_review": "Actual pitched/hipped/gambrel/mansard/asymmetric/double-ridge roof geometry reviewed at 640x360; remaining functional flat roofs elsewhere are intentional."
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true
+}

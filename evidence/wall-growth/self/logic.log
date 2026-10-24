@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "id": "default_compatibility_A", "status": "PASS", "detail": "" }
+{ "id": "default_compatibility_B", "status": "PASS", "detail": "" }
+{ "id": "default_compatibility_C", "status": "PASS", "detail": "" }
+{ "id": "fixture_front_root", "status": "PASS", "detail": "" }
+{ "id": "initial_zero_wall_only_no_ground_roof_cracks", "status": "PASS", "detail": "" }
+{ "id": "actual_session_seed_landing", "status": "PASS", "detail": "" }
+{ "id": "seed_stage_no_wall_input", "status": "PASS", "detail": "" }
+{ "id": "sprout_and_real_clock_connection", "status": "PASS", "detail": "" }
+{ "id": "mature_ground_has_delayed_wall_growth", "status": "PASS", "detail": "" }
+{ "id": "wall_progress_no_greening_counter_gain", "status": "PASS", "detail": "" }
+{ "id": "other_building_unaffected", "status": "PASS", "detail": "" }
+{ "id": "individual_patch_materials", "status": "PASS", "detail": "" }
+{ "id": "moss_separate_slower_progress", "status": "PASS", "detail": "" }
+{ "id": "green_loss_holds_not_reverses", "status": "PASS", "detail": "" }
+{ "id": "pause_sun_refresh_no_progress", "status": "PASS", "detail": "" }
+{ "id": "resume_reaches_full_without_input_cap", "status": "PASS", "detail": "" }
+{ "id": "soil_pavement_equal_internal_input", "status": "PASS", "detail": "" }

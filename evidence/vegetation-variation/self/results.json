@@ -1,0 +1,103 @@
+{
+	"NOT_RUN": [
+		"OS physical input",
+		"video",
+		"performance",
+		"all directions",
+		"normal game regression"
+	],
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"results": [
+		{
+			"detail": "",
+			"id": "GPU.nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "determinism_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "straight 6 / curved 3, measured wall UV range",
+			"id": "straight_curved_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "openings_order_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "small 7 / large 3",
+			"id": "moss_sizes_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "determinism_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "straight 3 / curved 2, measured wall UV range",
+			"id": "straight_curved_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "openings_order_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "small 3 / large 1",
+			"id": "moss_sizes_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "determinism_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "straight 5 / curved 8, measured wall UV range",
+			"id": "straight_curved_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "openings_order_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "resources_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "small 7 / large 3",
+			"id": "moss_sizes_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "moss_independent_GPU",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "moss_OFF_exact",
+			"status": "PASS"
+		}
+	]
+}

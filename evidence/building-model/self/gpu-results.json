@@ -1,0 +1,31 @@
+{
+	"adapter": "NVIDIA GeForce RTX 5070 Ti",
+	"failures": 0,
+	"results": [
+		{
+			"detail": "",
+			"id": "nearest3_exact",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "maximum_root_one_counter_invariant",
+			"status": "PASS"
+		},
+		{
+			"detail": "104",
+			"id": "pavement_cracks_actual_pixels",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "elevation_UI_real_shadow_no_growth",
+			"status": "PASS"
+		},
+		{
+			"detail": "180",
+			"id": "wall_cracks_independent_GPU_pixels",
+			"status": "PASS"
+		}
+	]
+}

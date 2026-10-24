@@ -1,0 +1,44 @@
+{
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "sources": [
+    {
+      "path": "scenes/quarter_view_lab.tscn",
+      "sha256": "a5b30126479eebbb8276cdd4422f8bd5f6673bca7260d1ad7c3492a976ce87b7"
+    },
+    {
+      "path": "scripts/quarter_view_lab/lab.gd",
+      "sha256": "90dc921293d7e0b4a461ecebf4f03b76ad85fe1a791c809789fa7ede9d962830"
+    },
+    {
+      "path": "scripts/quarter_view_lab/lab.gd.uid",
+      "sha256": "0c50f42d3244ada07f4f3712bfed79b917d70ab2cc1500462c78ca1de95dd46c"
+    },
+    {
+      "path": "scripts/quarter_view_lab/projection.gd",
+      "sha256": "7a267293dda0f1d1621303466c8830d2df0cba76e93f1c143c7f842447e9e77d"
+    },
+    {
+      "path": "scripts/quarter_view_lab/projection.gd.uid",
+      "sha256": "6d1f3b6a1980660b2c0dde9cf72be51162a4ccbf0fa34b44807c697287f9d631"
+    },
+    {
+      "path": "run_quarter_view_lab.bat",
+      "sha256": "74501ed54f306862b1d3da7166b1e43f24a537b87d28e5bc16d17f2d20315a8e"
+    },
+    {
+      "path": "tests/quarter_view/self_checks.gd",
+      "sha256": "2959631ac9cb1a0afce22f86b0b2623d8e9f2bc0aa675a113b29f90ae740a27c"
+    },
+    {
+      "path": "tests/quarter_view/self_checks.gd.uid",
+      "sha256": "57e5d4f13860f8aa620efd69a170aa374d40bb0f2a89a638842b48cbf2cc2496"
+    },
+    {
+      "path": "tests/quarter_view/self_mouse_r2.gd",
+      "sha256": "2f73591c3c1a3e37e53705a596ea56e7f49456a2f27bd5ee58c0206cdb622fbf"
+    }
+  ],
+  "revision": "r2 mouse event retention only",
+  "previous_manifest": "source-manifest.json",
+  "validation": "mouse-r2-results.json: 3 PASS, 0 FAIL; previous GPU geometry results refer to r1"
+}

@@ -1,0 +1,27 @@
+{
+	"checks": [
+		{
+			"detail": "grid=512 viewport=(640, 360)",
+			"id": "normal_game_smoke",
+			"status": "PASS"
+		},
+		{
+			"detail": "User manual check; no OS input or cursor movement",
+			"id": "physical_OS_input",
+			"status": "NOT_RUN"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 0,
+	"renderer": "forward_plus"
+}

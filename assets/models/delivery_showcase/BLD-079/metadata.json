@@ -1,0 +1,453 @@
+{
+  "asset_id": "BLD-079",
+  "name": "水車付き石造廃屋",
+  "category": "BLD",
+  "version": "rebuild.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      2.5046244636178017,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -2.5232815742492676,
+      -0.022352978587150574,
+      -2.5400002002716064
+    ],
+    "max": [
+      3.7249999046325684,
+      5.031601905822754,
+      2.5400002002716064
+    ]
+  },
+  "dimensions": [
+    6.248281478881836,
+    5.0539548844099045,
+    5.080000400543213
+  ],
+  "placement_size_xz": [
+    6.248281478881836,
+    5.080000400543213
+  ],
+  "contact_type": "ground_contact",
+  "contact_bounds_xz": [
+    -2.5232815742492676,
+    -2.5400002002716064,
+    3.7249999046325684,
+    2.5400002002716064
+  ],
+  "geometry_stats": {
+    "triangles": 10676,
+    "vertices": 6768,
+    "objects": 14,
+    "material_count": 9
+  },
+  "meshes": [
+    {
+      "name": "BLD-079_foundation",
+      "layer": "foundation",
+      "materials": [
+        "Mortar",
+        "Stone_warm"
+      ]
+    },
+    {
+      "name": "BLD-079_exterior_Mill_front",
+      "layer": "exterior_Mill_front",
+      "materials": [
+        "Stone_warm",
+        "Stone_cool"
+      ]
+    },
+    {
+      "name": "BLD-079_exterior_Mill_back",
+      "layer": "exterior_Mill_back",
+      "materials": [
+        "Stone_cool"
+      ]
+    },
+    {
+      "name": "BLD-079_exterior_Mill_side-2.25",
+      "layer": "exterior_Mill_side-2.25",
+      "materials": [
+        "Stone_warm",
+        "Stone_cool"
+      ]
+    },
+    {
+      "name": "BLD-079_exterior_Mill_side2.25",
+      "layer": "exterior_Mill_side2.25",
+      "materials": [
+        "Stone_warm",
+        "Stone_cool"
+      ]
+    },
+    {
+      "name": "BLD-079_frames",
+      "layer": "frames",
+      "materials": [
+        "Weathered_wood"
+      ]
+    },
+    {
+      "name": "BLD-079_roof_rafters",
+      "layer": "roof_rafters",
+      "materials": [
+        "Wood_endgrain",
+        "Timber_dark"
+      ]
+    },
+    {
+      "name": "BLD-079_roof_covering",
+      "layer": "roof_covering",
+      "materials": [
+        "Mill_roof"
+      ]
+    },
+    {
+      "name": "BLD-079_roof_edge",
+      "layer": "roof_edge",
+      "materials": [
+        "Trim_faded"
+      ]
+    },
+    {
+      "name": "Wheel_axle",
+      "layer": "wheel_axle",
+      "materials": [
+        "Timber_dark"
+      ]
+    },
+    {
+      "name": "BLD-079_wheel",
+      "layer": "wheel",
+      "materials": [
+        "Weathered_wood"
+      ]
+    },
+    {
+      "name": "BLD-079_wheel_buckets",
+      "layer": "wheel_buckets",
+      "materials": [
+        "Wood_silver"
+      ]
+    },
+    {
+      "name": "Outer_bearing",
+      "layer": "wheel_support",
+      "materials": [
+        "Timber_dark"
+      ]
+    },
+    {
+      "name": "BLD-079_fallen_debris",
+      "layer": "fallen_debris",
+      "materials": [
+        "Wood_endgrain"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "design_family": "stone watermill and exterior paddle wheel",
+    "damage_description": "front gable and large roof sector collapsed; wheel buckets missing",
+    "roof_system": "weathered wood-shingle gable",
+    "vegetation": "NOT included; reusable separate plant assets; leave >=50% wall surface exposed at maturity",
+    "entry_clearance": "Keep recorded door opening and approach unobstructed",
+    "collision_navigation": "NOT_RUN; use individual walls, not the open building volume",
+    "revision_of": "BLD-079",
+    "not_additional_asset": true,
+    "origin_convention": "building footprint centre at ground plane",
+    "receiver_data": "generated_receiver_surfaces contains explicit opening exclusions and irregular top profiles; game adapter NOT_RUN",
+    "wheel_centre_blender": [
+      2.78,
+      0,
+      1.85
+    ],
+    "wheel_axis_blender": [
+      1,
+      0,
+      0
+    ],
+    "wheel_rotation": "NOT_RUN; static grouped wheel",
+    "water_channel": "Separate ground/water required; no reflection baked",
+    "recreation_status": "RECREATED_FROM_SURVIVING_PREVIEW; historical ID mapping inferred from ordered preview batches"
+  },
+  "generated_receiver_surfaces": [
+    {
+      "id": "Mill_front",
+      "origin": [
+        0,
+        0,
+        2.4
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "u_range": [
+        -2.25,
+        2.25
+      ],
+      "base_height": 0.22,
+      "top_profile_uv": [
+        [
+          -2.25,
+          3.45
+        ],
+        [
+          -1.0,
+          4.1
+        ],
+        [
+          -0.6,
+          3.75
+        ],
+        [
+          0,
+          4.95
+        ],
+        [
+          0.35,
+          4.15
+        ],
+        [
+          0.65,
+          4.4
+        ],
+        [
+          1.15,
+          2.8
+        ],
+        [
+          1.55,
+          3.05
+        ],
+        [
+          2.25,
+          2.45
+        ]
+      ],
+      "openings_uv": [
+        [
+          -1.5,
+          -0.35,
+          0.22,
+          2.6
+        ]
+      ],
+      "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+    },
+    {
+      "id": "Mill_back",
+      "origin": [
+        0,
+        0,
+        -2.4
+      ],
+      "tangent_u": [
+        1,
+        0,
+        0
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "u_range": [
+        -2.25,
+        2.25
+      ],
+      "base_height": 0.22,
+      "top_profile_uv": [
+        [
+          -2.25,
+          3.45
+        ],
+        [
+          0,
+          4.95
+        ],
+        [
+          2.25,
+          3.45
+        ]
+      ],
+      "openings_uv": [
+        [
+          -0.6,
+          0.6,
+          1.2,
+          2.2
+        ]
+      ],
+      "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+    },
+    {
+      "id": "Mill_side-2.25",
+      "origin": [
+        -2.4,
+        0,
+        0
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "u_range": [
+        -2.25,
+        2.25
+      ],
+      "base_height": 0.22,
+      "top_profile_uv": [
+        [
+          -2.25,
+          3.45
+        ],
+        [
+          2.25,
+          3.45
+        ]
+      ],
+      "openings_uv": [
+        [
+          -0.65,
+          0.65,
+          1.1,
+          2.1
+        ]
+      ],
+      "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+    },
+    {
+      "id": "Mill_side2.25",
+      "origin": [
+        2.4,
+        0,
+        0
+      ],
+      "tangent_u": [
+        0,
+        0,
+        -1
+      ],
+      "tangent_v": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "u_range": [
+        -2.25,
+        2.25
+      ],
+      "base_height": 0.22,
+      "top_profile_uv": [
+        [
+          -2.25,
+          3.45
+        ],
+        [
+          2.25,
+          3.45
+        ]
+      ],
+      "openings_uv": [
+        [
+          -0.3,
+          0.3,
+          1.5,
+          2.0
+        ]
+      ],
+      "surface_rule": "Only solid material below irregular top and outside openings; wood course gaps ignored for broad placement; game connector NOT_RUN"
+    }
+  ],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 10676,
+      "triangles_after": 10676,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "recreation_not_original_recovery": true,
+  "delivery_files": {
+    "blend": "079_stone_watermill_ruin.blend",
+    "glb": "079_stone_watermill_ruin.glb"
+  },
+  "geometry_budget_review": {
+    "provisional_guideline_triangles": 10000,
+    "actual_triangles": 10676,
+    "reason": "Physical masonry courses, curved structural surfaces, and exposed separate supports retained for readable damage and non-faceted silhouettes. Provisional triangle guideline exceeded; Godot performance NOT_RUN. Optimize only after game-side measurement, without changing candidate count.",
+    "game_performance": "NOT_RUN"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged."
+}

@@ -1,0 +1,182 @@
+[
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.65000013351824,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(29.98442, 29.13306, 29.98442)",
+		"hour": 7.0,
+		"label": "morning_overview",
+		"moon_energy": 0.00473842537030578,
+		"position": "(0.0, 3.2)",
+		"sun": "(25.18303, 7.37701, -14.53943)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.65000013351824,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(29.98442, 29.13306, 29.98442)",
+		"hour": 12.0,
+		"label": "noon_overview",
+		"moon_energy": 0.0,
+		"position": "(0.0, 3.2)",
+		"sun": "(12.16739, 24.57456, 12.16739)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.65000013351824,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(29.98442, 29.13306, 29.98442)",
+		"hour": 17.0,
+		"label": "evening_overview",
+		"moon_energy": 0.00473842537030578,
+		"position": "(0.0, 3.2)",
+		"sun": "(-14.53943, 7.37701, 25.18303)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.65000013351824,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(29.98442, 29.13306, 29.98442)",
+		"hour": 22.0,
+		"label": "night_overview",
+		"moon_energy": 0.159999996423721,
+		"position": "(0.0, 3.2)",
+		"sun": "(-19.52805, -22.16474, -5.232526)",
+		"sun_energy": 0.0,
+		"sun_visible": false
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.64999996317509,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(32.5046, 25.69552, 31.28484)",
+		"hour": 12.0,
+		"label": "water_day_shadow",
+		"moon_energy": 0.0,
+		"position": "(2.494975, 1.294975)",
+		"sun": "(12.16739, 24.57456, 12.16739)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.64999996317509,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(32.5046, 25.69552, 31.28484)",
+		"hour": 12.0,
+		"label": "water_day_shadow_OFF",
+		"moon_energy": 0.0,
+		"position": "(2.494975, 1.294975)",
+		"sun": "(12.16739, 24.57456, 12.16739)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.64999996317509,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(32.5046, 25.69552, 31.28484)",
+		"hour": 22.0,
+		"label": "water_night_lamps",
+		"moon_energy": 0.159999996423721,
+		"position": "(2.494975, 1.294975)",
+		"sun": "(-19.52805, -22.16474, -5.232526)",
+		"sun_energy": 0.0,
+		"sun_visible": false
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.64999996317509,
+			"lamp": 1,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(32.5046, 25.69552, 31.28484)",
+		"hour": 22.0,
+		"label": "water_night_shadow_OFF",
+		"moon_energy": 0.159999996423721,
+		"position": "(2.494975, 1.294975)",
+		"sun": "(-19.52805, -22.16474, -5.232526)",
+		"sun_energy": 0.0,
+		"sun_visible": false
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.64999996317509,
+			"lamp": 0,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(20.51304, 25.69054, 24.49052)",
+		"hour": 12.0,
+		"label": "water_building_reflection",
+		"moon_energy": 0.0,
+		"position": "(-9.5, -5.5)",
+		"sun": "(12.16739, 24.57456, 12.16739)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	},
+	{
+		"actor": {
+			"frame": 2,
+			"height": 1.64999996317509,
+			"lamp": 0,
+			"matching_feet": true,
+			"matching_texture": true,
+			"shaded": true
+		},
+		"camera": "(20.51304, 25.69054, 24.49052)",
+		"hour": 12.0,
+		"label": "water_reflection_OFF",
+		"moon_energy": 0.0,
+		"position": "(-9.5, -5.5)",
+		"sun": "(12.16739, 24.57456, 12.16739)",
+		"sun_energy": 1.5,
+		"sun_visible": true
+	}
+]

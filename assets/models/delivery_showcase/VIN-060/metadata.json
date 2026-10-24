@@ -1,0 +1,211 @@
+{
+  "asset_id": "VIN-060",
+  "name": "張り出し縁を避けて垂れるツタ",
+  "category": "VIN",
+  "version": "expansion.1",
+  "units": "meters",
+  "coordinates": {
+    "blender": "Z_UP",
+    "delivery": "Y_UP",
+    "mapping": "(x,y,z) -> (x,z,-y)",
+    "default_spatial_vectors": "GLB local Y_UP; explicitly named _blender fields and Blender formulas use Z_UP; surface UV pairs are local receiver parameters"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "preview_camera": {
+    "resolution": [
+      640,
+      360
+    ],
+    "vertical_span_m": 18.5,
+    "elevation_degrees": 30,
+    "azimuth_degrees": 45,
+    "target_y_up": [
+      0,
+      0.9761979774339125,
+      0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -1.4041268825531006,
+      -0.003824910381808877,
+      -0.0019847918301820755
+    ],
+    "max": [
+      1.2959994077682495,
+      1.9562208652496338,
+      0.7400057315826416
+    ]
+  },
+  "dimensions": [
+    2.70012629032135,
+    1.9600457756314427,
+    0.7419905234128237
+  ],
+  "placement_size_xz": [
+    2.70012629032135,
+    0.7419905234128237
+  ],
+  "contact_type": "wall_to_horizontal_attachment",
+  "contact_bounds_xz": null,
+  "geometry_stats": {
+    "triangles": 1542,
+    "vertices": 885,
+    "objects": 9,
+    "material_count": 4
+  },
+  "meshes": [
+    {
+      "name": "VIN-060_ledge_parent",
+      "layer": "ledge_parent",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-060_petioles_ledge_parent",
+      "layer": "petioles_ledge_parent",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-060_leaves_ledge_parent",
+      "layer": "leaves_ledge_parent",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_olive"
+      ]
+    },
+    {
+      "name": "VIN-060_left_cascade",
+      "layer": "left_cascade",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-060_petioles_left_cascade",
+      "layer": "petioles_left_cascade",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-060_leaves_left_cascade",
+      "layer": "leaves_left_cascade",
+      "materials": [
+        "Leaf_mid",
+        "Leaf_olive"
+      ]
+    },
+    {
+      "name": "VIN-060_right_cascade",
+      "layer": "right_cascade",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-060_petioles_right_cascade",
+      "layer": "petioles_right_cascade",
+      "materials": [
+        "Vine_stem"
+      ]
+    },
+    {
+      "name": "VIN-060_leaves_right_cascade",
+      "layer": "leaves_right_cascade",
+      "materials": [
+        "Leaf_olive",
+        "Leaf_deep"
+      ]
+    }
+  ],
+  "external_textures": [],
+  "connections": {
+    "root": [
+      0,
+      0,
+      0.06
+    ],
+    "design_family": "two unequal cascades turn around a projecting ledge without passing through its slab",
+    "receiver_spec": {
+      "kind": "wall and projecting ledge",
+      "slab_bounds_blender": [
+        -1.1,
+        -0.5,
+        1.25,
+        1.1,
+        0,
+        1.4
+      ],
+      "wall_plane_blender_y": 0
+    },
+    "path_connections": [
+      {
+        "parent": "ledge_parent",
+        "junction": [
+          0.0,
+          1.5,
+          0.5600000023841858
+        ],
+        "branch": "left_cascade"
+      },
+      {
+        "parent": "ledge_parent",
+        "junction": [
+          0.0,
+          1.5,
+          0.5600000023841858
+        ],
+        "branch": "right_cascade"
+      }
+    ],
+    "leaf_method": "separate curved blades and connected petioles, no green panel",
+    "maximum_wall_coverage": "retain >=50 percent exposed wall where relevant; game placement NOT_RUN",
+    "opening_clearance": "receiver-specific placement; no door crossing assumed",
+    "game_wind": "NOT_RUN",
+    "design_expansion": true
+  },
+  "generated_receiver_surfaces": [],
+  "validation": {
+    "blender_visual": "PASS_MAIN_SELF_REVIEW",
+    "glb_reimport": {
+      "status": "PASS",
+      "aabb_max_error_m": 0.0,
+      "raw_glb_y_up_aabb_max_error_m": 0.0,
+      "triangles_before": 1542,
+      "triangles_after": 1542,
+      "material_names_preserved": true,
+      "pbr_value_max_error": 0.0,
+      "origin_transform": "source mesh origins baked to local zero; GLB local frame verified with raw node transforms",
+      "render_file": "reimport_preview_640.png"
+    },
+    "godot_performance": "NOT_RUN",
+    "godot_reflection": "NOT_RUN",
+    "godot_shadows": "NOT_RUN",
+    "godot_pixel_perfect": "NOT_RUN",
+    "godot_greening": "NOT_RUN"
+  },
+  "integration_status": "NOT_RUN",
+  "self_review_not_independent": true,
+  "geometry_budget_review": {
+    "provisional_guideline_triangles": 800,
+    "actual_triangles": 1542,
+    "reason": "Connected curved stems, petioles and individual leaf geometry instead of a flat foliage panel; provisional vegetation guideline exceeded. Godot performance NOT_RUN.",
+    "game_performance": "NOT_RUN"
+  },
+  "coordinate_documentation_revision": 1,
+  "coordinate_documentation_note": "Coordinate labels clarified; geometry and existing vector values unchanged.",
+  "recreation_not_original_recovery": false,
+  "design_expansion": true,
+  "delivery_files": {
+    "blend": "060_projecting_ledge_double_cascade_vine.blend",
+    "glb": "060_projecting_ledge_double_cascade_vine.glb"
+  }
+}

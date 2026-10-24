@@ -1,0 +1,137 @@
+{
+  "method": "No Godot run. GLB binary POSITION vertices decoded. Image wall masks use independent fixed-camera projection of metadata surfaces, not vegetation generation. Image differences include shadows/edges and are supporting measures, not an exact vegetation area or replacement upper bound.",
+  "coverage_self_ratio_arithmetic": [
+    {
+      "building": "A",
+      "ratio_redivided": 0.24554113464318333,
+      "reported_ratio": 0.245541134643183,
+      "expected_solid_area": 12.289599999999997,
+      "solid_area_equal": true
+    },
+    {
+      "building": "A",
+      "ratio_redivided": 0.3600947181527826,
+      "reported_ratio": 0.360094718152781,
+      "expected_solid_area": 10.728,
+      "solid_area_equal": true
+    },
+    {
+      "building": "B",
+      "ratio_redivided": 0.24309028332455707,
+      "reported_ratio": 0.243090283324558,
+      "expected_solid_area": 11.289999999999997,
+      "solid_area_equal": true
+    },
+    {
+      "building": "B",
+      "ratio_redivided": 0.28712640748731466,
+      "reported_ratio": 0.287126407487315,
+      "expected_solid_area": 13.6,
+      "solid_area_equal": true
+    }
+  ],
+  "coverage_mesh_method_review": "Actual library.leaves.get_faces projected through full-growth leaf_records into UV bounding boxes, full moss spans including shader discard/holes, full stem length times .048 equal to preserved CylinderMesh max diameter2*.024. Overlap/windows/outside portions not subtracted. No new exhaustive runtime leaf-transform sum claimed.",
+  "wall_image_differences": [
+    {
+      "surface": "A_front",
+      "solid_mask_pixels": 2848,
+      "changed_pixels": 325,
+      "changed_fraction": 0.11411516853932584
+    },
+    {
+      "surface": "A_right",
+      "solid_mask_pixels": 2500,
+      "changed_pixels": 387,
+      "changed_fraction": 0.1548
+    },
+    {
+      "surface": "B_front",
+      "solid_mask_pixels": 2660,
+      "changed_pixels": 408,
+      "changed_fraction": 0.15338345864661654
+    },
+    {
+      "surface": "B_right",
+      "solid_mask_pixels": 3214,
+      "changed_pixels": 372,
+      "changed_fraction": 0.11574362165525824
+    }
+  ],
+  "legacy_initial_signature_review": [
+    {
+      "id": "A",
+      "equal": true
+    },
+    {
+      "id": "B",
+      "equal": true
+    },
+    {
+      "id": "C",
+      "equal": true
+    }
+  ],
+  "paused_wall_state_equal": true,
+  "nearest3_exact": true,
+  "pavement_ON_OFF_pixels": 104,
+  "wall_closeup_ON_OFF_pixels": 180,
+  "clock_elevations": [
+    {
+      "label": "model_initial",
+      "clock": 0.0,
+      "elevation": 52.0,
+      "growth_ticks": 0
+    },
+    {
+      "label": "model_growth45",
+      "clock": 45.0,
+      "elevation": 52.0,
+      "growth_ticks": 90
+    },
+    {
+      "label": "model_growth135",
+      "clock": 135.0,
+      "elevation": 52.0,
+      "growth_ticks": 270
+    },
+    {
+      "label": "pavement_cracks_OFF",
+      "clock": 135.0,
+      "elevation": 52.0,
+      "growth_ticks": 270
+    },
+    {
+      "label": "elevation15",
+      "clock": 135.0,
+      "elevation": 15.0,
+      "growth_ticks": 270
+    },
+    {
+      "label": "elevation80",
+      "clock": 135.0,
+      "elevation": 80.0,
+      "growth_ticks": 270
+    },
+    {
+      "label": "A_window_cracks_closeup",
+      "clock": 135.0,
+      "elevation": 52.0,
+      "growth_ticks": 270
+    },
+    {
+      "label": "A_wall_cracks_OFF",
+      "clock": 135.0,
+      "elevation": 52.0,
+      "growth_ticks": 270
+    }
+  ],
+  "process": {
+    "exited": true,
+    "pid": 57936,
+    "exit_code": 0
+  },
+  "stderr_bytes": 0,
+  "import_errors": 1,
+  "import_warnings": 6,
+  "sidecars_count": 66
+}

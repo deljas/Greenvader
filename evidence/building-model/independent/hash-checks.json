@@ -1,0 +1,26 @@
+{
+  "manifest_sha256": "65fe15418708b536994de0d2ef0a96924dd9db75a6472f65d08c0dc09dc5f0f4",
+  "expected_manifest": "65fe15418708b536994de0d2ef0a96924dd9db75a6472f65d08c0dc09dc5f0f4",
+  "planned_changed": [
+    "scripts/greening_map/ground_view.gd",
+    "scripts/greening_map/map.gd",
+    "scripts/greening_map/wall_growth_controller.gd",
+    "scripts/vegetation_lab/growth_patch.gd",
+    "scripts/vegetation_lab/surface_layers.gd"
+  ],
+  "source": {
+    "count": 16,
+    "mismatches": [],
+    "pass": true
+  },
+  "protected": {
+    "count": 452,
+    "mismatches": [],
+    "pass": true
+  },
+  "evidence": {
+    "count": 44,
+    "mismatches": [],
+    "pass": true
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "base_head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "files": [
+    {
+      "path": "scripts/vegetation_lab/brick.gdshader",
+      "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1",
+      "bytes": 521
+    },
+    {
+      "path": "scripts/vegetation_lab/building_defs.gd",
+      "sha256": "ad1e464294cbc169f2a00b24102ea1f150491ff210405ecd02c5a02999be9946",
+      "bytes": 1841
+    },
+    {
+      "path": "scripts/vegetation_lab/building_geometry.gd",
+      "sha256": "a23ed72c8f250e2997e456cdaa324ec8d1cfa9c9cd25e7139fd19cb7c48d9b2a",
+      "bytes": 7565
+    },
+    {
+      "path": "scripts/vegetation_lab/cracks.gdshader",
+      "sha256": "d95599aa1cf271bb8125fcb46015c65c0f3d3fc35a73d80b54dc0e231264ede8",
+      "bytes": 326
+    },
+    {
+      "path": "scripts/vegetation_lab/growth_patch.gd",
+      "sha256": "1db84b90e24915d855b0dcd5956bb6601929ab7edbd5e9547b59ed61c4d89146",
+      "bytes": 6620
+    },
+    {
+      "path": "scripts/vegetation_lab/lab.gd",
+      "sha256": "6999c087f879e634b77d4d1457bbdb238aaf876c294e38c7c8a778cc82e79a6b",
+      "bytes": 8289
+    },
+    {
+      "path": "scripts/vegetation_lab/moss.gdshader",
+      "sha256": "5a9be850ac0b95e738818ee29a389df3c591d408e2568a340c010ac31e54a26a",
+      "bytes": 447
+    },
+    {
+      "path": "scripts/vegetation_lab/plant_parts.gd",
+      "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c",
+      "bytes": 1927
+    },
+    {
+      "path": "scripts/vegetation_lab/surface_layers.gd",
+      "sha256": "02e073437dd24ae532cafdd74068de182a453528c80cb54a40f1174e476a1d06",
+      "bytes": 3037
+    },
+    {
+      "path": "tests/vegetation_lab/self_branch_capture.gd",
+      "sha256": "1381134bf538ea0f2ade049574945be5eeb3edb64881effbc6accd5145f1a10c",
+      "bytes": 6330
+    },
+    {
+      "path": "tests/vegetation_lab/self_branch_closeups.gd",
+      "sha256": "9b68e09b38521c8f7e7d3472e697bb99e362d05c9d73345420fc76f76ca50609",
+      "bytes": 477
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+Input #0, image2, from 'C:/godot/greenvader/evidence/render-study-3d/light-controls/self/frames/orbit_%03d_ui_640.png':
+  Duration: 00:00:04.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgb24(pc, gbr/bt709/iec61966-2-1), 640x360, 12 fps, 12 tbr, 12 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> h264 (libx264))
+[libx264 @ 000001509dea2e80] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
+[libx264 @ 000001509dea2e80] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 000001509dea2e80] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=34 lookahead_threads=5 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=12 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=16.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'C:/godot/greenvader/evidence/render-study-3d/light-controls/self/orbit_controls_4s.mp4':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, unknown/bt709/iec61966-2-1, progressive), 1920x1080, q=2-31, 12 fps, 12288 tbn
+    Metadata:
+      encoder         : Lavc63.1.102 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+[mp4 @ 000001509bcebe00] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 000001509bc6ff00] video:1709KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.082766%
+frame=   48 fps=0.0 q=-1.0 Lsize=    1710KiB time=00:00:03.83 bitrate=3654.2kbits/s speed=10.9x elapsed=0:00:00.35    
+[libx264 @ 000001509dea2e80] frame I:1     Avg QP: 9.79  size:326170
+[libx264 @ 000001509dea2e80] frame P:12    Avg QP:11.03  size: 79869
+[libx264 @ 000001509dea2e80] frame B:35    Avg QP:13.91  size: 13263
+[libx264 @ 000001509dea2e80] consecutive B-frames:  2.1%  0.0%  6.2% 91.7%
+[libx264 @ 000001509dea2e80] mb I  I16..4: 14.0% 33.5% 52.6%
+[libx264 @ 000001509dea2e80] mb P  I16..4:  3.2% 13.7%  8.6%  P16..4: 14.5%  2.3%  2.4%  0.0%  0.0%    skip:55.1%
+[libx264 @ 000001509dea2e80] mb B  I16..4:  0.1%  0.4%  0.2%  B16..8:  8.4%  1.5%  1.1%  direct:14.4%  skip:73.9%  L0:43.3% L1:43.9% BI:12.8%
+[libx264 @ 000001509dea2e80] 8x8 transform intra:48.9% inter:56.0%
+[libx264 @ 000001509dea2e80] coded y,uvDC,uvAC intra: 87.7% 59.3% 48.4% inter: 15.6% 12.5% 2.0%
+[libx264 @ 000001509dea2e80] i16 v,h,dc,p: 47% 19% 28%  6%
+[libx264 @ 000001509dea2e80] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 14% 24% 35%  4%  4%  3%  5%  3%  8%
+[libx264 @ 000001509dea2e80] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 26% 32% 17%  5%  6%  3%  4%  3%  5%
+[libx264 @ 000001509dea2e80] i8c dc,h,v,p: 66% 16% 15%  3%
+[libx264 @ 000001509dea2e80] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 000001509dea2e80] ref P L0: 64.6% 14.5% 10.9% 10.1%
+[libx264 @ 000001509dea2e80] ref B L0: 86.8% 10.0%  3.2%
+[libx264 @ 000001509dea2e80] ref B L1: 96.3%  3.7%
+[libx264 @ 000001509dea2e80] kb/s:3497.63

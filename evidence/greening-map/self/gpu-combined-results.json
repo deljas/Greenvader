@@ -1,0 +1,88 @@
+{
+  "final_unique_results": [
+    {
+      "id": "GPU.nearest3_exact",
+      "status": "PASS",
+      "evidence": "initial-gpu/stdout.log"
+    },
+    {
+      "id": "input.WASD_screen_direction",
+      "status": "PASS",
+      "evidence": "initial-gpu/stdout.log"
+    },
+    {
+      "id": "input.arrow_direction",
+      "status": "PASS",
+      "evidence": "initial-gpu/stdout.log"
+    },
+    {
+      "id": "actor.shared_frame_flip_foot",
+      "status": "PASS",
+      "evidence": "initial-gpu/stdout.log"
+    },
+    {
+      "id": "pick.ground_projection_roundtrip",
+      "status": "PASS",
+      "evidence": "initial-gpu/stdout.log"
+    },
+    {
+      "detail": "",
+      "id": "input.UI_does_not_scatter",
+      "status": "PASS"
+    },
+    {
+      "detail": "window size (1920, 1080); logical target (275.9683, 225.439); result \u7a2e \u2192 5\u30bb\u30eb",
+      "id": "input.left_seed_real_state",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "input.right_water_real_state",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "pick.building_screen_occlusion",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "landing.blocked_across_building",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "UI.growth_pause",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "sim.sprout_actual_stage",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "sim.mature_and_natural_spread",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "view.read_only_state_mapping",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "UI.sun_slider_number",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "sun.GPU_changes_no_growth_mutation",
+      "status": "PASS"
+    }
+  ],
+  "PASS": 16,
+  "FAIL": 0,
+  "initial_failed_seed_injection": "superseded by fixed test injection in gpu-results.json",
+  "initial_UI_pass": "superseded by final window-coordinate UI check; not counted twice"
+}

@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+PASS viewport.sizes 
+PASS camera.default_noon_orthogonal 
+PASS output.no_temporal_or_spatial_AA 
+PASS geometry.openings_roof_rubble separate meshes; no source picture
+PASS projection.2to1_verticals [(37.43512, 18.71756), (-37.43512, 18.71756), (0.0, -45.84839)]
+PASS input.engine_time_switch 
+PASS GPU.morning NVIDIA GeForce RTX 5070 Ti
+PASS nearest2x.morning GPU 1920 output equals duplicated 960 pixels
+PASS GPU.noon NVIDIA GeForce RTX 5070 Ti
+PASS nearest2x.noon GPU 1920 output equals duplicated 960 pixels
+PASS GPU.evening NVIDIA GeForce RTX 5070 Ti
+PASS nearest2x.evening GPU 1920 output equals duplicated 960 pixels
+PASS GPU.light_variants_differ 
+PASS GPU.real_shadow_toggle 34718 pixels change when only real-time shadow is disabled
+PASS camera.short_sequence_saved five GPU frames; visual stability assessed separately
+SELF_DONE failures=0 renderer=forward_plus device=NVIDIA GeForce RTX 5070 Ti

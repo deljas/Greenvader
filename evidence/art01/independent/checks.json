@@ -1,0 +1,69 @@
+{
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "environment": "Microsoft Windows NT 10.0.26200.0",
+  "engine": "4.7.2-stable (official)",
+  "checks": [
+    {
+      "detail": "Scene instantiated; A/B engine events and B button signal select expected variant. No physical input tested.",
+      "id": "engine_scene_and_controls",
+      "result": "PASS"
+    },
+    {
+      "detail": "Inspected CPU PNGs match instantiated source images byte for byte; every 2x pixel equals its source pixel.",
+      "id": "png_provenance_and_integer_pixels",
+      "result": "PASS"
+    },
+    {
+      "detail": "5537 changed source pixels, 0 outside grass comparison area; soil and header/footer stay identical.",
+      "id": "comparison_scope",
+      "result": "PASS"
+    },
+    {
+      "detail": "Both variants retain every opaque pixel of the existing 16px flower, three 4px pickup seeds and 32x18 enemy, at identical coordinates.",
+      "id": "existing_sample_pixels",
+      "result": "PASS"
+    },
+    {
+      "detail": "7 scene descendants; exactly two original cached textures survive input and idle. No per-blade nodes.",
+      "id": "cache_and_node_budget",
+      "result": "PASS"
+    },
+    {
+      "id": "static_display_and_game_isolation",
+      "result": "PASS",
+      "detail": "Project and existing game unchanged; 640x360/integer/keep/Nearest; dedicated scene has no simulation/save state."
+    },
+    {
+      "id": "visual_grass_tree_and_sample_legibility",
+      "result": "PASS",
+      "detail": "Viewed A/B 2x and AB 2x/4x PNGs; B denser, blade/cluster shading, no full perimeter outline, flower/seeds/enemy identifiable. CPU pixels only."
+    },
+    {
+      "id": "frozen_target",
+      "result": "PASS",
+      "detail": "All 19 source/dependency/PNG hashes match start/end and frozen manifest; HEAD unchanged."
+    },
+    {
+      "id": "native_window_UI_integer_display",
+      "result": "NOT_RUN",
+      "detail": "No native window launched; Japanese UI and real display not observed."
+    },
+    {
+      "id": "physical_input",
+      "result": "NOT_RUN",
+      "detail": "No OS input, cursor move or focus operation; engine inputs only."
+    },
+    {
+      "id": "exported_windows_runtime",
+      "result": "NOT_RUN",
+      "detail": "Outside ART-01; export not attempted."
+    }
+  ],
+  "totals": {
+    "PASS": 8,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "source_stable": true,
+  "processes_remaining": 0
+}

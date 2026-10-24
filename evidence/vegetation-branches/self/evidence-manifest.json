@@ -1,0 +1,254 @@
+[
+  {
+    "path": "A_roof_branches_closeup_ui_1920.png",
+    "sha256": "a73780943e8157a54806e573fd6d523d81bd5fcdba16d8399f12c6f37d9b1699"
+  },
+  {
+    "path": "A_roof_branches_closeup_ui_640.png",
+    "sha256": "c3baf53ca8e91bcb2003f15acdc14cda30a559520ad250a14458fe357364b275"
+  },
+  {
+    "path": "A_roof_branches_closeup_world_640.png",
+    "sha256": "f562ebdecaeca07a256264d047be33e9dfa70c9af1604af085c54b17cffdb91f"
+  },
+  {
+    "path": "before/project.godot",
+    "sha256": "64db7cd891700979bf35ad6e0fd5b73b544e771683eb9ee03e0843266d35cd4f"
+  },
+  {
+    "path": "before/run_vegetation_lab.bat",
+    "sha256": "70565d70412bfad985c69f6671ebbf30855d2413cc86143cc930ca524bb13fa9"
+  },
+  {
+    "path": "before/scenes/vegetation_lab.tscn",
+    "sha256": "17ca277ee747171dbe3257dbd62c96444770e9cf943c5eeee3524f1aeae3acc9"
+  },
+  {
+    "path": "before/scripts/render_study_3d/ruin_geometry.gd",
+    "sha256": "f3087e5f4f59c3d6537862c07553b735abc1f25ac00d09d39538a70b5e178ca4"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/brick.gdshader",
+    "sha256": "52294bbf9bc961dd2f2754a8848c87aa0e2b0bdc1cca86758ec3354c5f73a3d1"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/building_defs.gd",
+    "sha256": "02777ae4bfc5c6bc193cf4354e510f3c0531a60471fe6a4c26279ad371379805"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/building_geometry.gd",
+    "sha256": "f887bc8e9d23315e7ac6279a9742e5432f2587ebde0c451642fa7da0f576a753"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/growth_patch.gd",
+    "sha256": "3185b54ad0ddb8b9dacbd256cec26d5ec7f0c984588fa1b8e4d3db35850b556c"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/lab.gd",
+    "sha256": "0b44d93fc4bc6c09099bc4d9054d9a963c3584c9e9d34840cf27d832e330d9be"
+  },
+  {
+    "path": "before/scripts/vegetation_lab/plant_parts.gd",
+    "sha256": "9b9b5d91e2e15cbb7470878182a5b88c0920d7a1bc0dd3d97b1aa0dd196abf7c"
+  },
+  {
+    "path": "before-manifest.json",
+    "sha256": "4e0564bfa175379c1b337ac5ec2c1e0c9abf68968e217e643845dd837eedd7ba"
+  },
+  {
+    "path": "C_branches_closeup_ui_1920.png",
+    "sha256": "fc4291d48b8769509913f9101f15fb88f665d1909a419a7f49f1e07a22d54803"
+  },
+  {
+    "path": "C_branches_closeup_ui_640.png",
+    "sha256": "18888cede4788ec08953ee043b9fea040ec85adfc87c762c3ee5f8f6f65ad1cd"
+  },
+  {
+    "path": "C_branches_closeup_world_640.png",
+    "sha256": "38ff217df3a50e81c56f766ee8ee34acde8f2afc64f2147d03e50596eaa987ec"
+  },
+  {
+    "path": "closeups-process.json",
+    "sha256": "4c7eb02abbf589d7cc8d8ec865a095900aca7662afaa83139b82f88de082c77b"
+  },
+  {
+    "path": "closeups-stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "closeups-stdout.log",
+    "sha256": "1951cadc997d56e56a1282ac88a9c8e77c886534eedcae0e7a8a0458116a877e"
+  },
+  {
+    "path": "closeups.log",
+    "sha256": "9219ce1784345b246a75f6e2e18b16a5c6e18276d0d2e4741128779db7413481"
+  },
+  {
+    "path": "cracks_OFF_ui_1920.png",
+    "sha256": "c9e0d3b435380fd80770d7ff88ae14d49dcc41828d11f62b98041cde0f6f2876"
+  },
+  {
+    "path": "cracks_OFF_ui_640.png",
+    "sha256": "23d716151b07bc7849831ecc9b08355640f6a660d2bdeef68f9451d307f70ad4"
+  },
+  {
+    "path": "cracks_OFF_world_640.png",
+    "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c"
+  },
+  {
+    "path": "cracks_only_ui_1920.png",
+    "sha256": "fe6e33a8faf25f7d00a79998450e9a1a59267ef31c669843b64af01ebbc258fe"
+  },
+  {
+    "path": "cracks_only_ui_640.png",
+    "sha256": "df612636638325fd422f01bfd49b0731e2e9983a12e285c9dc737a8ac92f7c2d"
+  },
+  {
+    "path": "cracks_only_world_640.png",
+    "sha256": "9b47dfb992547c6539c0ac6790b5903bcd1190997904207eafe65c52797e175c"
+  },
+  {
+    "path": "gpu.log",
+    "sha256": "ef3655920666daab14d837fa10ae0b3d652a03520bce84e609b9d9eb4a33caf1"
+  },
+  {
+    "path": "growth_000_ui_1920.png",
+    "sha256": "46091e4e27f2f5929724c121ae689aa47c100e9caa354bc9e6854b17d3f37535"
+  },
+  {
+    "path": "growth_000_ui_640.png",
+    "sha256": "930d3e8e8f01660c97ca7f99331ec6171c442e9f058b237bfe8af8d08e167c1c"
+  },
+  {
+    "path": "growth_000_world_640.png",
+    "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c"
+  },
+  {
+    "path": "growth_050_ui_1920.png",
+    "sha256": "508014c200d5704cb6a733940fe3510aa9f589c0aa4b3ffdda866993705ac381"
+  },
+  {
+    "path": "growth_050_ui_640.png",
+    "sha256": "3010cc224e7d93a8d4762fec1abb9070a3b808ac0ee170ffaeb418a9799268cd"
+  },
+  {
+    "path": "growth_050_world_640.png",
+    "sha256": "2dfd587370874cc5a60aecbffd42f9e48ba65f317f64eee2a7c5b6d7de945093"
+  },
+  {
+    "path": "growth_100_ui_1920.png",
+    "sha256": "b709da35bc1a8148982fc29b67d645cd19d231ae628470b8e5d88aedc2ff0927"
+  },
+  {
+    "path": "growth_100_ui_640.png",
+    "sha256": "6b58a4bd79a77ee3c81e852bc7af3dd67169b23ee12fdd48e2eb805f46a50a81"
+  },
+  {
+    "path": "growth_100_world_1920.png",
+    "sha256": "c22fd48c9c5de6624a4b6156563e8fc5dbeeeb4e66e1150d6e6ec677a67e7a31"
+  },
+  {
+    "path": "growth_100_world_640.png",
+    "sha256": "8d2041fff3e41919b4e5ae4344971622de9c1bfd276a19b083d264c3a774a54f"
+  },
+  {
+    "path": "implementation.patch",
+    "sha256": "61f0691c8c8eec123722788364a22bcbd98908ef2a6158595890b4cbd424a5fd"
+  },
+  {
+    "path": "initial/A_roof_branches_closeup_ui_1920.png",
+    "sha256": "a66469c857c146631bfebff3844b1a52916cbcd89c791774b17115eeb25ed7a3"
+  },
+  {
+    "path": "initial/A_roof_branches_closeup_ui_640.png",
+    "sha256": "433e7d8efa459f78dc0e3cd6d6086ef70ffd6789c36faf2af2c0436c9595181b"
+  },
+  {
+    "path": "initial/A_roof_branches_closeup_world_640.png",
+    "sha256": "6d3fc2f56c46393a91df336fd4bbe4680e76379f717e4d5c97ba19b4eb978d58"
+  },
+  {
+    "path": "initial/C_branches_closeup_ui_1920.png",
+    "sha256": "302e98de9883c654b82ca5d9e67d9232d2d2c39d391f9dbb58594ea6fef83750"
+  },
+  {
+    "path": "initial/C_branches_closeup_ui_640.png",
+    "sha256": "ac10d20085cdb9ed48b9667d68e89dd61e632b36bbb6e1ad64982c7938a58feb"
+  },
+  {
+    "path": "initial/C_branches_closeup_world_640.png",
+    "sha256": "51e10d7de60068ea8e1de367781b62668e179512c528b6f805b2c34febce0b01"
+  },
+  {
+    "path": "integrity.json",
+    "sha256": "fd09399d55078942285e39e01fb54639404880cb9b7d433cfe09c1d5cc367962"
+  },
+  {
+    "path": "moss_amount_000_ui_1920.png",
+    "sha256": "1f3e7168c9cdeb2278399cd6c50d701eba376d562d1e6887bcea3398181e4ac7"
+  },
+  {
+    "path": "moss_amount_000_ui_640.png",
+    "sha256": "2b22b77dcc1f00629ff931fd7d64f240deabc0a7f174d08bd3a766fda4f1d04b"
+  },
+  {
+    "path": "moss_amount_000_world_640.png",
+    "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c"
+  },
+  {
+    "path": "moss_OFF_ui_1920.png",
+    "sha256": "c9e0d3b435380fd80770d7ff88ae14d49dcc41828d11f62b98041cde0f6f2876"
+  },
+  {
+    "path": "moss_OFF_ui_640.png",
+    "sha256": "23d716151b07bc7849831ecc9b08355640f6a660d2bdeef68f9451d307f70ad4"
+  },
+  {
+    "path": "moss_OFF_world_640.png",
+    "sha256": "c56b0b229f9b5ffc50d4d373bce7d4616439f1178fd934e15a6ad6e4fc69c73c"
+  },
+  {
+    "path": "moss_only_100_ui_1920.png",
+    "sha256": "04040ad9ff996ff30873a46abce3d1bf60b7d2cae0a1a83fd7f0c67e6fdc59fe"
+  },
+  {
+    "path": "moss_only_100_ui_640.png",
+    "sha256": "ae7a271c48522d8c26b876685013361d38b21d61d82479c0a54850fe0eb5ad7a"
+  },
+  {
+    "path": "moss_only_100_world_640.png",
+    "sha256": "86c79d514b58537692e92341aff52133fd241ff1c2d0fed310837bfd20bee2e1"
+  },
+  {
+    "path": "parse.log",
+    "sha256": "a2f34ae79c104064a698032ebbd7b7422ba5d99d43d32c9c9f4fabfa46ede5ac"
+  },
+  {
+    "path": "path-snapshot.json",
+    "sha256": "656b4634ef5e8497f62c11c56704a15b54dbea164b733d266bd0efa2ca9d26c4"
+  },
+  {
+    "path": "process.json",
+    "sha256": "ef7c894ea62d9a4839bd788e7e13950ad9d53768fe938118eba72a91fb88707e"
+  },
+  {
+    "path": "report.md",
+    "sha256": "c852082d08eec3d679c303e3298ea14faa9b40eb77ca09ff42066eef16e42df2"
+  },
+  {
+    "path": "results.json",
+    "sha256": "606e8c21546d707ef0eafef55c4c83223d987742695f5b9a26ec8094d85cd271"
+  },
+  {
+    "path": "source-manifest.json",
+    "sha256": "5f127d46f3dc66174150eb56ea94fad753f8719920d04231187f9075ac961187"
+  },
+  {
+    "path": "stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "stdout.log",
+    "sha256": "9691df2a4ef2ef3788acef4122528753b1dda9aedf95d5e4ab751b6f6a16a557"
+  }
+]

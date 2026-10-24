@@ -1,0 +1,15 @@
+{
+	"failures": 0,
+	"results": [
+		{
+			"detail": "{ \"visible\": 168, \"opaque_fixture_pixels\": 168 }",
+			"id": "visible_all_A_corner",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision_clear_A_corner",
+			"status": "PASS"
+		}
+	]
+}

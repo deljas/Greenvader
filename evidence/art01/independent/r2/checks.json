@@ -1,0 +1,15 @@
+{
+  "task": "ART-01",
+  "revision": "r2",
+  "head": "99013702eaf36db72a64d60d284680fb834f13c5",
+  "method": "Static source diff and view_image only; no Godot execution",
+  "checks": [
+    {"id": "broad_ground_variation_removed", "result": "PASS"},
+    {"id": "grass_clumps_tree_samples_preserved", "result": "PASS"},
+    {"id": "scope_and_target_hashes", "result": "PASS"},
+    {"id": "independent_r2_runtime", "result": "NOT_RUN"},
+    {"id": "native_UI_physical_input", "result": "NOT_RUN"}
+  ],
+  "totals": {"PASS": 3, "FAIL": 0, "NOT_RUN": 2},
+  "independent_test_change": "Only source PNG path and output path updated to r2; not executed"
+}

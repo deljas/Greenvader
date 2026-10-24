@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS viewport.sizes 
+PASS camera.default_noon_orthogonal 
+PASS output.no_temporal_or_spatial_AA 
+PASS geometry.openings_roof_rubble separate meshes; no source picture
+PASS projection.2to1_verticals [(37.43512, 18.71756), (-37.43512, 18.71756), (0.0, -45.84839)]
+PASS input.engine_time_switch 
+SELF_DONE failures=0 renderer=forward_plus device=
