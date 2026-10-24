@@ -1,5 +1,22 @@
 # Codex / Claude Code 共通タスク
 
+## PoC3の実行計画（2026-10-24）
+
+全16論点の設計合意を完了し、仕様は[PoC3仕様正本](../docs/POC3_SPEC.md)、順序と受入は[開発計画](../docs/03_DEVELOPMENT_PLAN.md)へ集約しました。今回は資料整備までで、実装は未着手です。状態・担当・編集予約は各票の管理欄だけが正本です。下記より後のPoC2・旧版の記述は過去の履歴として参照します。
+
+| 段階 | 作業票 | 主な依存・接続 |
+|---|---|---|
+| 履歴保全・通常入口 | [SOURCE](POC3_SOURCE.md) | 最初に既存成果を保全 |
+| 可視性とマップ | [VISIBILITY](POC3_VISIBILITY.md)、[MAP-INFO](POC3_MAP_INFO.md) | SOURCE、検知/描画を分離して接続 |
+| UIと操作 | [PLANT-UI](POC3_PLANT_UI.md)、[INPUT](POC3_INPUT.md) | SOURCE、価格/播種範囲と接続 |
+| 開拓と生産 | [WATER-GROWTH](POC3_WATER_GROWTH.md)、[AREA-SEED](POC3_AREA_SEED.md)、[CROP-PRICING](POC3_CROP_PRICING.md) | SOURCE、UIと保存を調整 |
+| 前線とおたすけ | [WORLD-LAYOUT](POC3_WORLD_LAYOUT.md)、[ENEMY-TIERS](POC3_ENEMY_TIERS.md)、[LOCUST](POC3_LOCUST.md)、[HELPERS](POC3_HELPERS.md) | 配置→階級、給水/食害/検知/作業表示を接続 |
+| 表示基盤と反射 | [SPRITE-VIEW](POC3_SPRITE_VIEW.md)、[REFLECTION](POC3_REFLECTION.md) | 表示基盤は必要に応じ先行、反射は基盤後 |
+| 統合と自己確認 | [INTEGRATION](POC3_INTEGRATION.md) | 上記全機能、保存方式は早期調整 |
+| 独立検証と引渡し | [VERIFY](POC3_VERIFY.md) | INTEGRATIONの凍結版 |
+
+共有するsession/world_view等を複数担当が同時編集しません。各機能の独立証拠は有効な対象版なら再利用し、主要条件が未確認のまま完了扱いにしません。PoC3引渡し後は停止し、追加の新規機能やP6へ自動着手しません。
+
 作業状態の正本は各タスクMarkdownの「管理欄」です。この索引や `docs/STATUS.md` に別の担当表を作らず、開始時に個別票を読み直してください。`docs/` は全体進捗・判断・検証の記録、ここは作業の取得と引き継ぎに使います。
 
 ## 現在の実行列（2026-10-18）
