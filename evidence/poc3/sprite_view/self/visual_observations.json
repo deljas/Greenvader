@@ -1,0 +1,28 @@
+{
+  "boar": {
+    "clear_delta_pixels": 300,
+    "screen_foot": "(320.0, 222.0)",
+    "wall_delta_pixels": 193
+  },
+  "crop0": {
+    "kind": "clover",
+    "screen_foot": "(298.0, 200.0)",
+    "source_pixels": "(16, 16)",
+    "state": "mature",
+    "visible_delta_pixels": 126
+  },
+  "crop1": {
+    "kind": "carrot",
+    "screen_foot": "(342.0001, 200.0)",
+    "source_pixels": "(8, 8)",
+    "state": "mature",
+    "visible_delta_pixels": 37
+  },
+  "crop2": {
+    "kind": "clover",
+    "screen_foot": "(264.9999, 200.0)",
+    "source_pixels": "(8, 8)",
+    "state": "planted",
+    "visible_delta_pixels": 21
+  }
+}

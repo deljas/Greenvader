@@ -606,3 +606,12 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - 自己初回logic 18 PASS / 3 FAILは保存cursorの末尾/0表現差を保持。保存正規化修正後の保存限定追試4 PASSと同刻み継続3 PASSは別記です。独立初回11 PASS / 1 FAILはGrowthSim試験設定の参照先誤りを保持し、該当1条件のみの追試後に12条件の未解決FAILなし。初回/追試や自己/独立を合算していません。
 - 孤立した2陸地の15×3小世界で、開始時の1マスだけ給水済みとし、以後は入力・追加給水なしで30/30到達を自己確認しています。全224×224マップ統合は未確認です。旧PoC3保存のwatered移行は代表条件で確認し、旧PoC/PoC2保存の移行は対象外。旧実保存3件と対象ゲーム5ファイルhashは前後一致、終了時Godot 0件です。自己[報告](../evidence/poc3/water_growth/self/report.md)、独立[報告](../evidence/poc3/water_growth/independent/report.md)を参照。
 - NOT_RUN: GPU/native描画、物理入力、広い全回帰、全マップ長時間100%、楽しさ。通常入口のheadless終了時にObjectDB 37件/resource 20件の残存診断があり、以前と同数の観測を含め統合票へ引き継ぎました。原因は未特定で、解決扱いしません。
+
+## POC3-SPRITE-VIEW 敵・植物の2D表示基盤（2026-10-24）
+
+親は対象 `2e5ad7e` と表示4ファイルの実差分、自己・独立証拠および画像を確認し、共通表示基盤と仮画像による代表確認を限定技術受入しました。最適化後のmask GPU再走や完成素材制作を含む受入ではありません。
+
+- 自己結果はlogic 11 PASS、初回GPU構造15 PASS（取得画像は建物との重なりがあり視認判断は不十分）、草mask後GPU 14 PASS / 3画像。mask集合差分化後のCPU確認は3 PASS / 1 FAIL、訂正後0 PASS / 1 FAIL、dirty件数とDummy読取fixtureを修正した最終CPU限定条件1 PASS。各段階を保持し、件数を合算しません。
+- 独立pure確認は10 PASS / 0 FAIL。対象表示4ファイルhashは前後不変、既存保存3件も不変です。独立GPUの新規撮影はなく、GPU画像は自己の草mask後3画像を親・独立が目視確認しました。
+- 確認対象は既存boar/clover/carrotの仮画像、足元・影・状態表示とゲーム判定の分離、草maskの表示側差分更新および復元です。素材のない対象はmesh表示を維持します。未提供素材に全状態や完成画像があるとは扱いません。
+- 最終mask版GPU再走、完成スプライト、全種/方向・全照明、HELPERS/LOCUST行動本接続、反射改善と負荷比較、物理入力、広い回帰はNOT_RUNです。独立・自己の詳細は[自己報告](../evidence/poc3/sprite_view/self/report.md)と[独立報告](../evidence/poc3/sprite_view/independent/report.md)を参照してください。

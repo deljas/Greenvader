@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":"","id":"STATE_READ_ONLY_NESTED","status":"PASS"}
+{"detail":"","id":"ENEMY_TELEGRAPH_HIT_ATTACK_EAT","status":"PASS"}
+{"detail":"","id":"HELPER_WATER_FLEE_MOVE","status":"PASS"}
+{"detail":"","id":"CROP_STAGE_TRANSITIONS","status":"PASS"}
+{"detail":"","id":"NATIVE_ART_AND_MISSING_ART_FALLBACK","status":"PASS"}
+{"detail":"","id":"DIRECTION_ANIMATION_AND_DEFINITION_OWNERSHIP","status":"PASS"}
+{"detail":{"anchor_screen":"(318.0, 184.0)","expected_pixel":"(318.0, 184.0)"},"id":"ASYMMETRIC_ANCHOR_PIXEL_FOOT","status":"PASS"}
+{"detail":"","id":"FLIP_KEEPS_BODY_SHADOW_GROUND_FOOT","status":"PASS"}
+{"detail":"","id":"NATIVE_SCALE_NEAREST_SEPARATE_LAYERS","status":"PASS"}
+{"detail":"","id":"CARD_DEFINITION_READ_ONLY","status":"PASS"}

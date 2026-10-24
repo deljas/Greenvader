@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "unchanged_sync_zero_ground_updates", "status": "PASS" }
+{ "name": "dirty_mask_cell_rehidden", "status": "FAIL" }
+{ "name": "mesh_return_restores_cover_without_game_change", "status": "PASS" }
+{ "name": "removed_crop_restores_cover_without_game_change", "status": "PASS" }

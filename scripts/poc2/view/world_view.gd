@@ -10,6 +10,9 @@ const Water: GDScript = preload("res://scripts/poc/environment/water_view.gd")
 const Walls: GDScript = preload("res://scripts/poc/environment/wall_view.gd")
 const Day: GDScript = preload("res://scripts/poc/environment/poc_day.gd")
 const Cutaway: GDScript = preload("res://scripts/poc2/view/cutaway_view.gd")
+const EntitySprite: GDScript = preload("res://scripts/poc2/view/entity_sprite.gd")
+const EntityCatalog: GDScript = preload("res://scripts/poc2/view/entity_sprite_catalog.gd")
+const EntityState: GDScript = preload("res://scripts/poc2/view/entity_sprite_state.gd")
 var session: RefCounted
 var camera: Camera3D
 var sun: DirectionalLight3D
@@ -21,6 +24,9 @@ var water: Node3D
 var occlusion: Node
 var environment: Environment
 var entities: Dictionary = {}
+var sprite_catalog: RefCounted = EntityCatalog.new()
+var entity_states: Dictionary = {}
+var _sprite_cover_cells: Dictionary = {}
 var _light_bucket: int = -99999
 var light_updates: int = 0
 var animation_time: float = 0.0
@@ -135,12 +141,13 @@ func sync(dt: float) -> void:
 	fire_time = maxf(fire_time - game_dt, 0.0)
 	var firing: StringName = fire_kind if fire_time > 0.0 else &""
 	actor.pose(foot, int(animation_time * 7.0) % 4, facing, sun, 0, walking, firing, 2 if fire_time > 0.08 else 3)
-	ground.apply(session.state.take_dirty()) # The ONLY dirty-list consumer.
+	var ground_dirty: PackedInt32Array = session.state.take_dirty() # The ONLY dirty-list consumer.
+	ground.apply(ground_dirty)
 	if wall_view != null: wall_view.sync()
 	_lighting()
 	water.sync_camera()
 	if occlusion != null: occlusion.update(dt, foot, actor.pixel_size * 34.0)
-	_entities()
+	_entities(ground_dirty)
 
 func show_fire(kind: StringName) -> void:
 	fire_time = 0.25
@@ -169,7 +176,8 @@ func _visible(logic: Vector2) -> bool:
 	var cell: Vector2i = Coords.logic_to_cell(logic)
 	return session.state.in_bounds(cell.x, cell.y) and session.visible[session.state.index_of(cell.x, cell.y)] != 0
 
-func _entities() -> void:
+func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
+	var desired_cover: Dictionary = {}
 	var seen: Dictionary = {}
 	var alive: Dictionary = {}
 	for category: String in ["plants", "helpers", "enemies", "nests", "fossils", "shots"]:
@@ -181,13 +189,33 @@ func _entities() -> void:
 			if category == "fossils" and not _visible(item.pos): continue
 			if category == "fossils" and (bool(item.get("found", false)) or int(item.get("nest_id", -1)) >= 0): continue
 			seen[key] = true
-			var node: MeshInstance3D = entities.get(key) as MeshInstance3D
 			var kind: String = item.get("kind", "seed")
+			var definition: Dictionary = sprite_catalog.definition_for(category,kind)
+			var use_sprite: bool = not definition.is_empty() and category in ["plants","helpers","enemies","nests"]
+			var node: Node3D = entities.get(key) as Node3D
+			if node != null and (node is MeshInstance3D)==use_sprite:
+				node.hide()
+				node.queue_free()
+				node = null
 			if node == null:
-				node = _mesh(key, color_for(kind), category != "nests")
+				if use_sprite:
+					node = EntitySprite.new()
+					node.name = key
+					add_child(node)
+				else:
+					node = _mesh(key, color_for(kind), category != "nests")
+					if category == "helpers": _helper_parts(node as MeshInstance3D, kind)
+					if category == "enemies" or (category == "nests" and bool(item.get("mother", false))): _animal_parts(node as MeshInstance3D, kind)
 				entities[key] = node
-				if category == "helpers": _helper_parts(node, kind)
-				if category == "enemies" or (category == "nests" and bool(item.get("mother", false))): _animal_parts(node, kind)
+			if not entity_states.has(key): entity_states[key] = EntityState.new()
+			var presentation: Dictionary = entity_states[key].resolve(category,item,float(session.clock.elapsed))
+			node.set_meta("visual_state",presentation.state)
+			node.set_meta("visual_direction",presentation.direction)
+			if use_sprite:
+				if category == "plants": _mark_crop_cover(item,desired_cover)
+				var at_sprite: Vector2 = Coords.logic_to_ground(item.pos)
+				node.pose(definition,presentation,Vector3(at_sprite.x,0.0,at_sprite.y),camera,sun,animation_time)
+				continue
 			var height: float = 0.55
 			var width: float = 0.55
 			var depth: float = -1.0
@@ -210,14 +238,41 @@ func _entities() -> void:
 			node.position = Vector3(at.x, height * 0.5, at.y)
 			node.visible = true
 			if category == "enemies":
-				var material_: StandardMaterial3D = node.material_override as StandardMaterial3D
+				var material_: StandardMaterial3D = (node as MeshInstance3D).material_override as StandardMaterial3D
 				material_.albedo_color = Color("f2c372") if String(item.get("phase", "")) in ["windup", "tell"] else color_for(kind)
 	for key: Variant in entities.keys():
 		if not alive.has(key):
 			(entities[key] as Node3D).queue_free()
 			entities.erase(key)
+			entity_states.erase(key)
 		elif not seen.has(key):
 			(entities[key] as Node3D).visible = false
+	_apply_crop_cover(desired_cover,ground_dirty)
+
+func _mark_crop_cover(item: Dictionary, desired: Dictionary) -> void:
+	var cell: Vector2i = item.cell
+	var footprint: Vector2i = item.size
+	for y: int in range(cell.y,cell.y+footprint.y):
+		for x: int in range(cell.x,cell.x+footprint.x):
+			if not session.state.in_bounds(x,y): continue
+			var index: int = session.state.index_of(x,y)
+			desired[index] = true
+
+func _apply_crop_cover(desired: Dictionary, ground_dirty: PackedInt32Array) -> void:
+	# Keep the dirty-cell renderer incremental: unchanged masks do not write MultiMesh instances.
+	var changed: Dictionary = {}
+	for index: int in ground_dirty: changed[index] = true
+	var restore: PackedInt32Array = PackedInt32Array()
+	for index: int in _sprite_cover_cells:
+		if not desired.has(index) and not changed.has(index): restore.append(index)
+	ground.apply(restore)
+	for index: int in desired:
+		if _sprite_cover_cells.has(index) and not changed.has(index): continue
+		ground._hide(ground.soil_multimesh,index)
+		ground._hide(ground.pave_multimesh,index)
+		ground.shown_soil[index] = 0
+		ground.shown_pave[index] = 0
+	_sprite_cover_cells = desired
 
 func _helper_parts(node: MeshInstance3D, kind: String) -> void:
 	var part: MeshInstance3D = MeshInstance3D.new()

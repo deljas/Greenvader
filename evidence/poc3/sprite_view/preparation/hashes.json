@@ -1,0 +1,31 @@
+{
+  "head": "119efb5fdf5f397e9288748b477aca45038cb56e",
+  "status": "prepared_not_executed",
+  "hashes": [
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "769B49BF17115C9E229FFBE2BF328C4C07EF1F423FBDAC9128D94F4BED20557E"
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite.gd",
+      "sha256": "56CB68EAE85EC0D87231A2448AAC7EFC90E1B35E9ACA22D19F560EB177072ACA"
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite_catalog.gd",
+      "sha256": "37EB2B2700836333A509BAB72B9D965860C8433D490D9A41C97A3D35157F3B48"
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite_state.gd",
+      "sha256": "60F7FA2743128073BBAE793546FEEFEB058757057EF7F32BF6A92D702CF5CA46"
+    },
+    {
+      "path": "tests/poc3/sprite_view/self_logic.gd",
+      "sha256": "EF4129875847485ECCE989DC640C743F642C3F7EB35D5959AFB5BAEDE1091F66"
+    },
+    {
+      "path": "tests/poc3/sprite_view/self_gpu.gd",
+      "sha256": "1B0619DEC809B59FC60A007E2201869E39BEE18BAB5868ABF57F0AC348690076"
+    }
+  ],
+  "godot_import_tests": "NOT_RUN"
+}

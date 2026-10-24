@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "native_boar_32x18_no_resampling", "status": "PASS" }
+{ "name": "clover_separate_native_growth_art", "status": "PASS" }
+{ "name": "large_unprovided_art_keeps_mesh", "status": "PASS" }
+{ "name": "enemy_idle_read_only", "status": "PASS" }
+{ "name": "enemy_movement_direction", "status": "PASS" }
+{ "name": "enemy_windup_attack_eat_hit", "status": "PASS" }
+{ "name": "helper_idle_move_attack_sow_water_flee", "status": "PASS" }
+{ "name": "crop_planted_growing_mature", "status": "PASS" }
+{ "name": "future_state_direction_ingress", "status": "PASS" }
+{ "name": "direction_frames_and_fixed_anchor", "status": "PASS" }
+{ "name": "fixed_nest_definition_replaceable", "status": "PASS" }

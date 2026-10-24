@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "name": "startup_minimized_isolated", "status": "PASS" }
+{ "name": "cover_mask_preserves_game_snapshot", "status": "PASS" }
+{ "name": "cover_observation_and_render_transform_match", "status": "PASS" }
+{ "name": "isolated_grass_capture", "status": "PASS" }
+{ "name": "native_crop_visible_0", "status": "PASS" }
+{ "name": "native_crop_visible_1", "status": "PASS" }
+{ "name": "native_crop_visible_2", "status": "PASS" }
+{ "name": "native_boar_visible", "status": "PASS" }
+{ "name": "windup_followup_capture", "status": "PASS" }
+{ "name": "controlled_wall_capture", "status": "PASS" }
+{ "name": "wall_depth_occludes_part_of_body", "status": "PASS" }
+{ "name": "mesh_fallback_restores_cover", "status": "PASS" }
+{ "name": "removed_crop_restores_cover_game_unchanged", "status": "PASS" }
+{ "name": "stayed_minimized_no_focus", "status": "PASS" }

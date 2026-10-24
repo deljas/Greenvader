@@ -1,0 +1,9 @@
+{
+  "checks": [
+    {
+      "name": "dirty_mask_cell_rehidden_actual_dirty_count",
+      "status": "FAIL"
+    }
+  ],
+  "failures": 1
+}

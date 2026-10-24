@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "name": "startup_minimized_isolated",
+      "status": "PASS"
+    },
+    {
+      "name": "fixture_real_plant_placement",
+      "status": "PASS"
+    },
+    {
+      "name": "build_and_sync_do_not_mutate_game_snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "native_card_foot_pixel_and_shadow_pair",
+      "status": "PASS"
+    },
+    {
+      "name": "display_shadow_light_separation",
+      "status": "PASS"
+    },
+    {
+      "name": "grass_crops_boar_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "real_position_move_direction",
+      "status": "PASS"
+    },
+    {
+      "name": "windup_readable_state",
+      "status": "PASS"
+    },
+    {
+      "name": "windup_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "damage_reads_hit",
+      "status": "PASS"
+    },
+    {
+      "name": "visual_swap_preserves_save_collision_pick",
+      "status": "PASS"
+    },
+    {
+      "name": "asymmetric_flipped_anchor_shadow_feet",
+      "status": "PASS"
+    },
+    {
+      "name": "wall_edge_depth_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "death_removes_node",
+      "status": "PASS"
+    },
+    {
+      "name": "stayed_minimized_no_focus",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

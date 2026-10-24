@@ -3,13 +3,13 @@
 ## 管理欄
 
 - ID: POC3-SPRITE-VIEW
-- 状態: 未着手
+- 状態: 完了
 - 担当ツール: なし
 - 担当セッション: なし
 - 更新日: 2026-10-24
 - 予約中の編集範囲: なし
 - 予約中の共有資源: なし
-- 最終担当: なし
+- 最終担当: codex / codex-20261024-poc3-implementation
 
 ## 実施時に具体化する範囲
 
@@ -28,3 +28,8 @@
 ## 引き継ぎ
 
 - 2026-10-24: ユーザーが共通表示基盤と仮素材確認、完成制作後段を承認。記録のみで実装・ゲーム検証未着手。資料は全方針確定までコミットしない。
+- 準備取得: AREA-SEEDを親が受入・index固定後、WATER-GROWTHと重ならない表示ファイルを並行準備する。行動辞書は読み取り専用とし、未接続のHELPERS/LOCUST状態も表示定義の入口を用意する。ゲームsession/combat/plants/persistenceは変更禁止。既存主人公poc_actorを参照するが変更しない。手元の仮素材を使い、完成素材の新規制作・CONTENT-01素材の自動統合は行わない。Godot/importは親から実行権が移るまで待つ。
+- 自己検証開始: WATER独立検証終了後に実行権移譲。準備した4表示ファイルと試験2本を実行し、既存boar/clover/carrot仮素材の足元・影・草地/壁端表示・状態・判定独立性を確認する。非中央X anchorとflipの影整合は、板中心一致ではなく復元した足元一致で判定する。完成美術は対象外。
+- 独立移譲: 最終2e5ad7e+表示4ファイル、self/freeze.jsonで固定。logic11 PASS、初回GPU構造15 PASS（初回画像は建物重複で目視不十分）、草mask追加後GPU14 PASS。親も追試3画像を確認。maskはsprite栽培占有セルだけ草を抑制し、状態/収入/占有不変、解除で復元。毎frame更新を集合差分へ直した後、headless3 PASS/1 FAIL、dirty追試0 PASS/1 FAILを保持し、試験の近隣dirty件数とdummy描画読取誤りを訂正したCPU限定1 PASS。ゲームの再変更で失敗を隠していない。無変更sync更新0を確認。Godot0/overrideなし/旧保存3件一致、実装者停止。evidence/poc3/sprite_view/self/report.md参照。
+
+- 親受入: 独立10 PASS/0 FAIL、実4ファイルhash不変、既存GPU追試3画像の独立/親目視、最終mask集合差分のCPU証拠と実差分を確認し表示基盤を限定技術受入。最適化後GPU再走・全種完成素材・HELPERS/LOCUST本接続・反射は本受入に含めない。Godot0/overrideなし/旧保存3件一致、検証者停止。実行権はCROP-PRICINGへ移譲。

@@ -1,0 +1,8 @@
+{
+  "ground_updates": 5,
+  "headless_pave_readback_y": 0.0,
+  "headless_soil_readback_y": 0.0,
+  "shown_pave": 0,
+  "shown_soil": 0,
+  "source_dirty_cells": 5
+}
