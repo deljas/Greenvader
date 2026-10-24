@@ -10,7 +10,7 @@ const Navigation: GDScript = preload("res://scripts/poc2/simulation/navigation.g
 const Combat: GDScript = preload("res://scripts/poc2/simulation/combat.gd")
 const Plants: GDScript = preload("res://scripts/poc2/simulation/plants.gd")
 const Persistence: GDScript = preload("res://scripts/poc2/simulation/persistence.gd")
-const MAP_PATH: String = "res://data/poc2/maps/town_02.json"
+const MAP_PATH: String = "res://data/poc3/maps/town_03.json"
 const CATALOG: Dictionary = {
  "clover":{"cost":10,"rate":2.0,"size":[1,1],"footprint":[1,1],"maturity":20.0,"hp":30.0,"role":"crop"},
  "carrot":{"cost":15,"rate":1.0,"size":[1,1],"footprint":[1,1],"maturity":15.0,"hp":30.0,"role":"crop"},
@@ -95,15 +95,12 @@ func _setup() -> void:
  for p: Array in map_data.open_cells:
   placement.reach_seeds.append(Vector2i(p[0],p[1]))
  placement.attach(state,base_terrain)
- # The start patch is deliberately clear of placed objects: exactly 250 initial green cells.
+ # Initial mature grass is map terrain, not a permanently hostile-free zone.
  var zone_ids: PackedByteArray = PackedByteArray()
  zone_ids.resize(state.tile_count())
- zone_ids.fill(1)
- for y: int in range(183,193):
-  for x: int in range(180,205):
-   zone_ids[state.index_of(x,y)] = 0
- state.set_zones(zone_ids,PackedByteArray([2,0]))
- position = Coords.cell_center_logic(Vector2i(191,188))
+ zone_ids.fill(0)
+ state.set_zones(zone_ids,PackedByteArray([WorldState.ZONE_UNCONQUERED]))
+ position = start_position()
  env_tuning = Day.load_tuning()
  _build_systems()
  for row: Dictionary in map_data.nests:
@@ -113,6 +110,10 @@ func _setup() -> void:
  known.resize(state.tile_count())
  visible.resize(state.tile_count())
  reveal()
+
+func start_position() -> Vector2:
+ var cell: Array = map_data.player_start_cell
+ return Coords.cell_center_logic(Vector2i(int(cell[0]),int(cell[1])))
 
 func _build_systems(sync_spread: bool = true) -> void:
  sim_tuning.max_advance_seconds = 0.25
@@ -185,7 +186,7 @@ func advance_game(seconds: float) -> void:
   if hp > 0.0 and clock.elapsed-last_damage >= 8.0 and not combat_system.player_in_combat():
    hp = minf(max_hp,hp+dt*(3.0 if plant_system.carrot_near(position) else 1.0))
   if hp <= 0.0 and clock.elapsed >= respawn_at:
-   position = Coords.cell_center_logic(Vector2i(191,188))
+   position = start_position()
    hp = max_hp
    respawn_at = -1.0
   if clock.elapsed >= reveal_at:
@@ -199,8 +200,8 @@ func advance_game(seconds: float) -> void:
  _remember_discoveries()
 
 func _check_zone() -> void:
- if nests.is_empty() and enemies.is_empty() and state.zone_state[1] < 2:
-  state.set_zone_state(1,WorldState.ZONE_STABLE)
+ if nests.is_empty() and enemies.is_empty() and state.zone_state[0] < WorldState.ZONE_STABLE:
+  state.set_zone_state(0,WorldState.ZONE_STABLE)
   # FarSeedSim was created before the transition, so it sweeps the newly stable zone.
   nav.setup(state)
  for z: int in state.zone_count:
@@ -363,7 +364,7 @@ func weather_text() -> String:
  return "晴れ"
 
 func snapshot() -> Dictionary:
- return {"seeds":seeds,"hp":hp,"water":water,"green_percent":greening_percent(),"land_rate":land_rate(),"crop_rate":crop_rate(),"elapsed_game":clock.elapsed,"stable":state.zone_state[1]>=2,"nests":nests.size(),"enemies":enemies.size()}
+ return {"seeds":seeds,"hp":hp,"water":water,"green_percent":greening_percent(),"land_rate":land_rate(),"crop_rate":crop_rate(),"elapsed_game":clock.elapsed,"stable":state.zone_state[0]>=WorldState.ZONE_STABLE,"nests":nests.size(),"enemies":enemies.size()}
 
 func to_dict() -> Dictionary:
  return Persistence.capture(self)

@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "name": "cardinal_player_collision_route_0",
+      "status": "PASS"
+    },
+    {
+      "name": "cardinal_player_collision_route_1",
+      "status": "PASS"
+    },
+    {
+      "name": "cardinal_player_collision_route_2",
+      "status": "PASS"
+    },
+    {
+      "name": "cardinal_player_collision_route_3",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "whole_map_100_percent",
+    "long_term_balance",
+    "physical_input"
+  ],
+  "observations": {
+    "0": {
+      "cardinal_cells": 39,
+      "cardinal_first_error": {},
+      "cardinal_length_m": 15.2,
+      "original_nav_first_error": {},
+      "target_logic": "(590.0, 462.0)"
+    },
+    "1": {
+      "cardinal_cells": 65,
+      "cardinal_first_error": {},
+      "cardinal_length_m": 25.6,
+      "original_nav_first_error": {
+        "actual_logic": "(461.9998, 418.0)",
+        "error_px": 4.0,
+        "from_cell": "(115, 104)",
+        "from_logic": "(461.9998, 418.0002)",
+        "step": 9,
+        "target_cell": "(115, 103)",
+        "target_logic": "(462.0, 414.0)"
+      },
+      "target_logic": "(486.0, 230.0)"
+    },
+    "2": {
+      "cardinal_cells": 65,
+      "cardinal_first_error": {},
+      "cardinal_length_m": 25.6,
+      "original_nav_first_error": {},
+      "target_logic": "(198.0, 446.0)"
+    },
+    "3": {
+      "cardinal_cells": 73,
+      "cardinal_first_error": {},
+      "cardinal_length_m": 28.8,
+      "original_nav_first_error": {
+        "actual_logic": "(461.9998, 482.0)",
+        "error_px": 4.0,
+        "from_cell": "(115, 120)",
+        "from_logic": "(461.9998, 481.9998)",
+        "step": 9,
+        "target_cell": "(115, 121)",
+        "target_logic": "(462.0, 486.0)"
+      },
+      "target_logic": "(474.0, 714.0)"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "name": "isolated_profile_and_connected_map",
+      "status": "PASS"
+    },
+    {
+      "name": "central_start_and_original_resources",
+      "status": "PASS"
+    },
+    {
+      "name": "initial_177_circle_and_3_54_income",
+      "status": "PASS"
+    },
+    {
+      "name": "whole_map_one_unconquered_zone",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_free_position_8m_clear_and_front_distances",
+      "status": "PASS"
+    },
+    {
+      "name": "four_front_routes_replayed_with_player_collision",
+      "status": "FAIL"
+    },
+    {
+      "name": "water_bank_3_2m_reachable",
+      "status": "PASS"
+    },
+    {
+      "name": "bank_automatic_refill_without_seeds",
+      "status": "PASS"
+    },
+    {
+      "name": "initial_and_30s_noncontact_dormant",
+      "status": "PASS"
+    },
+    {
+      "name": "player_approach_activates_nearest_front",
+      "status": "PASS"
+    },
+    {
+      "name": "green_contact_activates_far_front_without_player",
+      "status": "PASS"
+    },
+    {
+      "name": "initial_green_has_no_hostile_immunity",
+      "status": "PASS"
+    },
+    {
+      "name": "all_enemies_nests_removed_stabilizes_zone",
+      "status": "PASS"
+    },
+    {
+      "name": "new_map_save_restore",
+      "status": "PASS"
+    },
+    {
+      "name": "old_working_map_rejected_session_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "new_map_wrong_zone_shape_rejected_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "respawn_uses_map_start",
+      "status": "PASS"
+    }
+  ],
+  "failures": 1,
+  "not_run": [
+    "whole_map_100_percent",
+    "long_term_balance",
+    "physical_input"
+  ],
+  "observations": {
+    "initial_distances_m": {
+      "nearest_enemy": 13.6058807373047,
+      "nests": [
+        14.051335144043,
+        22.2925994873047,
+        25.203173828125,
+        26.5088653564453,
+        36.2082855224609
+      ]
+    },
+    "routes": {
+      "0": {
+        "actual_target_logic": "(590.0, 462.0)",
+        "cells": 36,
+        "length_m": 14.4970562458038
+      },
+      "1": {
+        "actual_target_logic": "(486.0, 230.0)",
+        "cells": 56,
+        "length_m": 23.4911687374115
+      },
+      "2": {
+        "actual_target_logic": "(198.0, 446.0)",
+        "cells": 64,
+        "length_m": 25.3656854152679
+      },
+      "3": {
+        "actual_target_logic": "(474.0, 714.0)",
+        "cells": 67,
+        "length_m": 27.3941124916076
+      }
+    }
+  }
+}

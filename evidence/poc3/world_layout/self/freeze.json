@@ -1,0 +1,57 @@
+{
+  "head": "a72c39f71324367eccd00518725dc8dc4c640e64",
+  "game_hashes": [
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "41DC78D7F8D8B49FA54699F73A17A420EEFB9C18EB6960EE1B01829C0A9BF7FB"
+    },
+    {
+      "path": "data/poc3/maps/town_03.json",
+      "sha256": "A1E4F6109E03BB201538EBBD6A90AC2CB4F8C27056C10F0B92EC1D85E5CB7515"
+    }
+  ],
+  "test_hashes": [
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\world_layout\\self_gpu.gd",
+      "sha256": "F3E92A33CDE62C057A2A4C1987424898EA942E5881DEE4286A731E0049D5EFD4"
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\world_layout\\self_gpu.gd.uid",
+      "sha256": "4A3E95D455139E0E25E37A6555CD8132EEF32234261F11DD040C516A71C3FAE3"
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\world_layout\\self_logic.gd",
+      "sha256": "AC499F640A6B9B9652A82D893A513A0963FE4058967D0C9DA7EF3E3E3A4E9BD8"
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\world_layout\\self_logic.gd.uid",
+      "sha256": "B72CA3529D1EA5B91A70FB15B0E33CD249F3B07F2493434F14AC55AC68F20B0D"
+    },
+    {
+      "path": "C:\\godot\\greenvader\\tests\\poc3\\world_layout\\self_routes_followup.gd",
+      "sha256": "7E14E2ED0BA2C14510566DEE190E2F589F99DEBA86471DCE0A8D40ED529A305C"
+    }
+  ],
+  "real_saves_final": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_unchanged": true,
+  "override_absent": true,
+  "godot_processes": [],
+  "execution_stopped": true
+}

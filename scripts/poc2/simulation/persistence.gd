@@ -88,6 +88,10 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
  world_template.occupancy_owners={}
  if not data.world is Dictionary or not _shape(data.world,world_template): return s.result(false,"invalid_world")
  if data.world.width!=224 or data.world.height!=224: return s.result(false,"invalid_size")
+ # town_03 has one region. Initial grass must never be restored as a separate immune region.
+ if data.world.zones.count!=1 or data.world.zones.state.size()!=1: return s.result(false,"invalid_zones")
+ var zone_state: float=float(data.world.zones.state[0])
+ if zone_state<WorldState.ZONE_UNCONQUERED or zone_state>WorldState.ZONE_COMPLETE or floorf(zone_state)!=zone_state: return s.result(false,"invalid_zones")
  for key: String in ["terrain","plant_id","stage","growth","moisture","fertility","sprout_slot","occupant","natural","fruitless"]:
   var bytes: int=50176*(4 if key in ["growth","occupant"] else 1)
   if data.world[key].n!=bytes: return s.result(false,"invalid_packed_size")
@@ -104,6 +108,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
  candidate.env_tuning=s.env_tuning
  candidate.state=WorldState.from_dict(data.world,s.state.terrain_defs)
  if candidate.state==null: return s.result(false,"invalid_world")
+ if candidate.state.zone_count!=1: return s.result(false,"invalid_zones")
+ for zone: int in candidate.state.zone_of:
+  if zone!=0: return s.result(false,"invalid_zones")
  # Occupancy must agree exactly with its owner rectangles and stay in bounds.
  var occupied: PackedInt32Array=PackedInt32Array()
  occupied.resize(candidate.state.tile_count())

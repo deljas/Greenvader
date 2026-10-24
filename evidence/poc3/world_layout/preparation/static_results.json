@@ -1,0 +1,256 @@
+{
+  "scope": "offline unconnected map preparation only; PASS refers to static checks, never actual reachability",
+  "head": "b5e68bfa61337819e874fa07221a0058ede63e7b",
+  "working_tree_status_at_check": " M scripts/poc2/poc2_main.gd\n M scripts/poc2/poc2_session.gd\n M scripts/poc2/simulation/persistence.gd\n M scripts/poc2/ui/poc2_ui.gd\n M tasks/POC3_PLANT_UI.md\n M tasks/POC3_WORLD_LAYOUT.md\n?? .codex-remote-attachments/\n?? data/poc3/\n?? docs/CONTENT_CATALOG.md\n?? evidence/poc3/plant_ui/\n?? evidence/poc3/world_layout/\n?? scripts/poc2/ui/favorite_slot.gd\n?? scripts/poc2/ui/favorite_slot.gd.uid\n?? scripts/poc2/ui/plant_list.gd\n?? scripts/poc2/ui/plant_list.gd.uid\n?? scripts/poc2/ui/plant_list_row.gd\n?? scripts/poc2/ui/plant_list_row.gd.uid\n?? tasks/CONTENT_01.md\n?? tests/poc3/map_info/independent_map.gd.uid\n?? tests/poc3/map_info/independent_memory_fix.gd.uid\n?? tests/poc3/map_info/self_memory_fix.gd.uid\n?? tests/poc3/map_info/self_minimap_followup.gd.uid\n?? tests/poc3/plant_ui/\n",
+  "checks": [
+    {
+      "id": "json_schema",
+      "status": "PASS",
+      "detail": "224x224 cells, 0.4m => 89.6m square; existing placement schema version retained"
+    },
+    {
+      "id": "instances_unchanged",
+      "status": "PASS",
+      "detail": "All 186 original instance rows unchanged, including 28 buildings"
+    },
+    {
+      "id": "asset_ids",
+      "status": "PASS",
+      "detail": "Unique instance IDs and existing catalog references only"
+    },
+    {
+      "id": "nests_unlocks",
+      "status": "PASS",
+      "detail": "5 nests: small boar/army, small spider/wheat, medium boar/watermelon, medium spider/rafflesia, large mother"
+    },
+    {
+      "id": "fossils_unlocks",
+      "status": "PASS",
+      "detail": "3 exploration fossils preserve carrot/gatlinger/sprinkler"
+    },
+    {
+      "id": "island_preserved",
+      "status": "PASS",
+      "detail": "Outer ring, canal, remote bridges, lake/island and island reach seed retained"
+    },
+    {
+      "id": "paint_bounds",
+      "status": "PASS",
+      "detail": "All paint rectangles within bounds"
+    },
+    {
+      "id": "central_initial_green",
+      "status": "PASS",
+      "detail": {
+        "start_cell": [
+          112,
+          112
+        ],
+        "start_ground_m": [
+          35.4,
+          37.0
+        ],
+        "green_cells": 177,
+        "radius_m": 3.0,
+        "derived_income_seeds_per_minute": 3.54,
+        "resource_compensation": "none; parent approved area-derived income"
+      }
+    },
+    {
+      "id": "nest_center_distances",
+      "status": "PASS",
+      "detail": [
+        {
+          "cell": [
+            147,
+            115
+          ],
+          "scale": "small",
+          "kind": "boar",
+          "unlock": "army",
+          "distance_m": 14.051334
+        },
+        {
+          "cell": [
+            121,
+            57
+          ],
+          "scale": "small",
+          "kind": "spider",
+          "unlock": "wheat",
+          "distance_m": 22.2926
+        },
+        {
+          "cell": [
+            49,
+            111
+          ],
+          "scale": "medium",
+          "kind": "boar",
+          "unlock": "watermelon",
+          "distance_m": 25.203174
+        },
+        {
+          "cell": [
+            118,
+            178
+          ],
+          "scale": "medium",
+          "kind": "spider",
+          "unlock": "rafflesia",
+          "distance_m": 26.508866
+        },
+        {
+          "cell": [
+            49,
+            47
+          ],
+          "scale": "large",
+          "kind": "mother",
+          "unlock": "",
+          "distance_m": 36.208286
+        }
+      ]
+    },
+    {
+      "id": "initial_spawn_margin_before_free_position",
+      "status": "PASS",
+      "detail": {
+        "lower_bound_before_relocation_m": 12.637120437626905,
+        "basis": "Current spawn jitter is +/-10 logical px per axis = +/-1m; free_position relocation still requires Godot verification"
+      }
+    },
+    {
+      "id": "clear_initial_circle_metadata",
+      "status": "PASS",
+      "detail": "177 initial cells clear in inflated metadata AABB approximation; actual rasterization NOT_RUN"
+    },
+    {
+      "id": "representative_routes_metadata_only",
+      "status": "PASS",
+      "detail": {
+        "east_small_nest": {
+          "target_cell": [
+            147,
+            115
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 15.2
+        },
+        "north_small_nest": {
+          "target_cell": [
+            121,
+            57
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 25.6
+        },
+        "west_medium_nest": {
+          "target_cell": [
+            49,
+            111
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 26.4
+        },
+        "south_medium_nest": {
+          "target_cell": [
+            118,
+            178
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 28.8
+        },
+        "mother": {
+          "target_cell": [
+            49,
+            47
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 51.2
+        },
+        "north_water_bank": {
+          "target_cell": [
+            112,
+            104
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 3.2
+        },
+        "fossil_carrot": {
+          "target_cell": [
+            119,
+            116
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 4.4
+        },
+        "fossil_gatlinger": {
+          "target_cell": [
+            129,
+            108
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 8.4
+        },
+        "fossil_sprinkler": {
+          "target_cell": [
+            100,
+            128
+          ],
+          "metadata_candidate_exists": true,
+          "candidate_length_m": 11.2
+        }
+      }
+    },
+    {
+      "id": "nearby_water_bank_metadata_only",
+      "status": "PASS",
+      "detail": "3.2m candidate walk to (112,104), cardinally adjacent to water (112,103); existing refill rule reads terrain water"
+    },
+    {
+      "id": "no_local_moat_in_paint",
+      "status": "PASS",
+      "detail": "Central 10m x 6.8m land bridge joins both banks; north/south water is a canal, not a ring"
+    }
+  ],
+  "summary": {
+    "PASS": 14
+  },
+  "NOT_RUN": [
+    "Godot import/start",
+    "actual rendering/pixel perfect/outline verification",
+    "actual placement rasterization and enclosed sealing",
+    "actual player movement/water refill",
+    "post-free_position enemy/nest positions and 8m safety",
+    "dormancy/noncontact/approach/green-contact activation",
+    "helper work/frontline division",
+    "zone stability/no reinvasion and full greening including island",
+    "save/restore and respawn",
+    "physical input",
+    "fun/final distance balance"
+  ],
+  "sha256": {
+    "data/poc3/maps/town_03.json": "a1e4f6109e03bb201538ebbd6a90ac2cb4f8c27056c10f0b92ec1d85e5cb7515",
+    "data/poc2/maps/town_02.json": "5443a34a03db271875a28121afd3b1c7519f8b4c4a65a86d6d9fcf8576017ac7",
+    "data/poc/asset_catalog.json": "48e7dd8d63983a98e3ccd6d37238fd9d85588c04ab6e4a55a88aecfe00adc130",
+    "scripts/poc/assets/placement.gd": "a87521b49dbf1038a1b0e05372c0b5b238e7e23eb281cac90cd082a5ed479b71",
+    "scripts/poc/poc_coords.gd": "bc0e62ac009200221495a04fdca4e615cf12be89aff2fb331b1a445e24540921",
+    "scripts/poc2/simulation/combat.gd": "cef2d0fb81b0c9f2a336251705c49e537c89ed7ee27ea0e8292ee68e74241049",
+    "assets/models/town_lab/BLD-007/metadata.json": "520a1e6f93bf6d508f29c398151694983249acb8f3a4275907d011d4e93c5dc1",
+    "assets/models/town_lab/BLD-019/metadata.json": "7ebcba349a13eaf0e47a5c8a75db592136c67010dc0f9c7d59e8567ab72704a6",
+    "assets/models/town_lab/BLD-038/metadata.json": "6ec4e06bc7c1304868b60e9e6713b5fdc1da7287383fd2764b800d74e50051db",
+    "assets/models/town_lab/BLD-046/metadata.json": "4e6f4a0b44a94e5be0df85560b15b6915b79e26c4340ff87ab87d8c803d2ee14",
+    "assets/models/town_lab/BLD-079/metadata.json": "f0a024bc4e4f17ddc1582bce17c434ab6a62e94017dfbb40a46e5d6f6ea72671",
+    "assets/models/town_lab/BLD-091/metadata.json": "8a8c675d9df8c0d88214ac4a47896f735d2099400b5befab2c43f919162d833e",
+    "assets/models/town_lab/BLD-123/metadata.json": "7133250124ca80527498d1c2509ed3592a64e58816d16c4e5347598e9e347210",
+    "assets/models/town_lab/PRP-001/metadata.json": "9a79e0e68b8ef2b49afe28b5618514ecff0f85ef23d06ee3e0653ac75ce109bd",
+    "assets/models/town_lab/PRP-005/metadata.json": "172951050577f17f333c36ad2556433f5bb60eb2f2bf523ae80e49fd00e43b77",
+    "assets/models/town_lab/PRP-012/metadata.json": "ff5a65c9396cf0223a09fc43b051f98089ad3689c3f767e2d06c63465044883a",
+    "assets/models/town_lab/PRP-017/metadata.json": "a08fdf5221ee58638ab3a8950c8e4df8474ba489d0a615939d4ed0fa8887f7d6",
+    "assets/models/town_lab/PRP-034/metadata.json": "aa83c8c3ce9d8394500113b61ac96ccd2e6dcaaa1b3354aeee595d537624e7bc",
+    "assets/models/town_lab/PRP-041/metadata.json": "424483473894f5f65edad9364aeff6d54fbe3cc4e70911b3f68ccdbbf7fdb04e",
+    "assets/models/town_lab/PRP-075/metadata.json": "3b04b634971006b5009440cab3278f0838bf484b71cd2a23923a8cad5bea8ae6",
+    "assets/models/town_lab/TRE-001/metadata.json": "4f0d3c1562795c8bd120980f8688ed2b5689c22f34ae675854b13e7ef23a6f8f"
+  }
+}

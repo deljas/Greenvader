@@ -1,0 +1,52 @@
+{
+  "head": "4d4da323affcd35f4a2b6a6acdfa60175a347dd4",
+  "reservation": "11:- 予約中の共有資源: **共有ツリーのGodot実行・importは使わない**（POC3-INPUTのCodex側が所有）。Godot実行は隔離プロジェクト C:/godot/greenvader_content_sandbox/ だけで行う。Git index/commit は本作業では行わない（Codex親と調整後に親のみ）",
+  "game_hashes": [
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "4C29F07A1B356B943C1310B299E2808363DB0BCDB2B76C03C23758DC8E121C5B"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "41DC78D7F8D8B49FA54699F73A17A420EEFB9C18EB6960EE1B01829C0A9BF7FB"
+    },
+    {
+      "path": "data/poc3/maps/town_03.json",
+      "sha256": "A1E4F6109E03BB201538EBBD6A90AC2CB4F8C27056C10F0B92EC1D85E5CB7515"
+    }
+  ],
+  "import_exit": 0,
+  "logic_exit": 1,
+  "gpu_exit": null,
+  "real_saves_before": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_after": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_unchanged": true,
+  "override_absent": true,
+  "godot_processes": []
+}

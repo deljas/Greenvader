@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "name": "startup_minimized_isolated_connected",
+      "status": "PASS"
+    },
+    {
+      "name": "normal_new_game_opens_center",
+      "status": "PASS"
+    },
+    {
+      "name": "new_center_640_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "new_map_640_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "stayed_minimized_no_focus",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "whole_map_100_percent",
+    "long_term_balance",
+    "physical_input"
+  ],
+  "observations": {}
+}

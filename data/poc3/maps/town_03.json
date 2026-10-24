@@ -1,0 +1,2015 @@
+{
+  "version": 2,
+  "catalog": "res://data/poc/asset_catalog.json",
+  "size": [
+    224,
+    224
+  ],
+  "player_start_cell": [
+    112,
+    112
+  ],
+  "instances": [
+    {
+      "instance_id": "bld_gallery_01_q0",
+      "asset": "BLD-007",
+      "pos": [
+        4.4,
+        2.0
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_chapel_01_q0",
+      "asset": "BLD-038",
+      "pos": [
+        22.8,
+        2.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_lighthouse_01_q0",
+      "asset": "BLD-123",
+      "pos": [
+        13.6,
+        6.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_cafe_01_q0",
+      "asset": "BLD-019",
+      "pos": [
+        0.8,
+        14.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_ruin_01_q0",
+      "asset": "BLD-091",
+      "pos": [
+        23.2,
+        14.4
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "bld_pump_01_q0",
+      "asset": "BLD-046",
+      "pos": [
+        11.2,
+        24.0
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_mill_01_q0",
+      "asset": "BLD-079",
+      "pos": [
+        0.8,
+        25.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_01_q0",
+      "asset": "PRP-041",
+      "pos": [
+        2.4,
+        35.2
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_02_q0",
+      "asset": "PRP-041",
+      "pos": [
+        19.2,
+        19.6
+      ],
+      "yaw_deg": 20
+    },
+    {
+      "instance_id": "car_03_q0",
+      "asset": "PRP-041",
+      "pos": [
+        27.2,
+        -6.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "bus_stop_01_q0",
+      "asset": "PRP-012",
+      "pos": [
+        20.8,
+        35.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "slide_01_q0",
+      "asset": "PRP-075",
+      "pos": [
+        20.8,
+        8.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_01_q0",
+      "asset": "PRP-017",
+      "pos": [
+        27.2,
+        12.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_02_q0",
+      "asset": "PRP-017",
+      "pos": [
+        -4.0,
+        20.8
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_01_q0",
+      "asset": "PRP-001",
+      "pos": [
+        6.4,
+        9.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_02_q0",
+      "asset": "PRP-001",
+      "pos": [
+        16.8,
+        9.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_03_q0",
+      "asset": "PRP-001",
+      "pos": [
+        6.4,
+        18.4
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_04_q0",
+      "asset": "PRP-001",
+      "pos": [
+        18.4,
+        18.4
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "lamp_05_q0",
+      "asset": "PRP-001",
+      "pos": [
+        -6.4,
+        16.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_06_q0",
+      "asset": "PRP-001",
+      "pos": [
+        -6.4,
+        0.0
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_07_q0",
+      "asset": "PRP-001",
+      "pos": [
+        31.6,
+        16.0
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_08_q0",
+      "asset": "PRP-001",
+      "pos": [
+        31.6,
+        0.0
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "lamp_09_q0",
+      "asset": "PRP-001",
+      "pos": [
+        14.4,
+        33.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_10_q0",
+      "asset": "PRP-001",
+      "pos": [
+        -1.6,
+        33.2
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "hydrant_01_q0",
+      "asset": "PRP-034",
+      "pos": [
+        5.6,
+        20.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_02_q0",
+      "asset": "PRP-034",
+      "pos": [
+        32.0,
+        28.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_03_q0",
+      "asset": "PRP-034",
+      "pos": [
+        14.4,
+        -2.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_01_q0",
+      "asset": "PRP-005",
+      "pos": [
+        -5.6,
+        12.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_02_q0",
+      "asset": "PRP-005",
+      "pos": [
+        30.8,
+        9.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_03_q0",
+      "asset": "PRP-005",
+      "pos": [
+        30.8,
+        20.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_01_q0",
+      "asset": "TRE-001",
+      "pos": [
+        5.6,
+        -2.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_02_q0",
+      "asset": "TRE-001",
+      "pos": [
+        17.6,
+        -1.6
+      ],
+      "yaw_deg": 70
+    },
+    {
+      "instance_id": "tree_03_q0",
+      "asset": "TRE-001",
+      "pos": [
+        -4.0,
+        17.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_04_q0",
+      "asset": "TRE-001",
+      "pos": [
+        4.8,
+        12.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_05_q0",
+      "asset": "TRE-001",
+      "pos": [
+        18.4,
+        11.6
+      ],
+      "yaw_deg": 40
+    },
+    {
+      "instance_id": "tree_06_q0",
+      "asset": "TRE-001",
+      "pos": [
+        16.8,
+        16.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_07_q0",
+      "asset": "TRE-001",
+      "pos": [
+        8.0,
+        20.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_08_q0",
+      "asset": "TRE-001",
+      "pos": [
+        -2.4,
+        28.8
+      ],
+      "yaw_deg": 20
+    },
+    {
+      "instance_id": "tree_09_q0",
+      "asset": "TRE-001",
+      "pos": [
+        18.4,
+        30.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_10_q0",
+      "asset": "TRE-001",
+      "pos": [
+        24.0,
+        7.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_11_q0",
+      "asset": "TRE-001",
+      "pos": [
+        28.8,
+        8.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "puddle_01_q0",
+      "kind": "puddle",
+      "pos": [
+        12.8,
+        18.4
+      ],
+      "radius": 0.9
+    },
+    {
+      "instance_id": "puddle_02_q0",
+      "kind": "puddle",
+      "pos": [
+        12.0,
+        0.0
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_03_q0",
+      "kind": "puddle",
+      "pos": [
+        6.4,
+        28.8
+      ],
+      "radius": 1.0
+    },
+    {
+      "instance_id": "puddle_04_q0",
+      "kind": "puddle",
+      "pos": [
+        27.2,
+        18.4
+      ],
+      "radius": 0.8
+    },
+    {
+      "instance_id": "puddle_05_q0",
+      "kind": "puddle",
+      "pos": [
+        0.8,
+        32.4
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_06_q0",
+      "kind": "puddle",
+      "pos": [
+        32.8,
+        11.2
+      ],
+      "radius": 0.6
+    },
+    {
+      "instance_id": "puddle_07_q0",
+      "kind": "puddle",
+      "pos": [
+        17.6,
+        23.2
+      ],
+      "radius": 0.5
+    },
+    {
+      "instance_id": "bld_gallery_01_q1",
+      "asset": "BLD-007",
+      "pos": [
+        49.2,
+        2.0
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_chapel_01_q1",
+      "asset": "BLD-038",
+      "pos": [
+        67.6,
+        2.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_lighthouse_01_q1",
+      "asset": "BLD-123",
+      "pos": [
+        58.4,
+        6.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_cafe_01_q1",
+      "asset": "BLD-019",
+      "pos": [
+        45.6,
+        14.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_ruin_01_q1",
+      "asset": "BLD-091",
+      "pos": [
+        68.0,
+        14.4
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "bld_pump_01_q1",
+      "asset": "BLD-046",
+      "pos": [
+        56.0,
+        24.0
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_mill_01_q1",
+      "asset": "BLD-079",
+      "pos": [
+        45.6,
+        25.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_01_q1",
+      "asset": "PRP-041",
+      "pos": [
+        47.2,
+        35.2
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_02_q1",
+      "asset": "PRP-041",
+      "pos": [
+        64.0,
+        19.6
+      ],
+      "yaw_deg": 20
+    },
+    {
+      "instance_id": "car_03_q1",
+      "asset": "PRP-041",
+      "pos": [
+        72.0,
+        -6.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "bus_stop_01_q1",
+      "asset": "PRP-012",
+      "pos": [
+        65.6,
+        35.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "slide_01_q1",
+      "asset": "PRP-075",
+      "pos": [
+        65.6,
+        8.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_01_q1",
+      "asset": "PRP-017",
+      "pos": [
+        72.0,
+        12.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_02_q1",
+      "asset": "PRP-017",
+      "pos": [
+        40.8,
+        20.8
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_01_q1",
+      "asset": "PRP-001",
+      "pos": [
+        51.2,
+        9.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_02_q1",
+      "asset": "PRP-001",
+      "pos": [
+        61.6,
+        9.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_03_q1",
+      "asset": "PRP-001",
+      "pos": [
+        51.2,
+        18.4
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_04_q1",
+      "asset": "PRP-001",
+      "pos": [
+        63.2,
+        18.4
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "lamp_05_q1",
+      "asset": "PRP-001",
+      "pos": [
+        38.4,
+        16.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_06_q1",
+      "asset": "PRP-001",
+      "pos": [
+        38.4,
+        0.0
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_07_q1",
+      "asset": "PRP-001",
+      "pos": [
+        76.4,
+        16.0
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_08_q1",
+      "asset": "PRP-001",
+      "pos": [
+        76.4,
+        0.0
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "lamp_09_q1",
+      "asset": "PRP-001",
+      "pos": [
+        59.2,
+        33.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_10_q1",
+      "asset": "PRP-001",
+      "pos": [
+        43.2,
+        33.2
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "hydrant_01_q1",
+      "asset": "PRP-034",
+      "pos": [
+        50.4,
+        20.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_02_q1",
+      "asset": "PRP-034",
+      "pos": [
+        76.8,
+        28.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_03_q1",
+      "asset": "PRP-034",
+      "pos": [
+        59.2,
+        -2.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_01_q1",
+      "asset": "PRP-005",
+      "pos": [
+        39.2,
+        12.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_02_q1",
+      "asset": "PRP-005",
+      "pos": [
+        75.6,
+        9.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_03_q1",
+      "asset": "PRP-005",
+      "pos": [
+        75.6,
+        20.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_01_q1",
+      "asset": "TRE-001",
+      "pos": [
+        50.4,
+        -2.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_02_q1",
+      "asset": "TRE-001",
+      "pos": [
+        62.4,
+        -1.6
+      ],
+      "yaw_deg": 70
+    },
+    {
+      "instance_id": "tree_03_q1",
+      "asset": "TRE-001",
+      "pos": [
+        40.8,
+        17.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_04_q1",
+      "asset": "TRE-001",
+      "pos": [
+        49.6,
+        12.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_05_q1",
+      "asset": "TRE-001",
+      "pos": [
+        63.2,
+        11.6
+      ],
+      "yaw_deg": 40
+    },
+    {
+      "instance_id": "tree_06_q1",
+      "asset": "TRE-001",
+      "pos": [
+        61.6,
+        16.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_07_q1",
+      "asset": "TRE-001",
+      "pos": [
+        52.8,
+        20.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_08_q1",
+      "asset": "TRE-001",
+      "pos": [
+        42.4,
+        28.8
+      ],
+      "yaw_deg": 20
+    },
+    {
+      "instance_id": "tree_09_q1",
+      "asset": "TRE-001",
+      "pos": [
+        63.2,
+        30.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_10_q1",
+      "asset": "TRE-001",
+      "pos": [
+        68.8,
+        7.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_11_q1",
+      "asset": "TRE-001",
+      "pos": [
+        73.6,
+        8.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "puddle_01_q1",
+      "kind": "puddle",
+      "pos": [
+        57.6,
+        18.4
+      ],
+      "radius": 0.9
+    },
+    {
+      "instance_id": "puddle_02_q1",
+      "kind": "puddle",
+      "pos": [
+        56.8,
+        0.0
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_03_q1",
+      "kind": "puddle",
+      "pos": [
+        51.2,
+        28.8
+      ],
+      "radius": 1.0
+    },
+    {
+      "instance_id": "puddle_04_q1",
+      "kind": "puddle",
+      "pos": [
+        72.0,
+        18.4
+      ],
+      "radius": 0.8
+    },
+    {
+      "instance_id": "puddle_05_q1",
+      "kind": "puddle",
+      "pos": [
+        45.6,
+        32.4
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_06_q1",
+      "kind": "puddle",
+      "pos": [
+        77.6,
+        11.2
+      ],
+      "radius": 0.6
+    },
+    {
+      "instance_id": "puddle_07_q1",
+      "kind": "puddle",
+      "pos": [
+        62.4,
+        23.2
+      ],
+      "radius": 0.5
+    },
+    {
+      "instance_id": "bld_gallery_01_q2",
+      "asset": "BLD-007",
+      "pos": [
+        4.4,
+        46.8
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_chapel_01_q2",
+      "asset": "BLD-038",
+      "pos": [
+        22.8,
+        47.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_lighthouse_01_q2",
+      "asset": "BLD-123",
+      "pos": [
+        13.6,
+        51.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_cafe_01_q2",
+      "asset": "BLD-019",
+      "pos": [
+        0.8,
+        59.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_ruin_01_q2",
+      "asset": "BLD-091",
+      "pos": [
+        23.2,
+        59.2
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "bld_pump_01_q2",
+      "asset": "BLD-046",
+      "pos": [
+        11.2,
+        68.8
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_mill_01_q2",
+      "asset": "BLD-079",
+      "pos": [
+        0.8,
+        70.4
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_01_q2",
+      "asset": "PRP-041",
+      "pos": [
+        2.4,
+        80.0
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_02_q2",
+      "asset": "PRP-041",
+      "pos": [
+        19.2,
+        64.4
+      ],
+      "yaw_deg": 20
+    },
+    {
+      "instance_id": "car_03_q2",
+      "asset": "PRP-041",
+      "pos": [
+        27.2,
+        38.2
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "bus_stop_01_q2",
+      "asset": "PRP-012",
+      "pos": [
+        20.8,
+        80.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "slide_01_q2",
+      "asset": "PRP-075",
+      "pos": [
+        20.8,
+        53.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_01_q2",
+      "asset": "PRP-017",
+      "pos": [
+        27.2,
+        57.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_02_q2",
+      "asset": "PRP-017",
+      "pos": [
+        -4.0,
+        65.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_01_q2",
+      "asset": "PRP-001",
+      "pos": [
+        6.4,
+        54.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_02_q2",
+      "asset": "PRP-001",
+      "pos": [
+        16.8,
+        54.4
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_03_q2",
+      "asset": "PRP-001",
+      "pos": [
+        6.4,
+        63.2
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_04_q2",
+      "asset": "PRP-001",
+      "pos": [
+        18.4,
+        63.2
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "lamp_05_q2",
+      "asset": "PRP-001",
+      "pos": [
+        -6.4,
+        60.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_06_q2",
+      "asset": "PRP-001",
+      "pos": [
+        -6.4,
+        44.8
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_07_q2",
+      "asset": "PRP-001",
+      "pos": [
+        31.6,
+        60.8
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_08_q2",
+      "asset": "PRP-001",
+      "pos": [
+        31.6,
+        44.8
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "lamp_09_q2",
+      "asset": "PRP-001",
+      "pos": [
+        14.4,
+        78.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_10_q2",
+      "asset": "PRP-001",
+      "pos": [
+        -1.6,
+        78.0
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "hydrant_01_q2",
+      "asset": "PRP-034",
+      "pos": [
+        5.6,
+        64.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_02_q2",
+      "asset": "PRP-034",
+      "pos": [
+        32.0,
+        73.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_03_q2",
+      "asset": "PRP-034",
+      "pos": [
+        14.4,
+        42.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_01_q2",
+      "asset": "PRP-005",
+      "pos": [
+        -5.6,
+        56.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_02_q2",
+      "asset": "PRP-005",
+      "pos": [
+        30.8,
+        54.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_03_q2",
+      "asset": "PRP-005",
+      "pos": [
+        30.8,
+        64.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_01_q2",
+      "asset": "TRE-001",
+      "pos": [
+        5.6,
+        42.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_02_q2",
+      "asset": "TRE-001",
+      "pos": [
+        17.6,
+        43.2
+      ],
+      "yaw_deg": 70
+    },
+    {
+      "instance_id": "tree_03_q2",
+      "asset": "TRE-001",
+      "pos": [
+        -4.0,
+        62.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_04_q2",
+      "asset": "TRE-001",
+      "pos": [
+        4.8,
+        56.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_05_q2",
+      "asset": "TRE-001",
+      "pos": [
+        18.4,
+        56.4
+      ],
+      "yaw_deg": 40
+    },
+    {
+      "instance_id": "tree_06_q2",
+      "asset": "TRE-001",
+      "pos": [
+        16.8,
+        61.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_07_q2",
+      "asset": "TRE-001",
+      "pos": [
+        8.0,
+        64.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_08_q2",
+      "asset": "TRE-001",
+      "pos": [
+        -2.4,
+        73.6
+      ],
+      "yaw_deg": 20
+    },
+    {
+      "instance_id": "tree_09_q2",
+      "asset": "TRE-001",
+      "pos": [
+        18.4,
+        75.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_10_q2",
+      "asset": "TRE-001",
+      "pos": [
+        24.0,
+        52.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_11_q2",
+      "asset": "TRE-001",
+      "pos": [
+        28.8,
+        52.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "puddle_01_q2",
+      "kind": "puddle",
+      "pos": [
+        12.8,
+        63.2
+      ],
+      "radius": 0.9
+    },
+    {
+      "instance_id": "puddle_02_q2",
+      "kind": "puddle",
+      "pos": [
+        12.0,
+        44.8
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_03_q2",
+      "kind": "puddle",
+      "pos": [
+        6.4,
+        73.6
+      ],
+      "radius": 1.0
+    },
+    {
+      "instance_id": "puddle_04_q2",
+      "kind": "puddle",
+      "pos": [
+        27.2,
+        63.2
+      ],
+      "radius": 0.8
+    },
+    {
+      "instance_id": "puddle_05_q2",
+      "kind": "puddle",
+      "pos": [
+        0.8,
+        77.2
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_06_q2",
+      "kind": "puddle",
+      "pos": [
+        32.8,
+        56.0
+      ],
+      "radius": 0.6
+    },
+    {
+      "instance_id": "puddle_07_q2",
+      "kind": "puddle",
+      "pos": [
+        17.6,
+        68.0
+      ],
+      "radius": 0.5
+    },
+    {
+      "instance_id": "bld_gallery_01_q3",
+      "asset": "BLD-007",
+      "pos": [
+        49.2,
+        46.8
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_chapel_01_q3",
+      "asset": "BLD-038",
+      "pos": [
+        67.6,
+        47.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_lighthouse_01_q3",
+      "asset": "BLD-123",
+      "pos": [
+        58.4,
+        51.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_cafe_01_q3",
+      "asset": "BLD-019",
+      "pos": [
+        45.6,
+        59.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bld_ruin_01_q3",
+      "asset": "BLD-091",
+      "pos": [
+        68.0,
+        59.2
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "bld_pump_01_q3",
+      "asset": "BLD-046",
+      "pos": [
+        56.0,
+        68.8
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "bld_mill_01_q3",
+      "asset": "BLD-079",
+      "pos": [
+        45.6,
+        70.4
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_01_q3",
+      "asset": "PRP-041",
+      "pos": [
+        47.2,
+        80.0
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "car_03_q3",
+      "asset": "PRP-041",
+      "pos": [
+        72.0,
+        38.2
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "bus_stop_01_q3",
+      "asset": "PRP-012",
+      "pos": [
+        65.6,
+        80.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "slide_01_q3",
+      "asset": "PRP-075",
+      "pos": [
+        65.6,
+        53.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_01_q3",
+      "asset": "PRP-017",
+      "pos": [
+        72.0,
+        57.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "bin_02_q3",
+      "asset": "PRP-017",
+      "pos": [
+        40.8,
+        65.6
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_01_q3",
+      "asset": "PRP-001",
+      "pos": [
+        51.2,
+        54.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_02_q3",
+      "asset": "PRP-001",
+      "pos": [
+        61.6,
+        54.4
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_03_q3",
+      "asset": "PRP-001",
+      "pos": [
+        51.2,
+        63.2
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_05_q3",
+      "asset": "PRP-001",
+      "pos": [
+        38.4,
+        60.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_06_q3",
+      "asset": "PRP-001",
+      "pos": [
+        38.4,
+        44.8
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "lamp_07_q3",
+      "asset": "PRP-001",
+      "pos": [
+        76.4,
+        60.8
+      ],
+      "yaw_deg": 180
+    },
+    {
+      "instance_id": "lamp_08_q3",
+      "asset": "PRP-001",
+      "pos": [
+        76.4,
+        44.8
+      ],
+      "yaw_deg": 270
+    },
+    {
+      "instance_id": "lamp_09_q3",
+      "asset": "PRP-001",
+      "pos": [
+        59.2,
+        78.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "lamp_10_q3",
+      "asset": "PRP-001",
+      "pos": [
+        43.2,
+        78.0
+      ],
+      "yaw_deg": 90
+    },
+    {
+      "instance_id": "hydrant_01_q3",
+      "asset": "PRP-034",
+      "pos": [
+        50.4,
+        64.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_02_q3",
+      "asset": "PRP-034",
+      "pos": [
+        76.8,
+        73.6
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "hydrant_03_q3",
+      "asset": "PRP-034",
+      "pos": [
+        59.2,
+        42.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_01_q3",
+      "asset": "PRP-005",
+      "pos": [
+        39.2,
+        56.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "pole_02_q3",
+      "asset": "PRP-005",
+      "pos": [
+        75.6,
+        54.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_01_q3",
+      "asset": "TRE-001",
+      "pos": [
+        50.4,
+        42.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_02_q3",
+      "asset": "TRE-001",
+      "pos": [
+        62.4,
+        43.2
+      ],
+      "yaw_deg": 70
+    },
+    {
+      "instance_id": "tree_03_q3",
+      "asset": "TRE-001",
+      "pos": [
+        40.8,
+        62.4
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_04_q3",
+      "asset": "TRE-001",
+      "pos": [
+        49.6,
+        56.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_05_q3",
+      "asset": "TRE-001",
+      "pos": [
+        63.2,
+        56.4
+      ],
+      "yaw_deg": 40
+    },
+    {
+      "instance_id": "tree_07_q3",
+      "asset": "TRE-001",
+      "pos": [
+        52.8,
+        64.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_08_q3",
+      "asset": "TRE-001",
+      "pos": [
+        42.4,
+        73.6
+      ],
+      "yaw_deg": 20
+    },
+    {
+      "instance_id": "tree_09_q3",
+      "asset": "TRE-001",
+      "pos": [
+        63.2,
+        75.2
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_10_q3",
+      "asset": "TRE-001",
+      "pos": [
+        68.8,
+        52.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "tree_11_q3",
+      "asset": "TRE-001",
+      "pos": [
+        73.6,
+        52.8
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "instance_id": "puddle_01_q3",
+      "kind": "puddle",
+      "pos": [
+        57.6,
+        63.2
+      ],
+      "radius": 0.9
+    },
+    {
+      "instance_id": "puddle_02_q3",
+      "kind": "puddle",
+      "pos": [
+        56.8,
+        44.8
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_03_q3",
+      "kind": "puddle",
+      "pos": [
+        51.2,
+        73.6
+      ],
+      "radius": 1.0
+    },
+    {
+      "instance_id": "puddle_05_q3",
+      "kind": "puddle",
+      "pos": [
+        45.6,
+        77.2
+      ],
+      "radius": 0.7
+    },
+    {
+      "instance_id": "puddle_06_q3",
+      "kind": "puddle",
+      "pos": [
+        77.6,
+        56.0
+      ],
+      "radius": 0.6
+    }
+  ],
+  "paint": [
+    {
+      "rect": [
+        0,
+        0,
+        224,
+        224
+      ],
+      "terrain": "wasteland"
+    },
+    {
+      "rect": [
+        0,
+        0,
+        224,
+        1
+      ],
+      "terrain": "building"
+    },
+    {
+      "rect": [
+        0,
+        223,
+        224,
+        1
+      ],
+      "terrain": "building"
+    },
+    {
+      "rect": [
+        0,
+        0,
+        1,
+        224
+      ],
+      "terrain": "building"
+    },
+    {
+      "rect": [
+        223,
+        0,
+        1,
+        224
+      ],
+      "terrain": "building"
+    },
+    {
+      "rect": [
+        109,
+        1,
+        6,
+        222
+      ],
+      "terrain": "water"
+    },
+    {
+      "rect": [
+        103,
+        48,
+        18,
+        8
+      ],
+      "terrain": "paved"
+    },
+    {
+      "rect": [
+        103,
+        164,
+        18,
+        8
+      ],
+      "terrain": "paved"
+    },
+    {
+      "rect": [
+        144,
+        140,
+        18,
+        16
+      ],
+      "terrain": "water"
+    },
+    {
+      "rect": [
+        150,
+        146,
+        4,
+        4
+      ],
+      "terrain": "wasteland"
+    },
+    {
+      "rect": [
+        100,
+        104,
+        25,
+        17
+      ],
+      "terrain": "paved"
+    },
+    {
+      "rect": [
+        125,
+        110,
+        23,
+        7
+      ],
+      "terrain": "paved"
+    },
+    {
+      "rect": [
+        110,
+        105,
+        5,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        108,
+        106,
+        9,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        107,
+        107,
+        11,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        106,
+        108,
+        13,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        106,
+        109,
+        13,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        105,
+        110,
+        15,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        105,
+        111,
+        15,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        105,
+        112,
+        15,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        105,
+        113,
+        15,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        105,
+        114,
+        15,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        106,
+        115,
+        13,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        106,
+        116,
+        13,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        107,
+        117,
+        11,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        108,
+        118,
+        9,
+        1
+      ],
+      "terrain": "safe"
+    },
+    {
+      "rect": [
+        110,
+        119,
+        5,
+        1
+      ],
+      "terrain": "safe"
+    }
+  ],
+  "open_cells": [
+    [
+      152,
+      148
+    ]
+  ],
+  "island_rect": [
+    150,
+    146,
+    4,
+    4
+  ],
+  "nests": [
+    {
+      "cell": [
+        147,
+        115
+      ],
+      "scale": "small",
+      "kind": "boar",
+      "unlock": "army"
+    },
+    {
+      "cell": [
+        121,
+        57
+      ],
+      "scale": "small",
+      "kind": "spider",
+      "unlock": "wheat"
+    },
+    {
+      "cell": [
+        49,
+        111
+      ],
+      "scale": "medium",
+      "kind": "boar",
+      "unlock": "watermelon"
+    },
+    {
+      "cell": [
+        118,
+        178
+      ],
+      "scale": "medium",
+      "kind": "spider",
+      "unlock": "rafflesia"
+    },
+    {
+      "cell": [
+        49,
+        47
+      ],
+      "scale": "large",
+      "kind": "mother",
+      "unlock": ""
+    }
+  ],
+  "fossils": [
+    {
+      "cell": [
+        119,
+        116
+      ],
+      "unlock": "carrot"
+    },
+    {
+      "cell": [
+        129,
+        108
+      ],
+      "unlock": "gatlinger"
+    },
+    {
+      "cell": [
+        100,
+        128
+      ],
+      "unlock": "sprinkler"
+    }
+  ]
+}

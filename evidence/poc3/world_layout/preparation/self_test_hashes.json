@@ -1,0 +1,23 @@
+{
+  "head": "4d4da323affcd35f4a2b6a6acdfa60175a347dd4",
+  "status": "test_preparation_only_stopped",
+  "hashes": [
+    {
+      "path": "data/poc3/maps/town_03.json",
+      "sha256": "A1E4F6109E03BB201538EBBD6A90AC2CB4F8C27056C10F0B92EC1D85E5CB7515"
+    },
+    {
+      "path": "tests/poc3/world_layout/self_logic.gd",
+      "sha256": "AC499F640A6B9B9652A82D893A513A0963FE4058967D0C9DA7EF3E3E3A4E9BD8"
+    },
+    {
+      "path": "tests/poc3/world_layout/self_gpu.gd",
+      "sha256": "F3E92A33CDE62C057A2A4C1987424898EA942E5881DEE4286A731E0049D5EFD4"
+    },
+    {
+      "path": "evidence/poc3/world_layout/preparation/self_test_handoff.md",
+      "sha256": "1F3AF0CA5FD959BF06C56695DE9FEFD99C91F020D1A0EAD0F2EFA8560835A7D1"
+    }
+  ],
+  "godot_import_tests": "NOT_RUN"
+}

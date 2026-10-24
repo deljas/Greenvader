@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "name": "startup_minimized_isolated_connected", "status": "PASS" }
+{ "name": "normal_new_game_opens_center", "status": "PASS" }
+{ "name": "new_center_640_capture", "status": "PASS" }
+{ "name": "new_map_640_capture", "status": "PASS" }
+{ "name": "stayed_minimized_no_focus", "status": "PASS" }

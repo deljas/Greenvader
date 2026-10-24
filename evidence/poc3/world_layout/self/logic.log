@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "isolated_profile_and_connected_map", "status": "PASS" }
+{ "name": "central_start_and_original_resources", "status": "PASS" }
+{ "name": "initial_177_circle_and_3_54_income", "status": "PASS" }
+{ "name": "whole_map_one_unconquered_zone", "status": "PASS" }
+{ "name": "actual_free_position_8m_clear_and_front_distances", "status": "PASS" }
+{ "name": "four_front_routes_replayed_with_player_collision", "status": "FAIL" }
+{ "name": "water_bank_3_2m_reachable", "status": "PASS" }
+{ "name": "bank_automatic_refill_without_seeds", "status": "PASS" }
+{ "name": "initial_and_30s_noncontact_dormant", "status": "PASS" }
+{ "name": "player_approach_activates_nearest_front", "status": "PASS" }
+{ "name": "green_contact_activates_far_front_without_player", "status": "PASS" }
+{ "name": "initial_green_has_no_hostile_immunity", "status": "PASS" }
+{ "name": "all_enemies_nests_removed_stabilizes_zone", "status": "PASS" }
+{ "name": "new_map_save_restore", "status": "PASS" }
+{ "name": "old_working_map_rejected_session_unchanged", "status": "PASS" }
+{ "name": "new_map_wrong_zone_shape_rejected_unchanged", "status": "PASS" }
+{ "name": "respawn_uses_map_start", "status": "PASS" }

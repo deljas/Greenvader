@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "id": "CENTRAL_INITIAL_RESOURCES",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "land_rate_per_min": 3.54,
+        "mature": 177
+      },
+      "id": "EXACT_3M_CIRCLE_177_AND_INCOME",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "ONE_UNCONQUERED_REGION_NO_INITIAL_IMMUNITY",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "enemy_min_m": 13.6058807373047,
+        "nest_m": [
+          14.051335144043,
+          22.2925994873047,
+          25.203173828125,
+          26.5088653564453,
+          36.2082855224609
+        ]
+      },
+      "id": "INITIAL_ENEMY_NEST_DISTANCE_SPACING",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "loaded": true,
+        "saved": true
+      },
+      "id": "TOWN03_ACTUAL_JSON_ROUNDTRIP",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "invalid_save"
+      },
+      "id": "OLD_MAP_ATOMIC_REJECT",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "invalid_zones"
+      },
+      "id": "REGION_FRACTIONAL_STATE_ATOMIC_REJECT",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "RESPAWN_READS_CANONICAL_MAP_FIELD",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "REMOTE_IDLE_TIME_DOES_NOT_ACTIVATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "APPROACH_ACTIVATES_ONLY_NEAREST",
+      "status": "PASS"
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": 0,
+  "user_dir": "C:/godot/greenvader/evidence/poc3/world_layout/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}
