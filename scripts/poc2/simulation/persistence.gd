@@ -157,6 +157,10 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,"invalid_entity_"+category)
    # Earlier PoC3 working saves have no discovery field; never infer a discovery.
    if category in ["nests","fossils"] and not entity.has("discovered"): entity.discovered=false
+   # Earlier PoC3 seed shots already paid one seed at launch and used width 1.
+   if category=="shots" and entity.kind=="seed":
+    entity.sow_width=int(entity.get("sow_width",1))
+    entity.reserved_seed=int(entity.get("reserved_seed",1))
    if ids.has(entity.id) or entity.id>=vals.next_id: return s.result(false,"invalid_entity_id")
    ids[entity.id]=true
    typed.append(entity)
@@ -229,4 +233,9 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
  if category=="nests" and (e.scale not in ["small","medium","large"] or e.kind not in ["boar","spider","mother"] or e.hp<=0 or e.hp>e.max_hp): return false
  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
  if category=="shots" and (e.kind not in ["seed","bazooka"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false
+ if category=="shots" and e.kind=="seed":
+  var width: Variant=e.get("sow_width",1)
+  var reserved: Variant=e.get("reserved_seed",1)
+  if not (width is int or width is float) or float(width) not in [1.0,3.0,5.0,7.0]: return false
+  if not (reserved is int or reserved is float) or reserved!=1: return false
  return true

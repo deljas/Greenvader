@@ -15,6 +15,7 @@ var water_bar: ProgressBar
 var map_button: Button
 var help_button: Button
 var notice: Label
+var sow_notice: Label
 var palette: HBoxContainer
 var menu: PanelContainer
 var help: PanelContainer
@@ -58,6 +59,11 @@ func _ready() -> void:
 	notice.position=Vector2(8,308)
 	notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	add_child(notice)
+	sow_notice=Label.new()
+	sow_notice.position=Vector2(23,284)
+	sow_notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	sow_notice.hide()
+	add_child(sow_notice)
 	palette=HBoxContainer.new()
 	palette.position=Vector2(6,330)
 	palette.add_theme_constant_override("separation",3)
@@ -103,7 +109,7 @@ func _ready() -> void:
 	var help_box: VBoxContainer=VBoxContainer.new()
 	help.add_child(help_box)
 	var label: Label=Label.new()
-	label.text="WASD / 矢印：移動　マウス：照準・配置位置\n左クリック / 長押し：種射撃・播種\n右クリック / 長押し：給水\nShift＋左 / 右クリック：スキル1 / 2（1回）\nホイール：播種幅 1/3/5/7（選択のみ）\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\n一覧・マップ中は停止。ホイールはスクロール / ズーム\n右クリック / Esc：保持・選択を取消、Escで戻る\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\n水辺補給・化石への接近回収は自動です。"
+	label.text="WASD / 矢印：移動　マウス：照準・配置位置\n左クリック / 長押し：種射撃・範囲播種\n右クリック / 長押し：給水\nShift＋左 / 右クリック：スキル1 / 2（1回）\nホイール：播種幅 1/3/5/7　緑：播種予定、黄：種不足\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\n一覧・マップ中は停止。ホイールはスクロール / ズーム\n右クリック / Esc：保持・選択を取消、Escで戻る\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\n水辺補給・化石への接近回収は自動です。"
 	label.add_theme_font_size_override("font_size",12)
 	help_box.add_child(label)
 	var back: Button=Button.new()
@@ -133,6 +139,20 @@ func _status_bar(box: VBoxContainer, caption: String) -> ProgressBar:
 	bar.show_percentage=false
 	line.add_child(bar)
 	return bar
+
+func set_sow_preview(plan: Dictionary) -> void:
+	sow_notice.visible=not plan.is_empty()
+	if sow_notice.visible:
+		if plan.get("attack",false):
+			sow_notice.text="%d　攻撃%s" % [plan.cost,"（種不足）" if plan.cost==0 else ""]
+		else:
+			sow_notice.text="%d　播種 %d×%d%s" % [plan.cost,plan.width,plan.width,"（遮蔽）" if plan.get("blocked",false) else ""]
+	queue_redraw()
+
+func _draw() -> void:
+	if sow_notice!=null and sow_notice.visible:
+		# Small solid seed silhouette, integer coordinates, no outline or filtering.
+		draw_colored_polygon(PackedVector2Array([Vector2(10,291),Vector2(13,288),Vector2(17,288),Vector2(19,291),Vector2(16,295),Vector2(12,294)]),Color("edce7d"))
 
 func bind(source: RefCounted) -> void:
 	session=source
@@ -210,7 +230,7 @@ func refresh() -> void:
 	if session==null: return
 	var stats: Dictionary=session.snapshot()
 	status.text="%s 設置 ●%d" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else "播種幅 %d×%d" % [session.sow_width,session.sow_width]
-	status.tooltip_text="ホイールで播種幅の選択値を変更（範囲効果は後続）" if selected_kind.is_empty() else ""
+	status.tooltip_text="ホイールで播種幅を変更。新しく播種するマスだけ種を使います。" if selected_kind.is_empty() else ""
 	economy.text="所持 ●%d　緑 %.1f%%" % [session.seeds,float(stats.get("green_percent",0))]
 	economy.tooltip_text="収入 / 分：緑地 %.1f ＋ 栽培 %.1f" % [float(stats.get("land_rate",0)),float(stats.get("crop_rate",0))]
 	hp_bar.max_value=session.max_hp

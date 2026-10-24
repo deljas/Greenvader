@@ -291,6 +291,9 @@ func clear_aim() -> void:
 func fire() -> Dictionary:
  return combat_system.fire(false)
 
+func sow_preview() -> Dictionary:
+ return combat_system.sow_preview()
+
 func skill(slot: int) -> Dictionary:
  if slot < 0 or slot >= skills.size():
   return result(false,"invalid_slot")

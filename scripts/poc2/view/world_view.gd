@@ -31,6 +31,10 @@ var fire_kind: StringName = &""
 var marker: MeshInstance3D
 var last_position: Vector2
 var preview: Dictionary = {}
+var sow_range: MeshInstance3D
+var sow_cells: Array[MeshInstance3D] = []
+var sow_materials: Array[StandardMaterial3D] = []
+var sow_plan: Dictionary = {}
 var _last_clock: float = 0.0
 
 func build(source: RefCounted, viewport: SubViewport) -> void:
@@ -84,6 +88,7 @@ func build(source: RefCounted, viewport: SubViewport) -> void:
 	actor.setup(camera)
 	marker = _mesh("marker", Color("bdeaa2"), false)
 	marker.visible = false
+	_build_sow_preview()
 	if placement_view != null:
 		occlusion = Cutaway.new()
 		add_child(occlusion)
@@ -250,6 +255,50 @@ func set_preview(kind: String, cell: Vector2i, valid: bool, footprint: Vector2i)
 	marker.position = Vector3(at.x, 0.07, at.y)
 	marker.scale = Vector3(footprint.x * 0.4, 0.06, footprint.y * 0.4)
 	(marker.material_override as StandardMaterial3D).albedo_color = Color("bdeaa2") if valid else Color("e76e65")
+
+func _build_sow_preview() -> void:
+	for color: Color in [Color(0.76,0.86,0.70,0.13),Color(0.55,0.91,0.43,0.48),Color(1.0,0.65,0.20,0.48),Color(0.88,0.35,0.28,0.20)]:
+		var material_: StandardMaterial3D = StandardMaterial3D.new()
+		material_.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		material_.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		material_.albedo_color = color
+		sow_materials.append(material_)
+	sow_range = _sow_plane()
+	for i: int in 49:
+		sow_cells.append(_sow_plane())
+
+func _sow_plane() -> MeshInstance3D:
+	var node: MeshInstance3D = MeshInstance3D.new()
+	var mesh: PlaneMesh = PlaneMesh.new()
+	mesh.size = Vector2.ONE
+	node.mesh = mesh
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	node.visible = false
+	add_child(node)
+	return node
+
+func set_sow_preview(plan: Dictionary) -> void:
+	sow_plan = plan
+	sow_range.visible = not plan.is_empty() and not plan.get("attack",false)
+	for node: MeshInstance3D in sow_cells: node.visible = false
+	if plan.is_empty(): return
+	if plan.get("attack",false): return
+	var at: Vector2 = Coords.cell_center_ground(plan.center)
+	var width: float = float(plan.width)*0.4
+	sow_range.position = Vector3(at.x,0.025,at.y)
+	sow_range.scale = Vector3(width,1.0,width)
+	sow_range.material_override = sow_materials[3 if plan.get("blocked",false) else 0]
+	var used: int = 0
+	for key: String in ["affordable","unaffordable"]:
+		for cell: Vector2i in plan[key]:
+			var node: MeshInstance3D = sow_cells[used]
+			used += 1
+			var center: Vector2 = Coords.cell_center_ground(cell)
+			node.position = Vector3(center.x,0.04,center.y)
+			node.scale = Vector3(0.34,1.0,0.34)
+			node.material_override = sow_materials[1 if key=="affordable" else 2]
+			node.visible = true
+
 func _wall_height(x: int, y: int) -> float:
 	var state: WorldState = session.state
 	if not state.in_bounds(x, y):

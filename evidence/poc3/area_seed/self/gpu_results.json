@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "name": "startup_no_focus_minimized",
+      "status": "PASS"
+    },
+    {
+      "name": "preview_7_budget5_matches_hud",
+      "status": "PASS"
+    },
+    {
+      "name": "preview_on_ground_without_outlines",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_7_insufficient_image",
+      "status": "PASS"
+    },
+    {
+      "name": "width_change_keeps_aim_center",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_3_affordable_image",
+      "status": "PASS"
+    },
+    {
+      "name": "range_limited_target_matches_launch",
+      "status": "PASS"
+    },
+    {
+      "name": "enemy_preview_one_no_area",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_attack_image",
+      "status": "PASS"
+    },
+    {
+      "name": "hud_click_does_not_fire_or_preview",
+      "status": "PASS"
+    },
+    {
+      "name": "map_hides_preview",
+      "status": "PASS"
+    },
+    {
+      "name": "help_has_real_area_instruction",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_help_image",
+      "status": "PASS"
+    },
+    {
+      "name": "integer_nearest_rendering",
+      "status": "PASS"
+    },
+    {
+      "name": "stayed_no_focus_minimized",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "physical input",
+    "full regression",
+    "all lighting and resolutions",
+    "future target movement prediction"
+  ]
+}

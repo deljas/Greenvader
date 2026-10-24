@@ -589,3 +589,11 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - hash対象6ファイルは前後一致、実ユーザー旧保存3件は前後不変。Godot終了0件、一時override除去済み。画像3枚は640×360 SubViewportで撮影。証拠は[自己報告](../evidence/poc3/input/self/report.md)（[context](../evidence/poc3/input/self/context.json)）、[独立報告](../evidence/poc3/input/independent/report.md)を参照。
 - 通常保持中にShiftを押した場合は通常動作を停止し、ボタン解放まで再開しません。Shiftスキル後に保持クリックから通常動作を始めず、UI操作由来の保持も世界へ漏れません。播種幅は選択/保存までで、実際の範囲着弾・消費精算・プレビューは未実装です。
 - NOT_RUN: 物理マウス/キーボード経路、音の実聴、全サイズ/全照明、広い回帰・長時間、AREA-SEED効果。独立3 NOT_RUNは維持し、PoC3全体の受入とは区別します。
+
+## POC3-AREA-SEED 範囲播種と着弾精算（2026-10-24）
+
+親は対象 `5f7ac13` + AREAの7ゲームファイル差分、4画像、独立報告を照合し、1/3/5/7幅の範囲播種・攻撃予測・着弾精算を限定技術受入しました。通常射程と遮蔽を保ち、中心マスからの距離、同距離ではy/x順で不足分を配分します。発射時に1個を預け、敵/巣命中はその1個で通常威力・範囲播種なし、地面着弾は有効セルだけ消費し、壁停止/有効セルなしでは預けた1個を返します。弾ごとの幅と預け種は保存されます。
+
+- 自己の初回logicは26 PASS / 3 FAILで、fixtureに残ったactive状態による`invalid_growth`でした。ゲーム保存validatorを緩和せず、自己の保存限定追試4 PASSと原因診断5 PASS、GPU試験15 PASS・4画像を別に記録しています。独立は9 PASS / 0 FAIL / 3 NOT_RUN。初回FAIL、自己追試、GPU、独立結果を合算していません。
+- 実差分・画像と独立結果を親が確認済みです。対象7ゲームファイルと実ユーザー旧保存3件の前後hash一致、Godot終了0件、一時override除去を確認しました。自己[報告](../evidence/poc3/area_seed/self/report.md)と独立[報告](../evidence/poc3/area_seed/independent/report.md)に詳細があります。
+- NOT_RUN: 物理入力、広い回帰・長時間、全照明/サイズ、最終的な楽しさ。移動する敵の未来位置予測も対象外です。独立3 NOT_RUNを維持し、PoC3全体の受入とは区別します。

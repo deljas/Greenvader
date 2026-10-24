@@ -1,0 +1,49 @@
+{
+  "task": "POC3-AREA-SEED",
+  "phase": "unconnected preparation only",
+  "head_at_start": "9d54a6d1795065e6e642fe01543b2c8d2a1f27ee",
+  "captured_utc": "2026-10-24T07:14:32.527765+00:00",
+  "working_tree_context": "INPUT owns existing-code edits and Godot/import. AREA-SEED has added only seed_area.gd and this preparation directory. WORLD-LAYOUT preparation, parent task reservations, CONTENT-01 and remote attachments are outside this scope.",
+  "static_review": [
+    {
+      "item": "Typed read-only API, no Session preload or state mutation",
+      "status": "REVIEWED_SOURCE_ONLY"
+    },
+    {
+      "item": "Centered 1/3/5/7 rectangle with bounds filtering",
+      "status": "REVIEWED_SOURCE_ONLY"
+    },
+    {
+      "item": "WorldState.can_plant and alive helpers current pos, independent of stale cell/home/released owner",
+      "status": "REVIEWED_SOURCE_ONLY"
+    },
+    {
+      "item": "Total order distance squared then y then x",
+      "status": "REVIEWED_SOURCE_ONLY"
+    },
+    {
+      "item": "Affordable prefix and unaffordable suffix; nonnegative budget cap",
+      "status": "REVIEWED_SOURCE_ONLY"
+    },
+    {
+      "item": "Preview and impact caller contract; no existing code connection",
+      "status": "REVIEWED_SOURCE_ONLY"
+    }
+  ],
+  "Godot_syntax": "NOT_RUN",
+  "runtime_tests": "NOT_RUN",
+  "rendering": "NOT_RUN",
+  "reason": "Godot/import owned by INPUT; integration and execution not assigned",
+  "sha256": {
+    "scripts/poc2/simulation/seed_area.gd": "c899bd112da152a9f50ff3eda8157403c8bfeff021647f2e311e7d9132711d85",
+    "scripts/world/world_state.gd": "867c720ccbea1c94d54cc0e634683ae0cfaf3566b13d0931120590eae88bd852",
+    "scripts/poc/poc_coords.gd": "bc0e62ac009200221495a04fdca4e615cf12be89aff2fb331b1a445e24540921",
+    "scripts/poc2/simulation/combat.gd": "cef2d0fb81b0c9f2a336251705c49e537c89ed7ee27ea0e8292ee68e74241049",
+    "scripts/poc2/simulation/plants.gd": "a80b372411e70324415431d228fd09ba480a300e652487b258eed758742c0afb",
+    "scripts/poc2/view/world_view.gd": "55f2afa10d2923662102a462b95ad807f8a1546857f061b7842e12d11ca5c44a",
+    "docs/POC3_SPEC.md": "4b60641fda696abf274f911b7174a839ac90def7030cdc19a8d9de984e3207c6",
+    "tasks/POC3_AREA_SEED.md": "496fd18e5d785acfe8a27d55a5d3043c6f6925508430e6a4f18d1b0865fe5063",
+    "evidence/poc3/area_seed/preparation/test_plan.md": "ba55a2512d39d303660fac85c522963d4653b8e9d3bdcc64da97d4d7ef83c45b",
+    "evidence/poc3/area_seed/preparation/handoff.md": "1055e3a32722c5fa0d55865b2a1e1e166c2580990e4e9859dda03204c00b9b6e"
+  }
+}

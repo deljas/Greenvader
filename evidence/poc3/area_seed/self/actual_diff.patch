@@ -1,0 +1,409 @@
+diff --git a/scripts/poc2/poc2_main.gd b/scripts/poc2/poc2_main.gd
+index 19bc3db..dc7ac1d 100644
+--- a/scripts/poc2/poc2_main.gd
++++ b/scripts/poc2/poc2_main.gd
+@@ -133,6 +133,11 @@ func tick(delta: float) -> void:
+ 		world.set_preview(_placement_kind,cell,bool(check.get("ok",false)),Vector2i(int(footprint[0]),int(footprint[1])))
+ 	else:
+ 		world.marker.visible=false
++	var sow_plan: Dictionary={}
++	if cursor_known and _placement_kind=="" and not is_paused() and not ui.blocks(cursor):
++		sow_plan=session.sow_preview()
++	world.set_sow_preview(sow_plan)
++	ui.set_sow_preview(sow_plan)
+ 
+ func _axis(positive: int, negative: int, positive_alt: int, negative_alt: int) -> float:
+ 	return float(bool(_keys.get(positive,false)) or bool(_keys.get(positive_alt,false)))-float(bool(_keys.get(negative,false)) or bool(_keys.get(negative_alt,false)))
+diff --git a/scripts/poc2/poc2_session.gd b/scripts/poc2/poc2_session.gd
+index ab200c3..7aa2f0c 100644
+--- a/scripts/poc2/poc2_session.gd
++++ b/scripts/poc2/poc2_session.gd
+@@ -291,6 +291,9 @@ func clear_aim() -> void:
+ func fire() -> Dictionary:
+  return combat_system.fire(false)
+ 
++func sow_preview() -> Dictionary:
++ return combat_system.sow_preview()
++
+ func skill(slot: int) -> Dictionary:
+  if slot < 0 or slot >= skills.size():
+   return result(false,"invalid_slot")
+diff --git a/scripts/poc2/simulation/combat.gd b/scripts/poc2/simulation/combat.gd
+index 0c3ef1b..1ffcf81 100644
+--- a/scripts/poc2/simulation/combat.gd
++++ b/scripts/poc2/simulation/combat.gd
+@@ -1,6 +1,7 @@
+ extends RefCounted
+ ## Proximity-activated production and readable boar/spider combat.
+ const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
++const SeedArea: GDScript = preload("res://scripts/poc2/simulation/seed_area.gd")
+ var s: RefCounted
+ func _init(session: RefCounted) -> void:
+  s = session
+@@ -39,6 +40,30 @@ func player_in_combat() -> bool:
+    return true
+  return false
+ 
++func shot_target(bazooka: bool = false) -> Vector2:
++ return s.position+(s.aim-s.position).limit_length(100.0 if bazooka else 80.0)
++
++func sow_preview() -> Dictionary:
++ if not s.has_aim or s.hp<=0.0: return {}
++ var target: Vector2=shot_target()
++ var plan: Dictionary=SeedArea.plan(s.state,Coords.logic_to_cell(target),s.sow_width,s.seeds,s.helpers)
++ plan.target=target
++ # Snapshot prediction only: actual moving targets are resolved again per shot.
++ var prediction: Dictionary=_hit_along(s.position,target)
++ plan.attack=not prediction.is_empty() and not s.placement.blocks_projectile(s.position,prediction.entity.pos)
++ if plan.attack:
++  plan.affordable=[]
++  plan.unaffordable=[]
++  plan.cost=mini(1,s.seeds)
++  plan.blocked=false
++  return plan
++ plan.blocked=s.placement.blocks_projectile(s.position,target)
++ if plan.blocked:
++  plan.affordable=[]
++  plan.unaffordable=[]
++  plan.cost=0
++ return plan
++
+ func fire(bazooka: bool) -> Dictionary:
+  if s.paused or s.hp<=0.0:
+   return s.result(false,"paused_or_downed")
+@@ -52,12 +77,32 @@ func fire(bazooka: bool) -> Dictionary:
+  var direction: Vector2 = (s.aim-s.position).normalized()
+  if direction==Vector2.ZERO:
+   return s.result(false,"aim_required")
+- var distance: float = minf(s.position.distance_to(s.aim),100.0 if bazooka else 80.0)
++ var target: Vector2 = shot_target(bazooka)
++ var distance: float = s.position.distance_to(target)
+  s.seeds-=cost
+  s.shot_ready=s.clock.elapsed+0.28
+- s.shots.append({"id":s.allocate_id(),"kind":"bazooka" if bazooka else "seed","pos":s.position,"target":s.position+direction*distance,"direction":direction,"remaining":distance,"speed":160.0,"damage":25.0 if bazooka else 5.0})
++ var shot: Dictionary={"id":s.allocate_id(),"kind":"bazooka" if bazooka else "seed","pos":s.position,"target":target,"direction":direction,"remaining":distance,"speed":160.0,"damage":25.0 if bazooka else 5.0}
++ if not bazooka:
++  shot.sow_width=s.sow_width
++  shot.reserved_seed=1
++ s.shots.append(shot)
+  return s.result(true)
+ 
++func _hit_along(from: Vector2,to: Vector2) -> Dictionary:
++ var found: Dictionary={}
++ var closest: float=INF
++ for e: Dictionary in s.enemies:
++  var along: float=from.distance_to(e.pos)
++  if _distance_segment(e.pos,from,to)<5.0 and along<closest:
++   found={"entity":e,"is_nest":false}
++   closest=along
++ for n: Dictionary in s.nests:
++  var along: float=from.distance_to(n.pos)
++  if _distance_segment(n.pos,from,to)<7.0 and along<closest:
++   found={"entity":n,"is_nest":true}
++   closest=along
++ return found
++
+ func skill(slot: int) -> Dictionary:
+  if s.paused or s.hp<=0.0 or s.clock.elapsed<float(s.skill_ready[slot]):
+   return s.result(false,"cooldown_or_paused")
+@@ -125,25 +170,19 @@ func _shots(dt: float) -> void:
+   var blocked: bool=s.placement.blocks_projectile(old,next)
+   var hit: Dictionary={}
+   var is_nest: bool=false
+-  var closest: float=INF
+   if not blocked:
+-   for e: Dictionary in s.enemies:
+-    var along: float=old.distance_to(e.pos)
+-    if _distance_segment(e.pos,old,next)<5.0 and along<closest:
+-     hit=e
+-     closest=along
+-   for n: Dictionary in s.nests:
+-    var along: float=old.distance_to(n.pos)
+-    if _distance_segment(n.pos,old,next)<7.0 and along<closest:
+-     hit=n
+-     is_nest=true
+-     closest=along
++   var prediction: Dictionary=_hit_along(old,next)
++   if not prediction.is_empty():
++    hit=prediction.entity
++    is_nest=prediction.is_nest
+   shot.pos=next
+   shot.remaining=float(shot.remaining)-travel
+   if not hit.is_empty():
+    shot.pos=hit.pos
+   if blocked or not hit.is_empty() or float(shot.remaining)<=0.01:
+-   if not blocked:
++   if blocked:
++    if shot.kind=="seed": _refund_seed(shot)
++   else:
+     if shot.kind=="bazooka":
+      for e: Dictionary in s.enemies.duplicate():
+       if e.pos.distance_to(shot.pos)<=24.0 and not s.placement.blocks_projectile(shot.pos,e.pos):
+@@ -152,12 +191,30 @@ func _shots(dt: float) -> void:
+       if n.pos.distance_to(shot.pos)<=24.0 and not s.placement.blocks_projectile(shot.pos,n.pos):
+        damage_nest(n,float(shot.damage))
+     elif not hit.is_empty():
++     shot.reserved_seed=0
+      if is_nest: damage_nest(hit,float(shot.damage))
+      else: damage_enemy(hit,float(shot.damage),0.12)
+     else:
+-     Landing.scatter_seeds(s.state,4,shot.pos,5.0,1,s.rng.randi())
++     _sow_ground(shot)
+    s.shots.erase(shot)
+ 
++func _refund_seed(shot: Dictionary) -> void:
++ var reserved: int=int(shot.get("reserved_seed",1))
++ shot.reserved_seed=0
++ s.seeds+=reserved
++
++func _sow_ground(shot: Dictionary) -> void:
++ var reserved: int=int(shot.get("reserved_seed",1))
++ if reserved<=0: return
++ # A preview is never a reservation. Re-read terrain, occupants, moving helpers
++ # and the unreserved balance for each impact, including overlapping shots.
++ var plan: Dictionary=SeedArea.plan(s.state,Coords.logic_to_cell(shot.pos),int(shot.get("sow_width",1)),s.seeds+reserved,s.helpers)
++ var placed: int=0
++ for cell: Vector2i in plan.affordable:
++  if s.state.set_stage(s.state.index_of(cell.x,cell.y),WorldState.STAGE_SEED): placed+=1
++ shot.reserved_seed=0
++ s.seeds+=reserved-placed
++
+ func damage_enemy(e: Dictionary,amount: float,stun: float = 0.0) -> void:
+  e.hp=float(e.hp)-amount
+  e.stun_until=s.clock.elapsed+stun
+diff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd
+index a42db38..d5c350e 100644
+--- a/scripts/poc2/simulation/persistence.gd
++++ b/scripts/poc2/simulation/persistence.gd
+@@ -157,6 +157,10 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
+    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,"invalid_entity_"+category)
+    # Earlier PoC3 working saves have no discovery field; never infer a discovery.
+    if category in ["nests","fossils"] and not entity.has("discovered"): entity.discovered=false
++   # Earlier PoC3 seed shots already paid one seed at launch and used width 1.
++   if category=="shots" and entity.kind=="seed":
++    entity.sow_width=int(entity.get("sow_width",1))
++    entity.reserved_seed=int(entity.get("reserved_seed",1))
+    if ids.has(entity.id) or entity.id>=vals.next_id: return s.result(false,"invalid_entity_id")
+    ids[entity.id]=true
+    typed.append(entity)
+@@ -229,4 +233,9 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
+  if category=="nests" and (e.scale not in ["small","medium","large"] or e.kind not in ["boar","spider","mother"] or e.hp<=0 or e.hp>e.max_hp): return false
+  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
+  if category=="shots" and (e.kind not in ["seed","bazooka"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false
++ if category=="shots" and e.kind=="seed":
++  var width: Variant=e.get("sow_width",1)
++  var reserved: Variant=e.get("reserved_seed",1)
++  if not (width is int or width is float) or float(width) not in [1.0,3.0,5.0,7.0]: return false
++  if not (reserved is int or reserved is float) or reserved!=1: return false
+  return true
+diff --git a/scripts/poc2/ui/poc2_ui.gd b/scripts/poc2/ui/poc2_ui.gd
+index 6dae03b..54f96cd 100644
+--- a/scripts/poc2/ui/poc2_ui.gd
++++ b/scripts/poc2/ui/poc2_ui.gd
+@@ -15,6 +15,7 @@ var water_bar: ProgressBar
+ var map_button: Button
+ var help_button: Button
+ var notice: Label
++var sow_notice: Label
+ var palette: HBoxContainer
+ var menu: PanelContainer
+ var help: PanelContainer
+@@ -58,6 +59,11 @@ func _ready() -> void:
+ 	notice.position=Vector2(8,308)
+ 	notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ 	add_child(notice)
++	sow_notice=Label.new()
++	sow_notice.position=Vector2(23,284)
++	sow_notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
++	sow_notice.hide()
++	add_child(sow_notice)
+ 	palette=HBoxContainer.new()
+ 	palette.position=Vector2(6,330)
+ 	palette.add_theme_constant_override("separation",3)
+@@ -103,7 +109,7 @@ func _ready() -> void:
+ 	var help_box: VBoxContainer=VBoxContainer.new()
+ 	help.add_child(help_box)
+ 	var label: Label=Label.new()
+-	label.text="WASD / 矢印：移動　マウス：照準・配置位置\n左クリック / 長押し：種射撃・播種\n右クリック / 長押し：給水\nShift＋左 / 右クリック：スキル1 / 2（1回）\nホイール：播種幅 1/3/5/7（選択のみ）\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\n一覧・マップ中は停止。ホイールはスクロール / ズーム\n右クリック / Esc：保持・選択を取消、Escで戻る\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\n水辺補給・化石への接近回収は自動です。"
++	label.text="WASD / 矢印：移動　マウス：照準・配置位置\n左クリック / 長押し：種射撃・範囲播種\n右クリック / 長押し：給水\nShift＋左 / 右クリック：スキル1 / 2（1回）\nホイール：播種幅 1/3/5/7　緑：播種予定、黄：種不足\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\n一覧・マップ中は停止。ホイールはスクロール / ズーム\n右クリック / Esc：保持・選択を取消、Escで戻る\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\n水辺補給・化石への接近回収は自動です。"
+ 	label.add_theme_font_size_override("font_size",12)
+ 	help_box.add_child(label)
+ 	var back: Button=Button.new()
+@@ -134,6 +140,20 @@ func _status_bar(box: VBoxContainer, caption: String) -> ProgressBar:
+ 	line.add_child(bar)
+ 	return bar
+ 
++func set_sow_preview(plan: Dictionary) -> void:
++	sow_notice.visible=not plan.is_empty()
++	if sow_notice.visible:
++		if plan.get("attack",false):
++			sow_notice.text="%d　攻撃%s" % [plan.cost,"（種不足）" if plan.cost==0 else ""]
++		else:
++			sow_notice.text="%d　播種 %d×%d%s" % [plan.cost,plan.width,plan.width,"（遮蔽）" if plan.get("blocked",false) else ""]
++	queue_redraw()
++
++func _draw() -> void:
++	if sow_notice!=null and sow_notice.visible:
++		# Small solid seed silhouette, integer coordinates, no outline or filtering.
++		draw_colored_polygon(PackedVector2Array([Vector2(10,291),Vector2(13,288),Vector2(17,288),Vector2(19,291),Vector2(16,295),Vector2(12,294)]),Color("edce7d"))
++
+ func bind(source: RefCounted) -> void:
+ 	session=source
+ 	selected_slot=-1
+@@ -210,7 +230,7 @@ func refresh() -> void:
+ 	if session==null: return
+ 	var stats: Dictionary=session.snapshot()
+ 	status.text="%s 設置 ●%d" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else "播種幅 %d×%d" % [session.sow_width,session.sow_width]
+-	status.tooltip_text="ホイールで播種幅の選択値を変更（範囲効果は後続）" if selected_kind.is_empty() else ""
++	status.tooltip_text="ホイールで播種幅を変更。新しく播種するマスだけ種を使います。" if selected_kind.is_empty() else ""
+ 	economy.text="所持 ●%d　緑 %.1f%%" % [session.seeds,float(stats.get("green_percent",0))]
+ 	economy.tooltip_text="収入 / 分：緑地 %.1f ＋ 栽培 %.1f" % [float(stats.get("land_rate",0)),float(stats.get("crop_rate",0))]
+ 	hp_bar.max_value=session.max_hp
+diff --git a/scripts/poc2/view/world_view.gd b/scripts/poc2/view/world_view.gd
+index 94ee872..06b71f9 100644
+--- a/scripts/poc2/view/world_view.gd
++++ b/scripts/poc2/view/world_view.gd
+@@ -31,6 +31,10 @@ var fire_kind: StringName = &""
+ var marker: MeshInstance3D
+ var last_position: Vector2
+ var preview: Dictionary = {}
++var sow_range: MeshInstance3D
++var sow_cells: Array[MeshInstance3D] = []
++var sow_materials: Array[StandardMaterial3D] = []
++var sow_plan: Dictionary = {}
+ var _last_clock: float = 0.0
+ 
+ func build(source: RefCounted, viewport: SubViewport) -> void:
+@@ -84,6 +88,7 @@ func build(source: RefCounted, viewport: SubViewport) -> void:
+ 	actor.setup(camera)
+ 	marker = _mesh("marker", Color("bdeaa2"), false)
+ 	marker.visible = false
++	_build_sow_preview()
+ 	if placement_view != null:
+ 		occlusion = Cutaway.new()
+ 		add_child(occlusion)
+@@ -250,6 +255,50 @@ func set_preview(kind: String, cell: Vector2i, valid: bool, footprint: Vector2i)
+ 	marker.position = Vector3(at.x, 0.07, at.y)
+ 	marker.scale = Vector3(footprint.x * 0.4, 0.06, footprint.y * 0.4)
+ 	(marker.material_override as StandardMaterial3D).albedo_color = Color("bdeaa2") if valid else Color("e76e65")
++
++func _build_sow_preview() -> void:
++	for color: Color in [Color(0.76,0.86,0.70,0.13),Color(0.55,0.91,0.43,0.48),Color(1.0,0.65,0.20,0.48),Color(0.88,0.35,0.28,0.20)]:
++		var material_: StandardMaterial3D = StandardMaterial3D.new()
++		material_.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
++		material_.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
++		material_.albedo_color = color
++		sow_materials.append(material_)
++	sow_range = _sow_plane()
++	for i: int in 49:
++		sow_cells.append(_sow_plane())
++
++func _sow_plane() -> MeshInstance3D:
++	var node: MeshInstance3D = MeshInstance3D.new()
++	var mesh: PlaneMesh = PlaneMesh.new()
++	mesh.size = Vector2.ONE
++	node.mesh = mesh
++	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++	node.visible = false
++	add_child(node)
++	return node
++
++func set_sow_preview(plan: Dictionary) -> void:
++	sow_plan = plan
++	sow_range.visible = not plan.is_empty() and not plan.get("attack",false)
++	for node: MeshInstance3D in sow_cells: node.visible = false
++	if plan.is_empty(): return
++	if plan.get("attack",false): return
++	var at: Vector2 = Coords.cell_center_ground(plan.center)
++	var width: float = float(plan.width)*0.4
++	sow_range.position = Vector3(at.x,0.025,at.y)
++	sow_range.scale = Vector3(width,1.0,width)
++	sow_range.material_override = sow_materials[3 if plan.get("blocked",false) else 0]
++	var used: int = 0
++	for key: String in ["affordable","unaffordable"]:
++		for cell: Vector2i in plan[key]:
++			var node: MeshInstance3D = sow_cells[used]
++			used += 1
++			var center: Vector2 = Coords.cell_center_ground(cell)
++			node.position = Vector3(center.x,0.04,center.y)
++			node.scale = Vector3(0.34,1.0,0.34)
++			node.material_override = sow_materials[1 if key=="affordable" else 2]
++			node.visible = true
++
+ func _wall_height(x: int, y: int) -> float:
+ 	var state: WorldState = session.state
+ 	if not state.in_bounds(x, y):
+--- /dev/null
++++ b/scripts/poc2/simulation/seed_area.gd
+@@ -0,0 +1,71 @@
++extends RefCounted
++## Read-only area-sowing plan shared by future preview and ground-impact callers.
++## Cells are Vector2i map coordinates, not logical pixels. No Session dependency.
++const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
++const WIDTHS: Array[int] = [1, 3, 5, 7]
++
++## budget is the total seeds available for this plan. At impact the caller includes
++## the shot's one reserved seed; this function never reserves, spends or plants.
++## Helpers use current logical-pixel pos and hp, never their old cell/home/owner.
++## Each call reads current state. Do not cache a preview for later settlement.
++static func plan(
++	world: WorldState,
++	center: Vector2i,
++	width: int,
++	budget: int,
++	helpers: Array[Dictionary] = []
++) -> Dictionary:
++	var valid: Array[Vector2i] = []
++	var affordable: Array[Vector2i] = []
++	var unaffordable: Array[Vector2i] = []
++	var result: Dictionary = {
++		"ok": false, "reason": "", "center": center, "width": width,
++		"rect": Rect2i(), "valid": valid, "affordable": affordable,
++		"unaffordable": unaffordable, "cost": 0
++	}
++	if world == null:
++		result.reason = "invalid_world"
++		return result
++	if not WIDTHS.has(width):
++		result.reason = "invalid_width"
++		return result
++
++	var half: int = width >> 1
++	var rect: Rect2i = Rect2i(center - Vector2i(half, half), Vector2i(width, width))
++	result.rect = rect
++	var helper_cells: Dictionary = {}
++	for helper: Dictionary in helpers:
++		if float(helper.hp) <= 0.0:
++			continue
++		var current: Vector2 = helper.pos
++		if current.is_finite():
++			helper_cells[Coords.logic_to_cell(current)] = true
++
++	for y: int in range(rect.position.y, rect.end.y):
++		for x: int in range(rect.position.x, rect.end.x):
++			if not world.in_bounds(x, y):
++				continue
++			var cell: Vector2i = Vector2i(x, y)
++			# can_plant rejects non-target/unplantable terrain, existing seed/grass
++			# and occupied crop/helper footprints. Moving helpers may release owners.
++			if not helper_cells.has(cell) and world.can_plant(world.index_of(x, y)):
++				valid.append(cell)
++
++	valid.sort_custom(func(a: Vector2i, b: Vector2i) -> bool:
++		var distance_a: int = (a - center).length_squared()
++		var distance_b: int = (b - center).length_squared()
++		if distance_a != distance_b:
++			return distance_a < distance_b
++		if a.y != b.y:
++			return a.y < b.y
++		return a.x < b.x
++	)
++	var limit: int = mini(maxi(budget, 0), valid.size())
++	for i: int in valid.size():
++		if i < limit:
++			affordable.append(valid[i])
++		else:
++			unaffordable.append(valid[i])
++	result.ok = true
++	result.cost = affordable.size()
++	return result

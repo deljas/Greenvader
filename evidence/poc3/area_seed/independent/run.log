@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"name":"representative_3_square_spends_nine","observed":{"balance":11,"seeded":9},"status":"PASS"}
+{"name":"map_edge_clips_without_moving_center","observed":{"cells":"[(0, 0), (1, 0), (0, 1), (1, 1), (2, 0), (0, 2), (2, 1), (1, 2), (2, 2)]","cost":9},"status":"PASS"}
+{"name":"mixed_exclusions_manual_order_and_budget","observed":{"balance":0,"existing_plus_new_seeds":3,"planned_order":"[(12, 12), (13, 11), (13, 13)]"},"status":"PASS"}
+{"name":"width7_one_seed_hits_enemy_and_nest_for_five","observed":{"cases":[{"balance":0,"ground_seeds":0,"hp":15.0,"target":"enemy"},{"balance":0,"ground_seeds":0,"hp":15.0,"target":"nest"}]},"status":"PASS"}
+{"name":"flight_balance_occupancy_and_locked_width","observed":{"balance":0,"seeded":3},"status":"PASS"}
+{"name":"overlapping_shots_settle_once_without_negative_balance","observed":{"balance":1,"seeded":9},"status":"PASS"}
+{"name":"wall_returns_only_reserved_seed_once","observed":{"balance":4,"ground_seeds":0},"status":"PASS"}
+{"name":"normal_flight_json_roundtrip_lands_fixed_width7","observed":{"expected_empty_row":true,"fixed_width_landing":true,"load_ok":true,"normal_baseline_restorable":true},"status":"PASS"}
+{"name":"invalid_shot_fields_rejected_atomically_on_valid_base","observed":{"reasons":{"reserved_seed":"invalid_entity_shots","sow_width":"invalid_entity_shots"}},"status":"PASS"}

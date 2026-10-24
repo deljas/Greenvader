@@ -1,6 +1,7 @@
 extends RefCounted
 ## Proximity-activated production and readable boar/spider combat.
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
+const SeedArea: GDScript = preload("res://scripts/poc2/simulation/seed_area.gd")
 var s: RefCounted
 func _init(session: RefCounted) -> void:
  s = session
@@ -39,6 +40,30 @@ func player_in_combat() -> bool:
    return true
  return false
 
+func shot_target(bazooka: bool = false) -> Vector2:
+ return s.position+(s.aim-s.position).limit_length(100.0 if bazooka else 80.0)
+
+func sow_preview() -> Dictionary:
+ if not s.has_aim or s.hp<=0.0: return {}
+ var target: Vector2=shot_target()
+ var plan: Dictionary=SeedArea.plan(s.state,Coords.logic_to_cell(target),s.sow_width,s.seeds,s.helpers)
+ plan.target=target
+ # Snapshot prediction only: actual moving targets are resolved again per shot.
+ var prediction: Dictionary=_hit_along(s.position,target)
+ plan.attack=not prediction.is_empty() and not s.placement.blocks_projectile(s.position,prediction.entity.pos)
+ if plan.attack:
+  plan.affordable=[]
+  plan.unaffordable=[]
+  plan.cost=mini(1,s.seeds)
+  plan.blocked=false
+  return plan
+ plan.blocked=s.placement.blocks_projectile(s.position,target)
+ if plan.blocked:
+  plan.affordable=[]
+  plan.unaffordable=[]
+  plan.cost=0
+ return plan
+
 func fire(bazooka: bool) -> Dictionary:
  if s.paused or s.hp<=0.0:
   return s.result(false,"paused_or_downed")
@@ -52,11 +77,31 @@ func fire(bazooka: bool) -> Dictionary:
  var direction: Vector2 = (s.aim-s.position).normalized()
  if direction==Vector2.ZERO:
   return s.result(false,"aim_required")
- var distance: float = minf(s.position.distance_to(s.aim),100.0 if bazooka else 80.0)
+ var target: Vector2 = shot_target(bazooka)
+ var distance: float = s.position.distance_to(target)
  s.seeds-=cost
  s.shot_ready=s.clock.elapsed+0.28
- s.shots.append({"id":s.allocate_id(),"kind":"bazooka" if bazooka else "seed","pos":s.position,"target":s.position+direction*distance,"direction":direction,"remaining":distance,"speed":160.0,"damage":25.0 if bazooka else 5.0})
+ var shot: Dictionary={"id":s.allocate_id(),"kind":"bazooka" if bazooka else "seed","pos":s.position,"target":target,"direction":direction,"remaining":distance,"speed":160.0,"damage":25.0 if bazooka else 5.0}
+ if not bazooka:
+  shot.sow_width=s.sow_width
+  shot.reserved_seed=1
+ s.shots.append(shot)
  return s.result(true)
+
+func _hit_along(from: Vector2,to: Vector2) -> Dictionary:
+ var found: Dictionary={}
+ var closest: float=INF
+ for e: Dictionary in s.enemies:
+  var along: float=from.distance_to(e.pos)
+  if _distance_segment(e.pos,from,to)<5.0 and along<closest:
+   found={"entity":e,"is_nest":false}
+   closest=along
+ for n: Dictionary in s.nests:
+  var along: float=from.distance_to(n.pos)
+  if _distance_segment(n.pos,from,to)<7.0 and along<closest:
+   found={"entity":n,"is_nest":true}
+   closest=along
+ return found
 
 func skill(slot: int) -> Dictionary:
  if s.paused or s.hp<=0.0 or s.clock.elapsed<float(s.skill_ready[slot]):
@@ -125,25 +170,19 @@ func _shots(dt: float) -> void:
   var blocked: bool=s.placement.blocks_projectile(old,next)
   var hit: Dictionary={}
   var is_nest: bool=false
-  var closest: float=INF
   if not blocked:
-   for e: Dictionary in s.enemies:
-    var along: float=old.distance_to(e.pos)
-    if _distance_segment(e.pos,old,next)<5.0 and along<closest:
-     hit=e
-     closest=along
-   for n: Dictionary in s.nests:
-    var along: float=old.distance_to(n.pos)
-    if _distance_segment(n.pos,old,next)<7.0 and along<closest:
-     hit=n
-     is_nest=true
-     closest=along
+   var prediction: Dictionary=_hit_along(old,next)
+   if not prediction.is_empty():
+    hit=prediction.entity
+    is_nest=prediction.is_nest
   shot.pos=next
   shot.remaining=float(shot.remaining)-travel
   if not hit.is_empty():
    shot.pos=hit.pos
   if blocked or not hit.is_empty() or float(shot.remaining)<=0.01:
-   if not blocked:
+   if blocked:
+    if shot.kind=="seed": _refund_seed(shot)
+   else:
     if shot.kind=="bazooka":
      for e: Dictionary in s.enemies.duplicate():
       if e.pos.distance_to(shot.pos)<=24.0 and not s.placement.blocks_projectile(shot.pos,e.pos):
@@ -152,11 +191,29 @@ func _shots(dt: float) -> void:
       if n.pos.distance_to(shot.pos)<=24.0 and not s.placement.blocks_projectile(shot.pos,n.pos):
        damage_nest(n,float(shot.damage))
     elif not hit.is_empty():
+     shot.reserved_seed=0
      if is_nest: damage_nest(hit,float(shot.damage))
      else: damage_enemy(hit,float(shot.damage),0.12)
     else:
-     Landing.scatter_seeds(s.state,4,shot.pos,5.0,1,s.rng.randi())
+     _sow_ground(shot)
    s.shots.erase(shot)
+
+func _refund_seed(shot: Dictionary) -> void:
+ var reserved: int=int(shot.get("reserved_seed",1))
+ shot.reserved_seed=0
+ s.seeds+=reserved
+
+func _sow_ground(shot: Dictionary) -> void:
+ var reserved: int=int(shot.get("reserved_seed",1))
+ if reserved<=0: return
+ # A preview is never a reservation. Re-read terrain, occupants, moving helpers
+ # and the unreserved balance for each impact, including overlapping shots.
+ var plan: Dictionary=SeedArea.plan(s.state,Coords.logic_to_cell(shot.pos),int(shot.get("sow_width",1)),s.seeds+reserved,s.helpers)
+ var placed: int=0
+ for cell: Vector2i in plan.affordable:
+  if s.state.set_stage(s.state.index_of(cell.x,cell.y),WorldState.STAGE_SEED): placed+=1
+ shot.reserved_seed=0
+ s.seeds+=reserved-placed
 
 func damage_enemy(e: Dictionary,amount: float,stun: float = 0.0) -> void:
  e.hp=float(e.hp)-amount

@@ -1,0 +1,255 @@
+{
+  "checks": [
+    {
+      "name": "representative_3_square_spends_nine",
+      "observed": {
+        "balance": 11,
+        "seeded": 9
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "map_edge_clips_without_moving_center",
+      "observed": {
+        "cells": "[(0, 0), (1, 0), (0, 1), (1, 1), (2, 0), (0, 2), (2, 1), (1, 2), (2, 2)]",
+        "cost": 9
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "mixed_exclusions_manual_order_and_budget",
+      "observed": {
+        "balance": 0,
+        "existing_plus_new_seeds": 3,
+        "planned_order": "[(12, 12), (13, 11), (13, 13)]"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "width7_one_seed_hits_enemy_and_nest_for_five",
+      "observed": {
+        "cases": [
+          {
+            "balance": 0,
+            "ground_seeds": 0,
+            "hp": 15.0,
+            "target": "enemy"
+          },
+          {
+            "balance": 0,
+            "ground_seeds": 0,
+            "hp": 15.0,
+            "target": "nest"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "flight_balance_occupancy_and_locked_width",
+      "observed": {
+        "balance": 0,
+        "seeded": 3
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "overlapping_shots_settle_once_without_negative_balance",
+      "observed": {
+        "balance": 1,
+        "seeded": 9
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "wall_returns_only_reserved_seed_once",
+      "observed": {
+        "balance": 4,
+        "ground_seeds": 0
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "normal_flight_json_roundtrip_lands_fixed_width7",
+      "observed": {
+        "expected_empty_row": true,
+        "fixed_width_landing": true,
+        "load_ok": true,
+        "normal_baseline_restorable": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_shot_fields_rejected_atomically_on_valid_base",
+      "observed": {
+        "reasons": {
+          "reserved_seed": "invalid_entity_shots",
+          "sow_width": "invalid_entity_shots"
+        }
+      },
+      "status": "PASS"
+    }
+  ],
+  "context": {
+    "actual_diff": "diff --git a/scripts/poc2/poc2_main.gd b/scripts/poc2/poc2_main.gd\nindex 19bc3db..dc7ac1d 100644\n--- a/scripts/poc2/poc2_main.gd\n+++ b/scripts/poc2/poc2_main.gd\n@@ -133,6 +133,11 @@ func tick(delta: float) -> void:\n \t\tworld.set_preview(_placement_kind,cell,bool(check.get(\"ok\",false)),Vector2i(int(footprint[0]),int(footprint[1])))\n \telse:\n \t\tworld.marker.visible=false\n+\tvar sow_plan: Dictionary={}\n+\tif cursor_known and _placement_kind==\"\" and not is_paused() and not ui.blocks(cursor):\n+\t\tsow_plan=session.sow_preview()\n+\tworld.set_sow_preview(sow_plan)\n+\tui.set_sow_preview(sow_plan)\n \n func _axis(positive: int, negative: int, positive_alt: int, negative_alt: int) -> float:\n \treturn float(bool(_keys.get(positive,false)) or bool(_keys.get(positive_alt,false)))-float(bool(_keys.get(negative,false)) or bool(_keys.get(negative_alt,false)))\ndiff --git a/scripts/poc2/poc2_session.gd b/scripts/poc2/poc2_session.gd\nindex ab200c3..7aa2f0c 100644\n--- a/scripts/poc2/poc2_session.gd\n+++ b/scripts/poc2/poc2_session.gd\n@@ -291,6 +291,9 @@ func clear_aim() -> void:\n func fire() -> Dictionary:\n  return combat_system.fire(false)\n \n+func sow_preview() -> Dictionary:\n+ return combat_system.sow_preview()\n+\n func skill(slot: int) -> Dictionary:\n  if slot < 0 or slot >= skills.size():\n   return result(false,\"invalid_slot\")\ndiff --git a/scripts/poc2/simulation/combat.gd b/scripts/poc2/simulation/combat.gd\nindex 0c3ef1b..1ffcf81 100644\n--- a/scripts/poc2/simulation/combat.gd\n+++ b/scripts/poc2/simulation/combat.gd\n@@ -1,6 +1,7 @@\n extends RefCounted\n ## Proximity-activated production and readable boar/spider combat.\n const Coords: GDScript = preload(\"res://scripts/poc/poc_coords.gd\")\n+const SeedArea: GDScript = preload(\"res://scripts/poc2/simulation/seed_area.gd\")\n var s: RefCounted\n func _init(session: RefCounted) -> void:\n  s = session\n@@ -39,6 +40,30 @@ func player_in_combat() -> bool:\n    return true\n  return false\n \n+func shot_target(bazooka: bool = false) -> Vector2:\n+ return s.position+(s.aim-s.position).limit_length(100.0 if bazooka else 80.0)\n+\n+func sow_preview() -> Dictionary:\n+ if not s.has_aim or s.hp<=0.0: return {}\n+ var target: Vector2=shot_target()\n+ var plan: Dictionary=SeedArea.plan(s.state,Coords.logic_to_cell(target),s.sow_width,s.seeds,s.helpers)\n+ plan.target=target\n+ # Snapshot prediction only: actual moving targets are resolved again per shot.\n+ var prediction: Dictionary=_hit_along(s.position,target)\n+ plan.attack=not prediction.is_empty() and not s.placement.blocks_projectile(s.position,prediction.entity.pos)\n+ if plan.attack:\n+  plan.affordable=[]\n+  plan.unaffordable=[]\n+  plan.cost=mini(1,s.seeds)\n+  plan.blocked=false\n+  return plan\n+ plan.blocked=s.placement.blocks_projectile(s.position,target)\n+ if plan.blocked:\n+  plan.affordable=[]\n+  plan.unaffordable=[]\n+  plan.cost=0\n+ return plan\n+\n func fire(bazooka: bool) -> Dictionary:\n  if s.paused or s.hp<=0.0:\n   return s.result(false,\"paused_or_downed\")\n@@ -52,12 +77,32 @@ func fire(bazooka: bool) -> Dictionary:\n  var direction: Vector2 = (s.aim-s.position).normalized()\n  if direction==Vector2.ZERO:\n   return s.result(false,\"aim_required\")\n- var distance: float = minf(s.position.distance_to(s.aim),100.0 if bazooka else 80.0)\n+ var target: Vector2 = shot_target(bazooka)\n+ var distance: float = s.position.distance_to(target)\n  s.seeds-=cost\n  s.shot_ready=s.clock.elapsed+0.28\n- s.shots.append({\"id\":s.allocate_id(),\"kind\":\"bazooka\" if bazooka else \"seed\",\"pos\":s.position,\"target\":s.position+direction*distance,\"direction\":direction,\"remaining\":distance,\"speed\":160.0,\"damage\":25.0 if bazooka else 5.0})\n+ var shot: Dictionary={\"id\":s.allocate_id(),\"kind\":\"bazooka\" if bazooka else \"seed\",\"pos\":s.position,\"target\":target,\"direction\":direction,\"remaining\":distance,\"speed\":160.0,\"damage\":25.0 if bazooka else 5.0}\n+ if not bazooka:\n+  shot.sow_width=s.sow_width\n+  shot.reserved_seed=1\n+ s.shots.append(shot)\n  return s.result(true)\n \n+func _hit_along(from: Vector2,to: Vector2) -> Dictionary:\n+ var found: Dictionary={}\n+ var closest: float=INF\n+ for e: Dictionary in s.enemies:\n+  var along: float=from.distance_to(e.pos)\n+  if _distance_segment(e.pos,from,to)<5.0 and along<closest:\n+   found={\"entity\":e,\"is_nest\":false}\n+   closest=along\n+ for n: Dictionary in s.nests:\n+  var along: float=from.distance_to(n.pos)\n+  if _distance_segment(n.pos,from,to)<7.0 and along<closest:\n+   found={\"entity\":n,\"is_nest\":true}\n+   closest=along\n+ return found\n+\n func skill(slot: int) -> Dictionary:\n  if s.paused or s.hp<=0.0 or s.clock.elapsed<float(s.skill_ready[slot]):\n   return s.result(false,\"cooldown_or_paused\")\n@@ -125,25 +170,19 @@ func _shots(dt: float) -> void:\n   var blocked: bool=s.placement.blocks_projectile(old,next)\n   var hit: Dictionary={}\n   var is_nest: bool=false\n-  var closest: float=INF\n   if not blocked:\n-   for e: Dictionary in s.enemies:\n-    var along: float=old.distance_to(e.pos)\n-    if _distance_segment(e.pos,old,next)<5.0 and along<closest:\n-     hit=e\n-     closest=along\n-   for n: Dictionary in s.nests:\n-    var along: float=old.distance_to(n.pos)\n-    if _distance_segment(n.pos,old,next)<7.0 and along<closest:\n-     hit=n\n-     is_nest=true\n-     closest=along\n+   var prediction: Dictionary=_hit_along(old,next)\n+   if not prediction.is_empty():\n+    hit=prediction.entity\n+    is_nest=prediction.is_nest\n   shot.pos=next\n   shot.remaining=float(shot.remaining)-travel\n   if not hit.is_empty():\n    shot.pos=hit.pos\n   if blocked or not hit.is_empty() or float(shot.remaining)<=0.01:\n-   if not blocked:\n+   if blocked:\n+    if shot.kind==\"seed\": _refund_seed(shot)\n+   else:\n     if shot.kind==\"bazooka\":\n      for e: Dictionary in s.enemies.duplicate():\n       if e.pos.distance_to(shot.pos)<=24.0 and not s.placement.blocks_projectile(shot.pos,e.pos):\n@@ -152,12 +191,30 @@ func _shots(dt: float) -> void:\n       if n.pos.distance_to(shot.pos)<=24.0 and not s.placement.blocks_projectile(shot.pos,n.pos):\n        damage_nest(n,float(shot.damage))\n     elif not hit.is_empty():\n+     shot.reserved_seed=0\n      if is_nest: damage_nest(hit,float(shot.damage))\n      else: damage_enemy(hit,float(shot.damage),0.12)\n     else:\n-     Landing.scatter_seeds(s.state,4,shot.pos,5.0,1,s.rng.randi())\n+     _sow_ground(shot)\n    s.shots.erase(shot)\n \n+func _refund_seed(shot: Dictionary) -> void:\n+ var reserved: int=int(shot.get(\"reserved_seed\",1))\n+ shot.reserved_seed=0\n+ s.seeds+=reserved\n+\n+func _sow_ground(shot: Dictionary) -> void:\n+ var reserved: int=int(shot.get(\"reserved_seed\",1))\n+ if reserved<=0: return\n+ # A preview is never a reservation. Re-read terrain, occupants, moving helpers\n+ # and the unreserved balance for each impact, including overlapping shots.\n+ var plan: Dictionary=SeedArea.plan(s.state,Coords.logic_to_cell(shot.pos),int(shot.get(\"sow_width\",1)),s.seeds+reserved,s.helpers)\n+ var placed: int=0\n+ for cell: Vector2i in plan.affordable:\n+  if s.state.set_stage(s.state.index_of(cell.x,cell.y),WorldState.STAGE_SEED): placed+=1\n+ shot.reserved_seed=0\n+ s.seeds+=reserved-placed\n+\n func damage_enemy(e: Dictionary,amount: float,stun: float = 0.0) -> void:\n  e.hp=float(e.hp)-amount\n  e.stun_until=s.clock.elapsed+stun\ndiff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd\nindex a42db38..d5c350e 100644\n--- a/scripts/poc2/simulation/persistence.gd\n+++ b/scripts/poc2/simulation/persistence.gd\n@@ -157,6 +157,10 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:\n    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,\"invalid_entity_\"+category)\n    # Earlier PoC3 working saves have no discovery field; never infer a discovery.\n    if category in [\"nests\",\"fossils\"] and not entity.has(\"discovered\"): entity.discovered=false\n+   # Earlier PoC3 seed shots already paid one seed at launch and used width 1.\n+   if category==\"shots\" and entity.kind==\"seed\":\n+    entity.sow_width=int(entity.get(\"sow_width\",1))\n+    entity.reserved_seed=int(entity.get(\"reserved_seed\",1))\n    if ids.has(entity.id) or entity.id>=vals.next_id: return s.result(false,\"invalid_entity_id\")\n    ids[entity.id]=true\n    typed.append(entity)\n@@ -229,4 +233,9 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c\n  if category==\"nests\" and (e.scale not in [\"small\",\"medium\",\"large\"] or e.kind not in [\"boar\",\"spider\",\"mother\"] or e.hp<=0 or e.hp>e.max_hp): return false\n  if category==\"fossils\" and (not catalog.has(e.unlock) or not e.unlock is String): return false\n  if category==\"shots\" and (e.kind not in [\"seed\",\"bazooka\"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false\n+ if category==\"shots\" and e.kind==\"seed\":\n+  var width: Variant=e.get(\"sow_width\",1)\n+  var reserved: Variant=e.get(\"reserved_seed\",1)\n+  if not (width is int or width is float) or float(width) not in [1.0,3.0,5.0,7.0]: return false\n+  if not (reserved is int or reserved is float) or reserved!=1: return false\n  return true\ndiff --git a/scripts/poc2/ui/poc2_ui.gd b/scripts/poc2/ui/poc2_ui.gd\nindex 6dae03b..54f96cd 100644\n--- a/scripts/poc2/ui/poc2_ui.gd\n+++ b/scripts/poc2/ui/poc2_ui.gd\n@@ -15,6 +15,7 @@ var water_bar: ProgressBar\n var map_button: Button\n var help_button: Button\n var notice: Label\n+var sow_notice: Label\n var palette: HBoxContainer\n var menu: PanelContainer\n var help: PanelContainer\n@@ -58,6 +59,11 @@ func _ready() -> void:\n \tnotice.position=Vector2(8,308)\n \tnotice.mouse_filter=Control.MOUSE_FILTER_IGNORE\n \tadd_child(notice)\n+\tsow_notice=Label.new()\n+\tsow_notice.position=Vector2(23,284)\n+\tsow_notice.mouse_filter=Control.MOUSE_FILTER_IGNORE\n+\tsow_notice.hide()\n+\tadd_child(sow_notice)\n \tpalette=HBoxContainer.new()\n \tpalette.position=Vector2(6,330)\n \tpalette.add_theme_constant_override(\"separation\",3)\n@@ -103,7 +109,7 @@ func _ready() -> void:\n \tvar help_box: VBoxContainer=VBoxContainer.new()\n \thelp.add_child(help_box)\n \tvar label: Label=Label.new()\n-\tlabel.text=\"WASD / 矢印：移動　マウス：照準・配置位置\\n左クリック / 長押し：種射撃・播種\\n右クリック / 長押し：給水\\nShift＋左 / 右クリック：スキル1 / 2（1回）\\nホイール：播種幅 1/3/5/7（選択のみ）\\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\\n一覧・マップ中は停止。ホイールはスクロール / ズーム\\n右クリック / Esc：保持・選択を取消、Escで戻る\\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\\n水辺補給・化石への接近回収は自動です。\"\n+\tlabel.text=\"WASD / 矢印：移動　マウス：照準・配置位置\\n左クリック / 長押し：種射撃・範囲播種\\n右クリック / 長押し：給水\\nShift＋左 / 右クリック：スキル1 / 2（1回）\\nホイール：播種幅 1/3/5/7　緑：播種予定、黄：種不足\\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\\n一覧・マップ中は停止。ホイールはスクロール / ズーム\\n右クリック / Esc：保持・選択を取消、Escで戻る\\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\\n水辺補給・化石への接近回収は自動です。\"\n \tlabel.add_theme_font_size_override(\"font_size\",12)\n \thelp_box.add_child(label)\n \tvar back: Button=Button.new()\n@@ -134,6 +140,20 @@ func _status_bar(box: VBoxContainer, caption: String) -> ProgressBar:\n \tline.add_child(bar)\n \treturn bar\n \n+func set_sow_preview(plan: Dictionary) -> void:\n+\tsow_notice.visible=not plan.is_empty()\n+\tif sow_notice.visible:\n+\t\tif plan.get(\"attack\",false):\n+\t\t\tsow_notice.text=\"%d　攻撃%s\" % [plan.cost,\"（種不足）\" if plan.cost==0 else \"\"]\n+\t\telse:\n+\t\t\tsow_notice.text=\"%d　播種 %d×%d%s\" % [plan.cost,plan.width,plan.width,\"（遮蔽）\" if plan.get(\"blocked\",false) else \"\"]\n+\tqueue_redraw()\n+\n+func _draw() -> void:\n+\tif sow_notice!=null and sow_notice.visible:\n+\t\t# Small solid seed silhouette, integer coordinates, no outline or filtering.\n+\t\tdraw_colored_polygon(PackedVector2Array([Vector2(10,291),Vector2(13,288),Vector2(17,288),Vector2(19,291),Vector2(16,295),Vector2(12,294)]),Color(\"edce7d\"))\n+\n func bind(source: RefCounted) -> void:\n \tsession=source\n \tselected_slot=-1\n@@ -210,7 +230,7 @@ func refresh() -> void:\n \tif session==null: return\n \tvar stats: Dictionary=session.snapshot()\n \tstatus.text=\"%s 設置 ●%d\" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else \"播種幅 %d×%d\" % [session.sow_width,session.sow_width]\n-\tstatus.tooltip_text=\"ホイールで播種幅の選択値を変更（範囲効果は後続）\" if selected_kind.is_empty() else \"\"\n+\tstatus.tooltip_text=\"ホイールで播種幅を変更。新しく播種するマスだけ種を使います。\" if selected_kind.is_empty() else \"\"\n \teconomy.text=\"所持 ●%d　緑 %.1f%%\" % [session.seeds,float(stats.get(\"green_percent\",0))]\n \teconomy.tooltip_text=\"収入 / 分：緑地 %.1f ＋ 栽培 %.1f\" % [float(stats.get(\"land_rate\",0)),float(stats.get(\"crop_rate\",0))]\n \thp_bar.max_value=session.max_hp\ndiff --git a/scripts/poc2/view/world_view.gd b/scripts/poc2/view/world_view.gd\nindex 94ee872..06b71f9 100644\n--- a/scripts/poc2/view/world_view.gd\n+++ b/scripts/poc2/view/world_view.gd\n@@ -31,6 +31,10 @@ var fire_kind: StringName = &\"\"\n var marker: MeshInstance3D\n var last_position: Vector2\n var preview: Dictionary = {}\n+var sow_range: MeshInstance3D\n+var sow_cells: Array[MeshInstance3D] = []\n+var sow_materials: Array[StandardMaterial3D] = []\n+var sow_plan: Dictionary = {}\n var _last_clock: float = 0.0\n \n func build(source: RefCounted, viewport: SubViewport) -> void:\n@@ -84,6 +88,7 @@ func build(source: RefCounted, viewport: SubViewport) -> void:\n \tactor.setup(camera)\n \tmarker = _mesh(\"marker\", Color(\"bdeaa2\"), false)\n \tmarker.visible = false\n+\t_build_sow_preview()\n \tif placement_view != null:\n \t\tocclusion = Cutaway.new()\n \t\tadd_child(occlusion)\n@@ -250,6 +255,50 @@ func set_preview(kind: String, cell: Vector2i, valid: bool, footprint: Vector2i)\n \tmarker.position = Vector3(at.x, 0.07, at.y)\n \tmarker.scale = Vector3(footprint.x * 0.4, 0.06, footprint.y * 0.4)\n \t(marker.material_override as StandardMaterial3D).albedo_color = Color(\"bdeaa2\") if valid else Color(\"e76e65\")\n+\n+func _build_sow_preview() -> void:\n+\tfor color: Color in [Color(0.76,0.86,0.70,0.13),Color(0.55,0.91,0.43,0.48),Color(1.0,0.65,0.20,0.48),Color(0.88,0.35,0.28,0.20)]:\n+\t\tvar material_: StandardMaterial3D = StandardMaterial3D.new()\n+\t\tmaterial_.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA\n+\t\tmaterial_.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED\n+\t\tmaterial_.albedo_color = color\n+\t\tsow_materials.append(material_)\n+\tsow_range = _sow_plane()\n+\tfor i: int in 49:\n+\t\tsow_cells.append(_sow_plane())\n+\n+func _sow_plane() -> MeshInstance3D:\n+\tvar node: MeshInstance3D = MeshInstance3D.new()\n+\tvar mesh: PlaneMesh = PlaneMesh.new()\n+\tmesh.size = Vector2.ONE\n+\tnode.mesh = mesh\n+\tnode.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF\n+\tnode.visible = false\n+\tadd_child(node)\n+\treturn node\n+\n+func set_sow_preview(plan: Dictionary) -> void:\n+\tsow_plan = plan\n+\tsow_range.visible = not plan.is_empty() and not plan.get(\"attack\",false)\n+\tfor node: MeshInstance3D in sow_cells: node.visible = false\n+\tif plan.is_empty(): return\n+\tif plan.get(\"attack\",false): return\n+\tvar at: Vector2 = Coords.cell_center_ground(plan.center)\n+\tvar width: float = float(plan.width)*0.4\n+\tsow_range.position = Vector3(at.x,0.025,at.y)\n+\tsow_range.scale = Vector3(width,1.0,width)\n+\tsow_range.material_override = sow_materials[3 if plan.get(\"blocked\",false) else 0]\n+\tvar used: int = 0\n+\tfor key: String in [\"affordable\",\"unaffordable\"]:\n+\t\tfor cell: Vector2i in plan[key]:\n+\t\t\tvar node: MeshInstance3D = sow_cells[used]\n+\t\t\tused += 1\n+\t\t\tvar center: Vector2 = Coords.cell_center_ground(cell)\n+\t\t\tnode.position = Vector3(center.x,0.04,center.y)\n+\t\t\tnode.scale = Vector3(0.34,1.0,0.34)\n+\t\t\tnode.material_override = sow_materials[1 if key==\"affordable\" else 2]\n+\t\t\tnode.visible = true\n+\n func _wall_height(x: int, y: int) -> float:\n \tvar state: WorldState = session.state\n \tif not state.in_bounds(x, y):",
+    "content_reservation": "11:- 予約中の共有資源: **共有ツリーのGodot実行・importは使わない**（POC3-INPUTのCodex側が所有）。Godot実行は隔離プロジェクト C:/godot/greenvader_content_sandbox/ だけで行う。Git index/commit は本作業では行わない（Codex親と調整後に親のみ）",
+    "hashes_before": [
+      {
+        "actual": "945FFD3C4DFB559AA414FE13BB0FEED3BF75CFCAD2C3B768A8DF7ABBE964D99A",
+        "expected": "945ffd3c4dfb559aa414fe13bb0feed3bf75cfcad2c3b768a8df7abbe964d99a",
+        "matches": true,
+        "path": "scripts/poc2/poc2_main.gd"
+      },
+      {
+        "actual": "C4AA53A533E84486C93CA74515F86460CD524FFEF56E1B80941B28ACDA589CE1",
+        "expected": "c4aa53a533e84486c93ca74515f86460cd524ffef56e1b80941b28acda589ce1",
+        "matches": true,
+        "path": "scripts/poc2/poc2_session.gd"
+      },
+      {
+        "actual": "C899BD112DA152A9F50FF3EDA8157403C8BFEFF021647F2E311E7D9132711D85",
+        "expected": "c899bd112da152a9f50ff3eda8157403c8bfeff021647f2e311e7d9132711d85",
+        "matches": true,
+        "path": "scripts/poc2/simulation/seed_area.gd"
+      },
+      {
+        "actual": "68311360B725D77C1DDC14843D0B037D0C3A106A712CAB59C0A1DA0AAB231891",
+        "expected": "68311360b725d77c1ddc14843d0b037d0c3a106a712cab59c0a1da0aab231891",
+        "matches": true,
+        "path": "scripts/poc2/simulation/combat.gd"
+      },
+      {
+        "actual": "1C2742EA14E8F0586C77A1960D4F6513F0324AFD89999328C4E13786E841442B",
+        "expected": "1c2742ea14e8f0586c77a1960d4f6513f0324afd89999328c4e13786e841442b",
+        "matches": true,
+        "path": "scripts/poc2/simulation/persistence.gd"
+      },
+      {
+        "actual": "1263B27802FF6D89F5BC14AD17E10D165109E7000A8B6798DCB5117C186CDC4F",
+        "expected": "1263b27802ff6d89f5bc14ad17e10d165109e7000a8b6798dcb5117c186cdc4f",
+        "matches": true,
+        "path": "scripts/poc2/view/world_view.gd"
+      },
+      {
+        "actual": "519067DE904F1E615E6E98237DA858EB26B1332F7AA49B848913960F6132506E",
+        "expected": "519067de904f1e615e6e98237da858eb26b1332f7aa49b848913960f6132506e",
+        "matches": true,
+        "path": "scripts/poc2/ui/poc2_ui.gd"
+      }
+    ],
+    "head": "5f7ac13901e28f7c24372cd44494dfd599b44fb0",
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "processes_before": [],
+    "real_saves_before": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "seed_area_source": "extends RefCounted\n## Read-only area-sowing plan shared by future preview and ground-impact callers.\n## Cells are Vector2i map coordinates, not logical pixels. No Session dependency.\nconst Coords: GDScript = preload(\"res://scripts/poc/poc_coords.gd\")\nconst WIDTHS: Array[int] = [1, 3, 5, 7]\n\n## budget is the total seeds available for this plan. At impact the caller includes\n## the shot's one reserved seed; this function never reserves, spends or plants.\n## Helpers use current logical-pixel pos and hp, never their old cell/home/owner.\n## Each call reads current state. Do not cache a preview for later settlement.\nstatic func plan(\n\tworld: WorldState,\n\tcenter: Vector2i,\n\twidth: int,\n\tbudget: int,\n\thelpers: Array[Dictionary] = []\n) -> Dictionary:\n\tvar valid: Array[Vector2i] = []\n\tvar affordable: Array[Vector2i] = []\n\tvar unaffordable: Array[Vector2i] = []\n\tvar result: Dictionary = {\n\t\t\"ok\": false, \"reason\": \"\", \"center\": center, \"width\": width,\n\t\t\"rect\": Rect2i(), \"valid\": valid, \"affordable\": affordable,\n\t\t\"unaffordable\": unaffordable, \"cost\": 0\n\t}\n\tif world == null:\n\t\tresult.reason = \"invalid_world\"\n\t\treturn result\n\tif not WIDTHS.has(width):\n\t\tresult.reason = \"invalid_width\"\n\t\treturn result\n\n\tvar half: int = width >> 1\n\tvar rect: Rect2i = Rect2i(center - Vector2i(half, half), Vector2i(width, width))\n\tresult.rect = rect\n\tvar helper_cells: Dictionary = {}\n\tfor helper: Dictionary in helpers:\n\t\tif float(helper.hp) <= 0.0:\n\t\t\tcontinue\n\t\tvar current: Vector2 = helper.pos\n\t\tif current.is_finite():\n\t\t\thelper_cells[Coords.logic_to_cell(current)] = true\n\n\tfor y: int in range(rect.position.y, rect.end.y):\n\t\tfor x: int in range(rect.position.x, rect.end.x):\n\t\t\tif not world.in_bounds(x, y):\n\t\t\t\tcontinue\n\t\t\tvar cell: Vector2i = Vector2i(x, y)\n\t\t\t# can_plant rejects non-target/unplantable terrain, existing seed/grass\n\t\t\t# and occupied crop/helper footprints. Moving helpers may release owners.\n\t\t\tif not helper_cells.has(cell) and world.can_plant(world.index_of(x, y)):\n\t\t\t\tvalid.append(cell)\n\n\tvalid.sort_custom(func(a: Vector2i, b: Vector2i) -> bool:\n\t\tvar distance_a: int = (a - center).length_squared()\n\t\tvar distance_b: int = (b - center).length_squared()\n\t\tif distance_a != distance_b:\n\t\t\treturn distance_a < distance_b\n\t\tif a.y != b.y:\n\t\t\treturn a.y < b.y\n\t\treturn a.x < b.x\n\t)\n\tvar limit: int = mini(maxi(budget, 0), valid.size())\n\tfor i: int in valid.size():\n\t\tif i < limit:\n\t\t\taffordable.append(valid[i])\n\t\telse:\n\t\t\tunaffordable.append(valid[i])\n\tresult.ok = true\n\tresult.cost = affordable.size()\n\treturn result\n",
+    "hashes_after": [
+      {
+        "path": "scripts/poc2/poc2_main.gd",
+        "sha256": "945FFD3C4DFB559AA414FE13BB0FEED3BF75CFCAD2C3B768A8DF7ABBE964D99A",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/poc2_session.gd",
+        "sha256": "C4AA53A533E84486C93CA74515F86460CD524FFEF56E1B80941B28ACDA589CE1",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/seed_area.gd",
+        "sha256": "C899BD112DA152A9F50FF3EDA8157403C8BFEFF021647F2E311E7D9132711D85",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/combat.gd",
+        "sha256": "68311360B725D77C1DDC14843D0B037D0C3A106A712CAB59C0A1DA0AAB231891",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "sha256": "1C2742EA14E8F0586C77A1960D4F6513F0324AFD89999328C4E13786E841442B",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/view/world_view.gd",
+        "sha256": "1263B27802FF6D89F5BC14AD17E10D165109E7000A8B6798DCB5117C186CDC4F",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/ui/poc2_ui.gd",
+        "sha256": "519067DE904F1E615E6E98237DA858EB26B1332F7AA49B848913960F6132506E",
+        "unchanged": true
+      }
+    ],
+    "real_saves_after": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "real_saves_unchanged": true,
+    "processes_after": [],
+    "head_after": "5f7ac13901e28f7c24372cd44494dfd599b44fb0",
+    "reviewed_images": [
+      {
+        "path": "evidence\\poc3\\area_seed\\self\\preview_7_insufficient.png",
+        "sha256": "AB7494BCED1681BC5AABDF9122C8777C19866CD6FF490FE924DFD92F297024BE"
+      },
+      {
+        "path": "evidence\\poc3\\area_seed\\self\\preview_3_affordable.png",
+        "sha256": "CEE033459C85398CE2C8CB74862E4C6BB5A4622D43489C580506288D6E9D899E"
+      },
+      {
+        "path": "evidence\\poc3\\area_seed\\self\\preview_attack.png",
+        "sha256": "E36B68626612D47FBA80FC8AFDA733ACEF79A823653C908BA065F4458D44748B"
+      },
+      {
+        "path": "evidence\\poc3\\area_seed\\self\\help.png",
+        "sha256": "FC7E887A2785E7BEE3AA56C1A1533E745CBB0E10CC31A03B8E061B31E7C11480"
+      }
+    ]
+  },
+  "failures": 0,
+  "godot": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "not_run": [
+    "independent_gpu_native_input",
+    "wide_regression_long_play",
+    "all_sizes_lighting_exported_build_future_target_prediction"
+  ],
+  "user_data": "C:/godot/greenvader/evidence/poc3/area_seed/independent/profile/roaming/Godot/app_userdata/グリーンベーダー",
+  "summary": {
+    "pass": 9,
+    "not_run": 3,
+    "exit_code": 0,
+    "fail": 0
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "checks": [
+    {
+      "name": "center_width_readonly_1",
+      "status": "PASS"
+    },
+    {
+      "name": "launch_reserves_one_1",
+      "status": "PASS"
+    },
+    {
+      "name": "land_exact_square_1",
+      "status": "PASS"
+    },
+    {
+      "name": "center_width_readonly_3",
+      "status": "PASS"
+    },
+    {
+      "name": "launch_reserves_one_3",
+      "status": "PASS"
+    },
+    {
+      "name": "land_exact_square_3",
+      "status": "PASS"
+    },
+    {
+      "name": "center_width_readonly_5",
+      "status": "PASS"
+    },
+    {
+      "name": "launch_reserves_one_5",
+      "status": "PASS"
+    },
+    {
+      "name": "land_exact_square_5",
+      "status": "PASS"
+    },
+    {
+      "name": "center_width_readonly_7",
+      "status": "PASS"
+    },
+    {
+      "name": "launch_reserves_one_7",
+      "status": "PASS"
+    },
+    {
+      "name": "land_exact_square_7",
+      "status": "PASS"
+    },
+    {
+      "name": "mixed_ground_and_moved_helper",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "restore_original_after_mixed",
+      "status": "PASS"
+    },
+    {
+      "name": "short_budget_uses_center_y_x_order",
+      "status": "PASS"
+    },
+    {
+      "name": "zero_budget_preview_and_no_fire",
+      "status": "PASS"
+    },
+    {
+      "name": "flight_terrain_budget_helper_changes",
+      "status": "PASS"
+    },
+    {
+      "name": "overlapping_shots_no_double_charge",
+      "status": "PASS"
+    },
+    {
+      "name": "zero_valid_refunds_reservation",
+      "status": "PASS"
+    },
+    {
+      "name": "wall_blocks_preview_and_refunds",
+      "status": "PASS"
+    },
+    {
+      "name": "one_seed_attack_enemy",
+      "status": "PASS"
+    },
+    {
+      "name": "one_seed_attack_nest",
+      "status": "PASS"
+    },
+    {
+      "name": "flying_shot_real_json_roundtrip",
+      "status": "FAIL"
+    },
+    {
+      "name": "legacy_shot_defaults",
+      "status": "FAIL"
+    },
+    {
+      "name": "legacy_one_cell_no_extra_debit",
+      "status": "FAIL"
+    },
+    {
+      "name": "invalid_saved_width_atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_saved_reservation_atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "bazooka_cost_and_shape_unchanged",
+      "status": "PASS"
+    }
+  ],
+  "failures": 3,
+  "user_data_dir": "C:/godot/greenvader/evidence/poc3/area_seed/self/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

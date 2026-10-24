@@ -1,0 +1,22 @@
+{
+  "cause": "Initial suite reused synthetic zero-time fixture with stale active entries; rebuild_derived now resets that test fixture only. No product save condition relaxed.",
+  "checks": [
+    {
+      "name": "flying_shot_real_json_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "restored_shot_keeps_width_and_reservation",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy_shot_defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy_one_cell_no_extra_debit",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

@@ -133,6 +133,11 @@ func tick(delta: float) -> void:
 		world.set_preview(_placement_kind,cell,bool(check.get("ok",false)),Vector2i(int(footprint[0]),int(footprint[1])))
 	else:
 		world.marker.visible=false
+	var sow_plan: Dictionary={}
+	if cursor_known and _placement_kind=="" and not is_paused() and not ui.blocks(cursor):
+		sow_plan=session.sow_preview()
+	world.set_sow_preview(sow_plan)
+	ui.set_sow_preview(sow_plan)
 
 func _axis(positive: int, negative: int, positive_alt: int, negative_alt: int) -> float:
 	return float(bool(_keys.get(positive,false)) or bool(_keys.get(positive_alt,false)))-float(bool(_keys.get(negative,false)) or bool(_keys.get(negative_alt,false)))

@@ -1,0 +1,72 @@
+{
+  "head": "5f7ac13901e28f7c24372cd44494dfd599b44fb0",
+  "utc": "2026-10-24T07:43:25.079373+00:00",
+  "phase": "implementation and self-check frozen, independent verification pending",
+  "game_sha256": {
+    "scripts/poc2/poc2_main.gd": "945ffd3c4dfb559aa414fe13bb0feed3bf75cfcad2c3b768a8df7abbe964d99a",
+    "scripts/poc2/poc2_session.gd": "c4aa53a533e84486c93ca74515f86460cd524ffef56e1b80941b28acda589ce1",
+    "scripts/poc2/simulation/seed_area.gd": "c899bd112da152a9f50ff3eda8157403c8bfeff021647f2e311e7d9132711d85",
+    "scripts/poc2/simulation/combat.gd": "68311360b725d77c1ddc14843d0b037d0c3a106a712cab59c0a1da0aab231891",
+    "scripts/poc2/simulation/persistence.gd": "1c2742ea14e8f0586c77a1960d4f6513f0324afd89999328c4e13786e841442b",
+    "scripts/poc2/view/world_view.gd": "1263b27802ff6d89f5bc14ad17e10d165109e7000a8b6798dcb5117c186cdc4f",
+    "scripts/poc2/ui/poc2_ui.gd": "519067de904f1e615e6e98237da858eb26b1332f7aa49b848913960f6132506e"
+  },
+  "tests_sha256": {
+    "tests/poc3/area_seed/self_gpu.gd": "5c41faebc3eb9a41f893b7a6fd4628c730e76f4934c125a239f17aa32f239039",
+    "tests/poc3/area_seed/self_gpu.gd.uid": "d036409f6d20227d5f742251f9b224bf6107f32eacbd31845f3a1b472e45adbd",
+    "tests/poc3/area_seed/self_logic.gd": "5d73512873a3ff9eeb19941be348b3d5fc4a7c60d4737ebac8ac9b6577c92954",
+    "tests/poc3/area_seed/self_logic.gd.uid": "f7b495dbc37e957ab75bcf2869db586a53696adffcc6ae408a9abd1d23205932",
+    "tests/poc3/area_seed/self_run.ps1": "d75275ad4a5f8d71806b793a620193ec9ea99a893a8a128099d8b3b53fb80c4a",
+    "tests/poc3/area_seed/self_save_diagnostic.gd": "dfc2d0ac944d4c26bcb4fb898099b0c10f712d7a130c6c226fbf90d72c4c916c",
+    "tests/poc3/area_seed/self_save_followup.gd": "ea70e7fe24f251803eacd195fa780829ac8f77a64698b7d3b796c94a14e8d88e"
+  },
+  "game_hash_capture": "Post-validation freeze. Game source was not edited between import, logic and GPU runs; only the zero-time synthetic test fixture and save diagnostics changed after the first logic run.",
+  "real_saves_after": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509e2a98e313f16a220ef83765be66e8991ad91443b15f4c848a2571c541dba7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "da0d4b6006b5d040b2c3841558f9d2f10c164a8da2315ae5959175ea68686fbc"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "b673823c7adc9b84830c273e8e0a06e624c9d11f6b115e5ca4bd2c28f9bd47f0"
+    }
+  ],
+  "real_saves_unchanged": true,
+  "protected_sources_after": {
+    "scripts/poc2/input_latch.gd": "729a03e6cdee350041b273955e5a040480864582adf5fc8e2061cc4be91c54b0",
+    "scripts/poc2/ui/map_ui.gd": "08720b8b332b8465dc82befaf8c74b74b372aa288a1ab64fdeece1b25c76f6d2",
+    "scripts/poc2/ui/plant_list.gd": "d7f5bcd68e2f78db2fa6b6276c53a5c921640de2effb3291f1c95360a30d7d9a",
+    "project.godot": "8689fa888c87de441ea13d2a4325e20c5aef826f4a76cb4db1ebc18c9062fce8",
+    "data/poc2/maps/town_02.json": "5443a34a03db271875a28121afd3b1c7519f8b4c4a65a86d6d9fcf8576017ac7"
+  },
+  "protected_sources_unchanged": true,
+  "override_absent": true,
+  "godot_processes_at_freeze": [],
+  "raw_result_files": {
+    "logic_results.json": 3,
+    "save_followup_results.json": 0,
+    "save_diagnostic_results.json": 0,
+    "gpu_results.json": 0
+  },
+  "unresolved_implementation_failures": 0,
+  "visual_review": [
+    "preview_7_insufficient.png",
+    "preview_3_affordable.png",
+    "preview_attack.png",
+    "help.png"
+  ],
+  "NOT_RUN": [
+    "physical input",
+    "full regression",
+    "all lighting and resolutions",
+    "long duration/max load",
+    "map edge dedicated runtime test",
+    "future target movement prediction",
+    "fun/final balance"
+  ],
+  "process_inventory": "Get-Process read-only fallback; CIM enumeration denied access, so its empty output was not used as evidence."
+}

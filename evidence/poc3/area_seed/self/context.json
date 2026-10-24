@@ -1,0 +1,27 @@
+{
+  "head": "5f7ac13901e28f7c24372cd44494dfd599b44fb0",
+  "utc": "2026-10-24T07:35:13.959553+00:00",
+  "real_saves_before": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509e2a98e313f16a220ef83765be66e8991ad91443b15f4c848a2571c541dba7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "da0d4b6006b5d040b2c3841558f9d2f10c164a8da2315ae5959175ea68686fbc"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "b673823c7adc9b84830c273e8e0a06e624c9d11f6b115e5ca4bd2c28f9bd47f0"
+    }
+  ],
+  "protected_sources": {
+    "scripts/poc2/input_latch.gd": "729a03e6cdee350041b273955e5a040480864582adf5fc8e2061cc4be91c54b0",
+    "scripts/poc2/ui/map_ui.gd": "08720b8b332b8465dc82befaf8c74b74b372aa288a1ab64fdeece1b25c76f6d2",
+    "scripts/poc2/ui/plant_list.gd": "d7f5bcd68e2f78db2fa6b6276c53a5c921640de2effb3291f1c95360a30d7d9a",
+    "project.godot": "8689fa888c87de441ea13d2a4325e20c5aef826f4a76cb4db1ebc18c9062fce8",
+    "data/poc2/maps/town_02.json": "5443a34a03db271875a28121afd3b1c7519f8b4c4a65a86d6d9fcf8576017ac7"
+  },
+  "index_sha256_before": "962b28782017c5c6d613014adc693fa297af9e8abee802fbe026426b89a59796",
+  "recording_error": "git write-tree attempted only for index snapshot; failed on index.lock permission denied; replaced by read-only SHA-256"
+}

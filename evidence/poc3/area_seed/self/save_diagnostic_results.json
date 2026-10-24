@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "name": "synthetic_stale_active_cause_reproduced",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh_session_flight_json_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "corruption_base_is_restorable",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_sow_width_rejects_entity_atomically",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_reserved_seed_rejects_entity_atomically",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "reasons": {
+    "reserved_seed": "invalid_entity_shots",
+    "sow_width": "invalid_entity_shots",
+    "stale_fixture": "invalid_growth"
+  }
+}
