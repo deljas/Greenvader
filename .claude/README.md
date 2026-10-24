@@ -52,3 +52,4 @@ claude plugin install godot@awesome-gamedev-agent-skills --scope local
 - 導入前確認: `claude plugin details` でHooks・MCP servers・Agentsは0。同梱スクリプトは `godot-nodes-scenes/scripts/check_godot_project.py`（標準ライブラリのみ、読み取り専用）だけ。常時読込は約2.6kトークン/セッション。
 - 優先順位: 外部スキルは一般的な参考資料。AGENTS.md・作業票・[docs/DECISIONS.md](../docs/DECISIONS.md) と食い違う場合はプロジェクト側に従う（例: headlessテストは補助 `.gd` を `--script` 起動せず入口スクリプトだけを起動する）。
 - 更新: マーケットプレイス更新で内容が変わるため、更新時は同じ観点（hooks・MCP・スクリプト）を再確認する。削除は `claude plugin uninstall godot@awesome-gamedev-agent-skills --scope local`。
+- Codex側: Claudeのプラグインは Codex から見えないため、同じ commit `184b72b` の `skills/godot/godot-*` 16個を Windows のユーザー単位 `C:\Users\tkant\.agents\skills\` へ手動コピーした（リポジトリ内 `.agents/skills/` と `.codex` 設定は変更していない）。Codex再起動後に `/skills` で表示を確認する。手動コピーのため自動更新されず、Claude側を更新したら同じ確認の上で再コピーする。
