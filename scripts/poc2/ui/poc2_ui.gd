@@ -127,7 +127,7 @@ func show_menu(title: bool = false) -> void:
 	var box: VBoxContainer=VBoxContainer.new()
 	menu.add_child(box)
 	var label: Label=Label.new()
-	label.text="グリーンベーダー PoC 2" if title else "一時停止"
+	label.text="グリーンベーダー PoC3 作業版" if title else "一時停止"
 	box.add_child(label)
 	var actions: Array[String]=[]
 	actions.assign(["new","load","help"] if title else ["resume","save","load","new","help"])

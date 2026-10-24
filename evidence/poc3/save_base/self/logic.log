@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "isolated_profile_required", "status": "PASS" }
+{ "name": "old_slots_not_auto_adopted", "status": "PASS" }
+{ "name": "new_default_save_round_trip", "status": "PASS" }
+{ "name": "new_outer_and_inner_headers", "status": "PASS" }
+{ "name": "old_outer_rejected_session_unchanged", "status": "PASS" }
+{ "name": "old_inner_direct_restore_rejected_unchanged", "status": "PASS" }
+{ "name": "invalid_state_rejected_session_unchanged", "status": "PASS" }
+{ "name": "legacy_fixture_files_unchanged", "status": "PASS" }

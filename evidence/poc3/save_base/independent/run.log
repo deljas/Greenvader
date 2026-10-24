@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":"Valid old PoC2 state has seeds=4321/hp=23; new Session remains initial state","name":"fresh_session_does_not_adopt_old_progress","status":"PASS"}
+{"detail":"Old slots exist; new default slot does not yet exist","name":"new_slot_is_separate","status":"PASS"}
+{"detail":"Modified seeds/hp/water/unlock and complete serialized state must survive default save/load","name":"new_format_roundtrip_preserves_full_state","status":"FAIL"}
+{"detail":"Outer greenvader_poc3_1; inner greenvader-poc3/version3","name":"new_file_has_poc3_identity","status":"PASS"}
+{"detail":"Explicit load of isolated old outer format returns no candidate session","name":"legacy_outer_rejected_active_unchanged","status":"PASS"}
+{"detail":"Direct restore of old inner format/version must reject without adoption","name":"legacy_inner_rejected_active_unchanged","status":"PASS"}
+{"detail":"Correct new headers with impossible negative HP rejected by wrapper and direct restore","name":"invalid_payload_rejected_active_unchanged","status":"PASS"}
+{"detail":"PoC/PoC2 slots and backup retain exact bytes/hash; PoC2 directory still has exactly two files","name":"legacy_fixtures_preserved","status":"PASS"}
+Independent save checks: 7 PASS / 1 FAIL

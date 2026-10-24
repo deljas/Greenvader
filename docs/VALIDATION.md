@@ -498,7 +498,7 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 
 ## SPR-01 発射v3のゲーム仮組込み（2026-10-20、4方向版へ更新前）
 
-- 対象: 共有HEAD `151a53f20255489ef08481e2a353258cd8ac559c`＋既存差分のPoC。`scripts/poc/poc_main.gd`、`poc_actor.gd`、`poc_session.gd`、`play/poc_play_view.gd`、新規表示制御とruntime素材copyを変更。起動入口は通常PoCの[run_poc.bat](../launchers/run_poc.bat)。旧ゲーム入口/解像度640×360/移動/速度/当たり判定/保存形式は維持。
+- 対象: 共有HEAD `151a53f20255489ef08481e2a353258cd8ac559c`＋既存差分のPoC。`scripts/poc/poc_main.gd`、`poc_actor.gd`、`poc_session.gd`、`play/poc_play_view.gd`、新規表示制御とruntime素材copyを変更。当時の起動入口は `launchers/run_poc.bat`（現在は削除済み、履歴から復元可能）。旧ゲーム入口/解像度640×360/移動/速度/当たり判定/保存形式は維持。
 - 表示/動作: 通常静止/歩行は既採用4方向、発射中のみ正面v3を全照準方向へ共用。入力直後にpose 0を表示。種は400msで66ms時点、水は800msで400ms時点に弾を生成し、通常種/水の資源減算と発射音を一度だけ実行。栽培種は既存費用ルールを保ち、発射時に種を予約して利用可能数から差し引き、弾の着地成功時に袋seedsを消費。形成FX/飛翔画像を分離し、頭の葉間から表示。実際のaimはマウス地面クリックの方向、姿だけ正面共通。移動は継続可。
 - 入力/セッション: aim点と選択中の種を入力時に固定、弾の発射originは発射時点のplayer位置。溜め中の追加入力は拒否し、タイマーを再開始しない。発射後の戻りは次入力で中断可。資源不足/弾上限/無効地点では開始せず、発射時も再確認。失敗時は消費/弾なしで通常表示へ戻る。pause/menu/viewpointでtimer停止、load/newgame/death時に未発射を破棄。pendingは保存せず、既存`session.fire`即時APIは維持。栽培種の発射時予約/着地時消費も従来ルールを保持。
 - 自己確認: logic16 PASS（[結果](../evidence/spr01/fire-integration/self/logic-results.json)）、実GPU1回11 PASS（[結果](../evidence/spr01/fire-integration/self/gpu-results.json)）。実装メモ（[implementation-note.md](../evidence/spr01/fire-integration/self/implementation-note.md)）、凍結68ファイルの[対象hash](../evidence/spr01/fire-integration/self/target-hashes.json)、保全128件hash一致（[preserved-check.json](../evidence/spr01/fire-integration/self/preserved-check.json)）。親はコード差分と水の実画面を確認し、重大な崩れなし。GPUで水の400ms発射時、projectile native 8×8の初期投影とsocketが (320,180) で一致、音1回、種の粒FX、移動継続/4方向共用/歩行復帰を確認。menu/viewpoint停止・load/newgame/death中断を含む。
@@ -530,7 +530,7 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 
 - 対象: 共有HEAD `151a53f20255489ef08481e2a353258cd8ac559c`＋既存差分。正面v3共用の旧仮組込みを、4方向行を持つ`assets/sprites/poc/player/fire-directions-v1/`へ更新。runtime 99ファイルを概念素材からbyte copyし、`source-copy.json`へ記録。旧正面仮組込み時の結果は直前節に履歴として残す。
 - 承認済み素材条件: 24×36px/anchor(12,34)、down/left/right/up。種4コマ `[66,100,100,134]ms`/400ms/66ms発射で全コマ通常眼。水7コマ `[80,100,100,120,100,120,180]ms`/800ms/400ms発射。水の正面キャラクター7枚・形成FX7枚・飛翔画像はv3とbyte一致。左右は反転せず、背面は顔なし。socketは左(11,14)、他(12,14)。
-- 実装メモ: [game-self実装報告](../evidence/spr01/fire-directions/game-self/implementation-note.md)、[runtime対象hash](../evidence/spr01/fire-directions/game-self/target-hashes.json)、[runtime copy一覧](../evidence/spr01/fire-directions/game-self/source-copy.json)、[保全確認](../evidence/spr01/fire-directions/game-self/preserved-check.json)。実装側は通常向きと発射中のマウス向きを連動。socketは投影上の弾表示に使い、論理発射起点・aim target・速度・範囲・衝突・保存への変更なし。ゲーム起動入口は[`run_poc.bat`](../launchers/run_poc.bat)。
+- 実装メモ: [game-self実装報告](../evidence/spr01/fire-directions/game-self/implementation-note.md)、[runtime対象hash](../evidence/spr01/fire-directions/game-self/target-hashes.json)、[runtime copy一覧](../evidence/spr01/fire-directions/game-self/source-copy.json)、[保全確認](../evidence/spr01/fire-directions/game-self/preserved-check.json)。実装側は通常向きと発射中のマウス向きを連動。socketは投影上の弾表示に使い、論理発射起点・aim target・速度・範囲・衝突・保存への変更なし。当時の通常入口は `launchers/run_poc.bat`（現在は削除済み、履歴から復元可能）。
 - 素材担当自己確認: [self-check](../evidence/spr01/fire-directions/asset-self/self-check.json)で44キャラクター/44形成FXコマ、正面水のbyte一致、正面種の6画素（目周辺のみ）の変更、左右非反転を記録。[preserved-check](../evidence/spr01/fire-directions/asset-self/preserved-check.json)では保全204件一致。素材担当はGodot import・描画を実行していない。
 - ゲーム実装担当の自己確認: 専用logic **16 PASS / 0 FAIL**（[結果](../evidence/spr01/fire-directions/game-self/logic-results.json)）。実GPU **26 PASS / 0 FAIL**（[結果](../evidence/spr01/fire-directions/game-self/gpu-results.json)）。left/right/up×種/水の開始向き、atlas/formation/影/足元/整数格子、socketと飛翔表示・logical origin、通常歩行復帰などを確認。左の射出口(319,180)、右/上(320,180)を画像上で確認。GPU位相比較は[contact sheet](../evidence/spr01/fire-directions/game-self/game-directions-contact4x.png)、[GIF](../evidence/spr01/fire-directions/game-self/game-directions-phase4x.gif)。
 - 実装担当記録ではGodot 4.7.2 / Vulkan Forward+、RTX 5070 Ti、hidden起動を使用し、OS入力/前面化/カーソル操作なし。import完了・終了コード0、script parse/runtime errorなし。
@@ -547,3 +547,12 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - 独立確認は集計10 PASS / 0 FAIL / 6 NOT_RUN。起動smoke内の6観測PASSは集計上の1条件に含む。対象13件のhash一致、実ユーザー保存3件の前後不変、削除した5 batの履歴blob復元一致、Godot終了0件を確認。独立GPU再実行はなく、自己GPUのtitle/play/map画像を独立目視しました（[独立報告](../evidence/poc3/source/independent/report.md)）。
 - 独立probe終了後にObjectDB 37件とresource 20件の残存診断を記録。probeの終了処理不足の可能性はありますが、原因の追加切分けは未実施で、通常ゲームの不具合とは断定しません。
 - NOT_RUN: OS経由のbat起動と物理入力、7 labの個別実起動、独立GPU再実行、広いゲーム回帰・保存往復、Windows書き出し。これらの結果やPoC3ゲーム機能の受入を本記録は示しません。
+- GUI確認時の制約: SOURCE時の `_init` 内 `unfocusable` 設定は、ウィンドウ生成後も保持されることを保証せず、起動直後の非前面化を立証しませんでした。後続SAVE-BASE試験でも同設定値の変化を観測し、probe開始時設定後の値だけを限定確認しています。SOURCEの描画・画面状態のPASSはその観測範囲に限り、起動時のフォーカス安全を包括保証しません（[SAVE-BASE自己報告](../evidence/poc3/save_base/self/report.md)）。
+
+## POC3-SAVE-BASE 保存先・形式の先行分離（2026-10-24）
+
+親は4ファイル8行の実差分、自己・独立結果、版表示画像を確認し、旧保存との分離とPoC3作業版表示の範囲を限定技術受入しました。これは後続機能の保存対応やPoC3全体の完成を示しません。
+
+- 通常入口 `run_game.bat` とPoC2共有コードパスを維持し、保存先を `user://poc3_saves`、外包を `greenvader_poc3_1`、内包を `greenvader-poc3` / version 3へ分離。旧PoC/PoC2保存の自動読込・移行・書込は行いません。ウィンドウとタイトル表示は「PoC3 作業版」へ変更。
+- 自己保存試験は8 PASS。独立は初回7 PASS / 1 FAILを保持し、JSON文字列表現での同値int/float差を切り分ける限定追試1 PASSを経て最終8条件PASS / 未解決FAIL 0 / 3 NOT_RUN。初回FAILと追試を合算していません。
+- 対象4ゲームファイルと2試験ファイルのhash一致、旧実ユーザー保存3件の前後不変を確認。自己GUIで版表示を確認しましたが、起動瞬間の非前面化保証は未確認。独立GUI、物理入力、広い回帰、長時間試験、Windows書き出しはNOT_RUN。自己[報告・結果・画面](../evidence/poc3/save_base/self/report.md)、独立[報告・結果](../evidence/poc3/save_base/independent/report.md)を参照。

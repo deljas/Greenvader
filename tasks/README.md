@@ -2,14 +2,15 @@
 
 ## PoC3の実行計画（2026-10-24）
 
-全16論点の設計合意を完了し、仕様は[PoC3仕様正本](../docs/POC3_SPEC.md)、順序と受入は[開発計画](../docs/03_DEVELOPMENT_PLAN.md)へ集約しました。今回は資料整備までで、実装は未着手です。状態・担当・編集予約は各票の管理欄だけが正本です。下記より後のPoC2・旧版の記述は過去の履歴として参照します。
+全16論点の設計合意を完了し、仕様は[PoC3仕様正本](../docs/POC3_SPEC.md)、順序と受入は[開発計画](../docs/03_DEVELOPMENT_PLAN.md)へ集約しました。PoC3は開発中で、この索引はゲーム機能全体の完成を示しません。状態・担当・編集予約は各票の管理欄を、全体の現在地は[STATUS](../docs/STATUS.md)を参照してください。下記より後のPoC2・旧版の記述は過去の履歴として参照します。
 
 | 段階 | 作業票 | 主な依存・接続 |
 |---|---|---|
 | 履歴保全・通常入口 | [SOURCE](POC3_SOURCE.md) | 最初に既存成果を保全 |
-| 可視性とマップ | [VISIBILITY](POC3_VISIBILITY.md)、[MAP-INFO](POC3_MAP_INFO.md) | SOURCE、検知/描画を分離して接続 |
-| UIと操作 | [PLANT-UI](POC3_PLANT_UI.md)、[INPUT](POC3_INPUT.md) | SOURCE、価格/播種範囲と接続 |
-| 開拓と生産 | [WATER-GROWTH](POC3_WATER_GROWTH.md)、[AREA-SEED](POC3_AREA_SEED.md)、[CROP-PRICING](POC3_CROP_PRICING.md) | SOURCE、UIと保存を調整 |
+| 保存先・形式の分離 | [SAVE-BASE](POC3_SAVE_BASE.md) | SOURCE後、機能実装前に旧セーブとの分離を確認 |
+| 可視性とマップ | [VISIBILITY](POC3_VISIBILITY.md)、[MAP-INFO](POC3_MAP_INFO.md) | SAVE-BASE後、検知/描画を分離して接続 |
+| UIと操作 | [PLANT-UI](POC3_PLANT_UI.md)、[INPUT](POC3_INPUT.md) | SAVE-BASE後、価格/播種範囲と接続 |
+| 開拓と生産 | [WATER-GROWTH](POC3_WATER_GROWTH.md)、[AREA-SEED](POC3_AREA_SEED.md)、[CROP-PRICING](POC3_CROP_PRICING.md) | SAVE-BASE後、UIと保存を調整 |
 | 前線とおたすけ | [WORLD-LAYOUT](POC3_WORLD_LAYOUT.md)、[ENEMY-TIERS](POC3_ENEMY_TIERS.md)、[LOCUST](POC3_LOCUST.md)、[HELPERS](POC3_HELPERS.md) | 配置→階級、給水/食害/検知/作業表示を接続 |
 | 表示基盤と反射 | [SPRITE-VIEW](POC3_SPRITE_VIEW.md)、[REFLECTION](POC3_REFLECTION.md) | 表示基盤は必要に応じ先行、反射は基盤後 |
 | 統合と自己確認 | [INTEGRATION](POC3_INTEGRATION.md) | 上記全機能、保存方式は早期調整 |
@@ -171,9 +172,9 @@ Codexなら状態を `作業中(codex)`、担当ツールを `codex` にしま�
 
 ## 新規票と起動入口
 
-- 通常ゲームはリポジトリ直下の[`run_game.bat`](../run_game.bat)から起動し、現在の `main_scene` は `scenes/poc2.tscn`。現役lab 7件の用途は[起動一覧](../launchers/README.md)を参照。入口整理の検証結果は確認中であり、この索引は技術受入を示さない。
+- 通常ゲームはリポジトリ直下の[`run_game.bat`](../run_game.bat)から起動し、現在の画面表示は「PoC3 作業版」です。現役lab 7件の用途は[起動一覧](../launchers/README.md)を参照。操作は[暫定ガイド](../docs/POC3_GUIDE.md)、現状と検証範囲は[STATUS](../docs/STATUS.md)・[検証記録](../docs/VALIDATION.md)を参照してください。
 
 - テンプレート: [TASK_TEMPLATE.md](../TASK_TEMPLATE.md)。管理欄、目的、編集可能範囲、合格条件、証拠、依存、終了条件を埋める。
 - Codex: [AGENTS.md](../AGENTS.md) と [START_PROMPT.md](../START_PROMPT.md)。
 - Claude Code: [CLAUDE.md](../CLAUDE.md) と [.claude/README.md](../.claude/README.md)。
-- 完了したlabは参照資産として保持します。PoC3のゲーム機能は未実装です。ClaudeのAPI呼出しやゲーム実装を自動開始する設定は追加していません。
+- 完了したlabは参照資産として保持します。SAVE-BASEは保存先/形式の分離に限定した技術受入であり、PoC3のゲーム機能は開発中です。ClaudeのAPI呼出しやゲーム実装を自動開始する設定は追加していません。

@@ -33,7 +33,7 @@ static func decode(value: Variant) -> Variant:
  return value
 
 static func capture(s: RefCounted) -> Dictionary:
- var data: Dictionary={"format":"greenvader-poc2","version":2,"map":s.MAP_PATH,"world":s.state.to_dict(),"clock":s.clock.to_dict(),"growth":s.growth.to_dict(),"spread":s.spread.to_dict(),"far":s.far.to_dict(),"walls":s.wall_growth.to_dict(),"rng_seed":str(s.rng.seed),"rng_state":str(s.rng.state),"known":Marshalls.raw_to_base64(s.known),"visible":Marshalls.raw_to_base64(s.visible),"values":{},"entities":{}}
+ var data: Dictionary={"format":"greenvader-poc3","version":3,"map":s.MAP_PATH,"world":s.state.to_dict(),"clock":s.clock.to_dict(),"growth":s.growth.to_dict(),"spread":s.spread.to_dict(),"far":s.far.to_dict(),"walls":s.wall_growth.to_dict(),"rng_seed":str(s.rng.seed),"rng_state":str(s.rng.state),"known":Marshalls.raw_to_base64(s.known),"visible":Marshalls.raw_to_base64(s.visible),"values":{},"entities":{}}
  for key: String in SCALARS: data.values[key]=encode(s.get(key))
  for key: String in ROWS: data.entities[key]=encode(s.get(key))
  return data
@@ -76,7 +76,7 @@ static func _shape(data: Variant,template: Variant) -> bool:
  return typeof(data)==typeof(template)
 
 static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
- if not _safe(data) or data.get("format","")!="greenvader-poc2" or data.get("version",0)!=2 or data.get("map","")!=s.MAP_PATH:
+ if not _safe(data) or data.get("format","")!="greenvader-poc3" or data.get("version",0)!=3 or data.get("map","")!=s.MAP_PATH:
   return s.result(false,"invalid_save")
  var baseline: Dictionary=capture(s)
  # Snapshot contents may differ, but every top-level structural field must exist.

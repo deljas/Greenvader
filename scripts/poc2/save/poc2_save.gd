@@ -1,9 +1,9 @@
 extends RefCounted
-## PoC2-only atomic save wrapper. A failed restore never touches the active session.
+## Current PoC3 atomic save wrapper. A failed restore never touches the active session.
 const Session: GDScript = preload("res://scripts/poc2/poc2_session.gd")
-const DEFAULT_DIR: String = "user://poc2_saves"
+const DEFAULT_DIR: String = "user://poc3_saves"
 const FILE_NAME: String = "slot1.json"
-const FORMAT: String = "greenvader_poc2_1"
+const FORMAT: String = "greenvader_poc3_1"
 
 static func save_game(session: RefCounted, directory: String = DEFAULT_DIR) -> Dictionary:
 	var absolute: String = ProjectSettings.globalize_path(directory)

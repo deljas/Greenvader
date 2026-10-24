@@ -1,5 +1,5 @@
 extends Node
-## Independent PoC2 entry. No OS input automation; all game commands go to the session.
+## Current game entry on the shared PoC code path. All commands go to the session.
 const Session: GDScript=preload("res://scripts/poc2/poc2_session.gd")
 const View: GDScript=preload("res://scripts/poc2/view/world_view.gd")
 const Ui: GDScript=preload("res://scripts/poc2/ui/poc2_ui.gd")
@@ -28,7 +28,7 @@ var muted: bool=false
 var _tone: AudioStreamPlayer
 
 func _ready() -> void:
-	get_window().title="グリーンベーダー｜PoC 第二弾"
+	get_window().title="グリーンベーダー｜PoC3 作業版"
 	get_window().content_scale_mode=Window.CONTENT_SCALE_MODE_VIEWPORT
 	get_window().content_scale_aspect=Window.CONTENT_SCALE_ASPECT_KEEP
 	get_window().content_scale_stretch=Window.CONTENT_SCALE_STRETCH_INTEGER

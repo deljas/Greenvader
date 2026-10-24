@@ -1,0 +1,246 @@
+{
+  "checks": [
+    {
+      "detail": "Valid old PoC2 state has seeds=4321/hp=23; new Session remains initial state",
+      "name": "fresh_session_does_not_adopt_old_progress",
+      "status": "PASS"
+    },
+    {
+      "detail": "Old slots exist; new default slot does not yet exist",
+      "name": "new_slot_is_separate",
+      "status": "PASS"
+    },
+    {
+      "detail": "Modified seeds/hp/water/unlock and complete serialized state must survive default save/load",
+      "name": "new_format_roundtrip_preserves_full_state",
+      "status": "FAIL"
+    },
+    {
+      "detail": "Outer greenvader_poc3_1; inner greenvader-poc3/version3",
+      "name": "new_file_has_poc3_identity",
+      "status": "PASS"
+    },
+    {
+      "detail": "Explicit load of isolated old outer format returns no candidate session",
+      "name": "legacy_outer_rejected_active_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "Direct restore of old inner format/version must reject without adoption",
+      "name": "legacy_inner_rejected_active_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "Correct new headers with impossible negative HP rejected by wrapper and direct restore",
+      "name": "invalid_payload_rejected_active_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "PoC/PoC2 slots and backup retain exact bytes/hash; PoC2 directory still has exactly two files",
+      "name": "legacy_fixtures_preserved",
+      "status": "PASS"
+    }
+  ],
+  "context": {
+    "actual_diff": "diff --git a/scripts/poc2/poc2_main.gd b/scripts/poc2/poc2_main.gd\nindex 51deeab..49e40ad 100644\n--- a/scripts/poc2/poc2_main.gd\n+++ b/scripts/poc2/poc2_main.gd\n@@ -1,5 +1,5 @@\n extends Node\n-## Independent PoC2 entry. No OS input automation; all game commands go to the session.\n+## Current game entry on the shared PoC code path. All commands go to the session.\n const Session: GDScript=preload(\"res://scripts/poc2/poc2_session.gd\")\n const View: GDScript=preload(\"res://scripts/poc2/view/world_view.gd\")\n const Ui: GDScript=preload(\"res://scripts/poc2/ui/poc2_ui.gd\")\n@@ -28,7 +28,7 @@ var muted: bool=false\n var _tone: AudioStreamPlayer\n \n func _ready() -> void:\n-\tget_window().title=\"グリーンベーダー｜PoC 第二弾\"\n+\tget_window().title=\"グリーンベーダー｜PoC3 作業版\"\n \tget_window().content_scale_mode=Window.CONTENT_SCALE_MODE_VIEWPORT\n \tget_window().content_scale_aspect=Window.CONTENT_SCALE_ASPECT_KEEP\n \tget_window().content_scale_stretch=Window.CONTENT_SCALE_STRETCH_INTEGER\ndiff --git a/scripts/poc2/save/poc2_save.gd b/scripts/poc2/save/poc2_save.gd\nindex a3e1673..ff97722 100644\n--- a/scripts/poc2/save/poc2_save.gd\n+++ b/scripts/poc2/save/poc2_save.gd\n@@ -1,9 +1,9 @@\n extends RefCounted\n-## PoC2-only atomic save wrapper. A failed restore never touches the active session.\n+## Current PoC3 atomic save wrapper. A failed restore never touches the active session.\n const Session: GDScript = preload(\"res://scripts/poc2/poc2_session.gd\")\n-const DEFAULT_DIR: String = \"user://poc2_saves\"\n+const DEFAULT_DIR: String = \"user://poc3_saves\"\n const FILE_NAME: String = \"slot1.json\"\n-const FORMAT: String = \"greenvader_poc2_1\"\n+const FORMAT: String = \"greenvader_poc3_1\"\n \n static func save_game(session: RefCounted, directory: String = DEFAULT_DIR) -> Dictionary:\n \tvar absolute: String = ProjectSettings.globalize_path(directory)\ndiff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd\nindex 89f6dda..6db0c4b 100644\n--- a/scripts/poc2/simulation/persistence.gd\n+++ b/scripts/poc2/simulation/persistence.gd\n@@ -33,7 +33,7 @@ static func decode(value: Variant) -> Variant:\n  return value\n \n static func capture(s: RefCounted) -> Dictionary:\n- var data: Dictionary={\"format\":\"greenvader-poc2\",\"version\":2,\"map\":s.MAP_PATH,\"world\":s.state.to_dict(),\"clock\":s.clock.to_dict(),\"growth\":s.growth.to_dict(),\"spread\":s.spread.to_dict(),\"far\":s.far.to_dict(),\"walls\":s.wall_growth.to_dict(),\"rng_seed\":str(s.rng.seed),\"rng_state\":str(s.rng.state),\"known\":Marshalls.raw_to_base64(s.known),\"visible\":Marshalls.raw_to_base64(s.visible),\"values\":{},\"entities\":{}}\n+ var data: Dictionary={\"format\":\"greenvader-poc3\",\"version\":3,\"map\":s.MAP_PATH,\"world\":s.state.to_dict(),\"clock\":s.clock.to_dict(),\"growth\":s.growth.to_dict(),\"spread\":s.spread.to_dict(),\"far\":s.far.to_dict(),\"walls\":s.wall_growth.to_dict(),\"rng_seed\":str(s.rng.seed),\"rng_state\":str(s.rng.state),\"known\":Marshalls.raw_to_base64(s.known),\"visible\":Marshalls.raw_to_base64(s.visible),\"values\":{},\"entities\":{}}\n  for key: String in SCALARS: data.values[key]=encode(s.get(key))\n  for key: String in ROWS: data.entities[key]=encode(s.get(key))\n  return data\n@@ -76,7 +76,7 @@ static func _shape(data: Variant,template: Variant) -> bool:\n  return typeof(data)==typeof(template)\n \n static func restore(s: RefCounted,data: Dictionary) -> Dictionary:\n- if not _safe(data) or data.get(\"format\",\"\")!=\"greenvader-poc2\" or data.get(\"version\",0)!=2 or data.get(\"map\",\"\")!=s.MAP_PATH:\n+ if not _safe(data) or data.get(\"format\",\"\")!=\"greenvader-poc3\" or data.get(\"version\",0)!=3 or data.get(\"map\",\"\")!=s.MAP_PATH:\n   return s.result(false,\"invalid_save\")\n  var baseline: Dictionary=capture(s)\n  # Snapshot contents may differ, but every top-level structural field must exist.\ndiff --git a/scripts/poc2/ui/poc2_ui.gd b/scripts/poc2/ui/poc2_ui.gd\nindex 85c67c8..99fecee 100644\n--- a/scripts/poc2/ui/poc2_ui.gd\n+++ b/scripts/poc2/ui/poc2_ui.gd\n@@ -127,7 +127,7 @@ func show_menu(title: bool = false) -> void:\n \tvar box: VBoxContainer=VBoxContainer.new()\n \tmenu.add_child(box)\n \tvar label: Label=Label.new()\n-\tlabel.text=\"グリーンベーダー PoC 2\" if title else \"一時停止\"\n+\tlabel.text=\"グリーンベーダー PoC3 作業版\" if title else \"一時停止\"\n \tbox.add_child(label)\n \tvar actions: Array[String]=[]\n \tactions.assign([\"new\",\"load\",\"help\"] if title else [\"resume\",\"save\",\"load\",\"new\",\"help\"])",
+    "content_reservation": "11:- 予約中の共有資源: 第1段階はなし（Godot実行・import・Git index/commitなし）。第2段階でGodot実行・import（Codex側の実行がないことを確認してから）を予約する",
+    "head": "aecdf159ea46ba058d10ff18f785f4fa15fafde3",
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "processes_before": 0.0,
+    "real_user_saves_before": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7",
+        "size": 58698.0
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC",
+        "size": 423088.0
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0",
+        "size": 411498.0
+      }
+    ],
+    "source_hashes_before": [
+      {
+        "actual": "0C56915DA2DAC6818D05B5DB57090DF3E5EE941BE222124D1F5B3C4B70721660",
+        "expected": "0C56915DA2DAC6818D05B5DB57090DF3E5EE941BE222124D1F5B3C4B70721660",
+        "matches": true,
+        "path": "scripts/poc2/save/poc2_save.gd"
+      },
+      {
+        "actual": "CBBADAAAFC3A9B7DE0F0EA5F183E4BE9E265570627728E1B910C7E1B503014AC",
+        "expected": "CBBADAAAFC3A9B7DE0F0EA5F183E4BE9E265570627728E1B910C7E1B503014AC",
+        "matches": true,
+        "path": "scripts/poc2/simulation/persistence.gd"
+      },
+      {
+        "actual": "DF9C8149DB17F2B7AD2CBA43B3D1B6978EFE3DDD1A637CC171A4DB3C1DC6B755",
+        "expected": "DF9C8149DB17F2B7AD2CBA43B3D1B6978EFE3DDD1A637CC171A4DB3C1DC6B755",
+        "matches": true,
+        "path": "scripts/poc2/poc2_main.gd"
+      },
+      {
+        "actual": "58CB09A3EE4350F2FDD5FFF220EBE7A294B9675B5FE383C0EE5039B7A0BA7E14",
+        "expected": "58CB09A3EE4350F2FDD5FFF220EBE7A294B9675B5FE383C0EE5039B7A0BA7E14",
+        "matches": true,
+        "path": "scripts/poc2/ui/poc2_ui.gd"
+      },
+      {
+        "actual": "F9C376492D23660ABCC7B2B8E3E2892089B3A5588ADC9E5E4876E3B8469D7F76",
+        "expected": "F9C376492D23660ABCC7B2B8E3E2892089B3A5588ADC9E5E4876E3B8469D7F76",
+        "matches": true,
+        "path": "tests/poc3/save_base/self_save.gd"
+      },
+      {
+        "actual": "7C77DAA33732DD70E34D6575B4720E33AA6885DC0CA0A4BF6DB25310F43CC4C8",
+        "expected": "7C77DAA33732DD70E34D6575B4720E33AA6885DC0CA0A4BF6DB25310F43CC4C8",
+        "matches": true,
+        "path": "tests/poc3/save_base/self_title.gd"
+      }
+    ],
+    "start_time": "2026-10-24T15:17:37.8341629+09:00",
+    "source_hashes_after": [
+      {
+        "path": "scripts/poc2/save/poc2_save.gd",
+        "actual": "0C56915DA2DAC6818D05B5DB57090DF3E5EE941BE222124D1F5B3C4B70721660",
+        "matches": true
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "actual": "CBBADAAAFC3A9B7DE0F0EA5F183E4BE9E265570627728E1B910C7E1B503014AC",
+        "matches": true
+      },
+      {
+        "path": "scripts/poc2/poc2_main.gd",
+        "actual": "DF9C8149DB17F2B7AD2CBA43B3D1B6978EFE3DDD1A637CC171A4DB3C1DC6B755",
+        "matches": true
+      },
+      {
+        "path": "scripts/poc2/ui/poc2_ui.gd",
+        "actual": "58CB09A3EE4350F2FDD5FFF220EBE7A294B9675B5FE383C0EE5039B7A0BA7E14",
+        "matches": true
+      },
+      {
+        "path": "tests/poc3/save_base/self_save.gd",
+        "actual": "F9C376492D23660ABCC7B2B8E3E2892089B3A5588ADC9E5E4876E3B8469D7F76",
+        "matches": true
+      },
+      {
+        "path": "tests/poc3/save_base/self_title.gd",
+        "actual": "7C77DAA33732DD70E34D6575B4720E33AA6885DC0CA0A4BF6DB25310F43CC4C8",
+        "matches": true
+      }
+    ],
+    "real_user_saves_after": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "size": 58698,
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "size": 423088,
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "size": 411498,
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "real_user_saves_unchanged": true,
+    "processes_after": 0,
+    "head_after": "aecdf159ea46ba058d10ff18f785f4fa15fafde3"
+  },
+  "display": "headless",
+  "failures": 1.0,
+  "godot": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938.0,
+    "major": 4.0,
+    "minor": 7.0,
+    "patch": 2.0,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0.0
+  },
+  "legacy_fixture_hashes": {
+    "user://poc2_saves/slot1.json": "98050d72647a6a918bbeeef95f58f3fdb71d8e8f8172898df63decc35b7ebca2",
+    "user://poc2_saves/slot1.json.bak": "98050d72647a6a918bbeeef95f58f3fdb71d8e8f8172898df63decc35b7ebca2",
+    "user://poc_saves/slot.json": "026319a9850b33af886d65bee0be1a6c4b77f62c7888649523a4959cfa0161cb"
+  },
+  "not_run": [
+    "independent_gui_and_input",
+    "broad_gameplay_and_long_play",
+    "exported_windows_build"
+  ],
+  "roundtrip_followup": {
+    "direct_independent_expectations": true,
+    "equal_numeric_type_differences": [
+      "$.entities.enemies[0].id",
+      "$.entities.enemies[0].source",
+      "$.entities.enemies[1].id",
+      "$.entities.enemies[1].source",
+      "$.entities.enemies[2].id",
+      "$.entities.enemies[2].source",
+      "$.entities.enemies[3].id",
+      "$.entities.enemies[3].source",
+      "$.entities.enemies[4].id",
+      "$.entities.enemies[4].source",
+      "$.entities.enemies[5].id",
+      "$.entities.enemies[5].source",
+      "$.entities.enemies[6].id",
+      "$.entities.enemies[6].source",
+      "$.entities.enemies[7].id",
+      "$.entities.enemies[7].source",
+      "$.entities.enemies[8].id",
+      "$.entities.enemies[8].source",
+      "$.entities.enemies[9].id",
+      "$.entities.enemies[9].source",
+      "$.entities.enemies[10].id",
+      "$.entities.enemies[10].source",
+      "$.entities.enemies[11].id",
+      "$.entities.enemies[11].source",
+      "$.entities.enemies[12].id",
+      "$.entities.enemies[12].source",
+      "$.entities.nests[0].id",
+      "$.entities.nests[1].id",
+      "$.entities.nests[2].id",
+      "$.entities.nests[3].id",
+      "$.entities.nests[4].id",
+      "$.entities.fossils[0].id",
+      "$.entities.fossils[0].nest_id",
+      "$.entities.fossils[1].id",
+      "$.entities.fossils[1].nest_id",
+      "$.entities.fossils[2].id",
+      "$.entities.fossils[2].nest_id",
+      "$.entities.fossils[3].id",
+      "$.entities.fossils[3].nest_id",
+      "$.entities.fossils[4].id",
+      "$.entities.fossils[4].nest_id",
+      "$.entities.fossils[5].id",
+      "$.entities.fossils[5].nest_id",
+      "$.entities.fossils[6].id",
+      "$.entities.fossils[6].nest_id"
+    ],
+    "load_ok": true,
+    "method": "One load of existing saved fixture; all values compared exactly, allowing equal int/float values; no tolerance and no game code changes",
+    "original_string_equal": false,
+    "status": "PASS",
+    "value_differences": []
+  },
+  "user_data": "C:/godot/greenvader/evidence/poc3/save_base/independent/profile/roaming/Godot/app_userdata/グリーンベーダー",
+  "final_summary": {
+    "initial_fail": 1,
+    "unresolved_fail": 0,
+    "roundtrip_followup_pass": 1,
+    "initial_pass": 7,
+    "pass": 8,
+    "not_run": 3
+  }
+}

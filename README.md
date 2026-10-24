@@ -1,6 +1,6 @@
 # グリーンベーダー
 
-Godot製のWindows向け一人用ゲームです。現在の通常起動対象は第二弾PoC（PoC2）です。PoC3の設計は合意済みですが、PoC3機能の実装は未着手です。通常起動はリポジトリ直下の [`run_game.bat`](run_game.bat) を使います。
+Godot製のWindows向け一人用ゲームです。通常起動はリポジトリ直下の [`run_game.bat`](run_game.bat) から行い、現在の画面表示は「PoC3 作業版」です。ゲーム機能は引き続き開発中で、試遊版の完成を意味しません。
 
 ## Codex / Claude Code から再開する
 
@@ -9,15 +9,15 @@ Godot製のWindows向け一人用ゲームです。現在の通常起動対象�
 - Codex: [AGENTS.md](AGENTS.md)、[開始指示](START_PROMPT.md)。
 - Claude Code: [CLAUDE.md](CLAUDE.md)、[設定と起動手順](.claude/README.md)、[開始指示](.claude/START_PROMPT.md)。
 - 分担: CodexはAstra / Sol（実装と独立検証は別）/ Luna。Claudeはメイン・設計Opus / Sonnet（実装と独立検証は別）/ Haiku。
-- PoC3の仕様と進行は [PoC3仕様](docs/POC3_SPEC.md)、[実行計画](docs/03_DEVELOPMENT_PLAN.md)、[共通タスク一覧](tasks/README.md)を参照してください。履歴保全と起動入口の整理は親が限定技術受入しました。検証範囲と未確認項目は[検証記録](docs/VALIDATION.md)に記録しています。
+- PoC3の仕様と進行は [PoC3仕様](docs/POC3_SPEC.md)、[実行計画](docs/03_DEVELOPMENT_PLAN.md)、[共通タスク一覧](tasks/README.md)を参照してください。各作業の現在地は[STATUS](docs/STATUS.md)、検証範囲と未確認項目は[検証記録](docs/VALIDATION.md)に記録しています。
 
 Claudeはこのフォルダで `claude --model opus` を起動できます。ローカルCLIの存在と設定の検査は、モデルの利用権や実際のエージェント呼び出し成功を保証しません。実行モデルは起動先で確認してください。
 
 ## 開発状況
 
-- 現在のプレイ対象：PoC2。PoC3は設計合意済みで、ゲーム機能の実装・統合・独立検証はこれからです。
+- 現在の作業版：PoC3作業版。保存先・形式は旧PoCセーブから分離済みですが、PoC3ゲーム機能の実装・統合・独立検証は進行中です。
 - 開発環境：Godot `4.7.2.stable.official.ed1daf0bf`。実行ファイルは `C:/godot/Godot_v4.7.2-stable_win64_console.exe`。
-- 通常起動の現在の対象は [`scenes/poc2.tscn`](scenes/poc2.tscn) です。現役lab 7件と用途は[起動一覧](launchers/README.md)を参照してください。
+- 通常起動はPoC2共有コード上の [`scenes/poc2.tscn`](scenes/poc2.tscn) を使い、画面タイトルは「PoC3 作業版」です。現役lab 7件と用途は[起動一覧](launchers/README.md)を参照してください。
 - PoC2以前の試作・検証資料は当時の履歴として保持しています。既存履歴の保全は新しい動作検証を意味しません。
 
 ## 開発記録

@@ -2,25 +2,26 @@
 
 ## PoC3実行計画（2026-10-24合意）
 
-PoC3はユーザー合意済みの設計を実装・独立検証し、植物へ前線を任せる意味を試遊できる新規開始版としてまとめます。詳細な受入条件と仮値は[POC3仕様正本](POC3_SPEC.md)、合意の集約は[決定記録](DECISIONS.md)、現状は[STATUS](STATUS.md)を参照してください。以下は大枠の順序であり、個別状態と担当の正本は各作業票です。必要な依存を満たす場合は2D表示基盤などを前倒しできます。従来の計画は記載時点の履歴であり、本節がPoC3の現行実行計画です。
+PoC3はユーザー合意済みの設計を実装・独立検証し、植物へ前線を任せる意味を試遊できる新規開始版としてまとめます。既存成果の保全と通常入口の統一の後に保存先/形式を分離し、その後に機能群へ進みます。詳細な受入条件と仮値は[PoC3仕様正本](POC3_SPEC.md)、合意の集約は[決定記録](DECISIONS.md)、現状は[STATUS](STATUS.md)を参照してください。以下は大枠の順序であり、個別状態と担当の正本は各作業票です。必要な依存を満たす場合は2D表示基盤などを前倒しできます。従来の計画は記載時点の履歴であり、本節がPoC3の現行実行計画です。
 
 | 順序 | 作業票 | 範囲 | 依存・順序上の条件 |
 |---|---|---|---|
 | 準備 | [POC3-00](../tasks/POC3_00.md) | 合意事項と論点の整理 | 設計記録。実装ではない |
 | 1 | [POC3-SOURCE](../tasks/POC3_SOURCE.md) | 既存差分・履歴・素材の保全、通常起動入口の統一 | 最初に実行。削除と履歴保存の判断は親が管理、pushなし |
-| 2a | [POC3-VISIBILITY](../tasks/POC3_VISIBILITY.md) | 通常画面で敵・巣・親玉が距離で消える問題 | SOURCE後 |
-| 2b | [POC3-MAP-INFO](../tasks/POC3_MAP_INFO.md) | マップ上の敵・巣・化石の検知・表示・記憶・回収 | SOURCE後。VISIBILITYと共有する表示箇所を調整 |
-| 2c | [POC3-PLANT-UI](../tasks/POC3_PLANT_UI.md) | お気に入り5枠、植物一覧・生産表示 | SOURCE後。INPUTとUI編集を調整 |
-| 2d | [POC3-INPUT](../tasks/POC3_INPUT.md) | 全体キー/マウス操作、UIと戦闘の入力分離 | SOURCE後。PLANT-UI・AREA-SEEDの操作と調整 |
-| 3a | [POC3-AREA-SEED](../tasks/POC3_AREA_SEED.md) | 1/3/5/7幅の範囲播種と消費・プレビュー | SOURCEとINPUT後 |
-| 3b | [POC3-WATER-GROWTH](../tasks/POC3_WATER_GROWTH.md) | 栽培植物・草地の一度給水、成長、再緑化 | SOURCE後。HELPERSの給水対象と調整 |
-| 3c | [POC3-CROP-PRICING](../tasks/POC3_CROP_PRICING.md) | 同種現存数に応じた価格、返還、表示更新 | SOURCE後。PLANT-UI/AREA-SEEDの種決済と調整 |
-| 4a | [POC3-WORLD-LAYOUT](../tasks/POC3_WORLD_LAYOUT.md) | 中央開始、初期安全余裕、複数方向の前線配置 | SOURCE後。ENEMY-TIERSと開始地点を共有 |
+| 1a | [POC3-SAVE-BASE](../tasks/POC3_SAVE_BASE.md) | PoC3保存先・形式の先行分離、新規開始と作業版表示 | SOURCE後、各ゲーム機能変更前 |
+| 2a | [POC3-VISIBILITY](../tasks/POC3_VISIBILITY.md) | 通常画面で敵・巣・親玉が距離で消える問題 | SAVE-BASE後 |
+| 2b | [POC3-MAP-INFO](../tasks/POC3_MAP_INFO.md) | マップ上の敵・巣・化石の検知・表示・記憶・回収 | SAVE-BASE後。VISIBILITYと共有する表示箇所を調整 |
+| 2c | [POC3-PLANT-UI](../tasks/POC3_PLANT_UI.md) | お気に入り5枠、植物一覧・生産表示 | SAVE-BASE後。INPUTとUI編集を調整 |
+| 2d | [POC3-INPUT](../tasks/POC3_INPUT.md) | 全体キー/マウス操作、UIと戦闘の入力分離 | SAVE-BASE後。PLANT-UI・AREA-SEEDの操作と調整 |
+| 3a | [POC3-AREA-SEED](../tasks/POC3_AREA_SEED.md) | 1/3/5/7幅の範囲播種と消費・プレビュー | SAVE-BASEとINPUT後 |
+| 3b | [POC3-WATER-GROWTH](../tasks/POC3_WATER_GROWTH.md) | 栽培植物・草地の一度給水、成長、再緑化 | SAVE-BASE後。HELPERSの給水対象と調整 |
+| 3c | [POC3-CROP-PRICING](../tasks/POC3_CROP_PRICING.md) | 同種現存数に応じた価格、返還、表示更新 | SAVE-BASE後。PLANT-UI/AREA-SEEDの種決済と調整 |
+| 4a | [POC3-WORLD-LAYOUT](../tasks/POC3_WORLD_LAYOUT.md) | 中央開始、初期安全余裕、複数方向の前線配置 | SAVE-BASE後。ENEMY-TIERSと開始地点を共有 |
 | 4b | [POC3-ENEMY-TIERS](../tasks/POC3_ENEMY_TIERS.md) | 配置距離による固定階級、能力・報酬倍率 | WORLD-LAYOUTで開始地点を定めてから |
-| 4c | [POC3-LOCUST](../tasks/POC3_LOCUST.md) | バッタの食害、巣生産、対処、再緑化 | SOURCE後。WORLD-LAYOUT/ENEMY-TIERS/MAP-INFO/WATER-GROWTH/HELPERSと共有範囲を調整 |
-| 4d | [POC3-HELPERS](../tasks/POC3_HELPERS.md) | アーミー、ガトリンガー、スプリンクラーの仕事・退避・表示 | SOURCE後、WATER-GROWTHの給水方針と整合 |
-| 5a | [POC3-SPRITE-VIEW](../tasks/POC3_SPRITE_VIEW.md) | 3D地形上の2D表示基盤、仮素材による代表動作確認 | SOURCE後。VISIBILITY/LOCUST/HELPERSと表示範囲を調整。REFLECTIONの前提 |
-| 5b | [POC3-REFLECTION](../tasks/POC3_REFLECTION.md) | 反射像を維持した粗さ・形・動きの限定比較・修正（低優先度） | SOURCEとSPRITE-VIEW後 |
+| 4c | [POC3-LOCUST](../tasks/POC3_LOCUST.md) | バッタの食害、巣生産、対処、再緑化 | SAVE-BASE後。WORLD-LAYOUT/ENEMY-TIERS/MAP-INFO/WATER-GROWTH/HELPERSと共有範囲を調整 |
+| 4d | [POC3-HELPERS](../tasks/POC3_HELPERS.md) | アーミー、ガトリンガー、スプリンクラーの仕事・退避・表示 | SAVE-BASE後、WATER-GROWTHの給水方針と整合 |
+| 5a | [POC3-SPRITE-VIEW](../tasks/POC3_SPRITE_VIEW.md) | 3D地形上の2D表示基盤、仮素材による代表動作確認 | SAVE-BASE後。VISIBILITY/LOCUST/HELPERSと表示範囲を調整。REFLECTIONの前提 |
+| 5b | [POC3-REFLECTION](../tasks/POC3_REFLECTION.md) | 反射像を維持した粗さ・形・動きの限定比較・修正（低優先度） | SAVE-BASEとSPRITE-VIEW後 |
 | 5c | [POC3-INTEGRATION](../tasks/POC3_INTEGRATION.md) | 新規開始、保存・復元、操作案内、機能間の統合と自己確認 | 実装機能の差分を凍結・集約した後 |
 | 5d | [POC3-VERIFY](../tasks/POC3_VERIFY.md) | 独立検証、証拠、既知制約、引渡し | INTEGRATION後に実装を凍結して実施 |
 

@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "name": "isolated_profile_required",
+      "status": "PASS"
+    },
+    {
+      "name": "old_slots_not_auto_adopted",
+      "status": "PASS"
+    },
+    {
+      "name": "new_default_save_round_trip",
+      "status": "PASS"
+    },
+    {
+      "name": "new_outer_and_inner_headers",
+      "status": "PASS"
+    },
+    {
+      "name": "old_outer_rejected_session_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "old_inner_direct_restore_rejected_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_state_rejected_session_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy_fixture_files_unchanged",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "legacy_fixture_hashes": {
+    "user://poc_saves/slot.json": "983689f258caef5639fb488ed6512dcf0efdcf07787c82680d8643b7add7c292",
+    "user://poc2_saves/slot1.json": "4557311538d8724becb9fbacd0b0f0bbe88ed3263154773082aae7e67265a1cb"
+  },
+  "user_data": "C:/godot/greenvader/evidence/poc3/save_base/self/profile/roaming/Godot/app_userdata/グリーンベーダー",
+  "not_run": [
+    "physical_input",
+    "broad_gameplay_regression",
+    "long_play",
+    "legacy_progress_migration"
+  ],
+  "context": {
+    "head": "aecdf159ea46ba058d10ff18f785f4fa15fafde3",
+    "import_exit": 0,
+    "logic_exit": 0,
+    "gpu_exit": 0,
+    "real_user_saves_before": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "size": 58698,
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "size": 423088,
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "size": 411498,
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "real_user_saves_after": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "size": 58698,
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "size": 423088,
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "size": 411498,
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "real_user_saves_unchanged": true,
+    "processes_after": [],
+    "source_hashes": [
+      {
+        "path": "scripts/poc2/save/poc2_save.gd",
+        "sha256": "0C56915DA2DAC6818D05B5DB57090DF3E5EE941BE222124D1F5B3C4B70721660"
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "sha256": "CBBADAAAFC3A9B7DE0F0EA5F183E4BE9E265570627728E1B910C7E1B503014AC"
+      },
+      {
+        "path": "scripts/poc2/poc2_main.gd",
+        "sha256": "DF9C8149DB17F2B7AD2CBA43B3D1B6978EFE3DDD1A637CC171A4DB3C1DC6B755"
+      },
+      {
+        "path": "scripts/poc2/ui/poc2_ui.gd",
+        "sha256": "58CB09A3EE4350F2FDD5FFF220EBE7A294B9675B5FE383C0EE5039B7A0BA7E14"
+      },
+      {
+        "path": "tests/poc3/save_base/self_save.gd",
+        "sha256": "F9C376492D23660ABCC7B2B8E3E2892089B3A5588ADC9E5E4876E3B8469D7F76"
+      },
+      {
+        "path": "tests/poc3/save_base/self_title.gd",
+        "sha256": "7C77DAA33732DD70E34D6575B4720E33AA6885DC0CA0A4BF6DB25310F43CC4C8"
+      }
+    ]
+  },
+  "gpu_title": {
+    "entry": "res://scenes/poc2.tscn",
+    "old_fixture_not_loaded": true,
+    "root_unfocusable": true,
+    "save_dir": "user://poc3_saves",
+    "seed_count": 60,
+    "status": "PASS",
+    "ui_title": "グリーンベーダー PoC3 作業版",
+    "window_title": "グリーンベーダー｜PoC3 作業版"
+  },
+  "gpu_initial": {
+    "entry": "res://scenes/poc2.tscn",
+    "old_fixture_not_loaded": true,
+    "root_unfocusable": false,
+    "save_dir": "user://poc3_saves",
+    "seed_count": 60,
+    "status": "PASS",
+    "ui_title": "グリーンベーダー PoC3 作業版",
+    "window_title": "グリーンベーダー｜PoC3 作業版",
+    "focus_guard_status": "FAIL"
+  }
+}
