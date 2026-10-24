@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS refill_exact_five_seconds_after_arrival 100.0
+PASS restore_different_live_occupancy 
+PASS semantic_snapshot_exact 
+PASS normal_seed_hits_enemy 15.0
+PASS bazooka_kills_and_produced_no_reward 
+PASS tackle_free_hit_and_dash 
+PASS hostile_route_cannot_enter_safe 

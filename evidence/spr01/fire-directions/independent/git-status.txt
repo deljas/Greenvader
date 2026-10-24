@@ -1,0 +1,140 @@
+ M docs/00_README.md
+ M docs/01_GAME_DESIGN.md
+ M docs/02_TECH_AND_ART.md
+ M docs/03_DEVELOPMENT_PLAN.md
+ M docs/ASSETS.md
+ M docs/DECISIONS.md
+ M docs/POC_GUIDE.md
+ M docs/STATUS.md
+ M docs/VALIDATION.md
+ M evidence/p1/p1-06/tempo_results.json
+ M evidence/p2/p2-01/checks_info.json
+ M evidence/p2/p2-02/checks_info.json
+ M evidence/p2/p2-03/checks_info.json
+ M evidence/p2/p2-04/checks_info.json
+ M evidence/p2/p2-05/checks_info.json
+ M scripts/poc/environment/water_view.gd
+ M scripts/poc/occlusion/occlusion_view.gd
+ M scripts/poc/play/poc_play_view.gd
+ M scripts/poc/poc_actor.gd
+ M scripts/poc/poc_config.gd
+ M scripts/poc/poc_input.gd
+ M scripts/poc/poc_main.gd
+ M scripts/poc/poc_session.gd
+ M scripts/poc/save/poc_save.gd
+ M scripts/poc/ui/poc_ui.gd
+ M tasks/SPR_01.md
+?? .codex-remote-attachments/
+?? assets/
+?? docs/BUILDING_MODEL_GUIDE.md
+?? docs/QUARTER_VIEW_TECH.md
+?? docs/TOWN_LAB.md
+?? docs/VINE_COMPARE.md
+?? docs/dot_blender/
+?? evidence/art01/
+?? evidence/art05/
+?? evidence/asset-showcase/
+?? evidence/building-model/
+?? evidence/greening-map/
+?? evidence/launcher-organization/
+?? evidence/quarter-view/
+?? evidence/render-study-3d/
+?? evidence/spr01/
+?? evidence/terrain-water/
+?? evidence/town-lab/
+?? evidence/vegetation-branches/
+?? evidence/vegetation-lab/
+?? evidence/vegetation-variation/
+?? evidence/vine-compare/
+?? evidence/wall-clip/
+?? evidence/wall-growth/
+?? launchers/README.md
+?? launchers/labs/
+?? scenes/art_study.tscn
+?? scenes/asset_showcase.tscn
+?? scenes/greening_map.tscn
+?? scenes/light_lab.tscn
+?? scenes/quarter_view_lab.tscn
+?? scenes/render_study_3d.tscn
+?? scenes/sprite_shadow_lab.tscn
+?? scenes/town_lab.tscn
+?? scenes/vegetation_lab.tscn
+?? scenes/vine_compare.tscn
+?? scripts/art_study/
+?? scripts/asset_showcase/
+?? scripts/greening_map/
+?? scripts/model_build/
+?? scripts/poc/poc_fire_action.gd
+?? scripts/poc/poc_fire_action.gd.uid
+?? scripts/quarter_view_lab/
+?? scripts/render_study_3d/
+?? scripts/town_lab/
+?? scripts/vegetation_lab/
+?? scripts/vine_compare/
+?? tasks/ART_01.md
+?? tasks/ART_02.md
+?? tasks/ART_03.md
+?? tasks/ART_04.md
+?? tasks/ART_05.md
+?? tasks/DOC_BLENDER_01.md
+?? tasks/DOC_BLENDER_02.md
+?? tasks/DOC_BLENDER_03.md
+?? tasks/DOC_BLENDER_04.md
+?? tasks/ENV_002.md
+?? tasks/PLAN_QV_01.md
+?? tasks/TECH_3D_01.md
+?? tasks/TECH_3D_02.md
+?? tasks/TECH_3D_03.md
+?? tasks/TECH_3D_04.md
+?? tasks/TECH_3D_05.md
+?? tasks/TECH_3D_06.md
+?? tasks/TECH_3D_07.md
+?? tasks/TECH_3D_08.md
+?? tasks/TECH_3D_09.md
+?? tasks/TECH_3D_10.md
+?? tasks/TECH_3D_11.md
+?? tasks/TECH_3D_12.md
+?? tasks/TECH_3D_13.md
+?? tasks/TECH_3D_14.md
+?? tasks/TECH_3D_15.md
+?? tasks/TECH_QV_01.md
+?? tests/art01/
+?? tests/asset_showcase/
+?? tests/greening_map/
+?? tests/independent/spr01_fire_directions.gd
+?? tests/independent/spr01_fire_directions.gd.uid
+?? tests/independent/spr01_fire_integration.gd
+?? tests/independent/spr01_fire_integration.gd.uid
+?? tests/independent/spr01_fire_selection.gd
+?? tests/independent/spr01_fire_selection.gd.uid
+?? tests/p2/independent/p2_05_v_logic.gd.uid
+?? tests/p2/p2_05_checks.gd.uid
+?? tests/p2/p2_05_gpu.gd.uid
+?? tests/p2/p2_06_bot.gd.uid
+?? tests/p2/p2_06_front.gd.uid
+?? tests/p2/p2_06_tempo.gd.uid
+?? tests/poc/independent/wth02_logic.gd.uid
+?? tests/poc/independent/wth03_flow.gd.uid
+?? tests/poc/independent/wth03_save.gd.uid
+?? tests/poc/independent/wth03_view.gd.uid
+?? tests/poc/integration/full_flow.gd.uid
+?? tests/poc/integration/full_flow_bot.gd.uid
+?? tests/poc/integration/full_gpu.gd.uid
+?? tests/poc/polish/text_toggle.gd.uid
+?? tests/poc/polish/text_toggle_gpu.gd.uid
+?? tests/poc/spr01/
+?? tests/poc/view/gpu.gd.uid
+?? tests/poc/view/logic.gd.uid
+?? tests/quarter_view/
+?? tests/render_study_3d/
+?? tests/spr01_fire_directions_gpu.gd
+?? tests/spr01_fire_directions_gpu.gd.uid
+?? tests/spr01_fire_directions_logic.gd
+?? tests/spr01_fire_directions_logic.gd.uid
+?? tests/spr01_fire_gpu.gd
+?? tests/spr01_fire_gpu.gd.uid
+?? tests/spr01_fire_logic.gd
+?? tests/spr01_fire_logic.gd.uid
+?? tests/town_lab/
+?? tests/vegetation_lab/
+?? tests/vine_compare/

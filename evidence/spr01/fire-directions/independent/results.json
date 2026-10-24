@@ -1,0 +1,99 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "seed65_pending_busy_no_cost",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "seed66_one_release_cost",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "seed400_end",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water399_pause_suspend_hold",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water400_one_release_cost",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water800_end_once",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "zero_resources_reject",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "input_water_left_start",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "live_mouse_facing_changes_without_aim_change",
+			"status": "PASS"
+		},
+		{
+			"detail": {
+				"actual": "(320.0, 180.0)",
+				"expected": "(320.0, 180.0)"
+			},
+			"name": "water_right_release_current_socket_current_camera",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water_recovery_returns_directional_walk",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "up_seed_start_back_art",
+			"status": "PASS"
+		},
+		{
+			"detail": {
+				"actual": "(320.0, 180.0)",
+				"expected": "(320.0, 180.0)"
+			},
+			"name": "up_seed_release_socket_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "seed_end_restores_up_idle",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "menu_freezes_pending",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "new_game_cancels_pending_no_ghost",
+			"status": "PASS"
+		}
+	],
+	"display": "Windows",
+	"failures": 0,
+	"not_run": [
+		"Physical input and window pixels",
+		"Continuous playback feel and final art acceptance",
+		"Export, all weather/performance/full regression",
+		"Load/save and cultivated seed regression: unchanged files hash checked"
+	],
+	"renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

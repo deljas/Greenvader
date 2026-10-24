@@ -1,0 +1,79 @@
+{
+  "embedded_data_exact": true,
+  "self_contained": true,
+  "timing_boundaries": {
+    "seed": {
+      "starts_ms": [
+        0,
+        66,
+        166,
+        266
+      ],
+      "end_ms": 400,
+      "release_ms": 66
+    },
+    "water": {
+      "starts_ms": [
+        0,
+        80,
+        180,
+        280,
+        400,
+        500,
+        620
+      ],
+      "end_ms": 800,
+      "release_ms": 400
+    }
+  },
+  "face_overlap": {
+    "seed": {
+      "any_face_overlap_ms": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "longest_contiguous_ms": 14,
+      "eye_overlap_ms": []
+    },
+    "water": {
+      "any_face_overlap_ms": [
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451
+      ],
+      "longest_contiguous_ms": 20,
+      "eye_overlap_ms": []
+    }
+  },
+  "browser_playback_visual": "NOT_RUN",
+  "game_integration": "NOT_RUN"
+}

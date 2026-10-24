@@ -1,0 +1,30 @@
+ERROR: Could not create directory: 'user://C:'.
+   at: make_dir_recursive (core/io/dir_access.cpp:179)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RendererCompositorRD (servers/rendering/renderer_rd/renderer_compositor_rd.cpp:337)
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS default_normal_640 <null>
+PASS fixed_resolution <null>
+PASS walk_real_movement_8fps <null>
+PASS engine_F6_toggles_without_game_change <null>
+PASS button_toggles_back <null>
+PASS mouse_direction_down { "cursor": (319.6685, 244.8356), "expected": &"down", "actual": &"down" }
+PASS mouse_direction_left { "cursor": (264.6685, 189.8356), "expected": &"left", "actual": &"left" }
+PASS mouse_direction_right { "cursor": (374.6685, 189.8356), "expected": &"right", "actual": &"right" }
+PASS mouse_direction_up { "cursor": (319.6685, 134.8356), "expected": &"up", "actual": &"up" }
+PASS facing_independent_of_move <null>
+PASS idle_adopted_frame_zero <null>
+PASS all_32_poses_shadow_sync_no_mirror <null>
+PASS projection_24x36_integer_ground_anchor { "span": (23.99994, 36.00002), "center": (320.0, 184.0), "ground_anchor": (320.0, 200.0) }
+PASS paused_stops_walk_and_time <null>
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS legacy_960_save_restores_640 
+PASS resource_zero_still_blocks_shots <null>
+RESULT failures=0
+WARNING: 72 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 40 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

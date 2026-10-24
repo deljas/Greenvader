@@ -1,0 +1,47 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "normal_mode_640",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "imported_runtime_pixels_match_v2",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "four_normal_frames_same_ground",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "stop_is_adopted_idle",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "engine_F6_switches_to_preserved_hop",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "hop_atlas_still_selected",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "switch_back_normal_and_idle",
+			"ok": true
+		}
+	],
+	"display": "Windows",
+	"failures": 0,
+	"not_run": [
+		"Physical OS input",
+		"Continuous animation feel / final art preference",
+		"Save / all weather / full shadow regression"
+	],
+	"renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

@@ -1,0 +1,85 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "seed_starts_immediate_pose0_no_cost",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_65ms_before_event_and_busy_does_not_restart",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_66ms_event_selection_aim_origin_once",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "event_not_repeated",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "release_recovery_can_be_interrupted",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_399ms_holds_formation",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "pause_and_view_suspension_hold_clock",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_400ms_release_cost_once",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_800ms_returns_idle",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "cultivated_selection_snapshot",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "zero_resources_refuse_without_start",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "release_rechecks_resource_failure_no_cost_or_shot",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "full_refuses_preflight",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "release_rechecks_full_no_cost",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "downed_cancels_pending",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "legacy_immediate_api_still_launches",
+			"ok": true
+		}
+	],
+	"failures": 0
+}

@@ -1,0 +1,70 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "right_mouse_starts_water_pose0_without_shot",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_399ms_growing_formation_and_matching_anchor",
+			"ok": true
+		},
+		{
+			"detail": {
+				"logical_origin": "(354.0, 346.0)",
+				"projectile": "(320.0, 180.0)",
+				"socket": "(320.0, 180.0)"
+			},
+			"name": "water_release_400_native_flight_socket_and_sound",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_returns_idle_after_800",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_release_burst_and_move_preserved",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_returns_directional_walk",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "four_aim_directions_share_front_only_while_firing",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "menu_and_viewpoint_pause_action",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "successful_load_cancels_pending_no_ghost",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "new_game_cancels_pending",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "actual_death_signal_cancels_pending",
+			"ok": true
+		}
+	],
+	"failures": 0,
+	"not_run": [
+		"Physical mouse/keyboard OS path",
+		"Art adoption and live playback feel",
+		"Performance and full weather/angle matrix"
+	],
+	"renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

@@ -1,0 +1,49 @@
+{
+ "checks": [
+  {
+   "detail": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "name": "army_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "distance_home": 0.0,
+    "enemies": 0,
+    "engaged": true
+   },
+   "name": "guard_intercepts_kills_returns",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "held_before_eight_seconds": true,
+    "hp_after_nine_seconds": 61.25
+   },
+   "name": "recovery_wait_then_slow_heal",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "enemy_cannot_route_to_stable",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "accepted": {
+     "ok": true,
+     "reason": ""
+    },
+    "final_status": "unreachable",
+    "hidden_while_moving": true
+   },
+   "name": "unknown_blocked_order_disclosed_only_after_known",
+   "status": "PASS"
+  }
+ ],
+ "failures": 0,
+ "supersedes": "guard_intercepts_kills_returns/recovery only: original target (171,188) was unwalkable terrain 4"
+}

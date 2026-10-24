@@ -1,0 +1,866 @@
+{
+  "checks": [
+    {
+      "name": "down-0.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-0.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-0.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-0.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-0.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-0.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down_f0_static_bytes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-1.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-1.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-1.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-1.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-1.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-1.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-1.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-2.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-2.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-2.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-2.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-2.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-2.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-2.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-3.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-3.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-3.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-3.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-3.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-3.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down-3.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "down_alternating_contact",
+      "status": "PASS",
+      "detail": [
+        11.5,
+        7.5,
+        11.5,
+        15.5
+      ]
+    },
+    {
+      "name": "left-0.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-0.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-0.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-0.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-0.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-0.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left_f0_static_bytes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-1.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-1.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-1.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-1.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-1.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-1.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-1.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-2.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-2.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-2.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-2.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-2.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-2.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-2.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-3.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-3.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-3.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-3.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-3.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-3.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left-3.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "left_alternating_contact",
+      "status": "PASS",
+      "detail": [
+        15.0,
+        6.5,
+        15.0,
+        14.5
+      ]
+    },
+    {
+      "name": "right-0.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-0.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-0.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-0.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-0.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-0.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right_f0_static_bytes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-1.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-1.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-1.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-1.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-1.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-1.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-1.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-2.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-2.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-2.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-2.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-2.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-2.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-2.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-3.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-3.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-3.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-3.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-3.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-3.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right-3.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "right_alternating_contact",
+      "status": "PASS",
+      "detail": [
+        8.0,
+        7.5,
+        8.0,
+        17.5
+      ]
+    },
+    {
+      "name": "up-0.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-0.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-0.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-0.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-0.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-0.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up_f0_static_bytes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-1.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-1.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-1.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-1.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-1.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-1.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-1.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-2.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-2.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-2.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-2.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-2.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-2.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-2.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-3.png_format",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-3.png_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-3.png_body_fixed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-3.png_inside_ground",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-3.png_eyes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-3.png_sheet_manifest",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up-3.png_leaf_changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "up_alternating_contact",
+      "status": "PASS",
+      "detail": [
+        11.5,
+        7.5,
+        11.5,
+        15.5
+      ]
+    },
+    {
+      "name": "metadata",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "gif_decoded_cells_timing",
+      "status": "PASS",
+      "detail": {
+        "durations": [
+          120,
+          130,
+          120,
+          130
+        ],
+        "bad_cells": 0
+      }
+    },
+    {
+      "name": "no_direction_mirror",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/down-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/down-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/down-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/down-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/left-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/left-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/left-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/left-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/right-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/right-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/right-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/right-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/up-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/up-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/up-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/up-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/sheet.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/contact-sheet.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/preview.gif",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/manifest.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/author_grids.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/export.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_walk-v1/self-check.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_four-directions-v2/down.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_four-directions-v2/left.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_four-directions-v2/right.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_four-directions-v2/up.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_four-directions-v2/sheet.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_four-directions-v2/preview.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_four-directions-v2/manifest.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve_16",
+      "status": "PASS",
+      "detail": null
+    }
+  ],
+  "details": [
+    {
+      "direction": "down",
+      "support_centres": [
+        11.5,
+        7.5,
+        11.5,
+        15.5
+      ]
+    },
+    {
+      "direction": "left",
+      "support_centres": [
+        15.0,
+        6.5,
+        15.0,
+        14.5
+      ]
+    },
+    {
+      "direction": "right",
+      "support_centres": [
+        8.0,
+        7.5,
+        8.0,
+        17.5
+      ]
+    },
+    {
+      "direction": "up",
+      "support_centres": [
+        11.5,
+        7.5,
+        11.5,
+        15.5
+      ]
+    }
+  ],
+  "hashes": {
+    "down-0.png": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18",
+    "down-1.png": "3f1527bfa13cff92be42f2afc59abfcf2d335a57ebc39deae9c93f6b6a388924",
+    "down-2.png": "6ca45e983fa905e6710b11a6d116ede8d81f8df0ccd89ebde9a3e1833ae4d793",
+    "down-3.png": "115ae946a39ff7d71499e3ff546fc5cb3a614f77e1045569ecb5c86f50123ac9",
+    "left-0.png": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18",
+    "left-1.png": "8fddc6c89f5a6b38bbb496047f7c3d9e024a54644ec3e58d9ed375f70d2d1473",
+    "left-2.png": "217f9027b0c1f8afab50df708fba7f53af8820078012a1c429c54db115ed2b94",
+    "left-3.png": "f6fde2b3520beb8dcf38771cfc3b5c4d66c1a14e879fc7e9162a2e83275d9870",
+    "right-0.png": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037",
+    "right-1.png": "b1fcf6328e6846d39638303cfbbe481e947ede01c6861e6c30ea4922e55808cc",
+    "right-2.png": "5b9bdc03c50d0575a4700de8f4839235bcf344f3add0d5387baa27ae1c3732bf",
+    "right-3.png": "84a8df915d38b28f71e3c02cb66f1816d43832d81c5f240f476778ad5c61965f",
+    "up-0.png": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750",
+    "up-1.png": "b51e5f83c345321bb887b0c256f12523d4bb2bbecc62fd11efd9d443eb369965",
+    "up-2.png": "a6df662c5edb8ba26bde56448f2c4689ad3adff22f5c3abec7a17d170fd0d94d",
+    "up-3.png": "772c47e281cd27accf14cfc4506640b7dbca2baeae599cbf683081d6362b77de",
+    "author_grids.py": "3e5c8325bd2a26277ee4b7e2cbe67da1f0149624cb6ddf4d455b3e9ab73c7ddf",
+    "contact-sheet.png": "ea598518511dc53dad247a758263bb06d3307372ad98f1b6e36a4b244ae056f5",
+    "export.py": "2fcb13cd265bbd21ac43d6dd6744674648da098b49bfe9e7fe5ac1bd6422a2bd",
+    "grid-down-0.txt": "77b1bd90e06792705a3220e32bf52214c6ce8f8a791c93e748d0b3c8cf109f7d",
+    "grid-down-1.txt": "96844250f6c3730e1e968b30a1c49871357fa3ead389b7383682d897d7387519",
+    "grid-down-2.txt": "a98772004d18a26a6ae786ab7a32e56cff6a1d72b0a0d86324cb2d795e111881",
+    "grid-down-3.txt": "34666f3657096f41dc98aedba416b5595305c007991070c806efcc65ecbfcc9e",
+    "grid-left-0.txt": "53c6ec2a1377c60fcffffdd6881e3fa65a8adf2f2a4b3eaf2a83a072e139b9af",
+    "grid-left-1.txt": "578845aa8b51a6d6d2a22080061ac7c5a7ca6ab0913ae9159946e29408f78961",
+    "grid-left-2.txt": "ae9cc8df558d0c57e26f6a9fd55f761310569fbac675e085c4219844b60a8a97",
+    "grid-left-3.txt": "2c894f9e1dcdc84f6476f1f5837afd6489b80bc122a6b49d266cd2d8ece76efa",
+    "grid-right-0.txt": "d625bc85546baafa949842b63af4b6e8037fab307d72ba25ca3ec80c9ae666a0",
+    "grid-right-1.txt": "97eb7753070f1580c65df4598ff6301b1e634ff109cb6bcb6ce745b5ff1b5bd5",
+    "grid-right-2.txt": "546e7d5f1521245c36d11b312de5520fed687000a3004cba218e0a454cc178d0",
+    "grid-right-3.txt": "41b4fd53ebe7fbdb6e768b4af28d2e06f47f5e3c4bb096e0015b971b7cfd49c2",
+    "grid-up-0.txt": "6e26124b7e097dbac87326fa99306c8d138cbe2cef24ae47571976cbf0754b48",
+    "grid-up-1.txt": "f18b4aedad705dfd9f62b98c88149dd2836ad317d2784aea59cb7227f2341814",
+    "grid-up-2.txt": "978cc68020392980b2673211275af4039102c887e745dd89c3a606b6134ad715",
+    "grid-up-3.txt": "636587d5e758599b3724d301f8a6fb2560931cdd88e7965458529b349ae15acc",
+    "manifest.json": "69bb6b21a8e77a5a138d2a6081810240a34c8c9897efdd6859aa01b4dcf06a35",
+    "palette.json": "4db114ef49f7bffe260bb463708e6dea67ace10bf2de92f98da40c5becce4e70",
+    "preview.gif": "e845763d0da4419bb191d9d4816d79283a7944ffddb0c81382edf47ccfe3536b",
+    "self-check.json": "57e68bf35c75179db8e48098a0c71ab2cb990465fdce08f1cc49320a331c2e60",
+    "sheet.png": "a9ba10fbbf66538197b8b08b2ec3344042f7e2153a6117a2f7f68737f9698c5e"
+  },
+  "counts": {
+    "PASS": 150,
+    "FAIL": 0
+  }
+}

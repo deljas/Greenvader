@@ -1,0 +1,442 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "freeze_matched": 15,
+  "freeze_total": 16,
+  "baseline_matched": 91,
+  "baseline_total": 91,
+  "changed_since_maintenance": [
+    "scripts/poc2/ui/map_ui.gd"
+  ],
+  "freeze_checks": [
+    {
+      "path": "data/poc2/maps/town_02.json",
+      "matched": true
+    },
+    {
+      "path": "launchers/run_poc2.bat",
+      "matched": true
+    },
+    {
+      "path": "scenes/poc2.tscn",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/API.md",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/save/poc2_save.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/combat.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/navigation.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "matched": false
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/view/cutaway_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/view/cutaway.gdshader",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "matched": true
+    }
+  ],
+  "baseline_checks": [
+    {
+      "path": "scripts/poc/poc_actor.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_actor.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_config.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_config.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_coords.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_coords.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_fire_action.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_fire_action.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_input.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_input.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_main.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_main.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_session.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/poc_session.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/assets/placement_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/assets/placement_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/assets/placement.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/assets/placement.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/audio/poc_audio.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/audio/poc_audio.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/combat/poc_enemy_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/combat/poc_enemy_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/cloud_shadow.gdshader",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/cloud_shadow.gdshader.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/environment_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/environment_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/ground_cover.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/ground_cover.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/poc_day.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/poc_day.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/poc_weather.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/poc_weather.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/rain_screen.gdshader",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/rain_screen.gdshader.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/readability_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/readability_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_growth.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_growth.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_layout.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_layout.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_moss.gdshader",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_moss.gdshader.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_parts.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_parts.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/wall_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/water_surface.gdshader",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/water_surface.gdshader.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/water_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/water_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/weather_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/environment/weather_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/helpers/poc_helper_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/helpers/poc_helper_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/helpers/poc_helpers.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/helpers/poc_helpers.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/occlusion/occlusion_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/occlusion/occlusion_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/occlusion/occlusion.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/occlusion/occlusion.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/play/poc_play_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/play/poc_play_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/play/poc_projectiles.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/play/poc_projectiles.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/save/poc_save.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/save/poc_save.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/ui/poc_ui.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/ui/poc_ui.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/view/poc_viewpoint.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/view/poc_viewpoint.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/view/viewpoint_panel.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/view/viewpoint_panel.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/view/viewpoint_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc/view/viewpoint_view.gd.uid",
+      "matched": true
+    },
+    {
+      "path": "data/poc/asset_catalog.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/audio.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/combat_setup.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/environment.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/helpers.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/occlusion.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/play_setup.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/tempo.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/viewpoint.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/weather.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/maps/fixture_02.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/maps/fixture_04.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/maps/town_01.json",
+      "matched": true
+    },
+    {
+      "path": "data/poc/terrain/paved.tres",
+      "matched": true
+    },
+    {
+      "path": "scenes/poc.tscn",
+      "matched": true
+    },
+    {
+      "path": "launchers/run_poc.bat",
+      "matched": true
+    },
+    {
+      "path": "project.godot",
+      "matched": true
+    }
+  ]
+}

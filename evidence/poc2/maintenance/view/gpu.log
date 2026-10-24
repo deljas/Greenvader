@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+SCRIPT ERROR: Trying to assign an array of type "Array" to a variable of type "Array[String]".
+   at: show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+   GDScript backtrace (most recent call first):
+       [0] show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+       [1] run (res://tests/poc2/maintenance/view/menu_boundaries.gd:55)
+       [2] frames (res://tests/poc2/maintenance/view/menu_boundaries.gd:16)
+{ "name": "title_f5_preserves_existing_slot", "status": "PASS", "detail": "" }
+{ "name": "title_help_is_only_panel", "status": "PASS", "detail": "" }
+{ "name": "title_help_f5_and_direct_save_rejected", "status": "PASS", "detail": "" }
+{ "name": "reopening_help_keeps_title_return", "status": "PASS", "detail": "" }
+SCRIPT ERROR: Trying to assign an array of type "Array" to a variable of type "Array[String]".
+   at: show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+   GDScript backtrace (most recent call first):
+       [0] show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+       [1] _on_action (res://scripts/poc2/poc2_main.gd:287)
+       [2] _unhandled_input (res://scripts/poc2/poc2_main.gd:149)
+{ "name": "help_returns_to_title_only", "status": "FAIL", "detail": "" }
+{ "name": "playing_f5_saves", "status": "PASS", "detail": "" }
+SCRIPT ERROR: Trying to assign an array of type "Array" to a variable of type "Array[String]".
+   at: show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+   GDScript backtrace (most recent call first):
+       [0] show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+       [1] _escape (res://scripts/poc2/poc2_main.gd:251)
+       [2] _unhandled_input (res://scripts/poc2/poc2_main.gd:147)
+{ "name": "pause_f5_saves", "status": "PASS", "detail": "" }
+SCRIPT ERROR: Trying to assign an array of type "Array" to a variable of type "Array[String]".
+   at: show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+   GDScript backtrace (most recent call first):
+       [0] show_menu (res://scripts/poc2/ui/poc2_ui.gd:132)
+       [1] _on_action (res://scripts/poc2/poc2_main.gd:287)
+       [2] _unhandled_input (res://scripts/poc2/poc2_main.gd:149)
+{ "name": "help_returns_to_pause_only", "status": "FAIL", "detail": "" }
+{ "name": "supply_help_hides_popup_and_stops_time", "status": "PASS", "detail": "" }
+{ "name": "help_restores_same_supply_popup", "status": "PASS", "detail": "" }
+{ "name": "restored_supply_inputs_and_state_clean", "status": "PASS", "detail": "" }
+{ "name": "restored_supply_confirms_once", "status": "PASS", "detail": "" }

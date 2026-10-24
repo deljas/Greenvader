@@ -1,0 +1,187 @@
+{
+ "checks": [
+  {
+   "detail": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "name": "blocked_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "accepted": {
+     "ok": true,
+     "reason": ""
+    },
+    "status": "exploring"
+   },
+   "name": "unknown_obstacle_not_disclosed",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "stationary": true,
+    "status": "unreachable"
+   },
+   "name": "unreachable_persists_across_ticks",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "ok": true,
+    "reason": "loaded"
+   },
+   "name": "save_unreachable_restores",
+   "status": "PASS"
+  },
+  {
+   "detail": "unreachable",
+   "name": "restored_unreachable_waits",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "distance": 0.0,
+    "result": {
+     "ok": true,
+     "reason": ""
+    },
+    "status": "guarding"
+   },
+   "name": "new_valid_order_recovers",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "name": "refill_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": "refilling",
+   "name": "refill_arrives_at_bank",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "partial": 35.0,
+    "status": "fleeing",
+    "water": 35.0
+   },
+   "name": "partial_refill_flees_without_spending_water",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "ok": true,
+    "reason": "loaded"
+   },
+   "name": "save_during_refill_retreat_restores",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "home": "(778.0, 754.0)",
+    "status": "returning_water",
+    "water": 100.0
+   },
+   "name": "retreat_resume_completes_refill",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "ok": true,
+    "reason": "loaded"
+   },
+   "name": "save_during_refill_return_restores",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "distance": 0.0,
+    "status": "working",
+    "water": 100.0
+   },
+   "name": "restored_refill_returns_original_home",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "name": "helper_death_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "owner_released": true,
+    "removed": true,
+    "seeds_after": 451,
+    "seeds_before": 451,
+    "victim_hp": 0.0
+   },
+   "name": "helper_defeat_same_tick_no_refund",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "ok": true,
+    "reason": "loaded"
+   },
+   "name": "helper_death_tick_save_restores",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "enemies": 1,
+    "seeds": 451
+   },
+   "name": "helper_restored_defeat_keeps_enemy_and_no_refund",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "name": "crop_death_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "owner_released": true,
+    "removed": true,
+    "seeds_after": 490,
+    "seeds_before": 490,
+    "victim_hp": 0.0
+   },
+   "name": "crop_defeat_same_tick_no_refund",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "ok": true,
+    "reason": "loaded"
+   },
+   "name": "crop_death_tick_save_restores",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "enemies": 1,
+    "seeds": 490
+   },
+   "name": "crop_restored_defeat_keeps_enemy_and_no_refund",
+   "status": "PASS"
+  }
+ ],
+ "failures": 0
+}

@@ -40,7 +40,7 @@ func setup(parent_view: SubViewport, camera: Camera3D, session: RefCounted, tuni
 	reflection_camera = Camera3D.new()
 	reflection_camera.projection = Camera3D.PROJECTION_ORTHOGONAL
 	reflection_camera.keep_aspect = Camera3D.KEEP_HEIGHT
-	reflection_camera.cull_mask = 1 # scene objects only: the floor (2) and the water (4) are excluded
+	reflection_camera.cull_mask = 1 | 64 # scene objects + player display; floor (2) and water (4) excluded
 	reflection_view.add_child(reflection_camera)
 	reflection_camera.current = true
 	material_ = ShaderMaterial.new()

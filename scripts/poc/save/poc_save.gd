@@ -517,7 +517,9 @@ static func apply(s: RefCounted, data: Dictionary) -> Dictionary:
 	if not s.is_walkable_logic(position):
 		return _invalid("プレイヤー位置")
 	var res_index: Variant = (data["ui"] as Dictionary)["resolution_index"]
-	if not _is_number(res_index) or int(res_index) < 0 or int(res_index) >= Config.RESOLUTIONS.size():
+	# Save version 1 also stored the former 960x540 index (1). Keep accepting it;
+	# the presentation layer restores both indices to the adopted 640x360 grid.
+	if not _is_number(res_index) or int(res_index) < 0 or int(res_index) > 1:
 		return _invalid("ui.resolution_index")
 	if not (session_data["zone_log"] is Array) or not (session_data["zone_times"] is Dictionary):
 		return _invalid("session")

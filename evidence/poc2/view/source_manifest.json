@@ -1,0 +1,66 @@
+{
+  "baseline_commit": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "state": "shared working tree, uncommitted PoC2 files; older unrelated changes preserved",
+  "files": [
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "sha256": "e0dd56665dc228e426395114bc8d4c04f27c802902b0d9a63b29f62cc3295969"
+    },
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "d1caa2c77285160faee5e9a4b194c71afec42313d12ac973b1d9f704ff766778"
+    },
+    {
+      "path": "scripts/poc2/view/cutaway_view.gd",
+      "sha256": "683dc83a07073b1ea74563c42ff82b381197ec29563725e130b06aa150bc7594"
+    },
+    {
+      "path": "scripts/poc2/view/cutaway.gdshader",
+      "sha256": "ccedeae8f23ae80d63b03f865b6cd233d935e42925b5338f162ff2e499c92178"
+    },
+    {
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "sha256": "b6a10f83cbb0d938594f56ae30da2a3da07ba1f736935c385b79f2686cac2cf9"
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "sha256": "4d16411f212a81ad35067d480dd4608458db00e87be1d14863770a671fbe841b"
+    },
+    {
+      "path": "scripts/poc2/save/poc2_save.gd",
+      "sha256": "44124bfbeb9827b05d523268e5598ce7babb364b00515ccb32a8aa99cf8e68c5"
+    },
+    {
+      "path": "scenes/poc2.tscn",
+      "sha256": "570e3eeb9bfdf5ab1507fcc117095ae498082d8eac4df5220c131cdcbb6f2a10"
+    },
+    {
+      "path": "launchers/run_poc2.bat",
+      "sha256": "8c92874c4788d3cf8e7cbaf8503f23ad21da6510e3083c8c146190c79729c2a5"
+    },
+    {
+      "path": "launchers/README.md",
+      "sha256": "fe00ac835f52d0dfd6be2d59617195ce587af6641ba5c60693f6fdc5a276b1a1"
+    },
+    {
+      "path": "tests/poc2/view/equivalence.gd",
+      "sha256": "fb6c90839ce4432e4044057eda656a787b82e729901ebf7298679e3d8c1dc8d9"
+    },
+    {
+      "path": "tests/poc2/view/save_probe.gd",
+      "sha256": "457c645854c96809a346a17d60ab2606f4b44f2b380bb5d6ae160942651c6b29"
+    },
+    {
+      "path": "tests/poc2/view/view_followup.gd",
+      "sha256": "9bac427df08302357a3e1bb8315812a1c7fdcecda7aacf29aab18b039f9dc303"
+    },
+    {
+      "path": "tests/poc2/view/view_smoke.gd",
+      "sha256": "ea0f671fde61f10b56e8912776486cb55a2c15a06025000213e0c8b35f2071d9"
+    },
+    {
+      "path": "tests/poc2/view/wheel_input.gd",
+      "sha256": "c62551aecfb1fe583b0df4e26a13ae2fc3bd9eacc925a740befd63e59461556a"
+    }
+  ]
+}

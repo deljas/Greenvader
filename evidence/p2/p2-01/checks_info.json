@@ -1,22 +1,22 @@
 {
   "json_round_trip_exact": true,
   "long_run": {
-    "boar_frames_checked": 2133040,
-    "cpu_seconds": 25.986,
+    "boar_frames_checked": 2130520,
+    "cpu_seconds": 28.956,
     "frames": 54000,
     "game_minutes": 30,
     "max_boars": 40,
-    "max_per_nest": 3,
+    "max_per_nest": 4,
     "spawned_per_zone": {
-      "1": 6,
-      "2": 6,
+      "1": 8,
+      "2": 8,
       "3": 6,
       "4": 9,
       "5": 7,
-      "6": 6
+      "6": 9
     },
-    "spawned_total": 40,
-    "tiles_gnawed": 207145,
+    "spawned_total": 47,
+    "tiles_gnawed": 226513,
     "violations": 0
   },
   "zone_map_sha256": "f3bb1bb6c08daaf309026cac532796b6d481c9380cc018a6350a27698c60f438",

@@ -1,0 +1,50 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "separate_player_light_masks",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "day_light_parameters_synced",
+			"ok": true
+		},
+		{
+			"detail": 0.0,
+			"name": "own_shadow_does_not_cross_face",
+			"ok": true
+		},
+		{
+			"detail": 54.929412484169,
+			"name": "shadow_card_still_projects_ground_shadow",
+			"ok": true
+		},
+		{
+			"detail": 77.1058849990368,
+			"name": "player_receives_other_3d_shadows",
+			"ok": true
+		},
+		{
+			"detail": {
+				"hour": 22.4,
+				"main_energy": 0.096000000834465,
+				"moon": true,
+				"receiver_energy": 0.096000000834465
+			},
+			"name": "night_rain_light_parameters_synced",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "hidden_source_hides_receiver",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "reflection_includes_player_both_masks",
+			"ok": true
+		}
+	],
+	"failures": 0
+}

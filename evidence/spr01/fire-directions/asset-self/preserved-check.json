@@ -1,0 +1,818 @@
+[
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\author_grids.py",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\build_preview.py",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\character-palette.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\comparison.gif",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\comparison.html",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\contact-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\export.py",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\fx-palette.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-idle.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-0.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-1.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-2.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-3.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-0.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-1.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-2.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-3.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-projectile.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-0.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-1.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-2.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-3.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-4.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-5.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-6.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-0.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-1.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-2.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-3.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-4.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-5.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-6.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-projectile.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\idle.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\manifest.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\preview-data.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\preview-template.html",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\production-note.md",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-projectile.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\timing-source.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-4.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-5.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-6.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-4.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-5.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-6.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-projectile.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\down.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\export.py",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-down.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-left.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-right.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-up.txt",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\left.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\manifest.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\palette.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\preview.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\production-note.md",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\right.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\self-check.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\up.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\idle.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\idle.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\manifest.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\production-note.md",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-0.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-1.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-2.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-3.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-sheet.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-0.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-1.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-2.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-3.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-sheet.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-projectile.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-projectile.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-0.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-1.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-2.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-3.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-4.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-4.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-5.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-5.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-6.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-6.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-sheet.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-0.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-0.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-1.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-1.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-2.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-2.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-3.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-3.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-4.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-4.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-5.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-5.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-6.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-6.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-sheet.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-sheet.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-projectile.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-projectile.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\enemy_tuning.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\enemy_tuning.gd.uid",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\enemy_tuning.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plant_def.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plant_def.gd.uid",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\play_tuning.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\play_tuning.gd.uid",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\play_tuning.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01_zones.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01_zones.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01.png",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01.png.import",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_def.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_def.gd.uid",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\sim_tuning.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\sim_tuning.gd.uid",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\sim_tuning.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain_def.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain_def.gd.uid",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zone_def.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zone_def.gd.uid",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plants\\carrot.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plants\\kiwi.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plants\\normal.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\asset_catalog.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\audio.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\combat_setup.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\environment.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\helpers.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\occlusion.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\play_setup.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\tempo.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\viewpoint.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\weather.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\maps\\fixture_02.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\maps\\fixture_04.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\maps\\town_01.json",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\terrain\\paved.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\building.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\safe.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\shallows.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\shore.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\wasteland.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\water.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_00_start.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_01_west_north.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_02_west_south1.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_03_west_south2.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_04_east_north.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_05_east_middle.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_06_east_south.tres",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_config.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\save\\poc_save.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\play\\poc_projectiles.gd",
+    "match": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_session.gd",
+    "match": true
+  }
+]

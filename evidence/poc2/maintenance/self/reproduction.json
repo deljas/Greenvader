@@ -1,0 +1,14 @@
+{
+ "refill_interrupted": {
+  "after": "watering",
+  "before": "refilling",
+  "danger": "fleeing",
+  "reproduced": true,
+  "water": 34.75
+ },
+ "unreachable": {
+  "first": "unreachable",
+  "next_tick": "returning",
+  "reproduced": true
+ }
+}

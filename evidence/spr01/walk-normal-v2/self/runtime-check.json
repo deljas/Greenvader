@@ -1,0 +1,422 @@
+{
+  "runtime_copy_byte_matches": true,
+  "runtime_sheet_sha256": "9505f78fa58e6e2afa957f25d51e79134bb60c4bdbb0fb486ec005481da38bfc",
+  "source_manifest_v2": true,
+  "protected_hashes_unchanged": {
+    "assets/sprites/poc/player/idle.png": "754a97bd44912a87bf2197ce74dfdca8cdf4b01a835f88c7b1ba99b1d8e029fe",
+    "assets/sprites/poc/player/walk-hop.png": "77357397cf258da39457ad66ec451522c75f3553f66f156852dd4669c3bb635c",
+    "assets/sprites/poc/player/walk-normal.png.import": "d51352c3f9289a8c941ddd0e63744d8e29e7fa7328e9d6efa73fbdaba286a504",
+    "assets/concepts/spr01/walk-normal-v1/sheet.png": "a9ba10fbbf66538197b8b08b2ec3344042f7e2153a6117a2f7f68737f9698c5e",
+    "assets/concepts/spr01/front-pixel-v1/front-16x24.png": "f188d843f64c3d2c54f1442deff625ddee920d6af14b59c64a8ec422976efffc"
+  },
+  "hands_relative_offsets_verified": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          2,
+          26
+        ],
+        [
+          1,
+          27
+        ],
+        [
+          2,
+          27
+        ],
+        [
+          2,
+          28
+        ]
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 1,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          20,
+          28
+        ],
+        [
+          20,
+          29
+        ],
+        [
+          21,
+          29
+        ],
+        [
+          20,
+          30
+        ]
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          3,
+          28
+        ],
+        [
+          2,
+          29
+        ],
+        [
+          3,
+          29
+        ],
+        [
+          3,
+          30
+        ]
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          21,
+          26
+        ],
+        [
+          21,
+          27
+        ],
+        [
+          22,
+          27
+        ],
+        [
+          21,
+          28
+        ]
+      ]
+    },
+    {
+      "direction": "left",
+      "frame": 1,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          2,
+          25
+        ]
+      ]
+    },
+    {
+      "direction": "left",
+      "frame": 1,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          16,
+          29
+        ],
+        [
+          17,
+          29
+        ],
+        [
+          18,
+          29
+        ],
+        [
+          19,
+          29
+        ],
+        [
+          20,
+          29
+        ],
+        [
+          15,
+          30
+        ],
+        [
+          16,
+          30
+        ],
+        [
+          17,
+          30
+        ],
+        [
+          18,
+          30
+        ],
+        [
+          19,
+          30
+        ],
+        [
+          20,
+          30
+        ]
+      ]
+    },
+    {
+      "direction": "left",
+      "frame": 3,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          2,
+          27
+        ]
+      ]
+    },
+    {
+      "direction": "left",
+      "frame": 3,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          17,
+          27
+        ],
+        [
+          18,
+          27
+        ],
+        [
+          19,
+          27
+        ],
+        [
+          20,
+          27
+        ],
+        [
+          21,
+          27
+        ],
+        [
+          16,
+          28
+        ],
+        [
+          17,
+          28
+        ],
+        [
+          18,
+          28
+        ],
+        [
+          19,
+          28
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          21,
+          28
+        ]
+      ]
+    },
+    {
+      "direction": "right",
+      "frame": 1,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          2,
+          27
+        ],
+        [
+          2,
+          28
+        ],
+        [
+          3,
+          28
+        ],
+        [
+          4,
+          28
+        ],
+        [
+          5,
+          28
+        ],
+        [
+          6,
+          28
+        ]
+      ]
+    },
+    {
+      "direction": "right",
+      "frame": 1,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          22,
+          27
+        ]
+      ]
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          3,
+          29
+        ],
+        [
+          3,
+          30
+        ],
+        [
+          4,
+          30
+        ],
+        [
+          5,
+          30
+        ],
+        [
+          6,
+          30
+        ],
+        [
+          7,
+          30
+        ]
+      ]
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          22,
+          25
+        ]
+      ]
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          2,
+          25
+        ],
+        [
+          1,
+          26
+        ],
+        [
+          2,
+          26
+        ]
+      ]
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          20,
+          27
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          21,
+          28
+        ]
+      ]
+    },
+    {
+      "direction": "up",
+      "frame": 3,
+      "screen_side": "left",
+      "body_offset": 1,
+      "relative_y": 1,
+      "actual_hand_pixels": [
+        [
+          3,
+          27
+        ],
+        [
+          2,
+          28
+        ],
+        [
+          3,
+          28
+        ]
+      ]
+    },
+    {
+      "direction": "up",
+      "frame": 3,
+      "screen_side": "right",
+      "body_offset": 1,
+      "relative_y": -1,
+      "actual_hand_pixels": [
+        [
+          21,
+          25
+        ],
+        [
+          21,
+          26
+        ],
+        [
+          22,
+          26
+        ]
+      ]
+    }
+  ]
+}

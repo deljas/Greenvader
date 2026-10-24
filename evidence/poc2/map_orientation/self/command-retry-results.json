@@ -1,0 +1,27 @@
+{
+ "checks": [
+  {
+   "detail": "(312.0, 178.0)",
+   "name": "corrected_fixture_walkable_outside_controls",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "clicked": "(698.0, 690.0)",
+    "home": "(698.0, 690.0)"
+   },
+   "name": "projected_helper_command",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "center": "(448.0, 448.0)",
+    "zoom": 1
+   },
+   "name": "zoom_one_refits_world",
+   "status": "PASS"
+  }
+ ],
+ "failures": 0,
+ "reason": "Initial target overlapped remove button, first replacement was water. Choose a single valid walkable point before the command."
+}

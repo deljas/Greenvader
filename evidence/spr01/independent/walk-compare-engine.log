@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RendererCompositorRD (servers/rendering/renderer_rd/renderer_compositor_rd.cpp:337)
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS startup_640_default_normal <null>
+PASS integer_window_nearest <null>
+PASS old_resolution_cannot_be_selected <null>
+PASS moving_8fps_frame1 <null>
+PASS F6_display_only <null>
+PASS same_motion_and_collision_configuration { "normal": (4.24292, -4.24292), "hop": (4.24292, -4.24292) }
+PASS button_returns_normal <null>
+PASS engine_mouse_four_directions <null>
+PASS left_facing_right_movement <null>
+PASS stop_uses_adopted_idle <null>
+PASS 32_poses_match_original_and_shadow <null>
+PASS native_24x36_fixed_integer_ground_anchor <null>
+PASS no_crossed_self_shadow_on_face 0.0
+PASS player_casts_world_shadow 61.8862754404545
+PASS receives_external_3d_shadow 113.270592302084
+PASS night_light_and_reflection_masks <null>
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+FAIL legacy_index1_save_load_640 <null>
+PASS pause_keeps_logic_and_idle <null>
+PASS zero_resources_still_block_fire <null>
+PASS controls_fit_internal_width <null>
+RESULT failures=1

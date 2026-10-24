@@ -1,0 +1,6 @@
+{
+  "target": "POC2-07 / HEAD 151a53f20255489ef08481e2a353258cd8ac559c plus existing dirty tree",
+  "source": "scripts/poc2/ui/map_ui.gd",
+  "sha256": "769e387dcbda2832cd396d2b359c8ca6afa8294aadcf40ee74021d16ba9ac191",
+  "scope": "Only map_ui.gd changed for runtime; self tests/evidence added"
+}

@@ -1,0 +1,244 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "seed_left_starts_correct_direction",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_left_atlas_formation_shadow_grid",
+			"ok": true
+		},
+		{
+			"detail": {
+				"direction": "left",
+				"expected_screen": "(319.0, 180.0)",
+				"kind": "seed",
+				"logical_origin": "(354.0, 346.0)",
+				"player_position": "(354.0, 346.0)",
+				"projectile_screen": "(319.0, 180.0)",
+				"socket": "(11.0, 14.0)"
+			},
+			"name": "seed_left_release_socket_and_logical_origin",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_left_directional_walk_recovery",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_left_starts_correct_direction",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_left_atlas_formation_shadow_grid",
+			"ok": true
+		},
+		{
+			"detail": {
+				"direction": "left",
+				"expected_screen": "(319.0, 180.0)",
+				"kind": "water",
+				"logical_origin": "(362.4858, 337.5142)",
+				"player_position": "(362.4858, 337.5142)",
+				"projectile_screen": "(319.0, 180.0)",
+				"socket": "(11.0, 14.0)"
+			},
+			"name": "water_left_release_socket_and_logical_origin",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_left_directional_walk_recovery",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_right_starts_correct_direction",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_right_atlas_formation_shadow_grid",
+			"ok": true
+		},
+		{
+			"detail": {
+				"direction": "right",
+				"expected_screen": "(320.0, 180.0)",
+				"kind": "seed",
+				"logical_origin": "(370.9717, 329.0283)",
+				"player_position": "(370.9717, 329.0283)",
+				"projectile_screen": "(320.0, 180.0)",
+				"socket": "(12.0, 14.0)"
+			},
+			"name": "seed_right_release_socket_and_logical_origin",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_right_directional_walk_recovery",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_right_starts_correct_direction",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_right_atlas_formation_shadow_grid",
+			"ok": true
+		},
+		{
+			"detail": {
+				"direction": "right",
+				"expected_screen": "(320.0, 180.0)",
+				"kind": "water",
+				"logical_origin": "(379.4575, 320.5425)",
+				"player_position": "(379.4575, 320.5425)",
+				"projectile_screen": "(320.0, 180.0)",
+				"socket": "(12.0, 14.0)"
+			},
+			"name": "water_right_release_socket_and_logical_origin",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_right_directional_walk_recovery",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_up_starts_correct_direction",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_up_atlas_formation_shadow_grid",
+			"ok": true
+		},
+		{
+			"detail": {
+				"direction": "up",
+				"expected_screen": "(320.0, 180.0)",
+				"kind": "seed",
+				"logical_origin": "(387.9434, 312.0566)",
+				"player_position": "(387.9434, 312.0566)",
+				"projectile_screen": "(320.0, 180.0)",
+				"socket": "(12.0, 14.0)"
+			},
+			"name": "seed_up_release_socket_and_logical_origin",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "seed_up_directional_walk_recovery",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_up_starts_correct_direction",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_up_atlas_formation_shadow_grid",
+			"ok": true
+		},
+		{
+			"detail": {
+				"direction": "up",
+				"expected_screen": "(320.0, 180.0)",
+				"kind": "water",
+				"logical_origin": "(396.4292, 303.5708)",
+				"player_position": "(396.4292, 303.5708)",
+				"projectile_screen": "(320.0, 180.0)",
+				"socket": "(12.0, 14.0)"
+			},
+			"name": "water_up_release_socket_and_logical_origin",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "water_up_directional_walk_recovery",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "charge_turns_with_mouse_without_locking_aim",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "menu_holds_directional_action_clock",
+			"ok": true
+		}
+	],
+	"failures": 0,
+	"not_run": [
+		"Physical input and user art evaluation",
+		"Full regressions/weather/performance/export"
+	],
+	"renderer": "NVIDIA GeForce RTX 5070 Ti",
+	"socket_results": [
+		{
+			"direction": "left",
+			"expected_screen": "(319.0, 180.0)",
+			"kind": "seed",
+			"logical_origin": "(354.0, 346.0)",
+			"player_position": "(354.0, 346.0)",
+			"projectile_screen": "(319.0, 180.0)",
+			"socket": "(11.0, 14.0)"
+		},
+		{
+			"direction": "left",
+			"expected_screen": "(319.0, 180.0)",
+			"kind": "water",
+			"logical_origin": "(362.4858, 337.5142)",
+			"player_position": "(362.4858, 337.5142)",
+			"projectile_screen": "(319.0, 180.0)",
+			"socket": "(11.0, 14.0)"
+		},
+		{
+			"direction": "right",
+			"expected_screen": "(320.0, 180.0)",
+			"kind": "seed",
+			"logical_origin": "(370.9717, 329.0283)",
+			"player_position": "(370.9717, 329.0283)",
+			"projectile_screen": "(320.0, 180.0)",
+			"socket": "(12.0, 14.0)"
+		},
+		{
+			"direction": "right",
+			"expected_screen": "(320.0, 180.0)",
+			"kind": "water",
+			"logical_origin": "(379.4575, 320.5425)",
+			"player_position": "(379.4575, 320.5425)",
+			"projectile_screen": "(320.0, 180.0)",
+			"socket": "(12.0, 14.0)"
+		},
+		{
+			"direction": "up",
+			"expected_screen": "(320.0, 180.0)",
+			"kind": "seed",
+			"logical_origin": "(387.9434, 312.0566)",
+			"player_position": "(387.9434, 312.0566)",
+			"projectile_screen": "(320.0, 180.0)",
+			"socket": "(12.0, 14.0)"
+		},
+		{
+			"direction": "up",
+			"expected_screen": "(320.0, 180.0)",
+			"kind": "water",
+			"logical_origin": "(396.4292, 303.5708)",
+			"player_position": "(396.4292, 303.5708)",
+			"projectile_screen": "(320.0, 180.0)",
+			"socket": "(12.0, 14.0)"
+		}
+	]
+}

@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "new_entry_224",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "separate_save_namespace",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "engine_key_moves",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "display_fixture_places",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "watermelon_preview_3x4",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "01_play_internal_resolution",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "map_stops_clock",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "02_map_internal_resolution",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "popup_does_not_move",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "supply_exact",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "map_commands_do_not_advance",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "03_remove_confirmation_internal_resolution",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "map_move_order_queued",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "save_load_full_state",
+      "status": "FAIL"
+    },
+    {
+      "detail": "",
+      "name": "backup_created",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "invalid_load_preserves_active",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "backup_readable",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "sun_not_rewritten_each_frame",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "04_occlusion_internal_resolution",
+      "status": "PASS"
+    },
+    {
+      "detail": "User manual verification only",
+      "name": "physical_keyboard_OS_route",
+      "status": "NOT_RUN"
+    }
+  ],
+  "gpu": true
+}

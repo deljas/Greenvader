@@ -1,6 +1,67 @@
 # 検証記録
 
-更新日: 2026-10-15。最終合否は親Astra（Codex）／主会話Opus（Claude）が判断する。テンプレートの静的確認と実モデル稼働を区別する。
+更新日: 2026-10-23。最終合否は親Astra（Codex）／主会話Opus（Claude）が判断する。テンプレートの静的確認と実モデル稼働を区別する。
+
+## POC2 第二弾
+
+2026-10-21、親Astraは凍結ソースの限定技術受入を行い、ユーザー試遊へ引き渡した。これは楽しさ・テンポ・美術の評価や全体的な製品合否ではない。対象revisionは `151a53f20255489ef08481e2a353258cd8ac559c` と未コミット差分。第一弾の実装・保存は別領域に保ち、P6には進まない。
+
+### 保全と独立結果
+
+- 凍結した第二弾source16件は実行前後でSHA-256一致。第一弾baseline91件も実行前後で一致した（[freeze-before](../evidence/poc2/independent/freeze-before.json)、[freeze-after](../evidence/poc2/independent/freeze-after.json)）。
+- 独立論理検証36項目は36 PASS / 0 FAIL（[結果](../evidence/poc2/independent/logic-results.json)、[ログ](../evidence/poc2/independent/logic.log)）。
+- 追加境界検証では元の10項目がPASSし、敵fixtureを建物内へ置いた2件のFAILはfixture原因と確認。到達可能な敵配置による対象限定の追試5項目はPASS（[元結果](../evidence/poc2/independent/boundary-results.json)、[fixture診断](../evidence/poc2/independent/army-fixture-probe.log)、[限定追試](../evidence/poc2/independent/guard-affected-results.json)）。元のFAIL記録は保持し、解消理由を区別する。
+- 独立GPU/Input確認は10項目中9 PASS、1項目はゲージ画像の画素読取FAIL。画像座標へウィンドウ倍率を重ねた計測側の誤りと特定し、GPU再実行はせず同一run画像の独立目視・画素差でHP/種/水のゲージを確認した（[元結果](../evidence/poc2/independent/map-gpu-results.json)、[画像確認](../evidence/poc2/independent/gauge-image-review.json)）。
+- 独立最終レビューは有効な58項目をPASSとして集計（論理36、境界12、GPU/Input10）し、未解決の実装FAILはないと結論づけた（[独立最終レビュー](../evidence/poc2/independent/review.md)）。元のfixture/画素読取FAILは下記の限定追試・画像確認とともに記録保持しており、範囲を限定した技術確認として扱う。
+- 独立検証者は [街区・UI・撤去・遮蔽カット・マップ拡大の画面](../evidence/poc2/view/)、自己試験とコードを確認。親も主要コードとUI画像をレビューした（[親レビュー](../evidence/poc2/integration/parent-review.md)）。
+
+### 自己試験・確認範囲
+
+実装者のシミュレーション試験は初回26 PASS / 2 FAILを保持し、その後の対象限定試験を7 PASS / 0 FAILと報告した（[自己報告](../evidence/poc2/self/simulation_report.md)、[初回結果](../evidence/poc2/self/simulation_results_initial.json)、[限定結果](../evidence/poc2/self/focused_results.json)）。3500ゲーム秒の自己試験1回で、孤立島とおたすけ植物の占有を含め100%へ到達した。独立検証者はその実行記録と実装コードを照合したが、独立での3500秒全走はNOT_RUNである。
+
+### NOT_RUNとユーザー判断
+
+- 物理キーボード・マウスからOSを通じた入力、ユーザーによる実操作確認。
+- 序盤の楽しさ、補給待ちの体感、複数前線を任せる満足感、種収支・難易度の快適さ。
+- 最終美術の承認、実速でのちらつきの主観評価、水面反射の磨き込み。
+- 独立3500秒全走、全組合せ回帰、終盤最大密度の全域性能、配布用Windows build。
+- 不正保存全形式のfuzz、全拠点規模の生産上限、敵相性と誘引・忌避の長期戦、退避と復帰の全組合せ。
+
+天候は晴れ固定で、動植物は仮モデル。主人公の基本回復・HP・死亡後復帰など仕様未確定部分は実装初期値であり、ユーザー確定値ではない。詳しい操作は[POC2_GUIDE.md](POC2_GUIDE.md)を参照する。
+
+## POC2-06 保守追補
+
+2026-10-22、POC2-05の引渡し後に見つかった操作・自律動作境界の不具合を保守し、親Astraは限定技術受入しました。対象はHEAD `151a53f20255489ef08481e2a353258cd8ac559c` と共有未コミット差分です。実装変更は `scripts/poc2/simulation/plants.gd`、`scripts/poc2/simulation/persistence.gd`、`scripts/poc2/poc2_session.gd`、`scripts/poc2/poc2_main.gd`、`scripts/poc2/ui/poc2_ui.gd` の5ファイルに限定されています（[凍結manifest](../evidence/poc2/maintenance/freeze-manifest.json)、[実装差分](../evidence/poc2/maintenance/self/change.diff)、[画面/UI差分](../evidence/poc2/maintenance/view/)）。
+
+### 確認結果
+
+- backend自己試験は24 PASS / 0 FAIL。到達不能指示の維持と保存復元、新指示による復帰、部分補給・退避・帰路の復元、撃破同tickの保存復元を含む（[自己報告](../evidence/poc2/maintenance/self/report.md)、[結果](../evidence/poc2/maintenance/self/results.json)）。
+- view自己試験は初回10 PASS / 2 FAIL。型付き配列によるtitle/pause menu復帰エラーを修正後、影響する通常起動経路を5 PASS / 0 FAILで追試しました。初回FAILは残し、未解消FAILとは扱いません（[自己報告](../evidence/poc2/maintenance/view/report.md)、[初回結果](../evidence/poc2/maintenance/view/checks.json)、[追試結果](../evidence/poc2/maintenance/view/menu-array-checks.json)）。
+- 独立検証はlogic21 PASSとGPU/UI9 PASS、計30 PASS / 0 FAIL。到達不能と部分補給の保存復元、実combat撃破直後の保存、タイトル由来helpからのF5でslot不変、補給popup復帰、通常プレイF5を確認しました（[独立レビュー](../evidence/poc2/maintenance/independent/review.md)、[logic](../evidence/poc2/maintenance/independent/logic-results.json)、[GPU/UI](../evidence/poc2/maintenance/independent/view-results.json)）。
+- 保守対象の第二弾manifest16件は実行前後で一致し、第一弾baseline91件も一致。全Godotプロセスは終了しています（[凍結manifest](../evidence/poc2/maintenance/freeze-manifest.json)、[実行前](../evidence/poc2/maintenance/independent/freeze-before.json)、[実行後](../evidence/poc2/maintenance/independent/freeze-after.json)）。
+
+今回確認した主な修正は、到達不能な目的地で新しい指示まで待つこと、働く植物は敵から退避できること、部分補給で退避しても水・元の持ち場・補給意図を保つこと、撃破直後の保存が復元できること、タイトルからhelpを開いた状態のF5で既存slotを上書きしないこと、helpから補給popup/menuへ重複なく戻れること、title/pause menuの型エラー修正です。詳細条件は独立レビューと自己報告を参照してください。
+
+### 限界と前回記録との関係
+
+この追補はPOC2-05の58 PASSや原記録のfixture/画素計測FAILを置き換えません。今回は変更5ファイルの保守範囲を追加確認したものです。旧58項目の全再実行、3500ゲーム秒の再走、全状態・全敵経路・全破損保存の検証、全回帰、物理OS入力、配布build、最大密度の長時間性能、バランス・楽しさ・最終美術評価はNOT_RUNです。晴れ固定、仮モデル、水面反射磨き込み保留、おたすけ植物の仮スプライト維持も変わりません。
+
+## POC2-07 マップのクォータービュー対応
+
+2026-10-23、親Astraはユーザーが許可した地図の向き・操作改善を限定技術受入しました。対象はHEAD `151a53f20255489ef08481e2a353258cd8ac559c` と共有未コミット差分で、実行対象16 sourceを [`freeze-manifest.json`](../evidence/poc2/map_orientation/freeze-manifest.json) に固定しました。ランタイム変更は `scripts/poc2/ui/map_ui.gd` のみで、その最終SHA-256は `C55C323463F872F36C1956278872CBB0D1A163E55617668681319C73FF5074A6` です。
+
+### 実装と確認結果
+
+- 地面投影をゲームのyaw45°・仰角30°へ合わせ、全体マップの既存224×224枠内に横224×縦112の菱形、ミニマップに円形108枠を保ちました。地形は640×360の出力ピクセル中心から直接逆投影してサンプルし、既存画像を回転・補間しません。地形とアイコンは共通のスナップ中心を用い、UIアイコン・ゲージ・ボタンは正立します。2/4倍はカーソル下の地面を保持し、1倍へ戻すと全域を再表示します。地面円の活動範囲も同じ投影です。
+- 自己確認は通常GPU確認13 PASS / fixture由来2 FAILを記録。移動指示fixtureが操作ボタンへ重なる問題と、水面セルを移動先にしたための正常な拒否を切り分け、通行可能かつボタン外のfixtureで限定追試3 PASS / 0 FAIL。最終セル境界の自己追試は2 PASS / 0 FAILです。初回ログは残し、fixture失敗を製品不具合へ数えません（[自己報告](../evidence/poc2/map_orientation/self/report.md)、[境界追試](../evidence/poc2/map_orientation/self/corner-report.md)）。
+- 独立確認は初回18 PASS / 1 FAIL。実カメラとの方向比率、pixel中心の地形サンプルと逆変換、640×360描画、zoom anchor、通常移動、未知情報の非表示、時間停止、popup入力独占などを確認しました。FAILは世界端の見える植物アイコンを選べない境界不具合でした。アイコンhitを世界外クリック拒否より先に処理する局所修正後、影響追試5 PASS / 0 FAILで解消を確認。世界外の余白指示拒否も維持しています（[初回レビュー](../evidence/poc2/map_orientation/independent/review.md)、[限定追試](../evidence/poc2/map_orientation/independent/final-review.md)）。
+- 初回の投影・地形・zoom等のPASSは最終修正後に再走していません。修正後追試前後で最新freeze16/16、第一弾baseline91/91のhash一致を確認しました。自己・独立ともエンジン内入力注入と前面化しないGPU画像を用いました。
+
+### 未確認範囲
+
+物理キーボード/マウス経路、書出し後の実行、全ゲーム回帰、長時間性能、ゲームの楽しさと最終美術評価はNOT_RUNです。今回の技術受入は地図の限定的な描画・入力確認を指し、第二弾全体の最終合否ではありません。
+
+根拠: [凍結manifest](../evidence/poc2/map_orientation/freeze-manifest.json)、[自己報告](../evidence/poc2/map_orientation/self/report.md)、[自己の全体マップGPU画像](../evidence/poc2/map_orientation/self/full-explored.png)、[自己の移動中ミニマップGPU画像](../evidence/poc2/map_orientation/self/mini-moving.png)、[自己境界追試](../evidence/poc2/map_orientation/self/corner-report.md)、[独立初回](../evidence/poc2/map_orientation/independent/review.md)、[独立の全体マップ画像](../evidence/poc2/map_orientation/independent/full-revealed.png)、[独立境界修正画像](../evidence/poc2/map_orientation/independent/final-last-cell-selected.png)、[独立限定追試](../evidence/poc2/map_orientation/independent/final-review.md)。
 
 ## TECH-QV-01 クォータービュー専用試験
 
@@ -396,3 +457,83 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 ### NOT_RUN（未確認）
 
 物理キーボード・マウス（OS経由の入力）、実音の聴取、run_poc.batの実窓での描画、他機種の性能、楽しさ・テンポ・美術の評価（ユーザー判断。AIは代行していない）。
+
+## SPR-01 通常歩行・跳ね歩きのゲーム内比較（2026-10-20）
+
+- 対象: 共有ツリーHEAD `151a53f20255489ef08481e2a353258cd8ac559c` 上の凍結済みPoC差分。ユーザー依頼に沿って通常歩行素材を追加し、既存跳ね歩きとの比較を可能にした。基準となる静止画v2と16×24px素材は保持。
+- 素材独立確認: 5 PASS / 0 FAIL / 2 NOT_RUN（[記録](../evidence/spr01/independent/walk-compare-assets.md)）。確認対象はPNG格子・二値alpha・パレット・足の交互動作等の素材範囲で、連続再生のゲーム内見え方を含まない。
+- 親確認済みの実装担当自己確認: 操作16 PASS / 0 FAIL、配置1 PASS、影修正後8 PASS / 0 FAIL。生データは[操作結果](../evidence/spr01/walk-compare/self/results.json)、[配置ログ](../evidence/spr01/walk-compare/self/layout.log)、[影結果](../evidence/spr01/walk-compare/self/shadow_results.json)、[対象hash](../evidence/spr01/walk-compare/self/target-hashes.json)。GPU比較GIF・代表画像は[自己証拠フォルダ](../evidence/spr01/walk-compare/self/)に保存。
+- GPU確認環境はRTX 5070 Ti / Vulkan。sandboxでは空の既存user:// cache/settingsに関する警告が出た。保存往復は隔離した証拠用領域で確認し、通常ユーザーのsaveは変更していない。
+- 初回GPU確認で自己影が顔を隠す問題を修正し、表示板専用レイヤーと同期太陽光を使って自己受影を除去。地面への投影と建物からの受影を維持。半透明建物の影コピーと反射表示maskも調整し、影mapを1枚追加した。影修正後の自己確認は8 PASS / 0 FAIL。性能負荷は未測定。
+- 独立GPU検証者の正式集計は11 PASS / 0 FAIL / 5 NOT_RUN（[独立報告](../evidence/spr01/independent/walk-compare-review.md)）。個別GPU主試験は20条件中19 PASS / 1 FAIL（[初回結果](../evidence/spr01/independent/walk-compare-gpu/results.json)）。FAILは夜撮影用にclock.elapsedのみを変更してtickと時間が不整合となった試験fixtureを、既存validatorが拒否したもの。製品側の不具合ではなく、初回結果は保持した。正常な時計状態の旧resolution_index=1セーブ往復だけを1回再確認し、保存成功・読込成功・state_equal=true・640×360復元でPASS（[再確認結果](../evidence/spr01/independent/walk-compare-gpu/save_followup.json)、[stdout](../evidence/spr01/independent/walk-compare-save.stdout.log)）。全体再走やゲーム修正はしていない。初回20条件と再確認を加算して集計を増やさず、正式集計11/0/5を用いる。
+- 独立担当はGPU画像を目視確認し、実装8ファイル/import素材/自己試験の18対象hashと通常歩行素材hashの開始前後一致を確認。証拠画像は[独立GPU結果](../evidence/spr01/independent/walk-compare-gpu/)にある。初回の不正時計によるvalidator拒否は[独立ログ](../evidence/spr01/independent/walk-compare-save.stdout.log)にも記録。
+- 未確認: 実時間の連続再生の視覚・操作感、通常歩行と跳ね歩きのユーザー選択、物理OS入力、通常ユーザーのuser://保存経路、物理窓の整数倍画素、全照明・実水面反射・影map追加の性能、長時間回帰・書き出し後動作、他GPU・低性能機。楽しさと最終美術はユーザー判断。
+
+### 通常歩行v2の更新（2026-10-20）
+
+- ユーザーは体や手の固定で歩行感が弱いと述べ、跳ねない範囲で動きを増やし、1px上下も許容すると依頼。親の試作初期値は胴・顔の下方向変位 `[0,+1,0,+1]px`、皮状の手の胴に対する左右交互±1px、足は接地、葉の相対揺れを維持するもの。
+- 新素材[`walk-normal-v2`](../assets/concepts/spr01/walk-normal-v2/preview.gif)と、runtime素材manifestの出典差替えを記録。24×36px・4方向4コマ・8fps・anchor(12,34)、二値alpha、目1×2px、非反転。静止画v2、旧通常v1、跳ね歩き、16×24px案は保全。ゲームコード、速度、当たり判定、照明、保存、F6操作は無変更。
+- 親がcontact sheetとGPUの通常歩行画像を目視。自己GPU確認7 PASS / 0 FAIL（[結果](../evidence/spr01/walk-normal-v2/self/results.json)）: 通常時640×360、import後画素一致、4コマ同一接地、停止時採用idle、F6で既存hopへ切替、hop選択保持、通常へ復帰。NOT_RUN: 物理OS入力、連続再生の手触り/美術選択、保存・全天候・広範囲の影回帰。
+- 通常歩行v2の独立素材/提示画像確認は7 PASS / 0 FAIL / 3 NOT_RUN（[報告](../evidence/spr01/walk-normal-v2/independent/review.md)）。独立Pythonで224個別画素照合PASS、凍結72件hash一致。contact sheetと制作者取得GPU画像6枚を目視し、独立GPU再実行はなし。自己GPU7 PASSは別の確認範囲で、独立集計へ加算していない。
+- NOT_RUN（当該試験時点）: 連続再生の見た目・操作感、物理入力、保存・全天候・広範囲の影回帰。前節のv1独立11 PASS / 0 FAIL / 5 NOT_RUNはv2の検証結果に含めない。
+
+### ユーザー採用（2026-10-20）
+
+ユーザーは通常歩行v2を「歩きの方がよかったです。こちらを採用しましょう」と選択しました。これは素材・提示画像を見たユーザーのデザイン判断であり、新たな試験結果ではありません。前節の試験時点で「最終歩行選択 NOT_RUN」とした記録は当時の状態を指します。通常歩行v2が現在の採用案です。採用仕上げでF6/右上切替を除去した限定確認は、次節に記録します。
+
+### 採用歩行の固定と比較操作除去（2026-10-20）
+
+- 採用済み通常歩行v2へ通常mode 0を固定し、F6、右上比較ボタン、比較案内を除去。
+- 実装担当Solの自己GPU確認4 PASS / 0 FAIL（[結果](../evidence/spr01/walk-adopt/self/results.json)）。確認対象は通常歩行、F6無作用、比較ボタン/案内の不在、停止時の採用idle。
+- 別Solの独立差分/提供GPU画像レビュー4 PASS / 0 FAIL / 2 NOT_RUN（[報告](../evidence/spr01/walk-adopt/independent/review.md)）。対象差分/画像hashを確認し、walking/idleの提供GPU画像を目視。独立GPU再実行なし。通常PNGは採用v2原本と一致し、actor/PNG等の保全11 hashと変更対象hashが一致。
+- NOT_RUN: 独立GPU再実行、物理OS入力、広い回帰。これはユーザーの採用決定を検証へ置き換えるものではなく、採用済みの素材・表示を比較専用UIなしで維持する変更の限定確認。
+
+## SPR-01 正面の種・水発射アニメ試作（2026-10-20）
+
+- 対象: 共有ツリーHEAD `151a53f20255489ef08481e2a353258cd8ac559c` と既存差分を基準にした、`assets/concepts/spr01/fire-front-v1/` の静的・時刻指定比較試作。ゲーム/runtimeには未組込み。
+- 制作担当の記録: [制作記録](../assets/concepts/spr01/fire-front-v1/production-note.md)、[素材自己検査](../evidence/spr01/fire-front-v1/self/self-check.json)、[HTML検査](../evidence/spr01/fire-front-v1/self/html-check.json)。原寸・寸法・alpha/palette・顔・足・idle保持・イベント時刻・レイヤー分離・GIF復号・HTML埋込一致等の自己確認を記録し、全コマ一覧を1回目視。親もcontact sheetを確認し、重大な崩れは見ていない。
+- 表示時間: manifest上の発射時刻は種33ms、水50ms。GIFは20msサンプルのため40/60msに近似される。HTMLの時間区分は正確なmsだが、物理画面上の反映はブラウザー更新周期に依存する。
+- NOT_RUN: ブラウザー/GIF連続再生の目視、物理表示時刻の精度、ゲーム統合、ゲーム内照明、操作感、最終美術評価。今回了承された試作の動き・コマ長・発射時刻は制作条件であり、ゲームには未実装。飛翔表現の弾道・速度・色細部は比較用で未決定。
+- 独立確認は7 PASS / 0 FAIL / 3 NOT_RUN（[報告](../evidence/spr01/fire-front-v1/independent/review.md)、[結果JSON](../evidence/spr01/fire-front-v1/independent/results.json)）。独立に241個別照合を実施し、元137件と凍結成果59件のhash一致を確認。全コマ目視で種/水の静止コマ、時間、分離、GIF復号に重大な問題は見つからず、親は比較提示の限定技術受入。NOT_RUN: ブラウザー連続再生、実速の印象、ゲーム統合。ゲーム内実装やユーザーによる最終美術採用は示さない。
+
+## SPR-01 発射v3のゲーム仮組込み（2026-10-20、4方向版へ更新前）
+
+- 対象: 共有HEAD `151a53f20255489ef08481e2a353258cd8ac559c`＋既存差分のPoC。`scripts/poc/poc_main.gd`、`poc_actor.gd`、`poc_session.gd`、`play/poc_play_view.gd`、新規表示制御とruntime素材copyを変更。起動入口は通常PoCの[run_poc.bat](../launchers/run_poc.bat)。旧ゲーム入口/解像度640×360/移動/速度/当たり判定/保存形式は維持。
+- 表示/動作: 通常静止/歩行は既採用4方向、発射中のみ正面v3を全照準方向へ共用。入力直後にpose 0を表示。種は400msで66ms時点、水は800msで400ms時点に弾を生成し、通常種/水の資源減算と発射音を一度だけ実行。栽培種は既存費用ルールを保ち、発射時に種を予約して利用可能数から差し引き、弾の着地成功時に袋seedsを消費。形成FX/飛翔画像を分離し、頭の葉間から表示。実際のaimはマウス地面クリックの方向、姿だけ正面共通。移動は継続可。
+- 入力/セッション: aim点と選択中の種を入力時に固定、弾の発射originは発射時点のplayer位置。溜め中の追加入力は拒否し、タイマーを再開始しない。発射後の戻りは次入力で中断可。資源不足/弾上限/無効地点では開始せず、発射時も再確認。失敗時は消費/弾なしで通常表示へ戻る。pause/menu/viewpointでtimer停止、load/newgame/death時に未発射を破棄。pendingは保存せず、既存`session.fire`即時APIは維持。栽培種の発射時予約/着地時消費も従来ルールを保持。
+- 自己確認: logic16 PASS（[結果](../evidence/spr01/fire-integration/self/logic-results.json)）、実GPU1回11 PASS（[結果](../evidence/spr01/fire-integration/self/gpu-results.json)）。実装メモ（[implementation-note.md](../evidence/spr01/fire-integration/self/implementation-note.md)）、凍結68ファイルの[対象hash](../evidence/spr01/fire-integration/self/target-hashes.json)、保全128件hash一致（[preserved-check.json](../evidence/spr01/fire-integration/self/preserved-check.json)）。親はコード差分と水の実画面を確認し、重大な崩れなし。GPUで水の400ms発射時、projectile native 8×8の初期投影とsocketが (320,180) で一致、音1回、種の粒FX、移動継続/4方向共用/歩行復帰を確認。menu/viewpoint停止・load/newgame/death中断を含む。
+- 画面証拠: [GPU contact sheet](../evidence/spr01/fire-integration/self/fire-game-contact6x.png)と[位相比較GIF](../evidence/spr01/fire-integration/self/fire-game-crop6x.gif)はGPUの各時点撮影画像をnearest6倍で比較したもの。実マウス操作の連続録画ではない。時刻別画像とログは同じself evidenceフォルダ内。
+- 独立確認: [正式レビュー](../evidence/spr01/fire-integration/independent/review.md)のR1は23 PASS / 2 FAIL。R1の2 FAILは栽培種の袋seedsが発射時に減るという独立テスト側期待値誤り。既存仕様は発射時に種を予約しavailableを減らし、弾が着地して配置成功した時点で袋から消費する。該当2条件だけを狭く再確認したR2は2 PASS / 0 FAIL（[selection-followup.json](../evidence/spr01/fire-integration/independent/selection-followup.json)）。全GPU試験は再走せず、初回FAILを残したまま別結果として記録。製品修正なし、未解決FAILなし。
+- 独立側は凍結68/68・保全128/128 hash一致を確認し、実GPU画像を目視。Godot内入力注入のみで、親もコード差分・原寸GPU/cropを確認し、全方向の正面共用を仮組込みとして限定技術受入。
+- NOT_RUN: 物理入力、連続再生の印象/操作感、最終美術採用、旧 `main.click_fire` 即時入力前提の全回帰（未改造・未実行）、全天候・性能・書出し。今回の専用試験はpending action契約と主要描画/中断条件に限定。ゲームの水範囲・弾速・消費量等は変更しておらず、試遊用仮組込みはゲームバランスや最終美術採用ではない。
+
+### 正面発射アニメv2（2026-10-20、比較試作）
+
+- 対象: 共有HEAD `151a53f20255489ef08481e2a353258cd8ac559c`＋既存差分上の`assets/concepts/spr01/fire-front-v2/`。正面だけの試作で、ゲーム/runtimeは変更なし。v1・既存採用素材も変更なし。
+- 変更点: 種はユーザー指示の発射時胴/顔/手1px下げ、手先追加1px下げ、足固定、葉の相対形維持を反映。4コマ・200ms・発射33msは維持。水は膨張を長くする比較方向に沿い、親の初期値で6コマ・400ms・発射150ms、2→4→6px形成と胴/顔変位 `[0,0,-1,+1,+1,0]px` を作成。数値・水の造形は最終採用仕様ではない。
+- 制作担当自己確認: [素材検査](../evidence/spr01/fire-front-v2/self/self-check.json)、[HTML検査](../evidence/spr01/fire-front-v2/self/html-check.json)、[hash](../evidence/spr01/fire-front-v2/self/target-hashes.json)。寸法・alpha/palette・顔/足・葉・水の伸長/接続・イベント・HTML/GIF一致などを1回確認し、全コマ一覧を目視。親もcontact sheetを見て重大な崩れは確認していない。
+- 表示時刻: GIFは20ms刻み100コマ・2秒ループ。種releaseはGIF上40ms、水は160msに近似。manifest/HTMLは33ms/150msを保持。
+- 独立確認は7 PASS / 0 FAIL / 3 NOT_RUN（[報告](../evidence/spr01/fire-front-v2/independent/review.md)、[結果JSON](../evidence/spr01/fire-front-v2/independent/results.json)）。275個別照合を実施し、元138件と凍結成果63件のhash一致を確認。種の胴/手先の反動、水の3段膨張・150ms分離・400ms復帰、足の接続を確認。親は全コマと証拠を確認し、比較試作として限定受入。
+- NOT_RUN: ブラウザー連続再生、実速の印象、ゲーム統合/水のゲーム内範囲・消費・連射・弾道、最終美術評価。水のゲーム内範囲は後日検討。
+
+### 正面発射アニメv3（2026-10-20、比較試作）
+
+- 対象: 共有HEAD `151a53f20255489ef08481e2a353258cd8ac559c`＋既存差分上の`assets/concepts/spr01/fire-front-v3/`。正面だけの比較素材で、ゲーム/runtimeとv1/v2素材は変更なし。
+- ユーザー依頼: 種の速度を半分にし、水も遅くして溜め感と表情変化を加える。種はv2の動きを維持し、 `[66,100,100,134]ms`・400ms・発射66msへ厳密に倍化。閉眼コマでは明示依頼による縦2px開眼例外、通常開眼/idleは維持。
+- 水は親の比較用初期値7コマ `[80,100,100,120,100,120,180]ms`・800ms・発射400ms。2→4→6px膨張後に6px大玉を120ms保持、胴変位 `[0,0,-1,0,1,1,0]px`、足固定。水の数値/姿勢はユーザー最終採用ではない。飛翔弾はv2と同じ画像/速度で、ゲームの水範囲などは今回変更なし。
+- 制作担当の自己確認は[素材検査](../evidence/spr01/fire-front-v3/self/self-check.json)、[HTML検査](../evidence/spr01/fire-front-v3/self/html-check.json)、[凍結hash一覧](../evidence/spr01/fire-front-v3/self/target-hashes.json)、[制作メモ](../assets/concepts/spr01/fire-front-v3/production-note.md)。寸法/色/alpha、表情別の目口座標、開眼1×2px、種の顔以外のv2画素と時間倍化、水の膨張/保持/分離/接続、HTML時刻/GIF全200コマの復号を1回確認し、全コマ一覧を1回目視。
+- 表示: GIFは20ms刻み・4000msループ、seed releaseは80ms、水は400msに近似。manifest/HTMLは正確な66/400msを保持。
+- 独立確認は7 PASS / 0 FAIL / 3 NOT_RUN（[報告](../evidence/spr01/fire-front-v3/independent/review.md)、[結果JSON](../evidence/spr01/fire-front-v3/independent/results.json)）。355個別照合を実施し、旧201件と凍結67件のhash一致を確認。種の時間倍化と顔以外のv2保持、水の長い保持/400ms分離、表情変化、足接続を確認。親は全コマと証拠を確認し、比較試作として限定受入。
+- NOT_RUN: ブラウザー連続再生/実速の印象、物理表示精度、ゲーム統合/水の範囲・消費・連射・弾道、最終美術採用。
+
+## SPR-01 発射4方向v1のゲーム仮組込み（2026-10-20）
+
+- 対象: 共有HEAD `151a53f20255489ef08481e2a353258cd8ac559c`＋既存差分。正面v3共用の旧仮組込みを、4方向行を持つ`assets/sprites/poc/player/fire-directions-v1/`へ更新。runtime 99ファイルを概念素材からbyte copyし、`source-copy.json`へ記録。旧正面仮組込み時の結果は直前節に履歴として残す。
+- 承認済み素材条件: 24×36px/anchor(12,34)、down/left/right/up。種4コマ `[66,100,100,134]ms`/400ms/66ms発射で全コマ通常眼。水7コマ `[80,100,100,120,100,120,180]ms`/800ms/400ms発射。水の正面キャラクター7枚・形成FX7枚・飛翔画像はv3とbyte一致。左右は反転せず、背面は顔なし。socketは左(11,14)、他(12,14)。
+- 実装メモ: [game-self実装報告](../evidence/spr01/fire-directions/game-self/implementation-note.md)、[runtime対象hash](../evidence/spr01/fire-directions/game-self/target-hashes.json)、[runtime copy一覧](../evidence/spr01/fire-directions/game-self/source-copy.json)、[保全確認](../evidence/spr01/fire-directions/game-self/preserved-check.json)。実装側は通常向きと発射中のマウス向きを連動。socketは投影上の弾表示に使い、論理発射起点・aim target・速度・範囲・衝突・保存への変更なし。ゲーム起動入口は[`run_poc.bat`](../launchers/run_poc.bat)。
+- 素材担当自己確認: [self-check](../evidence/spr01/fire-directions/asset-self/self-check.json)で44キャラクター/44形成FXコマ、正面水のbyte一致、正面種の6画素（目周辺のみ）の変更、左右非反転を記録。[preserved-check](../evidence/spr01/fire-directions/asset-self/preserved-check.json)では保全204件一致。素材担当はGodot import・描画を実行していない。
+- ゲーム実装担当の自己確認: 専用logic **16 PASS / 0 FAIL**（[結果](../evidence/spr01/fire-directions/game-self/logic-results.json)）。実GPU **26 PASS / 0 FAIL**（[結果](../evidence/spr01/fire-directions/game-self/gpu-results.json)）。left/right/up×種/水の開始向き、atlas/formation/影/足元/整数格子、socketと飛翔表示・logical origin、通常歩行復帰などを確認。左の射出口(319,180)、右/上(320,180)を画像上で確認。GPU位相比較は[contact sheet](../evidence/spr01/fire-directions/game-self/game-directions-contact4x.png)、[GIF](../evidence/spr01/fire-directions/game-self/game-directions-phase4x.gif)。
+- 実装担当記録ではGodot 4.7.2 / Vulkan Forward+、RTX 5070 Ti、hidden起動を使用し、OS入力/前面化/カーソル操作なし。import完了・終了コード0、script parse/runtime errorなし。
+- 独立確認: [レビュー](../evidence/spr01/fire-directions/independent/review.md)は集約12 PASS / 0 FAIL / 4 NOT_RUN。内訳の独立照合はart192 PASS、専用logic+GPU16 PASS、凍結/import audit3 PASSで、単純合算した件数ではありません。runtime/code206/206、source203/203、旧保全204/204、runtime copy99件の一致を確認。実際の4方向の表示と差分をレビューし、製品修正を要するFAILはありませんでした。
+- 親はレビュー、実差分、素材contact sheet、自己および独立GPU画像を確認し、種の通常眼と発射4方向の制作/ゲーム組込みを限定技術受入。これはユーザーによる新方向の最終美術評価や実速の操作感の判断を代行しません。
+- NOT_RUN: 物理入力/物理ウィンドウ画素、実速の操作感・ユーザー最終美術評価、全照明/全天候・性能・書出し・全回帰、保存復元・栽培種の再試験。水範囲調整は後日。前回の保存・栽培種確認を今回の再実行として数えていません。

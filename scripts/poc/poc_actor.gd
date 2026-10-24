@@ -1,28 +1,49 @@
 extends Node3D
-## Provisional human sprite: a lit display card (no shadow) plus a SHADOWS_ONLY card with the same frame and
-## the same feet. 1 texel = 1 screen px: resolution-specific frames (nearest) and a pixel_size derived from the
-## camera. No outline is added.
+## Native 24x36 bulb, four authored directions. Display and shadow share texture and foot anchor.
 const Config: GDScript = preload("res://scripts/poc/poc_config.gd")
-const Fixture: GDScript = preload("res://scripts/render_study_3d/sprite_shadow_fixture.gd")
 const SUN_CARD: int = 8
+const PLAYER_DISPLAY: int = 64
+const FRAME_SIZE: Vector2i = Vector2i(24, 36)
+const FOOT_ANCHOR: Vector2i = Vector2i(12, 34)
+const DIRECTIONS: Array[StringName] = [&"down", &"left", &"right", &"up"]
+const IDLE: Texture2D = preload("res://assets/sprites/poc/player/idle.png")
+const WALK_SHEETS: Array[Texture2D] = [
+	preload("res://assets/sprites/poc/player/walk-normal.png"),
+	preload("res://assets/sprites/poc/player/walk-hop.png"),
+]
+const FIRE_SHEETS: Dictionary = {
+	&"seed": preload("res://assets/sprites/poc/player/fire-directions-v1/seed-character-sheet.png"),
+	&"water": preload("res://assets/sprites/poc/player/fire-directions-v1/water-character-sheet.png"),
+}
+const FORMATION_SHEETS: Dictionary = {
+	&"seed": preload("res://assets/sprites/poc/player/fire-directions-v1/seed-formation-sheet.png"),
+	&"water": preload("res://assets/sprites/poc/player/fire-directions-v1/water-formation-sheet.png"),
+}
 
 var camera: Camera3D
 var display_sprite: Sprite3D
 var shadow_board: Sprite3D
+var formation_sprite: Sprite3D
+var fire_kind: StringName = &""
+## Separate receiver light excludes sprite shadow cards while retaining 3D building shadows.
+var receiver_light: DirectionalLight3D
 var resolution_index: int = 0
 var render_height: int = 360
-var frame: int = 1
+var frame: int = 0
+var direction: StringName = &"down"
+var walk_mode: int = 0
+var walking: bool = false
 var render_foot: Vector3 = Vector3.ZERO
 var pixel_size: float = 0.0
-var _sources: Array[Image] = []
 var _cache: Dictionary = {}
 
 func setup(camera_: Camera3D) -> void:
 	camera = camera_
-	for texture: ImageTexture in Fixture.frames():
-		_sources.append(texture.get_image())
-	display_sprite = _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, 1)
+	display_sprite = _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, PLAYER_DISPLAY)
 	shadow_board = _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY, SUN_CARD)
+	formation_sprite = _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, PLAYER_DISPLAY)
+	formation_sprite.shaded = false
+	formation_sprite.visible = false
 	set_resolution(Config.DEFAULT_RESOLUTION)
 
 func _sprite(mode: int, layer: int) -> Sprite3D:
@@ -38,24 +59,44 @@ func _sprite(mode: int, layer: int) -> Sprite3D:
 	add_child(sprite)
 	return sprite
 
-func set_resolution(index: int) -> void:
-	resolution_index = index
-	render_height = Config.RESOLUTIONS[index].y
+func set_resolution(_index: int) -> void:
+	resolution_index = Config.DEFAULT_RESOLUTION
+	render_height = Config.RESOLUTIONS[resolution_index].y
 
-func frame_texture(index: int, frame_: int) -> ImageTexture:
-	var key: int = index * 16 + frame_
+func frame_texture(frame_: int, direction_: StringName, mode: int, moving: bool) -> Texture2D:
+	var row: int = maxi(DIRECTIONS.find(direction_), 0)
+	var key: String = "%d:%d:%d:%s" % [row, frame_, mode, moving]
 	if not _cache.has(key):
-		var size: Vector2i = Config.SPRITE_FRAME_PX[index]
-		var image: Image = _sources[frame_].duplicate()
-		image.resize(size.x, size.y, Image.INTERPOLATE_NEAREST)
-		_cache[key] = ImageTexture.create_from_image(image)
+		var texture: AtlasTexture = AtlasTexture.new()
+		texture.atlas = WALK_SHEETS[mode] if moving else IDLE
+		texture.region = Rect2(Vector2(frame_ * FRAME_SIZE.x, row * FRAME_SIZE.y), Vector2(FRAME_SIZE)) if moving else Rect2(Vector2(row * FRAME_SIZE.x, 0), Vector2(FRAME_SIZE))
+		texture.filter_clip = true
+		_cache[key] = texture
 	return _cache[key]
 
-## Places the sprite with its feet at `foot` (world), snapped so the feet land on a whole screen pixel.
-func pose(foot: Vector3, frame_: int, flip: bool, directional: DirectionalLight3D) -> void:
-	frame = posmod(frame_, 4)
-	var texture: ImageTexture = frame_texture(resolution_index, frame)
-	var texels: Vector2i = Config.SPRITE_FRAME_PX[resolution_index]
+func fire_texture(kind: StringName, index: int, formation: bool = false, facing: StringName = &"down") -> Texture2D:
+	var row: int = maxi(DIRECTIONS.find(facing), 0)
+	var key: String = "fire:%s:%d:%s:%d" % [kind, index, formation, row]
+	if not _cache.has(key):
+		var texture: AtlasTexture = AtlasTexture.new()
+		texture.atlas = FORMATION_SHEETS[kind] if formation else FIRE_SHEETS[kind]
+		texture.region = Rect2(Vector2(index * FRAME_SIZE.x, row * FRAME_SIZE.y), Vector2(FRAME_SIZE))
+		texture.filter_clip = true
+		_cache[key] = texture
+	return _cache[key]
+
+## Snap a fixed ground anchor, not the changing visible bounds of the animation.
+func pose(foot: Vector3, frame_: int, facing: StringName, directional: DirectionalLight3D, mode: int = 0, moving: bool = false, action_kind: StringName = &"", action_frame: int = 0, forming: bool = false) -> void:
+	_sync_receiver_light(directional)
+	frame = posmod(frame_, 4) if moving else 0
+	direction = facing if DIRECTIONS.has(facing) else &"down"
+	walk_mode = clampi(mode, 0, WALK_SHEETS.size() - 1)
+	walking = moving
+	var texture: Texture2D = frame_texture(frame, direction, walk_mode, moving)
+	fire_kind = action_kind
+	if FIRE_SHEETS.has(action_kind):
+		frame = action_frame
+		texture = fire_texture(action_kind, action_frame, false, direction)
 	pixel_size = camera.size / float(render_height)
 	var screen: Vector2 = camera.unproject_position(foot)
 	var correction: Vector2 = screen.round() - screen
@@ -63,7 +104,7 @@ func pose(foot: Vector3, frame_: int, flip: bool, directional: DirectionalLight3
 	var tilt: float = -camera.global_basis.y.dot(ground_forward)
 	render_foot = foot + camera.global_basis.x * correction.x * pixel_size + ground_forward * correction.y * pixel_size / tilt
 	var upright: float = 1.0 / maxf(camera.global_basis.y.dot(Vector3.UP), 0.1)
-	var center: Vector3 = render_foot + Vector3.UP * (float(texels.y) * 0.5) * pixel_size * upright
+	var center: Vector3 = render_foot + Vector3.UP * float(FOOT_ANCHOR.y - FRAME_SIZE.y / 2) * pixel_size * upright
 	display_sprite.global_basis = Basis(camera.global_basis.x, Vector3.UP * upright, ground_forward)
 	var normal: Vector3 = Vector3(directional.global_basis.z.x, 0.0, directional.global_basis.z.z).normalized()
 	shadow_board.global_basis = Basis(Vector3.UP.cross(normal), Vector3.UP * upright, normal)
@@ -71,18 +112,51 @@ func pose(foot: Vector3, frame_: int, flip: bool, directional: DirectionalLight3
 		sprite.pixel_size = pixel_size
 		sprite.global_position = center
 		sprite.texture = texture
-		sprite.flip_h = flip
+		sprite.flip_h = false
+	formation_sprite.visible = FIRE_SHEETS.has(action_kind) and forming
+	if formation_sprite.visible:
+		formation_sprite.texture = fire_texture(action_kind, action_frame, true, direction)
+		formation_sprite.pixel_size = pixel_size
+		formation_sprite.global_basis = display_sprite.global_basis
+		# A tiny camera-normal separation avoids coplanar fighting without shifting screen pixels.
+		formation_sprite.global_position = center + camera.global_basis.z * pixel_size * 0.01
+
+func _sync_receiver_light(source: DirectionalLight3D) -> void:
+	if receiver_light == null:
+		receiver_light = source.duplicate() as DirectionalLight3D
+		receiver_light.name = "PlayerReceiverLight"
+		receiver_light.light_cull_mask = PLAYER_DISPLAY
+		receiver_light.shadow_caster_mask = 1 # 3D meshes, including opaque shadow copies of faded buildings.
+		receiver_light.sky_mode = DirectionalLight3D.SKY_MODE_LIGHT_ONLY
+		add_child(receiver_light)
+		source.light_cull_mask = source.light_cull_mask & ~PLAYER_DISPLAY
+	# The environment drives source transform / colour / energy for sun, moon and weather.
+	# Copy every light / shadow property so subsequent tuning cannot silently diverge.
+	for entry: Dictionary in source.get_property_list():
+		var property: StringName = entry.name
+		var property_text: String = String(property)
+		if property in [&"light_cull_mask", &"shadow_caster_mask"]:
+			continue
+		if property_text.begins_with("light_") or property_text.begins_with("shadow_") or property_text.begins_with("directional_"):
+			receiver_light.set(property, source.get(property))
+	receiver_light.global_transform = source.global_transform
+	receiver_light.visible = source.visible
 
 func snapshot() -> Dictionary:
-	var texels: Vector2i = Config.SPRITE_FRAME_PX[resolution_index]
 	return {
 		"frame": frame,
-		"texels": [texels.x, texels.y],
+		"fire_kind": String(fire_kind),
+		"formation_visible": formation_sprite.visible,
+		"direction": String(direction),
+		"walk_mode": "normal" if walk_mode == 0 else "hop",
+		"walking": walking,
+		"texels": [FRAME_SIZE.x, FRAME_SIZE.y],
+		"anchor": [FOOT_ANCHOR.x, FOOT_ANCHOR.y],
 		"pixel_size": pixel_size,
 		"matching_texture": display_sprite.texture == shadow_board.texture,
 		"matching_feet": display_sprite.global_position.is_equal_approx(shadow_board.global_position),
 		"matching_flip": display_sprite.flip_h == shadow_board.flip_h,
 		"shaded": display_sprite.shaded,
 		"foot_screen": camera.unproject_position(render_foot),
-		"height_m": float(texels.y) * pixel_size,
+		"height_m": float(FOOT_ANCHOR.y) * pixel_size,
 	}

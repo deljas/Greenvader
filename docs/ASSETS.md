@@ -166,3 +166,43 @@ P1で追加した素材はすべてGDScriptで生成した。外部素材はな�
 
 - ミュートはMで切り替え、設定は `user://poc_ui_settings.json` に保存（ゲームの保存データではない）。
 - pause中・展望中・失敗時は無音。音と展望は表示・演出のみで、判定や100％保証には影響しない。
+
+## SPR-01 通常歩行・跳ね歩き比較素材（2026-10-20）
+
+通常歩行の現行試作は[`walk-normal-v2`](../assets/concepts/spr01/walk-normal-v2/preview.gif)です。ユーザーの「跳ねない程度に動きを増やし、1px上下もよい」という方向に沿い、親の試作初期値で胴・顔を `[0,+1,0,+1]px` 下へ変位させ、皮状の手を胴に対して左右交互に±1px動かし、足元接地と葉の相対揺れを保ちます。4方向・各4コマ・24×36px・8fps、foot anchor (12,34)、二値alpha、目1×2px、左右非反転です。前版[`walk-normal-v1`](../assets/concepts/spr01/walk-normal-v1/preview.gif)は胴・顔・手を固定した初回試作の履歴として保持。静止画v2からの表示用コピーは[`assets/sprites/poc/player/`](../assets/sprites/poc/player/manifest.json)にあり、manifestの通常歩行出典はv2です。跳ね歩き素材[`walk-v1`](../assets/concepts/spr01/walk-v1/preview.gif)、採用済み静止画v2、16×24pxの分身用候補は保持しています。素材はnative pixel gridで作成し、imagegenは使用していません。
+
+PoC内の[通常/跳ね比較GIF](../evidence/spr01/walk-compare/self/gpu-comparison.gif)と、v2で更新した通常歩行の自己GPU結果（7 PASS / 0 FAIL）は[`evidence/spr01/walk-normal-v2/self/`](../evidence/spr01/walk-normal-v2/self/results.json)にあります。ユーザー採用後、実装担当は通常歩行v2へ固定し、F6/右上ボタンと比較案内を除去しました。採用仕上げの実装担当自己GPU確認は4 PASS / 0 FAIL（[結果](../evidence/spr01/walk-adopt/self/results.json)）、独立差分/提供GPU画像確認は4 PASS / 0 FAIL / 2 NOT_RUN（[報告](../evidence/spr01/walk-adopt/independent/review.md)）。独立GPU再実行・広い回帰はありません。v2の独立素材/提示画像確認7 PASS / 0 FAIL / 3 NOT_RUNは素材採用前の[別レビュー](../evidence/spr01/walk-normal-v2/independent/review.md)。以前の5 PASS / 0 FAIL / 2 NOT_RUN素材確認と11 PASS / 0 FAIL / 5 NOT_RUN GPU統合集計はv1までを対象にした[過去の報告](../evidence/spr01/independent/walk-compare-review.md)。ユーザーは通常歩行v2を採用済みです。
+
+## SPR-01 正面の種・水発射アニメ試作（2026-10-20）
+
+ユーザー依頼に沿って、正面だけの比較用素材を[`fire-front-v1`](../assets/concepts/spr01/fire-front-v1/)に作成しました。[比較GIF](../assets/concepts/spr01/fire-front-v1/comparison.gif)、[正確な時刻を操作できるHTML](../assets/concepts/spr01/fire-front-v1/comparison.html)、[全コマ一覧](../assets/concepts/spr01/fire-front-v1/contact-sheet.png)、[manifest](../assets/concepts/spr01/fire-front-v1/manifest.json)、[制作記録](../assets/concepts/spr01/fire-front-v1/production-note.md)を参照。原寸PNGと文字グリッドも同フォルダーにあります。
+
+主人公は24×36px・anchor (12,34)・元の8色二値alpha・非対称の双葉・縦2pxの両眼を維持し、idleは変更していません。種は4コマ・合計200ms・33ms発射、水は5コマ・合計250ms・50ms発射です。形成FXと飛翔弾は主人公素材から分離しています。GIFでは20ms刻みに近似表示されるため発射境界は40/60ms相当ですが、manifestの正確な33/50msは維持。HTMLの時刻区分も正確なms指定で、実際の画面更新はブラウザー周期に依存します。
+
+試作の動き・コマ長・発射時刻はユーザーが今回の制作条件として了承済みです。一方、素材はゲーム未組込みで、ゲーム内実装を意味しません。比較用飛翔表現の弾道・速度・色細部と最終美術評価は未決定です。制作担当の検査記録は[自己検査JSON](../evidence/spr01/fire-front-v1/self/self-check.json)、[HTML検査JSON](../evidence/spr01/fire-front-v1/self/html-check.json)および[制作記録](../assets/concepts/spr01/fire-front-v1/production-note.md)を参照。独立確認は7 PASS / 0 FAIL / 3 NOT_RUN（[報告](../evidence/spr01/fire-front-v1/independent/review.md)）で、241個別照合、保全137件と最終凍結成果59件のhash一致を確認。連続再生/実速の印象とゲーム統合は未確認です。親は試作提示の限定技術受入を行いましたが、ユーザーによる最終美術評価は未了です。
+
+### 正面発射アニメv2（2026-10-20、比較試作）
+
+ユーザーの修正指示に沿い、種の発射反動を更新し、水の膨張を長めにした比較案を[`fire-front-v2`](../assets/concepts/spr01/fire-front-v2/)に制作。[比較GIF](../assets/concepts/spr01/fire-front-v2/comparison.gif)、[操作可能なHTML](../assets/concepts/spr01/fire-front-v2/comparison.html)、[全コマ一覧](../assets/concepts/spr01/fire-front-v2/contact-sheet.png)、[manifest](../assets/concepts/spr01/fire-front-v2/manifest.json)、[制作記録](../assets/concepts/spr01/fire-front-v2/production-note.md)。v1およびruntime/ゲーム素材は変更せず保持しています。
+
+種は4コマ `[33,50,50,67]ms`・200ms・発射33msを維持。発射コマでは胴/顔/手を1px下げ、手の最外側1pxをさらに1px下げて合計2px、足は固定し、葉は相対形状を保って胴に追従します。水は膨張を見比べる親の試作初期値として6コマ `[40,60,50,60,80,110]ms`・400ms・発射150msを使用。形成は2×2→4×4→6×6px（不透明画素4→12→32）、胴/顔変位 `[0,0,-1,+1,+1,0]px`、足は接地し上へ伸びる姿勢では下胴を接続しています。水の時間・寸法等は最終採用仕様ではありません。
+
+比較GIFは20ms刻み・2秒ループで、上段6倍実速、下段1/4速を2倍表示。発射位置はGIF上で種40ms/水160msへ近似されますが、manifest/HTMLの正確な33/150msは維持。制作担当の自己確認とhashは[自己検査記録](../evidence/spr01/fire-front-v2/self/self-check.json)、[HTML検査](../evidence/spr01/fire-front-v2/self/html-check.json)、[hash記録](../evidence/spr01/fire-front-v2/self/target-hashes.json)を参照。独立確認は7 PASS / 0 FAIL / 3 NOT_RUN（[報告](../evidence/spr01/fire-front-v2/independent/review.md)）で、275個別照合、保全138件および凍結成果63件のhash一致を確認。連続再生・実速の印象・ゲーム統合・美術採用は未確認。親は比較試作として限定受入。ゲーム内の水範囲は後日検討です。
+
+### 正面発射アニメv3（2026-10-20、比較試作）
+
+ユーザーの速度と表情の方向を受けて、比較試作[`fire-front-v3`](../assets/concepts/spr01/fire-front-v3/)を制作・凍結しました。[比較GIF](../assets/concepts/spr01/fire-front-v3/comparison.gif)、[HTML](../assets/concepts/spr01/fire-front-v3/comparison.html)、[全コマ一覧](../assets/concepts/spr01/fire-front-v3/contact-sheet.png)、[manifest](../assets/concepts/spr01/fire-front-v3/manifest.json)、[制作メモ](../assets/concepts/spr01/fire-front-v3/production-note.md)。キャラクター、形成FX、飛翔弾は別素材。飛翔PNG/速度はv2を保ち、今回の半速化はキャラクター動作時間に適用しています。v1/v2とゲーム/runtime素材は保持。
+
+種はv2の姿勢・体/手先/非対称葉の動きを保ち、目の閉じ/開きと口のすぼめ/開きを加えて `[66,100,100,134]ms`・計400ms・発射66ms（v2の厳密な2倍）にしました。水は比較用の親初期値として7コマ `[80,100,100,120,100,120,180]ms`・計800ms・発射400ms。形成水玉を2→4→6pxへ膨張、6px大玉を120ms保持。胴の上下変位は `[0,0,-1,0,1,1,0]px`、足は固定です。水の時間・表情・姿勢は最終採用ではありません。明示された表情変更のため、閉眼コマのみ縦2px開眼形状の例外とし、通常開眼/idleは維持。
+
+比較GIFは20ms刻み・4000msループ。上段6倍、下段4倍スロー。GIF上のreleaseは種80ms/水400msへ近似されますが、manifest/HTMLの正確な66/400msを維持。自己確認の記録は[素材検査](../evidence/spr01/fire-front-v3/self/self-check.json)、[HTML検査](../evidence/spr01/fire-front-v3/self/html-check.json)、凍結hash一覧は[対象hash](../evidence/spr01/fire-front-v3/self/target-hashes.json)。独立確認は7 PASS / 0 FAIL / 3 NOT_RUN（[報告](../evidence/spr01/fire-front-v3/independent/review.md)）で、355個別照合、旧201件・凍結67件hash一致。親は比較試作として限定受入。実速の印象、ブラウザー連続再生、ゲーム統合、最終美術採用は未確認。ゲームの水範囲等は後日検討し、今回変更していません。
+
+### 正面発射v3の試遊用ゲーム仮組込み（2026-10-20、4方向版へ更新前）
+
+ユーザー希望により正面v3の発射表示を全照準方向へ仮接続。通常idle/歩行は採用済みの4方向素材を継続し、種/水を発射中だけ正面キャラを使います。runtimeのsource copyは[`assets/sprites/poc/player/fire-front-v3/`](../assets/sprites/poc/player/fire-front-v3/)。元の発射素材と独立した形成FX/飛翔弾を表示し、頭の葉の間から出る構成です。自己logic/GPU表示確認、GPU位相画像、hash確認は[fire-integration証拠](../evidence/spr01/fire-integration/self/)に保存。実装メモは[implementation-note.md](../evidence/spr01/fire-integration/self/implementation-note.md)、68ファイルの[対象hash](../evidence/spr01/fire-integration/self/target-hashes.json)、保全128件の[確認](../evidence/spr01/fire-integration/self/preserved-check.json)。独立レビューはR1 23 PASS / 2 FAIL、修正対象外の試験期待値誤りを直したR2は2 PASS / 0 FAIL（[報告](../evidence/spr01/fire-integration/independent/review.md)、[追試](../evidence/spr01/fire-integration/independent/selection-followup.json)）。製品修正なく未解決FAILなし。初回失敗は栽培種が発射時に袋の種を消費するという試験側期待の誤りで、現行は発射時予約・着地成功時消費です。この試遊用仮組込みは、水の範囲・速度・消費額・操作感・最終美術採用の確定ではありません。
+
+### 発射4方向v1（2026-10-20、試遊用仮組込み）
+
+ユーザーの「種は通常の目、水は現状のまま、残りの方向も制作」の判断を受け、[比較素材](../assets/concepts/spr01/fire-directions-v1/)を制作し、[runtimeコピー](../assets/sprites/poc/player/fire-directions-v1/)へ収録しました。主人公24×36px、anchor(12,34)、down/left/right/up。種は96×144pxの4コマ×4方向、水は168×144pxの7コマ×4方向です。左右は独立作画で反転せず、上は顔なし。種は全コマ通常眼。水の正面キャラクター/形成FXと飛翔弾はv3とbyte一致です。発射タイミングは種66ms/計400ms、水400ms/計800ms。出口socketは左(11,14)、他方向(12,14)で、表示位置に適用します。
+
+制作自己確認では44キャラクターコマと44形成FXコマの寸法/パレット/alpha/顔/足、正面水のbyte一致、正面種の6画素の目だけの変更、左右非反転を確認。保全204件は一致しています（[自己検査](../evidence/spr01/fire-directions/asset-self/self-check.json)、[保全](../evidence/spr01/fire-directions/asset-self/preserved-check.json)、[hash](../evidence/spr01/fire-directions/asset-self/target-hashes.json)）。比較用の[HTML](../assets/concepts/spr01/fire-directions-v1/comparison.html)、[GIF](../assets/concepts/spr01/fire-directions-v1/comparison.gif)、[contact sheet](../assets/concepts/spr01/fire-directions-v1/contact-sheet.png)、[制作メモ](../assets/concepts/spr01/fire-directions-v1/production-note.md)を保持。自己GPU確認は26 PASS。独立確認は集約12 PASS / 0 FAIL / 4 NOT_RUN（[レビュー](../evidence/spr01/fire-directions/independent/review.md)）。凍結source203/203、runtime/code206/206、旧保全204/204、runtime copy99件一致を確認しました。親は独立レビュー・実差分・素材contact sheet・自己および独立GPU画像を確認し、今回の制作/組込みを限定技術受入しました。新方向の美術と実速操作感はユーザー判断です。

@@ -1,0 +1,366 @@
+[
+  {
+    "path": "scripts/poc/poc_actor.gd",
+    "sha256": "5AE9E90EF77B823E9ABFB7370D6501FCBB43F3EBD99B4C4EEB74931B23391BD3"
+  },
+  {
+    "path": "scripts/poc/poc_actor.gd.uid",
+    "sha256": "B7A125A846C65C352C3CD725E4C100EC029EB1074FC0801E7B1D69C7D3BF39EC"
+  },
+  {
+    "path": "scripts/poc/poc_config.gd",
+    "sha256": "4AF8A06305C021F3B0B2C9897F8729EE2216E026AC393139B8DCB3E13D9535F5"
+  },
+  {
+    "path": "scripts/poc/poc_config.gd.uid",
+    "sha256": "8366C136D5DBB4777F2027D92F94DE9C6EB63872848B7EE0DC3DF9922FC48480"
+  },
+  {
+    "path": "scripts/poc/poc_coords.gd",
+    "sha256": "BC0E62AC009200221495A04FDCA4E615CF12BE89AFF2FB331B1A445E24540921"
+  },
+  {
+    "path": "scripts/poc/poc_coords.gd.uid",
+    "sha256": "918CA710999C2EF7E1F63D5C88FB994E66856E55350C709DC2EA99E03FBEFE69"
+  },
+  {
+    "path": "scripts/poc/poc_fire_action.gd",
+    "sha256": "3602E37554D83EAA3AD467B46007467C07BB70EF2900F969B1D119E0F9A3F37B"
+  },
+  {
+    "path": "scripts/poc/poc_fire_action.gd.uid",
+    "sha256": "8EAD238692B4BCB7745FBFEEC5F6EDBE8809CEC70DA1173D7FE4D16711BD49E5"
+  },
+  {
+    "path": "scripts/poc/poc_input.gd",
+    "sha256": "E8EB1F99AB053623A621A4A249E175CAE0C23E3703944549B17E0428130664B5"
+  },
+  {
+    "path": "scripts/poc/poc_input.gd.uid",
+    "sha256": "1767C3C22DB26542A9F24198363D1511838DD7BF50CD68C88728035146147349"
+  },
+  {
+    "path": "scripts/poc/poc_main.gd",
+    "sha256": "D60E603F9719BACE14AB3DAACD0BD3277A83F160182C3F7FE891871574D45C79"
+  },
+  {
+    "path": "scripts/poc/poc_main.gd.uid",
+    "sha256": "E91CDC37B6DD9CA80E52924A1726A448BFC2434AF7057366907F5FC75630ADA0"
+  },
+  {
+    "path": "scripts/poc/poc_session.gd",
+    "sha256": "5A5A6DD87F7A5F49DEB7855769BA40925B8DC366897F04CA080493FC280B45C0"
+  },
+  {
+    "path": "scripts/poc/poc_session.gd.uid",
+    "sha256": "0C6174001284483B8ADC1CBEB68377E0F41797961B13E8DF5F9EC2A15392A763"
+  },
+  {
+    "path": "scripts/poc/assets/placement_view.gd",
+    "sha256": "899BC8D960FBE2F9597EBB4E192A0FE2FFFCA7259614410B66B99A633FEDC36C"
+  },
+  {
+    "path": "scripts/poc/assets/placement_view.gd.uid",
+    "sha256": "3236F3162120D407C073E327580F82DEE7531EC769339F5A0836733DDF2EC240"
+  },
+  {
+    "path": "scripts/poc/assets/placement.gd",
+    "sha256": "A87521B49DBF1038A1B0E05372C0B5B238E7E23EB281CAC90CD082A5ED479B71"
+  },
+  {
+    "path": "scripts/poc/assets/placement.gd.uid",
+    "sha256": "B0631F34ECF85FE0D0BEC6A615DE4501534E1FFD1F4BA0E8C79170F079373080"
+  },
+  {
+    "path": "scripts/poc/audio/poc_audio.gd",
+    "sha256": "5F4075FF4894C9C107D9C4981426D7EC8A8E12AECA1F64C6D5E28A50E9514069"
+  },
+  {
+    "path": "scripts/poc/audio/poc_audio.gd.uid",
+    "sha256": "E4754BF345E29F00CDB56F87F6F1AB17B2491F342998385C346EE22C056D0966"
+  },
+  {
+    "path": "scripts/poc/combat/poc_enemy_view.gd",
+    "sha256": "77FDB8E8B00AC46FA906AE8264E18BFCBE5630E1633955BDCAF4B252D405DAE5"
+  },
+  {
+    "path": "scripts/poc/combat/poc_enemy_view.gd.uid",
+    "sha256": "D5A70DD5FEC0B5803A952492F4E0E3D8CEC4B4F18D56ED187D0B4CA200203942"
+  },
+  {
+    "path": "scripts/poc/environment/cloud_shadow.gdshader",
+    "sha256": "84B5FC3689789674614DD2D0D2B04C9B2928D183DA879B64C0EF73331623032E"
+  },
+  {
+    "path": "scripts/poc/environment/cloud_shadow.gdshader.uid",
+    "sha256": "1CDD64795B46EA14D82BEE26B32904B14245065A59116BD714FE642BA7721608"
+  },
+  {
+    "path": "scripts/poc/environment/environment_view.gd",
+    "sha256": "7E2F9628BD0C6567AB7F04B5E08CBA2BA8E82A4EB5716C1FE3D4A05256FC76D5"
+  },
+  {
+    "path": "scripts/poc/environment/environment_view.gd.uid",
+    "sha256": "16B8BC5523C12ABE041FA71321F60815D894FD9C848DF76D0C551CE2E4D056C6"
+  },
+  {
+    "path": "scripts/poc/environment/ground_cover.gd",
+    "sha256": "E855C40F8F3CBE081A38A3352739F4A216D3C44903A4D446135268E9407ADA38"
+  },
+  {
+    "path": "scripts/poc/environment/ground_cover.gd.uid",
+    "sha256": "06E1BA15F343B0F95CBB91B62C7A4F848301E1928AAA7ACE897F96001C56EA2C"
+  },
+  {
+    "path": "scripts/poc/environment/poc_day.gd",
+    "sha256": "4562BE99516F442D6AED27182C9DFF904DEC60440C5547D87AB5C8B98E6946E6"
+  },
+  {
+    "path": "scripts/poc/environment/poc_day.gd.uid",
+    "sha256": "F0F29BD3ABB364B7C3445FFACCAE907BFB61B82D19095E0D6C214562B4B99D7F"
+  },
+  {
+    "path": "scripts/poc/environment/poc_weather.gd",
+    "sha256": "F9C73454127F8BD23356CE2EBC8D6A434DA21A648D3BF79508A463A28A3D8A1F"
+  },
+  {
+    "path": "scripts/poc/environment/poc_weather.gd.uid",
+    "sha256": "60798A96A924EC96F100CFB4811F7D4E82FF45E42AC118C9AE7D781AD3A2CF8E"
+  },
+  {
+    "path": "scripts/poc/environment/rain_screen.gdshader",
+    "sha256": "5DC2F113C0F6AF8A0B5B47D5DA95CC0D6FD31EAE13E28829BA64024F994B9D34"
+  },
+  {
+    "path": "scripts/poc/environment/rain_screen.gdshader.uid",
+    "sha256": "6DC6E29C5F6A06D398430CD89F2295548B775A4276CBCA54669919863FCE6363"
+  },
+  {
+    "path": "scripts/poc/environment/readability_view.gd",
+    "sha256": "16B66D8C9078EB6576395EDFFB829CD1B291C2DECFBBC24F2DD9C55D9C894CFF"
+  },
+  {
+    "path": "scripts/poc/environment/readability_view.gd.uid",
+    "sha256": "6FC72A1F8D02CB33EB91CB0B1B845DA8573E00C03706F2C2F20ABD9C1C33014D"
+  },
+  {
+    "path": "scripts/poc/environment/wall_growth.gd",
+    "sha256": "09E8BD92BF33272FC71F8BB9D27539E46AC1766B7685C6568DF512214E6B2564"
+  },
+  {
+    "path": "scripts/poc/environment/wall_growth.gd.uid",
+    "sha256": "913D3E313C47CC4E938644ECB529167AE6E66192665530C40D323035F118BCAF"
+  },
+  {
+    "path": "scripts/poc/environment/wall_layout.gd",
+    "sha256": "10BC4ECC0FF85AB0653418C5984062C7E5CE2E1C53E23B25B91CAEB1C0EF43A1"
+  },
+  {
+    "path": "scripts/poc/environment/wall_layout.gd.uid",
+    "sha256": "DFF34B2F3A6A515214BCBDDC84E2979432A12DC3B4023353B8F59AF732DCD464"
+  },
+  {
+    "path": "scripts/poc/environment/wall_moss.gdshader",
+    "sha256": "B106DD3471A5B7790F82841028BF869B55AD30668787C232173F03F424F9DB6A"
+  },
+  {
+    "path": "scripts/poc/environment/wall_moss.gdshader.uid",
+    "sha256": "538E16FC85EAC093F08AF9A1F6C7E4519ECD6DCBE3CC66C36A79CE00A335E5B1"
+  },
+  {
+    "path": "scripts/poc/environment/wall_parts.gd",
+    "sha256": "080E68A3AE1033027598532862C96982027D0DB9C894D1608991022E94B3C6D2"
+  },
+  {
+    "path": "scripts/poc/environment/wall_parts.gd.uid",
+    "sha256": "56B0B3E4DFB19B736990F564964E248C30D6096AC8132453EA032B75CDBC99AC"
+  },
+  {
+    "path": "scripts/poc/environment/wall_view.gd",
+    "sha256": "E262D1BDA3A42BAFC3DEFA9434899BB7EFF8E66347044BDDAE539E0E9BF20C0F"
+  },
+  {
+    "path": "scripts/poc/environment/wall_view.gd.uid",
+    "sha256": "E6481C92A5840A1B0F8FFDDD11FDDED6FD984975FBE760A868D07A080C7D85D8"
+  },
+  {
+    "path": "scripts/poc/environment/water_surface.gdshader",
+    "sha256": "17CCC059C3C531E3BF0A02963E61A17695D6E044CAAA2076A275CCE3F079F1A6"
+  },
+  {
+    "path": "scripts/poc/environment/water_surface.gdshader.uid",
+    "sha256": "B1B4D84542F479ACBCDE84D32C78FF3ABABC80923D5E2AF007C5C4E64E96CE6E"
+  },
+  {
+    "path": "scripts/poc/environment/water_view.gd",
+    "sha256": "DE933C5777DFB0AEF6D86D5B66A852A368B0AD9648195C6BD1D8BEA0E9E32C12"
+  },
+  {
+    "path": "scripts/poc/environment/water_view.gd.uid",
+    "sha256": "70D9B19FB1B4710958BFA4267EDB674AA415BB8019B6F93A589E691CCDB3E114"
+  },
+  {
+    "path": "scripts/poc/environment/weather_view.gd",
+    "sha256": "9AE63C91E6DA4F9A2C539A1173F4A5E429D3A1699DBE10569AC69CE887E8DC44"
+  },
+  {
+    "path": "scripts/poc/environment/weather_view.gd.uid",
+    "sha256": "BA8232E12DEBA6799CC7F23782BF81AAF1F92DD3A64ECA34FBD87386022FB704"
+  },
+  {
+    "path": "scripts/poc/helpers/poc_helper_view.gd",
+    "sha256": "0C14D152C6E0992F585B2E992FC1A0D0D1D90CDAC67C4408EEA21C7F3A6CC810"
+  },
+  {
+    "path": "scripts/poc/helpers/poc_helper_view.gd.uid",
+    "sha256": "6E374605D460EF3C010A1F0C755E684200AB4B7B5EDD74ED6E3228F75A9C5502"
+  },
+  {
+    "path": "scripts/poc/helpers/poc_helpers.gd",
+    "sha256": "44D01D0B3FB69F0C43C771BBE71C14EFD8585FFEBE0A677670D9442BA43F5D04"
+  },
+  {
+    "path": "scripts/poc/helpers/poc_helpers.gd.uid",
+    "sha256": "26057F426A4B383FB2B276A0146EE9809B6924D7537B5B912E0B5948F71E9789"
+  },
+  {
+    "path": "scripts/poc/occlusion/occlusion_view.gd",
+    "sha256": "4F6A0E4BE71305B231D2B49A7622B317A1DEF5E4A1AEC7B201AD315CE682C9A9"
+  },
+  {
+    "path": "scripts/poc/occlusion/occlusion_view.gd.uid",
+    "sha256": "63C9A48400902E377763EFB64A98FAEBC76FDC873CABFC710E4FC4D12B993ECC"
+  },
+  {
+    "path": "scripts/poc/occlusion/occlusion.gd",
+    "sha256": "C61DC85D3EBB62320D3F47CD4AAB8C653632500A3AD4F3B111370B9B60322341"
+  },
+  {
+    "path": "scripts/poc/occlusion/occlusion.gd.uid",
+    "sha256": "FC88C2E4F6277469059B5D537C906D6B38A70DAEAF34695570CBD5A94821D3CC"
+  },
+  {
+    "path": "scripts/poc/play/poc_play_view.gd",
+    "sha256": "1D5A85C865A551DD634C8FB230757E5200460147743926E01AE25EDEA41B1FEF"
+  },
+  {
+    "path": "scripts/poc/play/poc_play_view.gd.uid",
+    "sha256": "85A6D19AC3616736A60D8B040C062ECAEFC19AE5890FC828FDD731647BE7EC30"
+  },
+  {
+    "path": "scripts/poc/play/poc_projectiles.gd",
+    "sha256": "9CFCC7E2DF778EBB02B26553D14B008AC2DD7D4D6424BB26AD3E408973E8DC18"
+  },
+  {
+    "path": "scripts/poc/play/poc_projectiles.gd.uid",
+    "sha256": "99F6E182AA5ED8AD7F5005BE8BCC4858411BC12C9BD286F6CC2ED04710F7D2FF"
+  },
+  {
+    "path": "scripts/poc/save/poc_save.gd",
+    "sha256": "8DCE0B62FF4CBF1FC94B21827D932D17F9C63ACCC38B0836FC37F8B0EBCE2069"
+  },
+  {
+    "path": "scripts/poc/save/poc_save.gd.uid",
+    "sha256": "15A1F1335FA968C352DCBA9F3C9593AD2B09A523357D6ED68803955CD3046668"
+  },
+  {
+    "path": "scripts/poc/ui/poc_ui.gd",
+    "sha256": "AF07C0004C52EA20FF36F59F09FD720CD86FEEE43F635CEAC72A548BBC1175E4"
+  },
+  {
+    "path": "scripts/poc/ui/poc_ui.gd.uid",
+    "sha256": "E3201365C61A6454C09686516EE3765BA19E42E5F1786D3DEDA21A87F7CFB3AC"
+  },
+  {
+    "path": "scripts/poc/view/poc_viewpoint.gd",
+    "sha256": "97D0DDCF27D18C11F6CEABEB6A5947EFF054B75E1CCCE66DE8B7399C124B732A"
+  },
+  {
+    "path": "scripts/poc/view/poc_viewpoint.gd.uid",
+    "sha256": "86BE0A0C1E9FF633A96EAE183841C9F45C76984AFA8FCF8C4C4F903BFEE2460F"
+  },
+  {
+    "path": "scripts/poc/view/viewpoint_panel.gd",
+    "sha256": "9B01AC24112E558D121AC9CB1061A9CD48D1B39848B2D3E5B1E9CA754C84D41C"
+  },
+  {
+    "path": "scripts/poc/view/viewpoint_panel.gd.uid",
+    "sha256": "BCA5992C2099235B67BC12CB314617E2B01153800A33A05D3DD3E38898EAF0B5"
+  },
+  {
+    "path": "scripts/poc/view/viewpoint_view.gd",
+    "sha256": "2FE4C0040CDC7109D264C414927A1B364B65D05152EF6CDA4704AE1ECBD0D313"
+  },
+  {
+    "path": "scripts/poc/view/viewpoint_view.gd.uid",
+    "sha256": "9E98FAFECD06253B9D61E521F9AD0099F4C090E41EE81D3DEA603BE4D93DDFCC"
+  },
+  {
+    "path": "data/poc/asset_catalog.json",
+    "sha256": "48E7DD8D63983A98E3CCD6D37238FD9D85588C04AB6E4A55A88AECFE00ADC130"
+  },
+  {
+    "path": "data/poc/audio.json",
+    "sha256": "8BA4149A3B5560BA843A1F2CD1017BA552396F6D50036F562B1994B25A74ECA6"
+  },
+  {
+    "path": "data/poc/combat_setup.json",
+    "sha256": "ECE0323222B230AB16757E9A63440F9B8B3CE61A33D26ABCFE6DBD7CE5F0A724"
+  },
+  {
+    "path": "data/poc/environment.json",
+    "sha256": "FA748FA4696D50DD18B12F8E1E78A57E8A079D98A0255B2EA001F0353DE0B704"
+  },
+  {
+    "path": "data/poc/helpers.json",
+    "sha256": "94AF5CE82A985746D7A99BAA6BF8D4F33CFD1A2519E1F7C36AE8513DABCFA464"
+  },
+  {
+    "path": "data/poc/occlusion.json",
+    "sha256": "C619422155EE0395A3786ED5B937DC89163B2FFEECF28C8FD20173153A873AAC"
+  },
+  {
+    "path": "data/poc/play_setup.json",
+    "sha256": "1A14B9A17D923FB0818CEF02751DA69299CBA929D33F4924181FA76235FF8A8D"
+  },
+  {
+    "path": "data/poc/tempo.json",
+    "sha256": "F0B82E00CDFD08CA428B73838DC498FE4D887491401AFF72E7C9B792CCA39E60"
+  },
+  {
+    "path": "data/poc/viewpoint.json",
+    "sha256": "635DB2FEDDFDF58DFC907AE416C7356D86DB5418B2B9194F691F3934D8099698"
+  },
+  {
+    "path": "data/poc/weather.json",
+    "sha256": "2F4C7DAEED3024E612781B22549787A39128496B59FBD2CF06326DE257F5F71D"
+  },
+  {
+    "path": "data/poc/maps/fixture_02.json",
+    "sha256": "5DEB900101F244AB8B89434B1F8CE402FF5C126CAFDECBE93F4AD68D236DC8A2"
+  },
+  {
+    "path": "data/poc/maps/fixture_04.json",
+    "sha256": "62DF6D458A61AFC810747BDDDAD0C57F7A1398C6484ADE688815E1CEE0D064FF"
+  },
+  {
+    "path": "data/poc/maps/town_01.json",
+    "sha256": "CC8B28862191AC01BEF470BD3676FC5F3503FA096DED8D908F17F56D9182A2BB"
+  },
+  {
+    "path": "data/poc/terrain/paved.tres",
+    "sha256": "4E38EBFEBD76043DBB144AA9E416B3983740E889C48172AA95C99C12496641AA"
+  },
+  {
+    "path": "scenes/poc.tscn",
+    "sha256": "EF5950DCF2169BF6E75897263B4A7287B7D753C68585AAB780D6C1111207493A"
+  },
+  {
+    "path": "launchers/run_poc.bat",
+    "sha256": "A15D17EBD5F98F5E68E731F723CA5C4987CFB5D67786D109650CB81F329A7848"
+  },
+  {
+    "path": "project.godot",
+    "sha256": "64DB7CD891700979BF35AD6E0FD5B73B544E771683EB9EE03E0843266D35CD4F"
+  }
+]

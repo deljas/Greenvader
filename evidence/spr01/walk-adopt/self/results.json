@@ -1,0 +1,27 @@
+{
+	"checks": [
+		{
+			"name": "adopted_normal_walks",
+			"ok": true
+		},
+		{
+			"name": "F6_does_not_change_walk_or_game",
+			"ok": true
+		},
+		{
+			"name": "no_comparison_button_or_hud_help",
+			"ok": true
+		},
+		{
+			"name": "stopped_uses_adopted_idle",
+			"ok": true
+		}
+	],
+	"failures": 0,
+	"not_run": [
+		"Physical keyboard/mouse OS path",
+		"Full regression; intentionally not repeated",
+		"User art preference already approved; no substitute assessment"
+	],
+	"renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

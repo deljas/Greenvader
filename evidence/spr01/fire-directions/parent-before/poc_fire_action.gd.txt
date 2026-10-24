@@ -1,0 +1,70 @@
+extends RefCounted
+## Unscaled, pausable visual action clock. The release event launches exactly one logical shot.
+const MANIFEST_PATH: String = "res://assets/sprites/poc/player/fire-front-v3/manifest.json"
+var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
+var active: bool = false
+var kind: StringName = &""
+var elapsed_ms: float = 0.0
+var released: bool = false
+var aim: Vector2 = Vector2.ZERO
+var plant_key: StringName = &""
+var last_release: Dictionary = {}
+
+func start(session: RefCounted, water: bool, target: Vector2) -> Dictionary:
+	if active and not released:
+		return {"ok": false, "reason": "busy"}
+	var selected: StringName = &"" if water else session.play.selected_def().key
+	var allowed: Dictionary = session.can_fire(water, target, selected)
+	if not bool(allowed.ok):
+		return allowed
+	active = true
+	kind = &"water" if water else &"seed"
+	elapsed_ms = 0.0
+	released = false
+	aim = target
+	plant_key = selected
+	last_release = {}
+	return {"ok": true, "reason": "", "pending": true, "logic": target}
+
+func cancel() -> void:
+	active = false
+	kind = &""
+	elapsed_ms = 0.0
+	released = false
+	last_release = {}
+
+func action() -> Dictionary:
+	return manifest.actions[String(kind)] if active else {}
+
+func advance(seconds: float, session: RefCounted, suspended: bool = false) -> Dictionary:
+	if session.play.health.downed:
+		cancel()
+	if not active or suspended or session.paused or seconds <= 0.0:
+		return {}
+	elapsed_ms += seconds * 1000.0
+	var data: Dictionary = action()
+	var result: Dictionary = {}
+	var release_ms: float = float(data.release_events[0].time_ms)
+	if not released and elapsed_ms + 1.0e-7 >= release_ms:
+		released = true # Also latch failure: never retry or spend twice.
+		result = session.fire(kind == &"water", aim, plant_key)
+		last_release = result.duplicate()
+		result["action_kind"] = String(kind)
+		result["socket_height_px"] = 34.0 - float(data.release_events[0].socket_xy[1])
+		if not bool(result.ok):
+			active = false # Return to ordinary idle/walk when rechecking rejects the release.
+	if elapsed_ms + 1.0e-7 >= float(data.total_ms):
+		active = false
+	return result
+
+func frame_index() -> int:
+	if not active:
+		return 0
+	var data: Dictionary = action()
+	for entry: Dictionary in data.frames:
+		if elapsed_ms < float(entry.end_ms) - 1.0e-7:
+			return int(entry.index)
+	return (data.frames as Array).size() - 1
+
+func snapshot() -> Dictionary:
+	return {"active": active, "kind": String(kind), "elapsed_ms": elapsed_ms, "frame": frame_index(), "released": released, "aim": aim, "plant_key": String(plant_key)}

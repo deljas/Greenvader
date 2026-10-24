@@ -1,0 +1,818 @@
+[
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\author_grids.py",
+    "sha256": "e0a94e6586a5800104b8866139be267c1ffb4bef5290bac6dce08939b91b6c15"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\build_preview.py",
+    "sha256": "013f5a8c699d7dec91c3ea49c8dce0d2e2e11f9af053eef1abeb7d4f433b31ae"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\character-palette.json",
+    "sha256": "95338e4dfeb0efdc9e516aeb81afcbb10d4ba1958d2489d8d056cabe86e0d70b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\comparison.gif",
+    "sha256": "fa6665fc5a6a4f8d8e29fba60785dab89227d64d6ab5a5762e8b887bbfcc4905"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\comparison.html",
+    "sha256": "20bd16e8f1bdd4d7d35c685cc92d0d35faae77c4a285bacc514342e0baed205d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\contact-sheet.png",
+    "sha256": "dea3e59b88a0d266f12ab5597d0f2358638a5f14268acf401b6201a2ce5ef597"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\export.py",
+    "sha256": "ec9372c874e0df873b62189fcecc8dc285713d812ba348eed048d33ab4c39b46"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\fx-palette.json",
+    "sha256": "cd464d34ff43d4313a7222ee60b682b87869934d94d2a478c178acd43555d123"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-idle.txt",
+    "sha256": "77b1bd90e06792705a3220e32bf52214c6ce8f8a791c93e748d0b3c8cf109f7d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-0.txt",
+    "sha256": "8c297751692f68579697586c47d563fd084ffa1b74626990938e4bbb882dc633"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-1.txt",
+    "sha256": "e2e26585cecb2db3afa6ddd66bfdf702e3a863bda95819a1fafd82b8d5e4741a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-2.txt",
+    "sha256": "a1ed5cb60bb3b08d8763f10436e812adcdd9621bdb3ff428f9b5a5a9941f39e9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-character-3.txt",
+    "sha256": "7dac833734ea6eb684719989ce82873cc1fc215001d03c69ef6bf155cfb7a7e2"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-0.txt",
+    "sha256": "0f8f65e7109a234978e274c7cf2418bdb2b05e092ed475d2d3d0623a8ac33a63"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-1.txt",
+    "sha256": "058296da01e4462e71f4f9014fc1ad6f6f1b79fbdb8372624c22af7ea9d8ea93"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-2.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-formation-3.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-seed-projectile.txt",
+    "sha256": "5d277323ab5eeb379ab38a0347fee99a1d2d9a133533218e2dccb8e496049e87"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-0.txt",
+    "sha256": "07e07d1e6078df7b54ea9536161b7ad6f21828da59205f35a3d8696cb685f678"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-1.txt",
+    "sha256": "34217c27656de26cdbef47c16914b118fc74aef2cf723bac1d31e1b42f3b9cc6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-2.txt",
+    "sha256": "c7282ae92c0e3ce5c622201b312dbff807c8bdf227782b322e868aa6edb01807"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-3.txt",
+    "sha256": "6457a8eb76938d5f4b7ae572594df3bb1d7c12be2bdda19eca793c21e8635379"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-4.txt",
+    "sha256": "27a595d87d4a8a93274b626bc4eedff771f17cad67e1deb663394c3d19a2b0b8"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-5.txt",
+    "sha256": "ff8b4cf52e998fb7470fe4679f1408b6d3d2450c00c8bae67cdf9f10b6e6d123"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-character-6.txt",
+    "sha256": "fdd527a4cab265e70d5c045712962d3484f138d377a1c2b6b489fe889ba21337"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-0.txt",
+    "sha256": "8d7bc016994012524e828169698296dd75f64d057c6765b0e26c85584febec3a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-1.txt",
+    "sha256": "c2d45f4e89880f605b9db8eba982fc2fdf78d8a2d8ab481346602229194fb8dc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-2.txt",
+    "sha256": "59a8752390ee7833b6f39a941e16f8fecb2fb7992581066c23f8dfb3fd582855"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-3.txt",
+    "sha256": "958ee043d5d96f007dfa2a34eff5882e0d30d1843e9bbc561893b5c4985b39dc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-4.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-5.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-formation-6.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\grid-water-projectile.txt",
+    "sha256": "0a6eb75c42fab8d91d93268fed1fea4b69fc50faaae25e9323dee923aaa4a431"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\idle.png",
+    "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\manifest.json",
+    "sha256": "3325c8c47f24178f88cd7ae7eec0437441060f03a0069aa99cfb5f2d1ee8b232"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\preview-data.json",
+    "sha256": "81173f92ac920566723b4912a75ab12b7782231faa25a748a1ea30806ae3566d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\preview-template.html",
+    "sha256": "f94596eabf51602313d629e76ed79388839519b2981c28add73787546ddfd15f"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\production-note.md",
+    "sha256": "e3d0a1393ff29eacd57d2c643f2fa90444b576f92aca8436ae0f757903b601f8"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-0.png",
+    "sha256": "6dfbbe307913c6517e48ba57879978eaa2fe3cac6f191d179ce5f129495779ca"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-1.png",
+    "sha256": "5ac0ff4db24edc21e8edbe4e3fa07594581251b7add476a4f3fac990ad5c29c1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-2.png",
+    "sha256": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-3.png",
+    "sha256": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-character-sheet.png",
+    "sha256": "818ab5505b26355cf97fab3e4ca4ff9cd64d5914b81a169bc613a81a0f98993a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-0.png",
+    "sha256": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-1.png",
+    "sha256": "423889ef46e857c487d400f00d4a5cf11c25b9e09abe7a031ae489ed0ebfe05d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-2.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-3.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-formation-sheet.png",
+    "sha256": "45b0eb5613af3a5be8cdca20b952da32c94c67c79894cf8972ac3e54be4314e9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\seed-projectile.png",
+    "sha256": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\timing-source.json",
+    "sha256": "ee624fd9a3980dbd7b29d53d48cc36128d06cc37cbce18c90092be1b0350f9d0"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-0.png",
+    "sha256": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-1.png",
+    "sha256": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-2.png",
+    "sha256": "adf2f44bfc02e5cc4831aaa6545b5e612b3a7f28604e84f349b3ddb6b1fa07f6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-3.png",
+    "sha256": "264cb114048d17b9a1b546542fee572ed47da36f3842969b5ea0eefdd80795f3"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-4.png",
+    "sha256": "b46f369597f826b416cda84356f6c103fdd9e0a397d982e6f730d24c7674542e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-5.png",
+    "sha256": "e859312bc28c923a34a6547227dfb35e80a3d0f08563e9f7b0ed822d0e83f589"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-6.png",
+    "sha256": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-character-sheet.png",
+    "sha256": "e4c890a9b99d754688f465dd3509723abf3e50fe512e62bd74e0755dd8b97e13"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-0.png",
+    "sha256": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-1.png",
+    "sha256": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-2.png",
+    "sha256": "810570325d8c573faf6b9575313f42261a3c81715d6734334185955de18b6cb7"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-3.png",
+    "sha256": "213950d76d68adeffef50a0fa483ad294ec6ba0cf570726e0fa80e350e376561"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-4.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-5.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-6.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-formation-sheet.png",
+    "sha256": "e947a0aa7fbea645f9ed078e7d45e790afb901147332f8833bffb586150179ef"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\fire-front-v3\\water-projectile.png",
+    "sha256": "b9ce5ea6c1143b5fcafff31e3a83e51eaaaf5ed8ab4823280428dbdac94cb504"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\down.png",
+    "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\export.py",
+    "sha256": "0e1b3e91026f0ae11fa978096d1b874f2b275da585c69e7c444c03e04bffbc7c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-down.txt",
+    "sha256": "77b1bd90e06792705a3220e32bf52214c6ce8f8a791c93e748d0b3c8cf109f7d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-left.txt",
+    "sha256": "53c6ec2a1377c60fcffffdd6881e3fa65a8adf2f2a4b3eaf2a83a072e139b9af"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-right.txt",
+    "sha256": "d625bc85546baafa949842b63af4b6e8037fab307d72ba25ca3ec80c9ae666a0"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-up.txt",
+    "sha256": "6e26124b7e097dbac87326fa99306c8d138cbe2cef24ae47571976cbf0754b48"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\left.png",
+    "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\manifest.json",
+    "sha256": "1d2faab9ae07a005012dff64dbe435d7844667620cabdca214e59ca12079f854"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\palette.json",
+    "sha256": "4db114ef49f7bffe260bb463708e6dea67ace10bf2de92f98da40c5becce4e70"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\preview.png",
+    "sha256": "7be3121ef0b43beadbafe12a1b6b448d53d6c75e2a397862518a85a891e35687"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\production-note.md",
+    "sha256": "cd2f403f7cc98758e681106dda32c7fd3de3ace58c1d60889df5b6b08ff43c7a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\right.png",
+    "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\self-check.json",
+    "sha256": "9c0d193b86e2268dce78abde56c4f477e98870845c7c8039a2b0fbfbe5f36fa9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\sheet.png",
+    "sha256": "754a97bd44912a87bf2197ce74dfdca8cdf4b01a835f88c7b1ba99b1d8e029fe"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\up.png",
+    "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\idle.png",
+    "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\idle.png.import",
+    "sha256": "4d02c0dc1c9009bfc761704d21e1cf1100997235eea2150bc074155017485960"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\manifest.json",
+    "sha256": "3325c8c47f24178f88cd7ae7eec0437441060f03a0069aa99cfb5f2d1ee8b232"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\production-note.md",
+    "sha256": "e3d0a1393ff29eacd57d2c643f2fa90444b576f92aca8436ae0f757903b601f8"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-0.png",
+    "sha256": "6dfbbe307913c6517e48ba57879978eaa2fe3cac6f191d179ce5f129495779ca"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-0.png.import",
+    "sha256": "ec1ffa9e7fded4e3959f577413c69b4b4be467f35bb2ec46df720abe44a629ab"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-1.png",
+    "sha256": "5ac0ff4db24edc21e8edbe4e3fa07594581251b7add476a4f3fac990ad5c29c1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-1.png.import",
+    "sha256": "1589b0963a0cf6aaa45ff98ba4bbb0fa346bc4ebd693c1178db572d1457904b8"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-2.png",
+    "sha256": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-2.png.import",
+    "sha256": "a50fa396155ffc6f89a7ec3efa9132d15a5c127c539ed04564b638ce8cd17d14"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-3.png",
+    "sha256": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-3.png.import",
+    "sha256": "c59c0e8489f785e1c2e9354ba41edea8d2fdf202455553a4b58165521330b517"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-sheet.png",
+    "sha256": "818ab5505b26355cf97fab3e4ca4ff9cd64d5914b81a169bc613a81a0f98993a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-character-sheet.png.import",
+    "sha256": "8c9c77b9d962a84a306fa6092cb383e38e4ded713f969e1099867cdf4dabf65b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-0.png",
+    "sha256": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-0.png.import",
+    "sha256": "f5570cd0619873ccdf6fab384a79837e95387875eee2cc450b828ccf2740ff6e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-1.png",
+    "sha256": "423889ef46e857c487d400f00d4a5cf11c25b9e09abe7a031ae489ed0ebfe05d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-1.png.import",
+    "sha256": "157ae4d950119ba353d282fdee95264e8090c735cbf1d30cdcec46c23af8c859"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-2.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-2.png.import",
+    "sha256": "c6cdb57a2d6d72e9a499b73a1f12a816853cd1369f176545aefcfe69f04c26a8"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-3.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-3.png.import",
+    "sha256": "0f800a75968e760099effd9746fa456c9742765534a13fd49d5c2e022cee298d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-sheet.png",
+    "sha256": "45b0eb5613af3a5be8cdca20b952da32c94c67c79894cf8972ac3e54be4314e9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-formation-sheet.png.import",
+    "sha256": "1353a49aba7d17b7a867927595c3a50c329a4d35f3ced3a57fd6fac2183750bf"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-projectile.png",
+    "sha256": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\seed-projectile.png.import",
+    "sha256": "b6dbec76bc743d2316387a25da8d649abb7504a96767c95652a82168158d7f95"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-0.png",
+    "sha256": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-0.png.import",
+    "sha256": "d5d01dcb23e3fe069d45d2ae79a37b901aeff5e3e76876c097710a54e9c55f74"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-1.png",
+    "sha256": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-1.png.import",
+    "sha256": "94c5bf87eeb6db556554b9ff9bc34004ec94f1d21ce78de22117814ff2a62601"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-2.png",
+    "sha256": "adf2f44bfc02e5cc4831aaa6545b5e612b3a7f28604e84f349b3ddb6b1fa07f6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-2.png.import",
+    "sha256": "b7840c41eca6422e1c93f9d43b57eec46e0da223b42aa26806a6a90e1329e3e8"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-3.png",
+    "sha256": "264cb114048d17b9a1b546542fee572ed47da36f3842969b5ea0eefdd80795f3"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-3.png.import",
+    "sha256": "b694b1e1d490ecbfce3b084fa918e2b11d0882a579302a69a61236b2000b794b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-4.png",
+    "sha256": "b46f369597f826b416cda84356f6c103fdd9e0a397d982e6f730d24c7674542e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-4.png.import",
+    "sha256": "fdc394692464201ce80c5711053b34d0b5ed652bdf92e8f0d3a65b2f476afdb1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-5.png",
+    "sha256": "e859312bc28c923a34a6547227dfb35e80a3d0f08563e9f7b0ed822d0e83f589"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-5.png.import",
+    "sha256": "62b90cfca5901b2b9b0fe695967d9f724e0e1894cbdedf2682f89313cd584183"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-6.png",
+    "sha256": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-6.png.import",
+    "sha256": "3a45bd16dd5bd3680d9f8b6cc1c0018ed6f989c0a5c980142d923f91bf89b938"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-sheet.png",
+    "sha256": "e4c890a9b99d754688f465dd3509723abf3e50fe512e62bd74e0755dd8b97e13"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-character-sheet.png.import",
+    "sha256": "906dfc74ce21ae56d0a11afd4d31f01ce3bb3189041cc60342bdfc76806580a1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-0.png",
+    "sha256": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-0.png.import",
+    "sha256": "0e9698f4b6ae391456516f192be61e4a7105b2230d2d3f89e65a64de657c022d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-1.png",
+    "sha256": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-1.png.import",
+    "sha256": "15d4ef752614c00a6242c9b98a4192350c111faf2ef9344e8da7fa992c61cfb1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-2.png",
+    "sha256": "810570325d8c573faf6b9575313f42261a3c81715d6734334185955de18b6cb7"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-2.png.import",
+    "sha256": "340a0b7588980479a1ee7b39565c7771fe3dde942c367bb0b90687112c243fec"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-3.png",
+    "sha256": "213950d76d68adeffef50a0fa483ad294ec6ba0cf570726e0fa80e350e376561"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-3.png.import",
+    "sha256": "41f7f845012ca70bc2657f4bc98df6800f8a591910bb798a3d55a68e94121593"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-4.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-4.png.import",
+    "sha256": "e430493c5aa85d58506cf7dd94456873bf3c6e2546ba3380e16b16caa86bbf79"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-5.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-5.png.import",
+    "sha256": "e53a12f6eed37b832f0ff180f86d568593b54350adaafb842d1953acdf2cd2e4"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-6.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-6.png.import",
+    "sha256": "90cf50de375138babeb19080130cb941d45cf167a536fa05d1e1eca29448c709"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-sheet.png",
+    "sha256": "e947a0aa7fbea645f9ed078e7d45e790afb901147332f8833bffb586150179ef"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-formation-sheet.png.import",
+    "sha256": "c081efdc5dc1d6b336ce8ddfd40731151d3d5e250301a09ac318844f9bbdee36"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-projectile.png",
+    "sha256": "b9ce5ea6c1143b5fcafff31e3a83e51eaaaf5ed8ab4823280428dbdac94cb504"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\fire-front-v3\\water-projectile.png.import",
+    "sha256": "59f5579f0c25461217ac46ca6e0fa4a0093bf604e613836f928ac59b48a87380"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png",
+    "sha256": "754a97bd44912a87bf2197ce74dfdca8cdf4b01a835f88c7b1ba99b1d8e029fe"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png.import",
+    "sha256": "3a20397ee82d09ae1071ded7c00fce1bfdf98bb372d7b27c29d3205b34aac3e7"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png",
+    "sha256": "77357397cf258da39457ad66ec451522c75f3553f66f156852dd4669c3bb635c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png.import",
+    "sha256": "3c36f0d3fc5e4054126b77c1afdc882c1fadcdc9a192cb402b14db1b663f5ed1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png",
+    "sha256": "9505f78fa58e6e2afa957f25d51e79134bb60c4bdbb0fb486ec005481da38bfc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png.import",
+    "sha256": "d51352c3f9289a8c941ddd0e63744d8e29e7fa7328e9d6efa73fbdaba286a504"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\enemy_tuning.gd",
+    "sha256": "446dc837ca07446f0e433eb521ae8b1428fd99eb1e622a1ea4a01f0dc6f5754e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\enemy_tuning.gd.uid",
+    "sha256": "d51929ba1d8a90a717dc63d74f006e668b5883b81d64c353e09dbc6225ceb56c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\enemy_tuning.tres",
+    "sha256": "0d11a542b16a2de4c329d5e57dc09e759877f22735d07448c322933f971de01a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plant_def.gd",
+    "sha256": "fcbfbe0b65ff5e91e7cb41133b60147d0f200c43c6eb9d62e61ab64531acbad3"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plant_def.gd.uid",
+    "sha256": "ea8fb142362db20b476649d446bed68f7d35a41e2027f33bf136abc8297b7825"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\play_tuning.gd",
+    "sha256": "eb5729fe9f9ad5e598782de87f4d26e308027bd8de2cff3cdc817acad69f6aed"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\play_tuning.gd.uid",
+    "sha256": "b79f47afeb5c3a1b386cd71b97a5619464c473d39d02329cad06553786947ce4"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\play_tuning.tres",
+    "sha256": "28b541b647dd9e64cc461010b662b68df49c5ebd989250c618eb5ba2e3e86fcf"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01_zones.png",
+    "sha256": "f3bb1bb6c08daaf309026cac532796b6d481c9380cc018a6350a27698c60f438"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01_zones.png.import",
+    "sha256": "9466863cdfcf885ded7c4db72cfccec2aad3ef971774d8c8fc18d5b73d9f5113"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01.png",
+    "sha256": "95d86bef9bb715e45b1bf8b99df99f7a84416e19858cb60111171fe5e7153dd9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01.png.import",
+    "sha256": "373380b76f0fca58ab62cfc7bc2a2d2afaf3ed6ef0879c240206d822352c0d72"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_01.tres",
+    "sha256": "a910f286f5fe7821e0aa3d3f77336ea4480555dfb4f6083328f320d7c72a0cd6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_def.gd",
+    "sha256": "e2beddd30a8b24f3c533b5e9bb91c9c23c6290241607038fbdaa918f3b352a0d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\region_def.gd.uid",
+    "sha256": "b51f7e196828a364d92dff4148a9de84a3068c9e0c227bf076b952627ab5a431"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\sim_tuning.gd",
+    "sha256": "907e65d3a6e755636d52f90a06d29fb36335676ab74a3d75f2a6ce5d71a85fab"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\sim_tuning.gd.uid",
+    "sha256": "b373d265e2be7661145fc4226ecd0c8452e0858e6816d3b04109fdddc86f254e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\sim_tuning.tres",
+    "sha256": "f81c1c683bf877e33746b5be8ab19f81d5c4df076fdb844e26853063691ecd9e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain_def.gd",
+    "sha256": "a1ee3959ba455d2cf99cdf36c97130f6821aaedd224dd70b735d2248d2c97966"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain_def.gd.uid",
+    "sha256": "e2c98545e07ee21faa0dcf71813a9e8558ecce3b95ec39f41ed69565b926c976"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zone_def.gd",
+    "sha256": "61dc1c2aaa73b1dc8cbca0ce1b6c80541e5c993814784ddd6ae4593c358e0557"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zone_def.gd.uid",
+    "sha256": "83de1951ab7856ee8e3bbb9b793be5af42791e1e34e969a52ee912f3550c4451"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plants\\carrot.tres",
+    "sha256": "42b37c9b2ca645eb1e557c0d3deb2451f12c58c2814ca181d9cf4493266a01af"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plants\\kiwi.tres",
+    "sha256": "99010ea7cea0fadeeb3bae8ba60ef6a783ac62765f2132b670e5f65042a60a8d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\plants\\normal.tres",
+    "sha256": "c3c6d6fbf8067b8e676ebc923ad1742340b271088276d15445291556965200f6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\asset_catalog.json",
+    "sha256": "48e7dd8d63983a98e3ccd6d37238fd9d85588c04ab6e4a55a88aecfe00adc130"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\audio.json",
+    "sha256": "8ba4149a3b5560ba843a1f2cd1017ba552396f6d50036f562b1994b25a74eca6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\combat_setup.json",
+    "sha256": "ece0323222b230ab16757e9a63440f9b8b3ce61a33d26abcfe6dbd7ce5f0a724"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\environment.json",
+    "sha256": "fa748fa4696d50dd18b12f8e1e78a57e8a079d98a0255b2ea001f0353de0b704"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\helpers.json",
+    "sha256": "94af5ce82a985746d7a99baa6bf8d4f33cfd1a2519e1f7c36ae8513dabcfa464"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\occlusion.json",
+    "sha256": "c619422155ee0395a3786ed5b937dc89163b2ffeecf28c8fd20173153a873aac"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\play_setup.json",
+    "sha256": "1a14b9a17d923fb0818cef02751da69299cba929d33f4924181fa76235ff8a8d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\tempo.json",
+    "sha256": "f0b82e00cdfd08ca428b73838dc498fe4d887491401aff72e7c9b792cca39e60"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\viewpoint.json",
+    "sha256": "635db2feddfdf58dfc907ae416c7356d86db5418b2b9194f691f3934d8099698"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\weather.json",
+    "sha256": "2f4c7daeed3024e612781b22549787a39128496b59fbd2cf06326de257f5f71d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\maps\\fixture_02.json",
+    "sha256": "5deb900101f244ab8b89434b1f8ce402ff5c126cafdecbe93f4ad68d236dc8a2"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\maps\\fixture_04.json",
+    "sha256": "62df6d458a61afc810747bdddad0c57f7a1398c6484ade688815e1cee0d064ff"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\maps\\town_01.json",
+    "sha256": "cc8b28862191ac01bef470bd3676fc5f3503fa096ded8d908f17f56d9182a2bb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\poc\\terrain\\paved.tres",
+    "sha256": "4e38ebfebd76043dbb144aa9e416b3983740e889c48172aa95c99c12496641aa"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\building.tres",
+    "sha256": "3abd408ababf2eec7a4505455eaaa0fcd28b325d72ae46258b84c087305723b5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\safe.tres",
+    "sha256": "9b40c6c0c6bb1393ee2d14ce5622e98ac0cb1bd0828df1fc045755a35b5186e9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\shallows.tres",
+    "sha256": "b543a8e40efbe804a774673092cb99ad63d4f3c5fa97e46e806e33aac6488094"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\shore.tres",
+    "sha256": "b174fdf5af13aa97b83f5e986027e8c25ef126ebb9f4586d6267295492d7658b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\wasteland.tres",
+    "sha256": "642561e84c5caa1e17ff503c5a76146091285301078b08735e0b8516ae6a7ad3"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\terrain\\water.tres",
+    "sha256": "c790e57bb8d7508ba579130ee1bda1f8007fafcc2c1ad466a4a5703e9a34eb6d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_00_start.tres",
+    "sha256": "7c6569675baa2066e2edaf1add533d0d9a7a7c1e0b8dff293821e42e1c27f42b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_01_west_north.tres",
+    "sha256": "6726a74d4d61f8bc8febc88906225ec78f3cb9104ff328c56407e6f6995eb9b5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_02_west_south1.tres",
+    "sha256": "dc76657ea043dab9dc208a9f4077f039e315932dc795fcdab8af48d4c4c11b5a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_03_west_south2.tres",
+    "sha256": "42f7f2381b62df192068e9ef774d62bcfbabf266c8f686f3f5ce469ad64f98ee"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_04_east_north.tres",
+    "sha256": "7a9fad55c3d8ce0666681397e560bac1408b11e89108cb6f26a1120728989f8b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_05_east_middle.tres",
+    "sha256": "eefff35373bdf27273f93d54da0e4bc10b05f5cfe6db625ba57d90055659ef53"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\data\\zones\\zone_06_east_south.tres",
+    "sha256": "91328989a60846edf34041368da7bdcdf3f10881d8b6f7968580d8e4defa620a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_config.gd",
+    "sha256": "4af8a06305c021f3b0b2c9897f8729ee2216e026ac393139b8dcb3e13d9535f5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\save\\poc_save.gd",
+    "sha256": "8dce0b62ff4cbf1fc94b21827d932d17f9c63accc38b0836fc37f8b0ebce2069"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\play\\poc_projectiles.gd",
+    "sha256": "9cfcc7e2df778ebb02b26553d14b008ac2dd7d4d6424bb26ad3e408973e8dc18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_session.gd",
+    "sha256": "5a5a6dd87f7a5f49deb7855769ba40925b8dc366897f04ca080493fc280b45c0"
+  }
+]

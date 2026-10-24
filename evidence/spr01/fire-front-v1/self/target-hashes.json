@@ -1,0 +1,238 @@
+[
+  {
+    "file": "author_grids.py",
+    "sha256": "543415795c377229a8598042a72d290d508ad37c2aa469822aef397c193d2b04"
+  },
+  {
+    "file": "build_preview.py",
+    "sha256": "247b1481bd5c35bbe93955cce78591cc0ca2b958535d62ae077608c665ec75b6"
+  },
+  {
+    "file": "character-palette.json",
+    "sha256": "95338e4dfeb0efdc9e516aeb81afcbb10d4ba1958d2489d8d056cabe86e0d70b"
+  },
+  {
+    "file": "comparison.gif",
+    "sha256": "1f4e92824b934b4f90e1ad8273010299639e1846b89078760bc5d77407b94c16"
+  },
+  {
+    "file": "comparison.html",
+    "sha256": "87d6777fbd902d71f4c9e9aa793c2f4a155aab2b0a6299c043d8f3bd10acd8d9"
+  },
+  {
+    "file": "contact-sheet.png",
+    "sha256": "953ca6637a89092a06d630f9d4c7a81ee34c0f67624f7db090c26f635626c9dd"
+  },
+  {
+    "file": "export.py",
+    "sha256": "ba4da7126da14c63d21e784b230afaa17671f22c9df037bef2b397fae4634ad9"
+  },
+  {
+    "file": "fx-palette.json",
+    "sha256": "cd464d34ff43d4313a7222ee60b682b87869934d94d2a478c178acd43555d123"
+  },
+  {
+    "file": "grid-idle.txt",
+    "sha256": "77b1bd90e06792705a3220e32bf52214c6ce8f8a791c93e748d0b3c8cf109f7d"
+  },
+  {
+    "file": "grid-seed-character-0.txt",
+    "sha256": "06fe8c55ebf0ad79b0f4d00110e1d2855ea857e33c34b8d21f6bd05285493db3"
+  },
+  {
+    "file": "grid-seed-character-1.txt",
+    "sha256": "fca9be1f7fa5d1e59abd2c6c4a06dd9446ec7e20c100c421fd2f63e007ae3516"
+  },
+  {
+    "file": "grid-seed-character-2.txt",
+    "sha256": "a1ed5cb60bb3b08d8763f10436e812adcdd9621bdb3ff428f9b5a5a9941f39e9"
+  },
+  {
+    "file": "grid-seed-character-3.txt",
+    "sha256": "7dac833734ea6eb684719989ce82873cc1fc215001d03c69ef6bf155cfb7a7e2"
+  },
+  {
+    "file": "grid-seed-formation-0.txt",
+    "sha256": "0f8f65e7109a234978e274c7cf2418bdb2b05e092ed475d2d3d0623a8ac33a63"
+  },
+  {
+    "file": "grid-seed-formation-1.txt",
+    "sha256": "9b3f633898e393c5345bc9c85d1ad4fbbcb0bdc7e619e99f93dbf1c23f23d999"
+  },
+  {
+    "file": "grid-seed-formation-2.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "file": "grid-seed-formation-3.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "file": "grid-seed-projectile.txt",
+    "sha256": "5d277323ab5eeb379ab38a0347fee99a1d2d9a133533218e2dccb8e496049e87"
+  },
+  {
+    "file": "grid-water-character-0.txt",
+    "sha256": "07e07d1e6078df7b54ea9536161b7ad6f21828da59205f35a3d8696cb685f678"
+  },
+  {
+    "file": "grid-water-character-1.txt",
+    "sha256": "34217c27656de26cdbef47c16914b118fc74aef2cf723bac1d31e1b42f3b9cc6"
+  },
+  {
+    "file": "grid-water-character-2.txt",
+    "sha256": "aefbe4344dcf392fd0083af74c00ccce1e10f49a1741440de3acd11656d2dd5e"
+  },
+  {
+    "file": "grid-water-character-3.txt",
+    "sha256": "20f9f5d44ea347304413a76722174ae7f600fa32974e0d834e97d2898a6e905a"
+  },
+  {
+    "file": "grid-water-character-4.txt",
+    "sha256": "fdd527a4cab265e70d5c045712962d3484f138d377a1c2b6b489fe889ba21337"
+  },
+  {
+    "file": "grid-water-formation-0.txt",
+    "sha256": "8d7bc016994012524e828169698296dd75f64d057c6765b0e26c85584febec3a"
+  },
+  {
+    "file": "grid-water-formation-1.txt",
+    "sha256": "c2d45f4e89880f605b9db8eba982fc2fdf78d8a2d8ab481346602229194fb8dc"
+  },
+  {
+    "file": "grid-water-formation-2.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "file": "grid-water-formation-3.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "file": "grid-water-formation-4.txt",
+    "sha256": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c"
+  },
+  {
+    "file": "grid-water-projectile.txt",
+    "sha256": "4ffb78a99c190c5e489647f2bab5f4fb89400a1d918aed925dc8c41bc3f7069f"
+  },
+  {
+    "file": "idle.png",
+    "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  },
+  {
+    "file": "manifest.json",
+    "sha256": "890d8db6876d9401729df05295400ccb0af6c5739dfb2760342b01771a013b9b"
+  },
+  {
+    "file": "preview-data.json",
+    "sha256": "a5eb3bede0917e48945a4e38fc798ee81d8a5226250afa040048add7305bd156"
+  },
+  {
+    "file": "preview-template.html",
+    "sha256": "3f9f546f4c9ab78454576b192a117eea41f8e0c1a34972c0322763cb84bcfdd3"
+  },
+  {
+    "file": "production-note.md",
+    "sha256": "01e16e27d4ba8b3e2e8df60d8101548c9ad1357c648decfac4406cbbb65dc602"
+  },
+  {
+    "file": "seed-character-0.png",
+    "sha256": "bdfeb8fe021a767587a698bf7a7e286a2d8c735fc4bf87ee4fa91cd314832879"
+  },
+  {
+    "file": "seed-character-1.png",
+    "sha256": "d2539acd0d18cdebb5a95cf1c7e9d3011e93c54deb369b515d08313489a297e5"
+  },
+  {
+    "file": "seed-character-2.png",
+    "sha256": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a"
+  },
+  {
+    "file": "seed-character-3.png",
+    "sha256": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b"
+  },
+  {
+    "file": "seed-character-sheet.png",
+    "sha256": "89ce82cfa5fba9d44d91c05bfe175b4ec0fa8c21d78c2b1b86126dff59a7c552"
+  },
+  {
+    "file": "seed-formation-0.png",
+    "sha256": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815"
+  },
+  {
+    "file": "seed-formation-1.png",
+    "sha256": "b69a6e8c71ccd73007ec095c67cd2df57b3e4de1d3bd1dc47267c2d5a81b3a21"
+  },
+  {
+    "file": "seed-formation-2.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "file": "seed-formation-3.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "file": "seed-formation-sheet.png",
+    "sha256": "971e6045c57e1bbdfbf62eaf85275a40329f37c34e3dc2d7c590d837a48a4394"
+  },
+  {
+    "file": "seed-projectile.png",
+    "sha256": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4"
+  },
+  {
+    "file": "timing-source.json",
+    "sha256": "8b750d26a6fb1c5b0594d9a38646ff82094ce4ff107fb799613c98ec5a3fadb0"
+  },
+  {
+    "file": "water-character-0.png",
+    "sha256": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6"
+  },
+  {
+    "file": "water-character-1.png",
+    "sha256": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a"
+  },
+  {
+    "file": "water-character-2.png",
+    "sha256": "937d5a6fd43b2453324a55b8b4f73a0786e7256d3e897c2fe76e05cc38d806a7"
+  },
+  {
+    "file": "water-character-3.png",
+    "sha256": "d705a916e52a7b578636f7d93aafb98c71cb67574bc11a498000c4cba7dc2091"
+  },
+  {
+    "file": "water-character-4.png",
+    "sha256": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad"
+  },
+  {
+    "file": "water-character-sheet.png",
+    "sha256": "f088277cea2d608b1f9967d8bc171210b18715062fe2d7375493d925ec87f399"
+  },
+  {
+    "file": "water-formation-0.png",
+    "sha256": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f"
+  },
+  {
+    "file": "water-formation-1.png",
+    "sha256": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed"
+  },
+  {
+    "file": "water-formation-2.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "file": "water-formation-3.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "file": "water-formation-4.png",
+    "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+  },
+  {
+    "file": "water-formation-sheet.png",
+    "sha256": "25c54cd00a68254159fa735af5eb5e3a6ed2841505fd72f88fdb9d1f5f0d8049"
+  },
+  {
+    "file": "water-projectile.png",
+    "sha256": "786535fbd0f583a9c40e185965571bb3d66e77a5329bef9761f5629492d09937"
+  }
+]

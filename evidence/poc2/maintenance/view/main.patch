@@ -1,0 +1,39 @@
+diff --git a/evidence/poc2/maintenance/view/poc2_main.before.txt b/scripts/poc2/poc2_main.gd
+index 8ac46e2..51deeab 100644
+--- a/evidence/poc2/maintenance/view/poc2_main.before.txt
++++ b/scripts/poc2/poc2_main.gd
+@@ -147,7 +147,7 @@ func _unhandled_input(event: InputEvent) -> void:
+ 			_escape()
+ 		elif key==KEY_F1:
+ 			_on_action("close_help" if menu=="help" else "help")
+-		elif key==KEY_F5 and menu!="title":
++		elif key==KEY_F5:
+ 			save_game()
+ 		elif key==KEY_N:
+ 			muted=not muted
+@@ -274,17 +274,24 @@ func _on_action(action: String) -> void:
+ 				ui.map.set_expanded(false)
+ 			ui.show_notice(String(result.reason))
+ 		"help":
++			if menu=="help": return
+ 			_help_return=menu
+ 			menu="help"
+ 			ui.help.show()
+ 			ui.menu.hide()
++			ui.supply.hide()
+ 		"close_help":
+ 			menu=_help_return
++			_help_return=""
+ 			ui.help.hide()
+-			if menu!="": ui.show_menu(menu=="title")
++			if menu in ["title","pause"]: ui.show_menu(menu=="title")
++			elif menu=="placement_supply": ui.supply.show()
+ 	_sync_pause()
+ 
+ func save_game() -> Dictionary:
++	# Help is a temporary overlay; it must not grant save access to the unplayed title session.
++	if menu=="title" or (menu=="help" and _help_return=="title"):
++		return {"ok":false,"reason":"ゲーム開始後に保存できます"}
+ 	var result: Dictionary=Save.save_game(session,save_dir)
+ 	ui.show_notice(String(result.reason))
+ 	return result

@@ -1,0 +1,3 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"basis":"Preserved PlayState.reserve_plant reserves cost at launch; land_plant spends pouch seeds only on placement success. These functions and the session reserve branch predate this change.","checks":[{"name":"seed66_input_selection_aim_and_release_origin","status":"PASS"},{"name":"logical_release_cost_once","status":"PASS"}],"observed":{"available_at_release":17,"player_origin":"(99.0, 82.0)","pouch_at_release":20,"pouch_before":20,"reserved_at_release":3,"selected_now":"kiwi","shot_kind":"carrot","shot_origin":"(99.0, 82.0)","shot_target":"(123.0, 82.0)","snapshotted_aim":"(123.0, 82.0)"}}

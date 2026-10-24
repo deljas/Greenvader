@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "real_entry_title_buttons",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "title_menu_constructed",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "help_returns_to_title_only",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "pause_menu_constructed",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "help_returns_to_pause_only",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "input": "Input.parse_input_event only; root.unfocusable=true"
+}

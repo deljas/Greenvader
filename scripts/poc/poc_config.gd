@@ -7,12 +7,12 @@ const CELL_M: float = 0.4
 const TILE_PX: int = 4
 const M_PER_LOGIC_PX: float = 0.1
 
-## Selectable render resolutions. The visible area (CAMERA_SIZE_M) is identical for all of them.
-const RESOLUTIONS: Array[Vector2i] = [Vector2i(640, 360), Vector2i(960, 540)]
+## Adopted internal pixel grid. Window presentation uses nearest integer scaling.
+const RESOLUTIONS: Array[Vector2i] = [Vector2i(640, 360)]
 const DEFAULT_RESOLUTION: int = 0
 const MIN_WINDOW: Vector2i = Vector2i(640, 360)
-## Provisional human frames per resolution (1 texel = 1 screen px). 32x48 source, nearest.
-const SPRITE_FRAME_PX: Array[Vector2i] = [Vector2i(16, 24), Vector2i(24, 36)]
+## Adopted bulb frames: 1 texel = 1 internal screen pixel.
+const SPRITE_FRAME_PX: Array[Vector2i] = [Vector2i(24, 36)]
 
 ## Fixed orthographic quarter view. Screen up = north = ground (-1,0,-1).
 const ELEVATION_DEG: float = 30.0

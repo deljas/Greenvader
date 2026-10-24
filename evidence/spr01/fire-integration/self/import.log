@@ -1,0 +1,126 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started プロジェクトの初期化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | ファイル構造をスキャン中...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | グローバルクラス名を読み込み中...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | GDExtensionを検証中...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 自動読み込みスクリプトを作成中...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | プラグインを初期化中...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | ファイルスキャンを開始...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started グローバルクラスを登録中... (8 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  11% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  22% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  44% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  55% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  66% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  77% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started アクションをスキャン中... (29 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | idle.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | seed-character-0.png[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | seed-character-1.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | seed-character-2.png[39m[0m
+[  13% ] [90m[1m_update_scan_actions[22m | seed-character-3.png[39m[0m
+[  16% ] [90m[1m_update_scan_actions[22m | seed-character-sheet.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | seed-formation-0.png[39m[0m
+[  23% ] [90m[1m_update_scan_actions[22m | seed-formation-1.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | seed-formation-2.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | seed-formation-3.png[39m[0m
+[  33% ] [90m[1m_update_scan_actions[22m | seed-formation-sheet.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | seed-projectile.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | water-character-0.png[39m[0m
+[  43% ] [90m[1m_update_scan_actions[22m | water-character-1.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | water-character-2.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | water-character-3.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | water-character-4.png[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | water-character-5.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | water-character-6.png[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | water-character-sheet.png[39m[0m
+[  66% ] [90m[1m_update_scan_actions[22m | water-formation-0.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | water-formation-1.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | water-formation-2.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | water-formation-3.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | water-formation-4.png[39m[0m
+[  83% ] [90m[1m_update_scan_actions[22m | water-formation-5.png[39m[0m
+[  86% ] [90m[1m_update_scan_actions[22m | water-formation-6.png[39m[0m
+[  90% ] [90m[1m_update_scan_actions[22m | water-formation-sheet.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | water-projectile.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started アセットを(再)インポート中 (29 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[   3% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[   6% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  10% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  13% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  16% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  20% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  23% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  26% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  30% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  33% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  36% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  40% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  43% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  46% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  50% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  53% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  56% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  60% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  63% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  66% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  70% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  73% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  76% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  80% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  83% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  86% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  90% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[  93% ] [90m[1mreimport[22m | 再インポートするファイルを準備中...[39m[0m
+[   0% ] [90m[1mreimport[22m | 再インポート前の操作を実行中...[39m[0m
+[   0% ] [90m[1mreimport[22m | water-projectile.png[39m[0m
+[   3% ] [90m[1mreimport[22m | water-formation-sheet.png[39m[0m
+[   6% ] [90m[1mreimport[22m | water-formation-6.png[39m[0m
+[  10% ] [90m[1mreimport[22m | water-formation-5.png[39m[0m
+[  13% ] [90m[1mreimport[22m | water-formation-4.png[39m[0m
+[  16% ] [90m[1mreimport[22m | water-formation-3.png[39m[0m
+[  20% ] [90m[1mreimport[22m | water-formation-2.png[39m[0m
+[  23% ] [90m[1mreimport[22m | water-formation-1.png[39m[0m
+[  26% ] [90m[1mreimport[22m | water-formation-0.png[39m[0m
+[  30% ] [90m[1mreimport[22m | water-character-sheet.png[39m[0m
+[  33% ] [90m[1mreimport[22m | water-character-6.png[39m[0m
+[  36% ] [90m[1mreimport[22m | water-character-5.png[39m[0m
+[  40% ] [90m[1mreimport[22m | water-character-4.png[39m[0m
+[  43% ] [90m[1mreimport[22m | water-character-3.png[39m[0m
+[  46% ] [90m[1mreimport[22m | water-character-2.png[39m[0m
+[  50% ] [90m[1mreimport[22m | water-character-1.png[39m[0m
+[  53% ] [90m[1mreimport[22m | water-character-0.png[39m[0m
+[  56% ] [90m[1mreimport[22m | seed-projectile.png[39m[0m
+[  60% ] [90m[1mreimport[22m | seed-formation-sheet.png[39m[0m
+[  63% ] [90m[1mreimport[22m | seed-formation-3.png[39m[0m
+[  66% ] [90m[1mreimport[22m | seed-formation-2.png[39m[0m
+[  70% ] [90m[1mreimport[22m | seed-formation-1.png[39m[0m
+[  73% ] [90m[1mreimport[22m | seed-formation-0.png[39m[0m
+[  76% ] [90m[1mreimport[22m | seed-character-sheet.png[39m[0m
+[  80% ] [90m[1mreimport[22m | seed-character-3.png[39m[0m
+[  83% ] [90m[1mreimport[22m | seed-character-2.png[39m[0m
+[  86% ] [90m[1mreimport[22m | seed-character-1.png[39m[0m
+[  90% ] [90m[1mreimport[22m | seed-character-0.png[39m[0m
+[  93% ] [90m[1mreimport[22m | idle.png[39m[0m
+[  96% ] [90m[1mreimport[22m | アセットインポートを終了しています...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started アセットを(再)インポート中 (29 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 再インポート後の操作を実行中...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started エディターの読み込み (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | エディターレイアウトを読み込み中...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | ドックを読み込み中...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m

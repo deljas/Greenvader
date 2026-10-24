@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+PASS seed65_no_release_busy_does_not_restart <null>
+FAIL seed66_input_selection_aim_and_release_origin <null>
+FAIL logical_release_cost_once <null>
+PASS recovery_interrupt_water399_pause_hold <null>
+PASS water400_and_800_boundaries <null>
+PASS water800_end_no_second_release <null>
+PASS resource0_preflight_rejects_both <null>
+PASS resource_recheck_at_release <null>
+PASS full_preflight_and_release_recheck <null>
+PASS session_fire_immediate_compatibility <null>
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS engine_input_starts_front_v3_immediately <null>
+PASS water399_gpu_hold <null>
+PASS menu_freezes_pending <null>
+PASS water400_gpu_release_socket_and_one_sound <null>
+PASS water_release_not_repeated <null>
+PASS seed_busy_aim_selection_snapshot_and_movement <null>
+PASS seed66_gpu_native_front_and_actual_aim <null>
+PASS seed400_restores_directional_walking <null>
+PASS stop_restores_directional_idle <null>
+PASS four_actual_aims_share_front_art_only <null>
+PASS invalid_point_does_not_start <null>
+PASS viewpoint_freezes_pending <null>
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS load_cancels_unsaved_pending_no_ghost <null>
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS new_game_cancels_pending <null>
+PASS death_cancels_pending_no_ghost <null>
+RESULT failures=2

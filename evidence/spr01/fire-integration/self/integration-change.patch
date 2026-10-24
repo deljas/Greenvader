@@ -1,0 +1,327 @@
+--- before/scripts/poc/poc_main.gd
++++ scripts/poc/poc_main.gd
+@@ -22,6 +22,7 @@
+ const ViewMarkerScript: GDScript = preload("res://scripts/poc/view/viewpoint_view.gd")
+ const ViewPanelScript: GDScript = preload("res://scripts/poc/view/viewpoint_panel.gd")
+ const AudioScript: GDScript = preload("res://scripts/poc/audio/poc_audio.gd")
++const FireAction: GDScript = preload("res://scripts/poc/poc_fire_action.gd")
+ 
+ const WALL_BORDER_M: float = 1.0
+ const WALL_BLOCK_M: float = 1.6
+@@ -30,6 +31,7 @@
+ const FACE_ABOVE_FOOT_PX: float = 10.0
+ 
+ var session: RefCounted
++var fire_action: RefCounted = FireAction.new()
+ var render_view: SubViewport
+ var view_rect: TextureRect
+ var world: Node3D
+@@ -240,6 +242,8 @@
+ 	play_view.name = "PlayView"
+ 	world.add_child(play_view)
+ 	play_view.build(session)
++	play_view.camera = camera
++	session.play.health.downed_started.connect(_cancel_fire)
+ 	if session.enemies != null:
+ 		enemy_view = EnemyViewScript.new()
+ 		enemy_view.name = "EnemyView"
+@@ -327,6 +331,7 @@
+ ## Swaps in a fully built session: the old one is closed, every view (placement, occlusion, wall vegetation, ground cover,
+ ## enemies, play) is rebuilt through the normal build path. Used by new game and by a successful load.
+ func replace_session(new_session: RefCounted) -> void:
++	_cancel_fire()
+ 	var old: RefCounted = session
+ 	_teardown_world()
+ 	session = new_session
+@@ -559,11 +564,14 @@
+ 	else:
+ 		animation_time = 0.0
+ 	session.advance(delta)
++	var released_shot: Dictionary = fire_action.advance(delta, session, menu != &"" or is_viewing())
++	if not released_shot.is_empty() and bool(released_shot.ok):
++		play_view.register_launch(int(released_shot.shot_id), float(released_shot.socket_height_px))
++		audio.play_action(&"water" if String(released_shot.action_kind) == "water" else &"seed")
+ 	ui.tick(delta)
+ 	audio.update(delta)
+ 	_check_spot_hint()
+ 	env_view.sync()
+-	play_view.sync()
+ 	if wall_view != null:
+ 		wall_view.sync()
+ 	if enemy_view != null:
+@@ -578,6 +586,7 @@
+ 			notice.text = ""
+ 	_update_camera()
+ 	_update_actor()
++	play_view.sync() # Native projectile cards use the current frame's snapped camera.
+ 	_update_occlusion(delta)
+ 	water_view.sync_camera()
+ 	_refresh()
+@@ -617,7 +626,8 @@
+ 			else:
+ 				facing = &"down" if toward.y > 0.0 else &"up"
+ 	facing_left = facing == &"left"
+-	actor.pose(foot, (int(animation_time * 8.0) % 4) if walking else 0, facing, sun, 0, walking)
++	actor.pose(foot, (int(animation_time * 8.0) % 4) if walking else 0, facing, sun, 0, walking,
++		fire_action.kind if fire_action.active else &"", fire_action.frame_index(), fire_action.active)
+ 	if readability != null:
+ 		readability.follow(actor.render_foot, Vector3(camera.global_basis.z.x, 0.0, camera.global_basis.z.z).normalized())
+ 	if session.has_aim:
+@@ -824,16 +834,16 @@
+ 	_refresh()
+ 	return placed
+ 
+-## Click at a content (root viewport) pixel: aim there and fire seed (water_shot false) or water. UI / margin / off-map
+-## clicks are rejected and fire nothing. Returns the session.fire() result plus the picked point.
++func _cancel_fire() -> void:
++	fire_action.cancel()
++
++## Start the front firing action; actual cost, logical projectile and sound occur at its release event.
+ func click_fire(content_pos: Vector2, water_shot: bool) -> Dictionary:
+ 	var result: Dictionary = pick_ground(content_pos)
+ 	if not result["ok"]:
+ 		return {"ok": false, "reason": String(result["reason"])}
+ 	session.set_aim(result["logic"])
+-	var fired: Dictionary = session.fire(water_shot, result["logic"])
+-	if bool(fired["ok"]):
+-		audio.play_action(&"water" if water_shot else &"seed")
++	var fired: Dictionary = fire_action.start(session, water_shot, result["logic"])
+ 	fired["logic"] = result["logic"]
+ 	_update_actor()
+ 	return fired
+@@ -969,6 +979,7 @@
+ 
+ ## Starts a new game (the untouched start-up session is reused, otherwise a fresh one is built).
+ func new_game() -> void:
++	_cancel_fire()
+ 	var untouched: bool = session.clock.elapsed == 0.0 and session.projectiles.launched == 0 and session.play.pickups.count() == 0
+ 	if not untouched:
+ 		replace_session(make_session())
+--- before/scripts/poc/poc_actor.gd
++++ scripts/poc/poc_actor.gd
+@@ -11,10 +11,20 @@
+ 	preload("res://assets/sprites/poc/player/walk-normal.png"),
+ 	preload("res://assets/sprites/poc/player/walk-hop.png"),
+ ]
++const FIRE_SHEETS: Dictionary = {
++	&"seed": preload("res://assets/sprites/poc/player/fire-front-v3/seed-character-sheet.png"),
++	&"water": preload("res://assets/sprites/poc/player/fire-front-v3/water-character-sheet.png"),
++}
++const FORMATION_SHEETS: Dictionary = {
++	&"seed": preload("res://assets/sprites/poc/player/fire-front-v3/seed-formation-sheet.png"),
++	&"water": preload("res://assets/sprites/poc/player/fire-front-v3/water-formation-sheet.png"),
++}
+ 
+ var camera: Camera3D
+ var display_sprite: Sprite3D
+ var shadow_board: Sprite3D
++var formation_sprite: Sprite3D
++var fire_kind: StringName = &""
+ ## Separate receiver light excludes sprite shadow cards while retaining 3D building shadows.
+ var receiver_light: DirectionalLight3D
+ var resolution_index: int = 0
+@@ -31,6 +41,9 @@
+ 	camera = camera_
+ 	display_sprite = _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, PLAYER_DISPLAY)
+ 	shadow_board = _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY, SUN_CARD)
++	formation_sprite = _sprite(GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, PLAYER_DISPLAY)
++	formation_sprite.shaded = false
++	formation_sprite.visible = false
+ 	set_resolution(Config.DEFAULT_RESOLUTION)
+ 
+ func _sprite(mode: int, layer: int) -> Sprite3D:
+@@ -61,14 +74,29 @@
+ 		_cache[key] = texture
+ 	return _cache[key]
+ 
++func fire_texture(kind: StringName, index: int, formation: bool = false) -> Texture2D:
++	var key: String = "fire:%s:%d:%s" % [kind, index, formation]
++	if not _cache.has(key):
++		var texture: AtlasTexture = AtlasTexture.new()
++		texture.atlas = FORMATION_SHEETS[kind] if formation else FIRE_SHEETS[kind]
++		texture.region = Rect2(Vector2(index * FRAME_SIZE.x, 0), Vector2(FRAME_SIZE))
++		texture.filter_clip = true
++		_cache[key] = texture
++	return _cache[key]
++
+ ## Snap a fixed ground anchor, not the changing visible bounds of the animation.
+-func pose(foot: Vector3, frame_: int, facing: StringName, directional: DirectionalLight3D, mode: int = 0, moving: bool = false) -> void:
++func pose(foot: Vector3, frame_: int, facing: StringName, directional: DirectionalLight3D, mode: int = 0, moving: bool = false, action_kind: StringName = &"", action_frame: int = 0, forming: bool = false) -> void:
+ 	_sync_receiver_light(directional)
+ 	frame = posmod(frame_, 4) if moving else 0
+ 	direction = facing if DIRECTIONS.has(facing) else &"down"
+ 	walk_mode = clampi(mode, 0, WALK_SHEETS.size() - 1)
+ 	walking = moving
+ 	var texture: Texture2D = frame_texture(frame, direction, walk_mode, moving)
++	fire_kind = action_kind
++	if FIRE_SHEETS.has(action_kind):
++		frame = action_frame
++		direction = &"down" # Temporary front artwork for every actual aim direction.
++		texture = fire_texture(action_kind, action_frame)
+ 	pixel_size = camera.size / float(render_height)
+ 	var screen: Vector2 = camera.unproject_position(foot)
+ 	var correction: Vector2 = screen.round() - screen
+@@ -85,6 +113,13 @@
+ 		sprite.global_position = center
+ 		sprite.texture = texture
+ 		sprite.flip_h = false
++	formation_sprite.visible = FIRE_SHEETS.has(action_kind) and forming
++	if formation_sprite.visible:
++		formation_sprite.texture = fire_texture(action_kind, action_frame, true)
++		formation_sprite.pixel_size = pixel_size
++		formation_sprite.global_basis = display_sprite.global_basis
++		# A tiny camera-normal separation avoids coplanar fighting without shifting screen pixels.
++		formation_sprite.global_position = center + camera.global_basis.z * pixel_size * 0.01
+ 
+ func _sync_receiver_light(source: DirectionalLight3D) -> void:
+ 	if receiver_light == null:
+@@ -110,6 +145,8 @@
+ func snapshot() -> Dictionary:
+ 	return {
+ 		"frame": frame,
++		"fire_kind": String(fire_kind),
++		"formation_visible": formation_sprite.visible,
+ 		"direction": String(direction),
+ 		"walk_mode": "normal" if walk_mode == 0 else "hop",
+ 		"walking": walking,
+--- before/scripts/poc/poc_session.gd
++++ scripts/poc/poc_session.gd
+@@ -644,7 +644,7 @@
+ 
+ ## Fires the selected seed/plant (water_shot = false) or water (true) toward `aim_logic` (default: current aim).
+ ## Costs are spent only when the shot is really launched. Returns {ok, reason}.
+-func fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF) -> Dictionary:
++func can_fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF, plant_key: StringName = &"") -> Dictionary:
+ 	if paused:
+ 		return {"ok": false, "reason": "paused"}
+ 	if play.health.downed:
+@@ -656,7 +656,9 @@
+ 		target = aim
+ 	if projectiles.is_full():
+ 		return {"ok": false, "reason": "full"}
+-	var plant: PlantDef = null if water_shot else play.selected_def()
++	var plant: PlantDef = null if water_shot else (play.selected_def() if plant_key == &"" else play.def_by_key(plant_key))
++	if not water_shot and plant == null:
++		return {"ok": false, "reason": "invalid_plant"}
+ 	var cultivated: bool = plant != null and plant.is_cultivated()
+ 	if water_shot:
+ 		if not play.can_fire_water():
+@@ -669,6 +671,16 @@
+ 	elif not play.can_fire_seed():
+ 		say("種がない（木の実を拾う）")
+ 		return {"ok": false, "reason": "no_seed"}
++	return {"ok": true, "reason": "", "target": target, "plant": plant}
++
++## Immediate API retained for existing callers; optional key keeps a delayed action's selection stable.
++func fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF, plant_key: StringName = &"") -> Dictionary:
++	var allowed: Dictionary = can_fire(water_shot, aim_logic, plant_key)
++	if not bool(allowed.ok):
++		return allowed
++	var target: Vector2 = allowed.target
++	var plant: PlantDef = allowed.plant
++	var cultivated: bool = plant != null and plant.is_cultivated()
+ 	var kind: String = Projectiles.KIND_WATER if water_shot else (String(plant.key) if cultivated else Projectiles.KIND_SEED)
+ 	var landing: Vector2 = projectiles.launch(kind, position, target, Vector2.DOWN)
+ 	if landing == Vector2.INF:
+@@ -679,7 +691,7 @@
+ 		play.reserve_plant(plant)
+ 	else:
+ 		play.spend_seed()
+-	return {"ok": true, "reason": "", "landing": landing}
++	return {"ok": true, "reason": "", "landing": landing, "shot_id": projectiles.next_id - 1}
+ 
+ func _release(kind: String) -> void:
+ 	if kind != Projectiles.KIND_WATER and kind != Projectiles.KIND_SEED:
+--- before/scripts/poc/play/poc_play_view.gd
++++ scripts/poc/play/poc_play_view.gd
+@@ -8,6 +8,10 @@
+ const GroundCoverScript: GDScript = preload("res://scripts/poc/environment/ground_cover.gd")
+ 
+ const HIDDEN_Y: float = -20.0
++const FLIGHT_TEXTURES: Dictionary = {
++	"seed": preload("res://assets/sprites/poc/player/fire-front-v3/seed-projectile.png"),
++	"water": preload("res://assets/sprites/poc/player/fire-front-v3/water-projectile.png"),
++}
+ 
+ var session: RefCounted
+ ## POC-05 terrain-specific greening display; cell_multimesh is its soil layer (one instance per cell).
+@@ -16,6 +20,10 @@
+ var cultivated_nodes: Dictionary = {}
+ var pickup_pool: Array[MeshInstance3D] = []
+ var shot_pool: Array[MeshInstance3D] = []
++var flight_pool: Array[Sprite3D] = []
++var camera: Camera3D
++## Display-only metadata indexed by logical shot id; never added to simulation/save data.
++var launch_heights: Dictionary = {}
+ var source_nodes: Array[MeshInstance3D] = []
+ var materials: Dictionary = {}
+ var _sphere: SphereMesh
+@@ -113,25 +121,67 @@
+ 		node.scale = Vector3.ONE * (0.3 if heal else 0.24)
+ 		node.position = Vector3(ground.x, 0.22 + 0.04 * sin(bob_time * 4.0 + float(i)), ground.y)
+ 
++func register_launch(shot_id: int, socket_height_px: float) -> void:
++	launch_heights[shot_id] = socket_height_px
++
++func _flight_sprite() -> Sprite3D:
++	var node: Sprite3D = Sprite3D.new()
++	node.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
++	node.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
++	node.alpha_scissor_threshold = 0.5
++	node.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_OFF
++	node.shaded = false
++	node.double_sided = true
++	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++	add_child(node)
++	return node
++
+ func _sync_shots() -> void:
+ 	var shots: Array[Dictionary] = session.projectiles.shots
+ 	_pooled(shot_pool, shots.size())
++	while flight_pool.size() < shots.size():
++		flight_pool.append(_flight_sprite())
++	for sprite: Sprite3D in flight_pool:
++		sprite.visible = false
++	var live_ids: Dictionary = {}
+ 	for i: int in shots.size():
+ 		var shot: Dictionary = shots[i]
+ 		var node: MeshInstance3D = shot_pool[i]
+ 		var kind: String = String(shot["kind"])
++		var shot_id: int = int(shot["id"])
++		live_ids[shot_id] = true
++		if camera != null and FLIGHT_TEXTURES.has(kind):
++			node.visible = false
++			var sprite: Sprite3D = flight_pool[i]
++			sprite.visible = true
++			sprite.texture = FLIGHT_TEXTURES[kind]
++			sprite.pixel_size = camera.size / 360.0
++			var upright: float = 1.0 / maxf(camera.global_basis.y.dot(Vector3.UP), 0.1)
++			var forward: Vector3 = Vector3(camera.global_basis.z.x, 0.0, camera.global_basis.z.z).normalized()
++			var progress: float = clampf(float(shot["traveled"]) / maxf(float(shot["total"]), 0.0001), 0.0, 1.0)
++			var height_px: float = float(launch_heights.get(shot_id, 20.0)) * (1.0 - progress)
++			var location: Vector3 = Coords.ground3(Coords.logic_to_ground(shot["position"]), 0.04) + Vector3.UP * height_px * sprite.pixel_size * upright
++			var screen: Vector2 = camera.unproject_position(location)
++			var snap: Vector2 = screen.round() - screen
++			location += camera.global_basis.x * snap.x * sprite.pixel_size + forward * snap.y * sprite.pixel_size / -camera.global_basis.y.dot(forward)
++			sprite.global_basis = Basis(camera.global_basis.x, Vector3.UP * upright, forward)
++			sprite.global_position = location
++			continue
+ 		var color: Color = Color("63b8cf") if kind == "water" else (Color("fff1c2") if kind == "seed" else Color("f08a24"))
+ 		node.material_override = _unshaded(color)
+ 		node.scale = Vector3.ONE * 0.2
+ 		var ground: Vector2 = Coords.logic_to_ground(shot["position"])
+ 		node.position = Vector3(ground.x, 0.55, ground.y)
++	for id: Variant in launch_heights.keys():
++		if not live_ids.has(id):
++			launch_heights.erase(id)
+ 
+ ## Observability for tests / screenshots.
+ func snapshot() -> Dictionary:
+ 	return {
+ 		"cultivated": cultivated_nodes.size(),
+ 		"pickups_visible": pickup_pool.filter(func(n: MeshInstance3D) -> bool: return n.visible).size(),
+-		"shots_visible": shot_pool.filter(func(n: MeshInstance3D) -> bool: return n.visible).size(),
++		"shots_visible": shot_pool.filter(func(n: MeshInstance3D) -> bool: return n.visible).size() + flight_pool.filter(func(n: Sprite3D) -> bool: return n.visible).size(),
+ 		"sources": source_nodes.size(),
+ 		"last_sync_count": last_sync_count,
+ 		"cell_updates": ground.cell_updates,

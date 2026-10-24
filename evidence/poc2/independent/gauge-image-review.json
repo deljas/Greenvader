@@ -1,0 +1,368 @@
+{
+  "name": "full_gauge_hidden_depleted_visible",
+  "status": "PASS",
+  "coordinate_correction": "Saved root viewport images are 640x360; final window transform applies to input injection only, not image pixels",
+  "changed_count": 60,
+  "changed_pixels": [
+    {
+      "x": 406,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff75c8dc"
+    },
+    {
+      "x": 407,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff75c8dc"
+    },
+    {
+      "x": 408,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff75c8dc"
+    },
+    {
+      "x": 409,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 410,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 411,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 412,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 413,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 414,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 415,
+      "y": 241,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 406,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff75c8dc"
+    },
+    {
+      "x": 407,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff75c8dc"
+    },
+    {
+      "x": 408,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff75c8dc"
+    },
+    {
+      "x": 409,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 410,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 411,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 412,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 413,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 414,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 415,
+      "y": 242,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 414,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 415,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 416,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 417,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 418,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 419,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 420,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 421,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 422,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 423,
+      "y": 257,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 414,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 415,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 416,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 417,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 418,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 419,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 420,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 421,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff89d579"
+    },
+    {
+      "x": 422,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 423,
+      "y": 258,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 414,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 415,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 416,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 417,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 418,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 419,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 420,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 421,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 422,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 423,
+      "y": 260,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 414,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 415,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 416,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 417,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ffe6cf7a"
+    },
+    {
+      "x": 418,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 419,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 420,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 421,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 422,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    },
+    {
+      "x": 423,
+      "y": 261,
+      "before": "ff558a50",
+      "after": "ff28302a"
+    }
+  ]
+}

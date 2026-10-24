@@ -1,0 +1,23 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "changed": {
+    "scripts/poc/poc_main.gd": "7d9c1d35a06a2bd6f00a265ab9f1b8a4d9afab8054a96c380321b2995aab2c76",
+    "scripts/poc/poc_input.gd": "e8eb1f99ab053623a621a4a249e175cae0c23e3703944549b17e0428130664b5",
+    "scripts/poc/ui/poc_ui.gd": "af07c0004c52ea20ff36f59f09fd720cd86feee43f635ceac72a548bbc1175e4",
+    "assets/sprites/poc/player/manifest.json": "aa11db9ee2d3084151c447ae9830a10d5b572e6c2716b79cc4dd4f4166142175",
+    "tests/poc/spr01/self_adopt.gd": "0002289c4111695f2a20c079ae2704d3ff93507f4d8492df4fef4ecd6308ca81"
+  },
+  "preserved_checks": {
+    "scripts/poc/poc_actor.gd": true,
+    "scripts/poc/poc_config.gd": true,
+    "scripts/poc/save/poc_save.gd": true,
+    "scripts/poc/environment/water_view.gd": true,
+    "scripts/poc/occlusion/occlusion_view.gd": true,
+    "assets/sprites/poc/player/idle.png": true,
+    "assets/sprites/poc/player/idle.png.import": true,
+    "assets/sprites/poc/player/walk-hop.png": true,
+    "assets/sprites/poc/player/walk-hop.png.import": true,
+    "assets/sprites/poc/player/walk-normal.png": true,
+    "assets/sprites/poc/player/walk-normal.png.import": true
+  }
+}

@@ -1,0 +1,1404 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "checks": [
+    {
+      "name": "idle_bytes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "source_palette",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_0_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-0.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-0.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-0.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-0.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-0.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-0.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_0_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_0_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_0_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_1_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-1.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-1.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-1.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-1.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-1.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-1.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_1_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_1_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_1_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_2_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-2.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-2.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-2.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-2.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-2.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-2.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_2_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_2_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_2_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_3_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-3.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-3.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-character-3.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-3.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-3.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed-formation-3.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_3_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_3_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_3_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_projectile_layer",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_html_action",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_0_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-0.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-0.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-0.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-0.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-0.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-0.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_0_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_0_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_0_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_1_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-1.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-1.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-1.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-1.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-1.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-1.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_1_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_1_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_1_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_2_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-2.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-2.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-2.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-2.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-2.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-2.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_2_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_2_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_2_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_3_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-3.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-3.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-3.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-3.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-3.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-3.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_3_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_3_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_3_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_4_boundaries",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-4.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-4.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-character-4.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-4.png_pixels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-4.png_manifest_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water-formation-4.png_html_grid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_4_face_body",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_4_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_4_html_time",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_projectile_layer",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_html_action",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_formation_grows",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_formation_separates",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "anchor_direction",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "html_static",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "gif_decoded_timeline_pixels",
+      "status": "PASS",
+      "detail": {
+        "frames": 60,
+        "durations_ms": [
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "bad_panels": []
+      }
+    },
+    {
+      "name": "gif_approximation_declared",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png.import",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\manifest.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png.import",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png.import",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\down.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\export.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-down.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-left.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-right.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-up.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\left.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\manifest.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\palette.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\preview.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\production-note.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\right.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\self-check.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\sheet.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\up.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\author_grids.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\contact-sheet.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\export.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-0.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-1.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-2.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-3.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-0.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-1.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-2.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-3.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-0.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-1.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-2.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-3.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-0.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-1.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-2.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-3.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\manifest.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\palette.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\preview.gif",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\production-note.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\self-check.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\sheet.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-0.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-1.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-2.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-3.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\verify_runtime.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_actor.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_actor.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_config.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_config.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_coords.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_coords.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_input.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_input.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_main.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_main.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_session.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\poc_session.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\assets\\placement_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\assets\\placement_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\assets\\placement.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\assets\\placement.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\audio\\poc_audio.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\audio\\poc_audio.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\combat\\poc_enemy_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\combat\\poc_enemy_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\cloud_shadow.gdshader",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\cloud_shadow.gdshader.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\environment_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\environment_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\ground_cover.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\ground_cover.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_day.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_day.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_weather.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_weather.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\rain_screen.gdshader",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\rain_screen.gdshader.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\readability_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\readability_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_growth.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_growth.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_layout.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_layout.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_moss.gdshader",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_moss.gdshader.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_parts.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_parts.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\water_surface.gdshader",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\water_surface.gdshader.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\water_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\water_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\weather_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\environment\\weather_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helper_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helper_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helpers.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helpers.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\play\\poc_play_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\play\\poc_play_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\play\\poc_projectiles.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\play\\poc_projectiles.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\save\\poc_save.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\save\\poc_save.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\ui\\poc_ui.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\ui\\poc_ui.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\view\\poc_viewpoint.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\view\\poc_viewpoint.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_panel.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_panel.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_view.gd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_view.gd.uid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "preserve/C:\\godot\\greenvader\\assets\\concepts\\spr01\\front-pixel-v1\\front-16x24.png",
+      "status": "PASS",
+      "detail": null
+    }
+  ],
+  "hashes": {
+    "author_grids.py": "543415795c377229a8598042a72d290d508ad37c2aa469822aef397c193d2b04",
+    "build_preview.py": "247b1481bd5c35bbe93955cce78591cc0ca2b958535d62ae077608c665ec75b6",
+    "character-palette.json": "95338e4dfeb0efdc9e516aeb81afcbb10d4ba1958d2489d8d056cabe86e0d70b",
+    "comparison.gif": "1f4e92824b934b4f90e1ad8273010299639e1846b89078760bc5d77407b94c16",
+    "comparison.html": "87d6777fbd902d71f4c9e9aa793c2f4a155aab2b0a6299c043d8f3bd10acd8d9",
+    "contact-sheet.png": "953ca6637a89092a06d630f9d4c7a81ee34c0f67624f7db090c26f635626c9dd",
+    "export.py": "ba4da7126da14c63d21e784b230afaa17671f22c9df037bef2b397fae4634ad9",
+    "fx-palette.json": "cd464d34ff43d4313a7222ee60b682b87869934d94d2a478c178acd43555d123",
+    "grid-idle.txt": "77b1bd90e06792705a3220e32bf52214c6ce8f8a791c93e748d0b3c8cf109f7d",
+    "grid-seed-character-0.txt": "06fe8c55ebf0ad79b0f4d00110e1d2855ea857e33c34b8d21f6bd05285493db3",
+    "grid-seed-character-1.txt": "fca9be1f7fa5d1e59abd2c6c4a06dd9446ec7e20c100c421fd2f63e007ae3516",
+    "grid-seed-character-2.txt": "a1ed5cb60bb3b08d8763f10436e812adcdd9621bdb3ff428f9b5a5a9941f39e9",
+    "grid-seed-character-3.txt": "7dac833734ea6eb684719989ce82873cc1fc215001d03c69ef6bf155cfb7a7e2",
+    "grid-seed-formation-0.txt": "0f8f65e7109a234978e274c7cf2418bdb2b05e092ed475d2d3d0623a8ac33a63",
+    "grid-seed-formation-1.txt": "9b3f633898e393c5345bc9c85d1ad4fbbcb0bdc7e619e99f93dbf1c23f23d999",
+    "grid-seed-formation-2.txt": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c",
+    "grid-seed-formation-3.txt": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c",
+    "grid-seed-projectile.txt": "5d277323ab5eeb379ab38a0347fee99a1d2d9a133533218e2dccb8e496049e87",
+    "grid-water-character-0.txt": "07e07d1e6078df7b54ea9536161b7ad6f21828da59205f35a3d8696cb685f678",
+    "grid-water-character-1.txt": "34217c27656de26cdbef47c16914b118fc74aef2cf723bac1d31e1b42f3b9cc6",
+    "grid-water-character-2.txt": "aefbe4344dcf392fd0083af74c00ccce1e10f49a1741440de3acd11656d2dd5e",
+    "grid-water-character-3.txt": "20f9f5d44ea347304413a76722174ae7f600fa32974e0d834e97d2898a6e905a",
+    "grid-water-character-4.txt": "fdd527a4cab265e70d5c045712962d3484f138d377a1c2b6b489fe889ba21337",
+    "grid-water-formation-0.txt": "8d7bc016994012524e828169698296dd75f64d057c6765b0e26c85584febec3a",
+    "grid-water-formation-1.txt": "c2d45f4e89880f605b9db8eba982fc2fdf78d8a2d8ab481346602229194fb8dc",
+    "grid-water-formation-2.txt": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c",
+    "grid-water-formation-3.txt": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c",
+    "grid-water-formation-4.txt": "00f260488dbf903ca5151de7fe5f694b436caabbc7e4452ed054d0b0cb1a8b0c",
+    "grid-water-projectile.txt": "4ffb78a99c190c5e489647f2bab5f4fb89400a1d918aed925dc8c41bc3f7069f",
+    "idle.png": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18",
+    "manifest.json": "890d8db6876d9401729df05295400ccb0af6c5739dfb2760342b01771a013b9b",
+    "preview-data.json": "a5eb3bede0917e48945a4e38fc798ee81d8a5226250afa040048add7305bd156",
+    "preview-template.html": "3f9f546f4c9ab78454576b192a117eea41f8e0c1a34972c0322763cb84bcfdd3",
+    "production-note.md": "01e16e27d4ba8b3e2e8df60d8101548c9ad1357c648decfac4406cbbb65dc602",
+    "seed-character-0.png": "bdfeb8fe021a767587a698bf7a7e286a2d8c735fc4bf87ee4fa91cd314832879",
+    "seed-character-1.png": "d2539acd0d18cdebb5a95cf1c7e9d3011e93c54deb369b515d08313489a297e5",
+    "seed-character-2.png": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a",
+    "seed-character-3.png": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b",
+    "seed-character-sheet.png": "89ce82cfa5fba9d44d91c05bfe175b4ec0fa8c21d78c2b1b86126dff59a7c552",
+    "seed-formation-0.png": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815",
+    "seed-formation-1.png": "b69a6e8c71ccd73007ec095c67cd2df57b3e4de1d3bd1dc47267c2d5a81b3a21",
+    "seed-formation-2.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "seed-formation-3.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "seed-formation-sheet.png": "971e6045c57e1bbdfbf62eaf85275a40329f37c34e3dc2d7c590d837a48a4394",
+    "seed-projectile.png": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4",
+    "timing-source.json": "8b750d26a6fb1c5b0594d9a38646ff82094ce4ff107fb799613c98ec5a3fadb0",
+    "water-character-0.png": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6",
+    "water-character-1.png": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a",
+    "water-character-2.png": "937d5a6fd43b2453324a55b8b4f73a0786e7256d3e897c2fe76e05cc38d806a7",
+    "water-character-3.png": "d705a916e52a7b578636f7d93aafb98c71cb67574bc11a498000c4cba7dc2091",
+    "water-character-4.png": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad",
+    "water-character-sheet.png": "f088277cea2d608b1f9967d8bc171210b18715062fe2d7375493d925ec87f399",
+    "water-formation-0.png": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f",
+    "water-formation-1.png": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed",
+    "water-formation-2.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-formation-3.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-formation-4.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-formation-sheet.png": "25c54cd00a68254159fa735af5eb5e3a6ed2841505fd72f88fdb9d1f5f0d8049",
+    "water-projectile.png": "786535fbd0f583a9c40e185965571bb3d66e77a5329bef9761f5629492d09937"
+  },
+  "counts": {
+    "PASS": 241,
+    "FAIL": 0
+  },
+  "browser_playback": "NOT_RUN",
+  "game_integration": "NOT_RUN",
+  "final_frozen_hash_matches": {
+    "author_grids.py": true,
+    "build_preview.py": true,
+    "character-palette.json": true,
+    "comparison.gif": true,
+    "comparison.html": true,
+    "contact-sheet.png": true,
+    "export.py": true,
+    "fx-palette.json": true,
+    "grid-idle.txt": true,
+    "grid-seed-character-0.txt": true,
+    "grid-seed-character-1.txt": true,
+    "grid-seed-character-2.txt": true,
+    "grid-seed-character-3.txt": true,
+    "grid-seed-formation-0.txt": true,
+    "grid-seed-formation-1.txt": true,
+    "grid-seed-formation-2.txt": true,
+    "grid-seed-formation-3.txt": true,
+    "grid-seed-projectile.txt": true,
+    "grid-water-character-0.txt": true,
+    "grid-water-character-1.txt": true,
+    "grid-water-character-2.txt": true,
+    "grid-water-character-3.txt": true,
+    "grid-water-character-4.txt": true,
+    "grid-water-formation-0.txt": true,
+    "grid-water-formation-1.txt": true,
+    "grid-water-formation-2.txt": true,
+    "grid-water-formation-3.txt": true,
+    "grid-water-formation-4.txt": true,
+    "grid-water-projectile.txt": true,
+    "idle.png": true,
+    "manifest.json": true,
+    "preview-data.json": true,
+    "preview-template.html": true,
+    "production-note.md": true,
+    "seed-character-0.png": true,
+    "seed-character-1.png": true,
+    "seed-character-2.png": true,
+    "seed-character-3.png": true,
+    "seed-character-sheet.png": true,
+    "seed-formation-0.png": true,
+    "seed-formation-1.png": true,
+    "seed-formation-2.png": true,
+    "seed-formation-3.png": true,
+    "seed-formation-sheet.png": true,
+    "seed-projectile.png": true,
+    "timing-source.json": true,
+    "water-character-0.png": true,
+    "water-character-1.png": true,
+    "water-character-2.png": true,
+    "water-character-3.png": true,
+    "water-character-4.png": true,
+    "water-character-sheet.png": true,
+    "water-formation-0.png": true,
+    "water-formation-1.png": true,
+    "water-formation-2.png": true,
+    "water-formation-3.png": true,
+    "water-formation-4.png": true,
+    "water-formation-sheet.png": true,
+    "water-projectile.png": true
+  },
+  "final_frozen_files": 59
+}

@@ -1,0 +1,44 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "all_target_unchanged": true,
+  "file_matches": {
+    "scripts/poc/poc_actor.gd": true,
+    "scripts/poc/poc_config.gd": true,
+    "scripts/poc/poc_input.gd": true,
+    "scripts/poc/poc_main.gd": true,
+    "scripts/poc/save/poc_save.gd": true,
+    "scripts/poc/ui/poc_ui.gd": true,
+    "scripts/poc/environment/water_view.gd": true,
+    "scripts/poc/occlusion/occlusion_view.gd": true,
+    "assets/sprites/poc/player/idle.png": true,
+    "assets/sprites/poc/player/idle.png.import": true,
+    "assets/sprites/poc/player/manifest.json": true,
+    "assets/sprites/poc/player/walk-hop.png": true,
+    "assets/sprites/poc/player/walk-hop.png.import": true,
+    "assets/sprites/poc/player/walk-normal.png": true,
+    "assets/sprites/poc/player/walk-normal.png.import": true,
+    "tests/poc/spr01/self_api.gd": true,
+    "tests/poc/spr01/self_compare.gd": true,
+    "tests/poc/spr01/self_shadow.gd": true
+  },
+  "controls_size": [
+    640,
+    360
+  ],
+  "unequal_2x2_blocks": 29939,
+  "evidence_hashes": {
+    "controls.png": "104853c872cf0e45d3bed3bd50bea8e9406791b387d3f8653f8322bce011b54d",
+    "day_card_off.png": "34b00a70905b90bbe7ab847a8f2096fa24be45be34e86d78312c92996ce4a936",
+    "day_card_on.png": "5af162166d88b728da2cf79348cd476ea6b64d8928e286f2ff809d8079906b7a",
+    "external_mesh_shadow.png": "cf2dfae28a826d9c3e53a2a9f81fcbba286e72d9f9c17d89beb84e2f2feff837",
+    "hop_phase2.png": "0aaf35f51aa7bfa2f45b90aad2229d6c01579b1f665ba000c075e91825dd4e26",
+    "night.png": "7b47b1a7d277dc9486dc555fbffd8c5c66869ea9105f557af6fdb23c5dbc8236",
+    "normal_phase2.png": "26af1b38c324424758f5a3d77e78cd2fdbec4656ef609e0f518d7e16f5629234",
+    "results.json": "c103e6341ff9f233d883893ae42499b022905433b0d6bfcda78cff9156699842",
+    "save_followup.json": "cd0a289c23b88bd2626c4c05fe4d8fd436f9eb2a0fd8e5a0fc09829fafa5b25b"
+  },
+  "native_render_capture": true,
+  "physical_window_framebuffer_captured": false,
+  "unequal_2x2_blocks_is_acceptance_test": false,
+  "capture_note": "controls.png is the native 640x360 viewport; the 2x2 statistic is not applicable to this 1x capture. Integer presentation settings and projected 1texel=1 internal pixel were checked in Godot."
+}

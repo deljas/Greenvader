@@ -1,0 +1,65 @@
+{
+  "phase": "pre-freeze read-only review; not final frozen target",
+  "date": "2026-10-21",
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "baseline_count": 91,
+  "baseline_mismatches": [],
+  "sources": [
+    {
+      "path": "scripts/poc2/API.md",
+      "sha256": "416A58DC3E1EB2BCAC261175827FBA433C556DBABD63864A2430ABE1EB4D01E8"
+    },
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "sha256": "D855637653CFC826389FD80345349B5F6059BF4F39C9D85AA7AD23889D56CC5E"
+    },
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "17396E98153D0FC1C96F571E301C6BD5AEAF1EF49D40F7F52D1F5F7EAD8F7E16"
+    },
+    {
+      "path": "scripts/poc2/save/poc2_save.gd",
+      "sha256": "75479B11619CE38DA82BAC2BA3FB4BB37D1D8E257FDF98A1BA2A59D6CA6644C5"
+    },
+    {
+      "path": "scripts/poc2/simulation/combat.gd",
+      "sha256": "84A5203ED14BBD77F4FB6DE842A1D5513F928DBABB2644826F3A770FCFFF133A"
+    },
+    {
+      "path": "scripts/poc2/simulation/navigation.gd",
+      "sha256": "5C254D505FBF39D3D57421ECD0C642A4CC4A45FF128158F955E1493E849B4A5C"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "A0B287B6451BF949744907AEEA5C6E04609E2425590080C4CDEBBDDA0DFD2AF5"
+    },
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "sha256": "D49A6C6521E4426CC884086215DB885A3B8D3BE271C10F4C5EF3998F2B225593"
+    },
+    {
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "sha256": "D668DB3A17D52642F006EC8C82E90EE9969E33E1074639F65F90456DE9D6BE47"
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "sha256": "F793D8C7C4C612F0CCA9D5F48804C5FF2A8D1FBCE11A2EC28544B58888558990"
+    },
+    {
+      "path": "scripts/poc2/view/cutaway_view.gd",
+      "sha256": "E798D3382A6AA0DB31ADDBEA1A0A8D6A4CDAD26B3AAEDF4102480FE0218239B8"
+    },
+    {
+      "path": "scripts/poc2/view/cutaway.gdshader",
+      "sha256": "CCEDEAE8F23AE80D63B03F865B6CD233D935E42925B5338F162FF2E499C92178"
+    },
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "0CCBD7F324A539233671D10F2E010E7F8BC0841D40BAE3D582D2FFE487AF6CD7"
+    },
+    {
+      "path": "data/poc2/maps/town_02.json",
+      "sha256": "5443A34A03DB271875A28121AFD3B1C7519F8B4C4A65A86D6D9FCF8576017AC7"
+    }
+  ]
+}

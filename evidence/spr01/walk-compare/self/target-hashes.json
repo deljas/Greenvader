@@ -1,0 +1,24 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "note": "Uncommitted shared tree, only owned implementation/test/player files listed",
+  "files": {
+    "scripts/poc/poc_actor.gd": "6142cd8b0b7cfe362883391b4aba07a52d9608c3a3820c3e502525983fdaaaea",
+    "scripts/poc/poc_config.gd": "4af8a06305c021f3b0b2c9897f8729ee2216e026ac393139b8dcb3e13d9535f5",
+    "scripts/poc/poc_input.gd": "8faa397ba6e0c57bacf0d6c06219d877c53457b50169351ed84e0e25da6b7b28",
+    "scripts/poc/poc_main.gd": "d4fdb7aa33b2e7cb94fd1c5a407ecd0530d8e21bf6d369269a5e1b21ce0ad7ef",
+    "scripts/poc/save/poc_save.gd": "8dce0b62ff4cbf1fc94b21827d932d17f9c63accc38b0836fc37f8b0ebce2069",
+    "scripts/poc/ui/poc_ui.gd": "168941cc359301e5ddc269b41c26fcd1da1a2bc5594a8f522d0a00240c6a1c31",
+    "scripts/poc/environment/water_view.gd": "de933c5777dfb0aef6d86d5b66a852a368b0ad9648195c6bd1d8bea0e9e32c12",
+    "scripts/poc/occlusion/occlusion_view.gd": "4f6a0e4be71305b231d2b49a7622b317a1def5e4a1aec7b201ad315ce682c9a9",
+    "assets/sprites/poc/player/idle.png": "754a97bd44912a87bf2197ce74dfdca8cdf4b01a835f88c7b1ba99b1d8e029fe",
+    "assets/sprites/poc/player/idle.png.import": "3a20397ee82d09ae1071ded7c00fce1bfdf98bb372d7b27c29d3205b34aac3e7",
+    "assets/sprites/poc/player/manifest.json": "0962b7484303d6c199dc533ea17751769dece425cea006a6107bc099f27767c7",
+    "assets/sprites/poc/player/walk-hop.png": "77357397cf258da39457ad66ec451522c75f3553f66f156852dd4669c3bb635c",
+    "assets/sprites/poc/player/walk-hop.png.import": "3c36f0d3fc5e4054126b77c1afdc882c1fadcdc9a192cb402b14db1b663f5ed1",
+    "assets/sprites/poc/player/walk-normal.png": "a9ba10fbbf66538197b8b08b2ec3344042f7e2153a6117a2f7f68737f9698c5e",
+    "assets/sprites/poc/player/walk-normal.png.import": "d51352c3f9289a8c941ddd0e63744d8e29e7fa7328e9d6efa73fbdaba286a504",
+    "tests/poc/spr01/self_api.gd": "f893950d7c6bb4744faa5877d02c8a935ea7f10b86a7a5c72e79f6f19ae08ffd",
+    "tests/poc/spr01/self_compare.gd": "0be0d8ca9d5628704bff1a370e2a84d3b0c92d5a748a54a211f7afa07a671d50",
+    "tests/poc/spr01/self_shadow.gd": "96c35d49505296de40b8ad87b9f056471d6e49748fce911b35a7df2fd79864f8"
+  }
+}

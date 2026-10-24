@@ -1,0 +1,54 @@
+{
+  "base_commit": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "workspace": "shared; existing unrelated changes preserved; implementation stopped",
+  "files": [
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "540481ae6064d8cb3f61806905a0228c34e1f3965c72919e6e4b40b54d95b2f8"
+    },
+    {
+      "path": "scripts/poc2/API.md",
+      "sha256": "416a58dc3e1eb2bcac261175827fba433c556dbabd63864a2430abe1eb4d01e8"
+    },
+    {
+      "path": "scripts/poc2/simulation/combat.gd",
+      "sha256": "84a5203ed14bbd77f4fb6de842a1d5513f928dbabb2644826f3a770fcfff133a"
+    },
+    {
+      "path": "scripts/poc2/simulation/navigation.gd",
+      "sha256": "e7a6eb8064053c48735498ce0440f6a1d7151dcd878a8f1463061dee0ffaa08b"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "0ec2495146cdae4504bd205ed7d287f3716717a144e5bc91d7705e2b62a529fa"
+    },
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "sha256": "386cd85755bd03efdcea3cd7e1b159b466547be8ce20180f57f757092e39c9fb"
+    },
+    {
+      "path": "data/poc2/maps/town_02.json",
+      "sha256": "5443a34a03db271875a28121afd3b1c7519f8b4c4a65a86d6d9fcf8576017ac7"
+    },
+    {
+      "path": "tests/poc2/self/focused.gd",
+      "sha256": "027610871201205f601d4e37026cfa91084c1148cf7561334c4808ef7155a792"
+    },
+    {
+      "path": "tests/poc2/self/parse.gd",
+      "sha256": "fc77fbff549faf94e120083715621333990d2f45b0029870d9ec2bebe185af6c"
+    },
+    {
+      "path": "tests/poc2/self/save_diagnostic.gd",
+      "sha256": "01e7ebb4fc7b4df09fd4b1796983f63fe3d637a6dcd9eb0af1fb84680a6f98de"
+    },
+    {
+      "path": "tests/poc2/self/simulation.gd",
+      "sha256": "29f10a6a66a3eecb18bbcc45a3a07ca8a87869631390760b3ad9b90ed9dcb811"
+    },
+    {
+      "path": "tests/poc2/self/unknown_order.gd",
+      "sha256": "0a3a5c18a072ca42d745c899f8f36cdf4d696e1f80911b8296435bb7511f0be4"
+    }
+  ]
+}

@@ -7,7 +7,6 @@ const KEYS: Dictionary = {
 	&"poc_left": [KEY_A, KEY_LEFT],
 	&"poc_right": [KEY_D, KEY_RIGHT],
 	&"poc_pause": [KEY_ESCAPE],
-	&"poc_toggle_resolution": [KEY_F2],
 	&"poc_cycle_speed": [KEY_F3],
 	&"poc_interact": [KEY_E],
 	&"poc_plant_next": [KEY_TAB],

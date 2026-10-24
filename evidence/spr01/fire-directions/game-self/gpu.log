@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS seed_left_starts_correct_direction <null>
+PASS seed_left_atlas_formation_shadow_grid <null>
+PASS seed_left_release_socket_and_logical_origin { "kind": "seed", "direction": "left", "socket": (11.0, 14.0), "expected_screen": (319.0, 180.0), "projectile_screen": (319.0, 180.0), "logical_origin": (354.0, 346.0), "player_position": (354.0, 346.0) }
+PASS seed_left_directional_walk_recovery <null>
+PASS water_left_starts_correct_direction <null>
+PASS water_left_atlas_formation_shadow_grid <null>
+PASS water_left_release_socket_and_logical_origin { "kind": "water", "direction": "left", "socket": (11.0, 14.0), "expected_screen": (319.0, 180.0), "projectile_screen": (319.0, 180.0), "logical_origin": (362.4858, 337.5142), "player_position": (362.4858, 337.5142) }
+PASS water_left_directional_walk_recovery <null>
+PASS seed_right_starts_correct_direction <null>
+PASS seed_right_atlas_formation_shadow_grid <null>
+PASS seed_right_release_socket_and_logical_origin { "kind": "seed", "direction": "right", "socket": (12.0, 14.0), "expected_screen": (320.0, 180.0), "projectile_screen": (320.0, 180.0), "logical_origin": (370.9717, 329.0283), "player_position": (370.9717, 329.0283) }
+PASS seed_right_directional_walk_recovery <null>
+PASS water_right_starts_correct_direction <null>
+PASS water_right_atlas_formation_shadow_grid <null>
+PASS water_right_release_socket_and_logical_origin { "kind": "water", "direction": "right", "socket": (12.0, 14.0), "expected_screen": (320.0, 180.0), "projectile_screen": (320.0, 180.0), "logical_origin": (379.4575, 320.5425), "player_position": (379.4575, 320.5425) }
+PASS water_right_directional_walk_recovery <null>
+PASS seed_up_starts_correct_direction <null>
+PASS seed_up_atlas_formation_shadow_grid <null>
+PASS seed_up_release_socket_and_logical_origin { "kind": "seed", "direction": "up", "socket": (12.0, 14.0), "expected_screen": (320.0, 180.0), "projectile_screen": (320.0, 180.0), "logical_origin": (387.9434, 312.0566), "player_position": (387.9434, 312.0566) }
+PASS seed_up_directional_walk_recovery <null>
+PASS water_up_starts_correct_direction <null>
+PASS water_up_atlas_formation_shadow_grid <null>
+PASS water_up_release_socket_and_logical_origin { "kind": "water", "direction": "up", "socket": (12.0, 14.0), "expected_screen": (320.0, 180.0), "projectile_screen": (320.0, 180.0), "logical_origin": (396.4292, 303.5708), "player_position": (396.4292, 303.5708) }
+PASS water_up_directional_walk_recovery <null>
+PASS charge_turns_with_mouse_without_locking_aim <null>
+PASS menu_holds_directional_action_clock <null>

@@ -1,0 +1,27 @@
+{
+ "checks": [
+  {
+   "detail": "(272.0, 190.0)",
+   "name": "corrected_fixture_avoids_command_buttons",
+   "status": "FAIL"
+  },
+  {
+   "detail": {
+    "clicked": "(682.0, 754.0)",
+    "home": "(786.0, 754.0)"
+   },
+   "name": "projected_helper_command",
+   "status": "FAIL"
+  },
+  {
+   "detail": {
+    "center": "(448.0, 448.0)",
+    "zoom": 1
+   },
+   "name": "zoom_one_refits_world",
+   "status": "PASS"
+  }
+ ],
+ "failures": 2,
+ "reason": "Initial target overlapped remove button; resulting popup also swallowed later zoom. Only fixture and affected conditions retested."
+}

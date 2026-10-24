@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS world224_and_initial250 { "seeds": 60, "hp": 100.0, "water": 100.0, "green_percent": 0.65397091137386, "land_rate": 5.0, "crop_rate": 0.0, "elapsed_game": 0.0, "stable": false, "nests": 5, "enemies": 13 }
+PASS initial_stock_income_skills 
+PASS far_nest_dormant 
+PASS initial_enemy_reward 
+PASS spawned_enemy_zero_reward 
+PASS small_nest_reward_unlock 
+PASS pause_time_and_movement 
+PASS crop_cost_and_land_preserved 
+PASS crop_not_premature 
+PASS crop_matures20_rate2 
+PASS remove20percent 
+PASS crop_requires_green 
+PASS helper_wasteland_and_budget 
+PASS finite_ammo_no_auto_debit 0
+PASS remote_supply 
+PASS remove_unused_ammo_full 
+PASS helper_heal_delay 
+PASS helper_heals_noncombat 61.25
+PASS unknown_order_accepted 
+PASS unreachable_order_waits 
+PASS json_roundtrip { "ok": true, "reason": "loaded" }
+FAIL save_roundtrip_exact 
+PASS bad_save_atomic 
+PASS bad_ownership_rejected 
+PASS reachable_water_bank (646.0, 626.0)
+FAIL sprinkler_refills5seconds 99.5
+PASS sweep_stable_only 
+PASS stable_island_100percent { "seeds": 33356, "hp": 100.0, "water": 100.0, "green_percent": 100.0, "land_rate": 764.56, "crop_rate": 0.0, "elapsed_game": 3500.0, "stable": true, "nests": 0, "enemies": 0 }
+RESULT 26 PASS / 2 FAIL

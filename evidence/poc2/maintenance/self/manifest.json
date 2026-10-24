@@ -1,0 +1,30 @@
+{
+  "base_commit": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "state": "shared uncommitted tree, final implementation frozen",
+  "source": [
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "sha256": "a80b372411e70324415431d228fd09ba480a300e652487b258eed758742c0afb"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "7923aced93ddd6c6897b5af40aaf3a3a1424df2ae424610911b1ec24bd58f2c5"
+    },
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "41d46ffbd1e762ebdf63ca27812146a18e61755075180b5d465a843a9f63b9a0"
+    },
+    {
+      "path": "tests/poc2/maintenance/self/checks.gd",
+      "sha256": "37394772bfc7d0a89b3afc2cd6847ae74c082b077b3258618b0eca8688832199"
+    },
+    {
+      "path": "tests/poc2/maintenance/self/death_save_reproduce.gd",
+      "sha256": "42d1a1fb2cff4da9d1fa68878f685cc72e23bac2d101cacf9247b18b25fa8f66"
+    },
+    {
+      "path": "tests/poc2/maintenance/self/reproduce.gd",
+      "sha256": "f1878a54c3a1c81c826c6ab6c083942b08ea64da5179202cedc817076824228a"
+    }
+  ]
+}

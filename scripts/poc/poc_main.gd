@@ -1,5 +1,5 @@
 extends Node
-## PoC display layer: SubViewport 3D rendering, fixed orthographic quarter-view camera, resolution switching,
+## PoC display layer: fixed 640x360 SubViewport, orthographic quarter-view camera,
 ## ground picking and a minimal HUD. All game state lives in PocSession (preloaded below); this node only shows it.
 const Config: GDScript = preload("res://scripts/poc/poc_config.gd")
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
@@ -22,12 +22,16 @@ const ViewpointScript: GDScript = preload("res://scripts/poc/view/poc_viewpoint.
 const ViewMarkerScript: GDScript = preload("res://scripts/poc/view/viewpoint_view.gd")
 const ViewPanelScript: GDScript = preload("res://scripts/poc/view/viewpoint_panel.gd")
 const AudioScript: GDScript = preload("res://scripts/poc/audio/poc_audio.gd")
+const FireAction: GDScript = preload("res://scripts/poc/poc_fire_action.gd")
 
 const WALL_BORDER_M: float = 1.0
 const WALL_BLOCK_M: float = 1.6
 const NOTICE_SECONDS: float = 4.0
+## Static eyes are at y=24/25 relative to the authored foot anchor y=34.
+const FACE_ABOVE_FOOT_PX: float = 10.0
 
 var session: RefCounted
+var fire_action: RefCounted = FireAction.new()
 var render_view: SubViewport
 var view_rect: TextureRect
 var world: Node3D
@@ -69,6 +73,9 @@ var auto_process: bool = true
 var window_size_override: Vector2i = Vector2i(-1, -1)
 var walking: bool = false
 var facing_left: bool = false
+var facing: StringName = &"down"
+var _cursor_known: bool = false
+var _cursor_screen: Vector2 = Vector2.ZERO
 var animation_time: float = 0.0
 var notice_time: float = 0.0
 var hud: Label
@@ -235,6 +242,8 @@ func _build_world() -> void:
 	play_view.name = "PlayView"
 	world.add_child(play_view)
 	play_view.build(session)
+	play_view.camera = camera
+	session.play.health.downed_started.connect(_cancel_fire)
 	if session.enemies != null:
 		enemy_view = EnemyViewScript.new()
 		enemy_view.name = "EnemyView"
@@ -322,6 +331,7 @@ func _teardown_world() -> void:
 ## Swaps in a fully built session: the old one is closed, every view (placement, occlusion, wall vegetation, ground cover,
 ## enemies, play) is rebuilt through the normal build path. Used by new game and by a successful load.
 func replace_session(new_session: RefCounted) -> void:
+	_cancel_fire()
 	var old: RefCounted = session
 	_teardown_world()
 	session = new_session
@@ -446,15 +456,6 @@ func _build_ui() -> void:
 	add_child(notice)
 	button_box = HBoxContainer.new()
 	add_child(button_box)
-	for i: int in Config.RESOLUTIONS.size():
-		var res: Vector2i = Config.RESOLUTIONS[i]
-		var button: Button = Button.new()
-		button.text = "%d×%d" % [res.x, res.y]
-		button.focus_mode = Control.FOCUS_NONE
-		button.pressed.connect(set_resolution.bind(i))
-		button_box.add_child(button)
-		resolution_buttons.append(button)
-		ui_controls.append(button)
 	pause_button = Button.new()
 	pause_button.focus_mode = Control.FOCUS_NONE
 	pause_button.pressed.connect(toggle_pause)
@@ -500,7 +501,7 @@ func current_resolution() -> Vector2i:
 func window_size() -> Vector2i:
 	return get_window().size if window_size_override.x < 0 else window_size_override
 
-## Switches the render resolution. The visible area (camera.size), the player position and the aim stay.
+## Compatibility entry point for callers: only the adopted internal resolution is selectable.
 ## Returns false (and shows a notice) when the window is smaller than the requested resolution.
 func set_resolution(index: int, window_size_: Vector2i = Vector2i(-1, -1)) -> bool:
 	if index < 0 or index >= Config.RESOLUTIONS.size():
@@ -528,7 +529,7 @@ func set_resolution(index: int, window_size_: Vector2i = Vector2i(-1, -1)) -> bo
 	return true
 
 func toggle_resolution(window_size_: Vector2i = Vector2i(-1, -1)) -> bool:
-	return set_resolution((resolution_index + 1) % Config.RESOLUTIONS.size(), window_size_)
+	return set_resolution(Config.DEFAULT_RESOLUTION, window_size_)
 
 func _on_window_size_changed() -> void:
 	enforce_window(window_size())
@@ -560,14 +561,16 @@ func tick(delta: float, screen_dir: Vector2) -> void:
 	walking = moved.length_squared() > 0.000001
 	if walking:
 		animation_time += delta
-		if absf(screen_dir.x) > 0.01:
-			facing_left = screen_dir.x < 0.0
+	else:
+		animation_time = 0.0
 	session.advance(delta)
+	var released_shot: Dictionary = fire_action.advance(delta, session, menu != &"" or is_viewing())
+	if not released_shot.is_empty() and bool(released_shot.ok):
+		audio.play_action(&"water" if String(released_shot.action_kind) == "water" else &"seed")
 	ui.tick(delta)
 	audio.update(delta)
 	_check_spot_hint()
 	env_view.sync()
-	play_view.sync()
 	if wall_view != null:
 		wall_view.sync()
 	if enemy_view != null:
@@ -582,6 +585,10 @@ func tick(delta: float, screen_dir: Vector2) -> void:
 			notice.text = ""
 	_update_camera()
 	_update_actor()
+	if not released_shot.is_empty() and bool(released_shot.ok):
+		var socket: Vector2 = fire_action.release_socket(StringName(released_shot.action_kind), facing)
+		play_view.register_launch(int(released_shot.shot_id), float(Actor.FOOT_ANCHOR.y) - socket.y, socket.x - float(Actor.FOOT_ANCHOR.x))
+	play_view.sync() # Native projectile cards use the current frame's snapped camera.
 	_update_occlusion(delta)
 	water_view.sync_camera()
 	_refresh()
@@ -610,7 +617,19 @@ func _update_camera() -> void:
 	camera.look_at(focus, Vector3.UP)
 
 func _update_actor() -> void:
-	actor.pose(player_ground3() + Vector3.UP * 0.04, (int(animation_time * 6.0) % 4) if walking else 1, facing_left, sun)
+	var foot: Vector3 = player_ground3() + Vector3.UP * 0.04
+	if _cursor_known:
+		var face_screen: Vector2 = camera.unproject_position(foot) - Vector2(0.0, FACE_ABOVE_FOOT_PX)
+		var toward: Vector2 = _cursor_screen - face_screen
+		# Keep the last direction when the pointer is on the face (no jitter at zero).
+		if toward.length_squared() >= 4.0:
+			if absf(toward.x) > absf(toward.y):
+				facing = &"right" if toward.x > 0.0 else &"left"
+			else:
+				facing = &"down" if toward.y > 0.0 else &"up"
+	facing_left = facing == &"left"
+	actor.pose(foot, (int(animation_time * 8.0) % 4) if walking else 0, facing, sun, 0, walking,
+		fire_action.kind if fire_action.active else &"", fire_action.frame_index(), fire_action.active)
 	if readability != null:
 		readability.follow(actor.render_foot, Vector3(camera.global_basis.z.x, 0.0, camera.global_basis.z.z).normalized())
 	if session.has_aim:
@@ -640,7 +659,7 @@ func _refresh() -> void:
 	if session.enemies != null:
 		lines.append(session.combat_status_text())
 	lines.append(session.helper_status_text())
-	lines.append("WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ/展望　Q=設置モード　Esc=メニュー　F2=解像度　F3=倍速　F5=保存　M=音")
+	lines.append("WASD=移動　左=種　右=水　Tab/ホイール=植物切替　E=調べる/持ち上げ/展望　Q=設置モード　Esc=メニュー　F3=倍速　F5=保存　M=音")
 	hud.text = "\n".join(lines)
 	notice.visible = text_visible
 	button_box.visible = text_visible
@@ -648,6 +667,9 @@ func _refresh() -> void:
 	hud.visible = text_visible and not is_viewing() # the panorama shows its own panel instead of the debug-style status lines
 	ui.set_badge(session.greening_percent(), session.state.greened_count, session.state.target_count, zone_summary())
 	pause_button.text = "再開" if session.paused else "停止"
+	# Button text is set after construction / session replacement; measure its final width.
+	button_box.reset_size()
+	button_box.position = Vector2(res.x - button_box.get_combined_minimum_size().x - 4, 2)
 	if is_viewing() and view_panel.label.text != viewpoint.panel_text(session):
 		view_panel.show_text(viewpoint.panel_text(session), res)
 
@@ -674,6 +696,13 @@ func cycle_speed() -> void:
 	session.multiplier = Config.MULTIPLIERS[(index + 1) % Config.MULTIPLIERS.size()]
 	_refresh()
 
+func _input(event: InputEvent) -> void:
+	# Observe content coordinates even when a Control consumes the pointer event.
+	# This never moves the OS cursor and keeps facing independent of ground-pick validity.
+	if event is InputEventMouse and menu == &"" and not is_viewing():
+		_cursor_screen = (event as InputEventMouse).position
+		_cursor_known = true
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"poc_mute", false, true):
 		audio.toggle_mute()
@@ -683,11 +712,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		set_text_visible(not text_visible)
 		return
 	if is_viewing():
-		# The panorama: only Esc / E (back), F2 (resolution) and M (sound) do anything; clicks and the other keys are not game input.
+		# The panorama: only Esc / E (back), T (text) and M (sound) do anything.
 		if event.is_action_pressed(&"poc_pause", false, true) or event.is_action_pressed(&"poc_interact", false, true):
 			leave_viewpoint()
-		elif event.is_action_pressed(&"poc_toggle_resolution", false, true):
-			toggle_resolution()
 		return
 	if menu != &"":
 		if event.is_action_pressed(&"poc_pause", false, true):
@@ -697,8 +724,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		open_pause_menu()
 	elif event.is_action_pressed(&"poc_quick_save", false, true):
 		save_game()
-	elif event.is_action_pressed(&"poc_toggle_resolution", false, true):
-		toggle_resolution()
 	elif event.is_action_pressed(&"poc_cycle_speed", false, true):
 		cycle_speed()
 	elif event.is_action_pressed(&"poc_plant_next", false, true) or event.is_action_pressed(&"poc_plant_wheel_next"):
@@ -776,6 +801,8 @@ func pick_ground(content_pos: Vector2) -> Dictionary:
 	return {"ok": true, "reason": "", "ground": ground, "logic": logic}
 
 func place_aim_at(content_pos: Vector2) -> bool:
+	_cursor_screen = content_pos
+	_cursor_known = true
 	var result: Dictionary = pick_ground(content_pos)
 	if not result["ok"]:
 		return false
@@ -809,16 +836,16 @@ func click_place(content_pos: Vector2) -> Dictionary:
 	_refresh()
 	return placed
 
-## Click at a content (root viewport) pixel: aim there and fire seed (water_shot false) or water. UI / margin / off-map
-## clicks are rejected and fire nothing. Returns the session.fire() result plus the picked point.
+func _cancel_fire() -> void:
+	fire_action.cancel()
+
+## Start the directional firing action; actual cost, logical projectile and sound occur at its release event.
 func click_fire(content_pos: Vector2, water_shot: bool) -> Dictionary:
 	var result: Dictionary = pick_ground(content_pos)
 	if not result["ok"]:
 		return {"ok": false, "reason": String(result["reason"])}
 	session.set_aim(result["logic"])
-	var fired: Dictionary = session.fire(water_shot, result["logic"])
-	if bool(fired["ok"]):
-		audio.play_action(&"water" if water_shot else &"seed")
+	var fired: Dictionary = fire_action.start(session, water_shot, result["logic"])
 	fired["logic"] = result["logic"]
 	_update_actor()
 	return fired
@@ -954,6 +981,7 @@ func _on_ui_chosen(action: StringName) -> void:
 
 ## Starts a new game (the untouched start-up session is reused, otherwise a fresh one is built).
 func new_game() -> void:
+	_cancel_fire()
 	var untouched: bool = session.clock.elapsed == 0.0 and session.projectiles.launched == 0 and session.play.pickups.count() == 0
 	if not untouched:
 		replace_session(make_session())
@@ -990,9 +1018,8 @@ func load_game(use_backup: bool) -> Dictionary:
 		return result
 	var loaded: RefCounted = result["session"]
 	replace_session(loaded)
-	var wanted: int = int((result["extras"] as Dictionary)["resolution_index"])
-	if wanted != resolution_index:
-		set_resolution(wanted)
+	# Both former save indices (640 / 960) restore onto the adopted 640 grid.
+	set_resolution(Config.DEFAULT_RESOLUTION)
 	_menu_prev_paused = false
 	if menu != &"":
 		close_menu()

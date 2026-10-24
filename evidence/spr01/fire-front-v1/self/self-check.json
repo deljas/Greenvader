@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "action": "seed",
+      "frame": 0,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "seed",
+      "frame": 1,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "seed",
+      "frame": 2,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "seed",
+      "frame": 3,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 0,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 1,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 2,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 3,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 4,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    }
+  ],
+  "idle_byte_identical": true,
+  "source_down_sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18",
+  "character_frames": 9,
+  "formation_frames": 9,
+  "projectiles": 2,
+  "durations_ms": {
+    "seed": [
+      33,
+      50,
+      50,
+      67
+    ],
+    "water": [
+      17,
+      33,
+      50,
+      67,
+      83
+    ]
+  },
+  "release_ms": {
+    "seed": 33,
+    "water": 50
+  },
+  "separate_layers": true,
+  "water_growth_then_separation": true,
+  "gif_frames": 60,
+  "gif_step_ms": 20,
+  "gif_cycle_ms": 1200,
+  "gif_decoded_rgb_exact": true,
+  "native_sha256": {
+    "seed-projectile.png": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4",
+    "seed-character-0.png": "bdfeb8fe021a767587a698bf7a7e286a2d8c735fc4bf87ee4fa91cd314832879",
+    "seed-formation-0.png": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815",
+    "seed-character-1.png": "d2539acd0d18cdebb5a95cf1c7e9d3011e93c54deb369b515d08313489a297e5",
+    "seed-formation-1.png": "b69a6e8c71ccd73007ec095c67cd2df57b3e4de1d3bd1dc47267c2d5a81b3a21",
+    "seed-character-2.png": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a",
+    "seed-formation-2.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "seed-character-3.png": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b",
+    "seed-formation-3.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-projectile.png": "786535fbd0f583a9c40e185965571bb3d66e77a5329bef9761f5629492d09937",
+    "water-character-0.png": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6",
+    "water-formation-0.png": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f",
+    "water-character-1.png": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a",
+    "water-formation-1.png": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed",
+    "water-character-2.png": "937d5a6fd43b2453324a55b8b4f73a0786e7256d3e897c2fe76e05cc38d806a7",
+    "water-formation-2.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-character-3.png": "d705a916e52a7b578636f7d93aafb98c71cb67574bc11a498000c4cba7dc2091",
+    "water-formation-3.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-character-4.png": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad",
+    "water-formation-4.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "idle.png": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  }
+}

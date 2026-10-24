@@ -1,0 +1,112 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "default_normal_640",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "fixed_resolution",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "walk_real_movement_8fps",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "engine_F6_toggles_without_game_change",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "button_toggles_back",
+			"ok": true
+		},
+		{
+			"detail": {
+				"actual": "down",
+				"cursor": "(319.6685, 244.8356)",
+				"expected": "down"
+			},
+			"name": "mouse_direction_down",
+			"ok": true
+		},
+		{
+			"detail": {
+				"actual": "left",
+				"cursor": "(264.6685, 189.8356)",
+				"expected": "left"
+			},
+			"name": "mouse_direction_left",
+			"ok": true
+		},
+		{
+			"detail": {
+				"actual": "right",
+				"cursor": "(374.6685, 189.8356)",
+				"expected": "right"
+			},
+			"name": "mouse_direction_right",
+			"ok": true
+		},
+		{
+			"detail": {
+				"actual": "up",
+				"cursor": "(319.6685, 134.8356)",
+				"expected": "up"
+			},
+			"name": "mouse_direction_up",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "facing_independent_of_move",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "idle_adopted_frame_zero",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "all_32_poses_shadow_sync_no_mirror",
+			"ok": true
+		},
+		{
+			"detail": {
+				"center": "(320.0, 184.0)",
+				"ground_anchor": "(320.0, 200.0)",
+				"span": "(23.99994, 36.00002)"
+			},
+			"name": "projection_24x36_integer_ground_anchor",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "paused_stops_walk_and_time",
+			"ok": true
+		},
+		{
+			"detail": "",
+			"name": "legacy_960_save_restores_640",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"name": "resource_zero_still_blocks_shots",
+			"ok": true
+		}
+	],
+	"display": "Windows",
+	"failures": 0,
+	"not_run": [
+		"Physical keyboard/mouse OS path",
+		"User art preference",
+		"Full play-through and all weather/time conditions"
+	],
+	"renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

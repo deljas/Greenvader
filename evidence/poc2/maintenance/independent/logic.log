@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "blocked_fixture", "status": "PASS", "detail": { "ok": true, "reason": "", "id": 26 } }
+{ "name": "unknown_obstacle_not_disclosed", "status": "PASS", "detail": { "accepted": { "ok": true, "reason": "" }, "status": "exploring" } }
+{ "name": "unreachable_persists_across_ticks", "status": "PASS", "detail": { "status": "unreachable", "stationary": true } }
+{ "name": "save_unreachable_restores", "status": "PASS", "detail": { "ok": true, "reason": "loaded" } }
+{ "name": "restored_unreachable_waits", "status": "PASS", "detail": "unreachable" }
+{ "name": "new_valid_order_recovers", "status": "PASS", "detail": { "result": { "ok": true, "reason": "" }, "status": "guarding", "distance": 0.0 } }
+{ "name": "refill_fixture", "status": "PASS", "detail": { "ok": true, "reason": "", "id": 26 } }
+{ "name": "refill_arrives_at_bank", "status": "PASS", "detail": "refilling" }
+{ "name": "partial_refill_flees_without_spending_water", "status": "PASS", "detail": { "status": "fleeing", "water": 35.0, "partial": 35.0 } }
+{ "name": "save_during_refill_retreat_restores", "status": "PASS", "detail": { "ok": true, "reason": "loaded" } }
+{ "name": "retreat_resume_completes_refill", "status": "PASS", "detail": { "status": "returning_water", "water": 100.0, "home": "(778.0, 754.0)" } }
+{ "name": "save_during_refill_return_restores", "status": "PASS", "detail": { "ok": true, "reason": "loaded" } }
+{ "name": "restored_refill_returns_original_home", "status": "PASS", "detail": { "status": "working", "water": 100.0, "distance": 0.0 } }
+{ "name": "helper_death_fixture", "status": "PASS", "detail": { "ok": true, "reason": "", "id": 26 } }
+{ "name": "helper_defeat_same_tick_no_refund", "status": "PASS", "detail": { "victim_hp": 0.0, "removed": true, "seeds_before": 451, "seeds_after": 451, "owner_released": true } }
+{ "name": "helper_death_tick_save_restores", "status": "PASS", "detail": { "ok": true, "reason": "loaded" } }
+{ "name": "helper_restored_defeat_keeps_enemy_and_no_refund", "status": "PASS", "detail": { "seeds": 451, "enemies": 1 } }
+{ "name": "crop_death_fixture", "status": "PASS", "detail": { "ok": true, "reason": "", "id": 26 } }
+{ "name": "crop_defeat_same_tick_no_refund", "status": "PASS", "detail": { "victim_hp": 0.0, "removed": true, "seeds_before": 490, "seeds_after": 490, "owner_released": true } }
+{ "name": "crop_death_tick_save_restores", "status": "PASS", "detail": { "ok": true, "reason": "loaded" } }
+{ "name": "crop_restored_defeat_keeps_enemy_and_no_refund", "status": "PASS", "detail": { "seeds": 490, "enemies": 1 } }

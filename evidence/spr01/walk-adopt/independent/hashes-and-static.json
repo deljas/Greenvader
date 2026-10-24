@@ -1,0 +1,48 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "file_hash_matches": {
+    "scripts/poc/poc_main.gd": true,
+    "scripts/poc/poc_input.gd": true,
+    "scripts/poc/ui/poc_ui.gd": true,
+    "assets/sprites/poc/player/manifest.json": true,
+    "tests/poc/spr01/self_adopt.gd": true,
+    "scripts/poc/poc_actor.gd": true,
+    "scripts/poc/poc_config.gd": true,
+    "scripts/poc/save/poc_save.gd": true,
+    "scripts/poc/environment/water_view.gd": true,
+    "scripts/poc/occlusion/occlusion_view.gd": true,
+    "assets/sprites/poc/player/idle.png": true,
+    "assets/sprites/poc/player/idle.png.import": true,
+    "assets/sprites/poc/player/walk-hop.png": true,
+    "assets/sprites/poc/player/walk-hop.png.import": true,
+    "assets/sprites/poc/player/walk-normal.png": true,
+    "assets/sprites/poc/player/walk-normal.png.import": true,
+    "adopted_normal_prior_hash": true,
+    "normal_source_runtime_bytes": true
+  },
+  "preserved_prior_values_match": {
+    "scripts/poc/poc_actor.gd": true,
+    "scripts/poc/poc_config.gd": true,
+    "scripts/poc/save/poc_save.gd": true,
+    "scripts/poc/environment/water_view.gd": true,
+    "scripts/poc/occlusion/occlusion_view.gd": true,
+    "assets/sprites/poc/player/idle.png": true,
+    "assets/sprites/poc/player/idle.png.import": true,
+    "assets/sprites/poc/player/walk-hop.png": true,
+    "assets/sprites/poc/player/walk-hop.png.import": true,
+    "assets/sprites/poc/player/walk-normal.png.import": true
+  },
+  "no_comparison_refs_in_main_input_ui": true,
+  "producer_evidence_hashes": {
+    "engine.log": "31a19fb4b8abf1887d469f96ef57d6fbc688c3bd8e6c1d5eb2b2984dd63aa40e",
+    "idle.png": "df08f7504345b928f3d8e294fd44e6999439b2feec9961b36a2baa31863baf73",
+    "implementation-note.md": "9ab592f919ce4cdadddb9fcfe85df1a954e0620018af086e880911bb31e24e6c",
+    "preserved-hashes.json": "a9eb3006cc46573f678f856a206dfea9668d4bc4859036c68d4a073db0355b7d",
+    "results.json": "f488ba85e2872533c04580ab2eed401d085f1cf4806a84891a86ddf590b04686",
+    "stderr.log": "b3659084b16f032f3b9d21924a88986b50132190d617712a9d384e1bca8a9b76",
+    "stdout.log": "f5e7d6576f7ce84ad7f9c95c0b3029ae9a2596a7fd52854ef6a45b5748721371",
+    "target-hashes.json": "2c6123b0ccc3a0c7025c048559a48d20838d0d28336304947d59499000905494",
+    "walking.png": "37bb8179ff905cb3f1ca6c297917e8842867b0a479f91b37f2d7bb18a7372815"
+  },
+  "independent_gpu_rerun": false
+}

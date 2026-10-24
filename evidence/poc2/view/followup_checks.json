@@ -1,0 +1,38 @@
+[
+  {
+    "name": "engine_wheel_zoom",
+    "status": "FAIL"
+  },
+  {
+    "name": "save_roundtrip_structure_and_values",
+    "status": "PASS"
+  },
+  {
+    "name": "corrupt_load_quiet_and_preserves",
+    "status": "PASS"
+  },
+  {
+    "name": "income_tooltip_hover_enabled",
+    "status": "PASS"
+  },
+  {
+    "name": "income_hover_blocks_shoot",
+    "status": "PASS"
+  },
+  {
+    "name": "shot_view_exists",
+    "status": "PASS"
+  },
+  {
+    "name": "disposed_shot_view_erased",
+    "status": "PASS"
+  },
+  {
+    "name": "living_unseen_enemy_kept_hidden",
+    "status": "PASS"
+  },
+  {
+    "name": "cutaway_engaged",
+    "status": "PASS"
+  }
+]

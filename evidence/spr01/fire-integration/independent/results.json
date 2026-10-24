@@ -1,0 +1,137 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "seed65_no_release_busy_does_not_restart",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "seed66_input_selection_aim_and_release_origin",
+			"status": "FAIL"
+		},
+		{
+			"detail": null,
+			"name": "logical_release_cost_once",
+			"status": "FAIL"
+		},
+		{
+			"detail": null,
+			"name": "recovery_interrupt_water399_pause_hold",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water400_and_800_boundaries",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water800_end_no_second_release",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "resource0_preflight_rejects_both",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "resource_recheck_at_release",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "full_preflight_and_release_recheck",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "session_fire_immediate_compatibility",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "engine_input_starts_front_v3_immediately",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water399_gpu_hold",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "menu_freezes_pending",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water400_gpu_release_socket_and_one_sound",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "water_release_not_repeated",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "seed_busy_aim_selection_snapshot_and_movement",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "seed66_gpu_native_front_and_actual_aim",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "seed400_restores_directional_walking",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "stop_restores_directional_idle",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "four_actual_aims_share_front_art_only",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "invalid_point_does_not_start",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "viewpoint_freezes_pending",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "load_cancels_unsaved_pending_no_ghost",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "new_game_cancels_pending",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "death_cancels_pending_no_ghost",
+			"status": "PASS"
+		}
+	],
+	"display": "Windows",
+	"failures": 2,
+	"not_run": [
+		"Physical input",
+		"Continuous playback feel and art approval",
+		"Full game/weather/performance/export regression"
+	],
+	"renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

@@ -1,0 +1,164 @@
+extends Control
+const Map: GDScript = preload("res://scripts/poc2/ui/map_ui.gd")
+signal chosen(action: String)
+signal placement(kind: String)
+var session: RefCounted
+var map: Control
+var status: Label
+var notice: Label
+var palette: HBoxContainer
+var menu: PanelContainer
+var help: PanelContainer
+var supply: PanelContainer
+var selected_kind: String = ""
+var notice_time: float = 0.0
+var palette_buttons: Dictionary = {}
+const KEYS: Array[String] = ["clover","carrot","wheat","rafflesia","watermelon","army","gatlinger","sprinkler"]
+const SYMBOLS: Array[String] = ["♣","●","♜","✿","◆","⚑","➤","≋"]
+
+func _ready() -> void:
+	size=Vector2(640,360)
+	mouse_filter=Control.MOUSE_FILTER_IGNORE
+	var theme_: Theme=Theme.new()
+	theme_.default_font_size=12
+	theme=theme_
+	status=Label.new()
+	status.position=Vector2(122,4)
+	status.mouse_filter=Control.MOUSE_FILTER_PASS
+	status.add_theme_color_override("font_shadow_color",Color.BLACK)
+	status.add_theme_constant_override("shadow_offset_x",1)
+	status.add_theme_constant_override("shadow_offset_y",1)
+	add_child(status)
+	notice=Label.new()
+	notice.position=Vector2(8,308)
+	notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	add_child(notice)
+	palette=HBoxContainer.new()
+	palette.position=Vector2(6,330)
+	palette.add_theme_constant_override("separation",3)
+	add_child(palette)
+	for index: int in KEYS.size():
+		var kind: String=KEYS[index]
+		var button: Button=Button.new()
+		button.text=SYMBOLS[index]
+		button.custom_minimum_size=Vector2(30,24)
+		button.focus_mode=Control.FOCUS_NONE
+		palette.add_child(button)
+		palette_buttons[kind]=button
+		button.pressed.connect(func() -> void: select_kind(kind))
+	var map_button: Button=Button.new()
+	map_button.text="M"
+	map_button.tooltip_text="全体マップ（時間停止）"
+	map_button.position=Vector2(6,116)
+	map_button.size=Vector2(28,24)
+	map_button.pressed.connect(func() -> void: map.set_expanded(not map.expanded))
+	add_child(map_button)
+	var help_button: Button=Button.new()
+	help_button.text="?"
+	help_button.position=Vector2(604,330)
+	help_button.size=Vector2(30,24)
+	help_button.pressed.connect(func() -> void: chosen.emit("help"))
+	add_child(help_button)
+	map=Map.new()
+	add_child(map)
+	map.notified.connect(show_notice)
+	menu=PanelContainer.new()
+	menu.position=Vector2(220,90)
+	menu.size=Vector2(200,180)
+	add_child(menu)
+	menu.hide()
+	help=PanelContainer.new()
+	help.position=Vector2(75,45)
+	help.size=Vector2(490,270)
+	add_child(help)
+	var help_box: VBoxContainer=VBoxContainer.new()
+	help.add_child(help_box)
+	var label: Label=Label.new()
+	label.text="WASD / 矢印：画面方向へ移動\n左クリック：種射撃・播種　右クリック：給水\nQ：たいあたり　R：種バズーカ\n下のアイコンを選択 → 地面クリック：植物設置\nM：時間停止マップ　ホイール：マップ拡大/縮小\n植物選択 → 目的地クリック\n右クリック / Esc：選択解除　×：撤去　＋：種補給\nF5：保存　Esc：メニュー　F1：説明　N：音切替\n種は緑地と成熟した栽培植物から自動収入。\n化石を探して植物を解放し、巣を攻略しましょう。"
+	label.add_theme_font_size_override("font_size",12)
+	help_box.add_child(label)
+	var back: Button=Button.new()
+	back.text="閉じる"
+	back.pressed.connect(func() -> void: chosen.emit("close_help"))
+	help_box.add_child(back)
+	help.hide()
+	supply=PanelContainer.new()
+	add_child(supply)
+	supply.hide()
+
+func bind(source: RefCounted) -> void:
+	session=source
+	map.bind(source)
+	refresh()
+
+func select_kind(kind: String) -> void:
+	selected_kind="" if selected_kind==kind else kind
+	placement.emit(selected_kind)
+	refresh()
+
+func refresh() -> void:
+	if session==null: return
+	var stats: Dictionary=session.snapshot()
+	status.text="種 %d　HP %d　水 %d　緑 %.1f%%" % [session.seeds,ceili(session.hp),ceili(session.water),float(stats.get("green_percent",0))]
+	status.tooltip_text="収入 / 分：緑地 %.1f ＋ 栽培 %.1f" % [float(stats.get("land_rate",0)),float(stats.get("crop_rate",0))]
+	for kind: String in KEYS:
+		var button: Button=palette_buttons[kind]
+		var definition: Dictionary=session.CATALOG[kind]
+		var unlocked: bool=bool(session.unlocked.get(kind,false))
+		button.disabled=not unlocked
+		button.modulate=Color("f4db90") if selected_kind==kind else Color.WHITE
+		button.tooltip_text="%s　種 %d%s" % [Map.NAMES[kind],int(definition.cost),"" if unlocked else "（化石で解放）"]
+	palette.visible=not map.expanded and not menu.visible and not help.visible
+	status.visible=not menu.visible and not help.visible
+
+func _process(delta: float) -> void:
+	notice_time=maxf(notice_time-delta,0)
+	notice.visible=notice_time>0
+	refresh()
+
+func show_notice(text: String) -> void:
+	var message: String=explain(text)
+	if message.is_empty(): return
+	notice.text=message
+	notice_time=4.0
+
+func show_menu(title: bool = false) -> void:
+	for child: Node in menu.get_children(): child.free()
+	var box: VBoxContainer=VBoxContainer.new()
+	menu.add_child(box)
+	var label: Label=Label.new()
+	label.text="グリーンベーダー PoC 2" if title else "一時停止"
+	box.add_child(label)
+	var actions: Array[String]=["new","load","help"] if title else ["resume","save","load","new","help"]
+	for action: String in actions:
+		var button: Button=Button.new()
+		button.text={"new":"新しく始める","load":"続きから","help":"操作説明","resume":"再開","save":"保存"}[action]
+		box.add_child(button)
+		button.pressed.connect(func() -> void: chosen.emit(action))
+	menu.show()
+	refresh()
+
+func blocks(pixel: Vector2) -> bool:
+	if menu.visible or help.visible or supply.visible: return true
+	if status.visible and status.get_global_rect().has_point(pixel): return true
+	if map.expanded or map.map_rect.has_point(pixel): return true
+	if palette.visible and palette.get_global_rect().has_point(pixel): return true
+	return (pixel.x>598 and pixel.y>326) or (pixel.x<38 and pixel.y>=116 and pixel.y<=144)
+
+
+
+static func explain(text: String) -> String:
+	var translations: Dictionary = {
+		"not_enough_seeds":"種が足りません", "locked":"化石で解放できます", "unexplored":"まだ探索していない場所です",
+		"outside_map":"マップの外です", "blocked_ground":"ここには置けません", "occupied":"ほかの植物と重なります",
+		"requires_green":"必要な範囲を緑化してください", "out_of_range":"届きません", "no_water":"水がありません",
+		"blocked":"建物に遮られています", "aim_required":"狙う場所を指定してください", "not_found":"対象が見つかりません",
+		"invalid_amount":"補給量を確認してください", "loaded":"再開しました", "paused_or_downed":"今は行動できません"}
+	if text in ["cooldown", "cooldown_or_paused"]: return ""
+	if text.begins_with("化石を発見: "):
+		var kind: String = text.trim_prefix("化石を発見: ")
+		return "化石を発見：" + String(Map.NAMES.get(kind,kind))
+	return String(translations.get(text,text))
+
+
+

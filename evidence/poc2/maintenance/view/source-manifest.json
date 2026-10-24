@@ -1,0 +1,23 @@
+{
+  "baseline_commit": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "task": "POC2-06 view maintenance",
+  "state": "shared uncommitted tree; source editing stopped",
+  "files": [
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "sha256": "47d713cb1440b3113869eb8ed96d7a2cca324734e17951dc03feeddff33b0011"
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "sha256": "a2a97dddf0278b38c531330e6ca4284988c905ce0ca65fa6104b0876b8a59079"
+    },
+    {
+      "path": "tests/poc2/maintenance/view/menu_boundaries.gd",
+      "sha256": "fb92001abf97d917983f0736a8feb714ec0fd6bcd42d3333f4f35bc628052bff"
+    },
+    {
+      "path": "tests/poc2/maintenance/view/menu_arrays.gd",
+      "sha256": "d681b74dad03ac5b63eeaf65a03392f2b6daaa40d0fa6d2ac53b58b4cfcbf03d"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+	"initial_fixture_rejection": "セーブデータの値が範囲外または不整合です（clock の tick と時間の不整合）。",
+	"load_ok": true,
+	"load_reason": "",
+	"name": "legacy_index1_save_load_640_valid_fixture",
+	"resolution": "(640, 360)",
+	"save_ok": true,
+	"state_equal": true,
+	"status": "PASS"
+}

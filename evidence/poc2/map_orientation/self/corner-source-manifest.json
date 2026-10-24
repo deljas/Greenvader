@@ -1,0 +1,6 @@
+{
+  "target": "POC2-07 corner fix",
+  "source": "scripts/poc2/ui/map_ui.gd",
+  "sha256": "c55c323463f872f36c1956278872cbb0d1a163e55617668681319c73ff5074a6",
+  "supersedes": "source-manifest.json; original evidence preserved"
+}

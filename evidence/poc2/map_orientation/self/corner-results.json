@@ -1,0 +1,24 @@
+{
+ "change": "Resolve drawn icon hit before rejecting exterior movement",
+ "checks": [
+  {
+   "detail": {
+    "inverse": "(896.0, 896.0)",
+    "logic": "(894.0, 894.0)",
+    "pixel": "(320.0, 232.0)"
+   },
+   "name": "last_cell_drawn_icon_selectable",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "home": "(894.0, 894.0)",
+    "outside_inverse": "(-776.0, 40.0)"
+   },
+   "name": "world_exterior_still_cannot_receive_order",
+   "status": "PASS"
+  }
+ ],
+ "failures": 0,
+ "input": "Input.parse_input_event; root.unfocusable=true"
+}

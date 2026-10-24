@@ -135,7 +135,8 @@ func _begin_fade(id: String) -> void:
 					node.set_surface_override_material(surface, _depth_writer(color_material))
 					record["swaps"].append({"node": node, "surface": surface, "material": color_material})
 		node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		record["copies"].append(_copy_of(node, SHADOW_LAYER, GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY, "OccShadow"))
+		# Still SHADOWS_ONLY: layer 1 lets the player's receiver light see the same 3D shadow.
+		record["copies"].append(_copy_of(node, SHADOW_LAYER | 1, GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY, "OccShadow"))
 		record["copies"].append(_copy_of(node, REFLECT_LAYER, GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, "OccReflect"))
 	fading[id] = record
 
@@ -209,10 +210,9 @@ func _set_vegetation(id: String, alpha: float) -> void:
 	else:
 		vegetation_fading.erase(id)
 
-## The reflection camera (base cull mask 1, owned by water_view) is widened to see the opaque reflection copies only for
-## the duration of a draw (pre_draw -> post_draw) and only while something is faded; between frames it always reads 1.
+## Reflection includes scene objects and the player (64); add opaque building copies during draws.
 func reflection_mask_during_draw() -> int:
-	return 1 | (REFLECT_LAYER if not fading.is_empty() else 0)
+	return 1 | 64 | (REFLECT_LAYER if not fading.is_empty() else 0)
 
 func _on_pre_draw() -> void:
 	if water_view != null and is_instance_valid(water_view) and water_view.reflection_camera != null:
@@ -220,7 +220,7 @@ func _on_pre_draw() -> void:
 
 func _on_post_draw() -> void:
 	if water_view != null and is_instance_valid(water_view) and water_view.reflection_camera != null:
-		water_view.reflection_camera.cull_mask = 1
+		water_view.reflection_camera.cull_mask = 1 | 64
 
 ## Instance ids with a non-opaque display right now.
 func faded_instances() -> PackedStringArray:

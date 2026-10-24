@@ -1,0 +1,550 @@
+[
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png",
+    "sha256": "754a97bd44912a87bf2197ce74dfdca8cdf4b01a835f88c7b1ba99b1d8e029fe"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\idle.png.import",
+    "sha256": "3a20397ee82d09ae1071ded7c00fce1bfdf98bb372d7b27c29d3205b34aac3e7"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\manifest.json",
+    "sha256": "aa11db9ee2d3084151c447ae9830a10d5b572e6c2716b79cc4dd4f4166142175"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png",
+    "sha256": "77357397cf258da39457ad66ec451522c75f3553f66f156852dd4669c3bb635c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-hop.png.import",
+    "sha256": "3c36f0d3fc5e4054126b77c1afdc882c1fadcdc9a192cb402b14db1b663f5ed1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png",
+    "sha256": "9505f78fa58e6e2afa957f25d51e79134bb60c4bdbb0fb486ec005481da38bfc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\sprites\\poc\\player\\walk-normal.png.import",
+    "sha256": "d51352c3f9289a8c941ddd0e63744d8e29e7fa7328e9d6efa73fbdaba286a504"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\down.png",
+    "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\export.py",
+    "sha256": "0e1b3e91026f0ae11fa978096d1b874f2b275da585c69e7c444c03e04bffbc7c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-down.txt",
+    "sha256": "77b1bd90e06792705a3220e32bf52214c6ce8f8a791c93e748d0b3c8cf109f7d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-left.txt",
+    "sha256": "53c6ec2a1377c60fcffffdd6881e3fa65a8adf2f2a4b3eaf2a83a072e139b9af"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-right.txt",
+    "sha256": "d625bc85546baafa949842b63af4b6e8037fab307d72ba25ca3ec80c9ae666a0"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\grid-up.txt",
+    "sha256": "6e26124b7e097dbac87326fa99306c8d138cbe2cef24ae47571976cbf0754b48"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\left.png",
+    "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\manifest.json",
+    "sha256": "1d2faab9ae07a005012dff64dbe435d7844667620cabdca214e59ca12079f854"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\palette.json",
+    "sha256": "4db114ef49f7bffe260bb463708e6dea67ace10bf2de92f98da40c5becce4e70"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\preview.png",
+    "sha256": "7be3121ef0b43beadbafe12a1b6b448d53d6c75e2a397862518a85a891e35687"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\production-note.md",
+    "sha256": "cd2f403f7cc98758e681106dda32c7fd3de3ace58c1d60889df5b6b08ff43c7a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\right.png",
+    "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\self-check.json",
+    "sha256": "9c0d193b86e2268dce78abde56c4f477e98870845c7c8039a2b0fbfbe5f36fa9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\sheet.png",
+    "sha256": "754a97bd44912a87bf2197ce74dfdca8cdf4b01a835f88c7b1ba99b1d8e029fe"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\four-directions-v2\\up.png",
+    "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\author_grids.py",
+    "sha256": "77271c1668e2bbc2ec1d3355cd002f1c4ee1e9e6f56b8f279ac3ee00d1d71f0d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\contact-sheet.png",
+    "sha256": "1fca0afbe5314c7fa4740b1b817849828d697331a21141ad228d1b6bb53f7a46"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-0.png",
+    "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-1.png",
+    "sha256": "c375409993796e9efe56d3d2cfc0f19c41497668913af632097a11a10a3fc113"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-2.png",
+    "sha256": "6ca45e983fa905e6710b11a6d116ede8d81f8df0ccd89ebde9a3e1833ae4d793"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\down-3.png",
+    "sha256": "37cca5dc331a78a738deac853bd4538615743d82a4b1c16026755713e2cfe563"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\export.py",
+    "sha256": "d4388879238562a14b2f0e06d064d279d7f11971b1e74eb0e8b4582c0a597591"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-0.txt",
+    "sha256": "77b1bd90e06792705a3220e32bf52214c6ce8f8a791c93e748d0b3c8cf109f7d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-1.txt",
+    "sha256": "3a91e3af986aa1bf085c5e81d8c663417316d088f17f3b4730c09402bb2dbdbc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-2.txt",
+    "sha256": "a98772004d18a26a6ae786ab7a32e56cff6a1d72b0a0d86324cb2d795e111881"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-down-3.txt",
+    "sha256": "1ac35fe392d1f171d756ad9edeb9da68ccf5ec9723b4a185bd14a10ae48940e6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-0.txt",
+    "sha256": "53c6ec2a1377c60fcffffdd6881e3fa65a8adf2f2a4b3eaf2a83a072e139b9af"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-1.txt",
+    "sha256": "71f6c5c1a6ff8cfea153ef27ebb85f7138e4f05361f798b7459af4e262f79b0d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-2.txt",
+    "sha256": "ae9cc8df558d0c57e26f6a9fd55f761310569fbac675e085c4219844b60a8a97"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-left-3.txt",
+    "sha256": "70dc842ae45c4d49f68a411457dc6c58d9f67a71cca6cfdefb873cd0255d1406"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-0.txt",
+    "sha256": "d625bc85546baafa949842b63af4b6e8037fab307d72ba25ca3ec80c9ae666a0"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-1.txt",
+    "sha256": "3eff426b0c464df8e3cb1bafea1c166d8a5b889290fdc98c01f83484a7fe00e6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-2.txt",
+    "sha256": "546e7d5f1521245c36d11b312de5520fed687000a3004cba218e0a454cc178d0"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-right-3.txt",
+    "sha256": "8632f2295f09bc889a3579fdce0be6cb95a368f94877e2e4f6d1832ae8dfd082"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-0.txt",
+    "sha256": "6e26124b7e097dbac87326fa99306c8d138cbe2cef24ae47571976cbf0754b48"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-1.txt",
+    "sha256": "9ac95c88b497a07cb215efb3732fbf0a08b5694c734c7b205ef60a5faee00c39"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-2.txt",
+    "sha256": "978cc68020392980b2673211275af4039102c887e745dd89c3a606b6134ad715"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\grid-up-3.txt",
+    "sha256": "02bee36f5dc739073f1ab2a1e5f70367c781eed0e9955c2f52da98c6b91b9a9e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-0.png",
+    "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-1.png",
+    "sha256": "15c032f1a83ce0d41994c373675e82e974b5d987b884ec6ba902d7d57d56f32b"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-2.png",
+    "sha256": "217f9027b0c1f8afab50df708fba7f53af8820078012a1c429c54db115ed2b94"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\left-3.png",
+    "sha256": "f1a70b0cf0d502180fb4b77b6a58de593251ce06675e05a19b7a4eb57c304382"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\manifest.json",
+    "sha256": "aebe4fd1cd48f98f3419464b448b357b79c04c325adec28255d2acd864e46eb6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\palette.json",
+    "sha256": "4db114ef49f7bffe260bb463708e6dea67ace10bf2de92f98da40c5becce4e70"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\preview.gif",
+    "sha256": "99c50c7ad11623260797a4add446c9ef797885200252c9577eeb28c16392599d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\production-note.md",
+    "sha256": "f0a9b7b29c78b3916e83891da98b3814b0e15ab9357c7ab3dadccc2c83d21d74"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-0.png",
+    "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-1.png",
+    "sha256": "0b4981ca16bff8ce5cb6d14478700dbeb61843266c1213f0e75c7930dfed6462"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-2.png",
+    "sha256": "5b9bdc03c50d0575a4700de8f4839235bcf344f3add0d5387baa27ae1c3732bf"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\right-3.png",
+    "sha256": "a0bd90018adfbc103ce86f7d837e7440019e03f7448fdcc50d235ede477390af"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\self-check.json",
+    "sha256": "b6a28a667f65acb44788a74cb5037361bc19747303ab3bb41df1725a197fa0fb"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\sheet.png",
+    "sha256": "9505f78fa58e6e2afa957f25d51e79134bb60c4bdbb0fb486ec005481da38bfc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-0.png",
+    "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-1.png",
+    "sha256": "cbd0c8ba9c9c4b65e86317cfeae8932fc17df8c8e8214f483851452c5c6c32aa"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-2.png",
+    "sha256": "a6df662c5edb8ba26bde56448f2c4689ad3adff22f5c3abec7a17d170fd0d94d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\up-3.png",
+    "sha256": "dbf3acd5ffcace82e1d6a5802fc7685439cba92196a10563a88012e65ba16854"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\walk-normal-v2\\verify_runtime.py",
+    "sha256": "5f349a5667aed79cb3511bb85f1e77eb8a60831ab083baf5b2c47510780f5b06"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_actor.gd",
+    "sha256": "6142cd8b0b7cfe362883391b4aba07a52d9608c3a3820c3e502525983fdaaaea"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_actor.gd.uid",
+    "sha256": "b7a125a846c65c352c3cd725e4c100ec029eb1074fc0801e7b1d69c7d3bf39ec"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_config.gd",
+    "sha256": "4af8a06305c021f3b0b2c9897f8729ee2216e026ac393139b8dcb3e13d9535f5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_config.gd.uid",
+    "sha256": "8366c136d5dbb4777f2027d92f94de9c6eb63872848b7ee0dc3df9922fc48480"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_coords.gd",
+    "sha256": "bc0e62ac009200221495a04fdca4e615cf12be89aff2fb331b1a445e24540921"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_coords.gd.uid",
+    "sha256": "918ca710999c2ef7e1f63d5c88fb994e66856e55350c709dc2ea99e03fbefe69"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_input.gd",
+    "sha256": "e8eb1f99ab053623a621a4a249e175cae0c23e3703944549b17e0428130664b5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_input.gd.uid",
+    "sha256": "1767c3c22db26542a9f24198363d1511838dd7bf50cd68c88728035146147349"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_main.gd",
+    "sha256": "7d9c1d35a06a2bd6f00a265ab9f1b8a4d9afab8054a96c380321b2995aab2c76"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_main.gd.uid",
+    "sha256": "e91cdc37b6dd9ca80e52924a1726a448bfc2434af7057366907f5fc75630ada0"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_session.gd",
+    "sha256": "17eff3b383b0bd330adee1cea5dd86ed27a1ebfdbd34ce0a647369ee60274603"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\poc_session.gd.uid",
+    "sha256": "0c6174001284483b8adc1cbeb68377e0f41797961b13e8df5f9ec2a15392a763"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\assets\\placement_view.gd",
+    "sha256": "899bc8d960fbe2f9597ebb4e192a0fe2fffca7259614410b66b99a633fedc36c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\assets\\placement_view.gd.uid",
+    "sha256": "3236f3162120d407c073e327580f82dee7531ec769339f5a0836733ddf2ec240"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\assets\\placement.gd",
+    "sha256": "a87521b49dbf1038a1b0e05372c0b5b238e7e23eb281cac90cd082a5ed479b71"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\assets\\placement.gd.uid",
+    "sha256": "b0631f34ecf85fe0d0bec6a615de4501534e1ffd1f4ba0e8c79170f079373080"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\audio\\poc_audio.gd",
+    "sha256": "5f4075ff4894c9c107d9c4981426d7ec8a8e12aeca1f64c6d5e28a50e9514069"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\audio\\poc_audio.gd.uid",
+    "sha256": "e4754bf345e29f00cdb56f87f6f1ab17b2491f342998385c346ee22c056d0966"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\combat\\poc_enemy_view.gd",
+    "sha256": "77fdb8e8b00ac46fa906ae8264e18bfcbe5630e1633955bdcaf4b252d405dae5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\combat\\poc_enemy_view.gd.uid",
+    "sha256": "d5a70dd5fec0b5803a952492f4e0e3d8cec4b4f18d56ed187d0b4ca200203942"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\cloud_shadow.gdshader",
+    "sha256": "84b5fc3689789674614dd2d0d2b04c9b2928d183da879b64c0ef73331623032e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\cloud_shadow.gdshader.uid",
+    "sha256": "1cdd64795b46ea14d82bee26b32904b14245065a59116bd714fe642ba7721608"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\environment_view.gd",
+    "sha256": "7e2f9628bd0c6567ab7f04b5e08cba2ba8e82a4eb5716c1fe3d4a05256fc76d5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\environment_view.gd.uid",
+    "sha256": "16b8bc5523c12abe041fa71321f60815d894fd9c848df76d0c551ce2e4d056c6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\ground_cover.gd",
+    "sha256": "e855c40f8f3cbe081a38a3352739f4a216d3c44903a4d446135268e9407ada38"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\ground_cover.gd.uid",
+    "sha256": "06e1ba15f343b0f95cbb91b62c7a4f848301e1928aaa7ace897f96001c56ea2c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_day.gd",
+    "sha256": "4562be99516f442d6aed27182c9dff904dec60440c5547d87ab5c8b98e6946e6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_day.gd.uid",
+    "sha256": "f0f29bd3abb364b7c3445ffaccae907bfb61b82d19095e0d6c214562b4b99d7f"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_weather.gd",
+    "sha256": "f9c73454127f8bd23356ce2ebc8d6a434da21a648d3bf79508a463a28a3d8a1f"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\poc_weather.gd.uid",
+    "sha256": "60798a96a924ec96f100cfb4811f7d4e82ff45e42ac118c9ae7d781ad3a2cf8e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\rain_screen.gdshader",
+    "sha256": "5dc2f113c0f6af8a0b5b47d5da95cc0d6fd31eae13e28829ba64024f994b9d34"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\rain_screen.gdshader.uid",
+    "sha256": "6dc6e29c5f6a06d398430cd89f2295548b775a4276cbca54669919863fce6363"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\readability_view.gd",
+    "sha256": "16b66d8c9078eb6576395edffb829cd1b291c2decfbbc24f2dd9c55d9c894cff"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\readability_view.gd.uid",
+    "sha256": "6fc72a1f8d02cb33eb91cb0b1b845da8573e00c03706f2c2f20abd9c1c33014d"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_growth.gd",
+    "sha256": "09e8bd92bf33272fc71f8bb9d27539e46ac1766b7685c6568df512214e6b2564"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_growth.gd.uid",
+    "sha256": "913d3e313c47cc4e938644ecb529167ae6e66192665530c40d323035f118bcaf"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_layout.gd",
+    "sha256": "10bc4ecc0ff85ab0653418c5984062c7e5ce2e1c53e23b25b91caeb1c0ef43a1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_layout.gd.uid",
+    "sha256": "dff34b2f3a6a515214bcbddc84e2979432a12dc3b4023353b8f59af732dcd464"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_moss.gdshader",
+    "sha256": "b106dd3471a5b7790f82841028bf869b55ad30668787c232173f03f424f9db6a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_moss.gdshader.uid",
+    "sha256": "538e16fc85eac093f08af9a1f6c7e4519ecd6dcbe3cc66c36a79ce00a335e5b1"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_parts.gd",
+    "sha256": "080e68a3ae1033027598532862c96982027d0db9c894d1608991022e94b3c6d2"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_parts.gd.uid",
+    "sha256": "56b0b3e4dfb19b736990f564964e248c30d6096ac8132453ea032b75cdbc99ac"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_view.gd",
+    "sha256": "e262d1bda3a42bafc3defa9434899bb7eff8e66347044bddae539e0e9bf20c0f"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\wall_view.gd.uid",
+    "sha256": "e6481c92a5840a1b0f8ffddd11fdded6fd984975fbe760a868d07a080c7d85d8"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\water_surface.gdshader",
+    "sha256": "17ccc059c3c531e3bf0a02963e61a17695d6e044caaa2076a275cce3f079f1a6"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\water_surface.gdshader.uid",
+    "sha256": "b1b4d84542f479acbcde84d32c78ff3ababc80923d5e2af007c5c4e64e96ce6e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\water_view.gd",
+    "sha256": "de933c5777dfb0aef6d86d5b66a852a368b0ad9648195c6bd1d8bea0e9e32c12"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\water_view.gd.uid",
+    "sha256": "70d9b19fb1b4710958bfa4267edb674aa415bb8019b6f93a589e691ccdb3e114"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\weather_view.gd",
+    "sha256": "9ae63c91e6da4f9a2c539a1173f4a5e429d3a1699dbe10569ac69ce887e8dc44"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\environment\\weather_view.gd.uid",
+    "sha256": "ba8232e12deba6799cc7f23782bf81aaf1f92dd3a64eca34fbd87386022fb704"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helper_view.gd",
+    "sha256": "0c14d152c6e0992f585b2e992fc1a0d0d1d90cdac67c4408eea21c7f3a6cc810"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helper_view.gd.uid",
+    "sha256": "6e374605d460ef3c010a1f0c755e684200ab4b7b5edd74ed6e3228f75a9c5502"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helpers.gd",
+    "sha256": "44d01d0b3fb69f0c43c771bbe71c14efd8585ffebe0a677670d9442ba43f5d04"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\helpers\\poc_helpers.gd.uid",
+    "sha256": "26057f426a4b383fb2b276a0146ee9809b6924d7537b5b912e0b5948f71e9789"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion_view.gd",
+    "sha256": "4f6a0e4be71305b231d2b49a7622b317a1def5e4a1aec7b201ad315ce682c9a9"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion_view.gd.uid",
+    "sha256": "63c9a48400902e377763efb64a98faebc76fdc873cabfc710e4fc4d12b993ecc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion.gd",
+    "sha256": "c61dc85d3ebb62320d3f47cd4aab8c653632500a3ad4f3b111370b9b60322341"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\occlusion\\occlusion.gd.uid",
+    "sha256": "fc88c2e4f6277469059b5d537c906d6b38a70daeaf34695570cbd5a94821d3cc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\play\\poc_play_view.gd",
+    "sha256": "99079673d8e554e9e9976876cd69988e8255a67509cf39cab234d01304af014e"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\play\\poc_play_view.gd.uid",
+    "sha256": "85a6d19ac3616736a60d8b040c062ecaefc19ae5890fc828fdd731647be7ec30"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\play\\poc_projectiles.gd",
+    "sha256": "9cfcc7e2df778ebb02b26553d14b008ac2dd7d4d6424bb26ad3e408973e8dc18"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\play\\poc_projectiles.gd.uid",
+    "sha256": "99f6e182aa5ed8ad7f5005be8bcc4858411bc12c9bd286f6cc2ed04710f7d2ff"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\save\\poc_save.gd",
+    "sha256": "8dce0b62ff4cbf1fc94b21827d932d17f9c63accc38b0836fc37f8b0ebce2069"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\save\\poc_save.gd.uid",
+    "sha256": "15a1f1335fa968c352dcba9f3c9593ad2b09a523357d6ed68803955cd3046668"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\ui\\poc_ui.gd",
+    "sha256": "af07c0004c52ea20ff36f59f09fd720cd86feee43f635ceac72a548bbc1175e4"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\ui\\poc_ui.gd.uid",
+    "sha256": "e3201365c61a6454c09686516ee3765ba19e42e5f1786d3deda21a87f7cfb3ac"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\view\\poc_viewpoint.gd",
+    "sha256": "97d0ddcf27d18c11f6ceabeb6a5947eff054b75e1ccce66de8b7399c124b732a"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\view\\poc_viewpoint.gd.uid",
+    "sha256": "86be0a0c1e9ff633a96eae183841c9f45c76984afa8fcf8c4c4f903bfee2460f"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_panel.gd",
+    "sha256": "9b01ac24112e558d121ac9cb1061a9cd48d1b39848b2d3e5b1e9ca754c84d41c"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_panel.gd.uid",
+    "sha256": "bca5992c2099235b67bc12cb314617e2b01153800a33a05d3dd3e38898eaf0b5"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_view.gd",
+    "sha256": "2fe4c0040cdc7109d264c414927a1b364b65d05152ef6cda4704ae1ecbd0d313"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\scripts\\poc\\view\\viewpoint_view.gd.uid",
+    "sha256": "9e98fafecd06253b9d61e521f9ad0099f4c090e41ee81d3dea603be4d93ddfcc"
+  },
+  {
+    "path": "C:\\godot\\greenvader\\assets\\concepts\\spr01\\front-pixel-v1\\front-16x24.png",
+    "sha256": "f188d843f64c3d2c54f1442deff625ddee920d6af14b59c64a8ec422976efffc"
+  }
+]

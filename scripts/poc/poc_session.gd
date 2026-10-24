@@ -644,7 +644,7 @@ func cycle_plant(step: int) -> void:
 
 ## Fires the selected seed/plant (water_shot = false) or water (true) toward `aim_logic` (default: current aim).
 ## Costs are spent only when the shot is really launched. Returns {ok, reason}.
-func fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF) -> Dictionary:
+func can_fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF, plant_key: StringName = &"") -> Dictionary:
 	if paused:
 		return {"ok": false, "reason": "paused"}
 	if play.health.downed:
@@ -656,7 +656,9 @@ func fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF) -> Dictionary:
 		target = aim
 	if projectiles.is_full():
 		return {"ok": false, "reason": "full"}
-	var plant: PlantDef = null if water_shot else play.selected_def()
+	var plant: PlantDef = null if water_shot else (play.selected_def() if plant_key == &"" else play.def_by_key(plant_key))
+	if not water_shot and plant == null:
+		return {"ok": false, "reason": "invalid_plant"}
 	var cultivated: bool = plant != null and plant.is_cultivated()
 	if water_shot:
 		if not play.can_fire_water():
@@ -669,6 +671,16 @@ func fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF) -> Dictionary:
 	elif not play.can_fire_seed():
 		say("種がない（木の実を拾う）")
 		return {"ok": false, "reason": "no_seed"}
+	return {"ok": true, "reason": "", "target": target, "plant": plant}
+
+## Immediate API retained for existing callers; optional key keeps a delayed action's selection stable.
+func fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF, plant_key: StringName = &"") -> Dictionary:
+	var allowed: Dictionary = can_fire(water_shot, aim_logic, plant_key)
+	if not bool(allowed.ok):
+		return allowed
+	var target: Vector2 = allowed.target
+	var plant: PlantDef = allowed.plant
+	var cultivated: bool = plant != null and plant.is_cultivated()
 	var kind: String = Projectiles.KIND_WATER if water_shot else (String(plant.key) if cultivated else Projectiles.KIND_SEED)
 	var landing: Vector2 = projectiles.launch(kind, position, target, Vector2.DOWN)
 	if landing == Vector2.INF:
@@ -679,7 +691,7 @@ func fire(water_shot: bool, aim_logic: Vector2 = Vector2.INF) -> Dictionary:
 		play.reserve_plant(plant)
 	else:
 		play.spend_seed()
-	return {"ok": true, "reason": "", "landing": landing}
+	return {"ok": true, "reason": "", "landing": landing, "shot_id": projectiles.next_id - 1}
 
 func _release(kind: String) -> void:
 	if kind != Projectiles.KIND_WATER and kind != Projectiles.KIND_SEED:

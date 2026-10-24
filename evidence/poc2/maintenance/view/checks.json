@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "title_f5_preserves_existing_slot",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "title_help_is_only_panel",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "title_help_f5_and_direct_save_rejected",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "reopening_help_keeps_title_return",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "help_returns_to_title_only",
+      "status": "FAIL"
+    },
+    {
+      "detail": "",
+      "name": "playing_f5_saves",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "pause_f5_saves",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "help_returns_to_pause_only",
+      "status": "FAIL"
+    },
+    {
+      "detail": "",
+      "name": "supply_help_hides_popup_and_stops_time",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "help_restores_same_supply_popup",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "restored_supply_inputs_and_state_clean",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "restored_supply_confirms_once",
+      "status": "PASS"
+    }
+  ],
+  "failures": 2,
+  "input": "engine only; root.unfocusable=true",
+  "save_dir": "user://poc2_maintenance_view_20261022"
+}

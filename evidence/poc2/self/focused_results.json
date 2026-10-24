@@ -1,0 +1,42 @@
+{
+ "checks": [
+  {
+   "detail": 100.0,
+   "name": "refill_exact_five_seconds_after_arrival",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "restore_different_live_occupancy",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "semantic_snapshot_exact",
+   "pass": true
+  },
+  {
+   "detail": 15.0,
+   "name": "normal_seed_hits_enemy",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "bazooka_kills_and_produced_no_reward",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "tackle_free_hit_and_dash",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "hostile_route_cannot_enter_safe",
+   "pass": true
+  }
+ ],
+ "fail": 0,
+ "notes": "Affected save/refill assertions corrected; added actual combat impact and stable-zone path checks. Full 3500s stable sweep not repeated.",
+ "pass": 7
+}

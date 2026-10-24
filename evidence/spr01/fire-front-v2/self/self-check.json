@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "action": "seed",
+      "frame": 0,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "seed",
+      "frame": 1,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "seed",
+      "frame": 2,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "seed",
+      "frame": 3,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 0,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 1,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 2,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 3,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 4,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    },
+    {
+      "action": "water",
+      "frame": 5,
+      "size_rgba_alpha_palette": true,
+      "face_preserved_eyes_1x2": true,
+      "feet_fixed": true,
+      "no_clip": true
+    }
+  ],
+  "idle_byte_identical": true,
+  "source_down_sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18",
+  "character_frames": 10,
+  "formation_frames": 10,
+  "projectiles": 2,
+  "durations_ms": {
+    "seed": [
+      33,
+      50,
+      50,
+      67
+    ],
+    "water": [
+      40,
+      60,
+      50,
+      60,
+      80,
+      110
+    ]
+  },
+  "release_ms": {
+    "seed": 33,
+    "water": 150
+  },
+  "separate_layers": true,
+  "water_growth_pixels": [
+    4,
+    12,
+    32
+  ],
+  "water_growth_then_separation": true,
+  "seed_leaf_relative_pose_retained": true,
+  "seed_push_body_face_dy": 1,
+  "seed_handtip_total_dy": 2,
+  "water_lower_torso_connected": true,
+  "gif_frames": 100,
+  "gif_step_ms": 20,
+  "gif_cycle_ms": 2000,
+  "gif_decoded_rgb_exact": true,
+  "native_sha256": {
+    "seed-projectile.png": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4",
+    "seed-character-0.png": "bdfeb8fe021a767587a698bf7a7e286a2d8c735fc4bf87ee4fa91cd314832879",
+    "seed-formation-0.png": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815",
+    "seed-character-1.png": "5d39e8a48a14e184c60bf6078854f57075625c5125030adfcf38e049acc04f1a",
+    "seed-formation-1.png": "423889ef46e857c487d400f00d4a5cf11c25b9e09abe7a031ae489ed0ebfe05d",
+    "seed-character-2.png": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a",
+    "seed-formation-2.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "seed-character-3.png": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b",
+    "seed-formation-3.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-projectile.png": "b9ce5ea6c1143b5fcafff31e3a83e51eaaaf5ed8ab4823280428dbdac94cb504",
+    "water-character-0.png": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6",
+    "water-formation-0.png": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f",
+    "water-character-1.png": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a",
+    "water-formation-1.png": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed",
+    "water-character-2.png": "4fdb4b9bafa501e9b60d296fb8c7105f7e4b561708bf67d8579a1b6a6c04f04e",
+    "water-formation-2.png": "810570325d8c573faf6b9575313f42261a3c81715d6734334185955de18b6cb7",
+    "water-character-3.png": "6452cbbc28552d0320d01b52f17970853f3e29e55a764fff4cb94212d6ee14b1",
+    "water-formation-3.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-character-4.png": "e859312bc28c923a34a6547227dfb35e80a3d0f08563e9f7b0ed822d0e83f589",
+    "water-formation-4.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "water-character-5.png": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad",
+    "water-formation-5.png": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb",
+    "idle.png": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+  }
+}

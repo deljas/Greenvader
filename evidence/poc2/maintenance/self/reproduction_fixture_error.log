@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Invalid access to property or key 'hp' on a base object of type 'Dictionary'.
+   at: damage_enemy (res://scripts/poc2/simulation/combat.gd:162)
+   GDScript backtrace (most recent call first):
+       [0] damage_enemy (res://scripts/poc2/simulation/combat.gd:162)
+       [1] _army (res://scripts/poc2/simulation/plants.gd:203)
+       [2] _helper (res://scripts/poc2/simulation/plants.gd:147)
+       [3] advance (res://scripts/poc2/simulation/plants.gd:125)
+       [4] _initialize (res://tests/poc2/maintenance/self/reproduce.gd:21)
+{"refill_interrupted":{"after":"returning","before":"refilling","danger":"fighting","reproduced":true,"water":35.0},"unreachable":{"first":"unreachable","next_tick":"returning","reproduced":true}}

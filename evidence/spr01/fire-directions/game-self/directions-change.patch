@@ -1,0 +1,163 @@
+--- before/scripts/poc/poc_actor.gd
++++ scripts/poc/poc_actor.gd
+@@ -12,12 +12,12 @@
+ 	preload("res://assets/sprites/poc/player/walk-hop.png"),
+ ]
+ const FIRE_SHEETS: Dictionary = {
+-	&"seed": preload("res://assets/sprites/poc/player/fire-front-v3/seed-character-sheet.png"),
+-	&"water": preload("res://assets/sprites/poc/player/fire-front-v3/water-character-sheet.png"),
++	&"seed": preload("res://assets/sprites/poc/player/fire-directions-v1/seed-character-sheet.png"),
++	&"water": preload("res://assets/sprites/poc/player/fire-directions-v1/water-character-sheet.png"),
+ }
+ const FORMATION_SHEETS: Dictionary = {
+-	&"seed": preload("res://assets/sprites/poc/player/fire-front-v3/seed-formation-sheet.png"),
+-	&"water": preload("res://assets/sprites/poc/player/fire-front-v3/water-formation-sheet.png"),
++	&"seed": preload("res://assets/sprites/poc/player/fire-directions-v1/seed-formation-sheet.png"),
++	&"water": preload("res://assets/sprites/poc/player/fire-directions-v1/water-formation-sheet.png"),
+ }
+ 
+ var camera: Camera3D
+@@ -74,12 +74,13 @@
+ 		_cache[key] = texture
+ 	return _cache[key]
+ 
+-func fire_texture(kind: StringName, index: int, formation: bool = false) -> Texture2D:
+-	var key: String = "fire:%s:%d:%s" % [kind, index, formation]
++func fire_texture(kind: StringName, index: int, formation: bool = false, facing: StringName = &"down") -> Texture2D:
++	var row: int = maxi(DIRECTIONS.find(facing), 0)
++	var key: String = "fire:%s:%d:%s:%d" % [kind, index, formation, row]
+ 	if not _cache.has(key):
+ 		var texture: AtlasTexture = AtlasTexture.new()
+ 		texture.atlas = FORMATION_SHEETS[kind] if formation else FIRE_SHEETS[kind]
+-		texture.region = Rect2(Vector2(index * FRAME_SIZE.x, 0), Vector2(FRAME_SIZE))
++		texture.region = Rect2(Vector2(index * FRAME_SIZE.x, row * FRAME_SIZE.y), Vector2(FRAME_SIZE))
+ 		texture.filter_clip = true
+ 		_cache[key] = texture
+ 	return _cache[key]
+@@ -95,8 +96,7 @@
+ 	fire_kind = action_kind
+ 	if FIRE_SHEETS.has(action_kind):
+ 		frame = action_frame
+-		direction = &"down" # Temporary front artwork for every actual aim direction.
+-		texture = fire_texture(action_kind, action_frame)
++		texture = fire_texture(action_kind, action_frame, false, direction)
+ 	pixel_size = camera.size / float(render_height)
+ 	var screen: Vector2 = camera.unproject_position(foot)
+ 	var correction: Vector2 = screen.round() - screen
+@@ -115,7 +115,7 @@
+ 		sprite.flip_h = false
+ 	formation_sprite.visible = FIRE_SHEETS.has(action_kind) and forming
+ 	if formation_sprite.visible:
+-		formation_sprite.texture = fire_texture(action_kind, action_frame, true)
++		formation_sprite.texture = fire_texture(action_kind, action_frame, true, direction)
+ 		formation_sprite.pixel_size = pixel_size
+ 		formation_sprite.global_basis = display_sprite.global_basis
+ 		# A tiny camera-normal separation avoids coplanar fighting without shifting screen pixels.
+--- before/scripts/poc/poc_fire_action.gd
++++ scripts/poc/poc_fire_action.gd
+@@ -1,6 +1,6 @@
+ extends RefCounted
+ ## Unscaled, pausable visual action clock. The release event launches exactly one logical shot.
+-const MANIFEST_PATH: String = "res://assets/sprites/poc/player/fire-front-v3/manifest.json"
++const MANIFEST_PATH: String = "res://assets/sprites/poc/player/fire-directions-v1/manifest.json"
+ var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
+ var active: bool = false
+ var kind: StringName = &""
+@@ -66,5 +66,12 @@
+ 			return int(entry.index)
+ 	return (data.frames as Array).size() - 1
+ 
++## Resolve after the current camera and mouse-facing update; only display metadata uses this.
++func release_socket(action_kind: StringName, facing: StringName) -> Vector2:
++	var event: Dictionary = manifest.actions[String(action_kind)].release_events[0]
++	var sockets: Dictionary = event.get("socket_by_direction", {})
++	var xy: Array = sockets.get(String(facing), event.socket_xy)
++	return Vector2(float(xy[0]), float(xy[1]))
++
+ func snapshot() -> Dictionary:
+ 	return {"active": active, "kind": String(kind), "elapsed_ms": elapsed_ms, "frame": frame_index(), "released": released, "aim": aim, "plant_key": String(plant_key)}
+--- before/scripts/poc/poc_main.gd
++++ scripts/poc/poc_main.gd
+@@ -566,7 +566,6 @@
+ 	session.advance(delta)
+ 	var released_shot: Dictionary = fire_action.advance(delta, session, menu != &"" or is_viewing())
+ 	if not released_shot.is_empty() and bool(released_shot.ok):
+-		play_view.register_launch(int(released_shot.shot_id), float(released_shot.socket_height_px))
+ 		audio.play_action(&"water" if String(released_shot.action_kind) == "water" else &"seed")
+ 	ui.tick(delta)
+ 	audio.update(delta)
+@@ -586,6 +585,9 @@
+ 			notice.text = ""
+ 	_update_camera()
+ 	_update_actor()
++	if not released_shot.is_empty() and bool(released_shot.ok):
++		var socket: Vector2 = fire_action.release_socket(StringName(released_shot.action_kind), facing)
++		play_view.register_launch(int(released_shot.shot_id), float(Actor.FOOT_ANCHOR.y) - socket.y, socket.x - float(Actor.FOOT_ANCHOR.x))
+ 	play_view.sync() # Native projectile cards use the current frame's snapped camera.
+ 	_update_occlusion(delta)
+ 	water_view.sync_camera()
+@@ -837,7 +839,7 @@
+ func _cancel_fire() -> void:
+ 	fire_action.cancel()
+ 
+-## Start the front firing action; actual cost, logical projectile and sound occur at its release event.
++## Start the directional firing action; actual cost, logical projectile and sound occur at its release event.
+ func click_fire(content_pos: Vector2, water_shot: bool) -> Dictionary:
+ 	var result: Dictionary = pick_ground(content_pos)
+ 	if not result["ok"]:
+--- before/scripts/poc/play/poc_play_view.gd
++++ scripts/poc/play/poc_play_view.gd
+@@ -9,8 +9,8 @@
+ 
+ const HIDDEN_Y: float = -20.0
+ const FLIGHT_TEXTURES: Dictionary = {
+-	"seed": preload("res://assets/sprites/poc/player/fire-front-v3/seed-projectile.png"),
+-	"water": preload("res://assets/sprites/poc/player/fire-front-v3/water-projectile.png"),
++	"seed": preload("res://assets/sprites/poc/player/fire-directions-v1/seed-projectile.png"),
++	"water": preload("res://assets/sprites/poc/player/fire-directions-v1/water-projectile.png"),
+ }
+ 
+ var session: RefCounted
+@@ -23,7 +23,7 @@
+ var flight_pool: Array[Sprite3D] = []
+ var camera: Camera3D
+ ## Display-only metadata indexed by logical shot id; never added to simulation/save data.
+-var launch_heights: Dictionary = {}
++var launch_offsets: Dictionary = {}
+ var source_nodes: Array[MeshInstance3D] = []
+ var materials: Dictionary = {}
+ var _sphere: SphereMesh
+@@ -121,8 +121,8 @@
+ 		node.scale = Vector3.ONE * (0.3 if heal else 0.24)
+ 		node.position = Vector3(ground.x, 0.22 + 0.04 * sin(bob_time * 4.0 + float(i)), ground.y)
+ 
+-func register_launch(shot_id: int, socket_height_px: float) -> void:
+-	launch_heights[shot_id] = socket_height_px
++func register_launch(shot_id: int, socket_height_px: float, socket_x_px: float = 0.0) -> void:
++	launch_offsets[shot_id] = Vector2(socket_x_px, socket_height_px)
+ 
+ func _flight_sprite() -> Sprite3D:
+ 	var node: Sprite3D = Sprite3D.new()
+@@ -159,8 +159,8 @@
+ 			var upright: float = 1.0 / maxf(camera.global_basis.y.dot(Vector3.UP), 0.1)
+ 			var forward: Vector3 = Vector3(camera.global_basis.z.x, 0.0, camera.global_basis.z.z).normalized()
+ 			var progress: float = clampf(float(shot["traveled"]) / maxf(float(shot["total"]), 0.0001), 0.0, 1.0)
+-			var height_px: float = float(launch_heights.get(shot_id, 20.0)) * (1.0 - progress)
+-			var location: Vector3 = Coords.ground3(Coords.logic_to_ground(shot["position"]), 0.04) + Vector3.UP * height_px * sprite.pixel_size * upright
++			var offset_px: Vector2 = Vector2(launch_offsets.get(shot_id, Vector2(0, 20))) * (1.0 - progress)
++			var location: Vector3 = Coords.ground3(Coords.logic_to_ground(shot["position"]), 0.04) + Vector3.UP * offset_px.y * sprite.pixel_size * upright + camera.global_basis.x * offset_px.x * sprite.pixel_size
+ 			var screen: Vector2 = camera.unproject_position(location)
+ 			var snap: Vector2 = screen.round() - screen
+ 			location += camera.global_basis.x * snap.x * sprite.pixel_size + forward * snap.y * sprite.pixel_size / -camera.global_basis.y.dot(forward)
+@@ -172,9 +172,9 @@
+ 		node.scale = Vector3.ONE * 0.2
+ 		var ground: Vector2 = Coords.logic_to_ground(shot["position"])
+ 		node.position = Vector3(ground.x, 0.55, ground.y)
+-	for id: Variant in launch_heights.keys():
++	for id: Variant in launch_offsets.keys():
+ 		if not live_ids.has(id):
+-			launch_heights.erase(id)
++			launch_offsets.erase(id)
+ 
+ ## Observability for tests / screenshots.
+ func snapshot() -> Dictionary:

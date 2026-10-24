@@ -1,0 +1,14 @@
+diff --git a/evidence/poc2/maintenance/view/poc2_ui.before.txt b/scripts/poc2/ui/poc2_ui.gd
+index 2ed8f9b..85c67c8 100644
+--- a/evidence/poc2/maintenance/view/poc2_ui.before.txt
++++ b/scripts/poc2/ui/poc2_ui.gd
+@@ -129,7 +129,8 @@ func show_menu(title: bool = false) -> void:
+ 	var label: Label=Label.new()
+ 	label.text="グリーンベーダー PoC 2" if title else "一時停止"
+ 	box.add_child(label)
+-	var actions: Array[String]=["new","load","help"] if title else ["resume","save","load","new","help"]
++	var actions: Array[String]=[]
++	actions.assign(["new","load","help"] if title else ["resume","save","load","new","help"])
+ 	for action: String in actions:
+ 		var button: Button=Button.new()
+ 		button.text={"new":"新しく始める","load":"続きから","help":"操作説明","resume":"再開","save":"保存"}[action]

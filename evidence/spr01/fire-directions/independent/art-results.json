@@ -1,0 +1,1627 @@
+{
+  "checks": [
+    {
+      "name": "native_contract",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_timing",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_sheet_size",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_0_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_down_0_preservation",
+      "status": "PASS",
+      "detail": [
+        [
+          7,
+          24
+        ],
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          16,
+          24
+        ],
+        [
+          7,
+          26
+        ],
+        [
+          16,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "seed_down_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_1_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ],
+        [
+          8,
+          26
+        ],
+        [
+          15,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "seed_down_1_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "seed_down_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_2_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_down_2_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "seed_down_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_3_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_down_3_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "seed_down_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_0_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_left_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_1_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          4,
+          26
+        ],
+        [
+          9,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "seed_left_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_2_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_left_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_left_3_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_left_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_0_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_right_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_1_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ],
+        [
+          14,
+          26
+        ],
+        [
+          19,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "seed_right_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_2_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_right_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_right_3_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "seed_right_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_0_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_1_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_2_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_3_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_up_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_independently_authored_sides",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_projectile_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "seed_down_socket_native",
+      "status": "PASS",
+      "detail": [
+        12,
+        14
+      ]
+    },
+    {
+      "name": "seed_left_socket_native",
+      "status": "PASS",
+      "detail": [
+        11,
+        14
+      ]
+    },
+    {
+      "name": "seed_right_socket_native",
+      "status": "PASS",
+      "detail": [
+        12,
+        14
+      ]
+    },
+    {
+      "name": "seed_up_socket_native",
+      "status": "PASS",
+      "detail": [
+        12,
+        14
+      ]
+    },
+    {
+      "name": "water_timing",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_sheet_size",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_0_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_down_0_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "water_down_0_character_bytes_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_0_formation_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_1_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_down_1_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "water_down_1_character_bytes_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_1_formation_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_2_squeezed_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          7,
+          23
+        ],
+        [
+          16,
+          23
+        ],
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          16,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_down_2_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "water_down_2_character_bytes_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_2_formation_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_3_squeezed_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          7,
+          24
+        ],
+        [
+          16,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ],
+        [
+          7,
+          26
+        ],
+        [
+          16,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_down_3_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "water_down_3_character_bytes_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_3_formation_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_4_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_4_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_4_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ],
+        [
+          8,
+          26
+        ],
+        [
+          15,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_down_4_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "water_down_4_character_bytes_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_4_formation_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_5_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_5_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_5_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ],
+        [
+          8,
+          26
+        ],
+        [
+          15,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_down_5_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "water_down_5_character_bytes_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_5_formation_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_6_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_6_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_6_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          8,
+          24
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_down_6_preservation",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "water_down_6_character_bytes_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_6_formation_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_0_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_left_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_1_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_left_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_2_squeezed_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          3,
+          23
+        ],
+        [
+          10,
+          23
+        ],
+        [
+          4,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          3,
+          25
+        ],
+        [
+          10,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_left_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_3_squeezed_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          3,
+          24
+        ],
+        [
+          10,
+          24
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          3,
+          26
+        ],
+        [
+          10,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_left_4_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_4_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_4_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          4,
+          26
+        ],
+        [
+          9,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_left_5_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_5_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_5_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          4,
+          26
+        ],
+        [
+          9,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_left_6_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_6_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_left_6_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          4,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          9,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_left_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_0_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_right_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_1_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_right_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_2_squeezed_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          13,
+          23
+        ],
+        [
+          20,
+          23
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          13,
+          25
+        ],
+        [
+          20,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_right_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_3_squeezed_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          13,
+          24
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ],
+        [
+          13,
+          26
+        ],
+        [
+          20,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_right_4_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_4_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_4_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ],
+        [
+          14,
+          26
+        ],
+        [
+          19,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_right_5_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_5_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_5_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ],
+        [
+          14,
+          26
+        ],
+        [
+          19,
+          26
+        ]
+      ]
+    },
+    {
+      "name": "water_right_6_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_6_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_right_6_normal_eyes",
+      "status": "PASS",
+      "detail": [
+        [
+          14,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "name": "water_right_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_frame_count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_0_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_0_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_0_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_1_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_1_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_1_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_2_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_2_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_2_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_3_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_3_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_3_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_4_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_4_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_4_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_5_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_5_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_5_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_6_native_palette_sheet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_6_formation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_6_no_face",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_up_planted_feet",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_independently_authored_sides",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_projectile_preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "water_down_socket_native",
+      "status": "PASS",
+      "detail": [
+        12,
+        14
+      ]
+    },
+    {
+      "name": "water_left_socket_native",
+      "status": "PASS",
+      "detail": [
+        11,
+        14
+      ]
+    },
+    {
+      "name": "water_right_socket_native",
+      "status": "PASS",
+      "detail": [
+        12,
+        14
+      ]
+    },
+    {
+      "name": "water_up_socket_native",
+      "status": "PASS",
+      "detail": [
+        12,
+        14
+      ]
+    },
+    {
+      "name": "runtime_copy_identical",
+      "status": "PASS",
+      "detail": 99
+    },
+    {
+      "name": "preserved_baseline",
+      "status": "PASS",
+      "detail": {
+        "total": 204,
+        "mismatches": []
+      }
+    }
+  ],
+  "pass_count": 192,
+  "fail_count": 0
+}

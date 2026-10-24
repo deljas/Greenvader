@@ -1,0 +1,40 @@
+{
+ "checks": [
+  {
+   "detail": {
+    "inverse": "(896.0, 896.0)",
+    "pixel": "(320.0, 232.0)",
+    "selected": 987654
+   },
+   "name": "final_last_cell_icon_selectable",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "final_distant_world_exterior_rejects_order",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "final_normal_icon_selection",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "actual": "(698.0, 690.0)",
+    "expected": "(698.0, 690.0)",
+    "fixture": true
+   },
+   "name": "final_normal_order_remains_correct",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "final_popup_still_owns_click",
+   "status": "PASS"
+  }
+ ],
+ "failures": 0,
+ "input": "Input.parse_input_event only; root.unfocusable=true",
+ "renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

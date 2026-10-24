@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "army_fixture", "status": "PASS", "detail": { "ok": true, "reason": "", "id": 26 } }
+{ "name": "guard_intercepts_kills_returns", "status": "FAIL", "detail": { "engaged": false, "enemies": 1, "distance_home": 0.0 } }
+{ "name": "recovery_wait_then_slow_heal", "status": "FAIL", "detail": { "held_before_eight_seconds": true, "hp_after_nine_seconds": 60.0 } }
+{ "name": "enemy_cannot_route_to_stable", "status": "PASS", "detail": "" }
+{ "name": "unknown_blocked_order_disclosed_only_after_known", "status": "PASS", "detail": { "accepted": { "ok": true, "reason": "" }, "hidden_while_moving": true, "final_status": "unreachable" } }
+{ "name": "water_fixture", "status": "PASS", "detail": { "ok": true, "reason": "", "id": 26 } }
+{ "name": "water_trip_then_five_second_refill", "status": "PASS", "detail": { "left_home": true, "arrived": true, "half": 50.0, "full": 100.0, "status": "returning_water" } }
+{ "name": "water_returns_original_post_without_move_consumption", "status": "PASS", "detail": { "distance": 0.0, "water": 100.0, "status": "working" } }
+{ "name": "no_water_route_waits", "status": "PASS", "detail": { "status": "no_water_route", "position_unchanged": true } }
+{ "name": "source_dormant_approach_and_delayed_stop", "status": "PASS", "detail": { "far_dormant": true, "near_active": true, "after_leaving_active": false } }
+{ "name": "green_proximity_activates_source", "status": "PASS", "detail": "" }
+{ "name": "no_sources_no_enemies_marks_stable", "status": "PASS", "detail": { "seeds": 93, "hp": 100.0, "water": 100.0, "green_percent": 0.65658679501936, "land_rate": 5.02, "crop_rate": 0.0, "elapsed_game": 45.5, "stable": true, "nests": 0, "enemies": 0 } }

@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS seed_starts_immediate_pose0_no_cost
+PASS seed_65ms_before_event_and_busy_does_not_restart
+PASS seed_66ms_event_selection_aim_origin_once
+PASS event_not_repeated
+PASS release_recovery_can_be_interrupted
+PASS water_399ms_holds_formation
+PASS pause_and_view_suspension_hold_clock
+PASS water_400ms_release_cost_once
+PASS water_800ms_returns_idle
+PASS cultivated_selection_snapshot
+PASS zero_resources_refuse_without_start
+PASS release_rechecks_resource_failure_no_cost_or_shot
+PASS full_refuses_preflight
+PASS release_rechecks_full_no_cost
+PASS downed_cancels_pending
+PASS legacy_immediate_api_still_launches

@@ -1,0 +1,340 @@
+{
+ "checks": [
+  {
+   "actual": [
+    224,
+    224,
+    250,
+    60
+   ],
+   "expected": [
+    224,
+    224,
+    250,
+    60
+   ],
+   "name": "world_size_and_start",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    112.0,
+    112.0
+   ],
+   "expected": [
+    112,
+    112
+   ],
+   "name": "map_each_axis_doubled",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    65,
+    5.0
+   ],
+   "expected": [
+    65,
+    5
+   ],
+   "name": "start_income_one_minute",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    65,
+    60.0
+   ],
+   "expected": [
+    65,
+    60.0
+   ],
+   "name": "paused_clock_and_income",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    {
+     "ok": false,
+     "reason": "locked"
+    },
+    1000
+   ],
+   "expected": "reject; unchanged seeds",
+   "name": "fossil_locked_crop",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "ok": false,
+    "reason": "requires_green"
+   },
+   "expected": "reject on bare soil",
+   "name": "crop_requires_green",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "result": {
+     "id": 26,
+     "ok": true,
+     "reason": ""
+    },
+    "spent": 10
+   },
+   "expected": 10,
+   "name": "place_clover",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "result": {
+     "id": 27,
+     "ok": true,
+     "reason": ""
+    },
+    "spent": 15
+   },
+   "expected": 15,
+   "name": "place_carrot",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "result": {
+     "id": 28,
+     "ok": true,
+     "reason": ""
+    },
+    "spent": 40
+   },
+   "expected": 40,
+   "name": "place_wheat",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "result": {
+     "id": 29,
+     "ok": true,
+     "reason": ""
+    },
+    "spent": 40
+   },
+   "expected": 40,
+   "name": "place_rafflesia",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "result": {
+     "id": 30,
+     "ok": true,
+     "reason": ""
+    },
+    "spent": 120
+   },
+   "expected": 120,
+   "name": "place_watermelon",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "ok": false,
+    "reason": "occupied"
+   },
+   "expected": "reject overlapping watermelon",
+   "name": "whole_crop_footprint_occupied",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "ok": false,
+    "reason": "requires_green"
+   },
+   "expected": "reject partially green footprint",
+   "name": "whole_footprint_requires_green",
+   "status": "PASS"
+  },
+  {
+   "actual": 0.0,
+   "expected": 0,
+   "name": "no_production_before_maturity",
+   "status": "PASS"
+  },
+  {
+   "actual": 1.0,
+   "expected": 1.0,
+   "name": "production_at_15.0",
+   "status": "PASS"
+  },
+  {
+   "actual": 3.0,
+   "expected": 3.0,
+   "name": "production_at_20.0",
+   "status": "PASS"
+  },
+  {
+   "actual": 5.0,
+   "expected": 5.0,
+   "name": "production_at_30.0",
+   "status": "PASS"
+  },
+  {
+   "actual": 17.0,
+   "expected": 17.0,
+   "name": "production_at_45.0",
+   "status": "PASS"
+  },
+  {
+   "actual": 47.0,
+   "expected": 47.0,
+   "name": "production_at_90.0",
+   "status": "PASS"
+  },
+  {
+   "actual": 5.0,
+   "expected": 5,
+   "name": "under_plant_land_income_kept",
+   "status": "PASS"
+  },
+  {
+   "actual": 52,
+   "expected": 52,
+   "name": "mature_combined_income",
+   "status": "PASS"
+  },
+  {
+   "actual": 2,
+   "expected": 2,
+   "name": "refund_actual_paid_floor",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "expected": "allowed",
+   "name": "helper_on_bare_ground",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    140,
+    30
+   ],
+   "expected": [
+    140,
+    30
+   ],
+   "name": "initial_ammo_transfer",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    120,
+    50
+   ],
+   "expected": [
+    120,
+    50
+   ],
+   "name": "remote_ammo_conserved",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    120,
+    50,
+    {
+     "ok": false,
+     "reason": "invalid_amount"
+    }
+   ],
+   "expected": [
+    120,
+    50
+   ],
+   "name": "overflow_transfer_atomic",
+   "status": "PASS"
+  },
+  {
+   "actual": 56,
+   "expected": 56,
+   "name": "paused_remove_refunds_ammo_and_twenty_percent",
+   "status": "PASS"
+  },
+  {
+   "actual": [
+    136,
+    0
+   ],
+   "expected": 136,
+   "name": "death_no_ammo_or_cost_refund",
+   "status": "PASS"
+  },
+  {
+   "actual": 6,
+   "expected": 6,
+   "name": "initial_small_reward",
+   "status": "PASS"
+  },
+  {
+   "actual": 15,
+   "expected": 15,
+   "name": "initial_strong_reward",
+   "status": "PASS"
+  },
+  {
+   "actual": 81,
+   "expected": 81,
+   "name": "produced_enemy_zero_reward",
+   "status": "PASS"
+  },
+  {
+   "actual": 30,
+   "expected": 30,
+   "name": "nest_reward_small",
+   "status": "PASS"
+  },
+  {
+   "actual": 80,
+   "expected": 80,
+   "name": "nest_reward_medium",
+   "status": "PASS"
+  },
+  {
+   "actual": 200,
+   "expected": 200,
+   "name": "nest_reward_large",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "fraction": 0.375,
+    "helpers": 1,
+    "result": {
+     "ok": true,
+     "reason": "loaded"
+    },
+    "seeds": 153
+   },
+   "expected": "same seeds/fraction/unlock/ammo/home",
+   "name": "restore_economy_unlock_command",
+   "status": "PASS"
+  },
+  {
+   "actual": {
+    "ok": false,
+    "reason": "invalid_resource"
+   },
+   "expected": "reject; entire current snapshot unchanged",
+   "name": "invalid_restore_atomic",
+   "status": "PASS"
+  }
+ ],
+ "failures": 0,
+ "scope": "independent isolated logic; see plan.md for integration and NOT_RUN boundaries"
+}

@@ -21,18 +21,138 @@
     "free_targets": 6493,
     "targets": 6518
   },
+  "region_01": {
+    "bound_all_s": 17065.5,
+    "bound_free_s": 43798.0,
+    "bound_sweep_s": 17065.5,
+    "bound_zone0_s": 43798.0,
+    "cleared_at_s": 6525.0,
+    "complete_at_s": {
+      "0": 3345.0,
+      "1": 2755.0,
+      "2": 5043.0,
+      "3": 6515.0,
+      "4": 3290.0,
+      "5": 4865.0,
+      "6": 6525.0
+    },
+    "components": 10,
+    "done_at_min": 108.75,
+    "done_at_s": 6525.0,
+    "free_at_start": 244428,
+    "greenless_components": 9,
+    "greenless_tiles": 119077,
+    "island_planted": 12,
+    "laps": 1,
+    "log": [
+      [
+        600,
+        14728,
+        15022,
+        0,
+        6208,
+        5
+      ],
+      [
+        1200,
+        37911,
+        38371,
+        0,
+        13888,
+        12
+      ],
+      [
+        1800,
+        68873,
+        69454,
+        0,
+        21568,
+        12
+      ],
+      [
+        2400,
+        105503,
+        106092,
+        0,
+        29248,
+        12
+      ],
+      [
+        3000,
+        139108,
+        139630,
+        0,
+        36928,
+        12
+      ],
+      [
+        3600,
+        166894,
+        167314,
+        0,
+        44608,
+        12
+      ],
+      [
+        4200,
+        190439,
+        190784,
+        0,
+        52288,
+        12
+      ],
+      [
+        4800,
+        210240,
+        210553,
+        0,
+        59968,
+        12
+      ],
+      [
+        5400,
+        225781,
+        226011,
+        0,
+        67648,
+        12
+      ],
+      [
+        6000,
+        237115,
+        237273,
+        0,
+        75328,
+        12
+      ]
+    ],
+    "mean_ms": 0.293938850574713,
+    "p99_ms": 1.594,
+    "start_greened": 331,
+    "start_zone_greened": 331,
+    "sweep_planted": 81903,
+    "sweep_zones_done_s": 6525.0,
+    "targets": 244759,
+    "worst_far_ms": 0.8,
+    "worst_growth_ms": 1.791,
+    "worst_ms": 2.725,
+    "worst_spread_ms": 1.254,
+    "zone0_done_s": 3345.0,
+    "zone0_max_hops": 390,
+    "zone0_targets": 32799
+  },
   "region_bound_default_s": 17065.5,
   "region_bound_k128_s": 8785.5,
   "region_bound_k256_s": 4645.5,
   "region_bound_k512_s": 2575.5,
   "region_bound_k64_s": 17065.5,
   "stress_frame_ms": {
-    "mean": 0.432055303030303,
-    "p99": 2.806,
-    "worst": 3.411,
-    "worst_far": 0.83,
-    "worst_growth": 2.071,
-    "worst_spread": 0.866
+    "mean": 0.463639393939394,
+    "p99": 3.123,
+    "worst": 4.532,
+    "worst_far": 1.152,
+    "worst_growth": 3.152,
+    "worst_spread": 0.914
   },
   "two_zones": {
     "bound_s": 452.5,

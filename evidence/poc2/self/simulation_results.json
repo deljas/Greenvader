@@ -1,0 +1,177 @@
+{
+ "checks": [
+  {
+   "detail": {
+    "crop_rate": 0.0,
+    "elapsed_game": 0.0,
+    "enemies": 13,
+    "green_percent": 0.653970911373862,
+    "hp": 100.0,
+    "land_rate": 5.0,
+    "nests": 5,
+    "seeds": 60,
+    "stable": false,
+    "water": 100.0
+   },
+   "name": "world224_and_initial250",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "initial_stock_income_skills",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "far_nest_dormant",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "initial_enemy_reward",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "spawned_enemy_zero_reward",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "small_nest_reward_unlock",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "pause_time_and_movement",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "crop_cost_and_land_preserved",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "crop_not_premature",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "crop_matures20_rate2",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "remove20percent",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "crop_requires_green",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "helper_wasteland_and_budget",
+   "pass": true
+  },
+  {
+   "detail": 0,
+   "name": "finite_ammo_no_auto_debit",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "remote_supply",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "remove_unused_ammo_full",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "helper_heal_delay",
+   "pass": true
+  },
+  {
+   "detail": 61.25,
+   "name": "helper_heals_noncombat",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "unknown_order_accepted",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "unreachable_order_waits",
+   "pass": true
+  },
+  {
+   "detail": {
+    "ok": true,
+    "reason": "loaded"
+   },
+   "name": "json_roundtrip",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "save_roundtrip_exact",
+   "pass": false
+  },
+  {
+   "detail": "",
+   "name": "bad_save_atomic",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "bad_ownership_rejected",
+   "pass": true
+  },
+  {
+   "detail": "(646.0, 626.0)",
+   "name": "reachable_water_bank",
+   "pass": true
+  },
+  {
+   "detail": 99.5,
+   "name": "sprinkler_refills5seconds",
+   "pass": false
+  },
+  {
+   "detail": "",
+   "name": "sweep_stable_only",
+   "pass": true
+  },
+  {
+   "detail": {
+    "crop_rate": 0.0,
+    "elapsed_game": 3500.0,
+    "enemies": 0,
+    "green_percent": 100.0,
+    "hp": 100.0,
+    "land_rate": 764.56,
+    "nests": 0,
+    "seeds": 33356,
+    "stable": true,
+    "water": 100.0
+   },
+   "name": "stable_island_100percent",
+   "pass": true
+  }
+ ],
+ "fail": 2,
+ "long_time_policy": "one 3500 game-second condition; advance_game fixed internal 0.25s deterministic steps",
+ "not_run": [
+  "GPU rendering",
+  "physical OS input",
+  "art/fun acceptance"
+ ],
+ "pass": 26
+}

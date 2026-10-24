@@ -1,0 +1,14 @@
+{
+ "dead_helper_still_saved": 1,
+ "hp_after_combat": 0.0,
+ "placed": {
+  "id": 26,
+  "ok": true,
+  "reason": ""
+ },
+ "reproduced": true,
+ "restore": {
+  "ok": false,
+  "reason": "invalid_entity_helpers"
+ }
+}

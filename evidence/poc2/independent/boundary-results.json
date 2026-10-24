@@ -1,0 +1,115 @@
+{
+ "checks": [
+  {
+   "detail": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "name": "army_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "distance_home": 0.0,
+    "enemies": 1,
+    "engaged": false
+   },
+   "name": "guard_intercepts_kills_returns",
+   "status": "FAIL"
+  },
+  {
+   "detail": {
+    "held_before_eight_seconds": true,
+    "hp_after_nine_seconds": 60.0
+   },
+   "name": "recovery_wait_then_slow_heal",
+   "status": "FAIL"
+  },
+  {
+   "detail": "",
+   "name": "enemy_cannot_route_to_stable",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "accepted": {
+     "ok": true,
+     "reason": ""
+    },
+    "final_status": "unreachable",
+    "hidden_while_moving": true
+   },
+   "name": "unknown_blocked_order_disclosed_only_after_known",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "id": 26,
+    "ok": true,
+    "reason": ""
+   },
+   "name": "water_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "arrived": true,
+    "full": 100.0,
+    "half": 50.0,
+    "left_home": true,
+    "status": "returning_water"
+   },
+   "name": "water_trip_then_five_second_refill",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "distance": 0.0,
+    "status": "working",
+    "water": 100.0
+   },
+   "name": "water_returns_original_post_without_move_consumption",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "position_unchanged": true,
+    "status": "no_water_route"
+   },
+   "name": "no_water_route_waits",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "after_leaving_active": false,
+    "far_dormant": true,
+    "near_active": true
+   },
+   "name": "source_dormant_approach_and_delayed_stop",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "green_proximity_activates_source",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "crop_rate": 0.0,
+    "elapsed_game": 45.5,
+    "enemies": 0,
+    "green_percent": 0.656586795019358,
+    "hp": 100.0,
+    "land_rate": 5.02,
+    "nests": 0,
+    "seeds": 93,
+    "stable": true,
+    "water": 100.0
+   },
+   "name": "no_sources_no_enemies_marks_stable",
+   "status": "PASS"
+  }
+ ],
+ "failures": 2
+}

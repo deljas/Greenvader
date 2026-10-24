@@ -1,0 +1,63 @@
+{
+ "checks": [
+  {
+   "detail": "",
+   "name": "map_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "elapsed": 0.0,
+    "zoom": 4
+   },
+   "name": "engine_map_pause_zoom",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "depleted_pixel": "(0.0, 0.0, 0.0, 1.0)",
+    "full_pixel": "(0.0, 0.0, 0.0, 1.0)"
+   },
+   "name": "full_gauge_hidden_depleted_visible",
+   "status": "FAIL"
+  },
+  {
+   "detail": "",
+   "name": "engine_select_shows_commands",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "engine_supply_popup_opens",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "popup_click_no_movement_or_time",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "engine_supply_confirms_once",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "unknown_enemy_view_hidden",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "paused_light_not_rewritten",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "internal_640_and_nearest",
+   "status": "PASS"
+  }
+ ],
+ "failures": 1,
+ "input": "Input.parse_input_event only; root.unfocusable true",
+ "renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

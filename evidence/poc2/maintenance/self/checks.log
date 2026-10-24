@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS army_hidden_obstacle_not_leaked 
+PASS army_blocked_wait_persists unreachable
+PASS army_blocked_wait_saved 
+PASS army_new_order_recovers 
+PASS gatlinger_hidden_obstacle_not_leaked 
+PASS gatlinger_blocked_wait_persists unreachable
+PASS gatlinger_blocked_wait_saved 
+PASS gatlinger_new_order_recovers 
+PASS sprinkler_hidden_obstacle_not_leaked 
+PASS sprinkler_blocked_wait_persists unreachable
+PASS sprinkler_blocked_wait_saved 
+PASS sprinkler_new_order_recovers 
+PASS partial_refill_flees_preserving_water 
+PASS partial_refill_restore_returns_to_bank refilling
+PASS partial_refill_finishes_at_existing_rate 100.0
+PASS return_trip_survives_flee 
+PASS return_trip_restores_original_home 
+PASS return_trip_completes 
+PASS older_save_compatible 
+PASS invalid_task_save_rejected_atomically 
+PASS crop_combat_cleanup_same_tick 
+PASS crop_save_after_fatal_tick 
+PASS helper_combat_cleanup_same_tick 
+PASS helper_save_after_fatal_tick 
+RESULT 24 PASS / 0 FAIL

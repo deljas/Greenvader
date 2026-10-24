@@ -1,0 +1,69 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "files": [
+    {
+      "path": "data/poc2/maps/town_02.json",
+      "matched": true
+    },
+    {
+      "path": "launchers/run_poc2.bat",
+      "matched": true
+    },
+    {
+      "path": "scenes/poc2.tscn",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/API.md",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/save/poc2_save.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/combat.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/navigation.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/ui/map_ui.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/view/cutaway_view.gd",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/view/cutaway.gdshader",
+      "matched": true
+    },
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "matched": true
+    }
+  ]
+}

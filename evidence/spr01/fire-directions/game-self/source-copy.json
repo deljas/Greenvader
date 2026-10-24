@@ -1,0 +1,500 @@
+{
+  "files": [
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/idle-down.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/idle-down.png",
+      "sha256": "d12e39f3ba986f36d0b2a7a0a762518794eaa370d72de17096c804041c8d8d18"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/idle-left.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/idle-left.png",
+      "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/idle-right.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/idle-right.png",
+      "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/idle-up.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/idle-up.png",
+      "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-character-sheet.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-character-sheet.png",
+      "sha256": "447eb6368c824c4a3da7ec43357c7837f71fdc46b55eb11e77f2ac4389c4f999"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-character-0.png",
+      "sha256": "58c3bcb34b23de9800d42ddcab71da9ba260526e6a9d2b18918c84bf1d97b958"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-character-1.png",
+      "sha256": "5ac0ff4db24edc21e8edbe4e3fa07594581251b7add476a4f3fac990ad5c29c1"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-character-2.png",
+      "sha256": "66db9c6bf6e3ae563322b8b077b9bbad9dd06e35ec7fd8d8e92167bdf4450b1a"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-character-3.png",
+      "sha256": "409d7f476b2b6b2ce34dd1ecaadc1f9a55005a5f76d922d49ed3737063c98b3b"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-formation-0.png",
+      "sha256": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-formation-1.png",
+      "sha256": "423889ef46e857c487d400f00d4a5cf11c25b9e09abe7a031ae489ed0ebfe05d"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-formation-2.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-down-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-down-formation-3.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-formation-sheet.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-formation-sheet.png",
+      "sha256": "4eceef9fa7305a9a2b21dc027d1bdc672545f389d32b6997806f3bf809b4be42"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-character-0.png",
+      "sha256": "2a0a701008b6994596d9f5a58add609c90870d0e46db7041590b502f8dbee390"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-character-1.png",
+      "sha256": "1b3cc39c6a49ed58007070af84561c00ee2b331c098503de28626b97b2b97bca"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-character-2.png",
+      "sha256": "3d6b23ca6257260f248db15b6f8bbb93fbe50a27b92fd296c4360582e508924c"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-character-3.png",
+      "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-formation-0.png",
+      "sha256": "e4a3fc8aa0b21271c8ef3e634e890f0c3d02739b14f24114c40ad90a6e535482"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-formation-1.png",
+      "sha256": "1f9b012d179869a1b90fdc1952a67f4d083df3a326a0963bd6d8d32246972cf2"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-formation-2.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-left-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-left-formation-3.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-projectile.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-projectile.png",
+      "sha256": "27fe3e93bcc4f5511ab15ca508a90591d2c2c44c1ce55d79d4c8d8e2351ecdd4"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-character-0.png",
+      "sha256": "df6ae103130c697fc8f3ad897e753a8250dbe7c02c1e6461f5feac0606a2b3eb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-character-1.png",
+      "sha256": "1d9f58ff85f7a0d0649421b996158c0527f813c5c550d5fdb6bf8410b191a8b5"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-character-2.png",
+      "sha256": "b20bbed4c5b8e32d954aa4951f2d82ca1884ee77d240f7291bf679505ac3f515"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-character-3.png",
+      "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-formation-0.png",
+      "sha256": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-formation-1.png",
+      "sha256": "423889ef46e857c487d400f00d4a5cf11c25b9e09abe7a031ae489ed0ebfe05d"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-formation-2.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-right-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-right-formation-3.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-character-0.png",
+      "sha256": "eb01dfd0dc986a6991f1c1d3e00d9d7dcd198f525112ba7cf6a80d439051bf91"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-character-1.png",
+      "sha256": "29a75f50d1a95cc48919ad4c1c7cf55d9fcd8950d5ee8552d626b49366ac6551"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-character-2.png",
+      "sha256": "6591dce0e2d676b0ff5d14e9fb9fcfc0bd4f401948baadfa91f04d0bda119cb6"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-character-3.png",
+      "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-formation-0.png",
+      "sha256": "896f0ccd40933b3256b420b1009f16bcdfe2d13f00eb383f18e46d0cbcf96815"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-formation-1.png",
+      "sha256": "423889ef46e857c487d400f00d4a5cf11c25b9e09abe7a031ae489ed0ebfe05d"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-formation-2.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/seed-up-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/seed-up-formation-3.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-character-sheet.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-character-sheet.png",
+      "sha256": "608bb97397acd381c7402a7c6781ba0ad8dd7a0d79774d2b8db806b4a0e788b6"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-character-0.png",
+      "sha256": "660eb3116c422f3f060fed7e9d648427d6f1e97cf385721087b054c4505d8ab6"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-character-1.png",
+      "sha256": "be722d082928dd13ff6e0a21bfdebc7bd60dc0cf8cdfd484b98f6b0e3684ba2a"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-character-2.png",
+      "sha256": "adf2f44bfc02e5cc4831aaa6545b5e612b3a7f28604e84f349b3ddb6b1fa07f6"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-character-3.png",
+      "sha256": "264cb114048d17b9a1b546542fee572ed47da36f3842969b5ea0eefdd80795f3"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-character-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-character-4.png",
+      "sha256": "b46f369597f826b416cda84356f6c103fdd9e0a397d982e6f730d24c7674542e"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-character-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-character-5.png",
+      "sha256": "e859312bc28c923a34a6547227dfb35e80a3d0f08563e9f7b0ed822d0e83f589"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-character-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-character-6.png",
+      "sha256": "688f214928c2657136dce0816e113af1370c189f37895a28f5800ffb0a0485ad"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-formation-0.png",
+      "sha256": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-formation-1.png",
+      "sha256": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-formation-2.png",
+      "sha256": "810570325d8c573faf6b9575313f42261a3c81715d6734334185955de18b6cb7"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-formation-3.png",
+      "sha256": "213950d76d68adeffef50a0fa483ad294ec6ba0cf570726e0fa80e350e376561"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-formation-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-formation-4.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-formation-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-formation-5.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-down-formation-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-down-formation-6.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-formation-sheet.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-formation-sheet.png",
+      "sha256": "c9a12f3b430904817585365f2bc39805bb7d9d0106ed66e3af412d870b773f35"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-character-0.png",
+      "sha256": "10c19a5df3d0f1221dd1ad9c88ce7e566bef448f00392ae57f684cfdd55e5c4c"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-character-1.png",
+      "sha256": "039c343dafe3adf1cc562373fb78c24f81087cc2703db402915aabc72e4840ea"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-character-2.png",
+      "sha256": "06fd7829c9e689f1b3e8b74f549ea5326cbab711adc4d1365c1abc40e9b32ef1"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-character-3.png",
+      "sha256": "a7520ad3c0e0d1aa8bab8560f23201bb52dc5caac6af6c3146977e80fa22d18d"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-character-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-character-4.png",
+      "sha256": "b61bb324d990a2e6e79b3977d5c57cac6c98f927488932488c6ca95e2e119b49"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-character-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-character-5.png",
+      "sha256": "3eafc1cd9d48af58b627d213d664c95a45498d68aa994779701856c89138157a"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-character-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-character-6.png",
+      "sha256": "7b1e76b5b0b9367b83a08a6a16fd2d65e76d6636e1591412812995423328fb18"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-formation-0.png",
+      "sha256": "f1e286b40e4fc9456cacb592f61d030f818bb2dd167f0125db865a3bf4436378"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-formation-1.png",
+      "sha256": "eb69b117325ff76f98baeaffb944bd794f10bc7c529c6c4f93d35a407da1fdf3"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-formation-2.png",
+      "sha256": "936582be1e4ddca89d6bb3911b3923174d3d5cf2809aa0c8dcf0c852d977ae1b"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-formation-3.png",
+      "sha256": "358a030d836e7d33c1c73233b916faab085459b44d09ea922b8add4fa92f3d89"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-formation-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-formation-4.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-formation-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-formation-5.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-left-formation-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-left-formation-6.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-projectile.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-projectile.png",
+      "sha256": "b9ce5ea6c1143b5fcafff31e3a83e51eaaaf5ed8ab4823280428dbdac94cb504"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-character-0.png",
+      "sha256": "b5c4f21b33de6165a12f87225be2f8acc893224879a9f153eb6ce0f0988727e7"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-character-1.png",
+      "sha256": "e115824bbffe12aab899ff87d29dd05c09949c70096d6ed49b8748f4463acc72"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-character-2.png",
+      "sha256": "bcb4ed0e48e69747219ef9803767efd938f2a286c3ffdcc8a3b2d15b6e4660ff"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-character-3.png",
+      "sha256": "3dac9bda71292ab814600119647379ec292d9712a234a3f3f3b85f2fb57956b4"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-character-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-character-4.png",
+      "sha256": "57530e4dc3509793352e146130551a7a03cc698eaf9f9d715734efba659b0bca"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-character-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-character-5.png",
+      "sha256": "38a9935f653559f3af35d430734517750d3bec78a17eabd2b3ab5887b01e3212"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-character-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-character-6.png",
+      "sha256": "f0585d0e1455e75939e53488fb321df8640696b393818ba98e75b14a86025037"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-formation-0.png",
+      "sha256": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-formation-1.png",
+      "sha256": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-formation-2.png",
+      "sha256": "810570325d8c573faf6b9575313f42261a3c81715d6734334185955de18b6cb7"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-formation-3.png",
+      "sha256": "213950d76d68adeffef50a0fa483ad294ec6ba0cf570726e0fa80e350e376561"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-formation-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-formation-4.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-formation-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-formation-5.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-right-formation-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-right-formation-6.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-character-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-character-0.png",
+      "sha256": "df3d8422d8013f71cca7dfc13602e86e0d7a62ff188ad483566c65c44cab5994"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-character-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-character-1.png",
+      "sha256": "0a514bf2bad221e331db1cb92e69a410c907fd90d544bb5356e2eaa1a6ae6150"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-character-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-character-2.png",
+      "sha256": "c1b0a0db172afdf9c0661f0c0945272ca65ca87002e028ae8ae8b558581eb105"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-character-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-character-3.png",
+      "sha256": "79baf9b787008b8b0b27dc4193be9753e55c1fe46e541e8c018e1b458d1134e6"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-character-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-character-4.png",
+      "sha256": "512e2ccf7258247b85933cd0fdc02837357e8af31630921fe72918391f54d784"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-character-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-character-5.png",
+      "sha256": "abbbc70f8babb9563dd99bc1b82441a7251c2532a4706821743e3e63a86c29e3"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-character-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-character-6.png",
+      "sha256": "c7d9878df3626d281b469824fdcbc5b6c6c09f1a5d631226a15fbfe27833b750"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-formation-0.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-formation-0.png",
+      "sha256": "18363a032731ee76dd26ebf997b8872cf63f55eb33a0c77b00b2b48ccff9bc0f"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-formation-1.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-formation-1.png",
+      "sha256": "c98b87cb273e0d7712c75e0f730b584a12ef21a1fc7240d7af701ee8a644abed"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-formation-2.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-formation-2.png",
+      "sha256": "810570325d8c573faf6b9575313f42261a3c81715d6734334185955de18b6cb7"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-formation-3.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-formation-3.png",
+      "sha256": "213950d76d68adeffef50a0fa483ad294ec6ba0cf570726e0fa80e350e376561"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-formation-4.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-formation-4.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-formation-5.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-formation-5.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/water-up-formation-6.png",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/water-up-formation-6.png",
+      "sha256": "f4f08581473c402a79fa232541493a889385a2926231aa99b4fa88a249be18cb"
+    },
+    {
+      "source": "assets/concepts/spr01/fire-directions-v1/manifest.json",
+      "runtime": "assets/sprites/poc/player/fire-directions-v1/manifest.json",
+      "sha256": "5bcebfa75b9e323b433809592c6fd8d85ffddf3eda246b29d03f9cbc3b669376"
+    }
+  ],
+  "count": 99
+}

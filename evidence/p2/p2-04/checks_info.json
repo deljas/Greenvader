@@ -6,13 +6,13 @@
   "no_reinvasion_region_01": {
     "boar_frames_checked": 1409800,
     "closed_late_zone": 4,
-    "cpu_seconds": 14.772,
+    "cpu_seconds": 16.223,
     "frames": 36000,
     "game_minutes": 20,
     "tiles_gnawed": 150706
   },
   "no_reinvasion_test_map": {
-    "cpu_seconds": 9.577,
+    "cpu_seconds": 10.107,
     "frames": 72000,
     "game_minutes": 20,
     "max_boars": 12,
@@ -20,7 +20,7 @@
     "tiles_gnawed": 14299
   },
   "set_stage_us": {
-    "with_progress": 0.879716666666667,
-    "without_progress": 0.818166666666667
+    "with_progress": 0.911016666666667,
+    "without_progress": 0.834833333333333
   }
 }

@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RendererCompositorRD (servers/rendering/renderer_rd/renderer_compositor_rd.cpp:337)
+
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS right_mouse_starts_water_pose0_without_shot <null>
+PASS water_399ms_growing_formation_and_matching_anchor <null>
+PASS water_release_400_native_flight_socket_and_sound { "socket": (320.0, 180.0), "projectile": (320.0, 180.0), "logical_origin": (354.0, 346.0) }
+PASS water_returns_idle_after_800 <null>
+PASS seed_release_burst_and_move_preserved <null>
+PASS seed_returns_directional_walk <null>
+PASS four_aim_directions_share_front_only_while_firing <null>
+PASS menu_and_viewpoint_pause_action <null>
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS successful_load_cancels_pending_no_ghost <null>
+PoC: map town_01 (112x112 cells, 48 objects, combat on)
+PASS new_game_cancels_pending <null>
+PASS actual_death_signal_cancels_pending <null>

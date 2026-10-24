@@ -1,0 +1,73 @@
+{
+ "checks": [
+  {
+   "detail": {
+    "button": "[P: (300.0, 186.0), S: (22.0, 31.0)]",
+    "pixel": "(312.0, 178.0)"
+   },
+   "name": "order_fixture_walkable_clear_of_buttons",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "actual": "(698.0, 690.0)",
+    "expected": "(698.0, 690.0)"
+   },
+   "name": "engine_order_hits_projected_destination",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "unknown_entities_leave_no_map_pixels",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "inverse": "(896.0, 896.0)",
+    "logic": "(894.0, 894.0)",
+    "pixel": "(320.0, 232.0)",
+    "selected_id": -1
+   },
+   "name": "last_cell_icon_remains_selectable",
+   "status": "FAIL"
+  },
+  {
+   "detail": "",
+   "name": "map_does_not_mutate_world_tiles",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "final_transform": "[X: (2.0, 0.0), Y: (0.0, 2.0), O: (0.0, 0.0)]",
+    "map_texture_filter": 1,
+    "window": "(1280, 720)"
+   },
+   "name": "pixel_viewport_nearest_integer",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "mismatches": 0,
+    "sampled": 24
+   },
+   "name": "moving_mini_terrain_agrees_with_pick",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "uniform_scale": 0.272530714814992,
+    "worst_pixel_error": 0.0000120631320896791
+   },
+   "name": "moving_mini_still_matches_camera",
+   "status": "PASS"
+  }
+ ],
+ "failures": 1,
+ "input": "Input.parse_input_event only; root.unfocusable=true",
+ "not_run": [
+  "physical keyboard/mouse path",
+  "exported build",
+  "broad balance/save/long-run regression"
+ ],
+ "renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

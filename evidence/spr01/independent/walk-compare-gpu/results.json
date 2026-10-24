@@ -1,0 +1,112 @@
+{
+	"checks": [
+		{
+			"detail": null,
+			"name": "startup_640_default_normal",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "integer_window_nearest",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "old_resolution_cannot_be_selected",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "moving_8fps_frame1",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "F6_display_only",
+			"status": "PASS"
+		},
+		{
+			"detail": {
+				"hop": "(4.24292, -4.24292)",
+				"normal": "(4.24292, -4.24292)"
+			},
+			"name": "same_motion_and_collision_configuration",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "button_returns_normal",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "engine_mouse_four_directions",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "left_facing_right_movement",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "stop_uses_adopted_idle",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "32_poses_match_original_and_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "native_24x36_fixed_integer_ground_anchor",
+			"status": "PASS"
+		},
+		{
+			"detail": 0.0,
+			"name": "no_crossed_self_shadow_on_face",
+			"status": "PASS"
+		},
+		{
+			"detail": 61.8862754404545,
+			"name": "player_casts_world_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": 113.270592302084,
+			"name": "receives_external_3d_shadow",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "night_light_and_reflection_masks",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "legacy_index1_save_load_640",
+			"status": "FAIL"
+		},
+		{
+			"detail": null,
+			"name": "pause_keeps_logic_and_idle",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "zero_resources_still_block_fire",
+			"status": "PASS"
+		},
+		{
+			"detail": null,
+			"name": "controls_fit_internal_width",
+			"status": "PASS"
+		}
+	],
+	"display": "Windows",
+	"face_rect": "[P: (311, 186), S: (16, 10)]",
+	"failures": 1,
+	"frame_screen_anchor": "(320.0, 200.0)",
+	"renderer": "NVIDIA GeForce RTX 5070 Ti"
+}

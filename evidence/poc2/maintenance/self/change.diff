@@ -1,0 +1,163 @@
+--- plants_before.gd.txt
++++ scripts/poc2/simulation/plants.gd
+@@ -41,7 +41,7 @@
+   var underlying: int=s.state.index_of(cell.x,cell.y)
+   if s.state.stage[underlying]==WorldState.STAGE_EMPTY:
+    s.state.set_stage(underlying,WorldState.STAGE_SEED)
+-  p.merge({"home":pos,"status":"working","ammo":ammo,"water":100.0 if kind=="sprinkler" else 0.0,"capacity":100,"attack_at":0.0,"work_at":0.0,"search_at":0.0,"target_pos":pos,"route_at":-1.0,"moving":false,"bank":Vector2(-1,-1),"refill_until":-1.0})
++  p.merge({"home":pos,"status":"working","ammo":ammo,"water":100.0 if kind=="sprinkler" else 0.0,"capacity":100,"attack_at":0.0,"work_at":0.0,"search_at":0.0,"target_pos":pos,"route_at":-1.0,"moving":false,"blocked_order":false,"water_task":"","bank":Vector2(-1,-1),"refill_until":-1.0})
+   s.helpers.append(p)
+  else:
+   p.merge({"age":0.0,"maturity":float(def.maturity),"mature":false,"wet_until":0.0})
+@@ -71,6 +71,8 @@
+    h.home=Coords.cell_center_logic(c)
+    h.approach=s.nav.closest_reachable(h.pos,h.home) if s.known[index]==0 else h.home
+    h.moving=true
++   h.blocked_order=false
++   h.water_task=""
+    h.status="moving"
+    h.route_at=-1.0
+    h.search_at=0.0
+@@ -108,18 +110,21 @@
+   if not p.mature and p.pos.distance_to(pos)<=radius:
+    p.wet_until=maxf(float(p.wet_until),s.clock.elapsed+duration)
+ 
++func cleanup_defeated() -> void:
++ # Also called after combat, before this tick can be saved.
++ for rows: Array[Dictionary] in [s.plants,s.helpers]:
++  for p: Dictionary in rows.duplicate():
++   if p.hp<=0.0:
++    s.state.release(int(p.owner))
++    rows.erase(p)
++
+ func advance(dt: float) -> void:
++ cleanup_defeated()
+  for p: Dictionary in s.plants.duplicate():
+-  if p.hp<=0.0:
+-   s.state.release(int(p.owner)); s.plants.erase(p)
+-   continue
+   if not p.mature:
+    p.age=float(p.age)+dt*(2.0 if float(p.wet_until)>s.clock.elapsed else 1.0)
+    p.mature=float(p.age)>=float(p.maturity)
+  for h: Dictionary in s.helpers.duplicate():
+-  if h.hp<=0.0:
+-   s.state.release(int(h.owner)); s.helpers.erase(h)
+-   continue
+   if s.clock.elapsed-float(h.last_combat)>=8.0:
+    h.hp=minf(float(h.max_hp),float(h.hp)+dt)
+   _helper(h,dt)
+@@ -144,10 +149,17 @@
+ func _helper(h: Dictionary,dt: float) -> void:
+  var pos: Vector2=h.pos
+  if h.kind=="army":
++  if h.get("blocked_order",h.status=="unreachable"):
++   h.status="unreachable"
++   return
+   _army(h,dt)
+   return
+  var danger: Dictionary=_nearest_enemy(pos,35.0)
+  if not danger.is_empty():
++  # Presentation status may change while the underlying order must survive.
++  if h.kind=="sprinkler" and h.status in ["refilling","resupplying","returning_water"]:
++   h.water_task=h.status
++  if h.status=="unreachable": h.blocked_order=true
+   h.status="fleeing"
+   var retreat: Vector2=pos+(pos-danger.pos).normalized()*30.0
+   if s.is_walkable_logic(retreat):
+@@ -156,6 +168,9 @@
+    s.nav.move(h,h.home,24.0,dt,s.clock.elapsed)
+   h.search_at=0.0
+   return
++ if h.get("blocked_order",h.status=="unreachable"):
++  h.status="unreachable"
++  return
+  if h.moving:
+   _move_home(h,dt)
+   return
+@@ -170,13 +185,13 @@
+  var goal: Vector2=h.get("approach",h.home) if undiscovered else h.home
+  h.status="exploring" if undiscovered else "moving"
+  if not undiscovered and not s.is_walkable_logic(h.home):
+-  h.status="unreachable"; h.moving=false
++  h.status="unreachable"; h.moving=false; h.blocked_order=true
+   return
+  if s.nav.move(h,goal,30.0 if h.kind=="army" else 20.0,dt,s.clock.elapsed):
+   if not undiscovered:
+    h.moving=false; h.status="working"; h.search_at=0.0
+  elif (h.get("route",[]) as Array).is_empty() and not undiscovered:
+-  h.status="unreachable"; h.moving=false
++  h.status="unreachable"; h.moving=false; h.blocked_order=true
+ 
+ func _army(h: Dictionary,dt: float) -> void:
+  if h.moving:
+@@ -247,26 +262,39 @@
+   h.search_at=0.0
+ 
+ func _sprinkler(h: Dictionary,dt: float) -> void:
+- if float(h.water)<=0.0001 or h.status in ["refilling","resupplying","returning_water"]:
+-  if h.status=="returning_water":
++ # water_task is durable intent; status only describes the current visible action.
++ # Infer the intent for first-version saves that predate this optional field.
++ var task: String=String(h.get("water_task",""))
++ if task.is_empty() and h.status in ["refilling","resupplying","returning_water"]:
++  task=h.status
++ if task.is_empty() and float(h.water)<=0.0001:
++  task="resupplying"
++ h.water_task=task
++ if not task.is_empty():
++  if task=="returning_water":
++   h.status="returning_water"
+    if s.nav.move(h,h.home,20.0,dt,s.clock.elapsed):
+-    h.status="working"; h.search_at=0.0
++    h.water_task=""; h.status="working"; h.search_at=0.0
+    return
+-  if h.status=="refilling":
++  if task=="refilling" and h.pos.distance_to(h.bank)<=1.0:
++   h.status="refilling"
+    h.water=minf(100.0,float(h.water)+20.0*dt)
+    if float(h.water)>=100.0:
+-    h.status="returning_water"
++    h.water_task="returning_water"; h.status="returning_water"
+    return
+-  if h.status!="resupplying":
+-   if h.status=="no_water_route" and s.clock.elapsed<float(h.search_at): return
++  # An interrupted refill may have fled away from its bank. Travel back before
++  # resuming refill, preserving the partially filled store and original home.
++  h.water_task="resupplying"
++  if h.status=="no_water_route" and s.clock.elapsed<float(h.search_at): return
++  if h.bank.x<0.0:
+    h.search_at=s.clock.elapsed+5.0
+    h.bank=s.nav.bank(h.pos)
+    if h.bank.x<0.0:
+     h.status="no_water_route"
+     return
+-   h.status="resupplying"
++  h.status="resupplying"
+   if s.nav.move(h,h.bank,20.0,dt,s.clock.elapsed):
+-   h.status="refilling"
++   h.water_task="refilling"; h.status="refilling"
+   return
+  if s.clock.elapsed>=float(h.search_at):
+   h.target_pos=_work_target(h,true)
+--- persistence_before.gd.txt
++++ scripts/poc2/simulation/persistence.gd
+@@ -211,6 +211,9 @@
+   if e.hp<=0.0 or e.hp>e.max_hp: return false
+   if category=="plants" and (catalog[e.kind].role!="crop" or e.age<0.0 or e.maturity!=catalog[e.kind].maturity or not candidate.state.occupancy_owners.has(int(e.owner))): return false
+   if category=="helpers" and (catalog[e.kind].role!="helper" or e.ammo<0 or e.ammo>100 or e.water<0 or e.water>100 or e.capacity!=100): return false
++ if category=="helpers":
++  if e.has("blocked_order") and not e.blocked_order is bool: return false
++  if e.has("water_task") and (not e.water_task is String or e.water_task not in ["","resupplying","refilling","returning_water"]): return false
+  if category=="enemies" and (e.kind not in ["boar","spider"] or e.hp<=0 or e.hp>e.max_hp): return false
+  if category=="nests" and (e.scale not in ["small","medium","large"] or e.kind not in ["boar","spider","mother"] or e.hp<=0 or e.hp>e.max_hp): return false
+  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
+--- session_before.gd.txt
++++ scripts/poc2/poc2_session.gd
+@@ -168,6 +168,7 @@
+   clock.advance(dt)
+   plant_system.advance(dt)
+   combat_system.advance(dt)
++  plant_system.cleanup_defeated()
+   income_fraction += (land_rate()+crop_rate())*dt/60.0
+   var earned: int = floori(income_fraction+0.0000001)
+   seeds += earned

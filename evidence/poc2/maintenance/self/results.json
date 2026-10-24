@@ -1,0 +1,131 @@
+{
+ "checks": [
+  {
+   "detail": "",
+   "name": "army_hidden_obstacle_not_leaked",
+   "pass": true
+  },
+  {
+   "detail": "unreachable",
+   "name": "army_blocked_wait_persists",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "army_blocked_wait_saved",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "army_new_order_recovers",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "gatlinger_hidden_obstacle_not_leaked",
+   "pass": true
+  },
+  {
+   "detail": "unreachable",
+   "name": "gatlinger_blocked_wait_persists",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "gatlinger_blocked_wait_saved",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "gatlinger_new_order_recovers",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "sprinkler_hidden_obstacle_not_leaked",
+   "pass": true
+  },
+  {
+   "detail": "unreachable",
+   "name": "sprinkler_blocked_wait_persists",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "sprinkler_blocked_wait_saved",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "sprinkler_new_order_recovers",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "partial_refill_flees_preserving_water",
+   "pass": true
+  },
+  {
+   "detail": "refilling",
+   "name": "partial_refill_restore_returns_to_bank",
+   "pass": true
+  },
+  {
+   "detail": 100.0,
+   "name": "partial_refill_finishes_at_existing_rate",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "return_trip_survives_flee",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "return_trip_restores_original_home",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "return_trip_completes",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "older_save_compatible",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "invalid_task_save_rejected_atomically",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "crop_combat_cleanup_same_tick",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "crop_save_after_fatal_tick",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "helper_combat_cleanup_same_tick",
+   "pass": true
+  },
+  {
+   "detail": "",
+   "name": "helper_save_after_fatal_tick",
+   "pass": true
+  }
+ ],
+ "fail": 0,
+ "not_run": [
+  "GPU rendering",
+  "OS physical input",
+  "3500s full sweep (unchanged)"
+ ],
+ "pass": 24
+}

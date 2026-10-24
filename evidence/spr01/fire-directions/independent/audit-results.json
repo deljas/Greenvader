@@ -1,0 +1,38 @@
+{
+  "head": "151a53f20255489ef08481e2a353258cd8ac559c",
+  "checks": [
+    {
+      "name": "frozen_runtime_and_code",
+      "status": "PASS",
+      "detail": {
+        "total": 206,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "frozen_source",
+      "status": "PASS",
+      "detail": {
+        "total": 203,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "native_import_settings",
+      "status": "PASS",
+      "detail": {
+        "total": 98,
+        "mismatches": []
+      }
+    }
+  ],
+  "source_manifest_shape": [
+    "assets/concepts/spr01/fire-directions-v1/author_export.py",
+    "assets/concepts/spr01/fire-directions-v1/build_preview.py",
+    "assets/concepts/spr01/fire-directions-v1/character-palette.json",
+    "assets/concepts/spr01/fire-directions-v1/comparison.gif",
+    "assets/concepts/spr01/fire-directions-v1/comparison.html"
+  ],
+  "source_check_count": 203,
+  "source_mismatches": []
+}

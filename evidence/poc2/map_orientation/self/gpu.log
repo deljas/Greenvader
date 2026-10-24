@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "name": "real_camera_ground_projection", "status": "PASS", "detail": { "max_angle_radians": 0.00000055446509 } }
+{ "name": "precision_before_draw", "status": "PASS", "detail": { "max_logic_error": 0.0 } }
+{ "name": "moving_mini_shared_snapped_center", "status": "PASS", "detail": { "display_center": "(772.0, 753.3334)", "player": "(771.3, 752.3)" } }
+{ "name": "helper_fixture", "status": "PASS", "detail": "" }
+{ "name": "map_pause", "status": "PASS", "detail": "" }
+{ "name": "diamond_fits_existing_frame", "status": "PASS", "detail": "[P: (208.0, 64.0), S: (224.0, 224.0)]" }
+{ "name": "zoom_2_4_cursor_anchor", "status": "PASS", "detail": { "zoom2_error": 0.0, "zoom4_error": 0.0 } }
+{ "name": "projected_icon_selection_upright_controls", "status": "PASS", "detail": "" }
+{ "name": "popup_owns_click", "status": "PASS", "detail": "" }
+{ "name": "projected_helper_command", "status": "FAIL", "detail": { "home": "(786.0, 754.0)", "clicked": "(722.0, 722.0)" } }
+{ "name": "diamond_exterior_no_command", "status": "PASS", "detail": "" }
+{ "name": "offscreen_selected_controls_hidden", "status": "PASS", "detail": "" }
+{ "name": "zoom_one_refits_world", "status": "FAIL", "detail": "" }
+{ "name": "unknown_enemy_not_disclosed", "status": "PASS", "detail": "" }
+{ "name": "integer_nearest_640_view", "status": "PASS", "detail": { "window": "(1280, 720)", "internal_image": "(640.0, 360.0)", "final_transform": "[X: (2.0, 0.0), Y: (0.0, 2.0), O: (0.0, 0.0)]" } }

@@ -1,0 +1,325 @@
+{
+  "status": "PASS",
+  "character_frames": 44,
+  "formation_frames": 44,
+  "frame_checks": [
+    {
+      "action": "seed",
+      "direction": "down",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "down",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "down",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "down",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "left",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "left",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "left",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "left",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "right",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "right",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "right",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "right",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "up",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "up",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "up",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "seed",
+      "direction": "up",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "down",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "down",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "down",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "down",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "down",
+      "frame": 4,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "down",
+      "frame": 5,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "down",
+      "frame": 6,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "left",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "left",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "left",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "left",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "left",
+      "frame": 4,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "left",
+      "frame": 5,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "left",
+      "frame": 6,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "right",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "right",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "right",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "right",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "right",
+      "frame": 4,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "right",
+      "frame": 5,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "right",
+      "frame": 6,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "up",
+      "frame": 0,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "up",
+      "frame": 1,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "up",
+      "frame": 2,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "up",
+      "frame": 3,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "up",
+      "frame": 4,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "up",
+      "frame": 5,
+      "size_palette_alpha_face_feet": true
+    },
+    {
+      "action": "water",
+      "direction": "up",
+      "frame": 6,
+      "size_palette_alpha_face_feet": true
+    }
+  ],
+  "front_water_byte_identical": true,
+  "front_seed_changed_pixels": [
+    [
+      7,
+      24
+    ],
+    [
+      8,
+      24
+    ],
+    [
+      15,
+      24
+    ],
+    [
+      16,
+      24
+    ],
+    [
+      7,
+      26
+    ],
+    [
+      16,
+      26
+    ]
+  ],
+  "left_right_not_mirror": true,
+  "timing_ms": {
+    "seed": {
+      "durations": [
+        66,
+        100,
+        100,
+        134
+      ],
+      "release": 66
+    },
+    "water": {
+      "durations": [
+        80,
+        100,
+        100,
+        120,
+        100,
+        120,
+        180
+      ],
+      "release": 400
+    }
+  },
+  "godot_import": "NOT_RUN (owned by runtime implementer)",
+  "browser_playback": "NOT_RUN",
+  "final_art_acceptance": "USER_PENDING"
+}

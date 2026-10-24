@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "name": "normal_current_scene_title_three_actions", "status": "PASS", "detail": { "menu": "title", "button_count": 3 } }
+{ "name": "title_help_f5_preserves_real_slot", "status": "PASS", "detail": { "menu": "help", "slot_unchanged": true } }
+{ "name": "title_help_returns_once", "status": "PASS", "detail": "" }
+{ "name": "title_new_game_enters_play", "status": "PASS", "detail": "" }
+{ "name": "supply_fixture", "status": "PASS", "detail": "" }
+{ "name": "help_hides_supply_and_pauses", "status": "PASS", "detail": "" }
+{ "name": "supply_help_restores_single_popup_amount_and_pause", "status": "PASS", "detail": { "menu": "placement_supply", "quantity": 37.0, "elapsed": 0.0 } }
+{ "name": "help_key_roundtrip_still_single_popup", "status": "PASS", "detail": "" }
+{ "name": "normal_play_f5_still_saves", "status": "PASS", "detail": true }

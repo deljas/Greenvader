@@ -1,0 +1,62 @@
+{
+ "checks": [
+  {
+   "detail": {
+    "button_count": 3,
+    "menu": "title"
+   },
+   "name": "normal_current_scene_title_three_actions",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "menu": "help",
+    "slot_unchanged": true
+   },
+   "name": "title_help_f5_preserves_real_slot",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "title_help_returns_once",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "title_new_game_enters_play",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "supply_fixture",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "help_hides_supply_and_pauses",
+   "status": "PASS"
+  },
+  {
+   "detail": {
+    "elapsed": 0.0,
+    "menu": "placement_supply",
+    "quantity": 37.0
+   },
+   "name": "supply_help_restores_single_popup_amount_and_pause",
+   "status": "PASS"
+  },
+  {
+   "detail": "",
+   "name": "help_key_roundtrip_still_single_popup",
+   "status": "PASS"
+  },
+  {
+   "detail": true,
+   "name": "normal_play_f5_still_saves",
+   "status": "PASS"
+  }
+ ],
+ "failures": 0,
+ "input": "Input.parse_input_event; root.unfocusable true",
+ "save_dir": "user://poc2_maintenance_independent_20261022"
+}
