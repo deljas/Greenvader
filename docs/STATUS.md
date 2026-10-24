@@ -5,8 +5,8 @@
 - PoC3の目的・機能範囲・優先順・全体受入条件はユーザー合意済みです。仕様は[POC3_SPEC.md](POC3_SPEC.md)、作業票の依存と実行計画は[03_DEVELOPMENT_PLAN.md](03_DEVELOPMENT_PLAN.md)、決定の集約は[DECISIONS.md](DECISIONS.md)を参照してください。
 - 履歴保全と通常起動入口の整理（POC3-SOURCE）は `aecdf15` で限定技術受入済みです。`4f1a79b` に既存素材・試作2361ファイル、`6429634` にPoC2・主人公統合・資料・証拠578ファイルを保存し、`poc2-before-poc3` を後者へ付与しました。これは既存成果の保全であり、新規検証ではありません。
 - `run_game.bat` はPoC2共有コードパスの `scenes/poc2.tscn` を起動し、ウィンドウとタイトル画面は「PoC3 作業版」を表示します。保存先/形式の先行分離（POC3-SAVE-BASE）は限定技術受入済みで、旧PoC・PoC2保存は読み込まず移行せず、旧領域へ書き込みません。旧ランチャー5本は削除されましたがタグから復元可能で、シーン・素材・コードの削除はありません。現役lab 7件は[起動一覧](../launchers/README.md)を参照してください。
-- PoC3ゲーム機能は開発中です。SOURCE、SAVE-BASE、VISIBILITY、MAP-INFO、PLANT-UI、INPUTに続き、AREA-SEEDは1/3/5/7幅の実播種・敵/巣への通常攻撃・予定プレビュー・着弾精算を限定技術受入しました。初回logicのfixture由来FAILと限定保存追試は別々に記録し、独立結果に合算していません。詳細と未確認は[検証記録](VALIDATION.md)を参照してください。これはPoC3全体の完成を示しません。
-- 仮値の最終バランスと楽しさはユーザー試遊待ちです。主要な失敗・未確認が残ればPoC3完了とは扱いません。現在WATER-GROWTHを実装中です。WORLD-LAYOUTとENEMY-TIERSは未接続準備のみです。旧セーブの進行移行は対象外です。
+- PoC3ゲーム機能は開発中です。SOURCE、SAVE-BASE、VISIBILITY、MAP-INFO、PLANT-UI、INPUT、AREA-SEEDに続き、WATER-GROWTHは栽培植物/草地の一度給水成長、保存復元、スプリンクラーの給水対象選択を限定技術受入しました。初回FAILと自己/独立追試は別々に記録し、結果を合算していません。全マップ100%やHELPERSの持ち場復帰・退避等は含みません。詳細と未確認は[検証記録](VALIDATION.md)を参照してください。これはPoC3全体の完成を示しません。
+- 仮値の最終バランスと楽しさはユーザー試遊待ちです。主要な失敗・未確認が残ればPoC3完了とは扱いません。現在はSPRITE-VIEW準備コードの自己GPU確認中です。その後に栽培価格・中央配置などの接続を進めます。WORLD-LAYOUTとENEMY-TIERSは未接続準備のみです。旧セーブの進行移行は対象外です。
 
 更新日: 2026-10-24
 

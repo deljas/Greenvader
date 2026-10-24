@@ -1,0 +1,258 @@
+diff --git a/scripts/poc2/poc2_session.gd b/scripts/poc2/poc2_session.gd
+index 7aa2f0c..0b475a3 100644
+--- a/scripts/poc2/poc2_session.gd
++++ b/scripts/poc2/poc2_session.gd
+@@ -119,6 +119,11 @@ func _build_systems(sync_spread: bool = true) -> void:
+  sim_tuning.mature_growth = 60000
+  sim_tuning.sprout1_growth = 15000
+  sim_tuning.sprout2_growth = 35000
++ # PoC3 uses one permanent watering; the original dry growth is the wet baseline.
++ sim_tuning.moisture_growth_min = 0.5
++ sim_tuning.moisture_growth_max = 1.0
++ sim_tuning.moisture_decay_per_tick = 0
++ state.permanent_water = true
+  clock.configure(sim_tuning)
+  growth = GrowthSim.new(state,sim_tuning)
+  spread = SpreadSim.new(state,sim_tuning,sync_spread)
+diff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd
+index d5c350e..f6addd1 100644
+--- a/scripts/poc2/simulation/persistence.gd
++++ b/scripts/poc2/simulation/persistence.gd
+@@ -157,6 +157,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
+    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,"invalid_entity_"+category)
+    # Earlier PoC3 working saves have no discovery field; never infer a discovery.
+    if category in ["nests","fossils"] and not entity.has("discovered"): entity.discovered=false
++   # Working PoC3 saves used a temporary wet_until before permanent watering.
++   if category=="plants" and not entity.has("watered"):
++    entity.watered=float(entity.wet_until)>float(data.clock.elapsed)
+    # Earlier PoC3 seed shots already paid one seed at launch and used width 1.
+    if category=="shots" and entity.kind=="seed":
+     entity.sow_width=int(entity.get("sow_width",1))
+@@ -218,7 +221,7 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
+   if e.has(key) and not (e[key] is int or e[key] is float): return false
+  for key: String in ["home","target_pos","bank","charge_dir","target","direction"]:
+   if e.has(key) and not e[key] is Vector2: return false
+- for key: String in ["mature","moving","initial","strong","hit_charge","mother","active","found","discovered"]:
++ for key: String in ["mature","watered","moving","initial","strong","hit_charge","mother","active","found","discovered"]:
+   if e.has(key) and not e[key] is bool: return false
+  if category in ["plants","helpers"]:
+   if not catalog.has(e.kind) or not e.cell is Vector2i or not e.size is Vector2i or e.cost!=catalog[e.kind].cost or e.max_hp!=catalog[e.kind].hp: return false
+diff --git a/scripts/poc2/simulation/plants.gd b/scripts/poc2/simulation/plants.gd
+index a5a1d11..080cb13 100644
+--- a/scripts/poc2/simulation/plants.gd
++++ b/scripts/poc2/simulation/plants.gd
+@@ -44,7 +44,7 @@ func place(kind: String,cell: Vector2i,ammo: int,helper: bool) -> Dictionary:
+   p.merge({"home":pos,"status":"working","ammo":ammo,"water":100.0 if kind=="sprinkler" else 0.0,"capacity":100,"attack_at":0.0,"work_at":0.0,"search_at":0.0,"target_pos":pos,"route_at":-1.0,"moving":false,"blocked_order":false,"water_task":"","bank":Vector2(-1,-1),"refill_until":-1.0})
+   s.helpers.append(p)
+  else:
+-  p.merge({"age":0.0,"maturity":float(def.maturity),"mature":false,"wet_until":0.0})
++  p.merge({"age":0.0,"maturity":float(def.maturity),"mature":false,"wet_until":0.0,"watered":false})
+   s.plants.append(p)
+  return s.result(true,"",{"id":id})
+ 
+@@ -104,11 +104,30 @@ func water_at(pos: Vector2) -> Dictionary:
+  _wet(pos,14.0,5.0)
+  return s.result(true)
+ 
+-func _wet(pos: Vector2,radius: float,duration: float) -> void:
++func _wet(pos: Vector2,radius: float,duration: float) -> int:
++ var changed: int=0
++ if s.state.permanent_water:
++  var tiles: PackedInt32Array=Landing.tiles_in_radius(s.state,4,pos,radius)
++  # Only a first grass watering needs to settle split-sweep lag. Repeated water,
++  # bare / mature terrain and crops must not force a whole-active-set sweep.
++  for index: int in tiles:
++   if s.state.stage[index]>0 and s.state.stage[index]<4 and s.state.moisture[index]==0:
++    s.growth.catch_up()
++    break
++  # Catch-up may have matured a candidate; recheck before applying water.
++  for index: int in tiles:
++   if s.state.stage[index]>0 and s.state.stage[index]<4 and s.state.moisture[index]==0:
++    if s.state.set_moisture(index,100): changed+=1
++  for p: Dictionary in s.plants:
++   if not p.mature and not p.get("watered",false) and p.pos.distance_to(pos)<=radius:
++    p.watered=true
++    changed+=1
++  return changed
+  Landing.splash_water(s.state,4,pos,radius,100,100)
+  for p: Dictionary in s.plants:
+   if not p.mature and p.pos.distance_to(pos)<=radius:
+    p.wet_until=maxf(float(p.wet_until),s.clock.elapsed+duration)
++ return changed
+ 
+ func cleanup_defeated() -> void:
+  # Also called after combat, before this tick can be saved.
+@@ -122,7 +141,8 @@ func advance(dt: float) -> void:
+  cleanup_defeated()
+  for p: Dictionary in s.plants.duplicate():
+   if not p.mature:
+-   p.age=float(p.age)+dt*(2.0 if float(p.wet_until)>s.clock.elapsed else 1.0)
++   var speed: float=(1.0 if p.get("watered",false) else 0.5) if s.state.permanent_water else (2.0 if float(p.wet_until)>s.clock.elapsed else 1.0)
++   p.age=float(p.age)+dt*speed
+    p.mature=float(p.age)>=float(p.maturity)
+  for h: Dictionary in s.helpers.duplicate():
+   if s.clock.elapsed-float(h.last_combat)>=8.0:
+@@ -226,13 +246,16 @@ func _work_target(h: Dictionary,growing: bool) -> Vector2:
+  var answer: Vector2=Vector2(-1,-1)
+  if growing:
+   for p: Dictionary in s.plants:
+-   if not p.mature and p.pos.distance_to(h.home)<=radius and p.pos.distance_squared_to(h.pos)<best:
++   if not p.mature and (not s.state.permanent_water or not p.get("watered",false)) and p.pos.distance_to(h.home)<=radius and p.pos.distance_squared_to(h.pos)<best:
+     var route: Array=s.nav.route(h.pos,p.pos)
+     if not route.is_empty():
+      best=p.pos.distance_squared_to(h.pos); answer=p.pos
++  if s.state.permanent_water and answer.x>=0.0:
++   return answer
+  for index: int in Landing.tiles_in_radius(s.state,4,h.home,radius):
+   var valid: bool=s.state.stage[index]>0 and s.state.stage[index]<4 if growing else s.state.can_plant(index)
+   if not valid: continue
++  if growing and s.state.permanent_water and s.state.moisture[index]>0: continue
+   var p: Vector2=Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width))
+   var distance: float=h.pos.distance_squared_to(p)
+   if distance<best:
+@@ -306,5 +329,10 @@ func _sprinkler(h: Dictionary,dt: float) -> void:
+   h.status="working"; s.nav.move(h,target,20.0,dt,s.clock.elapsed)
+  else:
+   h.status="watering"
+-  _wet(h.pos,20.0,1.0)
+-  h.water=maxf(0.0,float(h.water)-dt)
++  var changed: int=_wet(h.pos,20.0,1.0)
++  if s.state.permanent_water:
++   if changed>0: h.water=maxf(0.0,float(h.water)-1.0)
++   h.search_at=0.0
++   h.target_pos=Vector2(-1,-1)
++  else:
++   h.water=maxf(0.0,float(h.water)-dt)
+diff --git a/scripts/world/growth_sim.gd b/scripts/world/growth_sim.gd
+index 753980b..b9e1d5a 100644
+--- a/scripts/world/growth_sim.gd
++++ b/scripts/world/growth_sim.gd
+@@ -188,11 +188,14 @@ func _process_window(limit: int) -> void:
+ 			growth[index] = g
+ 			if g >= floors[s + 1]:
+ 				var wanted: int = stage_for_growth(g)
+-				world.set_stage(index, wanted)
++				world.set_stage(index, wanted, false)
+ 				changes += 1
+ 				s = wanted
+ 		var m: int = m0
+-		if m > 0:
++		if world.permanent_water and (s <= WorldState.STAGE_EMPTY or s >= WorldState.STAGE_MATURE):
++			m = 0
++			moisture[index] = 0
++		elif m > 0:
+ 			m -= decay * elapsed
+ 			if m < 0:
+ 				m = 0
+@@ -231,7 +234,9 @@ func to_dict() -> Dictionary:
+ 	return {
+ 		"version": 1,
+ 		"ticks": ticks,
+-		"cursor": cursor,
++		# External tile removal may shorten the set between ticks. End-of-set and
++		# zero both mean "start the next sweep"; save their canonical representation.
++		"cursor": cursor if cursor < world.active_tiles.size() else 0,
+ 		"active": WorldState._pack_bytes(world.active_tiles.to_byte_array()),
+ 		"lag": WorldState._pack_bytes(lag.to_byte_array()),
+ 	}
+@@ -245,8 +250,15 @@ func load_dict(data: Dictionary) -> bool:
+ 	var lag: PackedInt32Array = WorldState._unpack_bytes(data["lag"]).to_int32_array()
+ 	if order.size() != lag.size() or order.size() != world.active_tiles.size():
+ 		return false
++	if saved_ticks < 0:
++		return false
++	var seen: Dictionary = {}
+ 	for index: int in order:
+-		if index < 0 or index >= world.tile_count() or world.active_flag[index] == 0:
++		if index < 0 or index >= world.tile_count() or world.active_flag[index] == 0 or seen.has(index):
++			return false
++		seen[index] = true
++	for elapsed: int in lag:
++		if elapsed < 0 or elapsed > saved_ticks:
+ 			return false
+ 	ticks = saved_ticks
+ 	world.growth_tick = saved_ticks
+@@ -254,4 +266,21 @@ func load_dict(data: Dictionary) -> bool:
+ 	for i: int in order.size():
+ 		world.last_growth_tick[order[i]] = saved_ticks - lag[i]
+ 	cursor = clampi(int(data.get("cursor", 0)), 0, order.size())
++	if world.permanent_water:
++		# Migrate earlier PoC3 transient moisture only after validating its original
++		# active order/lag. Filter inactive wet terrain without rebuilding growing lag.
++		var kept: PackedInt32Array = PackedInt32Array()
++		var next_cursor: int = 0
++		for at: int in order.size():
++			var index: int = order[at]
++			if world.stage[index] > WorldState.STAGE_EMPTY and world.stage[index] < WorldState.STAGE_MATURE:
++				if at < cursor:
++					next_cursor += 1
++				kept.append(index)
++			else:
++				world.active_flag[index] = 0
++		for index: int in world.tile_count():
++			world.moisture[index] = 100 if world.stage[index] > WorldState.STAGE_EMPTY and world.stage[index] < WorldState.STAGE_MATURE and world.moisture[index] > 0 else 0
++		world.active_tiles = kept
++		cursor = next_cursor if next_cursor < kept.size() else 0
+ 	return true
+diff --git a/scripts/world/world_state.gd b/scripts/world/world_state.gd
+index 7b0ec34..7e9b7e0 100644
+--- a/scripts/world/world_state.gd
++++ b/scripts/world/world_state.gd
+@@ -48,6 +48,9 @@ var plant_id: PackedByteArray = PackedByteArray()
+ var stage: PackedByteArray = PackedByteArray()
+ var growth: PackedInt32Array = PackedInt32Array()
+ var moisture: PackedByteArray = PackedByteArray()
++## Opt-in PoC3 rule: a growing grass tile is dry (0) or watered once (100).
++## Legacy simulations keep transient moisture and their existing growth behavior.
++var permanent_water: bool = false
+ var fertility: PackedByteArray = PackedByteArray()
+ var sprout_slot: PackedByteArray = PackedByteArray()
+ ## Occupancy container for 2x2 / 4x4 plants (P1-05, P3): owner id per tile, 0 = free.
+@@ -230,10 +233,24 @@ func activate(index: int) -> void:
+ 		last_growth_tick[index] = growth_tick
+ 		active_tiles.append(index)
+ 
++## Remove only this tile; other tiles retain their pending growth ticks and order.
++func deactivate(index: int) -> void:
++	if active_flag[index] == 0:
++		return
++	active_flag[index] = 0
++	last_growth_tick[index] = growth_tick
++	var at: int = active_tiles.find(index)
++	if at >= 0:
++		active_tiles.remove_at(at)
++
+ ## Sets the moisture of a target tile and keeps the active set right. Non-target tiles are refused.
+ func set_moisture(index: int, value: int) -> bool:
+ 	if index < 0 or index >= tile_count() or target[index] == 0:
+ 		return false
++	if permanent_water:
++		if stage[index] <= STAGE_EMPTY or stage[index] >= STAGE_MATURE:
++			return false
++		value = 100 if value > 0 else 0
+ 	moisture[index] = clampi(value, 0, 255)
+ 	if value > 0:
+ 		activate(index)
+@@ -252,7 +269,7 @@ func can_plant(index: int) -> bool:
+ ## Sets a growth stage directly (used by tick logic later; also the debug / test entry point).
+ ## Refuses non-target tiles, so shots at non-targets can never raise the greening count.
+ ## Maintains the greening counter and the dirty list. Returns false if refused.
+-func set_stage(index: int, new_stage: int) -> bool:
++func set_stage(index: int, new_stage: int, sync_growth: bool = true) -> bool:
+ 	if index < 0 or index >= tile_count() or new_stage < STAGE_EMPTY or new_stage > STAGE_MATURE:
+ 		return false
+ 	if target[index] == 0:
+@@ -276,6 +293,13 @@ func set_stage(index: int, new_stage: int) -> bool:
+ 	if old_stage == STAGE_MATURE and new_stage != STAGE_MATURE:
+ 		fruitless[index] = 0
+ 	stage[index] = new_stage
++	# GrowthSim owns detached packed arrays during its hot loop and synchronizes them
++	# itself. External destruction / reseeding must be saveable before the next tick.
++	if permanent_water and sync_growth:
++		if new_stage in [STAGE_EMPTY, STAGE_MATURE] or old_stage in [STAGE_EMPTY, STAGE_MATURE]:
++			moisture[index] = 0
++		if new_stage in [STAGE_EMPTY, STAGE_MATURE]:
++			deactivate(index)
+ 	if (old_stage == STAGE_MATURE) != (new_stage == STAGE_MATURE):
+ 		var delta: int = 1 if new_stage == STAGE_MATURE else -1
+ 		mature_chunk_count[chunk_of(index)] += delta

@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":"再開しました","name":"actual_session_json_save_restore_after_food_damage","status":"PASS"}
+save growth before/after: { "version": 1, "ticks": 1, "cursor": 0, "active": { "n": 4, "z": "KLUv/SAEIQAAt6EAAA==" }, "lag": { "n": 4, "z": "KLUv/SAEIQAAAQAAAA==" } } / { "version": 1, "ticks": 1, "cursor": 0, "active": { "n": 4, "z": "KLUv/SAEIQAAt6EAAA==" }, "lag": { "n": 4, "z": "KLUv/SAEIQAAAQAAAA==" } }
+{"detail":"","name":"actual_restore_keeps_water_progress_and_lag","status":"PASS"}
+{"detail":{"ok":false,"reason":"invalid_entity_plants"},"name":"invalid_watered_rejected_atomically","status":"PASS"}
+migration growth before/after: { "version": 1, "ticks": 1, "cursor": 0, "active": { "n": 4, "z": "KLUv/SAEIQAAt6EAAA==" }, "lag": { "n": 4, "z": "KLUv/SAEIQAAAQAAAA==" } } / { "version": 1, "ticks": 1, "cursor": 0, "active": { "n": 4, "z": "KLUv/SAEIQAAt6EAAA==" }, "lag": { "n": 4, "z": "KLUv/SAEIQAAAQAAAA==" } }
+{"detail":{"ok":true,"reason":"loaded"},"name":"working_save_water_migration_preserves_growing_lag","status":"PASS"}

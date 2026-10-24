@@ -119,6 +119,11 @@ func _build_systems(sync_spread: bool = true) -> void:
  sim_tuning.mature_growth = 60000
  sim_tuning.sprout1_growth = 15000
  sim_tuning.sprout2_growth = 35000
+ # PoC3 uses one permanent watering; the original dry growth is the wet baseline.
+ sim_tuning.moisture_growth_min = 0.5
+ sim_tuning.moisture_growth_max = 1.0
+ sim_tuning.moisture_decay_per_tick = 0
+ state.permanent_water = true
  clock.configure(sim_tuning)
  growth = GrowthSim.new(state,sim_tuning)
  spread = SpreadSim.new(state,sim_tuning,sync_spread)

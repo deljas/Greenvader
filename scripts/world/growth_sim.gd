@@ -188,11 +188,14 @@ func _process_window(limit: int) -> void:
 			growth[index] = g
 			if g >= floors[s + 1]:
 				var wanted: int = stage_for_growth(g)
-				world.set_stage(index, wanted)
+				world.set_stage(index, wanted, false)
 				changes += 1
 				s = wanted
 		var m: int = m0
-		if m > 0:
+		if world.permanent_water and (s <= WorldState.STAGE_EMPTY or s >= WorldState.STAGE_MATURE):
+			m = 0
+			moisture[index] = 0
+		elif m > 0:
 			m -= decay * elapsed
 			if m < 0:
 				m = 0
@@ -231,7 +234,9 @@ func to_dict() -> Dictionary:
 	return {
 		"version": 1,
 		"ticks": ticks,
-		"cursor": cursor,
+		# External tile removal may shorten the set between ticks. End-of-set and
+		# zero both mean "start the next sweep"; save their canonical representation.
+		"cursor": cursor if cursor < world.active_tiles.size() else 0,
 		"active": WorldState._pack_bytes(world.active_tiles.to_byte_array()),
 		"lag": WorldState._pack_bytes(lag.to_byte_array()),
 	}
@@ -245,8 +250,15 @@ func load_dict(data: Dictionary) -> bool:
 	var lag: PackedInt32Array = WorldState._unpack_bytes(data["lag"]).to_int32_array()
 	if order.size() != lag.size() or order.size() != world.active_tiles.size():
 		return false
+	if saved_ticks < 0:
+		return false
+	var seen: Dictionary = {}
 	for index: int in order:
-		if index < 0 or index >= world.tile_count() or world.active_flag[index] == 0:
+		if index < 0 or index >= world.tile_count() or world.active_flag[index] == 0 or seen.has(index):
+			return false
+		seen[index] = true
+	for elapsed: int in lag:
+		if elapsed < 0 or elapsed > saved_ticks:
 			return false
 	ticks = saved_ticks
 	world.growth_tick = saved_ticks
@@ -254,4 +266,21 @@ func load_dict(data: Dictionary) -> bool:
 	for i: int in order.size():
 		world.last_growth_tick[order[i]] = saved_ticks - lag[i]
 	cursor = clampi(int(data.get("cursor", 0)), 0, order.size())
+	if world.permanent_water:
+		# Migrate earlier PoC3 transient moisture only after validating its original
+		# active order/lag. Filter inactive wet terrain without rebuilding growing lag.
+		var kept: PackedInt32Array = PackedInt32Array()
+		var next_cursor: int = 0
+		for at: int in order.size():
+			var index: int = order[at]
+			if world.stage[index] > WorldState.STAGE_EMPTY and world.stage[index] < WorldState.STAGE_MATURE:
+				if at < cursor:
+					next_cursor += 1
+				kept.append(index)
+			else:
+				world.active_flag[index] = 0
+		for index: int in world.tile_count():
+			world.moisture[index] = 100 if world.stage[index] > WorldState.STAGE_EMPTY and world.stage[index] < WorldState.STAGE_MATURE and world.moisture[index] > 0 else 0
+		world.active_tiles = kept
+		cursor = next_cursor if next_cursor < kept.size() else 0
 	return true

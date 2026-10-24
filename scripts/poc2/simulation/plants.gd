@@ -44,7 +44,7 @@ func place(kind: String,cell: Vector2i,ammo: int,helper: bool) -> Dictionary:
   p.merge({"home":pos,"status":"working","ammo":ammo,"water":100.0 if kind=="sprinkler" else 0.0,"capacity":100,"attack_at":0.0,"work_at":0.0,"search_at":0.0,"target_pos":pos,"route_at":-1.0,"moving":false,"blocked_order":false,"water_task":"","bank":Vector2(-1,-1),"refill_until":-1.0})
   s.helpers.append(p)
  else:
-  p.merge({"age":0.0,"maturity":float(def.maturity),"mature":false,"wet_until":0.0})
+  p.merge({"age":0.0,"maturity":float(def.maturity),"mature":false,"wet_until":0.0,"watered":false})
   s.plants.append(p)
  return s.result(true,"",{"id":id})
 
@@ -104,11 +104,30 @@ func water_at(pos: Vector2) -> Dictionary:
  _wet(pos,14.0,5.0)
  return s.result(true)
 
-func _wet(pos: Vector2,radius: float,duration: float) -> void:
+func _wet(pos: Vector2,radius: float,duration: float) -> int:
+ var changed: int=0
+ if s.state.permanent_water:
+  var tiles: PackedInt32Array=Landing.tiles_in_radius(s.state,4,pos,radius)
+  # Only a first grass watering needs to settle split-sweep lag. Repeated water,
+  # bare / mature terrain and crops must not force a whole-active-set sweep.
+  for index: int in tiles:
+   if s.state.stage[index]>0 and s.state.stage[index]<4 and s.state.moisture[index]==0:
+    s.growth.catch_up()
+    break
+  # Catch-up may have matured a candidate; recheck before applying water.
+  for index: int in tiles:
+   if s.state.stage[index]>0 and s.state.stage[index]<4 and s.state.moisture[index]==0:
+    if s.state.set_moisture(index,100): changed+=1
+  for p: Dictionary in s.plants:
+   if not p.mature and not p.get("watered",false) and p.pos.distance_to(pos)<=radius:
+    p.watered=true
+    changed+=1
+  return changed
  Landing.splash_water(s.state,4,pos,radius,100,100)
  for p: Dictionary in s.plants:
   if not p.mature and p.pos.distance_to(pos)<=radius:
    p.wet_until=maxf(float(p.wet_until),s.clock.elapsed+duration)
+ return changed
 
 func cleanup_defeated() -> void:
  # Also called after combat, before this tick can be saved.
@@ -122,7 +141,8 @@ func advance(dt: float) -> void:
  cleanup_defeated()
  for p: Dictionary in s.plants.duplicate():
   if not p.mature:
-   p.age=float(p.age)+dt*(2.0 if float(p.wet_until)>s.clock.elapsed else 1.0)
+   var speed: float=(1.0 if p.get("watered",false) else 0.5) if s.state.permanent_water else (2.0 if float(p.wet_until)>s.clock.elapsed else 1.0)
+   p.age=float(p.age)+dt*speed
    p.mature=float(p.age)>=float(p.maturity)
  for h: Dictionary in s.helpers.duplicate():
   if s.clock.elapsed-float(h.last_combat)>=8.0:
@@ -226,13 +246,16 @@ func _work_target(h: Dictionary,growing: bool) -> Vector2:
  var answer: Vector2=Vector2(-1,-1)
  if growing:
   for p: Dictionary in s.plants:
-   if not p.mature and p.pos.distance_to(h.home)<=radius and p.pos.distance_squared_to(h.pos)<best:
+   if not p.mature and (not s.state.permanent_water or not p.get("watered",false)) and p.pos.distance_to(h.home)<=radius and p.pos.distance_squared_to(h.pos)<best:
     var route: Array=s.nav.route(h.pos,p.pos)
     if not route.is_empty():
      best=p.pos.distance_squared_to(h.pos); answer=p.pos
+  if s.state.permanent_water and answer.x>=0.0:
+   return answer
  for index: int in Landing.tiles_in_radius(s.state,4,h.home,radius):
   var valid: bool=s.state.stage[index]>0 and s.state.stage[index]<4 if growing else s.state.can_plant(index)
   if not valid: continue
+  if growing and s.state.permanent_water and s.state.moisture[index]>0: continue
   var p: Vector2=Coords.cell_center_logic(Vector2i(index%s.state.width,index/s.state.width))
   var distance: float=h.pos.distance_squared_to(p)
   if distance<best:
@@ -306,5 +329,10 @@ func _sprinkler(h: Dictionary,dt: float) -> void:
   h.status="working"; s.nav.move(h,target,20.0,dt,s.clock.elapsed)
  else:
   h.status="watering"
-  _wet(h.pos,20.0,1.0)
-  h.water=maxf(0.0,float(h.water)-dt)
+  var changed: int=_wet(h.pos,20.0,1.0)
+  if s.state.permanent_water:
+   if changed>0: h.water=maxf(0.0,float(h.water)-1.0)
+   h.search_at=0.0
+   h.target_pos=Vector2(-1,-1)
+  else:
+   h.water=maxf(0.0,float(h.water)-dt)

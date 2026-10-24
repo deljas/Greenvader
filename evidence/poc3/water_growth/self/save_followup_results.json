@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "detail": "再開しました",
+      "name": "actual_session_json_save_restore_after_food_damage",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "actual_restore_keeps_water_progress_and_lag",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_plants"
+      },
+      "name": "invalid_watered_rejected_atomically",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": true,
+        "reason": "loaded"
+      },
+      "name": "working_save_water_migration_preserves_growing_lag",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "GPU rendering",
+    "native physical input",
+    "full regression reserved for integration"
+  ]
+}

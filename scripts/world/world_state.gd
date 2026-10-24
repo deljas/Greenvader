@@ -48,6 +48,9 @@ var plant_id: PackedByteArray = PackedByteArray()
 var stage: PackedByteArray = PackedByteArray()
 var growth: PackedInt32Array = PackedInt32Array()
 var moisture: PackedByteArray = PackedByteArray()
+## Opt-in PoC3 rule: a growing grass tile is dry (0) or watered once (100).
+## Legacy simulations keep transient moisture and their existing growth behavior.
+var permanent_water: bool = false
 var fertility: PackedByteArray = PackedByteArray()
 var sprout_slot: PackedByteArray = PackedByteArray()
 ## Occupancy container for 2x2 / 4x4 plants (P1-05, P3): owner id per tile, 0 = free.
@@ -230,10 +233,24 @@ func activate(index: int) -> void:
 		last_growth_tick[index] = growth_tick
 		active_tiles.append(index)
 
+## Remove only this tile; other tiles retain their pending growth ticks and order.
+func deactivate(index: int) -> void:
+	if active_flag[index] == 0:
+		return
+	active_flag[index] = 0
+	last_growth_tick[index] = growth_tick
+	var at: int = active_tiles.find(index)
+	if at >= 0:
+		active_tiles.remove_at(at)
+
 ## Sets the moisture of a target tile and keeps the active set right. Non-target tiles are refused.
 func set_moisture(index: int, value: int) -> bool:
 	if index < 0 or index >= tile_count() or target[index] == 0:
 		return false
+	if permanent_water:
+		if stage[index] <= STAGE_EMPTY or stage[index] >= STAGE_MATURE:
+			return false
+		value = 100 if value > 0 else 0
 	moisture[index] = clampi(value, 0, 255)
 	if value > 0:
 		activate(index)
@@ -252,7 +269,7 @@ func can_plant(index: int) -> bool:
 ## Sets a growth stage directly (used by tick logic later; also the debug / test entry point).
 ## Refuses non-target tiles, so shots at non-targets can never raise the greening count.
 ## Maintains the greening counter and the dirty list. Returns false if refused.
-func set_stage(index: int, new_stage: int) -> bool:
+func set_stage(index: int, new_stage: int, sync_growth: bool = true) -> bool:
 	if index < 0 or index >= tile_count() or new_stage < STAGE_EMPTY or new_stage > STAGE_MATURE:
 		return false
 	if target[index] == 0:
@@ -276,6 +293,13 @@ func set_stage(index: int, new_stage: int) -> bool:
 	if old_stage == STAGE_MATURE and new_stage != STAGE_MATURE:
 		fruitless[index] = 0
 	stage[index] = new_stage
+	# GrowthSim owns detached packed arrays during its hot loop and synchronizes them
+	# itself. External destruction / reseeding must be saveable before the next tick.
+	if permanent_water and sync_growth:
+		if new_stage in [STAGE_EMPTY, STAGE_MATURE] or old_stage in [STAGE_EMPTY, STAGE_MATURE]:
+			moisture[index] = 0
+		if new_stage in [STAGE_EMPTY, STAGE_MATURE]:
+			deactivate(index)
 	if (old_stage == STAGE_MATURE) != (new_stage == STAGE_MATURE):
 		var delta: int = 1 if new_stage == STAGE_MATURE else -1
 		mature_chunk_count[chunk_of(index)] += delta

@@ -157,6 +157,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
    if not entity is Dictionary or not _valid_entity(entity,category,candidate,s.CATALOG): return s.result(false,"invalid_entity_"+category)
    # Earlier PoC3 working saves have no discovery field; never infer a discovery.
    if category in ["nests","fossils"] and not entity.has("discovered"): entity.discovered=false
+   # Working PoC3 saves used a temporary wet_until before permanent watering.
+   if category=="plants" and not entity.has("watered"):
+    entity.watered=float(entity.wet_until)>float(data.clock.elapsed)
    # Earlier PoC3 seed shots already paid one seed at launch and used width 1.
    if category=="shots" and entity.kind=="seed":
     entity.sow_width=int(entity.get("sow_width",1))
@@ -218,7 +221,7 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
   if e.has(key) and not (e[key] is int or e[key] is float): return false
  for key: String in ["home","target_pos","bank","charge_dir","target","direction"]:
   if e.has(key) and not e[key] is Vector2: return false
- for key: String in ["mature","moving","initial","strong","hit_charge","mother","active","found","discovered"]:
+ for key: String in ["mature","watered","moving","initial","strong","hit_charge","mother","active","found","discovered"]:
   if e.has(key) and not e[key] is bool: return false
  if category in ["plants","helpers"]:
   if not catalog.has(e.kind) or not e.cell is Vector2i or not e.size is Vector2i or e.cost!=catalog[e.kind].cost or e.max_hp!=catalog[e.kind].hp: return false

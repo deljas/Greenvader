@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":{"age_at_water":9.0,"final_age":45.0,"first":1,"repeat":0},"id":"CROP_PROGRESS_REPEAT","status":"PASS"}
+{"detail":"","id":"CROP_REPLANT_DRY","status":"PASS"}
+{"detail":{"after_2_wet_seconds":7500,"at_water":3500,"lag_before":3},"id":"GRASS_PARTIAL_PENDING_LAG","status":"PASS"}
+{"detail":"","id":"GRASS_REPEAT_NO_EXTRA_SWEEP","status":"PASS"}
+{"detail":"","id":"GRASS_EATEN_REGROW_DRY","status":"PASS"}
+{"detail":"","id":"LEGACY_OPT_IN_FALSE","status":"PASS"}
+{"detail":{"dry_crop":"(46.0, 50.0)","target":"(46.0, 50.0)"},"id":"SPRINKLER_CROP_FIRST_WET_SKIP","status":"PASS"}
+{"detail":{"next":"(-1.0, -1.0)","water_first":5.0,"water_second":5.0},"id":"SPRINKLER_ONE_CHARGE_RESELECT","status":"PASS"}
+{"detail":{"full_state_equal":true,"growth":{"active":{"n":12,"z":"KLUv/SAMYQAAtqEAALehAAC4oQAA"},"cursor":0,"lag":{"n":12,"z":"KLUv/SAMYQAAAQAAAAAAAAADAAAA"},"ticks":3,"version":1},"loaded":true,"saved":true},"id":"JSON_SAVE_IMMEDIATE_DAMAGE","status":"PASS"}
+{"detail":"","id":"JSON_SAME_TICKS_CONTINUATION","status":"FAIL"}
+{"detail":{"ok":false,"reason":"invalid_entity_plants"},"id":"WATERED_NON_BOOL_ATOMIC_REJECT","status":"PASS"}
+{"detail":{"ok":true,"reason":"loaded"},"id":"MIGRATION_EQUAL_CLOCK_DRY_GRASS_WET","status":"PASS"}

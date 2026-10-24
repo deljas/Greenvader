@@ -1,0 +1,91 @@
+{
+  "utc": "2026-10-24T08:10:59.2590608Z",
+  "head": "6364f290b9bdd9181c21816df370cbb3a98eaf4a",
+  "files": [
+    {
+      "path": "scripts/world/growth_sim.gd",
+      "sha256": "9ACFB73AE571A535955B9BF8AF69A2BBA2964D9FE674E43BB3CDFB59943D342E",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/world/world_state.gd",
+      "sha256": "9CE7B1833E8367BDB4CBA1A1D42C1312AD1C2052FCD445BCBD8DE0D50F16CABA",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "AA9109C4EF7E30B95FC72ECB689F6D22175E381B3859BE9D6B2E446EBFE0886B",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "sha256": "BF7EFED61388BC2D7DB0D9D6E387D2337D2F8262EEEE76390A8FB4C634941B4A",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "BFD8392E451B5690B100156790BADD67491ACB20B4BFA1F5E80F91FB26B88F8E",
+      "unchanged": true
+    },
+    {
+      "path": "tests/poc3/water_growth/self_logic.gd",
+      "sha256": "1C0731ACA264C68D2F97DE6B30484BF33F6ECF392666991490BF11DA694C0D0C",
+      "unchanged": true
+    },
+    {
+      "path": "tests/poc3/water_growth/self_followup.gd",
+      "sha256": "D99771A8C5E1A19B61BDD43F9F42E95B119711A0C4D6ED3183834D1530455B28",
+      "unchanged": true
+    },
+    {
+      "path": "tests/poc3/water_growth/self_run.ps1",
+      "sha256": "A483FF71BE15F73AB1D5FAB2BCAB44505445AEC456709B7C5D95D4F0F65C58D9",
+      "unchanged": true
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8",
+      "unchanged": true
+    },
+    {
+      "path": "data/sim_tuning.gd",
+      "sha256": "907E65D3A6E755636D52F90A06D29FB36335676AB74A3D75F2A6CE5D71A85FAB",
+      "unchanged": true
+    },
+    {
+      "path": "data/poc2/maps/town_02.json",
+      "sha256": "5443A34A03DB271875A28121AFD3B1C7519F8B4C4A65A86D6D9FCF8576017AC7",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/world/spread_sim.gd",
+      "sha256": "9D349173758DC779F6782F1A90A7E4065D1EBD5D0D1FC916A8C6D3CC5C029376",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/world/far_seed_sim.gd",
+      "sha256": "4FD24BBE301C00AFF3E74365B718EBF0CD83CA226B4B49C4F054B456449187EA",
+      "unchanged": true
+    }
+  ],
+  "old_saves": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0",
+      "unchanged": true
+    }
+  ],
+  "process_method": "Get-Process",
+  "processes": [],
+  "test_sha256": "82170E6E8E4FBD51836BC07AB89F0EA5DC26E972FBC839580356EB67C254762E"
+}

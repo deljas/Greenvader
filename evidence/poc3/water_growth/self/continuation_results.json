@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "growth": 3000,
+        "moisture": 100,
+        "ticks": 3
+      },
+      "name": "saved_food_damage_continues_same_ticks_full_state",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "repeat_water_does_not_sweep_unrelated_lag",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "sunlight_provider_maturity_clears_water_and_active",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

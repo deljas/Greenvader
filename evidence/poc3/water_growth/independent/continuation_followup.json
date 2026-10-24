@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "id": "JSON_SAME_TICKS_CONTINUATION",
+      "status": "PASS"
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": 0,
+  "user_dir": "C:/godot/greenvader/evidence/poc3/water_growth/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

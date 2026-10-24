@@ -1,0 +1,174 @@
+{
+  "checks": [
+    {
+      "name": "watermelon_dry_180",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "watermelon_wet_90_permanent",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "watermelon_partial_60_dry_then_60_wet_no_stack",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "removed_replanted_crop_starts_dry",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "destroyed_replanted_crop_starts_dry",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "catalog_base_times",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "grass_dry_60",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "grass_wet_30",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "split_lag_partial_water_no_retroactive_boost",
+      "status": "PASS",
+      "detail": {
+        "at_water": 10000,
+        "pending_before": 2
+      },
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "food_damage_active_order_lag_immediate_restore",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "food_damage_regrowth_starts_dry",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "water_empty_mature_no_prewater",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "legacy_opt_in_defaults_unchanged",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "sprinkler_crop_priority_over_nearer_grass",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "sprinkler_one_water_then_reselect_no_wet_repeat",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "isolated_dry_autonomous_100_percent",
+      "status": "PASS",
+      "detail": {
+        "bound_seconds": 30,
+        "greened": 30,
+        "targets": 30
+      },
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "natural_destination_does_not_inherit_water",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "logic_initial_results.json"
+    },
+    {
+      "name": "actual_session_json_save_restore_after_food_damage",
+      "status": "PASS",
+      "detail": "再開しました",
+      "evidence": "save_followup_results.json"
+    },
+    {
+      "name": "actual_restore_keeps_water_progress_and_lag",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "save_followup_results.json"
+    },
+    {
+      "name": "invalid_watered_rejected_atomically",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_plants"
+      },
+      "evidence": "save_followup_results.json"
+    },
+    {
+      "name": "working_save_water_migration_preserves_growing_lag",
+      "status": "PASS",
+      "detail": {
+        "ok": true,
+        "reason": "loaded"
+      },
+      "evidence": "save_followup_results.json"
+    },
+    {
+      "name": "saved_food_damage_continues_same_ticks_full_state",
+      "status": "PASS",
+      "detail": {
+        "growth": 3000,
+        "moisture": 100,
+        "ticks": 3
+      },
+      "evidence": "continuation_results.json"
+    },
+    {
+      "name": "repeat_water_does_not_sweep_unrelated_lag",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "continuation_results.json"
+    },
+    {
+      "name": "sunlight_provider_maturity_clears_water_and_active",
+      "status": "PASS",
+      "detail": "",
+      "evidence": "continuation_results.json"
+    }
+  ],
+  "pass": 24,
+  "fail": 0,
+  "not_run": [
+    "GPU描画・操作感",
+    "OS物理入力",
+    "全回帰（統合で1回）",
+    "全224x224世界の長時間100%（今回は小世界の代表のみ）"
+  ],
+  "initial_harness_error": "SpreadSim.close() does not exist. Teardown changed to clear tile_listener; successful initial scenario results are preserved."
+}
