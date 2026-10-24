@@ -1,0 +1,71 @@
+{
+  "head": "642963497286e5ea1cc880a806c2b4d464c697b3",
+  "deleted_history": [
+    {
+      "path": "launchers/run_poc.bat",
+      "git_blob": "4b472f2a1cf41a54c9e739c804513cbba1b22974",
+      "removed": true
+    },
+    {
+      "path": "launchers/run_poc2.bat",
+      "git_blob": "7a50eb79bc2530d67012ebbd39996c8b12898c9e",
+      "removed": true
+    },
+    {
+      "path": "launchers/labs/run_art_study.bat",
+      "git_blob": "4fb5f22ec3dc0651b215950c2211a3be5c7e1350",
+      "removed": true
+    },
+    {
+      "path": "launchers/labs/run_quarter_view_lab.bat",
+      "git_blob": "8bc7a921d639c81190b4a2f341071c37996b6f3a",
+      "removed": true
+    },
+    {
+      "path": "launchers/labs/run_render_study_3d.bat",
+      "git_blob": "486570f853e47c99058419d804e5635c63a46970",
+      "removed": true
+    }
+  ],
+  "remaining_labs": [
+    {
+      "path": "C:\\godot\\greenvader\\launchers\\labs\\run_asset_showcase.bat",
+      "scene": "res://scenes/asset_showcase.tscn",
+      "scene_exists": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\launchers\\labs\\run_greening_map.bat",
+      "scene": "res://scenes/greening_map.tscn",
+      "scene_exists": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\launchers\\labs\\run_light_lab.bat",
+      "scene": "res://scenes/light_lab.tscn",
+      "scene_exists": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\launchers\\labs\\run_sprite_shadow_lab.bat",
+      "scene": "res://scenes/sprite_shadow_lab.tscn",
+      "scene_exists": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\launchers\\labs\\run_town_lab.bat",
+      "scene": "res://scenes/town_lab.tscn",
+      "scene_exists": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\launchers\\labs\\run_vegetation_lab.bat",
+      "scene": "res://scenes/vegetation_lab.tscn",
+      "scene_exists": true
+    },
+    {
+      "path": "C:\\godot\\greenvader\\launchers\\labs\\run_vine_compare.bat",
+      "scene": "res://scenes/vine_compare.tscn",
+      "scene_exists": true
+    }
+  ],
+  "root_bats": [
+    "run_game.bat"
+  ],
+  "godot_processes": []
+}

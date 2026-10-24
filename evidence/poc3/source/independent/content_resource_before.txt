@@ -1,0 +1,10 @@
+10:- 予約中の編集範囲: 第1段階（案出し・ユーザー確認）は tasks/CONTENT_01.md、docs/CONTENT_CATALOG.md のみ。第2段階（実装）はユーザー承認後に scripts/content_pack/、data/content_pack/、assets/content_pack/、scenes/content_pack/、tests/content_pack/、evidence/content_pack/、docs/CONTENT_INTEGRATION.md、launchers/labs/run_content_lab.bat を追加予約する
+11:- 予約中の共有資源: 第1段階はなし（Godot実行・import・Git index/commitなし）。第2段階でGodot実行・import（Codex側の実行がないことを確認してから）を予約する
+16:- 作業IDと段階: CONTENT-01。第1段階＝案出しとユーザー確認（ユーザー指示 2026-10-24「idea出し→ユーザー確認→実装」）。第2段階＝承認後の実装・自己検証・独立検証・引渡し。
+17:- 役割と指定モデル: 親（主会話 Opus）が設計・最終判断。実装 green-implementer（sonnet）、独立検証 別呼出しの green-verifier（sonnet）、確認済み記録 green-documenter（haiku）。定義は .claude/agents/ に存在するが、第1段階では子を起動しておらず稼働は未確認。子の再委任禁止。
+25:- 先に終わる必要のある作業: 第2段階の着手にはユーザーによるCONTENT_CATALOG.mdの確認が必要。
+26:- 合格条件と検証方法: 第2段階で確定する（案はCONTENT_CATALOG.md「検証方針」節）。
+27:- 提出する証拠と保存先: evidence/content_pack/（第2段階）。
+30:- 作業終了条件: 第1段階はカタログ草案の提示でユーザー確認待ちとして停止。
+34:- 対象コミット／未コミット差分／内容ハッシュ: 未作成（第1段階は文書のみ）
+37:- 未解決事項と次の具体的な一手: ユーザーがCONTENT_CATALOG.mdの案と「相談事項」を確認 → 承認範囲で第2段階の予約を追加し実装依頼

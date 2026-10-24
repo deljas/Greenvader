@@ -1,0 +1,93 @@
+diff --git a/launchers/labs/run_art_study.bat b/launchers/labs/run_art_study.bat
+deleted file mode 100644
+index 4fb5f22..0000000
+--- a/launchers/labs/run_art_study.bat
++++ /dev/null
+@@ -1,10 +0,0 @@
+-@echo off
+-cd /d "%~dp0..\.."
+-rem Isolated ART-01 comparison. The normal game entry point is unchanged.
+-set "GODOT=C:\godot\Godot_v4.7.2-stable_win64.exe"
+-if not exist "%GODOT%" (
+-  echo Godot not found: %GODOT%
+-  pause
+-  exit /b 1
+-)
+-start "" "%GODOT%" --path "%~dp0..\.." --scene res://scenes/art_study.tscn --resolution 1280x720
+diff --git a/launchers/labs/run_quarter_view_lab.bat b/launchers/labs/run_quarter_view_lab.bat
+deleted file mode 100644
+index 8bc7a92..0000000
+--- a/launchers/labs/run_quarter_view_lab.bat
++++ /dev/null
+@@ -1,10 +0,0 @@
+-@echo off
+-cd /d "%~dp0..\.."
+-rem Dedicated technical map. Pass --1080 for a 1920x1080 client area.
+-set "GODOT=C:\godot\Godot_v4.7.2-stable_win64.exe"
+-if not exist "%GODOT%" (
+-  echo Godot not found: %GODOT%
+-  pause
+-  exit /b 1
+-)
+-start "" "%GODOT%" --path "%~dp0..\.." res://scenes/quarter_view_lab.tscn -- %*
+diff --git a/launchers/labs/run_render_study_3d.bat b/launchers/labs/run_render_study_3d.bat
+deleted file mode 100644
+index 486570f..0000000
+--- a/launchers/labs/run_render_study_3d.bat
++++ /dev/null
+@@ -1,10 +0,0 @@
+-@echo off
+-cd /d "%~dp0..\.."
+-rem Dedicated real-3D art study. Pass --capture to save morning/noon/evening.
+-set "GODOT=C:\godot\Godot_v4.7.2-stable_win64.exe"
+-if not exist "%GODOT%" (
+-  echo Godot not found: %GODOT%
+-  pause
+-  exit /b 1
+-)
+-start "" "%GODOT%" --path "%~dp0..\.." --scene res://scenes/render_study_3d.tscn --rendering-method forward_plus --rendering-driver vulkan -- %*
+diff --git a/launchers/run_poc.bat b/launchers/run_poc.bat
+deleted file mode 100644
+index 4b472f2..0000000
+--- a/launchers/run_poc.bat
++++ /dev/null
+@@ -1,3 +0,0 @@
+-@echo off
+-cd /d "%~dp0.."
+-start "" "C:\godot\Godot_v4.7.2-stable_win64.exe" --path "%~dp0.." res://scenes/poc.tscn
+diff --git a/launchers/run_poc2.bat b/launchers/run_poc2.bat
+deleted file mode 100644
+index 7a50eb7..0000000
+--- a/launchers/run_poc2.bat
++++ /dev/null
+@@ -1,3 +0,0 @@
+-@echo off
+-cd /d "%~dp0.."
+-start "" "C:\godot\Godot_v4.7.2-stable_win64.exe" --path "%~dp0.." res://scenes/poc2.tscn
+diff --git a/project.godot b/project.godot
+index db67db8..29ace61 100644
+--- a/project.godot
++++ b/project.godot
+@@ -1,9 +1,9 @@
+-; P0 display and input baseline, Godot 4.7.2.
++; Current playable game entry, Godot 4.7.2.
+ config_version=5
+ 
+ [application]
+ config/name="グリーンベーダー"
+-run/main_scene="res://scenes/main.tscn"
++run/main_scene="res://scenes/poc2.tscn"
+ config/features=PackedStringArray("4.7", "Forward Plus")
+ 
+ [display]
+diff --git a/run_game.bat b/run_game.bat
+index 00d746f..124a8db 100644
+--- a/run_game.bat
++++ b/run_game.bat
+@@ -1,5 +1,5 @@
+ @echo off
+-rem Launch Greenvader with the recorded Godot 4.7.2 baseline.
++rem Launch the current playable Greenvader scene configured in project.godot.
+ set "GODOT=C:\godot\Godot_v4.7.2-stable_win64.exe"
+ if not exist "%GODOT%" (
+   echo Godot not found: %GODOT%

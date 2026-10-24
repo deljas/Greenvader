@@ -10,7 +10,7 @@
 
 花は既存の16×16px仮表示をそのまま使った。衝突footprintと建物基底を同じ論理領域から作り、建物は画面の1px幅列に分けて列ごとの前端足元YでY-sortする。建物の奥側の上物が花に重なると上物全体をalpha 0.28へ落とす。これは単純な閉じた箱での最小遮蔽策であり、局所透過の実証ではない。屋根に衝突は付けない。
 
-専用シーンだけ960×540のviewport、nearest、整数画素位置とし、`launchers/labs/run_quarter_view_lab.bat` が960×540を、`launchers/labs/run_quarter_view_lab.bat --1080` が1920×1080を起動する。カメラ追従時もシミュレーション位置は連続値に保ち、表示位置とカメラ位置を整数に丸める。
+専用シーンだけ960×540のviewport、nearest、整数画素位置とした。当時は `launchers/labs/run_quarter_view_lab.bat` が960×540を、同batの `--1080` が1920×1080を起動していた。この専用入口は削除済みで、保全タグ `poc2-before-poc3` から復元できる。シーン `res://scenes/quarter_view_lab.tscn` は保持されており、Godotへ `--path C:/godot/greenvader res://scenes/quarter_view_lab.tscn` を渡して直接起動できる。カメラ追従時もシミュレーション位置は連続値に保ち、表示位置とカメラ位置を整数に丸める。
 
 ## 自己検証と親の確認
 

@@ -171,9 +171,9 @@ Codexなら状態を `作業中(codex)`、担当ツールを `codex` にしま�
 
 ## 新規票と起動入口
 
-- 通常ゲームはリポジトリ直下の[`run_game.bat`](../run_game.bat)、専用試作は[起動一覧](../launchers/README.md)から起動する。
+- 通常ゲームはリポジトリ直下の[`run_game.bat`](../run_game.bat)から起動し、現在の `main_scene` は `scenes/poc2.tscn`。現役lab 7件の用途は[起動一覧](../launchers/README.md)を参照。入口整理の検証結果は確認中であり、この索引は技術受入を示さない。
 
 - テンプレート: [TASK_TEMPLATE.md](../TASK_TEMPLATE.md)。管理欄、目的、編集可能範囲、合格条件、証拠、依存、終了条件を埋める。
 - Codex: [AGENTS.md](../AGENTS.md) と [START_PROMPT.md](../START_PROMPT.md)。
 - Claude Code: [CLAUDE.md](../CLAUDE.md) と [.claude/README.md](../.claude/README.md)。
-- 完了したlabは参照資産として保持します。今後はGodotの3D PoCへ既存ロジックを統合する順序です。現在の通常入口は旧ゲーム、町labは試作のままであり、計画更新だけで実装済みにはなりません。ClaudeのAPI呼出しやゲーム実装を自動開始する設定は追加していません。
+- 完了したlabは参照資産として保持します。PoC3のゲーム機能は未実装です。ClaudeのAPI呼出しやゲーム実装を自動開始する設定は追加していません。

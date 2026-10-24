@@ -1,0 +1,80 @@
+[
+  {
+    "path": "project.godot",
+    "expected": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8",
+    "actual": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8",
+    "matches": true
+  },
+  {
+    "path": "run_game.bat",
+    "expected": "7878CD148C7F867AAE72B7778DE6B4D66CC64A090A7187202AD4D559AE95285A",
+    "actual": "7878CD148C7F867AAE72B7778DE6B4D66CC64A090A7187202AD4D559AE95285A",
+    "matches": true
+  },
+  {
+    "path": "scenes/poc2.tscn",
+    "expected": "570E3EEB9BFDF5AB1507FCC117095AE498082D8EAC4DF5220C131CDCBB6F2A10",
+    "actual": "570E3EEB9BFDF5AB1507FCC117095AE498082D8EAC4DF5220C131CDCBB6F2A10",
+    "matches": true
+  },
+  {
+    "path": "scripts/poc2/poc2_main.gd",
+    "expected": "47D713CB1440B3113869EB8ED96D7A2CCA324734E17951DC03FEEDDFF33B0011",
+    "actual": "47D713CB1440B3113869EB8ED96D7A2CCA324734E17951DC03FEEDDFF33B0011",
+    "matches": true
+  },
+  {
+    "path": "scripts/poc2/save/poc2_save.gd",
+    "expected": "44124BFBEB9827B05D523268E5598CE7BABB364B00515CCB32A8AA99CF8E68C5",
+    "actual": "44124BFBEB9827B05D523268E5598CE7BABB364B00515CCB32A8AA99CF8E68C5",
+    "matches": true
+  },
+  {
+    "path": "tests/poc3/source/self_entry.gd",
+    "expected": "1EF22A371AA17A3139976A89583B0AF04104E030AC8BB0BBF86E4FD61F5D8681",
+    "actual": "1EF22A371AA17A3139976A89583B0AF04104E030AC8BB0BBF86E4FD61F5D8681",
+    "matches": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\launchers\\labs\\run_asset_showcase.bat",
+    "expected": "016BCB0CAF4FADF833C01F9BAF19BF1F56190996D7FAD5BD2CDA291516AEB098",
+    "actual": "016BCB0CAF4FADF833C01F9BAF19BF1F56190996D7FAD5BD2CDA291516AEB098",
+    "matches": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\launchers\\labs\\run_greening_map.bat",
+    "expected": "56AEAC85B7D217A8F2044FC6E90A6A370B27324D9A97FAA0BB3A8813EA8DB18E",
+    "actual": "56AEAC85B7D217A8F2044FC6E90A6A370B27324D9A97FAA0BB3A8813EA8DB18E",
+    "matches": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\launchers\\labs\\run_light_lab.bat",
+    "expected": "093AD1D2B82EA08832C1FDFC24C6A3935023FB83B4FFD6014DC1E3772DDBE1FE",
+    "actual": "093AD1D2B82EA08832C1FDFC24C6A3935023FB83B4FFD6014DC1E3772DDBE1FE",
+    "matches": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\launchers\\labs\\run_sprite_shadow_lab.bat",
+    "expected": "376A52D08FC430382FD4766032088718566E519E7179E542D7F724E2A5843027",
+    "actual": "376A52D08FC430382FD4766032088718566E519E7179E542D7F724E2A5843027",
+    "matches": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\launchers\\labs\\run_town_lab.bat",
+    "expected": "DCFF7BA5D40F8F0A598C3E4320F812A8B774BC242A41A622CC440813C05C58C9",
+    "actual": "DCFF7BA5D40F8F0A598C3E4320F812A8B774BC242A41A622CC440813C05C58C9",
+    "matches": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\launchers\\labs\\run_vegetation_lab.bat",
+    "expected": "EB935BDF308C8F3BE5E38B5AB45CE427642140E862C32AE7459D109B2220E517",
+    "actual": "EB935BDF308C8F3BE5E38B5AB45CE427642140E862C32AE7459D109B2220E517",
+    "matches": true
+  },
+  {
+    "path": "C:\\godot\\greenvader\\launchers\\labs\\run_vine_compare.bat",
+    "expected": "CE7B8CDD1A40DC13D19875228BC14C0AA42DEE759A79E431CE182FB5F7C5DDE9",
+    "actual": "CE7B8CDD1A40DC13D19875228BC14C0AA42DEE759A79E431CE182FB5F7C5DDE9",
+    "matches": true
+  }
+]

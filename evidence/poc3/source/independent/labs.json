@@ -1,0 +1,58 @@
+[
+  {
+    "bat": "run_asset_showcase.bat",
+    "scene": "scenes/asset_showcase.tscn",
+    "scene_exists": true,
+    "script": "scripts/asset_showcase/showcase.gd",
+    "script_exists": true,
+    "script_bytes": 16131
+  },
+  {
+    "bat": "run_greening_map.bat",
+    "scene": "scenes/greening_map.tscn",
+    "scene_exists": true,
+    "script": "scripts/greening_map/map.gd",
+    "script_exists": true,
+    "script_bytes": 13057
+  },
+  {
+    "bat": "run_light_lab.bat",
+    "scene": "scenes/light_lab.tscn",
+    "scene_exists": true,
+    "script": "scripts/render_study_3d/light_lab.gd",
+    "script_exists": true,
+    "script_bytes": 8841
+  },
+  {
+    "bat": "run_sprite_shadow_lab.bat",
+    "scene": "scenes/sprite_shadow_lab.tscn",
+    "scene_exists": true,
+    "script": "scripts/render_study_3d/sprite_shadow_lab.gd",
+    "script_exists": true,
+    "script_bytes": 5210
+  },
+  {
+    "bat": "run_town_lab.bat",
+    "scene": "scenes/town_lab.tscn",
+    "scene_exists": true,
+    "script": "scripts/town_lab/town.gd",
+    "script_exists": true,
+    "script_bytes": 18294
+  },
+  {
+    "bat": "run_vegetation_lab.bat",
+    "scene": "scenes/vegetation_lab.tscn",
+    "scene_exists": true,
+    "script": "scripts/vegetation_lab/lab.gd",
+    "script_exists": true,
+    "script_bytes": 8289
+  },
+  {
+    "bat": "run_vine_compare.bat",
+    "scene": "scenes/vine_compare.tscn",
+    "scene_exists": true,
+    "script": "scripts/vine_compare/compare.gd",
+    "script_exists": true,
+    "script_bytes": 18537
+  }
+]

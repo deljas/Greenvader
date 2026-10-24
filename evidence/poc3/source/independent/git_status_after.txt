@@ -1,0 +1,28 @@
+ M .gitignore
+ M README.md
+ M docs/00_README.md
+ M docs/ASSETS.md
+ M docs/POC2_GUIDE.md
+ M docs/POC_GUIDE.md
+ M docs/QUARTER_VIEW_TECH.md
+ M docs/SOURCE_MANAGEMENT.md
+ M docs/STATUS.md
+ M launchers/README.md
+ D launchers/labs/run_art_study.bat
+ D launchers/labs/run_quarter_view_lab.bat
+ D launchers/labs/run_render_study_3d.bat
+ D launchers/run_poc.bat
+ D launchers/run_poc2.bat
+ M project.godot
+ M run_game.bat
+ M tasks/POC3_SOURCE.md
+ M tasks/README.md
+?? .codex-remote-attachments/
+?? docs/CONTENT_CATALOG.md
+?? evidence/poc3/
+?? tasks/CONTENT_01.md
+?? tasks/POC3_SAVE_BASE.md
+?? tests/poc2/map_orientation/independent/affected.gd.uid
+?? tests/poc2/map_orientation/independent/corner.gd.uid
+?? tests/poc2/map_orientation/self/corner.gd.uid
+?? tests/poc3/

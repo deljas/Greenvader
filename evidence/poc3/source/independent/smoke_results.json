@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "actual": "res://scenes/poc2.tscn",
+      "name": "configured_latest_scene",
+      "status": "PASS"
+    },
+    {
+      "actual": "0",
+      "name": "configured_scene_instantiates",
+      "status": "PASS"
+    },
+    {
+      "actual": "res://scenes/poc2.tscn",
+      "name": "current_scene_is_latest",
+      "status": "PASS"
+    },
+    {
+      "actual": "title",
+      "name": "startup_has_title_and_pauses",
+      "status": "PASS"
+    },
+    {
+      "actual": "user://poc2_saves",
+      "name": "save_namespace_unchanged",
+      "status": "PASS"
+    },
+    {
+      "actual": "C:/godot/greenvader/evidence/poc3/source/independent/profile/roaming/Godot/app_userdata/グリーンベーダー",
+      "name": "isolated_user_data",
+      "status": "PASS"
+    }
+  ],
+  "display": "headless",
+  "failures": 0,
+  "godot": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "input_sent": false,
+  "user_data": "C:/godot/greenvader/evidence/poc3/source/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

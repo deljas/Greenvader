@@ -1,0 +1,67 @@
+{
+  "total": 2939,
+  "matched": 2927,
+  "missing": 4,
+  "differences": [
+    {
+      "path": "docs/QUARTER_VIEW_TECH.md",
+      "group": "visual_archive",
+      "exists": true
+    },
+    {
+      "path": "launchers/labs/run_art_study.bat",
+      "group": "visual_archive",
+      "exists": false
+    },
+    {
+      "path": "launchers/labs/run_quarter_view_lab.bat",
+      "group": "visual_archive",
+      "exists": false
+    },
+    {
+      "path": "launchers/labs/run_render_study_3d.bat",
+      "group": "visual_archive",
+      "exists": false
+    },
+    {
+      "path": "docs/00_README.md",
+      "group": "poc2_baseline",
+      "exists": true
+    },
+    {
+      "path": "docs/ASSETS.md",
+      "group": "poc2_baseline",
+      "exists": true
+    },
+    {
+      "path": "docs/POC2_GUIDE.md",
+      "group": "poc2_baseline",
+      "exists": true
+    },
+    {
+      "path": "docs/POC_GUIDE.md",
+      "group": "poc2_baseline",
+      "exists": true
+    },
+    {
+      "path": "docs/STATUS.md",
+      "group": "poc2_baseline",
+      "exists": true
+    },
+    {
+      "path": "launchers/README.md",
+      "group": "poc2_baseline",
+      "exists": true
+    },
+    {
+      "path": "launchers/run_poc2.bat",
+      "group": "poc2_baseline",
+      "exists": false
+    },
+    {
+      "path": "tasks/README.md",
+      "group": "poc2_baseline",
+      "exists": true
+    }
+  ]
+}

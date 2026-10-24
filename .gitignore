@@ -7,3 +7,6 @@ evidence/**/profile/
 .claude/settings.local.json
 CLAUDE.local.md
 evidence/**/*.import
+
+# Isolated Godot profile used by the PoC3 launcher smoke check.
+evidence/poc3/source/self/runtime_profile/

@@ -1,0 +1,62 @@
+[
+  {
+    "path": "launchers/run_poc.bat",
+    "exists_in_worktree": false,
+    "tag_blob": "4b472f2a1cf41a54c9e739c804513cbba1b22974",
+    "restored_blob": "4b472f2a1cf41a54c9e739c804513cbba1b22974",
+    "restored_exact": true,
+    "cat_exit": 0,
+    "restored_path": "C:\\godot\\greenvader\\evidence\\poc3\\source\\independent\\restored\\launchers\\run_poc.bat",
+    "filtered_hash_initial": "39af73228da7e38c18d5fce5937a42e90155c456",
+    "comparison_method": "git cat-file blob streamed raw bytes; git hash-object --no-filters (avoid autocrlf conversion)",
+    "removed_after_verification": true
+  },
+  {
+    "path": "launchers/run_poc2.bat",
+    "exists_in_worktree": false,
+    "tag_blob": "7a50eb79bc2530d67012ebbd39996c8b12898c9e",
+    "restored_blob": "7a50eb79bc2530d67012ebbd39996c8b12898c9e",
+    "restored_exact": true,
+    "cat_exit": 0,
+    "restored_path": "C:\\godot\\greenvader\\evidence\\poc3\\source\\independent\\restored\\launchers\\run_poc2.bat",
+    "filtered_hash_initial": "7a50eb79bc2530d67012ebbd39996c8b12898c9e",
+    "comparison_method": "git cat-file blob streamed raw bytes; git hash-object --no-filters (avoid autocrlf conversion)",
+    "removed_after_verification": true
+  },
+  {
+    "path": "launchers/labs/run_art_study.bat",
+    "exists_in_worktree": false,
+    "tag_blob": "4fb5f22ec3dc0651b215950c2211a3be5c7e1350",
+    "restored_blob": "4fb5f22ec3dc0651b215950c2211a3be5c7e1350",
+    "restored_exact": true,
+    "cat_exit": 0,
+    "restored_path": "C:\\godot\\greenvader\\evidence\\poc3\\source\\independent\\restored\\launchers\\labs\\run_art_study.bat",
+    "filtered_hash_initial": "4fb5f22ec3dc0651b215950c2211a3be5c7e1350",
+    "comparison_method": "git cat-file blob streamed raw bytes; git hash-object --no-filters (avoid autocrlf conversion)",
+    "removed_after_verification": true
+  },
+  {
+    "path": "launchers/labs/run_quarter_view_lab.bat",
+    "exists_in_worktree": false,
+    "tag_blob": "8bc7a921d639c81190b4a2f341071c37996b6f3a",
+    "restored_blob": "8bc7a921d639c81190b4a2f341071c37996b6f3a",
+    "restored_exact": true,
+    "cat_exit": 0,
+    "restored_path": "C:\\godot\\greenvader\\evidence\\poc3\\source\\independent\\restored\\launchers\\labs\\run_quarter_view_lab.bat",
+    "filtered_hash_initial": "8bc7a921d639c81190b4a2f341071c37996b6f3a",
+    "comparison_method": "git cat-file blob streamed raw bytes; git hash-object --no-filters (avoid autocrlf conversion)",
+    "removed_after_verification": true
+  },
+  {
+    "path": "launchers/labs/run_render_study_3d.bat",
+    "exists_in_worktree": false,
+    "tag_blob": "486570f853e47c99058419d804e5635c63a46970",
+    "restored_blob": "486570f853e47c99058419d804e5635c63a46970",
+    "restored_exact": true,
+    "cat_exit": 0,
+    "restored_path": "C:\\godot\\greenvader\\evidence\\poc3\\source\\independent\\restored\\launchers\\labs\\run_render_study_3d.bat",
+    "filtered_hash_initial": "486570f853e47c99058419d804e5635c63a46970",
+    "comparison_method": "git cat-file blob streamed raw bytes; git hash-object --no-filters (avoid autocrlf conversion)",
+    "removed_after_verification": true
+  }
+]

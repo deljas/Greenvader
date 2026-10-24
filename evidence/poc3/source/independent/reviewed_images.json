@@ -1,0 +1,14 @@
+[
+  {
+    "path": "evidence\\poc3\\source\\self\\title.png",
+    "sha256": "933D01AB18E6718D07336DFF5C744C3DF7810CB3571DD1FB478E140E1F605661"
+  },
+  {
+    "path": "evidence\\poc3\\source\\self\\play.png",
+    "sha256": "930E07D43161871A0900426289C4DF212D8085351917F4D92014791733CC59DC"
+  },
+  {
+    "path": "evidence\\poc3\\source\\self\\map.png",
+    "sha256": "E86A36EC79A36ACF1907EBE95D2A6FC7CCC483713B40DBF9558AA0777F9629C5"
+  }
+]

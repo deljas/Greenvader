@@ -1,0 +1,18 @@
+{
+  "normal_bats": [
+    "run_game.bat"
+  ],
+  "launchers_root_bats": [],
+  "lab_count": 7,
+  "deleted_tracked_paths": [
+    "launchers/labs/run_art_study.bat",
+    "launchers/labs/run_quarter_view_lab.bat",
+    "launchers/labs/run_render_study_3d.bat",
+    "launchers/run_poc.bat",
+    "launchers/run_poc2.bat"
+  ],
+  "game_diff": [],
+  "tag": "642963497286e5ea1cc880a806c2b4d464c697b3",
+  "head": "642963497286e5ea1cc880a806c2b4d464c697b3",
+  "ignored_profile": "evidence/poc3/source/independent/profile/roaming"
+}

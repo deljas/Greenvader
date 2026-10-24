@@ -1,0 +1,471 @@
+{
+  "head": "2069913491af3853c2503f0c32512fbfac782471",
+  "untracked_groups": {
+    ".codex-remote-attachments/01a13f34-251f-79f1-9cad-a6be2e72c13a": [
+      1,
+      311174
+    ],
+    "assets/concepts": [
+      613,
+      41293717
+    ],
+    "assets/models": [
+      202,
+      15796658
+    ],
+    "assets/render_study_3d": [
+      12,
+      9167
+    ],
+    "assets/sprites": [
+      264,
+      257028
+    ],
+    "data/poc2": [
+      1,
+      31491
+    ],
+    "docs/BUILDING_MODEL_GUIDE.md": [
+      1,
+      2754
+    ],
+    "docs/CONTENT_CATALOG.md": [
+      1,
+      23490
+    ],
+    "docs/POC2_GUIDE.md": [
+      1,
+      7365
+    ],
+    "docs/POC2_SPEC.md": [
+      1,
+      12490
+    ],
+    "docs/QUARTER_VIEW_TECH.md": [
+      1,
+      10176
+    ],
+    "docs/TOWN_LAB.md": [
+      1,
+      2574
+    ],
+    "docs/VINE_COMPARE.md": [
+      1,
+      3233
+    ],
+    "docs/dot_blender": [
+      15,
+      432349
+    ],
+    "evidence/art01": [
+      38,
+      918292
+    ],
+    "evidence/art05": [
+      4,
+      6176
+    ],
+    "evidence/asset-showcase": [
+      29,
+      755363
+    ],
+    "evidence/building-model": [
+      50,
+      2838151
+    ],
+    "evidence/greening-map": [
+      49,
+      2938284
+    ],
+    "evidence/launcher-organization": [
+      9,
+      5130
+    ],
+    "evidence/poc2": [
+      149,
+      3289748
+    ],
+    "evidence/quarter-view": [
+      58,
+      866295
+    ],
+    "evidence/render-study-3d": [
+      373,
+      80130075
+    ],
+    "evidence/spr01": [
+      257,
+      14613734
+    ],
+    "evidence/terrain-water": [
+      106,
+      9525012
+    ],
+    "evidence/town-lab": [
+      46,
+      2637877
+    ],
+    "evidence/vegetation-branches": [
+      67,
+      5957804
+    ],
+    "evidence/vegetation-lab": [
+      33,
+      1789742
+    ],
+    "evidence/vegetation-variation": [
+      50,
+      3927085
+    ],
+    "evidence/vine-compare": [
+      27,
+      636462
+    ],
+    "evidence/wall-clip": [
+      68,
+      3198047
+    ],
+    "evidence/wall-growth": [
+      44,
+      2786948
+    ],
+    "launchers/README.md": [
+      1,
+      2424
+    ],
+    "launchers/labs": [
+      10,
+      2394
+    ],
+    "launchers/run_poc2.bat": [
+      1,
+      117
+    ],
+    "scenes/art_study.tscn": [
+      1,
+      197
+    ],
+    "scenes/asset_showcase.tscn": [
+      1,
+      185
+    ],
+    "scenes/greening_map.tscn": [
+      1,
+      176
+    ],
+    "scenes/light_lab.tscn": [
+      1,
+      182
+    ],
+    "scenes/poc2.tscn": [
+      1,
+      168
+    ],
+    "scenes/quarter_view_lab.tscn": [
+      1,
+      185
+    ],
+    "scenes/render_study_3d.tscn": [
+      1,
+      183
+    ],
+    "scenes/sprite_shadow_lab.tscn": [
+      1,
+      197
+    ],
+    "scenes/town_lab.tscn": [
+      1,
+      169
+    ],
+    "scenes/vegetation_lab.tscn": [
+      1,
+      180
+    ],
+    "scenes/vine_compare.tscn": [
+      1,
+      180
+    ],
+    "scripts/art_study": [
+      4,
+      12417
+    ],
+    "scripts/asset_showcase": [
+      2,
+      16151
+    ],
+    "scripts/greening_map": [
+      16,
+      40442
+    ],
+    "scripts/model_build": [
+      2,
+      4404
+    ],
+    "scripts/poc": [
+      2,
+      3038
+    ],
+    "scripts/poc2": [
+      25,
+      114799
+    ],
+    "scripts/quarter_view_lab": [
+      4,
+      9531
+    ],
+    "scripts/render_study_3d": [
+      10,
+      32021
+    ],
+    "scripts/town_lab": [
+      10,
+      28486
+    ],
+    "scripts/vegetation_lab": [
+      18,
+      38653
+    ],
+    "scripts/vine_compare": [
+      4,
+      29915
+    ],
+    "tasks/ART_01.md": [
+      1,
+      9416
+    ],
+    "tasks/ART_02.md": [
+      1,
+      4267
+    ],
+    "tasks/ART_03.md": [
+      1,
+      4552
+    ],
+    "tasks/ART_04.md": [
+      1,
+      4317
+    ],
+    "tasks/ART_05.md": [
+      1,
+      3943
+    ],
+    "tasks/CONTENT_01.md": [
+      1,
+      4612
+    ],
+    "tasks/DESIGN_20261021.md": [
+      1,
+      4058
+    ],
+    "tasks/DOC_BLENDER_01.md": [
+      1,
+      3203
+    ],
+    "tasks/DOC_BLENDER_02.md": [
+      1,
+      2444
+    ],
+    "tasks/DOC_BLENDER_03.md": [
+      1,
+      2753
+    ],
+    "tasks/DOC_BLENDER_04.md": [
+      1,
+      2775
+    ],
+    "tasks/ENV_002.md": [
+      1,
+      3160
+    ],
+    "tasks/PLAN_QV_01.md": [
+      1,
+      4935
+    ],
+    "tasks/POC2_00.md": [
+      1,
+      3635
+    ],
+    "tasks/POC2_01.md": [
+      1,
+      3867
+    ],
+    "tasks/POC2_02.md": [
+      1,
+      3866
+    ],
+    "tasks/POC2_03.md": [
+      1,
+      4089
+    ],
+    "tasks/POC2_04.md": [
+      1,
+      4033
+    ],
+    "tasks/POC2_05.md": [
+      1,
+      3906
+    ],
+    "tasks/POC2_06.md": [
+      1,
+      5818
+    ],
+    "tasks/POC2_07.md": [
+      1,
+      6817
+    ],
+    "tasks/TECH_3D_01.md": [
+      1,
+      6249
+    ],
+    "tasks/TECH_3D_02.md": [
+      1,
+      4299
+    ],
+    "tasks/TECH_3D_03.md": [
+      1,
+      5677
+    ],
+    "tasks/TECH_3D_04.md": [
+      1,
+      5578
+    ],
+    "tasks/TECH_3D_05.md": [
+      1,
+      6163
+    ],
+    "tasks/TECH_3D_06.md": [
+      1,
+      6173
+    ],
+    "tasks/TECH_3D_07.md": [
+      1,
+      5085
+    ],
+    "tasks/TECH_3D_08.md": [
+      1,
+      7325
+    ],
+    "tasks/TECH_3D_09.md": [
+      1,
+      6445
+    ],
+    "tasks/TECH_3D_10.md": [
+      1,
+      5313
+    ],
+    "tasks/TECH_3D_11.md": [
+      1,
+      7944
+    ],
+    "tasks/TECH_3D_12.md": [
+      1,
+      8747
+    ],
+    "tasks/TECH_3D_13.md": [
+      1,
+      4860
+    ],
+    "tasks/TECH_3D_14.md": [
+      1,
+      5297
+    ],
+    "tasks/TECH_3D_15.md": [
+      1,
+      6701
+    ],
+    "tasks/TECH_QV_01.md": [
+      1,
+      7481
+    ],
+    "tests/art01": [
+      4,
+      9953
+    ],
+    "tests/asset_showcase": [
+      5,
+      13777
+    ],
+    "tests/greening_map": [
+      32,
+      69753
+    ],
+    "tests/independent": [
+      6,
+      23441
+    ],
+    "tests/p2": [
+      6,
+      118
+    ],
+    "tests/poc": [
+      27,
+      46856
+    ],
+    "tests/poc2": [
+      55,
+      103660
+    ],
+    "tests/quarter_view": [
+      8,
+      24451
+    ],
+    "tests/render_study_3d": [
+      13,
+      25603
+    ],
+    "tests/spr01_fire_directions_gpu.gd": [
+      1,
+      6080
+    ],
+    "tests/spr01_fire_directions_gpu.gd.uid": [
+      1,
+      20
+    ],
+    "tests/spr01_fire_directions_logic.gd": [
+      1,
+      4667
+    ],
+    "tests/spr01_fire_directions_logic.gd.uid": [
+      1,
+      20
+    ],
+    "tests/spr01_fire_gpu.gd": [
+      1,
+      7828
+    ],
+    "tests/spr01_fire_gpu.gd.uid": [
+      1,
+      20
+    ],
+    "tests/spr01_fire_logic.gd": [
+      1,
+      4573
+    ],
+    "tests/spr01_fire_logic.gd.uid": [
+      1,
+      19
+    ],
+    "tests/town_lab": [
+      7,
+      26677
+    ],
+    "tests/vegetation_lab": [
+      10,
+      21179
+    ],
+    "tests/vine_compare": [
+      4,
+      12864
+    ]
+  },
+  "large_files": [],
+  "excluded_active_owner": [
+    "tasks/CONTENT_01.md",
+    "docs/CONTENT_CATALOG.md",
+    "content_pack directories"
+  ],
+  "ignored_top_counts": {
+    ".godot": 1087,
+    "evidence": 1934
+  }
+}

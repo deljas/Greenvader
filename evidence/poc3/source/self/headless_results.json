@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "detail": "res://scenes/poc2.tscn",
+      "name": "configured_latest_entry",
+      "status": "PASS"
+    },
+    {
+      "detail": "0",
+      "name": "configured_scene_loads",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "normal_title_is_paused",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "latest_world_224",
+      "status": "PASS"
+    },
+    {
+      "detail": "user://poc2_saves",
+      "name": "save_namespace_preserved",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "integer_nearest_640",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "mode": "headless",
+  "not_run": [
+    "physical_input",
+    "lab_runtime",
+    "broad_gameplay_regression"
+  ],
+  "saves_accessed": false,
+  "user_data": "C:/godot/greenvader/evidence/poc3/source/self/runtime_profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

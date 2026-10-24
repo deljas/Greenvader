@@ -4,9 +4,8 @@
 
 ## 起動
 
-- [launchers/run_poc.bat](../launchers/run_poc.bat) を実行すると `res://scenes/poc.tscn` が開き、タイトルから始まります。
-- 通常入口の [run_game.bat](../run_game.bat)（旧ゲーム）と project.godot の main_scene（旧 scenes/main.tscn）は変更していません。
-- 旧fixtureの引数（検証用）: run_poc.bat は引数を転送しないため、Godotをコマンドラインで起動し、シーン指定の後ろに次の引数を付けます。
+- 当時は `launchers/run_poc.bat` から `res://scenes/poc.tscn` を起動していました。この専用入口は削除済みで、保全タグ `poc2-before-poc3` から復元できます。現行の通常入口 [run_game.bat](../run_game.bat) はPoC2を起動し、`project.godot` の `main_scene` は `scenes/poc2.tscn` です。
+- 旧PoCシーンを個別に開く場合は、Godotを `--path C:/godot/greenvader res://scenes/poc.tscn` の引数で起動します。旧fixtureの検証引数はGodotをコマンドラインから起動し、シーン指定の後ろに付けます。
   - `-- --fixture=02`、`-- --fixture=04`、`-- --combat`、`-- --bare`
   - `--debug-refill` は開発用。F9のデバッグ補給は、この起動時だけ有効です。
   - `--debug-weather` は開発用。1/2/3/0キーによる天候切替は、この起動時だけ有効です。

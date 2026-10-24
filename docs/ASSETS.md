@@ -91,7 +91,7 @@ P1で追加した素材はすべてGDScriptで生成した。外部素材はな�
 
 ## TECH-3D-01 低解像度3D技術試作
 
-専用試作 [`scenes/render_study_3d.tscn`](../scenes/render_study_3d.tscn) は自作meshと[`concrete.gdshader`](../assets/render_study_3d/concrete.gdshader)を使い、外部テクスチャや画像生成画像を使っていない。朝・昼・夕のDirectionalLight3D、2:1地面格子、一階廃墟（凹窓・閉じた錆扉・欠けた平板屋根とパラペット）、瓦礫、独立した小さな草パーツを含む。既定は昼で、[`run_render_study_3d.bat`](../launchers/labs/run_render_study_3d.bat)から起動し、1/2/3キーまたは画面ボタンで時間帯を切り替える。960×540でGPU描画し、別1920×1080 viewportへnearest 2倍表示する。
+専用試作 [`scenes/render_study_3d.tscn`](../scenes/render_study_3d.tscn) は自作meshと[`concrete.gdshader`](../assets/render_study_3d/concrete.gdshader)を使い、外部テクスチャや画像生成画像を使っていない。朝・昼・夕のDirectionalLight3D、2:1地面格子、一階廃墟（凹窓・閉じた錆扉・欠けた平板屋根とパラペット）、瓦礫、独立した小さな草パーツを含む。既定は昼で、当時は `run_render_study_3d.bat` から起動し、1/2/3キーまたは画面ボタンで時間帯を切り替えていました。この入口は削除済みで、保全タグ `poc2-before-poc3` から復元できます。シーンは保持されています。直接起動はGodotへ `--path C:/godot/greenvader res://scenes/render_study_3d.tscn` を渡します。960×540でGPU描画し、別1920×1080 viewportへnearest 2倍表示する記録です。
 
 自己報告・manifest・GPU結果は[`evidence/render-study-3d/self/`](../evidence/render-study-3d/self/report.md)、独立確認は[`evidence/render-study-3d/independent/report.md`](../evidence/render-study-3d/independent/report.md)。保存PNGと根拠の範囲、未検証事項は[検証記録](VALIDATION.md#tech-3d-01-低解像度3dと動的影の試作)を参照。これは画風比較用の技術試作であり、ゲーム素材ではない。通常ゲームに読み込まず、成長状態に応じた植生、通常ゲーム統合、性能、大量描画は未実装・未確認。親は技術成立性を限定受入したが、最終美術評価は未取得。
 

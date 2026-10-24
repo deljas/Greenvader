@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "configured_latest_entry", "status": "PASS", "detail": "res://scenes/poc2.tscn" }
+{ "name": "configured_scene_loads", "status": "PASS", "detail": "0" }
+{ "name": "normal_title_is_paused", "status": "PASS", "detail": "" }
+{ "name": "latest_world_224", "status": "PASS", "detail": "" }
+{ "name": "save_namespace_preserved", "status": "PASS", "detail": "user://poc2_saves" }
+{ "name": "integer_nearest_640", "status": "PASS", "detail": "" }
