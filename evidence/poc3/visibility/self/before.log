@@ -1,0 +1,35 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "name": "startup_minimized_no_focus", "status": "PASS" }
+ERROR: Condition "array_len == 0" is true. Returning: ERR_INVALID_DATA
+   at: mesh_create_surface_data_from_arrays (servers/rendering/rendering_server.cpp:1212)
+   GDScript backtrace (most recent call first):
+       [0] _mesh_from (res://scripts/poc2/view/world_view.gd:345)
+       [1] _build_terrain_meshes (res://scripts/poc2/view/world_view.gd:312)
+       [2] build (res://scripts/poc2/view/world_view.gd:64)
+       [3] fixture (res://tests/poc3/visibility/self_visibility.gd:69)
+       [4] run (res://tests/poc3/visibility/self_visibility.gd:95)
+ERROR: Condition "err != OK" is true.
+   at: add_surface_from_arrays (scene/resources/mesh.cpp:1827)
+   GDScript backtrace (most recent call first):
+       [0] _mesh_from (res://scripts/poc2/view/world_view.gd:345)
+       [1] _build_terrain_meshes (res://scripts/poc2/view/world_view.gd:312)
+       [2] build (res://scripts/poc2/view/world_view.gd:64)
+       [3] fixture (res://tests/poc3/visibility/self_visibility.gd:69)
+       [4] run (res://tests/poc3/visibility/self_visibility.gd:95)
+ERROR: Index p_idx = 0 is out of bounds (surfaces.size() = 0).
+   at: surface_set_material (scene/resources/mesh.cpp:1948)
+   GDScript backtrace (most recent call first):
+       [0] _mesh_from (res://scripts/poc2/view/world_view.gd:346)
+       [1] _build_terrain_meshes (res://scripts/poc2/view/world_view.gd:312)
+       [2] build (res://scripts/poc2/view/world_view.gd:64)
+       [3] fixture (res://tests/poc3/visibility/self_visibility.gd:69)
+       [4] run (res://tests/poc3/visibility/self_visibility.gd:95)
+{ "name": "render_does_not_mutate_session", "status": "PASS" }
+{ "name": "all_three_types_cross_old_boundary_in_camera", "status": "PASS" }
+{ "name": "reproduce_distance_disappearance", "status": "PASS" }
+{ "name": "fossil_distance_filter_preserved", "status": "PASS" }
+{ "name": "minimized_gpu_image_available", "status": "PASS" }
+{ "name": "pixel_settings_maintained", "status": "PASS" }
+{ "name": "stayed_minimized_no_focus", "status": "PASS" }

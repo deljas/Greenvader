@@ -3,13 +3,13 @@
 ## 管理欄
 
 - ID: POC3-VISIBILITY
-- 状態: 未着手
+- 状態: 完了
 - 担当ツール: なし
 - 担当セッション: なし
 - 更新日: 2026-10-24
 - 予約中の編集範囲: なし
 - 予約中の共有資源: なし
-- 最終担当: なし
+- 最終担当: codex / codex-20261024-poc3-implementation
 
 ## 実施時に具体化する範囲
 
@@ -25,3 +25,10 @@
 ## 引き継ぎ
 
 - 2026-10-24: 論点02の方針をユーザーが承認。実装修正と再現・動作検証は未着手。
+- 取得: HEAD aecdf15、SAVE-BASEの4ファイルと証拠は独立検証中につき変更禁止。CONTENT-01の予約は別範囲。共有ツリーの差分を再適用しない。
+- 親の設計: world_view._entitiesの距離視界による除外を化石のみに限定し、生存敵・固定巣・親玉は通常3Dの深度/カメラ判定に任せる。session/map/combat/保存に変更しない。初期状態で旧判定falseのカメラ内対象を再現してから適用する。
+- 描画検証の起動制約: _initでのunfocusable設定は起動時に戻るため依存しない。公式ProjectSettingsのdisplay/window/size/no_focus=trueとmode=1を一時override.cfgで起動前に設定する。既存overrideがあれば上書きせず親へ返す。最小化を復元せずSubViewportを撮影し、初期設定とruntime flagを記録。Godot内入力のみ、OS入力/前面化禁止。描画を取得できなければNOT_RUN、通常窓での再試行は禁止。
+- 実装凍結: world_viewの条件1行を変更し説明コメント追加。hash abb814238e321a62abc303634b2ff15f556143d75a3ce482414c7549cbacd17a。自己修正前8条件で旧非表示を再現、修正後11 PASS / 0 FAIL。最小化・no_focusの起動値と実行時を確認。親はbefore/after画像で遠側3体の表示を確認済み。初期fixtureの空メッシュ診断はreportに保持。実装者停止、Godot 0件、一時override除去済み。
+- 独立結果: evidence/poc3/visibility/independent/report.md。77e3463+今回差分を対象に9 PASS / 0 FAIL / 3 NOT_RUN。対象hash一致、空視認マスクで3種表示、死亡/除去消失、化石条件維持、状態不変と遠方巣休眠をheadless確認。自己GPU画像を独立閲覧。独立GPU・広い回帰・通常窓/物理操作は未確認。Godot 0件・独立編集停止。
+- 親判断: 実差分・画像・独立証拠を照合し、通常画面の距離非表示修正を限定受入。建物遮蔽・マップ検知・全体完成の受入とは区別。文書更新後コミットしMAP-INFOへ接続。
+- 完了: Lunaの確認済み記録更新を親がレビュー。子は本票の編集/実行停止済み、予約解除しMAP-INFOへ引渡し。VISIBILITYのコードはindex固定で次の編集差分と分離してコミットする。

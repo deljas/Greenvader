@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"actual":"[\"enemies80001\", \"nests80002\", \"nests80003\"]","name":"empty_visibility_still_draws_living_enemy","status":"PASS"}
+{"actual":"boar","name":"empty_visibility_still_draws_fixed_nest","status":"PASS"}
+{"actual":"mother","name":"empty_visibility_still_draws_moving_mother","status":"PASS"}
+{"actual":"Full before/after state compared before simulation is advanced","name":"rendering_does_not_mutate_session","status":"PASS"}
+{"actual":"All visibility and known bytes zero","name":"unseen_fossil_stays_hidden","status":"PASS"}
+{"actual":"No green anywhere, player far away, one 0.25-second combat step; no production","name":"displayed_far_nests_do_not_activate","status":"PASS"}
+{"actual":"Only the fossil's visibility cell enabled","name":"visible_uncollected_fossil_draws","status":"PASS"}
+{"actual":"Found=true then nest_id>=0 remain hidden even with visibility","name":"collected_and_nest_reward_fossils_stay_hidden","status":"PASS"}
+{"actual":"[\"fossils80004\"]","name":"death_and_array_removal_clear_nodes","status":"PASS"}

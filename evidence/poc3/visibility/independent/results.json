@@ -1,0 +1,145 @@
+{
+  "checks": [
+    {
+      "actual": "[\"enemies80001\", \"nests80002\", \"nests80003\"]",
+      "name": "empty_visibility_still_draws_living_enemy",
+      "status": "PASS"
+    },
+    {
+      "actual": "boar",
+      "name": "empty_visibility_still_draws_fixed_nest",
+      "status": "PASS"
+    },
+    {
+      "actual": "mother",
+      "name": "empty_visibility_still_draws_moving_mother",
+      "status": "PASS"
+    },
+    {
+      "actual": "Full before/after state compared before simulation is advanced",
+      "name": "rendering_does_not_mutate_session",
+      "status": "PASS"
+    },
+    {
+      "actual": "All visibility and known bytes zero",
+      "name": "unseen_fossil_stays_hidden",
+      "status": "PASS"
+    },
+    {
+      "actual": "No green anywhere, player far away, one 0.25-second combat step; no production",
+      "name": "displayed_far_nests_do_not_activate",
+      "status": "PASS"
+    },
+    {
+      "actual": "Only the fossil's visibility cell enabled",
+      "name": "visible_uncollected_fossil_draws",
+      "status": "PASS"
+    },
+    {
+      "actual": "Found=true then nest_id>=0 remain hidden even with visibility",
+      "name": "collected_and_nest_reward_fossils_stay_hidden",
+      "status": "PASS"
+    },
+    {
+      "actual": "[\"fossils80004\"]",
+      "name": "death_and_array_removal_clear_nodes",
+      "status": "PASS"
+    }
+  ],
+  "context": {
+    "actual_diff": "diff --git a/scripts/poc2/view/world_view.gd b/scripts/poc2/view/world_view.gd\nindex 37da6d5..a8c8911 100644\n--- a/scripts/poc2/view/world_view.gd\n+++ b/scripts/poc2/view/world_view.gd\n@@ -179,7 +179,8 @@ func _entities() -> void:\n \t\t\tif float(item.get(\"hp\", 1.0)) <= 0: continue\n \t\t\tvar key: String = category + str(item.id)\n \t\t\talive[key] = true\n-\t\t\tif category in [\"enemies\", \"nests\", \"fossils\"] and not _visible(item.pos): continue\n+\t\t\t# Normal enemies/nests use camera/depth visibility; discovery still gates fossils.\n+\t\t\tif category == \"fossils\" and not _visible(item.pos): continue\n \t\t\tif category == \"fossils\" and (bool(item.get(\"found\", false)) or int(item.get(\"nest_id\", -1)) >= 0): continue\n \t\t\tseen[key] = true\n \t\t\tvar node: MeshInstance3D = entities.get(key) as MeshInstance3D",
+    "content_reservation": "11:- 予約中の共有資源: 第1段階はなし（Godot実行・import・Git index/commitなし）。第2段階でGodot実行・import（Codex側の実行がないことを確認してから）を予約する",
+    "head": "77e3463785e81db598a2ea1279f59cbbbe29ef15",
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "processes_before": 0.0,
+    "provided_images": [
+      {
+        "path": "evidence/poc3/visibility/self/before.png",
+        "sha256": "95574B3331E9F600800860E66F8A46ED83F1A428F3499D3D7E0B130DC0DA16EC"
+      },
+      {
+        "path": "evidence/poc3/visibility/self/after.png",
+        "sha256": "55959B3D99267BE3146D063028AC76D744E65F6548E018331CB0CAA70A445B2F"
+      }
+    ],
+    "provided_startup_after": {
+      "runtime_mode": 1.0,
+      "runtime_unfocusable": true,
+      "startup_mode": 1.0,
+      "startup_no_focus": true
+    },
+    "provided_startup_before": {
+      "runtime_mode": 1.0,
+      "runtime_unfocusable": true,
+      "startup_mode": 1.0,
+      "startup_no_focus": true
+    },
+    "source_hashes_before": [
+      {
+        "path": "scripts/poc2/view/world_view.gd",
+        "sha256": "ABB814238E321A62ABC303634B2FF15F556143D75A3CE482414C7549CBACD17A"
+      },
+      {
+        "path": "scripts/poc2/poc2_session.gd",
+        "sha256": "41D46FFBD1E762EBDF63CA27812146A18E61755075180B5D465A843A9F63B9A0"
+      },
+      {
+        "path": "scripts/poc2/simulation/combat.gd",
+        "sha256": "84A5203ED14BBD77F4FB6DE842A1D5513F928DBABB2644826F3A770FCFFF133A"
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "sha256": "CBBADAAAFC3A9B7DE0F0EA5F183E4BE9E265570627728E1B910C7E1B503014AC"
+      }
+    ],
+    "source_hashes_after": [
+      {
+        "path": "scripts/poc2/view/world_view.gd",
+        "sha256": "ABB814238E321A62ABC303634B2FF15F556143D75A3CE482414C7549CBACD17A",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/poc2_session.gd",
+        "sha256": "41D46FFBD1E762EBDF63CA27812146A18E61755075180B5D465A843A9F63B9A0",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/combat.gd",
+        "sha256": "84A5203ED14BBD77F4FB6DE842A1D5513F928DBABB2644826F3A770FCFFF133A",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "sha256": "CBBADAAAFC3A9B7DE0F0EA5F183E4BE9E265570627728E1B910C7E1B503014AC",
+        "unchanged": true
+      }
+    ],
+    "head_after": "77e3463785e81db598a2ea1279f59cbbbe29ef15",
+    "processes_after": 0,
+    "override_absent_after": true
+  },
+  "display": "headless",
+  "failures": 0,
+  "godot": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "not_run": [
+    "independent_gpu_or_native_input",
+    "building_occlusion_map_information_broad_regression",
+    "all_lighting_sizes_and_exported_build"
+  ],
+  "user_data": "C:/godot/greenvader/evidence/poc3/visibility/independent/profile/roaming/Godot/app_userdata/グリーンベーダー",
+  "final_summary": {
+    "pass": 9,
+    "not_run": 3,
+    "fail": 0
+  }
+}

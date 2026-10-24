@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "name": "startup_minimized_no_focus", "status": "PASS" }
+{ "name": "render_does_not_mutate_session", "status": "PASS" }
+{ "name": "all_three_types_cross_old_boundary_in_camera", "status": "PASS" }
+{ "name": "live_entities_visible_both_sides", "status": "PASS" }
+{ "name": "fossil_distance_filter_preserved", "status": "PASS" }
+{ "name": "minimized_gpu_image_available", "status": "PASS" }
+{ "name": "pixel_settings_maintained", "status": "PASS" }
+{ "name": "death_and_removal_clear_render_nodes", "status": "PASS" }
+{ "name": "found_fossil_hidden", "status": "PASS" }
+{ "name": "displayed_far_nests_remain_dormant", "status": "PASS" }
+{ "name": "stayed_minimized_no_focus", "status": "PASS" }

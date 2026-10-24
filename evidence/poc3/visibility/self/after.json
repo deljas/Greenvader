@@ -1,0 +1,131 @@
+{
+  "checks": [
+    {
+      "name": "startup_minimized_no_focus",
+      "status": "PASS"
+    },
+    {
+      "name": "render_does_not_mutate_session",
+      "status": "PASS"
+    },
+    {
+      "name": "all_three_types_cross_old_boundary_in_camera",
+      "status": "PASS"
+    },
+    {
+      "name": "live_entities_visible_both_sides",
+      "status": "PASS"
+    },
+    {
+      "name": "fossil_distance_filter_preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "minimized_gpu_image_available",
+      "status": "PASS"
+    },
+    {
+      "name": "pixel_settings_maintained",
+      "status": "PASS"
+    },
+    {
+      "name": "death_and_removal_clear_render_nodes",
+      "status": "PASS"
+    },
+    {
+      "name": "found_fossil_hidden",
+      "status": "PASS"
+    },
+    {
+      "name": "displayed_far_nests_remain_dormant",
+      "status": "PASS"
+    },
+    {
+      "name": "stayed_minimized_no_focus",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "gpu_status": "PASS",
+  "not_run": [
+    "physical_input",
+    "building_occlusion_regression",
+    "map_information",
+    "broad_gameplay_regression",
+    "all_window_sizes"
+  ],
+  "phase": "after",
+  "runtime_mode": 1,
+  "runtime_unfocusable": true,
+  "startup_mode": 1,
+  "startup_no_focus": true,
+  "targets": [
+    {
+      "in_camera": true,
+      "key": "enemies26",
+      "label": "enemy near",
+      "old_visible": true,
+      "rendered": true,
+      "screen": [
+        231.920669555664,
+        149.832321166992
+      ]
+    },
+    {
+      "in_camera": true,
+      "key": "enemies27",
+      "label": "enemy far",
+      "old_visible": false,
+      "rendered": true,
+      "screen": [
+        182.384994506836,
+        125.064498901367
+      ]
+    },
+    {
+      "in_camera": true,
+      "key": "nests28",
+      "label": "nest near",
+      "old_visible": true,
+      "rendered": true,
+      "screen": [
+        195.443649291992,
+        193.864059448242
+      ]
+    },
+    {
+      "in_camera": true,
+      "key": "nests29",
+      "label": "nest far",
+      "old_visible": false,
+      "rendered": true,
+      "screen": [
+        125.389556884766,
+        193.864059448242
+      ]
+    },
+    {
+      "in_camera": true,
+      "key": "nests30",
+      "label": "mother near",
+      "old_visible": true,
+      "rendered": true,
+      "screen": [
+        231.920745849609,
+        237.895782470703
+      ]
+    },
+    {
+      "in_camera": true,
+      "key": "nests31",
+      "label": "mother far",
+      "old_visible": false,
+      "rendered": true,
+      "screen": [
+        182.385025024414,
+        262.663635253906
+      ]
+    }
+  ],
+  "view_sha256": "abb814238e321a62abc303634b2ff15f556143d75a3ce482414c7549cbacd17a"
+}

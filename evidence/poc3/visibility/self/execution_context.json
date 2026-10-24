@@ -1,0 +1,19 @@
+{
+  "head": "aecdf159ea46ba058d10ff18f785f4fa15fafde3",
+  "import_exit": 0,
+  "before_exit": 0,
+  "override_removed": true,
+  "processes_after": [],
+  "after_head": "aecdf159ea46ba058d10ff18f785f4fa15fafde3",
+  "after_exit": 0,
+  "final_hashes": [
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "ABB814238E321A62ABC303634B2FF15F556143D75A3CE482414C7549CBACD17A"
+    },
+    {
+      "path": "tests/poc3/visibility/self_visibility.gd",
+      "sha256": "C8890D4FFF4B24D919F56B1C25AC9E6E5CE391CD4AFB8103DD1247820D3CA861"
+    }
+  ]
+}

@@ -556,3 +556,11 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - 通常入口 `run_game.bat` とPoC2共有コードパスを維持し、保存先を `user://poc3_saves`、外包を `greenvader_poc3_1`、内包を `greenvader-poc3` / version 3へ分離。旧PoC/PoC2保存の自動読込・移行・書込は行いません。ウィンドウとタイトル表示は「PoC3 作業版」へ変更。
 - 自己保存試験は8 PASS。独立は初回7 PASS / 1 FAILを保持し、JSON文字列表現での同値int/float差を切り分ける限定追試1 PASSを経て最終8条件PASS / 未解決FAIL 0 / 3 NOT_RUN。初回FAILと追試を合算していません。
 - 対象4ゲームファイルと2試験ファイルのhash一致、旧実ユーザー保存3件の前後不変を確認。自己GUIで版表示を確認しましたが、起動瞬間の非前面化保証は未確認。独立GUI、物理入力、広い回帰、長時間試験、Windows書き出しはNOT_RUN。自己[報告・結果・画面](../evidence/poc3/save_base/self/report.md)、独立[報告・結果](../evidence/poc3/save_base/independent/report.md)を参照。
+
+## POC3-VISIBILITY 通常画面の距離視認（2026-10-24）
+
+親は実差分、before/after画像、独立報告を確認し、生存敵・固定巣・動く親玉が通常画面で距離だけを理由に消えない修正を限定技術受入しました。world_viewの距離条件を化石だけに適用し、これら3種は通常のカメラ/深度処理に任せています。表示だけで遠方の巣が起動しないことも限定確認しました。マップ・化石・巣の活動条件は変更していません。
+
+- 自己試験はbefore 8 PASSで旧非表示を再現し、after 11 PASS / 0 FAIL。独立は9 PASS / 0 FAIL / 3 NOT_RUNでhash一致、主要headless条件と提供GPU画像を確認。独立GPU再実行はありません（[自己報告](../evidence/poc3/visibility/self/report.md)、[独立報告](../evidence/poc3/visibility/independent/report.md)）。
+- 描画確認は起動前 `override.cfg` の `no_focus=true` / `mode=1`、最小化状態を保ったSubViewport撮影、起動時・終了時flag確認で実施。override除去とGodot終了0件を確認しました。前回SAVE-BASEで未確認となった起動瞬間の非前面化保証を遡ってPASSにはしません。
+- beforeの空mesh診断は建物を全除去したfixtureに由来する記録として保持。afterと独立ログに該当エラーなし。NOT_RUN: 建物遮蔽、マップ情報、広い回帰、物理入力、独立GPU再撮影、全体受入。

@@ -179,7 +179,8 @@ func _entities() -> void:
 			if float(item.get("hp", 1.0)) <= 0: continue
 			var key: String = category + str(item.id)
 			alive[key] = true
-			if category in ["enemies", "nests", "fossils"] and not _visible(item.pos): continue
+			# Normal enemies/nests use camera/depth visibility; discovery still gates fossils.
+			if category == "fossils" and not _visible(item.pos): continue
 			if category == "fossils" and (bool(item.get("found", false)) or int(item.get("nest_id", -1)) >= 0): continue
 			seen[key] = true
 			var node: MeshInstance3D = entities.get(key) as MeshInstance3D
