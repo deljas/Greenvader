@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "name": "normal_camera_replaces_player_circle",
+      "status": "PASS"
+    },
+    {
+      "name": "helper_existing_radius_72",
+      "status": "PASS"
+    },
+    {
+      "name": "fixed_nest_and_mother_detected",
+      "status": "PASS"
+    },
+    {
+      "name": "fixed_memory_pale_mother_no_memory",
+      "status": "PASS"
+    },
+    {
+      "name": "seed_is_not_green_detection",
+      "status": "PASS"
+    },
+    {
+      "name": "remote_green_detects_current_enemy",
+      "status": "PASS"
+    },
+    {
+      "name": "green_loss_hides_enemy_keeps_known",
+      "status": "PASS"
+    },
+    {
+      "name": "seed_does_not_discover_fossil",
+      "status": "PASS"
+    },
+    {
+      "name": "remote_fossil_discovery_no_unlock",
+      "status": "PASS"
+    },
+    {
+      "name": "fossil_memory_after_green_loss",
+      "status": "PASS"
+    },
+    {
+      "name": "approach_collects_unlocks_hides_fossil",
+      "status": "PASS"
+    },
+    {
+      "name": "destroyed_nest_clears_and_reward_unlocks",
+      "status": "PASS"
+    },
+    {
+      "name": "discovery_save_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "earlier_poc3_missing_discovery_defaults_false",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_discovery_bool_nests",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_discovery_bool_fossils",
+      "status": "PASS"
+    },
+    {
+      "name": "old_poc2_rejected_unchanged",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "physical_input",
+    "wide_regression",
+    "long_play"
+  ],
+  "user_data": "C:/godot/greenvader/evidence/poc3/playtest01/self/rerun_C_map_info/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

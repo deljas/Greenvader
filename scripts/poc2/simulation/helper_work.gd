@@ -2,6 +2,8 @@ extends RefCounted
 ## Unconnected PoC3 helper decisions. Static calls retain no Session/World reference
 ## and mutate neither the helper nor its candidate snapshots. Distances: logic px.
 const WORK_RADIUS: float = 60.0 # 6m at 0.1m per logic px.
+## Sprinkler activity radius (POC3-PLAYTEST-01 item 11): twice the shared WORK_RADIUS (was 60 = 6m).
+const SPRINKLER_WORK_RADIUS: float = 120.0 # 12m
 const CHASE_RADIUS: float = 80.0
 const HOME_EPSILON: float = 3.0
 const DANGER_ENTER: float = 35.0
@@ -67,7 +69,7 @@ static func sprinkler_target(helper: Dictionary, crops: Array[Dictionary], grass
 	var best: Dictionary={}
 	var distance: float=INF
 	for candidate: Dictionary in candidates:
-		if candidate.pos.distance_to(helper.home)>WORK_RADIUS or not _reachable(candidate.pos,reachable): continue
+		if candidate.pos.distance_to(helper.home)>SPRINKLER_WORK_RADIUS or not _reachable(candidate.pos,reachable): continue
 		if String(helper.get("job_kind",""))==candidate.kind and int(helper.get("job_id",-1))==candidate.id:
 			return candidate.duplicate()
 		var d: float=helper.pos.distance_squared_to(candidate.pos)

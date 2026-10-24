@@ -6,6 +6,7 @@ const Ui: GDScript=preload("res://scripts/poc2/ui/poc2_ui.gd")
 const Save: GDScript=preload("res://scripts/poc2/save/poc2_save.gd")
 const Coords: GDScript=preload("res://scripts/poc/poc_coords.gd")
 const InputLatch: GDScript=preload("res://scripts/poc2/input_latch.gd")
+const FireTimeline: GDScript=preload("res://scripts/poc2/view/fire_timeline.gd")
 var mouse: RefCounted=InputLatch.new()
 var session: RefCounted
 var render_view: SubViewport
@@ -26,6 +27,11 @@ var _secondary: bool:
 	get: return mouse.held_action(MOUSE_BUTTON_RIGHT)==&"water"
 var _shot_wait: float=0.0
 var _water_wait: float=0.0
+## A water action is accepted when it starts (checked, nothing spent); the water is applied and spent
+## at the release frame of the animation (400ms), at the target latched on the click.
+var _water_pending: bool=false
+var _water_due: float=0.0
+var _water_target: Vector2=Vector2.ZERO
 var _last_autosave: float=0.0
 var _message_serial: int=0
 var _placement_kind: String=""
@@ -72,6 +78,7 @@ func _ready() -> void:
 func replace_session(candidate: RefCounted) -> void:
 	mouse.reset()
 	_keys.clear()
+	_water_pending=false
 	if world!=null:
 		render_view.remove_child(world)
 		world.free()
@@ -118,6 +125,7 @@ func tick(delta: float) -> void:
 			if _primary and _placement_kind=="" and _shot_wait<=0.0: _fire()
 			if _secondary and _water_wait<=0.0: _water()
 		session.advance(delta)
+		if _water_pending and session.clock.elapsed>=_water_due: _release_water()
 		if session.clock.elapsed-_last_autosave>=60.0:
 			_last_autosave=session.clock.elapsed
 			var saved: Dictionary=Save.save_game(session,save_dir)
@@ -131,7 +139,7 @@ func tick(delta: float) -> void:
 		var check: Dictionary=session.can_place(_placement_kind,cell)
 		var footprint: Array=session.CATALOG[_placement_kind].get("size",[1,1])
 		world.set_preview(_placement_kind,cell,bool(check.get("ok",false)),Vector2i(int(footprint[0]),int(footprint[1])))
-		world.helper_effects.preview((Vector2(cell)+Vector2(footprint[0],footprint[1])*0.5)*4.0,_placement_kind in ["army","gatlinger","sprinkler"])
+		world.helper_effects.preview((Vector2(cell)+Vector2(footprint[0],footprint[1])*0.5)*4.0,_placement_kind in ["army","gatlinger","sprinkler"],2.0 if _placement_kind=="sprinkler" else 1.0)
 	else:
 		world.marker.visible=false
 		world.helper_effects.preview(Vector2.ZERO,false)
@@ -140,6 +148,11 @@ func tick(delta: float) -> void:
 		sow_plan=session.sow_preview()
 	world.set_sow_preview(sow_plan)
 	ui.set_sow_preview(sow_plan)
+	var water_plan: Dictionary={}
+	if cursor_known and _placement_kind=="" and not is_paused() and not ui.blocks(cursor):
+		water_plan=session.water_preview(world.pick(cursor))
+	world.set_water_preview(water_plan)
+	ui.set_water_preview(water_plan)
 
 func _axis(positive: int, negative: int, positive_alt: int, negative_alt: int) -> float:
 	return float(bool(_keys.get(positive,false)) or bool(_keys.get(positive_alt,false)))-float(bool(_keys.get(negative,false)) or bool(_keys.get(negative_alt,false)))
@@ -170,7 +183,10 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
+	if event is InputEventMouseMotion:
+		# Left-drag on the zoomed all-map slides it (the map ignores motion unless a drag is in progress).
+		if menu=="" and ui.map.expanded and ui.map.handle_motion(event): get_viewport().set_input_as_handled()
+	elif event is InputEventKey and event.pressed and not event.echo:
 		var key: int=event.physical_keycode if event.physical_keycode!=0 else event.keycode
 		if key==KEY_E:
 			if menu=="plants": _on_action("close_plants")
@@ -220,10 +236,24 @@ func _fire() -> void:
 	if bool(result.get("ok",false)): world.show_fire(&"seed")
 
 func _water() -> void:
-	_water_wait=0.3
-	var result: Dictionary=session.water_at(world.pick(cursor))
-	_result(result,"water")
-	if bool(result.get("ok",false)): world.show_fire(&"water")
+	# One watering plays its whole animation; a click or hold during it does not restart it.
+	if _water_pending or (world.fire_kind==&"water" and world.fire_time>0.0): return
+	var target: Vector2=world.pick(cursor)
+	var check: Dictionary=session.water_check(target)
+	if not bool(check.get("ok",false)):
+		# Nothing to water / no water / blocked: no animation, no spending, only the reason.
+		_water_wait=0.3
+		_result(check)
+		return
+	_water_wait=FireTimeline.total_ms(&"water")/1000.0
+	_water_pending=true
+	_water_target=target
+	_water_due=session.clock.elapsed+FireTimeline.release_ms(&"water")/1000.0
+	world.show_fire(&"water")
+
+func _release_water() -> void:
+	_water_pending=false
+	_result(session.water_at(_water_target),"water")
 
 func _place(cell: Vector2i) -> void:
 	if _placement_kind=="gatlinger":
@@ -231,6 +261,7 @@ func _place(cell: Vector2i) -> void:
 		return
 	var result: Dictionary=session.place_helper(_placement_kind,cell) if _placement_kind in ["army","sprinkler"] else session.place_plant(_placement_kind,cell)
 	_result(result,"place")
+	if bool(result.get("ok",false)) and _placement_kind in ["army","sprinkler"]: ui.note_helper_placed()
 
 func _placement_supply(cell: Vector2i) -> void:
 	var check: Dictionary=session.can_place("gatlinger",cell)
@@ -258,7 +289,9 @@ func _placement_supply(cell: Vector2i) -> void:
 		buttons.add_child(button)
 		if text=="設置":
 			button.pressed.connect(func() -> void:
-				_result(session.place_helper("gatlinger",cell,int(quantity.value)),"place")
+				var placed: Dictionary=session.place_helper("gatlinger",cell,int(quantity.value))
+				_result(placed,"place")
+				if bool(placed.get("ok",false)): ui.note_helper_placed()
 				ui.supply.hide()
 				menu=""
 				_sync_pause())

@@ -14,6 +14,7 @@ const EntitySprite: GDScript = preload("res://scripts/poc2/view/entity_sprite.gd
 const EntityCatalog: GDScript = preload("res://scripts/poc2/view/entity_sprite_catalog.gd")
 const EntityState: GDScript = preload("res://scripts/poc2/view/entity_sprite_state.gd")
 const HelperEffects: GDScript = preload("res://scripts/poc2/view/helper_effects.gd")
+const FireTimeline: GDScript = preload("res://scripts/poc2/view/fire_timeline.gd")
 var helper_effects: Node3D
 var session: RefCounted
 var camera: Camera3D
@@ -34,7 +35,10 @@ var light_updates: int = 0
 var animation_time: float = 0.0
 var facing: StringName = &"down"
 var walking: bool = false
+## Remaining seconds of the current fire action and its elapsed milliseconds (session clock, so a pause freezes it).
 var fire_time: float = 0.0
+var fire_elapsed_ms: float = 0.0
+var fire_frame: int = 0
 var fire_kind: StringName = &""
 var marker: MeshInstance3D
 var last_position: Vector2
@@ -43,6 +47,11 @@ var sow_range: MeshInstance3D
 var sow_cells: Array[MeshInstance3D] = []
 var sow_materials: Array[StandardMaterial3D] = []
 var sow_plan: Dictionary = {}
+var water_range: MeshInstance3D
+var water_cells: Array[MeshInstance3D] = []
+var water_materials: Array[StandardMaterial3D] = []
+var water_plan: Dictionary = {}
+var _crop_wet_cells: Dictionary = {}
 var _last_clock: float = 0.0
 
 func build(source: RefCounted, viewport: SubViewport) -> void:
@@ -103,6 +112,7 @@ func build(source: RefCounted, viewport: SubViewport) -> void:
 	marker = _mesh("marker", Color("bdeaa2"), false)
 	marker.visible = false
 	_build_sow_preview()
+	_build_water_preview()
 	helper_effects=HelperEffects.new()
 	add_child(helper_effects)
 	if placement_view != null:
@@ -149,9 +159,18 @@ func sync(dt: float) -> void:
 			facing = &"right" if screen_dir.x > 0 else &"left"
 		else:
 			facing = &"down" if screen_dir.y > 0 else &"up"
-	fire_time = maxf(fire_time - game_dt, 0.0)
-	var firing: StringName = fire_kind if fire_time > 0.0 else &""
-	actor.pose(foot, int(animation_time * 7.0) % 4, facing, sun, 0, walking, firing, 2 if fire_time > 0.08 else 3)
+	# The adopted SPR-01 timeline (seed 4 frames / 400ms, water 7 frames / 800ms) plays to its last frame.
+	var firing: StringName = &""
+	if fire_kind != &"":
+		fire_elapsed_ms += game_dt * 1000.0
+		fire_frame = FireTimeline.frame_at(fire_kind, fire_elapsed_ms)
+		if fire_frame < 0:
+			fire_kind = &""
+			fire_time = 0.0
+		else:
+			firing = fire_kind
+			fire_time = maxf(FireTimeline.total_ms(fire_kind) - fire_elapsed_ms, 0.0) / 1000.0
+	actor.pose(foot, int(animation_time * 7.0) % 4, facing, sun, 0, walking, firing, maxi(fire_frame, 0), firing == &"water")
 	var ground_dirty: PackedInt32Array = session.state.take_dirty() # The ONLY dirty-list consumer.
 	ground.apply(ground_dirty)
 	if wall_view != null: wall_view.sync()
@@ -161,8 +180,10 @@ func sync(dt: float) -> void:
 	_entities(ground_dirty)
 
 func show_fire(kind: StringName) -> void:
-	fire_time = 0.25
 	fire_kind = kind
+	fire_elapsed_ms = 0.0
+	fire_frame = 0
+	fire_time = FireTimeline.total_ms(kind) / 1000.0
 
 func _lighting() -> void:
 	# One-degree game-hour buckets (~2.5 seconds at a 600s day) stop per-frame shadow crawling.
@@ -189,6 +210,7 @@ func _visible(logic: Vector2) -> bool:
 
 func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
 	var desired_cover: Dictionary = {}
+	var desired_wet: Dictionary = {}
 	var seen: Dictionary = {}
 	var alive: Dictionary = {}
 	for category: String in ["plants", "helpers", "enemies", "nests", "fossils", "shots"]:
@@ -223,7 +245,9 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
 			node.set_meta("visual_state",presentation.state)
 			node.set_meta("visual_direction",presentation.direction)
 			if use_sprite:
-				if category == "plants": _mark_crop_cover(item,desired_cover)
+				if category == "plants":
+					_mark_crop_cover(item,desired_cover)
+					if bool(item.get("watered",false)): _mark_crop_cover(item,desired_wet)
 				var at_sprite: Vector2 = Coords.logic_to_ground(item.pos)
 				node.pose(definition,presentation,Vector3(at_sprite.x,0.0,at_sprite.y),camera,sun,animation_time)
 				continue
@@ -264,6 +288,7 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
 		elif not seen.has(key):
 			(entities[key] as Node3D).visible = false
 	_apply_crop_cover(desired_cover,ground_dirty)
+	_apply_crop_wet(desired_wet)
 	helper_effects.sync(session,animation_time)
 
 func _mark_crop_cover(item: Dictionary, desired: Dictionary) -> void:
@@ -290,6 +315,18 @@ func _apply_crop_cover(desired: Dictionary, ground_dirty: PackedInt32Array) -> v
 		ground.shown_soil[index] = 0
 		ground.shown_pave[index] = 0
 	_sprite_cover_cells = desired
+
+## Damp patch under watered cultivated plants. Only the cells that changed are rewritten.
+func _apply_crop_wet(desired: Dictionary) -> void:
+	var touched: Array[int] = []
+	for index: int in _crop_wet_cells:
+		if not desired.has(index): touched.append(index)
+	for index: int in desired:
+		if not _crop_wet_cells.has(index): touched.append(index)
+	if touched.is_empty(): return
+	_crop_wet_cells = desired
+	ground.crop_wet = desired
+	for index: int in touched: ground.set_wet_cell(index)
 
 func _helper_parts(node: MeshInstance3D, kind: String) -> void:
 	var part: MeshInstance3D = MeshInstance3D.new()
@@ -369,6 +406,41 @@ func set_sow_preview(plan: Dictionary) -> void:
 			node.position = Vector3(center.x,0.04,center.y)
 			node.scale = Vector3(0.34,1.0,0.34)
 			node.material_override = sow_materials[1 if key=="affordable" else 2]
+			node.visible = true
+
+func _build_water_preview() -> void:
+	# range / will water / water short / blocked / nothing to water
+	for color: Color in [Color(0.55,0.72,0.95,0.14),Color(0.30,0.68,1.0,0.58),Color(0.80,0.70,0.96,0.40),Color(0.88,0.35,0.28,0.22),Color(0.70,0.70,0.70,0.24)]:
+		var material_: StandardMaterial3D = StandardMaterial3D.new()
+		material_.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		material_.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		material_.albedo_color = color
+		water_materials.append(material_)
+	water_range = _sow_plane()
+	for i: int in 49:
+		water_cells.append(_sow_plane())
+
+## Same layout as the sowing preview: a faint range, the cells that will actually be watered, and the
+## cells that are short of water. An out-of-reach-free area with nothing to water is greyed.
+func set_water_preview(plan: Dictionary) -> void:
+	water_plan = plan
+	water_range.visible = not plan.is_empty()
+	for node: MeshInstance3D in water_cells: node.visible = false
+	if plan.is_empty(): return
+	var at: Vector2 = Coords.cell_center_ground(plan.center)
+	var width: float = float(plan.width)*0.4
+	water_range.position = Vector3(at.x,0.03,at.y)
+	water_range.scale = Vector3(width,1.0,width)
+	water_range.material_override = water_materials[3 if plan.get("blocked",false) else (4 if plan.get("no_effect",false) else 0)]
+	var used: int = 0
+	for key: String in ["affordable","unaffordable"]:
+		for cell: Vector2i in plan[key]:
+			var node: MeshInstance3D = water_cells[used]
+			used += 1
+			var center: Vector2 = Coords.cell_center_ground(cell)
+			node.position = Vector3(center.x,0.05,center.y)
+			node.scale = Vector3(0.30,1.0,0.30)
+			node.material_override = water_materials[1 if key=="affordable" else 2]
 			node.visible = true
 
 func _wall_height(x: int, y: int) -> float:

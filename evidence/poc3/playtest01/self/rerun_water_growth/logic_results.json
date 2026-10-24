@@ -1,0 +1,102 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "watermelon_dry_180",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "watermelon_wet_90_permanent",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "watermelon_partial_60_dry_then_60_wet_no_stack",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "removed_replanted_crop_starts_dry",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "destroyed_replanted_crop_starts_dry",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "catalog_base_times",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "grass_dry_60",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "grass_wet_30",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "at_water": 10000,
+        "pending_before": 2
+      },
+      "name": "split_lag_partial_water_no_retroactive_boost",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "food_damage_active_order_lag_immediate_restore",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "food_damage_regrowth_starts_dry",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "water_empty_mature_no_prewater",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "legacy_opt_in_defaults_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "sprinkler_crop_priority_over_nearer_grass",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "sprinkler_one_water_then_reselect_no_wet_repeat",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "bound_seconds": 30,
+        "greened": 30,
+        "targets": 30
+      },
+      "name": "isolated_dry_autonomous_100_percent",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "natural_destination_does_not_inherit_water",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "GPU rendering",
+    "native physical input",
+    "full regression reserved for integration"
+  ]
+}

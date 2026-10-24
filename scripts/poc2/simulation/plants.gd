@@ -1,7 +1,16 @@
 extends RefCounted
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
 const Work: GDScript = preload("res://scripts/poc2/simulation/helper_work.gd")
+const WaterArea: GDScript = preload("res://scripts/poc2/simulation/water_area.gd")
+const WATER_RANGE: float = 50.0
+## POC3-PLAYTEST-01 item 5: gatlinger volley. Was one seed every 3.0 s; now a fan of GATLING_VOLLEY seeds every GATLING_INTERVAL s.
+const GATLING_INTERVAL: float = 1.2
+const GATLING_VOLLEY: int = 4
+const GATLING_SPREAD_CELLS: int = 5
 var s: RefCounted
+## Instance copies so a measurement can restore the pre-item-5 values (3.0 s, 1 seed).
+var gatling_interval: float = GATLING_INTERVAL
+var gatling_volley: int = GATLING_VOLLEY
 func _init(session: RefCounted) -> void:
  s=session
 
@@ -101,13 +110,75 @@ func carrot_near(pos: Vector2) -> bool:
    return true
  return false
 
-func water_at(pos: Vector2) -> Dictionary:
- if s.paused or s.hp<=0.0 or s.position.distance_to(pos)>50.0: return s.result(false,"out_of_range")
+## The aimed point is limited to the watering reach, exactly like the seed shot target.
+func water_target(pos: Vector2) -> Vector2:
+ return s.position+(pos-s.position).limit_length(WATER_RANGE)
+
+## Read-only plan for the current range setting (shared with area sowing). Never spends water.
+func water_preview(pos: Vector2) -> Dictionary:
+ if s.hp<=0.0 or not pos.is_finite(): return {}
+ var target: Vector2=water_target(pos)
+ var plan: Dictionary=WaterArea.plan(s.state,s.plants,Coords.logic_to_cell(target),s.sow_width,int(floorf(maxf(s.water,0.0))))
+ plan.target=target
+ plan.blocked=s.placement.blocks_projectile(s.position,target)
+ plan.no_effect=(plan.valid as Array).is_empty()
+ if plan.blocked:
+  plan.affordable=[]
+  plan.unaffordable=[]
+  plan.cost=0
+ return plan
+
+## Dry-run of water_at: the same checks in the same order, no mutation. Used before the
+## animation starts so a useless or impossible watering never plays or spends anything.
+func water_check(pos: Vector2) -> Dictionary:
+ if s.paused or s.hp<=0.0 or not pos.is_finite(): return s.result(false,"paused_or_downed")
  if s.water<1.0: return s.result(false,"no_water")
- if s.placement.blocks_projectile(s.position,pos): return s.result(false,"blocked")
- s.water-=1.0
- _wet(pos,14.0,5.0)
- return s.result(true)
+ var plan: Dictionary=water_preview(pos)
+ if plan.blocked: return s.result(false,"blocked")
+ if plan.no_effect: return s.result(false,"no_effect")
+ return s.result(true,"",{"cost":int(plan.cost)})
+
+## Waters the effective cells of the area centred on the aimed cell. Water is spent per
+## cell that actually changed (nearest to the centre first when short); nothing is spent
+## and nothing happens when no cell in the area would change.
+func water_at(pos: Vector2) -> Dictionary:
+ if s.paused or s.hp<=0.0 or not pos.is_finite(): return s.result(false,"paused_or_downed")
+ if s.water<1.0: return s.result(false,"no_water")
+ var target: Vector2=water_target(pos)
+ if s.placement.blocks_projectile(s.position,target): return s.result(false,"blocked")
+ if not s.state.permanent_water:
+  s.water-=1.0
+  _wet(target,14.0,5.0)
+  return s.result(true)
+ var plan: Dictionary=WaterArea.plan(s.state,s.plants,Coords.logic_to_cell(target),s.sow_width,int(floorf(s.water)))
+ if (plan.valid as Array).is_empty(): return s.result(false,"no_effect")
+ var changed: int=_water_cells(plan.affordable)
+ if changed<=0: return s.result(false,"no_effect")
+ s.water-=float(changed)
+ return s.result(true,"",{"cost":changed})
+
+func _water_cells(cells: Array) -> int:
+ var changed: int=0
+ var dry_grass: bool=false
+ for cell: Vector2i in cells:
+  var index: int=s.state.index_of(cell.x,cell.y)
+  if s.state.stage[index]>0 and s.state.stage[index]<4 and s.state.moisture[index]==0: dry_grass=true
+ # A first grass watering settles split-sweep lag; the catch-up may mature a candidate,
+ # so every cell is re-read below before it is changed or charged.
+ if dry_grass: s.growth.catch_up()
+ for cell: Vector2i in cells:
+  var index: int=s.state.index_of(cell.x,cell.y)
+  if s.state.target[index]==1 and s.state.stage[index]>0 and s.state.stage[index]<4:
+   if s.state.moisture[index]==0 and s.state.set_moisture(index,100):
+    s.state.mark_dirty(index)
+    changed+=1
+   continue
+  for p: Dictionary in s.plants:
+   if not p.mature and not p.get("watered",false) and Rect2i(Vector2i(p.cell),Vector2i(p.size)).has_point(cell):
+    p.watered=true
+    changed+=1
+    break
+ return changed
 
 func _wet(pos: Vector2,radius: float,duration: float) -> int:
  var changed: int=0
@@ -122,7 +193,9 @@ func _wet(pos: Vector2,radius: float,duration: float) -> int:
   # Catch-up may have matured a candidate; recheck before applying water.
   for index: int in tiles:
    if s.state.stage[index]>0 and s.state.stage[index]<4 and s.state.moisture[index]==0:
-    if s.state.set_moisture(index,100): changed+=1
+    if s.state.set_moisture(index,100):
+     s.state.mark_dirty(index)
+     changed+=1
   for p: Dictionary in s.plants:
    if not p.mature and not p.get("watered",false) and p.pos.distance_to(pos)<=radius:
     p.watered=true
@@ -285,7 +358,7 @@ func _return_home(h: Dictionary,dt: float,arrived: String="idle") -> void:
   h.status="returning" if _reachable(h.pos,h.home) else "unreachable"
 
 func _job_target(h: Dictionary,growing: bool) -> Dictionary:
- var tiles: PackedInt32Array=Landing.tiles_in_radius(s.state,4,h.home,Work.WORK_RADIUS)
+ var tiles: PackedInt32Array=Landing.tiles_in_radius(s.state,4,h.home,Work.SPRINKLER_WORK_RADIUS if growing else Work.WORK_RADIUS)
  var grass: Array[Dictionary]=[]
  var candidates: Array[Dictionary]=[]
  var frontier: Array[int]=[]
@@ -347,10 +420,28 @@ func _gatlinger(h: Dictionary,dt: float) -> void:
    var c: Vector2i=Coords.logic_to_cell(target)
    if s.state.can_plant(s.state.index_of(c.x,c.y)):
     if s.combat_system.helper_seed(h,target):
-     h.work_at=s.clock.elapsed+3.0
+     h.work_at=s.clock.elapsed+gatling_interval
+     _gatling_fan(h,c)
      h.action_kind="sow"; h.action_until=s.clock.elapsed+0.22
      h.status="sowing"
   h.search_at=0.0
+
+## Scatter the rest of a volley around the main target cell. Deterministic order (hash of helper id, time and cell).
+func _gatling_fan(h: Dictionary,center: Vector2i) -> void:
+ var order: Array[Dictionary]=[]
+ var tick: int=int(s.clock.elapsed*10.0)
+ for dy: int in range(-GATLING_SPREAD_CELLS,GATLING_SPREAD_CELLS+1):
+  for dx: int in range(-GATLING_SPREAD_CELLS,GATLING_SPREAD_CELLS+1):
+   if dx==0 and dy==0: continue
+   var key: int=((dx+64)*73856093) ^ ((dy+64)*19349663) ^ (int(h.id)*83492791) ^ (tick*2654435761)
+   order.append({"cell":center+Vector2i(dx,dy),"key":key&0x7fffffff})
+ order.sort_custom(func(a: Dictionary,b: Dictionary) -> bool: return int(a.key)<int(b.key))
+ var fired: int=1
+ for item: Dictionary in order:
+  if fired>=gatling_volley or int(h.ammo)<=0: break
+  var cell: Vector2i=item.cell
+  if not s.state.in_bounds(cell.x,cell.y): continue
+  if s.combat_system.helper_seed(h,Coords.cell_center_logic(cell)): fired+=1
 
 func _sprinkler(h: Dictionary,dt: float) -> void:
  # water_task is durable intent; status only describes the current visible action.

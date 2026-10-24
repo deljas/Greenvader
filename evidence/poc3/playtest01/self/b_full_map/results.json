@@ -1,0 +1,131 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "id": "STABLE_AFTER_CLEAR",
+      "status": "PASS"
+    },
+    {
+      "detail": 1000000000.0,
+      "id": "SWEEP_DELAY_EFFECTIVELY_INFINITE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "game_minutes": 70.0166666666667,
+        "game_seconds": 4201.0,
+        "greened": 38330,
+        "input_events": 0,
+        "island_before_targets": 16,
+        "island_green": 16,
+        "island_planted": 1,
+        "missing": 0,
+        "missing_box": [
+          "(0, 0)",
+          "(0, 0)"
+        ],
+        "start_green": 177,
+        "sweep_planted": 0,
+        "targets": 38330,
+        "timeline": [
+          [
+            600,
+            2717
+          ],
+          [
+            1200,
+            7788
+          ],
+          [
+            1800,
+            14832
+          ],
+          [
+            2400,
+            25034
+          ],
+          [
+            3000,
+            32324
+          ],
+          [
+            3600,
+            36883
+          ],
+          [
+            4200,
+            38330
+          ]
+        ]
+      },
+      "id": "FULL_MAP_100_WITHOUT_SWEEP",
+      "status": "PASS"
+    },
+    {
+      "detail": 0,
+      "id": "NO_SWEEP_PLANTING",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "green": 16,
+        "targets": 16
+      },
+      "id": "ISLAND_GREENED",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "NO_REINVASION",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "observations": {
+    "game_minutes": 70.0166666666667,
+    "game_seconds": 4201.0,
+    "greened": 38330,
+    "input_events": 0,
+    "island_before_targets": 16,
+    "island_green": 16,
+    "island_planted": 1,
+    "missing": 0,
+    "missing_box": [
+      "(0, 0)",
+      "(0, 0)"
+    ],
+    "start_green": 177,
+    "sweep_planted": 0,
+    "targets": 38330,
+    "timeline": [
+      [
+        600,
+        2717
+      ],
+      [
+        1200,
+        7788
+      ],
+      [
+        1800,
+        14832
+      ],
+      [
+        2400,
+        25034
+      ],
+      [
+        3000,
+        32324
+      ],
+      [
+        3600,
+        36883
+      ],
+      [
+        4200,
+        38330
+      ]
+    ]
+  }
+}

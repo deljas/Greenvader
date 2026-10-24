@@ -30,7 +30,7 @@ func run() -> void:
 	var crop: Dictionary=session.plant_stats("clover")
 	var helper: Dictionary=session.plant_stats("army")
 	check("count_includes_immature_production_mature_alive_only",crop.count==2 and is_equal_approx(crop.rate_per_second,1.0/30.0) and helper.count==1 and helper.rate_per_second==0.0)
-	check("base_price_api",session.current_cost("clover")==10 and session.current_cost("watermelon")==120 and session.current_cost("army")==25)
+	check("base_price_api",session.current_cost("clover")==13 and session.current_cost("watermelon")==120 and session.current_cost("army")==25)
 	check("production_precision_boundaries",Row.production_text(0.5)=="+0.500 ●/s" and Row.production_text(1.0)=="+1.00 ●/s" and Row.production_text(100.0)=="+100.0 ●/s" and Row.production_text(0.0,false)=="—")
 	session.close()
 	# Persistence checks use a separate, valid world.

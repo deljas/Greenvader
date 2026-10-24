@@ -1,0 +1,450 @@
+{
+ "target": "HEAD da1eeb0 + uncommitted; manifest_C 172 files",
+ "groups": {
+  "logic": [
+   {
+    "name": "item1_3_width1_checker_cost_equals_effective",
+    "status": "PASS"
+   },
+   {
+    "name": "item1_3_width3_checker_cost_equals_effective",
+    "status": "PASS"
+   },
+   {
+    "name": "item1_3_width5_checker_cost_equals_effective",
+    "status": "PASS"
+   },
+   {
+    "name": "item1_3_width7_checker_cost_equals_effective",
+    "status": "PASS"
+   },
+   {
+    "name": "item1_shortage_floor_water_nearest_first",
+    "status": "PASS"
+   },
+   {
+    "name": "item1_water_below_1_refused",
+    "status": "PASS"
+   },
+   {
+    "name": "item3_second_watering_no_effect_zero_spend",
+    "status": "PASS"
+   },
+   {
+    "name": "item3_overlap_charges_only_new_cells",
+    "status": "PASS"
+   },
+   {
+    "name": "item3_blocked_by_obstacle_no_spend",
+    "status": "PASS"
+   },
+   {
+    "name": "item3_unblocked_works",
+    "status": "PASS"
+   },
+   {
+    "name": "item1_range_clamped_50",
+    "status": "PASS"
+   },
+   {
+    "name": "item3_paused_refused",
+    "status": "PASS"
+   },
+   {
+    "name": "item1_crop_unit_counts_once",
+    "status": "PASS"
+   },
+   {
+    "name": "item3_watered_crop_no_effect",
+    "status": "PASS"
+   },
+   {
+    "name": "save_restores_watered_crop_and_sow_width",
+    "status": "PASS"
+   },
+   {
+    "name": "save_restores_wet_grass",
+    "status": "PASS"
+   },
+   {
+    "name": "item6_price_ceil_1_1_pow_n_and_charged_n0to5",
+    "status": "PASS"
+   },
+   {
+    "name": "item6_helpers_fixed_price",
+    "status": "PASS"
+   },
+   {
+    "name": "item5_gatling_4_per_volley_each_1_2s",
+    "status": "PASS"
+   },
+   {
+    "name": "item5_gatling_ammo_spent_matches_cells_planted_and_player_seeds_untouched",
+    "status": "PASS"
+   },
+   {
+    "name": "item11_sprinkler_reaches_108px_not_128px",
+    "status": "PASS"
+   },
+   {
+    "name": "item11_gatling_radius_still_6m",
+    "status": "PASS"
+   }
+  ],
+  "gpu_a": [
+   {
+    "name": "startup_no_focus_minimized",
+    "status": "PASS"
+   },
+   {
+    "name": "item4_wet_distinguishable_stage1",
+    "status": "PASS"
+   },
+   {
+    "name": "item4_wet_distinguishable_stage2",
+    "status": "PASS"
+   },
+   {
+    "name": "item4_wet_distinguishable_stage3",
+    "status": "PASS"
+   },
+   {
+    "name": "item2_water_anim_runs_until_about_800ms",
+    "status": "PASS"
+   },
+   {
+    "name": "item2_water_spent_at_about_400ms_once",
+    "status": "PASS"
+   },
+   {
+    "name": "item2_sprite_pixels_change_at_least_6_times_in_800ms",
+    "status": "PASS"
+   },
+   {
+    "name": "item3_hold_after_effect_exhausted_no_further_spend",
+    "status": "PASS"
+   },
+   {
+    "name": "item2_seed_anim_about_400ms_4_frames",
+    "status": "PASS"
+   },
+   {
+    "name": "item6_8_slot_text_matches_formula_n0_to_5_all_kinds",
+    "status": "PASS"
+   },
+   {
+    "name": "item6_8_shortcut_key_hud_price_matches_n0_to_5",
+    "status": "PASS"
+   },
+   {
+    "name": "item8_unaffordable_marked",
+    "status": "PASS"
+   },
+   {
+    "name": "item9_label_equals_income_per_second_grass",
+    "status": "PASS"
+   },
+   {
+    "name": "item9_label_equals_income_per_second_with_crops",
+    "status": "PASS"
+   }
+  ],
+  "gpu_b": [
+   {
+    "name": "startup_no_focus_minimized",
+    "status": "PASS"
+   },
+   {
+    "name": "found_tall_building_with_hidden_spot",
+    "status": "PASS"
+   },
+   {
+    "name": "item7_fade_out_upper_region_has_intermediate_frames",
+    "status": "PASS"
+   },
+   {
+    "name": "item7_fade_out_upper_roughly_monotone",
+    "status": "PASS"
+   },
+   {
+    "name": "item7_fade_in_upper_region_has_intermediate_frames_and_monotone",
+    "status": "PASS"
+   },
+   {
+    "name": "item7_restored_matches_original_opaque_frame",
+    "status": "PASS"
+   }
+  ],
+  "gpu_c": [
+   {
+    "name": "startup_no_focus_minimized",
+    "status": "PASS"
+   },
+   {
+    "name": "item12_first_helper_placement_notice",
+    "status": "PASS"
+   },
+   {
+    "name": "item12_notice_not_repeated",
+    "status": "PASS"
+   },
+   {
+    "name": "item12_map_hint_when_nothing_selected",
+    "status": "PASS"
+   },
+   {
+    "name": "item12_hint_when_helper_selected",
+    "status": "PASS"
+   },
+   {
+    "name": "item12_following_the_hint_relocates_helper",
+    "status": "PASS"
+   },
+   {
+    "name": "item12_right_click_deselects_as_hinted",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_unzoomed_drag_does_not_slide",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_zoomed",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_3px_is_not_a_drag",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_60px_drag_moves_map",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_map_follows_cursor_exact",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_release_after_drag_no_selection_no_command",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_center_inside_world_after_extreme_drag_1",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_center_inside_world_after_extreme_drag_-1",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_small_motion_click_selects_icon",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_drag_starting_on_icon_does_not_relocate",
+    "status": "PASS"
+   },
+   {
+    "name": "item10_map_closes_clean",
+    "status": "PASS"
+   },
+   {
+    "name": "item12_help_text_mentions_relocation_and_drag",
+    "status": "PASS"
+   }
+  ],
+  "full_plain": {
+   "delay": 1000000000.0,
+   "first_target_cell": [
+    1,
+    1
+   ],
+   "fully": true,
+   "greened": 38330,
+   "greened_when_top_row_first_planted": 23088,
+   "helpers_alive": 0,
+   "island_planted": 1,
+   "missing_sample": [],
+   "mode": "plain",
+   "plants_alive": 0,
+   "reinvasion": false,
+   "seconds": 4200.0,
+   "stable": true,
+   "sweep_planted": 0,
+   "targets": 38330,
+   "top_row_first_planted_s": 2280.0
+  },
+  "full_loaded": {
+   "delay": 1000000000.0,
+   "first_target_cell": [
+    1,
+    1
+   ],
+   "fully": true,
+   "greened": 38330,
+   "greened_when_top_row_first_planted": 23267,
+   "helpers_alive": 3,
+   "island_planted": 1,
+   "missing_sample": [],
+   "mode": "loaded",
+   "placed": {
+    "army": 1,
+    "carrot": 1,
+    "clover": 1,
+    "gatlinger": 1,
+    "rafflesia": 1,
+    "sprinkler": 1,
+    "watermelon": 1,
+    "wheat": 1
+   },
+   "plants_alive": 5,
+   "reinvasion": false,
+   "seconds": 4200.0,
+   "stable": true,
+   "sweep_planted": 0,
+   "targets": 38330,
+   "top_row_first_planted_s": 2280.0
+  },
+  "full_control": {
+   "delay": 120.0,
+   "first_target_cell": [
+    1,
+    1
+   ],
+   "fully": true,
+   "greened": 38330,
+   "greened_when_top_row_first_planted": 444,
+   "helpers_alive": 0,
+   "island_planted": 1,
+   "missing_sample": [],
+   "mode": "control",
+   "plants_alive": 0,
+   "reinvasion": false,
+   "seconds": 2400.0,
+   "stable": true,
+   "sweep_planted": 27931,
+   "targets": 38330,
+   "top_row_first_planted_s": 120.0
+  },
+  "reg_core": [
+   {
+    "name": "NEW_CENTRAL_RESOURCES",
+    "status": "PASS"
+   },
+   {
+    "name": "OPENING_CROP_FROM_REAL_BALANCE",
+    "status": "PASS"
+   },
+   {
+    "name": "OPENING_GROWING_WATERED_CROP",
+    "status": "PASS"
+   },
+   {
+    "name": "OPENING_WIDTH3_PROJECTILE_SETTLES",
+    "status": "PASS"
+   },
+   {
+    "name": "COMPOSITE_REAL_JSON_ROUNDTRIP",
+    "status": "PASS"
+   },
+   {
+    "name": "RESTORE_HAS_NO_OFFLINE_PROGRESS",
+    "status": "PASS"
+   },
+   {
+    "name": "ZERO_SEED_RECOVERS_FROM_REAL_PRODUCTION",
+    "status": "PASS"
+   },
+   {
+    "name": "ZERO_WATER_DOES_NOT_STOP_CROP_GROWTH",
+    "status": "PASS"
+   },
+   {
+    "name": "ZERO_WATER_BANK_REFILLS_WITHOUT_SEED_PAYMENT",
+    "status": "PASS"
+   },
+   {
+    "name": "PLAYER_WALK_DIAGONAL_AXIS_(121, 57)",
+    "status": "PASS"
+   },
+   {
+    "name": "PLAYER_WALK_DIAGONAL_AXIS_(118, 178)",
+    "status": "PASS"
+   },
+   {
+    "name": "WATER_EDGE_FEET_DO_NOT_TUNNEL",
+    "status": "PASS"
+   },
+   {
+    "name": "OPEN_SPACE_MOVE_PRESERVES_DISTANCE",
+    "status": "PASS"
+   },
+   {
+    "name": "DAMAGE_API_CLEAR_TRANSITIONS_TO_STABLE",
+    "status": "PASS"
+   },
+   {
+    "name": "STABLE_HOSTILE_ROUTE_REJECTED",
+    "status": "PASS"
+   },
+   {
+    "name": "FULL_224_MAP_AUTONOMOUS_EXACT_100",
+    "status": "PASS"
+   },
+   {
+    "name": "NO_SWEEP_PLANTING_AT_ALL",
+    "status": "PASS"
+   },
+   {
+    "name": "ISOLATED_TARGETS_AUTONOMOUSLY_GREENED",
+    "status": "PASS"
+   },
+   {
+    "name": "STABLE_POST_CLEAR_NO_ENEMIES_REAPPEAR",
+    "status": "PASS"
+   }
+  ],
+  "reward": [
+   {
+    "detail": [
+     [
+      "boar",
+      false,
+      0
+     ],
+     [
+      "boar",
+      false,
+      0
+     ],
+     [
+      "spider",
+      false,
+      0
+     ],
+     [
+      "spider",
+      false,
+      0
+     ],
+     [
+      "boar",
+      false,
+      0
+     ]
+    ],
+    "name": "produced_enemy_reward_zero",
+    "status": "PASS"
+   },
+   {
+    "detail": [
+     6,
+     6,
+     9
+    ],
+    "name": "initial_enemy_reward_positive_control",
+    "status": "PASS"
+   }
+  ]
+ }
+}

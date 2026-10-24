@@ -9,6 +9,8 @@ var session: RefCounted
 var map: Control
 var status: Label
 var economy: Label
+var rate_label: Label
+var _helper_hint_shown: bool = false
 var hud: PanelContainer
 var hp_bar: ProgressBar
 var water_bar: ProgressBar
@@ -16,6 +18,8 @@ var map_button: Button
 var help_button: Button
 var notice: Label
 var sow_notice: Label
+var water_notice: Label
+var water_plan_empty: bool = true
 var palette: HBoxContainer
 var menu: PanelContainer
 var help: PanelContainer
@@ -42,7 +46,7 @@ func _ready() -> void:
 	theme=theme_
 	hud=PanelContainer.new()
 	hud.position=Vector2(456,6)
-	hud.custom_minimum_size=Vector2(178,70)
+	hud.custom_minimum_size=Vector2(178,84)
 	add_child(hud)
 	var hud_box: VBoxContainer=VBoxContainer.new()
 	hud_box.add_theme_constant_override("separation",1)
@@ -53,6 +57,9 @@ func _ready() -> void:
 	economy=Label.new()
 	economy.add_theme_font_size_override("font_size",12)
 	hud_box.add_child(economy)
+	rate_label=Label.new()
+	rate_label.add_theme_font_size_override("font_size",12)
+	hud_box.add_child(rate_label)
 	hp_bar=_status_bar(hud_box,"HP")
 	water_bar=_status_bar(hud_box,"水")
 	notice=Label.new()
@@ -64,6 +71,11 @@ func _ready() -> void:
 	sow_notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	sow_notice.hide()
 	add_child(sow_notice)
+	water_notice=Label.new()
+	water_notice.position=Vector2(23,266)
+	water_notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	water_notice.hide()
+	add_child(water_notice)
 	palette=HBoxContainer.new()
 	palette.position=Vector2(6,330)
 	palette.add_theme_constant_override("separation",3)
@@ -109,7 +121,7 @@ func _ready() -> void:
 	var help_box: VBoxContainer=VBoxContainer.new()
 	help.add_child(help_box)
 	var label: Label=Label.new()
-	label.text="WASD / 矢印：移動　マウス：照準・配置位置\n左クリック / 長押し：種射撃・範囲播種\n右クリック / 長押し：給水\nShift＋左 / 右クリック：スキル1 / 2（1回）\nホイール：播種幅 1/3/5/7　緑：播種予定、黄：種不足\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\n一覧・マップ中は停止。ホイールはスクロール / ズーム\n右クリック / Esc：保持・選択を取消、Escで戻る\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\n水辺補給・化石への接近回収は自動です。"
+	label.text="WASD / 矢印：移動　マウス：照準・配置位置\n左クリック / 長押し：種射撃・範囲播種\n右クリック / 長押し：給水（水が効くマスだけ）\nShift＋左 / 右クリック：スキル1 / 2（1回）\nホイール：範囲 1/3/5/7（播種・給水共通）\n色：緑＝播種予定、黄＝種不足、青＝給水予定、薄紫＝水不足\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\n一覧・マップ中は停止。ホイールはスクロール / ズーム\n右クリック / Esc：保持・選択を取消、Escで戻る\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\n水辺補給・化石への接近回収は自動です。\nおたすけ植物の配置換え：Tabのマップでアイコンを選び、移動先を左クリック\nマップ拡大中は左ドラッグで移動できます。"
 	label.add_theme_font_size_override("font_size",12)
 	help_box.add_child(label)
 	var back: Button=Button.new()
@@ -149,7 +161,20 @@ func set_sow_preview(plan: Dictionary) -> void:
 			sow_notice.text="%d　播種 %d×%d%s" % [plan.cost,plan.width,plan.width,"（遮蔽）" if plan.get("blocked",false) else ""]
 	queue_redraw()
 
+## Water plan next to the seed plan: how much water the aimed area will use, or why nothing happens.
+func set_water_preview(plan: Dictionary) -> void:
+	water_notice.visible=not plan.is_empty()
+	if water_notice.visible:
+		if plan.get("blocked",false): water_notice.text="0　給水（遮蔽）"
+		elif plan.get("no_effect",false): water_notice.text="0　給水対象なし"
+		else: water_notice.text="%d　給水 %d×%d%s" % [plan.cost,plan.width,plan.width,"（水不足）" if not (plan.unaffordable as Array).is_empty() else ""]
+	water_plan_empty=plan.is_empty() or plan.get("blocked",false) or plan.get("no_effect",false)
+	queue_redraw()
+
 func _draw() -> void:
+	if water_notice!=null and water_notice.visible:
+		# Small solid drop silhouette, integer coordinates, no outline or filtering.
+		draw_colored_polygon(PackedVector2Array([Vector2(14,265),Vector2(18,271),Vector2(17,275),Vector2(11,275),Vector2(10,271)]),Color("8c9a9f") if water_plan_empty else Color("62bff0"))
 	if sow_notice!=null and sow_notice.visible:
 		# Small solid seed silhouette, integer coordinates, no outline or filtering.
 		draw_colored_polygon(PackedVector2Array([Vector2(10,291),Vector2(13,288),Vector2(17,288),Vector2(19,291),Vector2(16,295),Vector2(12,294)]),Color("edce7d"))
@@ -172,6 +197,13 @@ func select_kind(kind: String) -> void:
 		if session.favorites[index]==kind:
 			select_slot(index)
 			return
+
+## One-time guidance after the first helper placement: moving a helper happens on the all-map.
+func note_helper_placed() -> void:
+	if _helper_hint_shown: return
+	_helper_hint_shown=true
+	show_notice("おたすけ植物はTabのマップで選び、移動先を左クリックすると配置換えできます")
+	notice_time=7.0
 
 func clear_selection() -> void:
 	selected_slot=-1
@@ -229,17 +261,22 @@ func has_modal() -> bool:
 func refresh() -> void:
 	if session==null: return
 	var stats: Dictionary=session.snapshot()
-	status.text="%s 設置 ●%d" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else "播種幅 %d×%d" % [session.sow_width,session.sow_width]
-	status.tooltip_text="ホイールで播種幅を変更。新しく播種するマスだけ種を使います。" if selected_kind.is_empty() else ""
+	status.text="%s 設置 ●%d%s" % [icon_for(selected_kind),session.current_cost(selected_kind),"（種不足）" if session.current_cost(selected_kind)>session.seeds else ""] if not selected_kind.is_empty() else "範囲 %d×%d（播種・給水）" % [session.sow_width,session.sow_width]
+	status.tooltip_text="ホイールで範囲を変更。新しく播種するマス・水が効くマスだけ種・水を使います。" if selected_kind.is_empty() else ""
 	economy.text="所持 ●%d　緑 %.1f%%" % [session.seeds,float(stats.get("green_percent",0))]
 	economy.tooltip_text="収入 / 分：緑地 %.1f ＋ 栽培 %.1f" % [float(stats.get("land_rate",0)),float(stats.get("crop_rate",0))]
+	# The same land+crop rates the session credits every tick (per minute), shown per second.
+	var per_second: float=(float(stats.get("land_rate",0))+float(stats.get("crop_rate",0)))/60.0
+	rate_label.text="生産 +%s ●/s" % (("%.1f" % per_second) if per_second>=100.0 else ("%.2f" % per_second))
+	rate_label.tooltip_text="全体の種の生産速度（緑地 %.2f ＋ 栽培 %.2f ●/s）" % [float(stats.get("land_rate",0))/60.0,float(stats.get("crop_rate",0))/60.0]
 	hp_bar.max_value=session.max_hp
 	hp_bar.value=session.hp
 	water_bar.max_value=session.max_water
 	water_bar.value=session.water
 	for index: int in 5:
 		var kind: String=session.favorites[index]
-		favorite_buttons[index].set_slot(index,kind,icon_for(kind),String(Map.NAMES.get(kind,"")),selected_slot==index)
+		var price: int=session.current_cost(kind) if not kind.is_empty() else -1
+		favorite_buttons[index].set_slot(index,kind,icon_for(kind),String(Map.NAMES.get(kind,"")),selected_slot==index,price,price<=session.seeds)
 	palette.visible=not map.expanded and not menu.visible and not help.visible and not plant_list.visible and not supply.visible
 	hud.visible=not menu.visible and not help.visible and not plant_list.visible
 	map_button.visible=not has_modal()
@@ -317,7 +354,7 @@ static func explain(text: String) -> String:
 		"outside_map":"マップの外です", "blocked_ground":"ここには置けません", "occupied":"ほかの植物と重なります",
 		"requires_green":"必要な範囲を緑化してください", "out_of_range":"届きません", "no_water":"水がありません",
 		"blocked":"建物に遮られています", "aim_required":"狙う場所を指定してください", "not_found":"対象が見つかりません",
-		"invalid_amount":"補給量を確認してください", "loaded":"再開しました", "paused_or_downed":"今は行動できません"}
+		"invalid_amount":"補給量を確認してください", "loaded":"再開しました", "paused_or_downed":"今は行動できません", "no_effect":"給水の効果があるマスがありません"}
 	if text in ["cooldown", "cooldown_or_paused"]: return ""
 	if text.begins_with("化石を発見: "):
 		var kind: String = text.trim_prefix("化石を発見: ")

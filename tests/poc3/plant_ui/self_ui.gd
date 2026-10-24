@@ -71,8 +71,8 @@ func run() -> void:
 	await key(KEY_1)
 	await key(KEY_2)
 	check("duplicate_kind_switches_by_slot",main.ui.selected_slot==1 and main._placement_kind=="clover")
-	await click(main.world.camera.unproject_position(Coords.ground3(Coords.cell_center_ground(Vector2i(182,184)))))
-	await click(main.world.camera.unproject_position(Coords.ground3(Coords.cell_center_ground(Vector2i(184,184)))))
+	await click(main.world.camera.unproject_position(Coords.ground3(Coords.cell_center_ground(Vector2i(112,108)))))
+	await click(main.world.camera.unproject_position(Coords.ground3(Coords.cell_center_ground(Vector2i(114,108)))))
 	check("repeat_placement_retains_selection",main.session.plants.size()==2 and main.ui.selected_slot==1 and main._placement_kind=="clover")
 	for kind: String in main.ui.KEYS: main.session.unlocked[kind]=true
 	await key(KEY_E)
@@ -133,7 +133,7 @@ func run() -> void:
 	await key(KEY_E)
 	await key(KEY_5)
 	main.ui.refresh()
-	check("hud_selection_price_seeds_player_bars",main.ui.selected_slot==4 and main.ui.status.text.contains("●10") and main.ui.economy.text.contains(str(main.session.seeds)) and main.ui.hp_bar.value==main.session.hp and main.ui.water_bar.value==main.session.water)
+	check("hud_selection_price_seeds_player_bars",main.ui.selected_slot==4 and main.ui.status.text.contains("●13") and main.ui.economy.text.contains(str(main.session.seeds)) and main.ui.hp_bar.value==main.session.hp and main.ui.water_bar.value==main.session.water)
 	# The actual canvas is captured off-screen while the OS window remains minimized.
 	var capture: SubViewport=SubViewport.new()
 	capture.size=Vector2i(640,360)

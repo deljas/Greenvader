@@ -1,0 +1,15 @@
+{
+  "cache_refreshed_after_fixture": true,
+  "capture_640": true,
+  "known_ground_source_matches": true,
+  "minimap_terrain_visible": true,
+  "not_run": [
+    "full_gpu_regression",
+    "logic_regression",
+    "native_window_visual",
+    "physical_input"
+  ],
+  "root_mode": 1,
+  "root_unfocusable": true,
+  "status": "PASS"
+}

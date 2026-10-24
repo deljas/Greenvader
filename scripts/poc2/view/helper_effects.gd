@@ -27,8 +27,10 @@ func _ready() -> void:
 	ring.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(ring); ring.hide()
 
-func preview(at: Vector2, shown: bool) -> void:
+## radius_scale 1 = the 6m ring (army / gatlinger); the sprinkler ring is 12m (item 11).
+func preview(at: Vector2, shown: bool, radius_scale: float = 1.0) -> void:
 	ring.visible=shown
+	ring.scale=Vector3(radius_scale,1.0,radius_scale)
 	var ground: Vector2=Coords.logic_to_ground(at)
 	ring.position=Vector3(ground.x,0.045,ground.y)
 

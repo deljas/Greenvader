@@ -1,0 +1,58 @@
+{
+  "delay": 1000000000.0,
+  "first_target_cell": [
+    1,
+    1
+  ],
+  "fully": true,
+  "greened": 38330,
+  "greened_when_top_row_first_planted": 23088,
+  "helpers_alive": 0,
+  "island_planted": 1,
+  "missing_sample": [],
+  "mode": "plain",
+  "plants_alive": 0,
+  "reinvasion": false,
+  "seconds": 4200.0,
+  "stable": true,
+  "sweep_planted": 0,
+  "targets": 38330,
+  "timeline": [
+    [
+      600,
+      2717,
+      990
+    ],
+    [
+      1200,
+      7788,
+      990
+    ],
+    [
+      1800,
+      14832,
+      990
+    ],
+    [
+      2400,
+      25034,
+      990
+    ],
+    [
+      3000,
+      32324,
+      990
+    ],
+    [
+      3600,
+      36883,
+      990
+    ],
+    [
+      4200,
+      38330,
+      990
+    ]
+  ],
+  "top_row_first_planted_s": 2280.0
+}

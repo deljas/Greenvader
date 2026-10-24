@@ -1,0 +1,135 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "startup_no_focus_minimized",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "おたすけ植物はTabのマップで選び、移動先を左クリックすると配置換えできます",
+        6.83333333333333,
+        1
+      ],
+      "name": "item12_first_helper_placement_notice",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        2,
+        ""
+      ],
+      "name": "item12_notice_not_repeated",
+      "status": "PASS"
+    },
+    {
+      "detail": "ホイール：拡大縮小　おたすけ植物を選ぶと移動先を指定できます",
+      "name": "item12_map_hint_when_nothing_selected",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        33,
+        "移動先を左クリック：活動場所を変更　×：撤去　右クリック：選択解除"
+      ],
+      "name": "item12_hint_when_helper_selected",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(466.0, 458.0)",
+        "(574.0, 502.0)",
+        "(566.0, 498.0)"
+      ],
+      "name": "item12_following_the_hint_relocates_helper",
+      "status": "PASS"
+    },
+    {
+      "detail": -1,
+      "name": "item12_right_click_deselects_as_hinted",
+      "status": "PASS"
+    },
+    {
+      "detail": "(448.0, 448.0)",
+      "name": "item10_unzoomed_drag_does_not_slide",
+      "status": "PASS"
+    },
+    {
+      "detail": 4,
+      "name": "item10_zoomed",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "menu": "",
+        "paused": true,
+        "popup": false,
+        "press_active": true,
+        "rb": false,
+        "sel": -1,
+        "zoom": 4
+      },
+      "name": "dbg_press_state",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "item10_3px_is_not_a_drag",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(448.0, 448.0)",
+        "(328.0, 448.0)"
+      ],
+      "name": "item10_60px_drag_moves_map",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(60.0, 30.0)"
+      ],
+      "name": "item10_map_follows_cursor_exact",
+      "status": "PASS"
+    },
+    {
+      "detail": -1,
+      "name": "item10_release_after_drag_no_selection_no_command",
+      "status": "PASS"
+    },
+    {
+      "detail": "(0.0, 0.0)",
+      "name": "item10_center_inside_world_after_extreme_drag_1",
+      "status": "PASS"
+    },
+    {
+      "detail": "(896.0, 896.0)",
+      "name": "item10_center_inside_world_after_extreme_drag_-1",
+      "status": "PASS"
+    },
+    {
+      "detail": 33,
+      "name": "item10_small_motion_click_selects_icon",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(574.0, 502.0)",
+        "(574.0, 502.0)"
+      ],
+      "name": "item10_drag_starting_on_icon_does_not_relocate",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "item10_map_closes_clean",
+      "status": "PASS"
+    },
+    {
+      "detail": 372,
+      "name": "item12_help_text_mentions_relocation_and_drag",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "detail": [
+      [
+        "boar",
+        false,
+        0
+      ],
+      [
+        "boar",
+        false,
+        0
+      ],
+      [
+        "spider",
+        false,
+        0
+      ],
+      [
+        "spider",
+        false,
+        0
+      ],
+      [
+        "boar",
+        false,
+        0
+      ]
+    ],
+    "name": "produced_enemy_reward_zero",
+    "status": "PASS"
+  },
+  {
+    "detail": [
+      6,
+      6,
+      9
+    ],
+    "name": "initial_enemy_reward_positive_control",
+    "status": "PASS"
+  }
+]

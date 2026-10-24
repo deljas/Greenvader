@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":"","name":"helper_flight_ammo_only_width1_reserve0","status":"PASS"}
+{"detail":"","name":"flying_target_reserved_no_duplicate","status":"PASS"}
+{"detail":"再開しました","name":"flight_save_after_source_removal","status":"PASS"}
+{"detail":"","name":"source_gone_lands_no_shared_account_change","status":"PASS"}
+{"detail":"","name":"reject_mixed_helper_shared_reservation","status":"PASS"}
+{"detail":"","name":"blocked_helper_flight_never_refunds_shared_seeds","status":"PASS"}
+{"detail":"","name":"player_area_reservation_retained_no_negative","status":"PASS"}
+{"detail":[0,2],"name":"gat_same_world_with_without_contribution","status":"PASS"}
+{"detail":{"ages":[3.0,5.875],"watered":[0,1]},"name":"sprinkler_same_world_with_without_contribution","status":"PASS"}
+{"detail":"","name":"real_home_idle_sleep_after3","status":"PASS"}
+{"detail":"","name":"new_work_clears_sleep_immediately","status":"PASS"}
+{"detail":"","name":"common_empty_return_rejects_unsafe_home","status":"PASS"}
+{"detail":[0,4],"name":"army_comparison_preserves_eaten_grass","status":"PASS"}

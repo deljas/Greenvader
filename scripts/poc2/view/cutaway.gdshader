@@ -6,12 +6,15 @@ uniform bool textured = false;
 uniform bool vertex_color = false;
 uniform float fade = 0.24;
 uniform float cut_height = 1.8;
+// 0 = upper part fully shown, 1 = fully gone. Driven by the same fade progress as the lower part (item 7).
+uniform float upper_fade = 0.0;
 varying vec3 world_vertex;
 void vertex() { world_vertex = (MODEL_MATRIX * vec4(VERTEX,1.0)).xyz; }
 void fragment() {
- if (world_vertex.y > cut_height) { discard; }
+ float upper = world_vertex.y > cut_height ? 1.0 - upper_fade : 1.0;
+ if (upper < 0.01) { discard; }
  vec4 color = base_color;
  if (textured) { color *= texture(base_texture, UV); }
  if (vertex_color) { color *= COLOR; }
- ALBEDO = color.rgb; ALPHA = color.a * fade; ROUGHNESS = 1.0;
+ ALBEDO = color.rgb; ALPHA = color.a * (world_vertex.y > cut_height ? upper : fade); ROUGHNESS = 1.0;
 }

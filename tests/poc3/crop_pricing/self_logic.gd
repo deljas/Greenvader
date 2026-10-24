@@ -25,14 +25,14 @@ func finish() -> void:
 func prices() -> bool:
 	var s: RefCounted=Session.new(false)
 	# Independently supplied decimal examples; the pricing formula is not copied.
-	for example: Array in [[0,120],[5,154],[10,196],[20,319]]:
+	for example: Array in [[0,120],[5,194],[10,312],[20,808]]:
 		s.plants.clear()
 		for index: int in int(example[0]):
 			s.plants.append({"kind":"watermelon","hp":80.0,"mature":false})
 		check("watermelon_n"+str(example[0]),s.current_cost("watermelon")==example[1] and s.plant_stats("watermelon").count==example[0],s.current_cost("watermelon"))
 	s.plants.append({"kind":"carrot","hp":30.0,"mature":true})
 	s.plants.append({"kind":"watermelon","hp":0.0,"mature":true})
-	check("different_kind_and_defeated_independent",s.current_cost("watermelon")==319 and s.current_cost("carrot")==16 and s.plant_stats("watermelon").count==20)
+	check("different_kind_and_defeated_independent",s.current_cost("watermelon")==808 and s.current_cost("carrot")==17 and s.plant_stats("watermelon").count==20)
 	check("helpers_keep_fixed_prices",s.current_cost("army")==25 and s.current_cost("gatlinger")==30 and s.current_cost("sprinkler")==20)
 	for index: int in 1000: s.plants.append({"kind":"watermelon","hp":80.0,"mature":false})
 	check("unrepresentable_price_stays_positive_unaffordable",s.current_cost("watermelon")>1000000000)
@@ -43,30 +43,30 @@ func transactions() -> bool:
 	var s: RefCounted=Session.new()
 	s.unlocked.watermelon=true; s.unlocked.gatlinger=true; s.seeds=1000
 	var paid: Array[int]=[]
-	for x: int in [182,186,190]:
-		var placed: Dictionary=s.place_plant("watermelon",Vector2i(x,184))
+	for x: int in [106,110,114]:
+		var placed: Dictionary=s.place_plant("watermelon",Vector2i(x,108))
 		if not placed.ok:
 			check("continuous_real_placements",false,placed); s.close(); return true
 		paid.append(int(s.plants.back().cost))
-	check("continuous_real_placements",paid==[120,126,133] and s.seeds==621 and s.current_cost("watermelon")==139,paid)
+	check("continuous_real_placements",paid==[120,132,146] and s.seeds==602 and s.current_cost("watermelon")==160,paid)
 	var count: int=s.plants.size()
 	var before: int=s.seeds
-	var blocked: Dictionary=s.place_plant("watermelon",Vector2i(182,184))
+	var blocked: Dictionary=s.place_plant("watermelon",Vector2i(106,108))
 	check("blocked_placement_no_charge_no_count",not blocked.ok and s.seeds==before and s.plants.size()==count)
 	s.seeds=138
-	var insufficient: Dictionary=s.place_plant("watermelon",Vector2i(194,184))
+	var insufficient: Dictionary=s.place_plant("watermelon",Vector2i(108,112))
 	check("insufficient_no_charge_no_count",not insufficient.ok and s.seeds==138 and s.plants.size()==count)
 	var first: int=s.plants[0].id
 	var removed: Dictionary=s.remove_plant(first)
-	check("manual_refund_actual_paid_and_price_falls",removed.ok and removed.refund==24 and s.seeds==162 and s.current_cost("watermelon")==133)
+	check("manual_refund_actual_paid_and_price_falls",removed.ok and removed.refund==24 and s.seeds==162 and s.current_cost("watermelon")==146)
 	s.plants[0].hp=0.0
 	before=s.seeds
 	s.plant_system.cleanup_defeated()
-	check("enemy_destruction_no_refund_price_falls",s.seeds==before and s.plants.size()==1 and s.current_cost("watermelon")==126 and s.plant_stats("watermelon").count==1)
+	check("enemy_destruction_no_refund_price_falls",s.seeds==before and s.plants.size()==1 and s.current_cost("watermelon")==132 and s.plant_stats("watermelon").count==1)
 	s.plants[0].watered=true
 	var saved: Dictionary=Save.save_game(s)
 	var loaded: Dictionary=Save.load_game()
-	check("actual_json_keeps_historical_cost_current_count_water",saved.ok and loaded.ok and loaded.session.plants[0].cost==133 and loaded.session.current_cost("watermelon")==126 and loaded.session.plants[0].watered and Equivalent.same(s.to_dict(),loaded.session.to_dict()) if loaded.ok else false)
+	check("actual_json_keeps_historical_cost_current_count_water",saved.ok and loaded.ok and loaded.session.plants[0].cost==146 and loaded.session.current_cost("watermelon")==132 and loaded.session.plants[0].watered and Equivalent.same(s.to_dict(),loaded.session.to_dict()) if loaded.ok else false)
 	if loaded.ok: loaded.session.close()
 	var baseline: Dictionary=s.to_dict()
 	for value: Variant in [0,-5,1.25,1.0e20,INF]:
@@ -79,13 +79,13 @@ func transactions() -> bool:
 	historical.entities.plants[0].cost=1234
 	var accepted: Dictionary=s.restore(historical)
 	var historical_id: int=s.plants[0].id
-	check("historical_payment_not_rebuilt_from_current_n",accepted.ok and s.plants[0].cost==1234 and s.current_cost("watermelon")==126 and s.removal_refund(historical_id,false)==246)
+	check("historical_payment_not_rebuilt_from_current_n",accepted.ok and s.plants[0].cost==1234 and s.current_cost("watermelon")==132 and s.removal_refund(historical_id,false)==246)
 	# Older working saves stored base cost, which is still an actual payment.
 	var old: Dictionary=baseline.duplicate(true)
 	old.entities.plants[0].cost=120
 	check("old_base_payment_remains_valid",s.restore(old).ok and s.plants[0].cost==120)
 	s.seeds=200
-	var helper: Dictionary=s.place_helper("gatlinger",Vector2i(198,184),7)
+	var helper: Dictionary=s.place_helper("gatlinger",Vector2i(118,112),7)
 	if helper.ok:
 		var helper_save: Dictionary=s.to_dict()
 		helper_save.entities.helpers[0].cost=31
@@ -101,16 +101,16 @@ func reservation() -> bool:
 	var s: RefCounted=Session.new()
 	s.enemies.clear(); s.nests.clear(); s.fossils.clear()
 	s.seeds=12; s.sow_width=3
-	s.position=Coords.cell_center_logic(Vector2i(187,188))
-	s.set_aim(Coords.cell_center_logic(Vector2i(191,188)))
-	for y: int in range(187,190):
-		for x: int in range(190,193): s.state.set_stage(s.state.index_of(x,y),WorldState.STAGE_EMPTY)
+	s.position=Coords.cell_center_logic(Vector2i(111,108))
+	s.set_aim(Coords.cell_center_logic(Vector2i(115,108)))
+	for y: int in range(107,110):
+		for x: int in range(114,117): s.state.set_stage(s.state.index_of(x,y),WorldState.STAGE_EMPTY)
 	var shot: Dictionary=s.fire()
-	var crop: Dictionary=s.place_plant("clover",Vector2i(182,184))
+	var crop: Dictionary=s.place_plant("clover",Vector2i(112,113))
 	s.combat_system._shots(0.25)
 	var planted: int=0
-	for y: int in range(187,190):
-		for x: int in range(190,193):
+	for y: int in range(107,110):
+		for x: int in range(114,117):
 			if s.state.stage[s.state.index_of(x,y)]==WorldState.STAGE_SEED: planted+=1
 	check("flying_area_reservation_other_spending_no_negative",shot.ok and crop.ok and s.seeds==0 and planted==2 and s.plants[0].cost==10 and s.current_cost("clover")==11 and s.shots.is_empty(),{"seeds":s.seeds,"area_seeded":planted})
 	s.close()

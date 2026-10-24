@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{ "name": "startup_minimized_no_focus", "status": "PASS" }
+{ "name": "normal_left_hold_repeats", "status": "PASS" }
+{ "name": "shift_during_normal_hold_stops_no_skill_1", "status": "PASS" }
+{ "name": "release_then_fresh_normal_click_1", "status": "PASS" }
+{ "name": "shift_during_normal_hold_stops_no_skill_2", "status": "PASS" }
+{ "name": "release_then_fresh_normal_click_2", "status": "PASS" }
+{ "name": "shift_left_once_and_shift_release_no_normal", "status": "PASS" }
+{ "name": "shift_right_once_mouse_release_first_no_water", "status": "PASS" }
+{ "name": "right_placement_cancel_never_waters", "status": "PASS" }
+{ "name": "placement_shift_clears_and_uses_skill", "status": "PASS" }
+{ "name": "escape_placement_cancel_precedes_menu", "status": "PASS" }
+{ "name": "world_wheel_sets_width_without_wrap", "status": "PASS" }
+{ "name": "tab_map_pauses_and_wheel_only_zooms", "status": "PASS" }
+{ "name": "map_right_cancel_over_gui_blocks_combat", "status": "PASS" }
+{ "name": "map_escape_cancel_then_close", "status": "PASS" }
+{ "name": "minimap_open_and_close_button", "status": "PASS" }
+{ "name": "list_registration_and_wheel_isolation", "status": "PASS" }
+{ "name": "ui_shift_hold_closing_does_not_leak", "status": "PASS" }
+{ "name": "old_q_r_m_n_assignments_removed", "status": "PASS" }
+{ "name": "menu_audio_controls", "status": "PASS" }
+{ "name": "pause_menu_fits_640x360", "status": "PASS" }
+{ "name": "f5_saves_width_and_favorites", "status": "PASS" }
+{ "name": "menu_640_capture", "status": "PASS" }
+{ "name": "updated_help_640_capture", "status": "PASS" }
+{ "name": "map_close_640_capture", "status": "PASS" }
+{ "name": "stayed_minimized_no_focus", "status": "PASS" }

@@ -125,7 +125,9 @@ func stable_full_map() -> bool:
 		if s.state.stage[index]>=WorldState.GREENED_MIN_STAGE: island_before+=1
 	var start_green: int = s.state.greened_count
 	var start_clock: float = s.clock.elapsed
-	var bound: float = s.far.completion_bound_seconds()
+	# POC3-PLAYTEST-01 item 13: the fair sweep is off in PoC3, so far.completion_bound_seconds() (derived from the sweep) no longer
+	# applies. Natural spread plus the one-seed-per-isolated-component help must reach 100 % within this generous game-time cap.
+	var bound: float = 21600.0
 	var old_max: float = s.clock.max_advance
 	# One approved acceleration policy: only skip repeated empty combat/income/reveal
 	# work after every hostile is gone. Clock emits the unchanged growth/spread/far
@@ -143,6 +145,7 @@ func stable_full_map() -> bool:
 		if s.state.stage[index]>=WorldState.GREENED_MIN_STAGE: island_green+=1
 	observations.full_map={"game_seconds":s.clock.elapsed-start_clock,"far_bound_seconds":bound,"clock_step":120.0,"advances":advances,"start_green":start_green,"greened":s.state.greened_count,"targets":s.state.target_count,"island_before":island_before,"island_green":island_green,"island_targets":island.size(),"sweep_planted":s.far.total_sweep_planted,"island_planted":s.far.total_island_planted,"input_events":0,"direct_stage_writes":0,"tuning_changed":false,"omitted_during_acceleration":["combat after all hostiles dead","income","periodic reveal","helper/crop work (none placed)"]}
 	check("FULL_224_MAP_AUTONOMOUS_EXACT_100",s.state.greened_count==s.state.target_count and s.state.is_fully_greened() and s.state.cleared and s.state.counters_consistent(),observations.full_map)
+	check("NO_SWEEP_PLANTING_AT_ALL",s.far.total_sweep_planted==0,s.far.total_sweep_planted)
 	check("ISOLATED_TARGETS_AUTONOMOUSLY_GREENED",island.size()>0 and island_before<island.size() and island_green==island.size(),{"before":island_before,"green":island_green,"targets":island.size()})
 	check("STABLE_POST_CLEAR_NO_ENEMIES_REAPPEAR",s.enemies.is_empty() and s.nests.is_empty() and s.nav.route(s.position,s.start_position()+Vector2(8,0),true).is_empty())
 	s.close()

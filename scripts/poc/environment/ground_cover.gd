@@ -13,6 +13,10 @@ const HIDDEN_Y: float = -20.0
 ## Display scale per stage (index = WorldState.STAGE_*).
 const STAGE_SCALE: Array[float] = [0.0, 0.0, 0.45, 0.72, 1.0]
 const STAGE_TINT: Array[Color] = [Color.WHITE, Color.WHITE, Color(1.0, 1.0, 0.82), Color(0.95, 1.0, 0.88), Color.WHITE]
+## Watered ground (POC3-PLAYTEST-01 item 4): a damp patch under the grass plus a cool tint on the blades.
+const WET_TINT: Color = Color(0.74, 0.90, 1.0)
+const WET_BASE: Color = Color(0.10, 0.24, 0.36, 0.62)
+const WET_SPECK: Color = Color(0.58, 0.86, 1.0, 0.95)
 ## Crack line (cell-local metres) shared by the ribbon and the tufts along it.
 const CRACK_PATH: Array[Vector2] = [Vector2(-0.18, -0.12), Vector2(-0.08, -0.04), Vector2(0.025, -0.07), Vector2(0.09, 0.02), Vector2(0.17, 0.12)]
 
@@ -22,6 +26,9 @@ var soil_multimesh: MultiMesh
 var pave_multimesh: MultiMesh
 var seed_multimesh: MultiMesh
 var crack_multimesh: MultiMesh
+var wet_multimesh: MultiMesh
+## Cell indices under watered cultivated plants (set by the view); grass wetness comes from the WorldState.
+var crop_wet: Dictionary = {}
 var soil_density: float = 1.0
 var pave_density: float = 1.0
 ## Instances rewritten since build (observability for the "no whole-map rebuild" check).
@@ -32,6 +39,7 @@ var shown_soil: PackedByteArray = PackedByteArray()
 var shown_pave: PackedByteArray = PackedByteArray()
 var shown_seed: PackedByteArray = PackedByteArray()
 var shown_crack: PackedByteArray = PackedByteArray()
+var shown_wet: PackedByteArray = PackedByteArray()
 var _paved_id: int = Session.T_PAVED
 var _parts: RefCounted = Parts.new()
 
@@ -46,12 +54,14 @@ func build(source: RefCounted, tuning: Dictionary = {}) -> void:
 	shown_pave.resize(count)
 	shown_seed.resize(count)
 	shown_crack.resize(count)
+	shown_wet.resize(count)
 	soil_multimesh = _layer("SoilCover", _soil_mesh(), count, true, true)
 	pave_multimesh = _layer("PaveCover", _pave_mesh(), count, true, true)
 	var dot: BoxMesh = BoxMesh.new()
 	dot.size = Vector3(0.10, 0.045, 0.075)
 	seed_multimesh = _layer("Seeds", dot, count, false, false)
 	crack_multimesh = _layer("Cracks", _crack_mesh(), count, false, false)
+	wet_multimesh = _wet_layer(count)
 	refresh_all()
 
 func _layer(label: String, mesh: Mesh, count: int, vertex_colors: bool, instance_colors: bool) -> MultiMesh:
@@ -75,6 +85,45 @@ func _layer(label: String, mesh: Mesh, count: int, vertex_colors: bool, instance
 	node.material_override = material_
 	add_child(node)
 	return mm
+
+## Flat damp patch: no outline, alpha only from vertex colours, drawn on layer 2 like the floor (not mirrored by the water).
+func _wet_layer(count: int) -> MultiMesh:
+	var mm: MultiMesh = MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	mm.use_colors = false
+	mm.mesh = _wet_mesh()
+	mm.instance_count = count
+	var node: MultiMeshInstance3D = MultiMeshInstance3D.new()
+	node.name = "WetPatch"
+	node.multimesh = mm
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	node.extra_cull_margin = 200.0
+	node.layers = 2
+	var material_: StandardMaterial3D = StandardMaterial3D.new()
+	material_.vertex_color_use_as_albedo = true
+	material_.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material_.roughness = 1.0
+	material_.metallic_specular = 0.0
+	material_.cull_mode = BaseMaterial3D.CULL_DISABLED
+	node.material_override = material_
+	add_child(node)
+	return mm
+
+static func _wet_quad(st: SurfaceTool, cx: float, cz: float, half: float, y: float, color: Color) -> void:
+	var corners: Array[Vector3] = [Vector3(cx - half, y, cz - half), Vector3(cx + half, y, cz - half), Vector3(cx + half, y, cz + half), Vector3(cx - half, y, cz + half)]
+	for index: int in [0, 1, 2, 0, 2, 3]:
+		st.set_normal(Vector3.UP)
+		st.set_color(color)
+		st.add_vertex(corners[index])
+
+func _wet_mesh() -> ArrayMesh:
+	var st: SurfaceTool = SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	_wet_quad(st, 0.0, 0.0, 0.2, 0.0, WET_BASE)
+	# Small bright droplets, lifted a hair so they win the depth test against the base.
+	for speck: Vector2 in [Vector2(-0.10, -0.07), Vector2(0.08, 0.02), Vector2(-0.03, 0.11)]:
+		_wet_quad(st, speck.x, speck.y, 0.026, 0.004, WET_SPECK)
+	return st.commit()
 
 # ---------------------------------------------------------------- meshes
 
@@ -142,12 +191,12 @@ func _set_cell(index: int) -> void:
 	var pave_on: bool = scale_ > 0.0 and paved
 	if soil_on:
 		soil_multimesh.set_instance_transform(index, Transform3D(Basis(Vector3.UP, angle + float(index % 7)).scaled(Vector3.ONE * scale_), origin))
-		soil_multimesh.set_instance_color(index, STAGE_TINT[stage])
+		soil_multimesh.set_instance_color(index, STAGE_TINT[stage] * (WET_TINT if _is_wet(index) else Color.WHITE))
 	else:
 		_hide(soil_multimesh, index)
 	if pave_on:
 		pave_multimesh.set_instance_transform(index, Transform3D(Basis(Vector3.UP, angle).scaled(Vector3.ONE * scale_), origin))
-		pave_multimesh.set_instance_color(index, STAGE_TINT[stage])
+		pave_multimesh.set_instance_color(index, STAGE_TINT[stage] * (WET_TINT if _is_wet(index) else Color.WHITE))
 	else:
 		_hide(pave_multimesh, index)
 	var seed_on: bool = stage == WorldState.STAGE_SEED and visible_cell
@@ -165,6 +214,25 @@ func _set_cell(index: int) -> void:
 	shown_pave[index] = roundi(scale_ * 100.0) if pave_on else 0
 	shown_seed[index] = 1 if seed_on else 0
 	shown_crack[index] = 1 if crack_on else 0
+	set_wet_cell(index)
+
+## True for a growing grass cell with moisture, or a cell under a watered cultivated plant.
+func _is_wet(index: int) -> bool:
+	if crop_wet.has(index):
+		return true
+	return state.target[index] == 1 and state.moisture[index] > 0 and state.stage[index] >= WorldState.STAGE_SEED and state.stage[index] < WorldState.STAGE_MATURE
+
+## Updates only the damp-patch layer of one cell (the crop-cover pass must not redraw the grass).
+func set_wet_cell(index: int) -> void:
+	var wet: bool = _is_wet(index)
+	if wet:
+		var cell: Vector2i = Vector2i(index % state.width, index / state.width)
+		var centre: Vector2 = Coords.cell_center_ground(cell)
+		var angle: float = float(state.sprout_slot[index]) * PI * 0.5
+		wet_multimesh.set_instance_transform(index, Transform3D(Basis(Vector3.UP, angle), Vector3(centre.x, 0.008, centre.y)))
+	else:
+		_hide(wet_multimesh, index)
+	shown_wet[index] = 1 if wet else 0
 
 func refresh_all() -> void:
 	for index: int in state.tile_count():
@@ -192,6 +260,8 @@ func visible_count(layer: String) -> int:
 			mirror = shown_seed
 		"crack":
 			mirror = shown_crack
+		"wet":
+			mirror = shown_wet
 	for value: int in mirror:
 		if value > 0:
 			count += 1

@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":120,"name":"watermelon_n0","status":"PASS"}
+{"detail":194,"name":"watermelon_n5","status":"PASS"}
+{"detail":312,"name":"watermelon_n10","status":"PASS"}
+{"detail":808,"name":"watermelon_n20","status":"PASS"}
+{"detail":"","name":"different_kind_and_defeated_independent","status":"PASS"}
+{"detail":"","name":"helpers_keep_fixed_prices","status":"PASS"}
+{"detail":"","name":"unrepresentable_price_stays_positive_unaffordable","status":"PASS"}
+{"detail":[120,132,146],"name":"continuous_real_placements","status":"PASS"}
+{"detail":"","name":"blocked_placement_no_charge_no_count","status":"PASS"}
+{"detail":"","name":"insufficient_no_charge_no_count","status":"PASS"}
+{"detail":"","name":"manual_refund_actual_paid_and_price_falls","status":"PASS"}
+{"detail":"","name":"enemy_destruction_no_refund_price_falls","status":"PASS"}
+{"detail":"","name":"actual_json_keeps_historical_cost_current_count_water","status":"PASS"}
+{"detail":{"ok":false,"reason":"invalid_entity_plants"},"name":"reject_invalid_paid_0","status":"PASS"}
+{"detail":{"ok":false,"reason":"invalid_entity_plants"},"name":"reject_invalid_paid_-5","status":"PASS"}
+{"detail":{"ok":false,"reason":"invalid_entity_plants"},"name":"reject_invalid_paid_1.25","status":"PASS"}
+{"detail":{"ok":false,"reason":"invalid_entity_plants"},"name":"reject_invalid_paid_100000000000000000000.0","status":"PASS"}
+{"detail":{"ok":false,"reason":"invalid_save"},"name":"reject_invalid_paid_inf","status":"PASS"}
+{"detail":"","name":"historical_payment_not_rebuilt_from_current_n","status":"PASS"}
+{"detail":"","name":"old_base_payment_remains_valid","status":"PASS"}
+{"detail":"","name":"helper_price_still_strict_on_restore","status":"PASS"}
+{"detail":"","name":"gatlinger_unused_ammo_refund_maintained","status":"PASS"}
+{"detail":{"area_seeded":2,"seeds":0},"name":"flying_area_reservation_other_spending_no_negative","status":"PASS"}

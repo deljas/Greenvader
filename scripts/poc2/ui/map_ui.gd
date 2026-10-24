@@ -23,6 +23,14 @@ var _terrain_wait: float = 0.0
 var _icon_points: Array[Dictionary] = []
 var _terrain_source: Image
 var _mini_center: Vector2 = Vector2.ZERO
+var hint: Label
+## Left-drag slide: a press on the zoomed map is only a click if it ends within DRAG_THRESHOLD px.
+const DRAG_THRESHOLD: float = 4.0
+var _press_active: bool = false
+var _press_pos: Vector2 = Vector2.ZERO
+var _press_center: Vector2 = Vector2.ZERO
+var dragging: bool = false
+var _drag_dirty: bool = false
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -36,6 +44,14 @@ func _ready() -> void:
 	close_button.pressed.connect(func() -> void: set_expanded(false))
 	remove_button.pressed.connect(func() -> void: open_popup("remove"))
 	supply_button.pressed.connect(func() -> void: open_popup("supply"))
+	hint = Label.new()
+	hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hint.position = Vector2(20,294)
+	hint.size = Vector2(600,18)
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint.add_theme_font_size_override("font_size",12)
+	add_child(hint)
+	hint.hide()
 	popup = PanelContainer.new()
 	popup.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(popup)
@@ -60,6 +76,7 @@ func bind(source: RefCounted) -> void:
 func set_expanded(value: bool) -> void:
 	expanded = value
 	zoom = 1
+	_end_press()
 	map_center = Vector2(448,448)
 	selected_id = -1
 	popup.hide()
@@ -78,6 +95,10 @@ func deselect() -> void:
 
 func _process(delta: float) -> void:
 	if session == null: return
+	if _drag_dirty:
+		_drag_dirty = false
+		_rasterize_terrain()
+	_update_hint()
 	_terrain_wait -= delta
 	if _terrain_wait <= 0.0:
 		_terrain_wait = 0.5
@@ -88,6 +109,27 @@ func _process(delta: float) -> void:
 		_rasterize_terrain()
 	update_buttons()
 	queue_redraw()
+
+## Operation guidance under the expanded map; it follows what is selected.
+func hint_text() -> String:
+	if not expanded: return ""
+	var item: Dictionary = selected() if session != null else {}
+	if not item.is_empty() and selected_helper:
+		return "移動先を左クリック：活動場所を変更　×：撤去　右クリック：選択解除"
+	if not item.is_empty():
+		return "×：撤去　右クリック：選択解除"
+	var text: String = "ホイール：拡大縮小　おたすけ植物を選ぶと移動先を指定できます"
+	if zoom > 1: text = "左ドラッグ：マップ移動　" + text
+	return text
+
+func _update_hint() -> void:
+	var text: String = hint_text()
+	hint.visible = expanded and not text.is_empty() and not popup.visible
+	hint.text = text
+
+func _end_press() -> void:
+	_press_active = false
+	dragging = false
 
 func refresh_terrain() -> void:
 	if session == null: return
@@ -283,6 +325,20 @@ func update_buttons() -> void:
 	remove_button.position = (at+Vector2(-24,-30)).clamp(Vector2(4,4),Vector2(612,332))
 	supply_button.position = (at+Vector2(2,-30)).clamp(Vector2(4,4),Vector2(612,332))
 
+## Slide the zoomed map while the left button is held past the threshold. True when the motion was consumed.
+func handle_motion(event: InputEventMouseMotion) -> bool:
+	if not expanded or not _press_active or session == null: return false
+	if not dragging:
+		if event.position.distance_to(_press_pos) < DRAG_THRESHOLD: return true
+		dragging = true
+	var moved: Vector2 = _press_center-unproject_ground((event.position-_press_pos)/_scale())*4.0
+	# Keep the view centre inside the world rectangle so the map can never be dragged away.
+	map_center = moved.clamp(Vector2.ZERO,Vector2(session.state.width,session.state.height)*4.0)
+	_drag_dirty = true
+	update_buttons()
+	queue_redraw()
+	return true
+
 func handle_click(event: InputEventMouseButton) -> bool:
 	if not expanded:
 		if event.position.distance_to(map_rect.get_center())<=54.0 and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
@@ -302,34 +358,51 @@ func handle_click(event: InputEventMouseButton) -> bool:
 	if event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
 		deselect()
 		return true
+	if event.button_index==MOUSE_BUTTON_LEFT and not event.pressed:
+		# Release of a press that started on the zoomed map: a click unless it became a drag.
+		if not _press_active: return true
+		var was_drag: bool = dragging
+		_end_press()
+		if not was_drag: _left_click(_press_pos)
+		return true
 	if event.button_index!=MOUSE_BUTTON_LEFT or not event.pressed: return true
 	# Popup and command controls own their clicks; they can NEVER become a movement command.
 	if popup.visible or (remove_button.visible and remove_button.get_global_rect().has_point(event.position)) or (supply_button.visible and supply_button.get_global_rect().has_point(event.position)): return true
-	if not map_rect.has_point(event.position):
-		deselect()
+	if zoom>1 and map_rect.has_point(event.position):
+		# Zoomed: decide click vs drag on release (threshold), so a slide never issues a command.
+		_press_active = true
+		dragging = false
+		_press_pos = event.position
+		_press_center = map_center
 		return true
+	_left_click(event.position)
+	return true
+
+func _left_click(position_: Vector2) -> void:
+	if not map_rect.has_point(position_):
+		deselect()
+		return
 	var closest: Dictionary = {}
 	var best: float = 8.0
 	for entry: Dictionary in _icon_points:
-		var distance: float = event.position.distance_to(entry.pos)
+		var distance: float = position_.distance_to(entry.pos)
 		if distance<best:
 			best=distance
 			closest=entry
 	if not closest.is_empty():
 		selected_id=closest.id
 		selected_helper=closest.helper
-	elif not _world_contains(logic_at(event.position)):
+	elif not _world_contains(logic_at(position_)):
 		# A rounded edge icon can lie just outside the inverse-projected world.
 		# Honour its visible hit target first, but never issue an exterior order.
 		deselect()
 	elif selected_helper and selected_id>=0:
-		var result: Dictionary = session.move_helper(selected_id,logic_at(event.position))
+		var result: Dictionary = session.move_helper(selected_id,logic_at(position_))
 		if not bool(result.get("ok",false)): notified.emit(String(result.get("reason","移動できません")))
 		else: notified.emit("活動場所を変更しました")
 	else: deselect()
 	update_buttons()
 	queue_redraw()
-	return true
 
 func open_popup(action: String) -> void:
 	var item: Dictionary = selected()

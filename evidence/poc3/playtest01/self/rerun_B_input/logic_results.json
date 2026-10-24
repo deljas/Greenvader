@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "name": "normal_hold_shift_stops_until_release_1",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh_click_resumes_after_release_1",
+      "status": "PASS"
+    },
+    {
+      "name": "skill_shift_release_never_becomes_normal_1",
+      "status": "PASS"
+    },
+    {
+      "name": "ui_and_mode_holds_blocked_1",
+      "status": "PASS"
+    },
+    {
+      "name": "normal_hold_shift_stops_until_release_2",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh_click_resumes_after_release_2",
+      "status": "PASS"
+    },
+    {
+      "name": "skill_shift_release_never_becomes_normal_2",
+      "status": "PASS"
+    },
+    {
+      "name": "ui_and_mode_holds_blocked_2",
+      "status": "PASS"
+    },
+    {
+      "name": "placement_single_press_and_right_cancel",
+      "status": "PASS"
+    },
+    {
+      "name": "width_selection_clamped_1_3_5_7",
+      "status": "PASS"
+    },
+    {
+      "name": "width_save_restore",
+      "status": "PASS"
+    },
+    {
+      "name": "older_poc3_width_defaults_one",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected_int",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected_String",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected_bool",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "area_seed_effect",
+    "wide_regression"
+  ]
+}

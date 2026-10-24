@@ -1,0 +1,170 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "cost": 1,
+        "water": 99.0,
+        "wet": 1
+      },
+      "name": "size_1_center_cost",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 9,
+        "water": 91.0,
+        "wet": 9
+      },
+      "name": "size_3_center_cost",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 25,
+        "water": 75.0,
+        "wet": 25
+      },
+      "name": "size_5_center_cost",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 49,
+        "water": 51.0,
+        "wet": 49
+      },
+      "name": "size_7_center_cost",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "shortage_nearest_first_only_held_water",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "empty_tank_refuses",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 6,
+        "valid": 6,
+        "water": 94.0
+      },
+      "name": "mixed_cells_only_effective_charged",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "valid": 2,
+        "water": 98.0
+      },
+      "name": "crops_count_one_each_and_become_watered",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "watered_crops_and_mature_grass_refused",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "no_effect_mature_area_refused_nothing_spent",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "no_effect_bare_ground_refused",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "aim_limited_to_reach_50",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "far_aim_waters_at_reach_limit",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "watered_cells_marked_dirty_for_renderer",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "restore": {
+          "ok": true,
+          "reason": "loaded"
+        },
+        "wet": 9
+      },
+      "name": "save_restore_keeps_wet_grass_and_watered_crop",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "now": 120.0,
+        "was": 60.0
+      },
+      "name": "sprinkler_radius_constants",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "sprinkler_targets_100px_not_130px",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "army_gatlinger_radius_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "pos": "(838.0, 754.0)"
+      },
+      "name": "session_sprinkler_job_at_88px",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "session_sprinkler_ignores_124px",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "timeline_totals_from_manifest",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6
+      ],
+      "name": "water_frames_0_to_6_then_end",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "seed_frames_0_to_3_then_end",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "passes": 23
+}

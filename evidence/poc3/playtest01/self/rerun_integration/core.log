@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":"","id":"NEW_CENTRAL_RESOURCES","status":"PASS"}
+{"detail":{"id":33,"ok":true,"reason":""},"id":"OPENING_CROP_FROM_REAL_BALANCE","status":"PASS"}
+{"detail":{"cost":1,"ok":true,"reason":""},"id":"OPENING_GROWING_WATERED_CROP","status":"PASS"}
+{"detail":{"shot":{"ok":true,"reason":""},"spent_net":9,"target":"(410.0, 402.0)"},"id":"OPENING_WIDTH3_PROJECTILE_SETTLES","status":"PASS"}
+{"detail":{"loaded":true,"saved":true},"id":"COMPOSITE_REAL_JSON_ROUNDTRIP","status":"PASS"}
+{"detail":"","id":"RESTORE_HAS_NO_OFFLINE_PROGRESS","status":"PASS"}
+{"detail":{"balance":1,"fire":{"ok":false,"reason":"not_enough_seeds"}},"id":"ZERO_SEED_RECOVERS_FROM_REAL_PRODUCTION","status":"PASS"}
+{"detail":{"age":20.0,"water":{"ok":false,"reason":"no_water"}},"id":"ZERO_WATER_DOES_NOT_STOP_CROP_GROWTH","status":"PASS"}
+{"detail":{"bank":"(450.0, 418.0)","water":20.0},"id":"ZERO_WATER_BANK_REFILLS_WITHOUT_SEED_PAYMENT","status":"PASS"}
+{"detail":{},"id":"PLAYER_WALK_DIAGONAL_AXIS_(121, 57)","status":"PASS"}
+{"detail":{},"id":"PLAYER_WALK_DIAGONAL_AXIS_(118, 178)","status":"PASS"}
+{"detail":"(450.0, 418.0)","id":"WATER_EDGE_FEET_DO_NOT_TUNNEL","status":"PASS"}
+{"detail":"(456.0, 450.0)","id":"OPEN_SPACE_MOVE_PRESERVES_DISTANCE","status":"PASS"}
+{"detail":{"crop_rate":0.0,"elapsed_game":1.0,"enemies":0,"green_percent":0.461779285155231,"hp":100.0,"land_rate":3.54,"nests":0,"seeds":990,"stable":true,"water":100.0},"id":"DAMAGE_API_CLEAR_TRANSITIONS_TO_STABLE","status":"PASS"}
+{"detail":"","id":"STABLE_HOSTILE_ROUTE_REJECTED","status":"PASS"}
+{"detail":{"advances":20,"clock_step":120.0,"direct_stage_writes":0,"far_bound_seconds":3207.5,"game_seconds":2401.0,"greened":38330,"input_events":0,"island_before":0,"island_green":16,"island_planted":1,"island_targets":16,"omitted_during_acceleration":["combat after all hostiles dead","income","periodic reveal","helper/crop work (none placed)"],"start_green":177,"sweep_planted":27931,"targets":38330,"tuning_changed":false},"id":"FULL_224_MAP_AUTONOMOUS_EXACT_100","status":"PASS"}
+{"detail":{"before":0,"green":16,"targets":16},"id":"ISOLATED_TARGETS_AUTONOMOUSLY_GREENED","status":"PASS"}
+{"detail":"","id":"STABLE_POST_CLEAR_NO_ENEMIES_REAPPEAR","status":"PASS"}

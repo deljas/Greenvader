@@ -29,7 +29,7 @@ func button(at: Vector2, pressed: bool, which: int=MOUSE_BUTTON_LEFT) -> void:
 
 func game_at() -> Vector2:
 	main.world.sync(0.0)
-	return main.world.camera.unproject_position(Coords.ground3(Coords.logic_to_ground(main.session.position+Vector2(12,0))))
+	return main.world.camera.unproject_position(Coords.ground3(Coords.logic_to_ground(main.session.position+Vector2(100,0))))
 
 func fresh_resources() -> void:
 	main.session.seeds=100
@@ -65,6 +65,16 @@ func run() -> void:
 	for which: int in [MOUSE_BUTTON_LEFT,MOUSE_BUTTON_RIGHT]:
 		fresh_resources()
 		at=game_at()
+		# Fixture (work B): the shot lands at most 120px away and sowing/watering only act on cells that can take effect, so
+		# prepare the real landing cells: empty plantable ground for the seed, an unwatered growing seed for the water.
+		motion(at)
+		main.tick(0.0)
+		var landing: Vector2i=Coords.logic_to_cell(main.session.sow_preview().get("target",main.session.aim)) if which==MOUSE_BUTTON_LEFT else Vector2i(main.world.water_plan.get("center",Vector2i.ZERO))
+		for dy: int in range(-1,2):
+			for dx: int in range(-1,2):
+				var cell_index: int=main.session.state.index_of(landing.x+dx,landing.y+dy)
+				main.session.state.set_stage(cell_index,WorldState.STAGE_EMPTY if which==MOUSE_BUTTON_LEFT else WorldState.STAGE_SEED)
+		main.tick(0.0)
 		motion(at)
 		button(at,true,which)
 		var seed_after: int=main.session.seeds
@@ -74,11 +84,22 @@ func run() -> void:
 		main.tick(0.25)
 		key_state(KEY_SHIFT,false)
 		main.tick(0.25)
-		check("shift_during_normal_hold_stops_no_skill_"+str(which),main.session.seeds==seed_after and main.session.water==water_after and main.session.skill_ready==skills_before and not main._primary and not main._secondary)
+		check("shift_during_normal_hold_stops_no_skill_"+str(which),main.session.seeds==seed_after and main.session.water==(water_after if which==MOUSE_BUTTON_LEFT else water_after-1.0) and main.session.skill_ready==skills_before and not main._primary and not main._secondary)
 		button(at,false,which)
 		main.session.shot_ready=0.0
+		# Work B: a water click already in progress spends at its 400ms release (so the Shift test above sees 1 spent) and the
+		# next click waits for the animation; make the landing cells valid again and clear the wait so only routing is tested.
+		main._water_wait=0.0
+		if which==MOUSE_BUTTON_RIGHT:
+			for step: int in 4: main.tick(0.25) # (max 0.25s per tick) let the 800ms water animation finish; clicks during it are ignored by design
+			for dy: int in range(-1,2):
+				for dx: int in range(-1,2):
+					var wet_index: int=main.session.state.index_of(landing.x+dx,landing.y+dy)
+					main.session.state.set_stage(wet_index,WorldState.STAGE_SEED)
+					main.session.state.moisture[wet_index]=0
 		button(game_at(),true,which)
-		check("release_then_fresh_normal_click_"+str(which),main.session.seeds==seed_after-1 if which==MOUSE_BUTTON_LEFT else main.session.water==water_after-1.0)
+		if which==MOUSE_BUTTON_RIGHT: main.tick(0.0) # a held right button starts the water on the next tick
+		check("release_then_fresh_normal_click_"+str(which),main.session.seeds==seed_after-1 if which==MOUSE_BUTTON_LEFT else main._water_pending)
 		button(pointer,false,which)
 	# Shift+new left click consumes no seed/water, and Shift release cannot arm a normal hold.
 	fresh_resources()

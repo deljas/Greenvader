@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5070 Ti
+
+{"detail":"","name":"startup_no_focus_minimized","status":"PASS"}
+{"detail":"20　給水 7×7（水不足）","name":"preview_7_short_water","status":"PASS"}
+{"detail":"","name":"img_preview_short","status":"PASS"}
+{"detail":"","name":"preview_3_full","status":"PASS"}
+{"detail":"","name":"img_preview_3","status":"PASS"}
+{"detail":"","name":"preview_no_effect","status":"PASS"}
+{"detail":"","name":"img_preview_no_effect","status":"PASS"}
+{"detail":"給水の効果があるマスがありません","name":"no_effect_click_no_anim_no_spend","status":"PASS"}
+{"detail":"","name":"repeat_wait_set_to_animation_length","status":"PASS"}
+{"detail":"","name":"img_anim_frame3_forming","status":"PASS"}
+{"detail":"","name":"img_anim_frame4_release","status":"PASS"}
+{"detail":[0,1,2,3,4,5,6],"name":"anim_plays_all_7_frames_to_800ms","status":"PASS"}
+{"detail":{"spent_at":0.4,"water":91.0},"name":"water_spent_at_release_400ms","status":"PASS"}
+{"detail":"","name":"img_wet_3x3","status":"PASS"}
+{"detail":"","name":"img_wet_area","status":"PASS"}
+{"detail":"","name":"img_wet_area_zoom","status":"PASS"}
+{"detail":35,"name":"wet_layer_counts","status":"PASS"}
+{"detail":"","name":"crop_watered_patch_shown","status":"PASS"}
+{"detail":"","name":"sprinkler_ring_scale_2","status":"PASS"}
+{"detail":"","name":"img_sprinkler_ring","status":"PASS"}
+{"detail":"","name":"integer_nearest_rendering","status":"PASS"}
+{"detail":"","name":"stayed_no_focus_minimized","status":"PASS"}

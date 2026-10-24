@@ -1,0 +1,117 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "startup_no_focus_minimized",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "group": "bld_gallery_01_q0",
+        "height_m": 9.07441139221191,
+        "spot": "(140.0, 100.0)"
+      },
+      "name": "found_tall_building_with_hidden_spot",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "mid": 9,
+        "prog": [
+          0.0,
+          0.03,
+          0.07,
+          0.11,
+          0.15,
+          0.19,
+          0.23,
+          0.28,
+          0.34,
+          0.42,
+          0.56,
+          0.8,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "up_total": 72.7474591487401
+      },
+      "name": "item7_fade_out_upper_region_has_intermediate_frames",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "item7_fade_out_upper_roughly_monotone",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "mid": 8,
+        "prog": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.41,
+          0.59,
+          0.66,
+          0.71,
+          0.74,
+          0.77,
+          0.79,
+          0.8,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "total": 53.2808233899983
+      },
+      "name": "item7_fade_in_upper_region_has_intermediate_frames_and_monotone",
+      "status": "PASS"
+    },
+    {
+      "detail": 0.0,
+      "name": "item7_restored_matches_original_opaque_frame",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

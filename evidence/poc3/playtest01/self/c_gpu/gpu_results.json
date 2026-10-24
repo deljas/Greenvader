@@ -1,0 +1,300 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "startup_no_focus_minimized",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "1 ♣ ●10",
+        10,
+        "1 ♣ ●10",
+        true,
+        7
+      ],
+      "name": "i8_slot_shows_price_n0",
+      "status": "PASS"
+    },
+    {
+      "detail": "♣ 設置 ●10",
+      "name": "i8_shortcut_selects_and_hud_price_n0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i8_img_n0",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i8_img_n0_zoom",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i8_added_5_clovers",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 ♣ ●17",
+      "name": "i8_slot_price_n5_is_1p1_pow5",
+      "status": "PASS"
+    },
+    {
+      "detail": "♣ 設置 ●17",
+      "name": "i8_hud_price_n5",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i8_img_n5",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "1 ♣ ●17",
+        "2 ● ●15",
+        15
+      ],
+      "name": "i8_unaffordable_slot_tinted_only_that_slot",
+      "status": "PASS"
+    },
+    {
+      "detail": "♣ 設置 ●17（種不足）",
+      "name": "i8_hud_short_marker",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i8_img_short",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i8_img_short_zoom",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "生産 +0.06 ●/s",
+        0.059
+      ],
+      "name": "i9_rate_label_matches_session",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i9_img_rate_grass_only",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "first": 0.059,
+        "last": 0.103666666666667,
+        "measured": 0.0801361111111116
+      },
+      "name": "i9_grass_real_income_matches_rate",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        10,
+        4
+      ],
+      "name": "i9_added_mature_crops",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "first": 4.10366666666667,
+        "last": 4.148,
+        "measured": 4.12568194444444
+      },
+      "name": "i9_crop_real_income_matches_rate",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "生産 +4.15 ●/s",
+        4.148,
+        240.0
+      ],
+      "name": "i9_rate_label_updates_with_crops",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i9_img_rate_crops",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i9_img_rate_hud_zoom",
+      "status": "PASS"
+    },
+    {
+      "detail": "おたすけ植物はTabのマップで選び、移動先を左クリックすると配置換えできます",
+      "name": "i12_first_helper_placement_notice",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i12_img_first_notice",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i12_notice_only_once",
+      "status": "PASS"
+    },
+    {
+      "detail": "ホイール：拡大縮小　おたすけ植物を選ぶと移動先を指定できます",
+      "name": "i12_map_open_hint_no_selection",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i12_img_map_hint_none",
+      "status": "PASS"
+    },
+    {
+      "detail": 52,
+      "name": "i12_click_selects_helper_zoom1",
+      "status": "PASS"
+    },
+    {
+      "detail": "移動先を左クリック：活動場所を変更　×：撤去　右クリック：選択解除",
+      "name": "i12_hint_helper_selected",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i12_img_map_hint_helper",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(470.0, 458.0)",
+        "(634.0, 378.0)",
+        "(630.0, 378.0)"
+      ],
+      "name": "i12_clicking_destination_moves_helper_as_hinted",
+      "status": "PASS"
+    },
+    {
+      "detail": "(448.0, 448.0)",
+      "name": "i10_nonzoomed_drag_does_nothing",
+      "status": "PASS"
+    },
+    {
+      "detail": 4,
+      "name": "i10_zoomed_x4",
+      "status": "PASS"
+    },
+    {
+      "detail": "左ドラッグ：マップ移動　ホイール：拡大縮小　おたすけ植物を選ぶと移動先を指定できます",
+      "name": "i10_hint_mentions_drag_when_zoomed",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i10_img_zoom_before",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i10_below_threshold_not_a_drag",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(466.0, 454.0)",
+        "(390.0, 458.0)"
+      ],
+      "name": "i10_drag_moves_view_centre",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i10_img_zoom_dragged",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        -1,
+        "(634.0, 378.0)"
+      ],
+      "name": "i10_drag_release_is_no_command",
+      "status": "PASS"
+    },
+    {
+      "detail": "(40.0, 18.0)",
+      "name": "i10_map_follows_the_cursor",
+      "status": "PASS"
+    },
+    {
+      "detail": "(0.0, 58.0)",
+      "name": "i10_edge_clamped_to_world",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i10_img_edge",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i10_click_deferred_until_release_when_zoomed",
+      "status": "PASS"
+    },
+    {
+      "detail": 52,
+      "name": "i10_click_under_threshold_selects_icon",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(634.0, 378.0)",
+        "(634.0, 378.0)"
+      ],
+      "name": "i10_drag_from_icon_keeps_helper_put",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "(634.0, 378.0)",
+        "(350.0, 398.0)"
+      ],
+      "name": "i10_click_on_ground_zoomed_still_moves_helper",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i10_close_clears_drag_state",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i12_help_mentions_relocation_and_drag",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "i12_img_help",
+      "status": "PASS"
+    },
+    {
+      "detail": "[P: (75.0, 45.0), S: (490.0, 306.0)]",
+      "name": "i12_help_fits_panel",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "stayed_no_focus_minimized",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "passes": 50
+}

@@ -9,6 +9,8 @@ const Walls: GDScript = preload("res://scripts/poc/environment/wall_growth.gd")
 const Navigation: GDScript = preload("res://scripts/poc2/simulation/navigation.gd")
 const Combat: GDScript = preload("res://scripts/poc2/simulation/combat.gd")
 const Plants: GDScript = preload("res://scripts/poc2/simulation/plants.gd")
+## POC3-PLAYTEST-01 item 6: crop price growth per same-kind plant (was 1.05).
+const PRICE_GROWTH: float = 1.1
 const Persistence: GDScript = preload("res://scripts/poc2/simulation/persistence.gd")
 const MAP_PATH: String = "res://data/poc3/maps/town_03.json"
 const CATALOG: Dictionary = {
@@ -125,6 +127,9 @@ func _build_systems(sync_spread: bool = true) -> void:
  sim_tuning.moisture_growth_max = 1.0
  sim_tuning.moisture_decay_per_tick = 0
  state.permanent_water = true
+ # POC3-PLAYTEST-01 item 13: no fair sweep (it planted from cell (0,0) along the top edge). Isolated components still get
+ # their one seed (far_seed_sim (a)) and natural spread continues; the sweep delay is effectively infinite.
+ sim_tuning.far_sweep_start_delay_seconds = 1.0e9
  clock.configure(sim_tuning)
  growth = GrowthSim.new(state,sim_tuning)
  spread = SpreadSim.new(state,sim_tuning,sync_spread)
@@ -265,7 +270,15 @@ func current_cost(kind: String) -> int:
  var base: int=int(CATALOG[kind].cost)
  if CATALOG[kind].role!="crop": return base
  var count: int=int(plant_stats(kind).count)
- var price: float=float(base)*pow(1.05,float(count))
+ # Exact integer ceil(base*11^n/10^n) while it fits (a float 1.1^n turns exact integers such as 10*1.1 into 11.000000000000002).
+ if count<=15:
+  var numerator: int=base
+  var denominator: int=1
+  for step: int in count:
+   numerator*=11
+   denominator*=10
+  return (numerator+denominator-1)/denominator
+ var price: float=float(base)*pow(PRICE_GROWTH,float(count))
  # Float -> int conversion outside int64 can wrap negative. Saturate only the
  # representation; valid saved balances (<= 1e9) cannot afford such a price.
  if not is_finite(price) or price>=9223372036854775808.0:
@@ -315,6 +328,12 @@ func skill(slot: int) -> Dictionary:
 
 func water_at(logic: Vector2) -> Dictionary:
  return plant_system.water_at(logic)
+
+func water_preview(logic: Vector2) -> Dictionary:
+ return plant_system.water_preview(logic)
+
+func water_check(logic: Vector2) -> Dictionary:
+ return plant_system.water_check(logic)
 
 func can_place(kind: String,cell: Vector2i) -> Dictionary:
  return plant_system.can_place(kind,cell)

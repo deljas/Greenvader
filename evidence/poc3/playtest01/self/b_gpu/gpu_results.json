@@ -1,0 +1,538 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "startup_no_focus_minimized",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "img_gatling_after",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "img_gatling_before",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "after": {
+          "ammo_used_6s": 20,
+          "fire_times": [
+            [
+              0.04,
+              4
+            ],
+            [
+              1.24,
+              4
+            ],
+            [
+              2.44,
+              4
+            ],
+            [
+              3.64,
+              4
+            ],
+            [
+              4.84,
+              4
+            ]
+          ],
+          "interval": 1.2,
+          "label": "after",
+          "max_in_flight": 4,
+          "placed": true,
+          "seeds_per_second": 3.33333333333333,
+          "volley": 4
+        },
+        "before": {
+          "ammo_used_6s": 2,
+          "fire_times": [
+            [
+              0.04,
+              1
+            ],
+            [
+              3.08,
+              1
+            ]
+          ],
+          "interval": 3.0,
+          "label": "before",
+          "max_in_flight": 1,
+          "placed": true,
+          "seeds_per_second": 0.333333333333333,
+          "volley": 1
+        }
+      },
+      "name": "gatling_rate_before_vs_after",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "carrot": [
+          15,
+          17,
+          19,
+          20,
+          22,
+          25
+        ],
+        "clover": [
+          10,
+          11,
+          13,
+          14,
+          15,
+          17
+        ],
+        "watermelon": [
+          120,
+          132,
+          146,
+          160,
+          176,
+          194
+        ]
+      },
+      "name": "price_table_clover_ceil_1_1",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "carrot": [
+          15,
+          17,
+          19,
+          20,
+          22,
+          25
+        ],
+        "clover": [
+          10,
+          11,
+          13,
+          14,
+          15,
+          17
+        ],
+        "watermelon": [
+          120,
+          132,
+          146,
+          160,
+          176,
+          194
+        ]
+      },
+      "name": "price_table_carrot_watermelon",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        [
+          0,
+          10,
+          "♣ 設置 ●10"
+        ],
+        [
+          1,
+          11,
+          "♣ 設置 ●11"
+        ],
+        [
+          2,
+          13,
+          "♣ 設置 ●13"
+        ],
+        [
+          3,
+          14,
+          "♣ 設置 ●14"
+        ],
+        [
+          4,
+          15,
+          "♣ 設置 ●15"
+        ],
+        [
+          5,
+          17,
+          "♣ 設置 ●17"
+        ]
+      ],
+      "name": "price_ui_status_matches_formula_n0_to_5",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        140.0,
+        100.0,
+        "bld_gallery_01_q0"
+      ],
+      "name": "fade_found_hidden_spot_behind_building",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        0.8,
+        0.6,
+        0.4,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "upper_opacity_goes_gradually_not_abrupt",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        0.8,
+        0.6,
+        0.4,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "upper_opacity_monotone_during_fade_out",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "name": "upper_opacity_returns_gradually",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "alpha_lower": 0.392,
+        "phase": "out",
+        "shader_upper_fade": 0.8,
+        "step": 3,
+        "upper_fade": 0.8,
+        "upper_opacity": 0.2
+      },
+      "name": "lower_and_upper_share_progress",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "img_fade_out_sheet.png",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "img_fade_in_sheet.png",
+      "status": "PASS"
+    },
+    {
+      "detail": 5,
+      "name": "out_frames_are_distinct_images",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "integer_nearest_rendering",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "stayed_no_focus_minimized",
+      "status": "PASS"
+    }
+  ],
+  "data": {
+    "fade_centre": [
+      292.023834228516,
+      131.031677246094
+    ],
+    "fade_log_in": [
+      {
+        "alpha_lower": 0.24,
+        "step": 0,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "step": 1,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "step": 2,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "step": 3,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "step": 4,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "step": 5,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "step": 6,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.392,
+        "step": 7,
+        "upper_opacity": 0.2
+      },
+      {
+        "alpha_lower": 0.544,
+        "step": 8,
+        "upper_opacity": 0.4
+      },
+      {
+        "alpha_lower": 0.696,
+        "step": 9,
+        "upper_opacity": 0.6
+      },
+      {
+        "alpha_lower": 0.848,
+        "step": 10,
+        "upper_opacity": 0.8
+      },
+      {
+        "alpha_lower": 1.0,
+        "step": 11,
+        "upper_opacity": 1.0
+      },
+      {
+        "alpha_lower": 1.0,
+        "step": 12,
+        "upper_opacity": 1.0
+      },
+      {
+        "alpha_lower": 1.0,
+        "step": 13,
+        "upper_opacity": 1.0
+      },
+      {
+        "alpha_lower": 1.0,
+        "step": 14,
+        "upper_opacity": 1.0
+      },
+      {
+        "alpha_lower": 1.0,
+        "step": 15,
+        "upper_opacity": 1.0
+      }
+    ],
+    "fade_log_out": [
+      {
+        "alpha_lower": 0.848,
+        "phase": "out",
+        "shader_upper_fade": 0.2,
+        "step": 0,
+        "upper_fade": 0.2,
+        "upper_opacity": 0.8
+      },
+      {
+        "alpha_lower": 0.696,
+        "phase": "out",
+        "shader_upper_fade": 0.4,
+        "step": 1,
+        "upper_fade": 0.4,
+        "upper_opacity": 0.6
+      },
+      {
+        "alpha_lower": 0.544,
+        "phase": "out",
+        "shader_upper_fade": 0.6,
+        "step": 2,
+        "upper_fade": 0.6,
+        "upper_opacity": 0.4
+      },
+      {
+        "alpha_lower": 0.392,
+        "phase": "out",
+        "shader_upper_fade": 0.8,
+        "step": 3,
+        "upper_fade": 0.8,
+        "upper_opacity": 0.2
+      },
+      {
+        "alpha_lower": 0.24,
+        "phase": "out",
+        "shader_upper_fade": 1.0,
+        "step": 4,
+        "upper_fade": 1.0,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "phase": "out",
+        "shader_upper_fade": 1.0,
+        "step": 5,
+        "upper_fade": 1.0,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "phase": "out",
+        "shader_upper_fade": 1.0,
+        "step": 6,
+        "upper_fade": 1.0,
+        "upper_opacity": 0.0
+      },
+      {
+        "alpha_lower": 0.24,
+        "phase": "out",
+        "shader_upper_fade": 1.0,
+        "step": 7,
+        "upper_fade": 1.0,
+        "upper_opacity": 0.0
+      }
+    ],
+    "fade_spot": [
+      140.0,
+      100.0,
+      "bld_gallery_01_q0"
+    ],
+    "gatling": {
+      "after": {
+        "ammo_used_6s": 20,
+        "fire_times": [
+          [
+            0.04,
+            4
+          ],
+          [
+            1.24,
+            4
+          ],
+          [
+            2.44,
+            4
+          ],
+          [
+            3.64,
+            4
+          ],
+          [
+            4.84,
+            4
+          ]
+        ],
+        "interval": 1.2,
+        "label": "after",
+        "max_in_flight": 4,
+        "placed": true,
+        "seeds_per_second": 3.33333333333333,
+        "volley": 4
+      },
+      "before": {
+        "ammo_used_6s": 2,
+        "fire_times": [
+          [
+            0.04,
+            1
+          ],
+          [
+            3.08,
+            1
+          ]
+        ],
+        "interval": 3.0,
+        "label": "before",
+        "max_in_flight": 1,
+        "placed": true,
+        "seeds_per_second": 0.333333333333333,
+        "volley": 1
+      }
+    },
+    "price_table": {
+      "carrot": [
+        15,
+        17,
+        19,
+        20,
+        22,
+        25
+      ],
+      "clover": [
+        10,
+        11,
+        13,
+        14,
+        15,
+        17
+      ],
+      "watermelon": [
+        120,
+        132,
+        146,
+        160,
+        176,
+        194
+      ]
+    },
+    "price_ui_status": [
+      [
+        0,
+        10,
+        "♣ 設置 ●10"
+      ],
+      [
+        1,
+        11,
+        "♣ 設置 ●11"
+      ],
+      [
+        2,
+        13,
+        "♣ 設置 ●13"
+      ],
+      [
+        3,
+        14,
+        "♣ 設置 ●14"
+      ],
+      [
+        4,
+        15,
+        "♣ 設置 ●15"
+      ],
+      [
+        5,
+        17,
+        "♣ 設置 ●17"
+      ]
+    ]
+  },
+  "failures": 0,
+  "input": "engine-internal only; no OS input"
+}

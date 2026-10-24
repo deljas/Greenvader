@@ -11,11 +11,18 @@ func _ready() -> void:
 	focus_mode = Control.FOCUS_NONE
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 
-func set_slot(index: int, plant_kind: String, icon: String, plant_name: String, selected: bool = false) -> void:
+## cost < 0 means "no price shown" (empty slot). An unaffordable price is tinted, never hidden.
+func set_slot(index: int, plant_kind: String, icon: String, plant_name: String, selected: bool = false, cost: int = -1, affordable: bool = true) -> void:
 	slot_index = index
 	kind = plant_kind
 	text = "%d %s" % [index+1,icon if not plant_kind.is_empty() else "·"]
+	if not plant_kind.is_empty() and cost >= 0:
+		text += " ●%d" % cost
 	tooltip_text = plant_name if not plant_kind.is_empty() else "空の枠"
+	var tint: Color = Color("e8907e")
+	for style: String in ["font_color","font_hover_color","font_pressed_color","font_focus_color"]:
+		if cost >= 0 and not plant_kind.is_empty() and not affordable: add_theme_color_override(style,tint)
+		else: remove_theme_color_override(style)
 	modulate = Color("f4db90") if selected else Color.WHITE
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:

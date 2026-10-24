@@ -1,0 +1,266 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "expected": 1,
+        "water": 99.0,
+        "wet_in": 1
+      },
+      "name": "item1_3_width1_checker_cost_equals_effective",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "expected": 5,
+        "water": 95.0,
+        "wet_in": 5
+      },
+      "name": "item1_3_width3_checker_cost_equals_effective",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "expected": 13,
+        "water": 87.0,
+        "wet_in": 13
+      },
+      "name": "item1_3_width5_checker_cost_equals_effective",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "expected": 25,
+        "water": 75.0,
+        "wet_in": 25
+      },
+      "name": "item1_3_width7_checker_cost_equals_effective",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "max_wet": 4,
+        "min_dry": 5,
+        "nwet": 13,
+        "water": 0.699999999999999
+      },
+      "name": "item1_shortage_floor_water_nearest_first",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "item1_water_below_1_refused",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "first_cost": 25,
+        "second": {
+          "ok": false,
+          "reason": "no_effect"
+        }
+      },
+      "name": "item3_second_watering_no_effect_zero_spend",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 10,
+        "ok": true,
+        "reason": ""
+      },
+      "name": "item3_overlap_charges_only_new_cells",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "blocked"
+      },
+      "name": "item3_blocked_by_obstacle_no_spend",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 9,
+        "ok": true,
+        "reason": ""
+      },
+      "name": "item3_unblocked_works",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 1,
+        "ok": true,
+        "reason": ""
+      },
+      "name": "item1_range_clamped_50",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "paused_or_downed"
+      },
+      "name": "item3_paused_refused",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cost": 1,
+        "ok": true,
+        "reason": ""
+      },
+      "name": "item1_crop_unit_counts_once",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "item3_watered_crop_no_effect",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": true,
+        "reason": "loaded"
+      },
+      "name": "save_restores_watered_crop_and_sow_width",
+      "status": "PASS"
+    },
+    {
+      "detail": 9,
+      "name": "save_restores_wet_grass",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "carrot": [
+          15,
+          17,
+          19,
+          20,
+          22,
+          25
+        ],
+        "clover": [
+          10,
+          11,
+          13,
+          14,
+          15,
+          17
+        ],
+        "rafflesia": [
+          40,
+          44,
+          49,
+          54,
+          59,
+          65
+        ],
+        "watermelon": [
+          120,
+          132,
+          146,
+          160,
+          176,
+          194
+        ],
+        "wheat": [
+          40,
+          44,
+          49,
+          54,
+          59,
+          65
+        ]
+      },
+      "name": "item6_price_ceil_1_1_pow_n_and_charged_n0to5",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "item6_helpers_fixed_price",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "bursts": [
+          [
+            0.05,
+            4
+          ],
+          [
+            1.25,
+            4
+          ],
+          [
+            2.5,
+            4
+          ],
+          [
+            3.75,
+            4
+          ],
+          [
+            5.0,
+            4
+          ],
+          [
+            6.25,
+            4
+          ],
+          [
+            7.5,
+            4
+          ],
+          [
+            8.7,
+            4
+          ]
+        ],
+        "gaps": [
+          1.2,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.2
+        ],
+        "seed_balance_unchanged": true
+      },
+      "name": "item5_gatling_4_per_volley_each_1_2s",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ammo": 56,
+        "fired": 44,
+        "in_flight": 0,
+        "planted_cells": 44,
+        "seeds": [
+          10000,
+          9870,
+          9870
+        ]
+      },
+      "name": "item5_gatling_ammo_spent_matches_cells_planted_and_player_seeds_untouched",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "t_in": "(878.0, 754.0)",
+        "t_out": "(-1.0, -1.0)"
+      },
+      "name": "item11_sprinkler_reaches_108px_not_128px",
+      "status": "PASS"
+    },
+    {
+      "detail": "(770.0, 750.0)",
+      "name": "item11_gatling_radius_still_6m",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

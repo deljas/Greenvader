@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "name": "startup_no_focus_minimized",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "dist": 49.2743879556656,
+        "dry": "7f7755",
+        "wet": "69746d"
+      },
+      "name": "item4_wet_distinguishable_stage1",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "dist": 48.0816851556301,
+        "dry": "777453",
+        "wet": "62706a"
+      },
+      "name": "item4_wet_distinguishable_stage2",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "dist": 36.736413538456,
+        "dry": "6f7555",
+        "wet": "5d7163"
+      },
+      "name": "item4_wet_distinguishable_stage3",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "last_index": 38,
+        "t_end": 0.78
+      },
+      "name": "item2_water_anim_runs_until_about_800ms",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "spent_t": 0.4,
+        "water": 91.0
+      },
+      "name": "item2_water_spent_at_about_400ms_once",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "changes": 7
+      },
+      "name": "item2_sprite_pixels_change_at_least_6_times_in_800ms",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "water": 91.0
+      },
+      "name": "item3_hold_after_effect_exhausted_no_further_spend",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "distinct": 8,
+        "last": 18,
+        "seeds": [
+          50,
+          41
+        ]
+      },
+      "name": "item2_seed_anim_about_400ms_4_frames",
+      "status": "PASS"
+    },
+    {
+      "detail": [],
+      "name": "item6_8_slot_text_matches_formula_n0_to_5_all_kinds",
+      "status": "PASS"
+    },
+    {
+      "detail": [],
+      "name": "item6_8_shortcut_key_hud_price_matches_n0_to_5",
+      "status": "PASS"
+    },
+    {
+      "detail": "♣ 設置 ●18（種不足）",
+      "name": "item8_unaffordable_marked",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        [
+          0.64,
+          0.638
+        ],
+        [
+          0.64,
+          0.638
+        ],
+        [
+          0.64,
+          0.638
+        ],
+        [
+          0.64,
+          0.638
+        ],
+        [
+          0.64,
+          0.638
+        ]
+      ],
+      "name": "item9_label_equals_income_per_second_grass",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "crop_per_min": 168.0,
+        "label": 3.44,
+        "measured": 3.438
+      },
+      "name": "item9_label_equals_income_per_second_with_crops",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

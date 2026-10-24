@@ -8,6 +8,8 @@ var camera: Camera3D
 var records: Dictionary = {}
 var wall_view: Node3D
 var last_raw: Dictionary = {}
+## group -> progress 0..1 of the upper-part fade (observability for tests).
+var last_upper_fade: Dictionary = {}
 
 func setup(placed: Node3D, camera_: Camera3D, walls: Node3D) -> void:
 	placement_view = placed
@@ -35,6 +37,9 @@ func update(delta: float, foot: Vector3, height: float) -> void:
 	for entry: Dictionary in judge.entries:
 		var id: String = entry.group
 		var alpha: float = judge.alpha_of(id)
+		# The part above the cut fades from opaque to gone with the same progress as the lower part (item 7).
+		var upper_fade: float = clampf((1.0 - alpha) / maxf(1.0 - float(judge.tuning["target_alpha"]), 0.001), 0.0, 1.0)
+		last_upper_fade[id] = upper_fade
 		if alpha < 0.999:
 			if not records.has(id):
 				_begin(id)
@@ -42,6 +47,7 @@ func update(delta: float, foot: Vector3, height: float) -> void:
 				for material_: ShaderMaterial in item["cut"]:
 					material_.set_shader_parameter("fade", alpha)
 					material_.set_shader_parameter("cut_height", foot.y + 1.6)
+					material_.set_shader_parameter("upper_fade", upper_fade)
 		elif records.has(id):
 			_restore(id)
 		if wall_view != null and wall_view.groups.has(id):

@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "name": "startup_minimized_no_focus",
+      "status": "PASS"
+    },
+    {
+      "name": "new_game_engine_click",
+      "status": "PASS"
+    },
+    {
+      "name": "same_favorite_key_toggles_off",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_kind_switches_by_slot",
+      "status": "PASS"
+    },
+    {
+      "name": "repeat_placement_retains_selection",
+      "status": "PASS"
+    },
+    {
+      "name": "list_pauses_and_background_controls_hidden",
+      "status": "PASS"
+    },
+    {
+      "name": "unlocked_rank_and_fixed_tie_order",
+      "status": "PASS"
+    },
+    {
+      "name": "list_number_keys_do_not_change_placement",
+      "status": "PASS"
+    },
+    {
+      "name": "click_hold_register_replaces_slot",
+      "status": "PASS"
+    },
+    {
+      "name": "overwriting_selected_slot_clears_stale_selection",
+      "status": "PASS"
+    },
+    {
+      "name": "escape_cancels_hold_keeps_original_slots",
+      "status": "PASS"
+    },
+    {
+      "name": "engine_drag_drop_registers_favorite",
+      "status": "PASS"
+    },
+    {
+      "name": "drag_cancel_keeps_slots",
+      "status": "PASS"
+    },
+    {
+      "name": "held_ui_click_does_not_leak_to_world",
+      "status": "PASS"
+    },
+    {
+      "name": "right_click_cancels_registration",
+      "status": "PASS"
+    },
+    {
+      "name": "hud_selection_price_seeds_player_bars",
+      "status": "PASS"
+    },
+    {
+      "name": "hud_640_capture",
+      "status": "PASS"
+    },
+    {
+      "name": "list_640_capture_and_hover",
+      "status": "PASS"
+    },
+    {
+      "name": "stayed_minimized_no_focus",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "input": "Viewport.push_input only; no OS input or cursor control",
+  "not_run": [
+    "physical_input",
+    "wide_regression",
+    "all_sizes_lighting"
+  ]
+}
