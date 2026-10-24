@@ -1,0 +1,69 @@
+diff --git a/scripts/poc2/poc2_session.gd b/scripts/poc2/poc2_session.gd
+index 0b475a3..27b1a21 100644
+--- a/scripts/poc2/poc2_session.gd
++++ b/scripts/poc2/poc2_session.gd
+@@ -260,8 +260,16 @@ func crop_rate() -> float:
+  return value
+ 
+ func current_cost(kind: String) -> int:
+- # All placement UI uses this entry point; crop price scaling is a later feature.
+- return int(CATALOG[kind].cost) if CATALOG.has(kind) else 0
++ if not CATALOG.has(kind): return 0
++ var base: int=int(CATALOG[kind].cost)
++ if CATALOG[kind].role!="crop": return base
++ var count: int=int(plant_stats(kind).count)
++ var price: float=float(base)*pow(1.05,float(count))
++ # Float -> int conversion outside int64 can wrap negative. Saturate only the
++ # representation; valid saved balances (<= 1e9) cannot afford such a price.
++ if not is_finite(price) or price>=9223372036854775808.0:
++  return 9223372036854775807
++ return ceili(price)
+ 
+ func adjust_sow_width(direction: int) -> int:
+  var index: int = SOW_WIDTHS.find(sow_width)
+@@ -332,7 +340,7 @@ func removal_refund(id: int,helper: bool) -> int:
+  var rows: Array[Dictionary] = helpers if helper else plants
+  for p: Dictionary in rows:
+   if int(p.id) == id:
+-   return floori(float(p.cost)/5.0)+(int(p.ammo) if helper else 0)
++   return int(p.cost)/5+(int(p.ammo) if helper else 0)
+  return 0
+ 
+ func is_walkable_logic(logic: Vector2) -> bool:
+diff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd
+index f6addd1..ee85ba1 100644
+--- a/scripts/poc2/simulation/persistence.gd
++++ b/scripts/poc2/simulation/persistence.gd
+@@ -224,7 +224,14 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
+  for key: String in ["mature","watered","moving","initial","strong","hit_charge","mother","active","found","discovered"]:
+   if e.has(key) and not e[key] is bool: return false
+  if category in ["plants","helpers"]:
+-  if not catalog.has(e.kind) or not e.cell is Vector2i or not e.size is Vector2i or e.cost!=catalog[e.kind].cost or e.max_hp!=catalog[e.kind].hp: return false
++  if not catalog.has(e.kind) or not e.cell is Vector2i or not e.size is Vector2i or e.max_hp!=catalog[e.kind].hp: return false
++  # A crop's cost is its historical payment, independent of today's live count.
++  # JSON numbers may arrive as floats; require an exact positive int64 value.
++  if e.cost is int:
++   if e.cost<=0: return false
++  elif not is_finite(e.cost) or e.cost<=0.0 or e.cost>=9223372036854775808.0 or floorf(e.cost)!=e.cost:
++   return false
++  if category=="helpers" and e.cost!=catalog[e.kind].cost: return false
+   if e.size!=Vector2i(catalog[e.kind].size[0],catalog[e.kind].size[1]) or not Rect2i(0,0,224,224).encloses(Rect2i(e.cell,e.size)): return false
+   if e.hp<=0.0 or e.hp>e.max_hp: return false
+   if category=="plants" and (catalog[e.kind].role!="crop" or e.age<0.0 or e.maturity!=catalog[e.kind].maturity or not candidate.state.occupancy_owners.has(int(e.owner))): return false
+diff --git a/scripts/poc2/simulation/plants.gd b/scripts/poc2/simulation/plants.gd
+index 080cb13..307cd3b 100644
+--- a/scripts/poc2/simulation/plants.gd
++++ b/scripts/poc2/simulation/plants.gd
+@@ -28,8 +28,10 @@ func place(kind: String,cell: Vector2i,ammo: int,helper: bool) -> Dictionary:
+  var def: Dictionary=s.CATALOG[kind]
+  if (def.role=="helper")!=helper: return s.result(false,"wrong_category")
+  if ammo<0 or ammo>100 or (kind!="gatlinger" and ammo!=0): return s.result(false,"invalid_ammo")
+- var cost: int=int(def.cost)
+- if s.seeds<cost+ammo: return s.result(false,"not_enough_seeds")
++ var cost: int=s.current_cost(kind)
++ # Compare by subtraction so even an unrepresentable-price sentinel plus ammo
++ # cannot overflow into a free / negative purchase.
++ if cost<=0 or cost>s.seeds-ammo: return s.result(false,"not_enough_seeds")
+  var id: int=s.allocate_id()
+  var size: Vector2i=Vector2i(def.size[0],def.size[1])
+  var owner: int=(100000 if helper else 1000)+id

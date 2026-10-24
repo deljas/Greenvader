@@ -28,8 +28,10 @@ func place(kind: String,cell: Vector2i,ammo: int,helper: bool) -> Dictionary:
  var def: Dictionary=s.CATALOG[kind]
  if (def.role=="helper")!=helper: return s.result(false,"wrong_category")
  if ammo<0 or ammo>100 or (kind!="gatlinger" and ammo!=0): return s.result(false,"invalid_ammo")
- var cost: int=int(def.cost)
- if s.seeds<cost+ammo: return s.result(false,"not_enough_seeds")
+ var cost: int=s.current_cost(kind)
+ # Compare by subtraction so even an unrepresentable-price sentinel plus ammo
+ # cannot overflow into a free / negative purchase.
+ if cost<=0 or cost>s.seeds-ammo: return s.result(false,"not_enough_seeds")
  var id: int=s.allocate_id()
  var size: Vector2i=Vector2i(def.size[0],def.size[1])
  var owner: int=(100000 if helper else 1000)+id

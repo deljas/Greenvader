@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-24T08:37:48.2411059Z",
+  "head": "4d4da323affcd35f4a2b6a6acdfa60175a347dd4",
+  "files": [
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "55AD62B7F79691E51761D1A8A835474143A95733C3A7FB39984FF7D6F1963057",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/simulation/plants.gd",
+      "sha256": "EAF7D02C1B527CBCC6FEE800FDBDFBF66B982FCFFD3C9C731BC2FB1631C82259",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "DE76491FB59BB56806CFD204035F9C33CA09ADF1602F8639BD0C6DBB8C774735",
+      "unchanged": true
+    },
+    {
+      "path": "tests/poc3/crop_pricing/self_logic.gd",
+      "sha256": "68508C78D48A65BFFA797B9EACF5FC2F3E752DA93CC5E674028B7D9ECB272D5E",
+      "unchanged": true
+    },
+    {
+      "path": "tests/poc3/crop_pricing/self_gpu.gd",
+      "sha256": "D812DB3628C43792E6CF8254AB3993F28753ABA82D623879171C2D40ADD05920",
+      "unchanged": true
+    },
+    {
+      "path": "tests/poc3/crop_pricing/self_run.ps1",
+      "sha256": "663B50E1DF531201EC83DC1D6D770BA2F174B1D6D026101735D5EEC4242AB48B",
+      "unchanged": true
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8689FA888C87DE441EA13D2A4325E20C5AEF826F4A76CB4DB1EBC18C9062FCE8",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/view/world_view.gd",
+      "sha256": "B710A047F2BEB61C47C2E088186415880E43AA1C4B4A3C8D8711046ADF51FB92",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite.gd",
+      "sha256": "56CB68EAE85EC0D87231A2448AAC7EFC90E1B35E9ACA22D19F560EB177072ACA",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite_state.gd",
+      "sha256": "60F7FA2743128073BBAE793546FEEFEB058757057EF7F32BF6A92D702CF5CA46",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/view/entity_sprite_catalog.gd",
+      "sha256": "37EB2B2700836333A509BAB72B9D965860C8433D490D9A41C97A3D35157F3B48",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "sha256": "519067DE904F1E615E6E98237DA858EB26B1332F7AA49B848913960F6132506E",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/poc2/ui/plant_list_row.gd",
+      "sha256": "15AFEF22F134E9E116C901A0BE6E1D480E81A703255EB589C320A1444D4AC3AC",
+      "unchanged": true
+    }
+  ],
+  "old_saves": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0",
+      "unchanged": true
+    }
+  ],
+  "override_absent": true,
+  "processes": [],
+  "test_sha256": "84AB5FC6F199F7D35F3DFC88EE41AFCD102367A311F53E38889929EEC244756F",
+  "images": [
+    {
+      "path": "evidence/poc3/crop_pricing/self/hud_next_cost.png",
+      "sha256": "D4CD7B8F6D48DFD41E5C62143F2A057CF46384D80B67889B8B298E5599FF6E0F"
+    },
+    {
+      "path": "evidence/poc3/crop_pricing/self/list_next_cost.png",
+      "sha256": "77CBB1C51065C5DE98E0D321AF6B15B5145CDFF62C948F2AEAF85BA28C7DB071"
+    }
+  ]
+}

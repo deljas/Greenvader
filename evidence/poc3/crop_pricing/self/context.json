@@ -1,0 +1,34 @@
+{
+  "head": "2e5ad7ef579c4640857e63914d5ea1482512db9b",
+  "utc": "2026-10-24T08:33:28.2464415Z",
+  "game_files": [
+    {
+      "sha256": "55AD62B7F79691E51761D1A8A835474143A95733C3A7FB39984FF7D6F1963057",
+      "path": "scripts/poc2/poc2_session.gd"
+    },
+    {
+      "sha256": "EAF7D02C1B527CBCC6FEE800FDBDFBF66B982FCFFD3C9C731BC2FB1631C82259",
+      "path": "scripts/poc2/simulation/plants.gd"
+    },
+    {
+      "sha256": "DE76491FB59BB56806CFD204035F9C33CA09ADF1602F8639BD0C6DBB8C774735",
+      "path": "scripts/poc2/simulation/persistence.gd"
+    }
+  ],
+  "real_saves_before": [
+    {
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7",
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json"
+    },
+    {
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC",
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json"
+    },
+    {
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0",
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak"
+    }
+  ],
+  "processes_before": [],
+  "override_exists": false
+}

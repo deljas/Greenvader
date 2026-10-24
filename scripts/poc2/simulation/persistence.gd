@@ -224,7 +224,14 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
  for key: String in ["mature","watered","moving","initial","strong","hit_charge","mother","active","found","discovered"]:
   if e.has(key) and not e[key] is bool: return false
  if category in ["plants","helpers"]:
-  if not catalog.has(e.kind) or not e.cell is Vector2i or not e.size is Vector2i or e.cost!=catalog[e.kind].cost or e.max_hp!=catalog[e.kind].hp: return false
+  if not catalog.has(e.kind) or not e.cell is Vector2i or not e.size is Vector2i or e.max_hp!=catalog[e.kind].hp: return false
+  # A crop's cost is its historical payment, independent of today's live count.
+  # JSON numbers may arrive as floats; require an exact positive int64 value.
+  if e.cost is int:
+   if e.cost<=0: return false
+  elif not is_finite(e.cost) or e.cost<=0.0 or e.cost>=9223372036854775808.0 or floorf(e.cost)!=e.cost:
+   return false
+  if category=="helpers" and e.cost!=catalog[e.kind].cost: return false
   if e.size!=Vector2i(catalog[e.kind].size[0],catalog[e.kind].size[1]) or not Rect2i(0,0,224,224).encloses(Rect2i(e.cell,e.size)): return false
   if e.hp<=0.0 or e.hp>e.max_hp: return false
   if category=="plants" and (catalog[e.kind].role!="crop" or e.age<0.0 or e.maturity!=catalog[e.kind].maturity or not candidate.state.occupancy_owners.has(int(e.owner))): return false

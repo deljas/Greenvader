@@ -1,0 +1,98 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "watermelon": 196,
+        "wheat": 42
+      },
+      "id": "SAME_KIND_LIVING_IMMATURE_ONLY",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "HELPERS_FIXED",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "balance": 173,
+        "next": 47,
+        "paid": [
+          40,
+          42,
+          45
+        ]
+      },
+      "id": "CONSECUTIVE_PAYMENT_RECOMPUTED",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "occupied"
+      },
+      "id": "BLOCKED_NO_CHARGE_OR_COUNT",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "not_enough_seeds"
+      },
+      "id": "INSUFFICIENT_NO_CHARGE_OR_COUNT",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "REMOVE_PAID42_REFUND8_COUNT_DECREASE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "DESTRUCTION_REFUND_ZERO_COUNT_DECREASE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "loaded": true,
+        "same": true,
+        "saved": true
+      },
+      "id": "JSON_HISTORICAL_PAID_SURVIVES",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "balance": 190,
+        "refund": {
+          "ok": true,
+          "reason": "",
+          "refund": 9
+        }
+      },
+      "id": "RESTORED_REFUND_FROM_PAID_NOT_CURRENT",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_plants"
+      },
+      "id": "FRACTIONAL_PAYMENT_ATOMIC_REJECT",
+      "status": "PASS"
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": 0,
+  "user_dir": "C:/godot/greenvader/evidence/poc3/crop_pricing/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

@@ -260,8 +260,16 @@ func crop_rate() -> float:
  return value
 
 func current_cost(kind: String) -> int:
- # All placement UI uses this entry point; crop price scaling is a later feature.
- return int(CATALOG[kind].cost) if CATALOG.has(kind) else 0
+ if not CATALOG.has(kind): return 0
+ var base: int=int(CATALOG[kind].cost)
+ if CATALOG[kind].role!="crop": return base
+ var count: int=int(plant_stats(kind).count)
+ var price: float=float(base)*pow(1.05,float(count))
+ # Float -> int conversion outside int64 can wrap negative. Saturate only the
+ # representation; valid saved balances (<= 1e9) cannot afford such a price.
+ if not is_finite(price) or price>=9223372036854775808.0:
+  return 9223372036854775807
+ return ceili(price)
 
 func adjust_sow_width(direction: int) -> int:
  var index: int = SOW_WIDTHS.find(sow_width)
@@ -332,7 +340,7 @@ func removal_refund(id: int,helper: bool) -> int:
  var rows: Array[Dictionary] = helpers if helper else plants
  for p: Dictionary in rows:
   if int(p.id) == id:
-   return floori(float(p.cost)/5.0)+(int(p.ammo) if helper else 0)
+   return int(p.cost)/5+(int(p.ammo) if helper else 0)
  return 0
 
 func is_walkable_logic(logic: Vector2) -> bool:

@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"detail":{"watermelon":196,"wheat":42},"id":"SAME_KIND_LIVING_IMMATURE_ONLY","status":"PASS"}
+{"detail":"","id":"HELPERS_FIXED","status":"PASS"}
+{"detail":{"balance":173,"next":47,"paid":[40,42,45]},"id":"CONSECUTIVE_PAYMENT_RECOMPUTED","status":"PASS"}
+{"detail":{"ok":false,"reason":"occupied"},"id":"BLOCKED_NO_CHARGE_OR_COUNT","status":"PASS"}
+{"detail":{"ok":false,"reason":"not_enough_seeds"},"id":"INSUFFICIENT_NO_CHARGE_OR_COUNT","status":"PASS"}
+{"detail":"","id":"REMOVE_PAID42_REFUND8_COUNT_DECREASE","status":"PASS"}
+{"detail":"","id":"DESTRUCTION_REFUND_ZERO_COUNT_DECREASE","status":"PASS"}
+{"detail":{"loaded":true,"same":true,"saved":true},"id":"JSON_HISTORICAL_PAID_SURVIVES","status":"PASS"}
+{"detail":{"balance":190,"refund":{"ok":true,"reason":"","refund":9}},"id":"RESTORED_REFUND_FROM_PAID_NOT_CURRENT","status":"PASS"}
+{"detail":{"ok":false,"reason":"invalid_entity_plants"},"id":"FRACTIONAL_PAYMENT_ATOMIC_REJECT","status":"PASS"}
