@@ -1,0 +1,133 @@
+{
+  "head": "b5e68bfa61337819e874fa07221a0058ede63e7b",
+  "import_exit": 0,
+  "logic_exit": 0,
+  "ui_exit": 1,
+  "real_saves_before": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_after": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_unchanged": true,
+  "override_removed": true,
+  "processes_after": [],
+  "initial_hashes": [
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "sha256": "4C445FDD033AB2CCA2692012FBFCE6E3C4142D023F28D3267E289356B8CAA4CC"
+    },
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "E8EE46CBBF106228DB9A368F7ECDB5332A10AF54618449F729F244FC6AC75F45"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "FA7E30274DC1AD27923E61B9A6E20A04A2411755BD1A34C15806A7101F643860"
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "sha256": "55F948BAC3D637A71E73D8E66D9ECC27DCFFECB7F39827F3545C0379A346AD76"
+    },
+    {
+      "path": "scripts/poc2/ui/plant_list.gd",
+      "sha256": "08B04FBD1E9DF78B86ECB974A8F56767D13B87161B8B2AE74D4CBC5B3C6E769D"
+    },
+    {
+      "path": "scripts/poc2/ui/favorite_slot.gd",
+      "sha256": "4DED12A598FD2DE040899D1AABBB154A1A27AAC7A8712AF373120C15E997AEFB"
+    },
+    {
+      "path": "scripts/poc2/ui/plant_list_row.gd",
+      "sha256": "15AFEF22F134E9E116C901A0BE6E1D480E81A703255EB589C320A1444D4AC3AC"
+    },
+    {
+      "path": "tests/poc3/plant_ui/self_logic.gd",
+      "sha256": "4A2FD17E1154249983254D66424D14DEFC5F99D88F37E583472DE2F60AD7FEFD"
+    },
+    {
+      "path": "tests/poc3/plant_ui/self_ui.gd",
+      "sha256": "A3931D769D0C298E6EDE456A555B2AAFE6216665877FA2D941F81C8DD202CF45"
+    }
+  ],
+  "final_head": "b5e68bfa61337819e874fa07221a0058ede63e7b",
+  "final_hashes": [
+    {
+      "path": "scripts/poc2/poc2_main.gd",
+      "sha256": "4C445FDD033AB2CCA2692012FBFCE6E3C4142D023F28D3267E289356B8CAA4CC"
+    },
+    {
+      "path": "scripts/poc2/poc2_session.gd",
+      "sha256": "E8EE46CBBF106228DB9A368F7ECDB5332A10AF54618449F729F244FC6AC75F45"
+    },
+    {
+      "path": "scripts/poc2/simulation/persistence.gd",
+      "sha256": "FA7E30274DC1AD27923E61B9A6E20A04A2411755BD1A34C15806A7101F643860"
+    },
+    {
+      "path": "scripts/poc2/ui/poc2_ui.gd",
+      "sha256": "55F948BAC3D637A71E73D8E66D9ECC27DCFFECB7F39827F3545C0379A346AD76"
+    },
+    {
+      "path": "scripts/poc2/ui/plant_list.gd",
+      "sha256": "D7F5BCD68E2F78DB2FA6B6276C53A5C921640DE2EFFB3291F1C95360A30D7D9A"
+    },
+    {
+      "path": "scripts/poc2/ui/favorite_slot.gd",
+      "sha256": "4DED12A598FD2DE040899D1AABBB154A1A27AAC7A8712AF373120C15E997AEFB"
+    },
+    {
+      "path": "scripts/poc2/ui/plant_list_row.gd",
+      "sha256": "15AFEF22F134E9E116C901A0BE6E1D480E81A703255EB589C320A1444D4AC3AC"
+    },
+    {
+      "path": "tests/poc3/plant_ui/self_logic.gd",
+      "sha256": "4A2FD17E1154249983254D66424D14DEFC5F99D88F37E583472DE2F60AD7FEFD"
+    },
+    {
+      "path": "tests/poc3/plant_ui/self_ui.gd",
+      "sha256": "A3931D769D0C298E6EDE456A555B2AAFE6216665877FA2D941F81C8DD202CF45"
+    },
+    {
+      "path": "tests/poc3/plant_ui/self_cancel_followup.gd",
+      "sha256": "0664DE93B917292F8B26A711E7B8CD93E319A704D639E1EEF94824B5B5F69F42"
+    }
+  ],
+  "real_saves_after_followup": [
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+      "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+      "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+    },
+    {
+      "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+      "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+    }
+  ],
+  "real_saves_still_unchanged": true
+}

@@ -572,3 +572,11 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - 初回自己確認はlogic 17 PASS / 0 FAIL、GPU 9 PASS / 0 FAIL。独立の正常world追試後の主要確認は11 PASS / 1 FAIL / 3 NOT_RUNで、残るFAILは検知直後に離脱すると巣記憶が残らない問題でした。初回の保存fixture由来FAIL 2件は元記録に保持し、正常world追試で解消しています。自己mini追試の固定色assertは水セルを荒地色と誤期待したFAILを保持し、独立確認では水色の地形描画を確認しました。
 - 保存fixtureは正常worldでの限定追試により解消。記憶修正後は自己影響試験6 PASS / 0 FAIL、独立影響追試4 PASS / 0 FAILで一時検知後の巣・化石記憶を確認しました。元のlogic/GPU結果や独立主要結果と加算して新しい全回帰結果にはしていません。詳細は[自己報告](../evidence/poc3/map_info/self/report.md)、[記憶修正の自己報告](../evidence/poc3/map_info/self/memory_fix/report.md)、[独立報告](../evidence/poc3/map_info/independent/report.md)、[記憶修正の独立追試](../evidence/poc3/map_info/independent/memory_fix_report.md)を参照。
 - 独立3 NOT_RUNを維持します。独立GPU再実行/native外観/物理入力、広い回帰・長時間プレイ・楽しさ評価、全照明/全サイズ/書出し後の確認は未実施です。初回fixture不整合・mini誤assert・修正前の記憶FAILを含む各証拠を保持し、PoC3全体の受入とは区別します。
+
+## POC3-PLANT-UI お気に入り枠と植物一覧（2026-10-24）
+
+親は実差分、HUD/一覧画像、独立報告を確認し、お気に入り登録・選択、植物一覧、表示と保存の範囲を限定技術受入しました。初期枠はclover+空4枠、重複登録はslot単位です。Eで一覧を開き、クリック保持後の枠指定またはドラッグ＆ドロップで登録します。上書き先が選択中の場合は設置選択を解除します。
+
+- 自己backendは12 PASS。初回UIは18 PASS / 1 FAIL（子Button上の右クリック取消）を保持し、取消処理の局所修正後に影響条件2 PASS / 0 FAIL。独立確認は9 PASS / 0 FAIL / 3 NOT_RUNです。初回画像は右取消修正前の撮影ですが、修正は入力処理のみで表示経路に変更ありません。各結果は合算・上書きしていません。
+- 独立確認では主人公HP/水バー、未成熟を含む現存数、成熟株だけの現在実生産/s、成熟1株hover値と3/2/1桁表示、保存往復/欠落時の既定枠/不正値拒否を確認。自己画像・独立結果は[自己報告](../evidence/poc3/plant_ui/self/report.md)と[独立報告](../evidence/poc3/plant_ui/independent/report.md)、詳細hashはそれぞれのcontext/results記録を参照。
+- NOT_RUN: 物理入力、native窓外観、全サイズ/照明、広い回帰・長時間、Q/R/M/N/Shift/Tabを含む全体操作再設計、価格倍率接続。GUI操作確認はGodot内注入で、実機マウス/キーボード経路を保証しません。WORLD-LAYOUTは未接続準備のままです。

@@ -1,6 +1,6 @@
 extends RefCounted
 ## JSON-safe complete snapshots. Validate on a disposable candidate, adopt only after every check succeeds.
-const SCALARS: Array[String] = ["position","aim","has_aim","seeds","hp","max_hp","water","max_water","next_id","income_fraction","last_damage","respawn_at","shot_ready","skill_ready","reveal_at","zone_check_at","skills","unlocked"]
+const SCALARS: Array[String] = ["position","aim","has_aim","seeds","hp","max_hp","water","max_water","next_id","income_fraction","last_damage","respawn_at","shot_ready","skill_ready","reveal_at","zone_check_at","skills","unlocked","favorites"]
 const ROWS: Array[String] = ["plants","helpers","enemies","nests","fossils","shots"]
 
 static func encode(value: Variant) -> Variant:
@@ -123,8 +123,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
   if candidate.known[index]>1 or candidate.visible[index]>1 or candidate.state.growth[index]<0 or candidate.state.moisture[index]>100: return s.result(false,"invalid_tile")
  if not data.values is Dictionary or not data.entities is Dictionary: return s.result(false,"invalid_values")
  for key: String in SCALARS:
-  if not data.values.has(key): return s.result(false,"incomplete_values")
+  if not data.values.has(key) and key!="favorites": return s.result(false,"incomplete_values")
  var vals: Dictionary=decode(data.values)
+ if not vals.has("favorites"): vals.favorites=["clover","","","",""]
  for key: String in ["position","aim"]:
   if not vals[key] is Vector2: return s.result(false,"invalid_position")
  if not Rect2(0,0,896,896).has_point(vals.position): return s.result(false,"invalid_position")
@@ -140,6 +141,10 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
  for key: String in vals.unlocked:
   if not s.CATALOG.has(key) or not vals.unlocked[key] is bool: return s.result(false,"invalid_unlock")
  if not vals.unlocked.get("clover",false): return s.result(false,"invalid_unlock")
+ if not vals.favorites is Array or vals.favorites.size()!=5: return s.result(false,"invalid_favorites")
+ for kind: Variant in vals.favorites:
+  if not kind is String: return s.result(false,"invalid_favorites")
+  if not kind.is_empty() and (not s.CATALOG.has(kind) or not vals.unlocked.get(kind,false)): return s.result(false,"invalid_favorites")
  var ids: Dictionary={}
  for category: String in ROWS:
   if not data.entities.has(category) or not data.entities[category] is Array or data.entities[category].size()>1000: return s.result(false,"invalid_entities")
@@ -156,6 +161,7 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
  for key: String in SCALARS:
   if key=="skills": candidate.skills.assign(vals.skills)
   elif key=="skill_ready": candidate.skill_ready.assign(vals.skill_ready)
+  elif key=="favorites": candidate.favorites.assign(vals.favorites)
   else: candidate.set(key,vals[key])
  if not data.clock is Dictionary or not _shape(data.clock,candidate.clock.to_dict()) or data.clock.elapsed<0.0: return s.result(false,"invalid_clock")
  candidate.clock.load_dict(data.clock)

@@ -16,6 +16,7 @@ var cursor: Vector2=Vector2(320,180)
 var cursor_known: bool=false
 var menu: String=""
 var _help_return: String=""
+var _plants_return: String=""
 var _keys: Dictionary={}
 var _primary: bool=false
 var _secondary: bool=false
@@ -52,7 +53,7 @@ func _ready() -> void:
 	ui=Ui.new()
 	add_child(ui)
 	ui.chosen.connect(_on_action)
-	ui.placement.connect(func(kind: String) -> void: _placement_kind=kind)
+	ui.placement.connect(func(kind: String) -> void: _placement_kind=kind; _primary=false; _secondary=false)
 	ui.map.toggled.connect(_map_toggled)
 	_tone=AudioStreamPlayer.new()
 	add_child(_tone)
@@ -77,6 +78,7 @@ func replace_session(candidate: RefCounted) -> void:
 	ui.bind(session)
 	_placement_kind=""
 	ui.selected_kind=""
+	ui.selected_slot=-1
 	_last_autosave=session.clock.elapsed
 	_message_serial=session.message_serial
 	_sync_pause()
@@ -88,9 +90,13 @@ func _sync_pause() -> void:
 	if session!=null: session.paused=is_paused()
 
 func _map_toggled(_open: bool) -> void:
+	_clear_game_input()
+	_sync_pause()
+
+func _clear_game_input() -> void:
 	_primary=false
 	_secondary=false
-	_sync_pause()
+	_keys.clear()
 
 func _process(delta: float) -> void:
 	if auto_process: tick(delta)
@@ -133,15 +139,26 @@ func _input(event: InputEvent) -> void:
 		cursor_known=true
 	if event is InputEventKey:
 		var key: int=event.physical_keycode if event.physical_keycode!=0 else event.keycode
-		_keys[key]=event.pressed
+		if not event.pressed: _keys[key]=false
+		elif not is_paused(): _keys[key]=true
 	if event is InputEventMouseButton:
-		if event.button_index==MOUSE_BUTTON_LEFT: _primary=event.pressed
-		elif event.button_index==MOUSE_BUTTON_RIGHT: _secondary=event.pressed
+		# Releases always disarm. Only an unhandled world press may arm an action.
+		if not event.pressed:
+			if event.button_index==MOUSE_BUTTON_LEFT: _primary=false
+			elif event.button_index==MOUSE_BUTTON_RIGHT: _secondary=false
+		elif ui.blocks(event.position):
+			_primary=false
+			_secondary=false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		var key: int=event.physical_keycode if event.physical_keycode!=0 else event.keycode
-		if key==KEY_M and menu=="":
+		if key==KEY_E:
+			if menu=="plants": _on_action("close_plants")
+			elif not is_paused(): _on_action("plants")
+		elif key>=KEY_1 and key<=KEY_5:
+			if not is_paused(): ui.select_slot(key-KEY_1)
+		elif key==KEY_M and menu=="":
 			ui.map.set_expanded(not ui.map.expanded)
 		elif key==KEY_ESCAPE:
 			_escape()
@@ -158,6 +175,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif key==KEY_TAB: _cycle_palette()
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton:
+		if menu=="plants":
+			if event.pressed and event.button_index==MOUSE_BUTTON_RIGHT: ui.plant_list.cancel_registration(true)
+			return
 		if menu!="": return
 		if ui.map.handle_click(event):
 			get_viewport().set_input_as_handled()
@@ -167,10 +187,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			session.set_aim(world.pick(event.position))
 			if event.button_index==MOUSE_BUTTON_LEFT:
 				if _placement_kind!="": _place(Coords.logic_to_cell(world.pick(event.position)))
-				else: _fire()
+				else:
+					_primary=true
+					_fire()
 			elif event.button_index==MOUSE_BUTTON_RIGHT:
 				if _placement_kind!="": ui.select_kind(_placement_kind)
-				else: _water()
+				else:
+					_secondary=true
+					_water()
 
 func _fire() -> void:
 	_shot_wait=0.3
@@ -200,11 +224,12 @@ func _placement_supply(cell: Vector2i) -> void:
 	var box: VBoxContainer=VBoxContainer.new()
 	ui.supply.add_child(box)
 	var label: Label=Label.new()
-	label.text="設置 種30　投入する種（上限100）"
+	var cost: int=session.current_cost("gatlinger")
+	label.text="設置 種%d　投入する種（上限100）" % cost
 	box.add_child(label)
 	var quantity: SpinBox=SpinBox.new()
 	quantity.min_value=0
-	quantity.max_value=mini(100,maxi(session.seeds-30,0))
+	quantity.max_value=mini(100,maxi(session.seeds-cost,0))
 	quantity.step=1
 	quantity.value=mini(20,int(quantity.max_value))
 	box.add_child(quantity)
@@ -229,17 +254,17 @@ func _placement_supply(cell: Vector2i) -> void:
 	_sync_pause()
 
 func _cycle_palette() -> void:
-	var keys: Array=ui.KEYS
-	var index: int=keys.find(_placement_kind)
-	for offset: int in keys.size():
-		var next: String=keys[posmod(index+1+offset,keys.size())]
-		if bool(session.unlocked.get(next,false)):
-			if _placement_kind!="": ui.select_kind(_placement_kind)
-			ui.select_kind(next)
+	for offset: int in 5:
+		var index: int=posmod(ui.selected_slot+1+offset,5)
+		if not String(session.favorites[index]).is_empty():
+			if index!=ui.selected_slot: ui.select_slot(index)
 			return
 
 func _escape() -> void:
-	if menu=="help": _on_action("close_help")
+	if menu=="plants":
+		if not String(ui.plant_list.held_kind).is_empty(): ui.plant_list.cancel_registration(true)
+		else: _on_action("close_plants")
+	elif menu=="help": _on_action("close_help")
 	elif menu=="placement_supply": ui.supply.hide(); menu=""; _sync_pause()
 	elif menu!="": _on_action("resume")
 	elif ui.map.expanded:
@@ -252,18 +277,29 @@ func _escape() -> void:
 		_sync_pause()
 
 func _on_action(action: String) -> void:
-	_primary=false
-	_secondary=false
+	_clear_game_input()
 	match action:
 		"new":
 			replace_session(Session.new())
 			menu=""
 			ui.menu.hide()
 			ui.help.hide()
+			ui.plant_list.hide()
 			ui.map.set_expanded(false)
 		"resume":
 			menu=""
 			ui.menu.hide()
+		"plants":
+			_plants_return=menu
+			menu="plants"
+			ui.menu.hide()
+			ui.show_plant_list()
+		"close_plants":
+			ui.plant_list.cancel_registration(true)
+			ui.plant_list.hide()
+			menu=_plants_return
+			_plants_return=""
+			if menu=="pause": ui.show_menu()
 		"save": save_game()
 		"load":
 			var result: Dictionary=Save.load_game(save_dir)
@@ -271,6 +307,7 @@ func _on_action(action: String) -> void:
 				replace_session(result.session)
 				menu=""
 				ui.menu.hide()
+				ui.plant_list.hide()
 				ui.map.set_expanded(false)
 			ui.show_notice(String(result.reason))
 		"help":
@@ -280,12 +317,14 @@ func _on_action(action: String) -> void:
 			ui.help.show()
 			ui.menu.hide()
 			ui.supply.hide()
+			ui.plant_list.hide()
 		"close_help":
 			menu=_help_return
 			_help_return=""
 			ui.help.hide()
 			if menu in ["title","pause"]: ui.show_menu(menu=="title")
 			elif menu=="placement_supply": ui.supply.show()
+			elif menu=="plants": ui.plant_list.show()
 	_sync_pause()
 
 func save_game() -> Dictionary:

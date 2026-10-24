@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "default_five_favorites", "status": "PASS" }
+{ "name": "duplicate_registration_allowed", "status": "PASS" }
+{ "name": "locked_unknown_and_bad_slot_rejected", "status": "PASS" }
+{ "name": "count_includes_immature_production_mature_alive_only", "status": "PASS" }
+{ "name": "base_price_api", "status": "PASS" }
+{ "name": "production_precision_boundaries", "status": "PASS" }
+{ "name": "favorites_save_restore", "status": "PASS" }
+{ "name": "earlier_poc3_defaults_favorites", "status": "PASS" }
+{ "name": "invalid_favorites_length_session_unchanged", "status": "PASS" }
+{ "name": "invalid_favorites_type_session_unchanged", "status": "PASS" }
+{ "name": "invalid_favorites_unknown_session_unchanged", "status": "PASS" }
+{ "name": "invalid_favorites_locked_session_unchanged", "status": "PASS" }

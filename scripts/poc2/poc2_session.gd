@@ -49,6 +49,7 @@ var nests: Array[Dictionary] = []
 var fossils: Array[Dictionary] = []
 var shots: Array[Dictionary] = []
 var unlocked: Dictionary = {"clover":true}
+var favorites: Array[String] = ["clover","","","",""]
 var known: PackedByteArray = PackedByteArray()
 var visible: PackedByteArray = PackedByteArray()
 var skills: Array[String] = ["tackle","bazooka"]
@@ -250,6 +251,27 @@ func crop_rate() -> float:
   if p.mature:
    value += float(CATALOG[p.kind].rate)
  return value
+
+func current_cost(kind: String) -> int:
+ # All placement UI uses this entry point; crop price scaling is a later feature.
+ return int(CATALOG[kind].cost) if CATALOG.has(kind) else 0
+
+func plant_stats(kind: String) -> Dictionary:
+ var count: int = 0
+ var rate: float = 0.0
+ if not CATALOG.has(kind): return {"count":0,"rate_per_second":0.0}
+ var rows: Array[Dictionary] = helpers if CATALOG[kind].role=="helper" else plants
+ for item: Dictionary in rows:
+  if item.kind!=kind or float(item.hp)<=0.0: continue
+  count += 1
+  if CATALOG[kind].role=="crop" and bool(item.mature): rate += float(CATALOG[kind].rate)/60.0
+ return {"count":count,"rate_per_second":rate}
+
+func set_favorite(index: int, kind: String) -> Dictionary:
+ if index<0 or index>=5: return result(false,"invalid_slot")
+ if not kind.is_empty() and (not CATALOG.has(kind) or not bool(unlocked.get(kind,false))): return result(false,"locked")
+ favorites[index] = kind
+ return result(true)
 
 func set_aim(logic: Vector2) -> void:
  if logic.is_finite():

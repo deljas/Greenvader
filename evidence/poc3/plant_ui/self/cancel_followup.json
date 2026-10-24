@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "name": "right_click_on_row_cancels_and_keeps_slots",
+      "status": "PASS"
+    },
+    {
+      "name": "held_right_ui_click_does_not_leak_water",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0,
+  "not_run": [
+    "full_ui_regression",
+    "logic_regression",
+    "gpu_recapture",
+    "physical_input"
+  ],
+  "startup_and_exit_minimized_no_focus": true,
+  "exit_code": 0,
+  "override_removed": true,
+  "processes_after": []
+}
