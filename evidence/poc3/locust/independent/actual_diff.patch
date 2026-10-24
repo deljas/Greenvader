@@ -1,0 +1,194 @@
+diff --git a/data/poc3/maps/town_03.json b/data/poc3/maps/town_03.json
+index de2a01a..e9e0b3a 100644
+--- a/data/poc3/maps/town_03.json
++++ b/data/poc3/maps/town_03.json
+@@ -1987,6 +1987,15 @@
+       "scale": "large",
+       "kind": "mother",
+       "unlock": ""
++    },
++    {
++      "cell": [
++        170,
++        70
++      ],
++      "scale": "small",
++      "kind": "locust",
++      "unlock": ""
+     }
+   ],
+   "fossils": [
+diff --git a/scripts/poc2/simulation/combat.gd b/scripts/poc2/simulation/combat.gd
+index f2732c8..6814e41 100644
+--- a/scripts/poc2/simulation/combat.gd
++++ b/scripts/poc2/simulation/combat.gd
+@@ -3,9 +3,12 @@ extends RefCounted
+ const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
+ const SeedArea: GDScript = preload("res://scripts/poc2/simulation/seed_area.gd")
+ const Tiers: GDScript = preload("res://scripts/poc2/simulation/enemy_tiers.gd")
++const Locust: GDScript = preload("res://scripts/poc2/simulation/locust_ai.gd")
+ var s: RefCounted
++var locust_ai: RefCounted = Locust.new()
+ func _init(session: RefCounted) -> void:
+  s = session
++ locust_ai.setup(s.state,s.nav)
+ 
+ func add_nest(row: Dictionary) -> void:
+  var scale: String = row.scale
+@@ -18,8 +21,8 @@ func add_nest(row: Dictionary) -> void:
+  var unlock: String = row.get("unlock","")
+  if not unlock.is_empty():
+   s.fossils.append({"id":s.allocate_id(),"kind":"fossil","pos":pos,"unlock":unlock,"found":false,"discovered":false,"nest_id":nest.id})
+- for i: int in (2 if scale=="small" else 3):
+-  spawn(nest,true,i==0 and scale!="small")
++ for i: int in (Locust.INITIAL_GROUP if row.kind=="locust" else (2 if scale=="small" else 3)):
++  spawn(nest,true,i==0 and scale!="small" and row.kind!="locust")
+ 
+ func free_position(pos: Vector2) -> Vector2:
+  var cell: Vector2i = Coords.logic_to_cell(pos)
+@@ -33,9 +36,11 @@ func free_position(pos: Vector2) -> Vector2:
+ func spawn(nest: Dictionary,initial: bool,strong: bool = false) -> void:
+  var pos: Vector2 = free_position(nest.pos+Vector2(s.rng.randf_range(-10,10),s.rng.randf_range(-10,10)))
+  var tier: int = int(nest.get("tier",0))
+- var maximum: float = Tiers.hp(40.0 if strong else 20.0,tier)
+- var kind: String = "spider" if nest.kind in ["spider","mother"] else "boar"
+- s.enemies.append({"id":s.allocate_id(),"kind":kind,"pos":pos,"home":nest.home,"hp":maximum,"max_hp":maximum,"tier":tier,"initial":initial,"strong":strong,"source":nest.id,"phase":"idle","phase_until":0.0,"attack_at":0.0,"stun_until":0.0,"route_at":-1.0,"charge_dir":Vector2.ZERO,"hit_charge":false})
++ var kind: String = "locust" if nest.kind=="locust" else ("spider" if nest.kind in ["spider","mother"] else "boar")
++ var maximum: float = Tiers.hp(Locust.BASE_HP if kind=="locust" else (40.0 if strong else 20.0),tier)
++ var enemy: Dictionary={"id":s.allocate_id(),"kind":kind,"pos":pos,"home":nest.home,"hp":maximum,"max_hp":maximum,"tier":tier,"initial":initial,"strong":strong,"source":nest.id,"phase":"idle","phase_until":0.0,"attack_at":0.0,"stun_until":0.0,"route_at":-1.0,"charge_dir":Vector2.ZERO,"hit_charge":false}
++ if kind=="locust": enemy.merge({"eat_tile":-1,"eat_elapsed":0.0,"eat_search_at":0.0})
++ s.enemies.append(enemy)
+ 
+ func player_in_combat() -> bool:
+  for e: Dictionary in s.enemies:
+@@ -147,12 +152,12 @@ func advance(dt: float) -> void:
+   if nest.active:
+    var count: int=0
+    for e: Dictionary in s.enemies:
+-    if int(e.source)==int(nest.id) and not e.initial:
++    if int(e.source)==int(nest.id) and float(e.hp)>0.0 and (nest.kind=="locust" or not e.initial):
+      count+=1
+-   var interval: float={"small":20.0,"medium":12.0,"large":7.0}[nest.scale]
+-   var cap: int={"small":2,"medium":4,"large":7}[nest.scale]
++   var interval: float=Locust.SPAWN_INTERVAL_S if nest.kind=="locust" else float({"small":20.0,"medium":12.0,"large":7.0}[nest.scale])
++   var cap: int=Locust.ALIVE_CAP if nest.kind=="locust" else int({"small":2,"medium":4,"large":7}[nest.scale])
+    if s.clock.elapsed>=float(nest.spawn_due) and count<cap:
+-    spawn(nest,false)
++    for member: int in (Locust.spawn_count(count) if nest.kind=="locust" else 1): spawn(nest,false)
+     nest.spawn_due=s.clock.elapsed+interval
+   else:
+    nest.spawn_due=s.clock.elapsed+3.0
+@@ -162,8 +167,9 @@ func advance(dt: float) -> void:
+    if nest.pos.distance_to(s.position)<15.0 and s.clock.elapsed>=float(nest.attack_at):
+     hurt_player(Tiers.attack(10.0,int(nest.get("tier",0))))
+     nest.attack_at=s.clock.elapsed+1.5
++ locust_ai.advance(s.enemies,s.plants,dt,s.clock.elapsed)
+  for enemy: Dictionary in s.enemies.duplicate():
+-  _enemy(enemy,dt)
++  if enemy.kind!="locust": _enemy(enemy,dt)
+ 
+ func _shots(dt: float) -> void:
+  for shot: Dictionary in s.shots.duplicate():
+@@ -221,8 +227,10 @@ func _sow_ground(shot: Dictionary) -> void:
+ func damage_enemy(e: Dictionary,amount: float,stun: float = 0.0) -> void:
+  e.hp=float(e.hp)-amount
+  e.stun_until=s.clock.elapsed+stun
++ if e.kind=="locust" and stun>0.0: e.eat_elapsed=0.0
+  if e.hp<=0.0:
+-  s.seeds+=Tiers.reward(15 if e.strong else 6,int(e.get("tier",0)),bool(e.initial))
++  if e.kind=="locust": locust_ai.release(e)
++  s.seeds+=Tiers.reward(Locust.BASE_REWARD if e.kind=="locust" else (15 if e.strong else 6),int(e.get("tier",0)),bool(e.initial))
+   # A defeated animal accelerates local growth without creating repeatable seed income.
+   for index: int in Landing.tiles_in_radius(s.state,4,e.pos,12.0):
+    if s.state.target[index]==1:
+diff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd
+index fff1889..013ecb8 100644
+--- a/scripts/poc2/simulation/persistence.gd
++++ b/scripts/poc2/simulation/persistence.gd
+@@ -1,5 +1,6 @@
+ extends RefCounted
+ const Tiers: GDScript = preload("res://scripts/poc2/simulation/enemy_tiers.gd")
++const Locust: GDScript = preload("res://scripts/poc2/simulation/locust_ai.gd")
+ ## JSON-safe complete snapshots. Validate on a disposable candidate, adopt only after every check succeeds.
+ const SCALARS: Array[String] = ["position","aim","has_aim","seeds","hp","max_hp","water","max_water","next_id","income_fraction","last_damage","respawn_at","shot_ready","skill_ready","reveal_at","zone_check_at","skills","unlocked","favorites","sow_width"]
+ const ROWS: Array[String] = ["plants","helpers","enemies","nests","fossils","shots"]
+@@ -166,6 +167,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
+    # Old working PoC3 entities retain their original tier-0 abilities. Placement
+    # distance is never revisited on restore, including for moving mothers.
+    if category in ["enemies","nests"]: entity.tier=int(entity.get("tier",0))
++   if category in ["enemies","nests"] and entity.kind=="locust": entity.id=int(entity.id)
++   if category=="enemies" and entity.kind=="locust":
++    for key: String in ["id","source","eat_tile"]: entity[key]=int(entity[key])
+    # Earlier PoC3 working saves have no discovery field; never infer a discovery.
+    if category in ["nests","fossils"] and not entity.has("discovered"): entity.discovered=false
+    # Working PoC3 saves used a temporary wet_until before permanent watering.
+@@ -214,6 +218,9 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
+  candidate.combat_system=null; candidate.plant_system=null
+  return s.result(true,"loaded")
+ 
++static func _integer(value: Variant, minimum: int, maximum: int) -> bool:
++ return (value is int or value is float) and value>=minimum and value<=maximum and floorf(float(value))==float(value)
++
+ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,catalog: Dictionary) -> bool:
+  for key: String in ["id","kind","pos"]:
+   if not e.has(key): return false
+@@ -250,14 +257,23 @@ static func _valid_entity(e: Dictionary,category: String,candidate: RefCounted,c
+  if category=="helpers":
+   if e.has("blocked_order") and not e.blocked_order is bool: return false
+   if e.has("water_task") and (not e.water_task is String or e.water_task not in ["","resupplying","refilling","returning_water"]): return false
+- if category=="enemies" and (e.kind not in ["boar","spider"] or e.hp<=0 or e.hp>e.max_hp): return false
+- if category=="nests" and (e.scale not in ["small","medium","large"] or e.kind not in ["boar","spider","mother"] or e.hp<=0 or e.hp>e.max_hp): return false
++ if category=="enemies" and (e.kind not in ["boar","spider","locust"] or e.hp<=0 or e.hp>e.max_hp): return false
++ if category=="enemies" and e.kind=="locust":
++  for key: String in ["eat_tile","eat_elapsed","eat_search_at"]:
++   if not e.has(key): return false
++  if not _integer(e.id,1,89999) or not _integer(e.source,1,89999) or not _integer(e.eat_tile,-1,candidate.state.tile_count()-1): return false
++  if not (e.eat_elapsed is int or e.eat_elapsed is float) or e.eat_elapsed<0.0 or e.eat_elapsed>=Locust.EAT_SECONDS: return false
++  if not (e.eat_search_at is int or e.eat_search_at is float) or e.eat_search_at<0.0: return false
++  if e.phase not in ["idle","chase","eat","stunned"] or e.strong: return false
++  if (e.eat_tile<0 and e.eat_elapsed!=0.0) or (e.phase=="eat" and e.eat_tile<0): return false
++ if category=="nests" and (e.scale not in ["small","medium","large"] or e.kind not in ["boar","spider","mother","locust"] or e.hp<=0 or e.hp>e.max_hp): return false
++ if category=="nests" and e.kind=="locust" and (e.scale!="small" or e.mother or not _integer(e.id,1,89999)): return false
+  if category in ["enemies","nests"]:
+   var tier: Variant=e.get("tier",0)
+   # Validate before converting/calling the pure multiplier API: invalid save
+   # data must not truncate to an accepted tier or reach its assertions.
+   if not (tier is int or tier is float) or float(tier) not in [0.0,1.0,2.0]: return false
+-  var base_hp: float=(40.0 if e.strong else 20.0) if category=="enemies" else {"small":40.0,"medium":100.0,"large":240.0}[e.scale]
++  var base_hp: float=(Locust.BASE_HP if e.kind=="locust" else (40.0 if e.strong else 20.0)) if category=="enemies" else {"small":40.0,"medium":100.0,"large":240.0}[e.scale]
+   if float(e.max_hp)!=Tiers.hp(base_hp,int(tier)): return false
+  if category=="fossils" and (not catalog.has(e.unlock) or not e.unlock is String): return false
+  if category=="shots" and (e.kind not in ["seed","bazooka"] or e.remaining<0 or e.remaining>100 or e.speed!=160.0): return false
+diff --git a/scripts/poc2/view/world_view.gd b/scripts/poc2/view/world_view.gd
+index f49be28..cf24e58 100644
+--- a/scripts/poc2/view/world_view.gd
++++ b/scripts/poc2/view/world_view.gd
+@@ -122,6 +122,7 @@ func _mesh(key: String, color: Color, sphere: bool = true) -> MeshInstance3D:
+ 	return node
+ 
+ static func color_for(kind: String) -> Color:
++	if kind == "locust": return Color("b6bd58")
+ 	return {"clover": Color("79b45a"), "carrot": Color("f39c43"), "wheat": Color("e8cd79"), "rafflesia": Color("cb5d6d"), "watermelon": Color("478950"), "army": Color("aec75e"), "gatlinger": Color("d9af54"), "sprinkler": Color("75c8dc"), "boar": Color("a77b70"), "spider": Color("9875a4"), "mother": Color("bb81ae"), "nest": Color("8b6352"), "seed": Color("f0d280"), "bazooka": Color("f4a558"), "water": Color("75c8dc")}.get(kind, Color("d4bc91"))
+ 
+ func sync(dt: float) -> void:
+@@ -233,6 +234,11 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
+ 			elif category == "shots":
+ 				width = 0.22 if kind == "bazooka" else 0.12
+ 				height = width
++			elif category == "enemies" and kind == "locust":
++				width = 0.65
++				depth = 0.9
++				# Short chewing pulse, anchored at ground level. No tier-dependent appearance.
++				height = 0.38+0.10*(0.5+0.5*sin(animation_time*12.0)) if presentation.state=="eat" else 0.48
+ 			node.scale = Vector3(width, height, depth if depth>0 else width)
+ 			var at: Vector2 = Coords.logic_to_ground(item.pos)
+ 			node.position = Vector3(at.x, height * 0.5, at.y)
+@@ -287,7 +293,7 @@ func _helper_parts(node: MeshInstance3D, kind: String) -> void:
+ 
+ func _animal_parts(node: MeshInstance3D, kind: String) -> void:
+ 	for side: int in [-1,1]:
+-		for row: int in (4 if "spider" in kind or "mother" in kind else 2):
++		for row: int in (3 if kind=="locust" else (4 if "spider" in kind or "mother" in kind else 2)):
+ 			var leg: MeshInstance3D = MeshInstance3D.new()
+ 			var mesh: BoxMesh = BoxMesh.new()
+ 			mesh.size = Vector3(0.65, 0.1, 0.12)

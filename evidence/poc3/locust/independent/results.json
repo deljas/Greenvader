@@ -1,0 +1,70 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "id": "SIX_DISTINCT_NONOCCUPIED_GRASS_TARGETS",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "STUN_RESTARTS_CONTINUOUS_3_SECONDS",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "THREE_SECONDS_EMPTY_AND_CLAIM_RELEASE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "GRASS_ONLY_NO_PLAYER_CROP_DAMAGE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "EATEN_CELL_RESEEDED_DRY",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "DEATH_BEFORE_COMPLETION_PRESERVES_GRASS",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "elapsed": 1.25,
+        "full_state_equal": true,
+        "loaded": true,
+        "saved": true
+      },
+      "id": "EATING_ORPHAN_JSON_FULL_STATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "id": "RESTORED_LAST_QUARTER_SECOND_COMPLETES",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "ok": false,
+        "reason": "invalid_entity_enemies"
+      },
+      "id": "INVALID_COMPLETED_EATING_ATOMIC_REJECT",
+      "status": "PASS"
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": 0,
+  "user_dir": "C:/godot/greenvader/evidence/poc3/locust/independent/profile/roaming/Godot/app_userdata/グリーンベーダー"
+}

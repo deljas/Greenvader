@@ -1987,6 +1987,15 @@
       "scale": "large",
       "kind": "mother",
       "unlock": ""
+    },
+    {
+      "cell": [
+        170,
+        70
+      ],
+      "scale": "small",
+      "kind": "locust",
+      "unlock": ""
     }
   ],
   "fossils": [

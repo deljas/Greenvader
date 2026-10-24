@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "six_targets_distributed_crop_excluded", "status": "PASS" }
+{ "name": "three_seconds_completion_counter_and_water_reset", "status": "PASS" }
+{ "name": "death_before_completion_keeps_grass_releases_target", "status": "PASS" }
+{ "name": "stun_interrupts_and_restarts_continuous_eating", "status": "PASS" }
+{ "name": "recreated_ai_resumes_eating_and_rebuilds_reservation", "status": "PASS" }
+{ "name": "new_occupant_releases_old_claim", "status": "PASS" }
+{ "name": "removed_actor_releases_claim", "status": "PASS" }
+{ "name": "disappeared_grass_releases_claim", "status": "PASS" }
+{ "name": "rafflesia_attracts_to_near_grass_not_crop", "status": "PASS" }
+{ "name": "stable_zone_excluded_from_target_and_path", "status": "PASS" }

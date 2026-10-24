@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "name": "startup_minimized_no_focus_isolated",
+      "status": "PASS"
+    },
+    {
+      "name": "eating_gpu_image",
+      "status": "PASS"
+    },
+    {
+      "name": "six_separate_eat_meshes_legs_compressed_body",
+      "status": "PASS"
+    },
+    {
+      "name": "remained_minimized_no_focus",
+      "status": "PASS"
+    }
+  ],
+  "completed": true,
+  "observations": [
+    {
+      "height": 0.416029214859009,
+      "id": 40,
+      "legs": 6,
+      "phase": "eat",
+      "screen": "(308.9762, 180.0915)"
+    },
+    {
+      "height": 0.416029214859009,
+      "id": 41,
+      "legs": 6,
+      "phase": "eat",
+      "screen": "(330.992, 180.0914)"
+    },
+    {
+      "height": 0.416029214859009,
+      "id": 42,
+      "legs": 6,
+      "phase": "eat",
+      "screen": "(347.5039, 193.8513)"
+    },
+    {
+      "height": 0.416029214859009,
+      "id": 43,
+      "legs": 6,
+      "phase": "eat",
+      "screen": "(342.0, 207.6113)"
+    },
+    {
+      "height": 0.416029214859009,
+      "id": 44,
+      "legs": 6,
+      "phase": "eat",
+      "screen": "(286.9603, 202.1073)"
+    },
+    {
+      "height": 0.416029214859009,
+      "id": 45,
+      "legs": 6,
+      "phase": "eat",
+      "screen": "(308.9761, 213.1152)"
+    }
+  ],
+  "visual_review": "separate human/agent image inspection required"
+}

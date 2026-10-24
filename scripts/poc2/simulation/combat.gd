@@ -3,9 +3,12 @@ extends RefCounted
 const Coords: GDScript = preload("res://scripts/poc/poc_coords.gd")
 const SeedArea: GDScript = preload("res://scripts/poc2/simulation/seed_area.gd")
 const Tiers: GDScript = preload("res://scripts/poc2/simulation/enemy_tiers.gd")
+const Locust: GDScript = preload("res://scripts/poc2/simulation/locust_ai.gd")
 var s: RefCounted
+var locust_ai: RefCounted = Locust.new()
 func _init(session: RefCounted) -> void:
  s = session
+ locust_ai.setup(s.state,s.nav)
 
 func add_nest(row: Dictionary) -> void:
  var scale: String = row.scale
@@ -18,8 +21,8 @@ func add_nest(row: Dictionary) -> void:
  var unlock: String = row.get("unlock","")
  if not unlock.is_empty():
   s.fossils.append({"id":s.allocate_id(),"kind":"fossil","pos":pos,"unlock":unlock,"found":false,"discovered":false,"nest_id":nest.id})
- for i: int in (2 if scale=="small" else 3):
-  spawn(nest,true,i==0 and scale!="small")
+ for i: int in (Locust.INITIAL_GROUP if row.kind=="locust" else (2 if scale=="small" else 3)):
+  spawn(nest,true,i==0 and scale!="small" and row.kind!="locust")
 
 func free_position(pos: Vector2) -> Vector2:
  var cell: Vector2i = Coords.logic_to_cell(pos)
@@ -33,9 +36,11 @@ func free_position(pos: Vector2) -> Vector2:
 func spawn(nest: Dictionary,initial: bool,strong: bool = false) -> void:
  var pos: Vector2 = free_position(nest.pos+Vector2(s.rng.randf_range(-10,10),s.rng.randf_range(-10,10)))
  var tier: int = int(nest.get("tier",0))
- var maximum: float = Tiers.hp(40.0 if strong else 20.0,tier)
- var kind: String = "spider" if nest.kind in ["spider","mother"] else "boar"
- s.enemies.append({"id":s.allocate_id(),"kind":kind,"pos":pos,"home":nest.home,"hp":maximum,"max_hp":maximum,"tier":tier,"initial":initial,"strong":strong,"source":nest.id,"phase":"idle","phase_until":0.0,"attack_at":0.0,"stun_until":0.0,"route_at":-1.0,"charge_dir":Vector2.ZERO,"hit_charge":false})
+ var kind: String = "locust" if nest.kind=="locust" else ("spider" if nest.kind in ["spider","mother"] else "boar")
+ var maximum: float = Tiers.hp(Locust.BASE_HP if kind=="locust" else (40.0 if strong else 20.0),tier)
+ var enemy: Dictionary={"id":s.allocate_id(),"kind":kind,"pos":pos,"home":nest.home,"hp":maximum,"max_hp":maximum,"tier":tier,"initial":initial,"strong":strong,"source":nest.id,"phase":"idle","phase_until":0.0,"attack_at":0.0,"stun_until":0.0,"route_at":-1.0,"charge_dir":Vector2.ZERO,"hit_charge":false}
+ if kind=="locust": enemy.merge({"eat_tile":-1,"eat_elapsed":0.0,"eat_search_at":0.0})
+ s.enemies.append(enemy)
 
 func player_in_combat() -> bool:
  for e: Dictionary in s.enemies:
@@ -147,12 +152,12 @@ func advance(dt: float) -> void:
   if nest.active:
    var count: int=0
    for e: Dictionary in s.enemies:
-    if int(e.source)==int(nest.id) and not e.initial:
+    if int(e.source)==int(nest.id) and float(e.hp)>0.0 and (nest.kind=="locust" or not e.initial):
      count+=1
-   var interval: float={"small":20.0,"medium":12.0,"large":7.0}[nest.scale]
-   var cap: int={"small":2,"medium":4,"large":7}[nest.scale]
+   var interval: float=Locust.SPAWN_INTERVAL_S if nest.kind=="locust" else float({"small":20.0,"medium":12.0,"large":7.0}[nest.scale])
+   var cap: int=Locust.ALIVE_CAP if nest.kind=="locust" else int({"small":2,"medium":4,"large":7}[nest.scale])
    if s.clock.elapsed>=float(nest.spawn_due) and count<cap:
-    spawn(nest,false)
+    for member: int in (Locust.spawn_count(count) if nest.kind=="locust" else 1): spawn(nest,false)
     nest.spawn_due=s.clock.elapsed+interval
   else:
    nest.spawn_due=s.clock.elapsed+3.0
@@ -162,8 +167,9 @@ func advance(dt: float) -> void:
    if nest.pos.distance_to(s.position)<15.0 and s.clock.elapsed>=float(nest.attack_at):
     hurt_player(Tiers.attack(10.0,int(nest.get("tier",0))))
     nest.attack_at=s.clock.elapsed+1.5
+ locust_ai.advance(s.enemies,s.plants,dt,s.clock.elapsed)
  for enemy: Dictionary in s.enemies.duplicate():
-  _enemy(enemy,dt)
+  if enemy.kind!="locust": _enemy(enemy,dt)
 
 func _shots(dt: float) -> void:
  for shot: Dictionary in s.shots.duplicate():
@@ -221,8 +227,10 @@ func _sow_ground(shot: Dictionary) -> void:
 func damage_enemy(e: Dictionary,amount: float,stun: float = 0.0) -> void:
  e.hp=float(e.hp)-amount
  e.stun_until=s.clock.elapsed+stun
+ if e.kind=="locust" and stun>0.0: e.eat_elapsed=0.0
  if e.hp<=0.0:
-  s.seeds+=Tiers.reward(15 if e.strong else 6,int(e.get("tier",0)),bool(e.initial))
+  if e.kind=="locust": locust_ai.release(e)
+  s.seeds+=Tiers.reward(Locust.BASE_REWARD if e.kind=="locust" else (15 if e.strong else 6),int(e.get("tier",0)),bool(e.initial))
   # A defeated animal accelerates local growth without creating repeatable seed income.
   for index: int in Landing.tiles_in_radius(s.state,4,e.pos,12.0):
    if s.state.target[index]==1:

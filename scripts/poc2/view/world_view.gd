@@ -122,6 +122,7 @@ func _mesh(key: String, color: Color, sphere: bool = true) -> MeshInstance3D:
 	return node
 
 static func color_for(kind: String) -> Color:
+	if kind == "locust": return Color("b6bd58")
 	return {"clover": Color("79b45a"), "carrot": Color("f39c43"), "wheat": Color("e8cd79"), "rafflesia": Color("cb5d6d"), "watermelon": Color("478950"), "army": Color("aec75e"), "gatlinger": Color("d9af54"), "sprinkler": Color("75c8dc"), "boar": Color("a77b70"), "spider": Color("9875a4"), "mother": Color("bb81ae"), "nest": Color("8b6352"), "seed": Color("f0d280"), "bazooka": Color("f4a558"), "water": Color("75c8dc")}.get(kind, Color("d4bc91"))
 
 func sync(dt: float) -> void:
@@ -233,6 +234,11 @@ func _entities(ground_dirty: PackedInt32Array = PackedInt32Array()) -> void:
 			elif category == "shots":
 				width = 0.22 if kind == "bazooka" else 0.12
 				height = width
+			elif category == "enemies" and kind == "locust":
+				width = 0.65
+				depth = 0.9
+				# Short chewing pulse, anchored at ground level. No tier-dependent appearance.
+				height = 0.38+0.10*(0.5+0.5*sin(animation_time*12.0)) if presentation.state=="eat" else 0.48
 			node.scale = Vector3(width, height, depth if depth>0 else width)
 			var at: Vector2 = Coords.logic_to_ground(item.pos)
 			node.position = Vector3(at.x, height * 0.5, at.y)
@@ -287,7 +293,7 @@ func _helper_parts(node: MeshInstance3D, kind: String) -> void:
 
 func _animal_parts(node: MeshInstance3D, kind: String) -> void:
 	for side: int in [-1,1]:
-		for row: int in (4 if "spider" in kind or "mother" in kind else 2):
+		for row: int in (3 if kind=="locust" else (4 if "spider" in kind or "mother" in kind else 2)):
 			var leg: MeshInstance3D = MeshInstance3D.new()
 			var mesh: BoxMesh = BoxMesh.new()
 			mesh.size = Vector3(0.65, 0.1, 0.12)

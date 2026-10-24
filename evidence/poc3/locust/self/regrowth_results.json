@@ -1,0 +1,13 @@
+{
+  "bound": 37,
+  "checks": [
+    {
+      "name": "eaten_replant_dry_then_stable_isolated_autonomous_complete",
+      "status": "FAIL"
+    }
+  ],
+  "completed": true,
+  "greened": 1,
+  "seconds": 37,
+  "targets": 30
+}

@@ -1,0 +1,95 @@
+{
+  "checks": [
+    {
+      "name": "new_map_six_tiered_locusts_safe_actual_placement",
+      "status": "PASS"
+    },
+    {
+      "name": "remote_nest_dormant_no_production",
+      "status": "PASS"
+    },
+    {
+      "name": "active_twenty_second_group_cap_includes_initial_nonattack",
+      "status": "PASS"
+    },
+    {
+      "name": "replacement_only_two_and_rewards_floor_initial_produced_nest",
+      "status": "PASS"
+    },
+    {
+      "name": "inner_tier_single_normal_shot",
+      "status": "PASS"
+    },
+    {
+      "name": "bazooka_intercepts_group",
+      "status": "PASS"
+    },
+    {
+      "name": "army_intercepts_locust",
+      "status": "PASS"
+    },
+    {
+      "name": "food_loss_updates_income_and_live_detection_other_source_retained",
+      "status": "PASS"
+    },
+    {
+      "name": "eaten_tile_replanted_dry",
+      "status": "PASS"
+    },
+    {
+      "name": "json_roundtrip_eating_progress_dead_parent_child_integer_ids",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_eating_state_rejected_session_unchanged",
+      "status": "PASS"
+    }
+  ],
+  "completed": true,
+  "details": {
+    "placement": {
+      "nearest_initial_enemy_m": 13.6058807373047,
+      "nests": [
+        {
+          "kind": "boar",
+          "metres": 14.051335144043,
+          "position": "(590.0, 462.0)"
+        },
+        {
+          "kind": "spider",
+          "metres": 22.2925994873047,
+          "position": "(486.0, 230.0)"
+        },
+        {
+          "kind": "boar",
+          "metres": 25.203173828125,
+          "position": "(198.0, 446.0)"
+        },
+        {
+          "kind": "spider",
+          "metres": 26.5088653564453,
+          "position": "(474.0, 714.0)"
+        },
+        {
+          "kind": "mother",
+          "metres": 36.2082855224609,
+          "position": "(198.0, 190.0)"
+        },
+        {
+          "kind": "locust",
+          "metres": 28.6440216064453,
+          "position": "(682.0, 282.0)"
+        }
+      ]
+    },
+    "save": {
+      "load_ok": true,
+      "load_reason": "再開しました",
+      "save": {
+        "ok": true,
+        "reason": "保存しました"
+      }
+    }
+  },
+  "failures": 0
+}

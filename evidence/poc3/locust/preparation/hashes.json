@@ -1,0 +1,19 @@
+{
+  "head": "e7d86a5adedf3a221fe90b88be099a4b530bfb98",
+  "status": "unconnected_preparation_stopped",
+  "hashes": [
+    {
+      "path": "scripts/poc2/simulation/locust_ai.gd",
+      "sha256": "5FAF8AD6C9EEFB37C4DE7835A0906AEA67A9489B44D5A53302BEB2327F64D3C8"
+    },
+    {
+      "path": "tests/poc3/locust/self_unit.gd",
+      "sha256": "02B0B67B889AF67B68EEF1475144D0AAE887BB13A1ACC82DE61ACC49A66CB36D"
+    },
+    {
+      "path": "evidence/poc3/locust/preparation/report.md",
+      "sha256": "998A14EF07A0980E15DDAFC20A0275DA9B9545466589C22E7F709B378137DD94"
+    }
+  ],
+  "godot_import_tests": "NOT_RUN"
+}
