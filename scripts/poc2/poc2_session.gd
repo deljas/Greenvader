@@ -50,6 +50,8 @@ var fossils: Array[Dictionary] = []
 var shots: Array[Dictionary] = []
 var unlocked: Dictionary = {"clover":true}
 var favorites: Array[String] = ["clover","","","",""]
+const SOW_WIDTHS: Array[int] = [1,3,5,7]
+var sow_width: int = 1
 var known: PackedByteArray = PackedByteArray()
 var visible: PackedByteArray = PackedByteArray()
 var skills: Array[String] = ["tackle","bazooka"]
@@ -255,6 +257,11 @@ func crop_rate() -> float:
 func current_cost(kind: String) -> int:
  # All placement UI uses this entry point; crop price scaling is a later feature.
  return int(CATALOG[kind].cost) if CATALOG.has(kind) else 0
+
+func adjust_sow_width(direction: int) -> int:
+ var index: int = SOW_WIDTHS.find(sow_width)
+ sow_width = SOW_WIDTHS[clampi(index+signi(direction),0,SOW_WIDTHS.size()-1)]
+ return sow_width
 
 func plant_stats(kind: String) -> Dictionary:
  var count: int = 0

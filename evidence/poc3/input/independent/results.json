@@ -1,0 +1,247 @@
+{
+  "checks": [
+    {
+      "name": "shift_left_shift_first_release_is_single_skill",
+      "observations": {
+        "calls": [
+          "skill_left"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "shift_right_mouse_first_release_is_single_skill",
+      "observations": {
+        "calls": [
+          "skill_right"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "normal_holds_stop_on_shift_until_fresh_click",
+      "observations": {
+        "cases": [
+          {
+            "button": 1,
+            "calls": [
+              "normal_left",
+              "normal_left"
+            ],
+            "new_click_resumes": true,
+            "no_extra_after_shift": true
+          },
+          {
+            "button": 2,
+            "calls": [
+              "normal_right",
+              "normal_right"
+            ],
+            "new_click_resumes": true,
+            "no_extra_after_shift": true
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "placement_one_press_cancel_and_shift_priority",
+      "observations": {
+        "calls": [
+          "skill_left"
+        ],
+        "cancel_without_water": true,
+        "plant_count": 1
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "list_shift_hold_close_has_no_combat_leak",
+      "observations": {},
+      "status": "PASS"
+    },
+    {
+      "name": "map_popup_right_cancel_and_closed_hold_do_not_leak",
+      "observations": {
+        "popup_canceled": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "menu_shift_hold_resume_does_not_leak",
+      "observations": {},
+      "status": "PASS"
+    },
+    {
+      "name": "wheel_world_endpoints_map_zoom_list_isolation",
+      "observations": {
+        "list_did_not_change_width": true,
+        "map_only_zoom": true,
+        "world_widths": [
+          3,
+          5,
+          7,
+          7
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "json_width_roundtrip_invalid_rejection_and_default",
+      "observations": {
+        "invalids_rejected_active_unchanged": true,
+        "load_ok": true,
+        "missing_defaults1": true,
+        "width5_restored": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "context": {
+    "actual_diff": "diff --git a/scripts/poc2/poc2_main.gd b/scripts/poc2/poc2_main.gd\nindex 48de13a..19bc3db 100644\n--- a/scripts/poc2/poc2_main.gd\n+++ b/scripts/poc2/poc2_main.gd\n@@ -5,6 +5,8 @@ const View: GDScript=preload(\"res://scripts/poc2/view/world_view.gd\")\n const Ui: GDScript=preload(\"res://scripts/poc2/ui/poc2_ui.gd\")\n const Save: GDScript=preload(\"res://scripts/poc2/save/poc2_save.gd\")\n const Coords: GDScript=preload(\"res://scripts/poc/poc_coords.gd\")\n+const InputLatch: GDScript=preload(\"res://scripts/poc2/input_latch.gd\")\n+var mouse: RefCounted=InputLatch.new()\n var session: RefCounted\n var render_view: SubViewport\n var view_rect: TextureRect\n@@ -18,14 +20,17 @@ var menu: String=\"\"\n var _help_return: String=\"\"\n var _plants_return: String=\"\"\n var _keys: Dictionary={}\n-var _primary: bool=false\n-var _secondary: bool=false\n+var _primary: bool:\n+\tget: return mouse.held_action(MOUSE_BUTTON_LEFT)==&\"seed\"\n+var _secondary: bool:\n+\tget: return mouse.held_action(MOUSE_BUTTON_RIGHT)==&\"water\"\n var _shot_wait: float=0.0\n var _water_wait: float=0.0\n var _last_autosave: float=0.0\n var _message_serial: int=0\n var _placement_kind: String=\"\"\n var muted: bool=false\n+var audio_volume: float=1.0\n var _tone: AudioStreamPlayer\n \n func _ready() -> void:\n@@ -53,8 +58,9 @@ func _ready() -> void:\n \tui=Ui.new()\n \tadd_child(ui)\n \tui.chosen.connect(_on_action)\n-\tui.placement.connect(func(kind: String) -> void: _placement_kind=kind; _primary=false; _secondary=false)\n+\tui.placement.connect(func(kind: String) -> void: _placement_kind=kind; mouse.cancel_holds())\n \tui.map.toggled.connect(_map_toggled)\n+\tui.audio_changed.connect(_audio_changed)\n \t_tone=AudioStreamPlayer.new()\n \tadd_child(_tone)\n \treplace_session(Session.new())\n@@ -64,8 +70,7 @@ func _ready() -> void:\n \t_sync_pause()\n \n func replace_session(candidate: RefCounted) -> void:\n-\t_primary=false\n-\t_secondary=false\n+\tmouse.reset()\n \t_keys.clear()\n \tif world!=null:\n \t\trender_view.remove_child(world)\n@@ -94,8 +99,7 @@ func _map_toggled(_open: bool) -> void:\n \t_sync_pause()\n \n func _clear_game_input() -> void:\n-\t_primary=false\n-\t_secondary=false\n+\tmouse.cancel_holds()\n \t_keys.clear()\n \n func _process(delta: float) -> void:\n@@ -139,16 +143,24 @@ func _input(event: InputEvent) -> void:\n \t\tcursor_known=true\n \tif event is InputEventKey:\n \t\tvar key: int=event.physical_keycode if event.physical_keycode!=0 else event.keycode\n+\t\tif key==KEY_SHIFT: mouse.set_shift(event.pressed)\n \t\tif not event.pressed: _keys[key]=false\n \t\telif not is_paused(): _keys[key]=true\n+\t\t# Tab owns map navigation before GUI focus traversal can consume it.\n+\t\tif event.pressed and not event.echo and key==KEY_TAB and menu==\"\":\n+\t\t\tui.map.set_expanded(not ui.map.expanded)\n+\t\t\tget_viewport().set_input_as_handled()\n \tif event is InputEventMouseButton:\n \t\t# Releases always disarm. Only an unhandled world press may arm an action.\n \t\tif not event.pressed:\n-\t\t\tif event.button_index==MOUSE_BUTTON_LEFT: _primary=false\n-\t\t\telif event.button_index==MOUSE_BUTTON_RIGHT: _secondary=false\n-\t\telif ui.blocks(event.position):\n-\t\t\t_primary=false\n-\t\t\t_secondary=false\n+\t\t\tmouse.release(event.button_index)\n+\t\telif is_paused() or ui.blocks(event.position):\n+\t\t\tmouse.cancel_holds()\n+\t\t\tmouse.block_press(event.button_index)\n+\t\tif event.pressed and event.button_index==MOUSE_BUTTON_RIGHT and menu==\"\" and ui.map.expanded:\n+\t\t\t# Popup/Button GUI consumption must not hide the map's cancel action.\n+\t\t\tui.map.deselect()\n+\t\t\tget_viewport().set_input_as_handled()\n \n func _unhandled_input(event: InputEvent) -> void:\n \tif event is InputEventKey and event.pressed and not event.echo:\n@@ -158,7 +170,7 @@ func _unhandled_input(event: InputEvent) -> void:\n \t\t\telif not is_paused(): _on_action(\"plants\")\n \t\telif key>=KEY_1 and key<=KEY_5:\n \t\t\tif not is_paused(): ui.select_slot(key-KEY_1)\n-\t\telif key==KEY_M and menu==\"\":\n+\t\telif key==KEY_TAB and menu==\"\":\n \t\t\tui.map.set_expanded(not ui.map.expanded)\n \t\telif key==KEY_ESCAPE:\n \t\t\t_escape()\n@@ -166,13 +178,6 @@ func _unhandled_input(event: InputEvent) -> void:\n \t\t\t_on_action(\"close_help\" if menu==\"help\" else \"help\")\n \t\telif key==KEY_F5:\n \t\t\tsave_game()\n-\t\telif key==KEY_N:\n-\t\t\tmuted=not muted\n-\t\t\tui.show_notice(\"音：消す\" if muted else \"音：出す\")\n-\t\telif not is_paused():\n-\t\t\tif key==KEY_Q: _result(session.skill(0),\"bump\")\n-\t\t\telif key==KEY_R: _result(session.skill(1),\"bazooka\")\n-\t\t\telif key==KEY_TAB: _cycle_palette()\n \t\tget_viewport().set_input_as_handled()\n \telif event is InputEventMouseButton:\n \t\tif menu==\"plants\":\n@@ -184,17 +189,22 @@ func _unhandled_input(event: InputEvent) -> void:\n \t\t\treturn\n \t\tif ui.blocks(event.position): return\n \t\tif event.pressed:\n+\t\t\tif event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:\n+\t\t\t\tsession.adjust_sow_width(1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -1)\n+\t\t\t\tui.refresh()\n+\t\t\t\tget_viewport().set_input_as_handled()\n+\t\t\t\treturn\n \t\t\tsession.set_aim(world.pick(event.position))\n-\t\t\tif event.button_index==MOUSE_BUTTON_LEFT:\n-\t\t\t\tif _placement_kind!=\"\": _place(Coords.logic_to_cell(world.pick(event.position)))\n-\t\t\t\telse:\n-\t\t\t\t\t_primary=true\n-\t\t\t\t\t_fire()\n-\t\t\telif event.button_index==MOUSE_BUTTON_RIGHT:\n-\t\t\t\tif _placement_kind!=\"\": ui.select_kind(_placement_kind)\n-\t\t\t\telse:\n-\t\t\t\t\t_secondary=true\n-\t\t\t\t\t_water()\n+\t\t\tvar action: StringName=mouse.press(event.button_index,event.shift_pressed or bool(_keys.get(KEY_SHIFT,false)),_placement_kind!=\"\")\n+\t\t\tmatch action:\n+\t\t\t\t&\"seed\": _fire()\n+\t\t\t\t&\"water\": _water()\n+\t\t\t\t&\"place\": _place(Coords.logic_to_cell(world.pick(event.position)))\n+\t\t\t\t&\"cancel_placement\": ui.clear_selection()\n+\t\t\t\t&\"skill1\", &\"skill2\":\n+\t\t\t\t\tif _placement_kind!=\"\": ui.clear_selection()\n+\t\t\t\t\tvar slot: int=0 if action==&\"skill1\" else 1\n+\t\t\t\t\t_result(session.skill(slot),\"bump\" if slot==0 else \"bazooka\")\n \n func _fire() -> void:\n \t_shot_wait=0.3\n@@ -250,16 +260,9 @@ func _placement_supply(cell: Vector2i) -> void:\n \tui.supply.position=Vector2(205,140)\n \tui.supply.show()\n \tmenu=\"placement_supply\"\n-\t_primary=false\n+\tmouse.cancel_holds()\n \t_sync_pause()\n \n-func _cycle_palette() -> void:\n-\tfor offset: int in 5:\n-\t\tvar index: int=posmod(ui.selected_slot+1+offset,5)\n-\t\tif not String(session.favorites[index]).is_empty():\n-\t\t\tif index!=ui.selected_slot: ui.select_slot(index)\n-\t\t\treturn\n-\n func _escape() -> void:\n \tif menu==\"plants\":\n \t\tif not String(ui.plant_list.held_kind).is_empty(): ui.plant_list.cancel_registration(true)\n@@ -318,6 +321,7 @@ func _on_action(action: String) -> void:\n \t\t\tui.menu.hide()\n \t\t\tui.supply.hide()\n \t\t\tui.plant_list.hide()\n+\t\t\tui.plant_list.cancel_registration(true)\n \t\t\"close_help\":\n \t\t\tmenu=_help_return\n \t\t\t_help_return=\"\"\n@@ -341,7 +345,7 @@ func _result(result: Dictionary, sound: String=\"\") -> void:\n \telif not sound.is_empty(): _play_tone(sound)\n \n func _play_tone(kind: String) -> void:\n-\tif muted: return\n+\tif muted or audio_volume<=0.0: return\n \tvar stream: AudioStreamWAV=AudioStreamWAV.new()\n \tstream.format=AudioStreamWAV.FORMAT_16_BITS\n \tstream.mix_rate=22050\n@@ -353,12 +357,16 @@ func _play_tone(kind: String) -> void:\n \t\tsamples.encode_s16(index*2,value)\n \tstream.data=samples\n \t_tone.stream=stream\n+\t_tone.volume_db=linear_to_db(audio_volume)\n \t_tone.play()\n \n+func _audio_changed(is_muted: bool, volume: float) -> void:\n+\tmuted=is_muted\n+\taudio_volume=clampf(volume,0.0,1.0)\n+\n func _notification(what: int) -> void:\n \tif what==NOTIFICATION_APPLICATION_FOCUS_OUT:\n \t\t_keys.clear()\n-\t\t_primary=false\n-\t\t_secondary=false\n+\t\tmouse.reset()\n \n \ndiff --git a/scripts/poc2/poc2_session.gd b/scripts/poc2/poc2_session.gd\nindex ca68019..ab200c3 100644\n--- a/scripts/poc2/poc2_session.gd\n+++ b/scripts/poc2/poc2_session.gd\n@@ -50,6 +50,8 @@ var fossils: Array[Dictionary] = []\n var shots: Array[Dictionary] = []\n var unlocked: Dictionary = {\"clover\":true}\n var favorites: Array[String] = [\"clover\",\"\",\"\",\"\",\"\"]\n+const SOW_WIDTHS: Array[int] = [1,3,5,7]\n+var sow_width: int = 1\n var known: PackedByteArray = PackedByteArray()\n var visible: PackedByteArray = PackedByteArray()\n var skills: Array[String] = [\"tackle\",\"bazooka\"]\n@@ -256,6 +258,11 @@ func current_cost(kind: String) -> int:\n  # All placement UI uses this entry point; crop price scaling is a later feature.\n  return int(CATALOG[kind].cost) if CATALOG.has(kind) else 0\n \n+func adjust_sow_width(direction: int) -> int:\n+ var index: int = SOW_WIDTHS.find(sow_width)\n+ sow_width = SOW_WIDTHS[clampi(index+signi(direction),0,SOW_WIDTHS.size()-1)]\n+ return sow_width\n+\n func plant_stats(kind: String) -> Dictionary:\n  var count: int = 0\n  var rate: float = 0.0\ndiff --git a/scripts/poc2/simulation/persistence.gd b/scripts/poc2/simulation/persistence.gd\nindex 4ca9fab..a42db38 100644\n--- a/scripts/poc2/simulation/persistence.gd\n+++ b/scripts/poc2/simulation/persistence.gd\n@@ -1,6 +1,6 @@\n extends RefCounted\n ## JSON-safe complete snapshots. Validate on a disposable candidate, adopt only after every check succeeds.\n-const SCALARS: Array[String] = [\"position\",\"aim\",\"has_aim\",\"seeds\",\"hp\",\"max_hp\",\"water\",\"max_water\",\"next_id\",\"income_fraction\",\"last_damage\",\"respawn_at\",\"shot_ready\",\"skill_ready\",\"reveal_at\",\"zone_check_at\",\"skills\",\"unlocked\",\"favorites\"]\n+const SCALARS: Array[String] = [\"position\",\"aim\",\"has_aim\",\"seeds\",\"hp\",\"max_hp\",\"water\",\"max_water\",\"next_id\",\"income_fraction\",\"last_damage\",\"respawn_at\",\"shot_ready\",\"skill_ready\",\"reveal_at\",\"zone_check_at\",\"skills\",\"unlocked\",\"favorites\",\"sow_width\"]\n const ROWS: Array[String] = [\"plants\",\"helpers\",\"enemies\",\"nests\",\"fossils\",\"shots\"]\n \n static func encode(value: Variant) -> Variant:\n@@ -123,9 +123,12 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:\n   if candidate.known[index]>1 or candidate.visible[index]>1 or candidate.state.growth[index]<0 or candidate.state.moisture[index]>100: return s.result(false,\"invalid_tile\")\n  if not data.values is Dictionary or not data.entities is Dictionary: return s.result(false,\"invalid_values\")\n  for key: String in SCALARS:\n-  if not data.values.has(key) and key!=\"favorites\": return s.result(false,\"incomplete_values\")\n+  if not data.values.has(key) and key not in [\"favorites\",\"sow_width\"]: return s.result(false,\"incomplete_values\")\n  var vals: Dictionary=decode(data.values)\n  if not vals.has(\"favorites\"): vals.favorites=[\"clover\",\"\",\"\",\"\",\"\"]\n+ if not vals.has(\"sow_width\"): vals.sow_width=1\n+ if not (vals.sow_width is int or vals.sow_width is float) or float(vals.sow_width) not in [1.0,3.0,5.0,7.0]: return s.result(false,\"invalid_sow_width\")\n+ vals.sow_width=int(vals.sow_width)\n  for key: String in [\"position\",\"aim\"]:\n   if not vals[key] is Vector2: return s.result(false,\"invalid_position\")\n  if not Rect2(0,0,896,896).has_point(vals.position): return s.result(false,\"invalid_position\")\ndiff --git a/scripts/poc2/ui/map_ui.gd b/scripts/poc2/ui/map_ui.gd\nindex fb209fc..2e27231 100644\n--- a/scripts/poc2/ui/map_ui.gd\n+++ b/scripts/poc2/ui/map_ui.gd\n@@ -15,6 +15,7 @@ var map_rect: Rect2 = Rect2(6, 6, 108, 108)\n var terrain_texture: ImageTexture\n var remove_button: Button\n var supply_button: Button\n+var close_button: Button\n var popup: PanelContainer\n var quantity: SpinBox\n var _popup_action: String = \"\"\n@@ -29,6 +30,10 @@ func _ready() -> void:\n \ttexture_filter = CanvasItem.TEXTURE_FILTER_NEAREST\n \tremove_button = _button(\"×\", \"撤去\")\n \tsupply_button = _button(\"＋\", \"種を補給\")\n+\tclose_button = _button(\"閉じる Tab\", \"全体マップを閉じる\")\n+\tclose_button.position = Vector2(440,64)\n+\tclose_button.size = Vector2(100,24)\n+\tclose_button.pressed.connect(func() -> void: set_expanded(false))\n \tremove_button.pressed.connect(func() -> void: open_popup(\"remove\"))\n \tsupply_button.pressed.connect(func() -> void: open_popup(\"supply\"))\n \tpopup = PanelContainer.new()\n@@ -59,6 +64,7 @@ func set_expanded(value: bool) -> void:\n \tselected_id = -1\n \tpopup.hide()\n \tmap_rect = Rect2(208,64,224,224) if expanded else Rect2(6,6,108,108)\n+\tclose_button.visible = expanded\n \ttoggled.emit(expanded)\n \trefresh_terrain()\n \tupdate_buttons()\ndiff --git a/scripts/poc2/ui/poc2_ui.gd b/scripts/poc2/ui/poc2_ui.gd\nindex 5229cf3..6dae03b 100644\n--- a/scripts/poc2/ui/poc2_ui.gd\n+++ b/scripts/poc2/ui/poc2_ui.gd\n@@ -4,6 +4,7 @@ const PlantList: GDScript = preload(\"res://scripts/poc2/ui/plant_list.gd\")\n const FavoriteSlot: GDScript = preload(\"res://scripts/poc2/ui/favorite_slot.gd\")\n signal chosen(action: String)\n signal placement(kind: String)\n+signal audio_changed(is_muted: bool, volume: float)\n var session: RefCounted\n var map: Control\n var status: Label\n@@ -21,6 +22,10 @@ var supply: PanelContainer\n var plant_list: PanelContainer\n var selected_kind: String = \"\"\n var selected_slot: int = -1\n+var audio_muted: bool = false\n+var audio_volume: float = 1.0\n+var mute_button: CheckButton\n+var volume_slider: HSlider\n var notice_time: float = 0.0\n var favorite_buttons: Array[Button] = []\n const KEYS: Array[String] = [\"clover\",\"carrot\",\"wheat\",\"rafflesia\",\"watermelon\",\"army\",\"gatlinger\",\"sprinkler\"]\n@@ -69,10 +74,10 @@ func _ready() -> void:\n \tlist_button.pressed.connect(func() -> void: chosen.emit(\"plants\"))\n \tpalette.add_child(list_button)\n \tmap_button=Button.new()\n-\tmap_button.text=\"M\"\n+\tmap_button.text=\"Tab\"\n \tmap_button.tooltip_text=\"全体マップ（時間停止）\"\n \tmap_button.position=Vector2(6,116)\n-\tmap_button.size=Vector2(28,24)\n+\tmap_button.size=Vector2(34,24)\n \tmap_button.pressed.connect(func() -> void:\n \t\tif not has_modal(): map.set_expanded(not map.expanded))\n \tadd_child(map_button)\n@@ -98,7 +103,7 @@ func _ready() -> void:\n \tvar help_box: VBoxContainer=VBoxContainer.new()\n \thelp.add_child(help_box)\n \tvar label: Label=Label.new()\n-\tlabel.text=\"WASD / 矢印：画面方向へ移動\\n左クリック：種射撃・播種　右クリック：給水\\nQ：たいあたり　R：種バズーカ\\n1〜5 / 左下の枠：植物選択（同じ枠で解除）\\nE：植物一覧・お気に入り登録（時間停止）\\nM：時間停止マップ　ホイール：マップ拡大/縮小\\n右クリック / Esc：取消　×：撤去　＋：種補給\\nF5：保存　Esc：メニュー　F1：説明　N：音切替\\n種は緑地と成熟した栽培植物から自動収入。\\n化石を探して植物を解放し、巣を攻略しましょう。\"\n+\tlabel.text=\"WASD / 矢印：移動　マウス：照準・配置位置\\n左クリック / 長押し：種射撃・播種\\n右クリック / 長押し：給水\\nShift＋左 / 右クリック：スキル1 / 2（1回）\\nホイール：播種幅 1/3/5/7（選択のみ）\\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\\n一覧・マップ中は停止。ホイールはスクロール / ズーム\\n右クリック / Esc：保持・選択を取消、Escで戻る\\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\\n水辺補給・化石への接近回収は自動です。\"\n \tlabel.add_theme_font_size_override(\"font_size\",12)\n \thelp_box.add_child(label)\n \tvar back: Button=Button.new()\n@@ -204,7 +209,8 @@ func has_modal() -> bool:\n func refresh() -> void:\n \tif session==null: return\n \tvar stats: Dictionary=session.snapshot()\n-\tstatus.text=\"%s 設置 ●%d\" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else \"植物を選択 1〜5\"\n+\tstatus.text=\"%s 設置 ●%d\" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else \"播種幅 %d×%d\" % [session.sow_width,session.sow_width]\n+\tstatus.tooltip_text=\"ホイールで播種幅の選択値を変更（範囲効果は後続）\" if selected_kind.is_empty() else \"\"\n \teconomy.text=\"所持 ●%d　緑 %.1f%%\" % [session.seeds,float(stats.get(\"green_percent\",0))]\n \teconomy.tooltip_text=\"収入 / 分：緑地 %.1f ＋ 栽培 %.1f\" % [float(stats.get(\"land_rate\",0)),float(stats.get(\"crop_rate\",0))]\n \thp_bar.max_value=session.max_hp\n@@ -235,6 +241,8 @@ func show_notice(text: String) -> void:\n \n func show_menu(title: bool = false) -> void:\n \tfor child: Node in menu.get_children(): child.free()\n+\tmenu.position=Vector2(220,90 if title else 30)\n+\tmenu.size=Vector2(200,180)\n \tvar box: VBoxContainer=VBoxContainer.new()\n \tmenu.add_child(box)\n \tvar label: Label=Label.new()\n@@ -247,6 +255,30 @@ func show_menu(title: bool = false) -> void:\n \t\tbutton.text={\"new\":\"新しく始める\",\"load\":\"続きから\",\"help\":\"操作説明\",\"resume\":\"再開\",\"save\":\"保存\",\"plants\":\"植物一覧 E\"}[action]\n \t\tbox.add_child(button)\n \t\tbutton.pressed.connect(func() -> void: chosen.emit(action))\n+\tmute_button=CheckButton.new()\n+\tmute_button.text=\"ミュート\"\n+\tmute_button.button_pressed=audio_muted\n+\tmute_button.focus_mode=Control.FOCUS_NONE\n+\tmute_button.toggled.connect(func(value: bool) -> void:\n+\t\taudio_muted=value\n+\t\taudio_changed.emit(audio_muted,audio_volume))\n+\tbox.add_child(mute_button)\n+\tvar volume_row: HBoxContainer=HBoxContainer.new()\n+\tbox.add_child(volume_row)\n+\tvar volume_label: Label=Label.new()\n+\tvolume_label.text=\"音量\"\n+\tvolume_row.add_child(volume_label)\n+\tvolume_slider=HSlider.new()\n+\tvolume_slider.min_value=0.0\n+\tvolume_slider.max_value=1.0\n+\tvolume_slider.step=0.05\n+\tvolume_slider.value=audio_volume\n+\tvolume_slider.custom_minimum_size=Vector2(120,16)\n+\tvolume_slider.focus_mode=Control.FOCUS_NONE\n+\tvolume_slider.value_changed.connect(func(value: float) -> void:\n+\t\taudio_volume=value\n+\t\taudio_changed.emit(audio_muted,audio_volume))\n+\tvolume_row.add_child(volume_slider)\n \tmenu.show()\n \trefresh()\n \n@@ -255,7 +287,7 @@ func blocks(pixel: Vector2) -> bool:\n \tif hud.visible and hud.get_global_rect().has_point(pixel): return true\n \tif map.expanded or map.map_rect.has_point(pixel): return true\n \tif palette.visible and palette.get_global_rect().has_point(pixel): return true\n-\treturn (pixel.x>598 and pixel.y>326) or (pixel.x<38 and pixel.y>=116 and pixel.y<=144)\n+\treturn (pixel.x>598 and pixel.y>326) or (pixel.x<42 and pixel.y>=116 and pixel.y<=144)\n \n \n ",
+    "content_reservation": "11:- 予約中の共有資源: **共有ツリーのGodot実行・importは使わない**（POC3-INPUTのCodex側が所有）。Godot実行は隔離プロジェクト C:/godot/greenvader_content_sandbox/ だけで行う。Git index/commit は本作業では行わない（Codex親と調整後に親のみ）",
+    "hashes_before": [
+      {
+        "actual": "729A03E6CDEE350041B273955E5A040480864582ADF5FC8E2061CC4BE91C54B0",
+        "expected": "729A03E6CDEE350041B273955E5A040480864582ADF5FC8E2061CC4BE91C54B0",
+        "matches": true,
+        "path": "scripts/poc2/input_latch.gd"
+      },
+      {
+        "actual": "BAFBF7C715D2282A0363A44903EDC80A926C0FB089058BB4DF96AB9818AC1C36",
+        "expected": "BAFBF7C715D2282A0363A44903EDC80A926C0FB089058BB4DF96AB9818AC1C36",
+        "matches": true,
+        "path": "scripts/poc2/poc2_main.gd"
+      },
+      {
+        "actual": "C5F42622209D529A03D3C0E8B833DD35BDCC74174B166FEFB8A3011ACA1F322D",
+        "expected": "C5F42622209D529A03D3C0E8B833DD35BDCC74174B166FEFB8A3011ACA1F322D",
+        "matches": true,
+        "path": "scripts/poc2/poc2_session.gd"
+      },
+      {
+        "actual": "9D39B2856786C8815626C77D413D8732369A758E7FF001E4F3D61C8409989648",
+        "expected": "9D39B2856786C8815626C77D413D8732369A758E7FF001E4F3D61C8409989648",
+        "matches": true,
+        "path": "scripts/poc2/simulation/persistence.gd"
+      },
+      {
+        "actual": "F3E2A49D9E9017F35B2FE09FBEFC3A3D1269486768721A22E6EECDAD0B7501B6",
+        "expected": "F3E2A49D9E9017F35B2FE09FBEFC3A3D1269486768721A22E6EECDAD0B7501B6",
+        "matches": true,
+        "path": "scripts/poc2/ui/poc2_ui.gd"
+      },
+      {
+        "actual": "08720B8B332B8465DC82BEFAF8C74B74B372AA288A1AB64FDEECE1B25C76F6D2",
+        "expected": "08720B8B332B8465DC82BEFAF8C74B74B372AA288A1AB64FDEECE1B25C76F6D2",
+        "matches": true,
+        "path": "scripts/poc2/ui/map_ui.gd"
+      }
+    ],
+    "head": "9d54a6d1795065e6e642fe01543b2c8d2a1f27ee",
+    "input_latch_source": "extends RefCounted\n## Two mouse buttons only. A press chooses its action once; releases permit the next press.\nconst SEED: StringName = &\"seed\"\nconst WATER: StringName = &\"water\"\nconst SPENT: StringName = &\"spent\"\nconst BLOCKED: StringName = &\"blocked\"\nvar _down: Dictionary = {}\nvar _mode: Dictionary = {}\nvar _shift_down: bool = false\n\nfunc _supported(button: int) -> bool:\n\treturn button == MOUSE_BUTTON_LEFT or button == MOUSE_BUTTON_RIGHT\n\nfunc set_shift(pressed: bool) -> void:\n\tif pressed and not _shift_down:\n\t\t# Shift during a normal hold stops it. It never starts a skill by itself.\n\t\tfor button: Variant in _mode:\n\t\t\tif _mode[button] in [SEED,WATER]:\n\t\t\t\t_mode[button] = BLOCKED\n\t_shift_down = pressed\n\nfunc press(button: int, shifted: bool, placement_selected: bool = false) -> StringName:\n\tif not _supported(button) or bool(_down.get(button,false)):\n\t\treturn &\"\"\n\tset_shift(shifted)\n\t_down[button] = true\n\tif shifted:\n\t\t_mode[button] = SPENT\n\t\treturn &\"skill1\" if button == MOUSE_BUTTON_LEFT else &\"skill2\"\n\tif placement_selected:\n\t\t_mode[button] = SPENT\n\t\treturn &\"place\" if button == MOUSE_BUTTON_LEFT else &\"cancel_placement\"\n\tvar action: StringName = SEED if button == MOUSE_BUTTON_LEFT else WATER\n\t_mode[button] = action\n\treturn action\n\nfunc held_action(button: int) -> StringName:\n\tvar action: StringName = _mode.get(button,&\"\")\n\treturn action if bool(_down.get(button,false)) and action in [SEED,WATER] else &\"\"\n\nfunc release(button: int) -> void:\n\t_down.erase(button)\n\t_mode.erase(button)\n\nfunc block_press(button: int) -> void:\n\t# Used for UI-consumed presses; closing that UI cannot turn them into world input.\n\tif _supported(button):\n\t\t_down[button] = true\n\t\t_mode[button] = BLOCKED\n\nfunc cancel_holds() -> void:\n\t# Mode/placement changes suppress held buttons until their actual release.\n\tfor button: Variant in _down:\n\t\t_mode[button] = BLOCKED\n\nfunc reset() -> void:\n\t# For a new session or lost focus, where an OS release may never be delivered.\n\t_down.clear()\n\t_mode.clear()\n\t_shift_down = false\n",
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "processes_before": [],
+    "real_saves_before": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "hashes_after": [
+      {
+        "path": "scripts/poc2/input_latch.gd",
+        "sha256": "729A03E6CDEE350041B273955E5A040480864582ADF5FC8E2061CC4BE91C54B0",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/poc2_main.gd",
+        "sha256": "BAFBF7C715D2282A0363A44903EDC80A926C0FB089058BB4DF96AB9818AC1C36",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/poc2_session.gd",
+        "sha256": "C5F42622209D529A03D3C0E8B833DD35BDCC74174B166FEFB8A3011ACA1F322D",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/simulation/persistence.gd",
+        "sha256": "9D39B2856786C8815626C77D413D8732369A758E7FF001E4F3D61C8409989648",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/ui/poc2_ui.gd",
+        "sha256": "F3E2A49D9E9017F35B2FE09FBEFC3A3D1269486768721A22E6EECDAD0B7501B6",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/poc2/ui/map_ui.gd",
+        "sha256": "08720B8B332B8465DC82BEFAF8C74B74B372AA288A1AB64FDEECE1B25C76F6D2",
+        "unchanged": true
+      }
+    ],
+    "real_saves_after": [
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc_saves\\slot.json",
+        "sha256": "509E2A98E313F16A220EF83765BE66E8991AD91443B15F4C848A2571C541DBA7"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json",
+        "sha256": "DA0D4B6006B5D040B2C3841558F9D2F10C164A8DA2315AE5959175EA68686FBC"
+      },
+      {
+        "path": "C:\\Users\\tkant\\AppData\\Roaming\\Godot\\app_userdata\\グリーンベーダー\\poc2_saves\\slot1.json.bak",
+        "sha256": "B673823C7ADC9B84830C273E8E0A06E624C9D11F6B115E5CA4BD2C28F9BD47F0"
+      }
+    ],
+    "real_saves_unchanged": true,
+    "processes_after": [],
+    "head_after": "9d54a6d1795065e6e642fe01543b2c8d2a1f27ee",
+    "reviewed_images": [
+      {
+        "path": "evidence/poc3/input/self/menu.png",
+        "sha256": "9AB24181E103D9176E84C2294B4543526D8F249B6FD69D2D741FFE7A2D625226"
+      },
+      {
+        "path": "evidence/poc3/input/self/help.png",
+        "sha256": "0DCCA336E6D1CFF28814D134073D2BF8E225C1EB043B92549CD1FA2DB9B55447"
+      },
+      {
+        "path": "evidence/poc3/input/self/map.png",
+        "sha256": "8BCAC92710EF1D997D6BCB89D1F13249A693F34832B7FA833F41A7B84DF87780"
+      }
+    ]
+  },
+  "failures": 0,
+  "godot": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "not_run": [
+    "independent_gpu_native_physical_input_audio",
+    "wide_regression_and_long_play",
+    "all_sizes_lighting_exported_build_area_seed_effect"
+  ],
+  "user_data": "C:/godot/greenvader/evidence/poc3/input/independent/profile/roaming/Godot/app_userdata/グリーンベーダー",
+  "summary": {
+    "pass": 9,
+    "not_run": 3,
+    "fail": 0,
+    "exit_code": 0
+  }
+}

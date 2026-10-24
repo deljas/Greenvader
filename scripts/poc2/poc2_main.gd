@@ -5,6 +5,8 @@ const View: GDScript=preload("res://scripts/poc2/view/world_view.gd")
 const Ui: GDScript=preload("res://scripts/poc2/ui/poc2_ui.gd")
 const Save: GDScript=preload("res://scripts/poc2/save/poc2_save.gd")
 const Coords: GDScript=preload("res://scripts/poc/poc_coords.gd")
+const InputLatch: GDScript=preload("res://scripts/poc2/input_latch.gd")
+var mouse: RefCounted=InputLatch.new()
 var session: RefCounted
 var render_view: SubViewport
 var view_rect: TextureRect
@@ -18,14 +20,17 @@ var menu: String=""
 var _help_return: String=""
 var _plants_return: String=""
 var _keys: Dictionary={}
-var _primary: bool=false
-var _secondary: bool=false
+var _primary: bool:
+	get: return mouse.held_action(MOUSE_BUTTON_LEFT)==&"seed"
+var _secondary: bool:
+	get: return mouse.held_action(MOUSE_BUTTON_RIGHT)==&"water"
 var _shot_wait: float=0.0
 var _water_wait: float=0.0
 var _last_autosave: float=0.0
 var _message_serial: int=0
 var _placement_kind: String=""
 var muted: bool=false
+var audio_volume: float=1.0
 var _tone: AudioStreamPlayer
 
 func _ready() -> void:
@@ -53,8 +58,9 @@ func _ready() -> void:
 	ui=Ui.new()
 	add_child(ui)
 	ui.chosen.connect(_on_action)
-	ui.placement.connect(func(kind: String) -> void: _placement_kind=kind; _primary=false; _secondary=false)
+	ui.placement.connect(func(kind: String) -> void: _placement_kind=kind; mouse.cancel_holds())
 	ui.map.toggled.connect(_map_toggled)
+	ui.audio_changed.connect(_audio_changed)
 	_tone=AudioStreamPlayer.new()
 	add_child(_tone)
 	replace_session(Session.new())
@@ -64,8 +70,7 @@ func _ready() -> void:
 	_sync_pause()
 
 func replace_session(candidate: RefCounted) -> void:
-	_primary=false
-	_secondary=false
+	mouse.reset()
 	_keys.clear()
 	if world!=null:
 		render_view.remove_child(world)
@@ -94,8 +99,7 @@ func _map_toggled(_open: bool) -> void:
 	_sync_pause()
 
 func _clear_game_input() -> void:
-	_primary=false
-	_secondary=false
+	mouse.cancel_holds()
 	_keys.clear()
 
 func _process(delta: float) -> void:
@@ -139,16 +143,24 @@ func _input(event: InputEvent) -> void:
 		cursor_known=true
 	if event is InputEventKey:
 		var key: int=event.physical_keycode if event.physical_keycode!=0 else event.keycode
+		if key==KEY_SHIFT: mouse.set_shift(event.pressed)
 		if not event.pressed: _keys[key]=false
 		elif not is_paused(): _keys[key]=true
+		# Tab owns map navigation before GUI focus traversal can consume it.
+		if event.pressed and not event.echo and key==KEY_TAB and menu=="":
+			ui.map.set_expanded(not ui.map.expanded)
+			get_viewport().set_input_as_handled()
 	if event is InputEventMouseButton:
 		# Releases always disarm. Only an unhandled world press may arm an action.
 		if not event.pressed:
-			if event.button_index==MOUSE_BUTTON_LEFT: _primary=false
-			elif event.button_index==MOUSE_BUTTON_RIGHT: _secondary=false
-		elif ui.blocks(event.position):
-			_primary=false
-			_secondary=false
+			mouse.release(event.button_index)
+		elif is_paused() or ui.blocks(event.position):
+			mouse.cancel_holds()
+			mouse.block_press(event.button_index)
+		if event.pressed and event.button_index==MOUSE_BUTTON_RIGHT and menu=="" and ui.map.expanded:
+			# Popup/Button GUI consumption must not hide the map's cancel action.
+			ui.map.deselect()
+			get_viewport().set_input_as_handled()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -158,7 +170,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif not is_paused(): _on_action("plants")
 		elif key>=KEY_1 and key<=KEY_5:
 			if not is_paused(): ui.select_slot(key-KEY_1)
-		elif key==KEY_M and menu=="":
+		elif key==KEY_TAB and menu=="":
 			ui.map.set_expanded(not ui.map.expanded)
 		elif key==KEY_ESCAPE:
 			_escape()
@@ -166,13 +178,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			_on_action("close_help" if menu=="help" else "help")
 		elif key==KEY_F5:
 			save_game()
-		elif key==KEY_N:
-			muted=not muted
-			ui.show_notice("音：消す" if muted else "音：出す")
-		elif not is_paused():
-			if key==KEY_Q: _result(session.skill(0),"bump")
-			elif key==KEY_R: _result(session.skill(1),"bazooka")
-			elif key==KEY_TAB: _cycle_palette()
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton:
 		if menu=="plants":
@@ -184,17 +189,22 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		if ui.blocks(event.position): return
 		if event.pressed:
+			if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+				session.adjust_sow_width(1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -1)
+				ui.refresh()
+				get_viewport().set_input_as_handled()
+				return
 			session.set_aim(world.pick(event.position))
-			if event.button_index==MOUSE_BUTTON_LEFT:
-				if _placement_kind!="": _place(Coords.logic_to_cell(world.pick(event.position)))
-				else:
-					_primary=true
-					_fire()
-			elif event.button_index==MOUSE_BUTTON_RIGHT:
-				if _placement_kind!="": ui.select_kind(_placement_kind)
-				else:
-					_secondary=true
-					_water()
+			var action: StringName=mouse.press(event.button_index,event.shift_pressed or bool(_keys.get(KEY_SHIFT,false)),_placement_kind!="")
+			match action:
+				&"seed": _fire()
+				&"water": _water()
+				&"place": _place(Coords.logic_to_cell(world.pick(event.position)))
+				&"cancel_placement": ui.clear_selection()
+				&"skill1", &"skill2":
+					if _placement_kind!="": ui.clear_selection()
+					var slot: int=0 if action==&"skill1" else 1
+					_result(session.skill(slot),"bump" if slot==0 else "bazooka")
 
 func _fire() -> void:
 	_shot_wait=0.3
@@ -250,15 +260,8 @@ func _placement_supply(cell: Vector2i) -> void:
 	ui.supply.position=Vector2(205,140)
 	ui.supply.show()
 	menu="placement_supply"
-	_primary=false
+	mouse.cancel_holds()
 	_sync_pause()
-
-func _cycle_palette() -> void:
-	for offset: int in 5:
-		var index: int=posmod(ui.selected_slot+1+offset,5)
-		if not String(session.favorites[index]).is_empty():
-			if index!=ui.selected_slot: ui.select_slot(index)
-			return
 
 func _escape() -> void:
 	if menu=="plants":
@@ -318,6 +321,7 @@ func _on_action(action: String) -> void:
 			ui.menu.hide()
 			ui.supply.hide()
 			ui.plant_list.hide()
+			ui.plant_list.cancel_registration(true)
 		"close_help":
 			menu=_help_return
 			_help_return=""
@@ -341,7 +345,7 @@ func _result(result: Dictionary, sound: String="") -> void:
 	elif not sound.is_empty(): _play_tone(sound)
 
 func _play_tone(kind: String) -> void:
-	if muted: return
+	if muted or audio_volume<=0.0: return
 	var stream: AudioStreamWAV=AudioStreamWAV.new()
 	stream.format=AudioStreamWAV.FORMAT_16_BITS
 	stream.mix_rate=22050
@@ -353,12 +357,16 @@ func _play_tone(kind: String) -> void:
 		samples.encode_s16(index*2,value)
 	stream.data=samples
 	_tone.stream=stream
+	_tone.volume_db=linear_to_db(audio_volume)
 	_tone.play()
+
+func _audio_changed(is_muted: bool, volume: float) -> void:
+	muted=is_muted
+	audio_volume=clampf(volume,0.0,1.0)
 
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
 		_keys.clear()
-		_primary=false
-		_secondary=false
+		mouse.reset()
 
 

@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{ "name": "width_json_roundtrip", "status": "PASS" }
+{ "name": "invalid_width_rejected_2", "status": "PASS" }
+{ "name": "invalid_width_rejected_3.5", "status": "PASS" }
+{ "name": "invalid_width_rejected_3", "status": "PASS" }
+{ "name": "invalid_width_rejected_true", "status": "PASS" }

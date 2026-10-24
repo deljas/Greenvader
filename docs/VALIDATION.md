@@ -580,3 +580,12 @@ vsyncありの640/960とも平均約144fps（6.95ms）、最悪7.51ms / 13.19ms�
 - 自己backendは12 PASS。初回UIは18 PASS / 1 FAIL（子Button上の右クリック取消）を保持し、取消処理の局所修正後に影響条件2 PASS / 0 FAIL。独立確認は9 PASS / 0 FAIL / 3 NOT_RUNです。初回画像は右取消修正前の撮影ですが、修正は入力処理のみで表示経路に変更ありません。各結果は合算・上書きしていません。
 - 独立確認では主人公HP/水バー、未成熟を含む現存数、成熟株だけの現在実生産/s、成熟1株hover値と3/2/1桁表示、保存往復/欠落時の既定枠/不正値拒否を確認。自己画像・独立結果は[自己報告](../evidence/poc3/plant_ui/self/report.md)と[独立報告](../evidence/poc3/plant_ui/independent/report.md)、詳細hashはそれぞれのcontext/results記録を参照。
 - NOT_RUN: 物理入力、native窓外観、全サイズ/照明、広い回帰・長時間、Q/R/M/N/Shift/Tabを含む全体操作再設計、価格倍率接続。GUI操作確認はGodot内注入で、実機マウス/キーボード経路を保証しません。WORLD-LAYOUTは未接続準備のままです。
+
+## POC3-INPUT 操作割当と入力モード（2026-10-24）
+
+親は `9d54a6d` + INPUT差分、help/map/menu画像3枚、独立報告を確認し、操作割当・入力保持の分離・モード間の取消/漏れ防止を限定技術受入しました。Shift+左右クリックでスキル1/2、Eで植物一覧、Tab/ミニマップ/閉じるボタンでマップ、1〜5でお気に入り枠を選びます。Esc/右クリックは文脈に応じた取消、ホイールは通常画面で幅1/3/5/7、マップでズーム、一覧でスクロール。Q/R/M/Nの旧割当を外し、音量/ミュートをメニューへ置きました。
+
+- 自己初回logicは14 PASS / 1 FAIL。保存数値のJSON float表現をint配列候補で拒否した不一致で、失敗は保持しています。型正規化後の保存限定追試は5 PASS、GPU入力/画像は26 PASS。独立は9 PASS / 0 FAIL / 3 NOT_RUNです。これらを足し合わせたり初回FAILを上書きしたりしていません。
+- hash対象6ファイルは前後一致、実ユーザー旧保存3件は前後不変。Godot終了0件、一時override除去済み。画像3枚は640×360 SubViewportで撮影。証拠は[自己報告](../evidence/poc3/input/self/report.md)（[context](../evidence/poc3/input/self/context.json)）、[独立報告](../evidence/poc3/input/independent/report.md)を参照。
+- 通常保持中にShiftを押した場合は通常動作を停止し、ボタン解放まで再開しません。Shiftスキル後に保持クリックから通常動作を始めず、UI操作由来の保持も世界へ漏れません。播種幅は選択/保存までで、実際の範囲着弾・消費精算・プレビューは未実装です。
+- NOT_RUN: 物理マウス/キーボード経路、音の実聴、全サイズ/全照明、広い回帰・長時間、AREA-SEED効果。独立3 NOT_RUNは維持し、PoC3全体の受入とは区別します。

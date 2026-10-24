@@ -1,0 +1,25 @@
+{
+  "checks": [
+    {
+      "name": "width_json_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected_2",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected_3.5",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected_3",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_width_rejected_true",
+      "status": "PASS"
+    }
+  ],
+  "failures": 0
+}

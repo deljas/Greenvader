@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"name":"shift_left_shift_first_release_is_single_skill","observations":{"calls":["skill_left"]},"status":"PASS"}
+{"name":"shift_right_mouse_first_release_is_single_skill","observations":{"calls":["skill_right"]},"status":"PASS"}
+{"name":"normal_holds_stop_on_shift_until_fresh_click","observations":{"cases":[{"button":1,"calls":["normal_left","normal_left"],"new_click_resumes":true,"no_extra_after_shift":true},{"button":2,"calls":["normal_right","normal_right"],"new_click_resumes":true,"no_extra_after_shift":true}]},"status":"PASS"}
+{"name":"placement_one_press_cancel_and_shift_priority","observations":{"calls":["skill_left"],"cancel_without_water":true,"plant_count":1},"status":"PASS"}
+{"name":"list_shift_hold_close_has_no_combat_leak","observations":{},"status":"PASS"}
+{"name":"map_popup_right_cancel_and_closed_hold_do_not_leak","observations":{"popup_canceled":true},"status":"PASS"}
+{"name":"menu_shift_hold_resume_does_not_leak","observations":{},"status":"PASS"}
+{"name":"wheel_world_endpoints_map_zoom_list_isolation","observations":{"list_did_not_change_width":true,"map_only_zoom":true,"world_widths":[3,5,7,7]},"status":"PASS"}
+{"name":"json_width_roundtrip_invalid_rejection_and_default","observations":{"invalids_rejected_active_unchanged":true,"load_ok":true,"missing_defaults1":true,"width5_restored":true},"status":"PASS"}

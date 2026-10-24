@@ -15,6 +15,7 @@ var map_rect: Rect2 = Rect2(6, 6, 108, 108)
 var terrain_texture: ImageTexture
 var remove_button: Button
 var supply_button: Button
+var close_button: Button
 var popup: PanelContainer
 var quantity: SpinBox
 var _popup_action: String = ""
@@ -29,6 +30,10 @@ func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	remove_button = _button("×", "撤去")
 	supply_button = _button("＋", "種を補給")
+	close_button = _button("閉じる Tab", "全体マップを閉じる")
+	close_button.position = Vector2(440,64)
+	close_button.size = Vector2(100,24)
+	close_button.pressed.connect(func() -> void: set_expanded(false))
 	remove_button.pressed.connect(func() -> void: open_popup("remove"))
 	supply_button.pressed.connect(func() -> void: open_popup("supply"))
 	popup = PanelContainer.new()
@@ -59,6 +64,7 @@ func set_expanded(value: bool) -> void:
 	selected_id = -1
 	popup.hide()
 	map_rect = Rect2(208,64,224,224) if expanded else Rect2(6,6,108,108)
+	close_button.visible = expanded
 	toggled.emit(expanded)
 	refresh_terrain()
 	update_buttons()

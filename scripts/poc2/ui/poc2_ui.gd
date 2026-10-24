@@ -4,6 +4,7 @@ const PlantList: GDScript = preload("res://scripts/poc2/ui/plant_list.gd")
 const FavoriteSlot: GDScript = preload("res://scripts/poc2/ui/favorite_slot.gd")
 signal chosen(action: String)
 signal placement(kind: String)
+signal audio_changed(is_muted: bool, volume: float)
 var session: RefCounted
 var map: Control
 var status: Label
@@ -21,6 +22,10 @@ var supply: PanelContainer
 var plant_list: PanelContainer
 var selected_kind: String = ""
 var selected_slot: int = -1
+var audio_muted: bool = false
+var audio_volume: float = 1.0
+var mute_button: CheckButton
+var volume_slider: HSlider
 var notice_time: float = 0.0
 var favorite_buttons: Array[Button] = []
 const KEYS: Array[String] = ["clover","carrot","wheat","rafflesia","watermelon","army","gatlinger","sprinkler"]
@@ -69,10 +74,10 @@ func _ready() -> void:
 	list_button.pressed.connect(func() -> void: chosen.emit("plants"))
 	palette.add_child(list_button)
 	map_button=Button.new()
-	map_button.text="M"
+	map_button.text="Tab"
 	map_button.tooltip_text="全体マップ（時間停止）"
 	map_button.position=Vector2(6,116)
-	map_button.size=Vector2(28,24)
+	map_button.size=Vector2(34,24)
 	map_button.pressed.connect(func() -> void:
 		if not has_modal(): map.set_expanded(not map.expanded))
 	add_child(map_button)
@@ -98,7 +103,7 @@ func _ready() -> void:
 	var help_box: VBoxContainer=VBoxContainer.new()
 	help.add_child(help_box)
 	var label: Label=Label.new()
-	label.text="WASD / 矢印：画面方向へ移動\n左クリック：種射撃・播種　右クリック：給水\nQ：たいあたり　R：種バズーカ\n1〜5 / 左下の枠：植物選択（同じ枠で解除）\nE：植物一覧・お気に入り登録（時間停止）\nM：時間停止マップ　ホイール：マップ拡大/縮小\n右クリック / Esc：取消　×：撤去　＋：種補給\nF5：保存　Esc：メニュー　F1：説明　N：音切替\n種は緑地と成熟した栽培植物から自動収入。\n化石を探して植物を解放し、巣を攻略しましょう。"
+	label.text="WASD / 矢印：移動　マウス：照準・配置位置\n左クリック / 長押し：種射撃・播種\n右クリック / 長押し：給水\nShift＋左 / 右クリック：スキル1 / 2（1回）\nホイール：播種幅 1/3/5/7（選択のみ）\n1〜5 / 左下5枠：植物選択・解除　左で1株設置\nE：植物一覧・登録　Tab / ミニマップ：全体マップ\n一覧・マップ中は停止。ホイールはスクロール / ズーム\n右クリック / Esc：保持・選択を取消、Escで戻る\nF5：保存　F1：説明　Esc：メニュー（音量・ミュート）\n水辺補給・化石への接近回収は自動です。"
 	label.add_theme_font_size_override("font_size",12)
 	help_box.add_child(label)
 	var back: Button=Button.new()
@@ -204,7 +209,8 @@ func has_modal() -> bool:
 func refresh() -> void:
 	if session==null: return
 	var stats: Dictionary=session.snapshot()
-	status.text="%s 設置 ●%d" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else "植物を選択 1〜5"
+	status.text="%s 設置 ●%d" % [icon_for(selected_kind),session.current_cost(selected_kind)] if not selected_kind.is_empty() else "播種幅 %d×%d" % [session.sow_width,session.sow_width]
+	status.tooltip_text="ホイールで播種幅の選択値を変更（範囲効果は後続）" if selected_kind.is_empty() else ""
 	economy.text="所持 ●%d　緑 %.1f%%" % [session.seeds,float(stats.get("green_percent",0))]
 	economy.tooltip_text="収入 / 分：緑地 %.1f ＋ 栽培 %.1f" % [float(stats.get("land_rate",0)),float(stats.get("crop_rate",0))]
 	hp_bar.max_value=session.max_hp
@@ -235,6 +241,8 @@ func show_notice(text: String) -> void:
 
 func show_menu(title: bool = false) -> void:
 	for child: Node in menu.get_children(): child.free()
+	menu.position=Vector2(220,90 if title else 30)
+	menu.size=Vector2(200,180)
 	var box: VBoxContainer=VBoxContainer.new()
 	menu.add_child(box)
 	var label: Label=Label.new()
@@ -247,6 +255,30 @@ func show_menu(title: bool = false) -> void:
 		button.text={"new":"新しく始める","load":"続きから","help":"操作説明","resume":"再開","save":"保存","plants":"植物一覧 E"}[action]
 		box.add_child(button)
 		button.pressed.connect(func() -> void: chosen.emit(action))
+	mute_button=CheckButton.new()
+	mute_button.text="ミュート"
+	mute_button.button_pressed=audio_muted
+	mute_button.focus_mode=Control.FOCUS_NONE
+	mute_button.toggled.connect(func(value: bool) -> void:
+		audio_muted=value
+		audio_changed.emit(audio_muted,audio_volume))
+	box.add_child(mute_button)
+	var volume_row: HBoxContainer=HBoxContainer.new()
+	box.add_child(volume_row)
+	var volume_label: Label=Label.new()
+	volume_label.text="音量"
+	volume_row.add_child(volume_label)
+	volume_slider=HSlider.new()
+	volume_slider.min_value=0.0
+	volume_slider.max_value=1.0
+	volume_slider.step=0.05
+	volume_slider.value=audio_volume
+	volume_slider.custom_minimum_size=Vector2(120,16)
+	volume_slider.focus_mode=Control.FOCUS_NONE
+	volume_slider.value_changed.connect(func(value: float) -> void:
+		audio_volume=value
+		audio_changed.emit(audio_muted,audio_volume))
+	volume_row.add_child(volume_slider)
 	menu.show()
 	refresh()
 
@@ -255,7 +287,7 @@ func blocks(pixel: Vector2) -> bool:
 	if hud.visible and hud.get_global_rect().has_point(pixel): return true
 	if map.expanded or map.map_rect.has_point(pixel): return true
 	if palette.visible and palette.get_global_rect().has_point(pixel): return true
-	return (pixel.x>598 and pixel.y>326) or (pixel.x<38 and pixel.y>=116 and pixel.y<=144)
+	return (pixel.x>598 and pixel.y>326) or (pixel.x<42 and pixel.y>=116 and pixel.y<=144)
 
 
 

@@ -1,6 +1,6 @@
 extends RefCounted
 ## JSON-safe complete snapshots. Validate on a disposable candidate, adopt only after every check succeeds.
-const SCALARS: Array[String] = ["position","aim","has_aim","seeds","hp","max_hp","water","max_water","next_id","income_fraction","last_damage","respawn_at","shot_ready","skill_ready","reveal_at","zone_check_at","skills","unlocked","favorites"]
+const SCALARS: Array[String] = ["position","aim","has_aim","seeds","hp","max_hp","water","max_water","next_id","income_fraction","last_damage","respawn_at","shot_ready","skill_ready","reveal_at","zone_check_at","skills","unlocked","favorites","sow_width"]
 const ROWS: Array[String] = ["plants","helpers","enemies","nests","fossils","shots"]
 
 static func encode(value: Variant) -> Variant:
@@ -123,9 +123,12 @@ static func restore(s: RefCounted,data: Dictionary) -> Dictionary:
   if candidate.known[index]>1 or candidate.visible[index]>1 or candidate.state.growth[index]<0 or candidate.state.moisture[index]>100: return s.result(false,"invalid_tile")
  if not data.values is Dictionary or not data.entities is Dictionary: return s.result(false,"invalid_values")
  for key: String in SCALARS:
-  if not data.values.has(key) and key!="favorites": return s.result(false,"incomplete_values")
+  if not data.values.has(key) and key not in ["favorites","sow_width"]: return s.result(false,"incomplete_values")
  var vals: Dictionary=decode(data.values)
  if not vals.has("favorites"): vals.favorites=["clover","","","",""]
+ if not vals.has("sow_width"): vals.sow_width=1
+ if not (vals.sow_width is int or vals.sow_width is float) or float(vals.sow_width) not in [1.0,3.0,5.0,7.0]: return s.result(false,"invalid_sow_width")
+ vals.sow_width=int(vals.sow_width)
  for key: String in ["position","aim"]:
   if not vals[key] is Vector2: return s.result(false,"invalid_position")
  if not Rect2(0,0,896,896).has_point(vals.position): return s.result(false,"invalid_position")
