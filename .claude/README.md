@@ -38,3 +38,17 @@ PATHで見つからない場合のローカル実行ファイルは、親が確�
 ## Codexとの引き継ぎ
 
 Codex ⇄ Claude の引き継ぎは、プロジェクトスキル [`codex-handoff`](skills/codex-handoff/SKILL.md) の手順で行う（「Codexに引き継ぐ」「Codexから引き継ぐ」で起動）。規則の正本は AGENTS.md と tasks/README.md で、スキルはその実行手順と管理欄更新スクリプトだけを持つ。
+
+## 外部スキルプラグイン（個人ローカル）
+
+2026-10-24、[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)（Apache-2.0、確認時commit `184b72b`）の `godot` プラグインだけを `--scope local` で導入した。記録先は `.gitignore` 済みの `settings.local.json` で、共有の `settings.json` とCodexには影響しない。各利用者が必要なら次で導入する。
+
+```powershell
+claude plugin marketplace add gamedev-skills/awesome-gamedev-agent-skills --scope local
+claude plugin install godot@awesome-gamedev-agent-skills --scope local
+```
+
+- 内容: Godot 4.7向けスキル16個（`godot-gdscript`、`godot-3d-essentials`、`godot-gdscript-headless-testing` 等）。router・他エンジン・`gamedev` 一括は入れていない。
+- 導入前確認: `claude plugin details` でHooks・MCP servers・Agentsは0。同梱スクリプトは `godot-nodes-scenes/scripts/check_godot_project.py`（標準ライブラリのみ、読み取り専用）だけ。常時読込は約2.6kトークン/セッション。
+- 優先順位: 外部スキルは一般的な参考資料。AGENTS.md・作業票・[docs/DECISIONS.md](../docs/DECISIONS.md) と食い違う場合はプロジェクト側に従う（例: headlessテストは補助 `.gd` を `--script` 起動せず入口スクリプトだけを起動する）。
+- 更新: マーケットプレイス更新で内容が変わるため、更新時は同じ観点（hooks・MCP・スクリプト）を再確認する。削除は `claude plugin uninstall godot@awesome-gamedev-agent-skills --scope local`。
